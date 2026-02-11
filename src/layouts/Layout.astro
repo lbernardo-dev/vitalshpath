@@ -5,17 +5,19 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: "es" | "en";
 }
 
 const { 
   title, 
   description = "VitalsPath - Gestiona la salud de tu familia con un solo dispositivo. Recordatorios inteligentes, citas y seguimiento médico en iOS.",
-  image = "/assets/images/og-image.jpg"
+  image = "/assets/images/og-image.jpg",
+  lang = "es"
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -45,24 +47,26 @@ const {
     <title>{title}</title>
     
     <script is:inline>
-      // Dark mode toggle logic
-      const theme = (() => {
+      const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'light';
-      })();
-    
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+     
+      if (typeof localStorage !== 'undefined') {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
     </script>
   </head>
+
   <body class="overflow-x-hidden">
     <!-- Background Mesh Gradient -->
     <div class="fixed inset-0 -z-10 h-full w-full bg-bg-light dark:bg-bg-dark">

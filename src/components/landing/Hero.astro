@@ -1,104 +1,108 @@
 ---
-import { ArrowRight, PlayCircle } from "lucide-react";
+import { ChevronRight, ArrowRight, PlayCircle, Star, ShieldCheck } from "lucide-react";
+import { useTranslations } from "../../i18n/ui";
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<section class="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center">
-  <!-- Dynamic Background Globs -->
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+  <!-- Dynamic Background Globs (Soft Orange/Purple) -->
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-purple/20 rounded-full blur-[100px] animate-float opacity-60"></div>
-    <div class="absolute bottom-[10%] right-[-5%] w-[35rem] h-[35rem] bg-primary/20 rounded-full blur-[100px] animate-float opacity-60" style="animation-delay: -3s;"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-orange-200/30 dark:bg-orange-900/10 rounded-full blur-[100px] animate-float opacity-60"></div>
+    <div class="absolute bottom-[10%] right-[-5%] w-[35rem] h-[35rem] bg-purple-200/30 dark:bg-purple-900/10 rounded-full blur-[100px] animate-float opacity-60" style="animation-delay: -3s;"></div>
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
       
-      <!-- Text Content -->
+      <!-- Left Content: Text -->
       <div class="flex-1 text-center lg:text-left z-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-blue-400 text-xs font-bold tracking-widest uppercase mb-8 border border-primary/20 animate-fade-in">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-primary text-xs font-bold tracking-widest uppercase mb-8 border border-orange-200 dark:border-orange-900/50 animate-fade-in shadow-sm">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          iOS 17+ Ready
+          {t('hero.badge')}
         </div>
 
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1] text-gray-900 dark:text-white animate-fade-in" style="animation-delay: 0.1s;">
-          Tu salud familiar <br />
-          <span class="text-gradient">bajo control.</span>
+          {t('hero.title.1')} <br />
+          <span class="text-gradient leading-tight">{t('hero.title.2')}</span>
         </h1>
 
         <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-fade-in" style="animation-delay: 0.2s;">
-          Gestiona medicamentos, citas y síntomas de toda la familia en una sola app. 
-          Privacidad total, SwiftData y diseño premium.
+          {t('hero.subtitle')}
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in" style="animation-delay: 0.3s;">
-          <a href="#waitlist" class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-purple">
-            Unirse a la Lista
+          <a href="#waitlist" class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-2xl shadow-lg hover:shadow-primary/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+            {t('hero.cta.primary')}
             <ArrowRight className="w-5 h-5" />
           </a>
           
-          <a href="#features" class="w-full sm:w-auto px-8 py-4 glass text-gray-900 dark:text-white font-bold rounded-2xl hover:bg-white/40 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+          <a href="#features" class="w-full sm:w-auto px-8 py-4 bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-gray-900 dark:text-white font-bold rounded-2xl hover:bg-white/80 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
             <PlayCircle className="w-5 h-5 text-gray-500" />
-            Ver Demo
+            {t('hero.cta.secondary')}
           </a>
         </div>
         
-        <div class="mt-12 flex items-center justify-center lg:justify-start gap-4 animate-fade-in opacity-0" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+        <!-- Social Proof with Tester Image -->
+        <div class="mt-12 flex items-center justify-center lg:justify-start gap-4 animate-fade-in" style="animation-delay: 0.5s;">
             <div class="flex -space-x-3">
-                {[1,2,3,4].map(i => (
-                    <div class={`w-10 h-10 rounded-full border-2 border-white dark:border-black bg-gray-200 overflow-hidden`}>
-                        <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" class="w-full h-full object-cover" />
-                    </div>
-                ))}
+               <!-- Tester Image -->
+               <div class="w-10 h-10 rounded-full border-2 border-white dark:border-black overflow-hidden relative z-30">
+                 <img src="/assets/images/tester.jpeg" alt="Tester" class="w-full h-full object-cover" />
+               </div>
+               <!-- Avatars -->
+               <div class="w-10 h-10 rounded-full border-2 border-white dark:border-black bg-gray-200 overflow-hidden relative z-20">
+                 <img src="https://i.pravatar.cc/100?img=33" alt="User" class="w-full h-full object-cover" />
+               </div>
+               <div class="w-10 h-10 rounded-full border-2 border-white dark:border-black bg-gray-300 overflow-hidden relative z-10">
+                 <img src="https://i.pravatar.cc/100?img=12" alt="User" class="w-full h-full object-cover" />
+               </div>
             </div>
             <div class="text-sm font-medium text-gray-500">
-                <span class="font-bold text-gray-900 dark:text-white">120+ familias</span> esperando
+                <div class="flex gap-0.5 text-orange-400 mb-0.5">
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                    <Star className="w-3 h-3 fill-current" />
+                </div>
+                <span class="font-bold text-gray-900 dark:text-white">200+</span> {t('hero.social')}
             </div>
         </div>
       </div>
 
-      <!-- Hero Visual (3D Phone Mockup) -->
-      <div class="flex-1 relative animate-slide-up" style="animation-delay: 0.4s;">
-        <div class="relative mx-auto w-[300px] h-[600px] bg-gray-900 rounded-[3rem] border-[8px] border-gray-900 shadow-2xl overflow-hidden ring-1 ring-white/10">
-          <!-- Dynamic Island / Notch -->
-          <div class="absolute top-0 inset-x-0 h-7 bg-black z-20 flex justify-center">
-            <div class="w-24 h-6 bg-black rounded-b-2xl"></div>
-          </div>
-          
-          <!-- Screen Content Placeholder -->
-          <div class="w-full h-full bg-gray-800 relative group overflow-hidden">
-             <!-- Placeholder Image from Stock -->
-             <img 
-               src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=600&auto=format&fit=crop" 
-               alt="App Dashboard Placeholder" 
-               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
-             />
-             
-             <!-- Overlay UI Mockup (CSS) -->
-             <div class="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent p-6 flex flex-col justify-end">
-                <div class="glass-card p-4 mb-4 border-l-4 border-green-500">
-                    <div class="text-xs text-gray-300 uppercase font-bold mb-1">Próxima Dosis</div>
-                    <div class="text-white font-bold text-lg">Amoxicilina 500mg</div>
-                    <div class="text-gray-400 text-sm">20:00 PM • Después de cenar</div>
-                </div>
-                
-                <div class="flex justify-between items-end">
-                    <div>
-                        <div class="text-3xl font-bold text-white">92</div>
-                        <div class="text-xs text-gray-400">Wellness Score</div>
-                    </div>
-                    <div class="w-12 h-12 rounded-full border-4 border-green-500 flex items-center justify-center text-green-500 font-bold">
-                        A
-                    </div>
-                </div>
-             </div>
-          </div>
-        </div>
+      <!-- Right Content: App Icon Visual -->
+      <div class="flex-1 relative z-10 flex justify-center lg:justify-end animate-slide-up" style="animation-delay: 0.4s;">
+        <!-- Glowing Effect Behind Icon -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/30 rounded-full blur-[80px] -z-10"></div>
         
-        <!-- Background Elements around phone -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[650px] border border-primary/30 rounded-[3.5rem] -z-10 scale-105 animate-pulse"></div>
+        <!-- App Icon Container -->
+        <div class="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] bg-white dark:bg-zinc-800 rounded-[60px] shadow-2xl overflow-hidden border-8 border-white/50 dark:border-white/5 rotate-3 hover:rotate-0 transition-transform duration-500 ease-out-expo group">
+            <img src="/assets/images/Icon.png" alt="VitalsPath App Icon" class="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-700" />
+            
+            <!-- Glass Overlay/Reflection -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-50 pointer-events-none rounded-[50px]"></div>
+        </div>
+
+        <!-- Floating Badge -->
+        <div class="absolute -bottom-6 -left-6 md:bottom-10 md:left-0 bg-white dark:bg-zinc-900 p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-white/10 flex items-center gap-3 animate-float" style="animation-delay: 1s;">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+                <p class="text-xs text-gray-500 font-bold uppercase">Privacy</p>
+                <p class="text-sm font-bold text-gray-900 dark:text-white">On-Device</p>
+            </div>
+        </div>
+
       </div>
+
     </div>
   </div>
 </section>
+
+

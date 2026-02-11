@@ -1,25 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* VitalsPath Color Palette */
-  --color-primary: #007AFF;
-  /* iOS Blue */
-  --color-primary-dark: #0056b3;
+  /* VitalsPath Color Palette - Refreshed (Lovable Spirit) */
+  --color-primary: #F97316;
+  /* Vibrant Orange */
+  --color-primary-dark: #EA580C;
   --color-success: #34C759;
-  /* Health Green */
-  --color-purple: #5856D6;
-  /* Accent Purple */
+  --color-purple: #8B5CF6;
+  /* Lighter Purple */
+  --color-blue: #3B82F6;
+  --color-salmon: #FB7185;
 
-  --color-bg-light: #F2F2F7;
+  --color-bg-light: #FAFAFA;
+  /* Warmer Light */
   --color-bg-dark: #000000;
-  /* True Black for OLED */
-  --color-surface-light: #FFFFFF;
-  --color-surface-dark: #1C1C1E;
 
-  --color-text-primary-light: #000000;
-  --color-text-secondary-light: #8E8E93;
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #18181B;
+  /* Zinc 900 */
+
+  --color-text-primary-light: #18181B;
+  --color-text-secondary-light: #71717A;
   --color-text-primary-dark: #FFFFFF;
-  --color-text-secondary-dark: #8E8E93;
+  --color-text-secondary-dark: #A1A1AA;
 
   /* Typography */
   --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -67,15 +70,15 @@
 /* Custom Utilities */
 @layer utilities {
   .glass {
-    @apply bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10;
+    @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border border-white/40 dark:border-white/10;
   }
 
   .glass-card {
-    @apply bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-white/70 dark:bg-zinc-900/60 backdrop-blur-xl border border-white/50 dark:border-white/10 rounded-3xl shadow-sm hover:shadow-xl hover:scale-[1.02] transition-all duration-300;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-purple bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-purple to-salmon bg-clip-text text-transparent;
   }
 
   .text-gradient-green {

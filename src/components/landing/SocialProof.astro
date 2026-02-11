@@ -1,35 +1,36 @@
 ---
 import { ShieldCheck, Zap, Lock, Smartphone } from "lucide-react";
+import { useTranslations } from "../../i18n/ui";
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<section class="py-10 border-y border-white/10 bg-white/5 backdrop-blur-sm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-10 border-y border-gray-100 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p class="text-sm font-medium text-gray-500 mb-6 uppercase tracking-wider">{t('social.powered')}</p>
     <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
       
       <div class="flex items-center gap-2 group cursor-default">
-        <Smartphone className="w-6 h-6 text-primary" />
-        <span class="font-bold text-gray-400 group-hover:text-primary transition-colors">iOS 17+ Native</span>
+         <Smartphone className="w-6 h-6 text-gray-900 dark:text-white" />
+         <span class="font-bold text-xl text-gray-900 dark:text-white">iOS 17+</span>
       </div>
 
       <div class="flex items-center gap-2 group cursor-default">
-        <Zap className="w-6 h-6 text-yellow-500" />
-        <span class="font-bold text-gray-400 group-hover:text-yellow-500 transition-colors">Swift 6.0</span>
-      </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Swift_logo.svg" class="h-8 w-8" alt="Swift" />
+        <span class="font-bold text-xl text-gray-900 dark:text-white">Swift 6</span>
+     </div>
+
+     <div class="flex items-center gap-2 group cursor-default">
+        <div class="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center text-white font-bold text-xs">SD</div>
+        <span class="font-bold text-xl text-gray-900 dark:text-white">SwiftData</span>
+     </div>
 
       <div class="flex items-center gap-2 group cursor-default">
         <ShieldCheck className="w-6 h-6 text-green-500" />
-        <span class="font-bold text-gray-400 group-hover:text-green-500 transition-colors">SwiftData</span>
+        <span class="font-bold text-xl text-gray-900 dark:text-white">CryptoKit</span>
       </div>
 
-      <div class="flex items-center gap-2 group cursor-default">
-        <Lock className="w-6 h-6 text-purple" />
-        <span class="font-bold text-gray-400 group-hover:text-purple transition-colors">AES-256 Encrypted</span>
-      </div>
-      
     </div>
-    
-    <p class="text-center text-xs text-gray-500 mt-6 tracking-widest uppercase">
-      Diseñado por ingenieros, aprobado por familias
-    </p>
   </div>
 </section>
