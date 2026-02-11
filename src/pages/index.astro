@@ -1,34 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/landing/Hero.astro';
-import SocialProof from '../components/landing/SocialProof.astro';
-import ProblemSolution from '../components/landing/ProblemSolution.astro';
 import Features from '../components/landing/Features.astro';
-import SmartScheduler from '../components/landing/SmartScheduler.astro';
-import WidgetsShowcase from '../components/landing/WidgetsShowcase.astro';
-import Pricing from '../components/landing/Pricing.astro';
-import FAQ from '../components/landing/FAQ.astro';
 import Gallery from '../components/landing/Gallery.astro';
-import CTA from '../components/landing/CTA.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="VitalsPath - Tu salud familiar en una sola app">
-  <Header />
-  
-  <main>
+<Layout title="VitalsPath - Salud Familiar Elevada">
+  <main class="relative overflow-hidden min-h-screen">
     <Hero />
-    <SocialProof />
-    <ProblemSolution />
     <Features />
-    <SmartScheduler />
-    <WidgetsShowcase />
-    <Pricing />
-    <FAQ />
     <Gallery />
-    <CTA />
+    <Footer />
   </main>
-
-  <Footer />
 </Layout>

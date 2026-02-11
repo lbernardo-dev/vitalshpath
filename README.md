@@ -1,49 +1,43 @@
-# VitalsPath Landing Page
+# Astro Starter Kit: Minimal
 
-This is the official landing page for **VitalsPath**, a family health management app for iOS.
-Built with **Astro**, **React**, and **Tailwind CSS v4**.
-
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
+```sh
+npm create astro@latest -- --template minimal
 ```
 
-## 📦 Building for Production
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-npm run build
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-This will create a `dist/` directory ready for deployment.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## 🌍 Deployment (GitHub Pages)
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-This project includes a **GitHub Actions workflow** (`.github/workflows/deploy.yml`) that automatically deploys to GitHub Pages on every push to `main`.
+Any static assets, like images, can be placed in the `public/` directory.
 
-1.  Push your code to GitHub.
-2.  Go to **Settings > Pages**.
-3.  Set **Source** to **GitHub Actions**.
+## 🧞 Commands
 
-## 🎨 Asset Replacement Guide
+All commands are run from the root of the project, from a terminal:
 
-The site currently uses high-quality stock placeholders. To personalize it for your app launch, please replace the following files in `public/assets/images/`:
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-| Component | Description | Recommended Filename | Dimensions (approx) |
-| :--- | :--- | :--- | :--- |
-| **Hero** | Main app dashboard inside 3D phone | `hero-dashboard.png` | 1170x2532 (iPhone Screenshot) |
-| **Smart Scheduler** | Conflict resolution graphic | `smart-scheduler.png` | 800x600 |
-| **Widgets** | Home Screen Widgets | `widgets-showcase.png` | Various |
-| **Gallery** | App screenshots | `screen-1.png`, `screen-2.png`, etc. | iPhone Screenshots |
-| **OG Image** | Social sharing preview | `og-image.jpg` | 1200x630 |
-| **Logo** | Project Logo | `public/favicon.svg` | SVG |
+## 👀 Want to learn more?
 
-## 🛠 Configuration
-
--   **Tailwind Theme**: `src/styles/global.css` (Colors, Fonts, Glassmorphism).
--   **SEO**: `src/layouts/Layout.astro` (Meta tags).
--   **Forms**: `src/components/landing/CTA.astro` (Update `YOUR_FORM_ID` for Formspree).
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

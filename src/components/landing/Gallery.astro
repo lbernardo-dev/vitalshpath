@@ -1,8 +1,4 @@
 ---
-import { useTranslations } from "../../i18n/ui";
-
-const { lang = 'es' } = Astro.props;
-const t = useTranslations(lang);
 ---
 
 <section id="gallery" class="py-32 relative overflow-hidden">
@@ -22,7 +18,7 @@ const t = useTranslations(lang);
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
                   <img 
-                    src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
+                    src={`/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
                     class="w-full h-full object-cover" 
                     alt={`App Screen ${i}`} 
                     loading="lazy"
@@ -34,7 +30,7 @@ const t = useTranslations(lang);
              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                 <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
                   <img 
-                    src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
+                    src={`/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
                     class="w-full h-full object-cover" 
                     alt={`App Screen ${i} Duplicate`} 
                     loading="lazy"

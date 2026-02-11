@@ -1,72 +1,24 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
 interface Props {
-  title: string;
-  description?: string;
-  image?: string;
-  lang?: "es" | "en";
+	title: string;
 }
 
-const { 
-  title, 
-  description = "VitalsPath - Gestiona la salud de tu familia con un solo dispositivo. Recordatorios inteligentes, citas y seguimiento médico en iOS.",
-  image = "/assets/images/og-image.jpg",
-  lang = "es"
-} = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
-    <meta name="generator" content={Astro.generator} />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${import.meta.env.BASE_URL}${image}`} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${import.meta.env.BASE_URL}${image}`} />
-
-    <!-- Google Fonts: Inter as fallback/primary -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <title>{title}</title>
-    
-    <!-- Theme Script: Spatial Mode (Light/Glass) -->
-    <script is:inline>
-      // VitalsPath Spatial is designed for light/glass aesthetics.
-      document.documentElement.classList.remove('dark');
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', 'light');
-      }
-    </script>
-  </head>
-
-  <body class="overflow-x-hidden pt-8">
-    <!-- DEPLOYMENT VERIFICATION BANNER -->
-    <div class="fixed top-0 left-0 right-0 h-8 bg-red-600 text-white text-xs font-bold flex items-center justify-center z-[100]">
-        VERSION: CLINICAL REDESIGN (CACHE FLUSHED) - IF YOU SEE THIS, IT UPDATED.
-    </div>
-    <!-- Background Mesh Gradient -->
-    <div class="fixed inset-0 -z-10 h-full w-full bg-bg-light dark:bg-bg-dark">
-        <div class="absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,122,255,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,122,255,0.2),rgba(0,0,0,0))]"></div>
-        <div class="absolute bottom-0 left-0 z-[-2] h-[50vh] w-[50vw] rounded-full bg-purple/5 blur-3xl"></div>
-    </div>
-
-    <slot />
-  </body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="VitalsPath - Salud Familiar Elevada" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>

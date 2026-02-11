@@ -1,9 +1,5 @@
 ---
 import { Github, Twitter, Linkedin } from "lucide-react";
-import { useTranslations } from "../i18n/ui";
-
-const { lang = 'es' } = Astro.props;
-const t = useTranslations(lang);
 ---
 
 <footer class="py-20 border-t border-gray-200 bg-white/50 backdrop-blur-sm">
@@ -12,7 +8,7 @@ const t = useTranslations(lang);
       
       <!-- Brand -->
       <div class="flex items-center gap-3">
-        <img src={`${import.meta.env.BASE_URL}/assets/images/Icon.png`} alt="VitalsPath Logo" class="w-10 h-10 rounded-xl shadow-md" />
+        <img src="/assets/images/Icon.png" alt="VitalsPath Logo" class="w-10 h-10 rounded-xl shadow-md" />
         <span class="text-xl font-semibold tracking-tight text-[#1d1d1f]">VitalsPath</span>
       </div>
 

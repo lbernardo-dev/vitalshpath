@@ -1,9 +1,5 @@
 ---
 import { ArrowRight, Apple, PlayCircle } from "lucide-react";
-import { useTranslations } from "../../i18n/ui";
-
-const { lang = 'es' } = Astro.props;
-const t = useTranslations(lang);
 ---
 
 <section class="relative min-h-screen flex flex-col justify-center pt-32 pb-20 overflow-hidden">
@@ -54,7 +50,7 @@ const t = useTranslations(lang);
         <!-- Main Device (Center) -->
         <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[320px] md:w-[400px] aspect-[9/19.5] glass-panel p-2 z-20">
              <div class="w-full h-full rounded-[28px] overflow-hidden bg-black shadow-inner">
-                <img src={`${import.meta.env.BASE_URL}/assets/images/screens/hero-clinical-v1.jpg`} class="w-full h-full object-cover" alt="App Main" />
+                <img src="/assets/images/screens/hero-clinical-v1.jpg" class="w-full h-full object-cover" alt="App Main" />
              </div>
         </div>
 
