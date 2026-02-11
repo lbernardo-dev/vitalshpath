@@ -1,5 +1,5 @@
 ---
-import { Users, Bell, ShieldCheck, Activity, Calendar, FileText, Brain, HeartPulse, Pill, Stethoscope, ClipboardList, Thermometer } from "lucide-react";
+import { Users, Brain, Pill, Thermometer, Calendar, ClipboardList, Stethoscope } from "lucide-react";
 import { useTranslations } from "../../i18n/ui";
 
 const { lang = 'es' } = Astro.props;
@@ -19,9 +19,9 @@ const t = useTranslations(lang);
     <!-- Bento Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
       
-      <!-- Feature 1: Multi-Profile (Large) -->
+      <!-- Feature 1: Multi-Profile & Wellness (Large) -->
       <div class="glass-card p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between relative overflow-hidden group hover:border-blue-200 dark:hover:border-blue-900/50 transition-colors">
-        <div class="z-10">
+        <div class="z-10 mb-6">
           <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
             <Users className="w-6 h-6" />
           </div>
@@ -31,69 +31,65 @@ const t = useTranslations(lang);
           </p>
         </div>
         
-        <!-- Mockup Visual -->
-        <div class="relative h-48 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 flex items-center justify-center gap-4 border border-gray-100 dark:border-white/5">
-             <div class="flex -space-x-4 hover:space-x-1 transition-all duration-300">
-               {[1,2,3].map(i => (
-                 <div class="w-16 h-16 rounded-full border-4 border-white dark:border-gray-800 shadow-lg overflow-hidden transform hover:scale-110 transition-transform">
-                    <img src={`https://i.pravatar.cc/150?img=${i+5}`} class="w-full h-full object-cover" />
-                 </div>
-               ))}
-               <div class="w-16 h-16 rounded-full border-4 border-dashed border-gray-300 flex items-center justify-center bg-white dark:bg-gray-700 text-gray-400 font-bold">
-                 +
-               </div>
-             </div>
+        <!-- Extracted Wellness Visualization -->
+        <div class="relative h-64 bg-gray-50 dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/5 group-hover:shadow-lg transition-all duration-500">
+             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-wellness.png`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" alt="Wellness Dashboard" />
+             <!-- Overlay Gradient -->
+             <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent"></div>
         </div>
       </div>
 
       <!-- Feature 2: Smart Scheduler (Tall) -->
-      <div class="glass-card p-6 md:col-span-1 md:row-span-2 flex flex-col relative overflow-hidden group hover:border-purple-200 dark:hover:border-purple-900/50 transition-colors">
-        <div class="absolute top-0 right-0 bg-purple text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
-          {t('feature.scheduler.tag')}
+      <div class="glass-card p-0 md:col-span-1 md:row-span-2 flex flex-col relative overflow-hidden group hover:border-purple-200 dark:hover:border-purple-900/50 transition-colors">
+        <div class="p-6 pb-0 z-10">
+            <div class="absolute top-0 right-0 bg-purple text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
+            {t('feature.scheduler.tag')}
+            </div>
+            <div class="w-12 h-12 bg-purple/10 rounded-2xl flex items-center justify-center text-purple mb-4 group-hover:scale-110 transition-transform">
+            <Brain className="w-6 h-6" />
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{t('feature.scheduler.title')}</h3>
+            <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
+            {t('feature.scheduler.desc')}
+            </p>
         </div>
-        <div class="w-12 h-12 bg-purple/10 rounded-2xl flex items-center justify-center text-purple mb-4 group-hover:scale-110 transition-transform">
-          <Brain className="w-6 h-6" />
-        </div>
-        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">{t('feature.scheduler.title')}</h3>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">
-          {t('feature.scheduler.desc')}
-        </p>
         
-        <!-- Animated Visual -->
-        <div class="flex-1 bg-white/50 dark:bg-black/20 rounded-xl p-3 relative overflow-hidden flex flex-col gap-2">
-             <div class="bg-white dark:bg-zinc-800 p-2 rounded-lg shadow-sm border-l-4 border-green-500">
-                <div class="h-2 w-12 bg-gray-200 rounded mb-1"></div>
-                <div class="h-1.5 w-20 bg-gray-100 rounded"></div>
-             </div>
-             <div class="bg-white dark:bg-zinc-800 p-2 rounded-lg shadow-sm border-l-4 border-orange-500 opacity-50">
-                <div class="h-2 w-10 bg-gray-200 rounded mb-1"></div>
-             </div>
-             <div class="bg-white dark:bg-zinc-800 p-2 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <div class="h-2 w-14 bg-gray-200 rounded mb-1"></div>
-             </div>
+        <!-- Extracted Scheduler Visualization -->
+        <div class="flex-1 bg-gray-50 dark:bg-black/20 relative overflow-hidden mt-4">
+             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-scheduler.png`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" alt="Smart Scheduler Interface" />
+             <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white dark:from-zinc-900 to-transparent"></div>
         </div>
       </div>
 
       <!-- Feature 3: Medications -->
-      <div class="glass-card p-6 flex flex-col justify-between group hover:border-orange-200 dark:hover:border-orange-900/50 transition-colors">
-        <div>
+      <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-orange-200 dark:hover:border-orange-900/50 transition-colors relative overflow-hidden">
+        <div class="z-10">
           <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-orange-500 mb-3 group-hover:rotate-12 transition-transform">
              <Pill className="w-5 h-5" />
           </div>
           <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.medications.title')}</h3>
         </div>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.medications.desc')}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 z-10 relative">{t('feature.medications.desc')}</p>
+        
+        <!-- Absolute Image Background (Subtle) -->
+        <div class="absolute -right-4 -bottom-4 w-24 h-24 opacity-10 dark:opacity-20 rotate-12 group-hover:scale-110 transition-transform duration-500">
+             <img src={`${import.meta.env.BASE_URL}/assets/images/feature-meds.png`} class="w-full h-full object-cover rounded-lg" alt="Pill Icon" />
+        </div>
       </div>
 
       <!-- Feature 4: Symptoms -->
-      <div class="glass-card p-6 md:col-span-1 flex flex-col justify-between group hover:border-red-200 dark:hover:border-red-900/50 transition-colors">
-         <div>
+      <div class="glass-card p-0 md:col-span-1 flex flex-col justify-between group hover:border-red-200 dark:hover:border-red-900/50 transition-colors overflow-hidden">
+         <div class="p-6 relative z-10">
             <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center text-red-500 mb-3 group-hover:scale-110 transition-transform">
                 <Thermometer className="w-5 h-5" />
             </div>
             <h3 class="text-lg font-bold text-gray-900 dark:text-white">{t('feature.symptoms.title')}</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.symptoms.desc')}</p>
          </div>
-         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">{t('feature.symptoms.desc')}</p>
+         <!-- Small Preview Strip -->
+         <div class="h-20 w-full overflow-hidden opacity-80">
+            <img src={`${import.meta.env.BASE_URL}/assets/images/feature-symptoms.png`} class="w-full object-cover object-top hover:scale-110 transition-transform duration-700" alt="Symptoms Chart" />
+         </div>
       </div>
 
       <!-- Feature 5: Medical Calendar -->

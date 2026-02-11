@@ -51,8 +51,7 @@ const {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        // Force default to light mode unless explicitly set, even if system is dark
-        return 'light';
+        return 'light'; // Force default light
       };
       
       const isDark = getThemePreference() === 'dark';
