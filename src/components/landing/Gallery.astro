@@ -14,12 +14,12 @@ const screens = Array.from({ length: 10 }, (_, i) => i + 1);
     <!-- Marquee Container -->
     <div class="relative flex overflow-x-hidden group">
         <!-- Gradient Overlay Left -->
-        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg-light dark:from-bg-dark to-transparent z-10"></div>
+        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg-light to-transparent z-10"></div>
         
         <!-- Marquee Track 1 -->
         <div class="py-12 animate-marquee whitespace-nowrap flex gap-8">
             {screens.map((i) => (
-                <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[40px] border-[8px] border-black dark:border-gray-800 overflow-hidden shadow-2xl shrink-0">
+                <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[32px] border-[8px] border-slate-900 overflow-hidden shadow-xl shrink-0">
                     <img 
                         src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${String(i).padStart(2, '0')}.jpg`} 
                         class="w-full h-full object-cover"
@@ -29,7 +29,7 @@ const screens = Array.from({ length: 10 }, (_, i) => i + 1);
                 </div>
             ))}
              {screens.map((i) => (
-                <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[40px] border-[8px] border-black dark:border-gray-800 overflow-hidden shadow-2xl shrink-0">
+                <div class="relative w-[280px] md:w-[320px] aspect-[9/19] rounded-[32px] border-[8px] border-slate-900 overflow-hidden shadow-xl shrink-0">
                     <img 
                         src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-${String(i).padStart(2, '0')}.jpg`} 
                         class="w-full h-full object-cover"
@@ -41,7 +41,7 @@ const screens = Array.from({ length: 10 }, (_, i) => i + 1);
         </div>
         
         <!-- Gradient Overlay Right -->
-        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg-light dark:from-bg-dark to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg-light to-transparent z-10"></div>
     </div>
 </section>
 

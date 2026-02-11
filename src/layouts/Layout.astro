@@ -46,23 +46,13 @@ const {
 
     <title>{title}</title>
     
+    <!-- Theme Script: Enforced Clinical Light Mode -->
     <script is:inline>
-      const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        return 'light'; // Force default light
-      };
-      
-      const isDark = getThemePreference() === 'dark';
-      document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
-     
+      // VitalsPath Clinical is designed to be pristine and white.
+      // We enforce light mode for the landing page to ensure trust and clarity.
+      document.documentElement.classList.remove('dark');
       if (typeof localStorage !== 'undefined') {
-        const observer = new MutationObserver(() => {
-          const isDark = document.documentElement.classList.contains('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        localStorage.setItem('theme', 'light');
       }
     </script>
   </head>

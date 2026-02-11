@@ -1,70 +1,45 @@
 ---
-import { Languages, Moon, Sun, Menu, X } from "lucide-react";
-import { useTranslations } from "../i18n/ui";
+import { Languages } from "lucide-react";
 
-const { lang = 'es' } = Astro.props;
-const t = useTranslations(lang);
-
+const { lang = 'es' } = Astro.props; // Default to 'es' if undefined
 const isSpanish = lang === 'es';
 const targetLang = isSpanish ? 'en' : 'es';
 const base = import.meta.env.BASE_URL;
-const togglePath = isSpanish ? `${base}/en` : `${base}/`;
+// Fix: Ensure we don't double slash if base is just '/' or handles trailing slashes differently
+const cleanBase = base === '/' ? '' : base;
+const togglePath = isSpanish ? `${cleanBase}/en` : `${cleanBase}/`;
+
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
-  <div class="glass absolute inset-0 z-0"></div>
-  <div class="container-width relative z-10 flex items-center justify-between h-[72px]">
-      
-      <!-- Logo -->
-      <a href={isSpanish ? `${base}/` : `${base}/en`} class="flex items-center gap-3 group">
-        <img src={`${base}/assets/images/Icon.png`} alt="VitalsPath Logo" class="w-10 h-10 rounded-xl shadow-lg group-hover:scale-105 transition-transform" />
-        <span class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">VitalsPath</span>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 h-16 transition-all duration-300">
+  <div class="clinical-container h-full flex items-center justify-between">
+    
+    <!-- Logo -->
+    <a href={`${cleanBase}/`} class="flex items-center gap-2 group">
+        <img src={`${cleanBase}/assets/images/Icon.png`} alt="VitalsPath" class="w-8 h-8 rounded-lg shadow-sm border border-slate-100" />
+      <span class="text-lg font-bold tracking-tight text-slate-900">VitalsPath</span>
+    </a>
+
+    <!-- Navigation (Desktop) -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#features" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Características</a>
+      <a href="#reviews" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Opiniones</a>
+      <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Planes</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Language Toggle (Clean Text) -->
+      <a href={togglePath} class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-600 hover:bg-slate-100 transition-colors text-xs font-semibold">
+        <Languages className="w-3.5 h-3.5" />
+        <span>{isSpanish ? 'ES' : 'EN'}</span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#features" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.features')}</a>
-        <a href="#scheduler" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.scheduler')}</a>
-        <a href="#privacy" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.privacy')}</a>
-        <a href="#faq" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">{t('nav.faq')}</a>
-      </nav>
+      <!-- CTA (Small) -->
+      <a href="#" class="hidden sm:inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition-colors shadow-sm">
+        Descargar
+      </a>
+    </div>
 
-      <!-- Actions -->
-      <div class="flex items-center gap-4">
-        <!-- Theme Toggle -->
-        <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors" aria-label="Toggle theme">
-          <Sun className="w-5 h-5 hidden dark:block text-white" />
-          <Moon className="w-5 h-5 block dark:hidden text-gray-900" />
-        </button>
-
-        <!-- Lang Selector -->
-        <a href={togglePath} class="hidden sm:flex items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
-          <span>{lang === 'es' ? 'EN' : 'ES'}</span>
-        </a>
-
-        <!-- CTA -->
-        <a href="#waitlist" class="hidden sm:block px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-medium rounded-full shadow-lg hover:shadow-primary/30 hover:scale-105 transition-all">
-          {t('nav.waitlist')}
-        </a>
-
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden p-2" id="mobile-menu-btn">
-          <Menu className="w-6 h-6 text-gray-900 dark:text-white" />
-        </button>
-      </div>
   </div>
 </header>
-
-<script is:inline>
-  const themeToggle = document.getElementById('theme-toggle');
-  
-  const handleToggleClick = () => {
-    const element = document.documentElement;
-    element.classList.toggle("dark");
-
-    const isDark = element.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }
-
-  themeToggle?.addEventListener("click", handleToggleClick);
-</script>

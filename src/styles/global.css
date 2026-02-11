@@ -1,48 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* VitalsPath Premium Palette - Clean & Vivid */
-  --color-primary: #FF6B00;
-  /* Deep Vibrant Orange */
-  --color-primary-dark: #CC5500;
+  /* VitalsPath Clinical Palette - True Medical Grade */
+  --color-primary: #0F766E;
+  /* Teal 700 - Deep, professional */
+  --color-primary-light: #14B8A6;
+  /* Teal 500 - Approachable */
+  --color-accent: #0284C7;
+  /* Sky 600 - Trustworthy Blue */
 
   --color-bg-light: #FFFFFF;
-  /* Pure White */
-  --color-bg-dark: #000000;
-  /* Pure Black */
+  /* Pure White - Sterile */
+  --color-bg-dark: #FFFFFF;
+  /* FORCE LIGHT MODE - Clinical apps are rarely dark by default in marketing */
 
-  --color-surface-light: #F5F5F7;
-  /* Apple-style Light Gray */
-  --color-surface-dark: #1C1C1E;
-  /* Apple-style Dark Gray */
+  --color-surface: #F8FAFC;
+  /* Slate 50 */
+  --color-border: #E2E8F0;
+  /* Slate 200 */
 
-  --color-text-primary-light: #1D1D1F;
-  /* Almost Black */
-  --color-text-secondary-light: #86868B;
-  /* Gray text */
-  --color-text-primary-dark: #F5F5F7;
-  --color-text-secondary-dark: #86868B;
+  --color-text-main: #0F172A;
+  /* Slate 900 - High Legibility */
+  --color-text-muted: #64748B;
+  /* Slate 500 */
 
-  /* Typography - Tracking tight for headlines */
-  --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Typography - Editorial & Clean */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
 
-  /* Animations */
-  --animate-float: float 8s ease-in-out infinite;
-  --animate-fade-in: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-slide-up: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+  /* Animations - Professional & Restrained */
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 
   @keyframes fadeIn {
     from {
@@ -69,49 +57,47 @@
 
 @layer utilities {
 
-  /* Premium Glass Effect - Subtle & Clean */
-  .glass {
-    @apply bg-white/70 dark:bg-[#1C1C1E]/70 backdrop-blur-2xl border-b border-black/5 dark:border-white/10;
+  /* Clinical Component Styles */
+  .clinical-container {
+    @apply max-w-7xl mx-auto px-6 md:px-12;
   }
 
-  .glass-card {
-    @apply bg-white dark:bg-[#1C1C1E] rounded-[24px] shadow-sm border border-black/5 dark:border-white/5 overflow-hidden transition-all duration-500 hover:shadow-xl hover:scale-[1.01];
+  .clinical-card {
+    @apply bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300;
   }
 
-  .glass-button {
-    @apply bg-black/5 dark:bg-white/10 backdrop-blur-lg hover:bg-black/10 dark:hover:bg-white/20 transition-all rounded-full;
+  .clinical-button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
   }
 
-  /* Typography Utilities */
-  .text-premium-title {
-    @apply text-[3rem] md:text-[4.5rem] leading-[1.05] font-semibold tracking-tight text-text-primary-light dark:text-text-primary-dark;
+  .clinical-button-primary {
+    @apply bg-primary text-white hover:bg-primary-light shadow-sm hover:shadow-md;
   }
 
-  .text-premium-body {
-    @apply text-lg md:text-xl leading-relaxed text-text-secondary-light dark:text-text-secondary-dark font-medium;
+  .clinical-button-outline {
+    @apply border border-border text-text-main hover:bg-surface hover:border-primary/30;
   }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-[#FF6B00] to-[#FF9E00] bg-clip-text text-transparent;
+  /* Typography Presets */
+  .text-display {
+    @apply font-serif text-4xl md:text-6xl text-text-main leading-tight tracking-tight;
   }
 
-  /* Layout Utilities */
-  .section-padding {
-    @apply py-24 md:py-32;
+  .text-subhead {
+    @apply font-sans text-lg md:text-xl text-text-muted font-normal leading-relaxed;
   }
 
-  .container-width {
-    @apply max-w-[1200px] mx-auto px-6;
+  .text-label {
+    @apply font-sans text-xs font-bold uppercase tracking-widest text-primary;
   }
 }
 
-/* Base Styles */
+/* Base Resets */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  @apply bg-bg-light dark:bg-bg-dark text-text-primary-light dark:text-text-primary-dark transition-colors duration-500;
+  @apply bg-bg-light text-text-main antialiased selection:bg-primary/20;
 }
