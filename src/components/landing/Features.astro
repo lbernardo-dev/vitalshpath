@@ -1,0 +1,133 @@
+---
+import { Users, Bell, Calendar, Activity, FileText, Brain, Clock, Shield } from "lucide-react";
+---
+
+<section id="features" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-16">
+      <span class="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">Todo en un lugar</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-white">
+        Tu centro de comando de salud
+      </h2>
+      <p class="text-xl text-gray-500 max-w-2xl mx-auto">
+        Diseñado para simplificar la gestión médica familiar, desde recordatorios hasta reportes detallados.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[minmax(180px,auto)]">
+      
+      <!-- Feature 1: Multi-Profile (Large) -->
+      <div class="glass-card p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between relative overflow-hidden group">
+        <div class="z-10">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-primary mb-4">
+            <Users className="w-6 h-6" />
+          </div>
+          <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Multi-Perfil Real</h3>
+          <p class="text-gray-500 mb-6 max-w-sm">
+            Un dispositivo, toda la familia. Datos aislados, privacidad garantizada. Ideal para padres y cuidadores.
+          </p>
+        </div>
+        
+        <!-- Mockup Visual -->
+        <div class="relative h-48 bg-gray-100 dark:bg-gray-800 rounded-2xl p-4 flex items-center justify-center gap-4 border border-black/5 dark:border-white/5">
+             <div class="flex -space-x-4 hover:space-x-1 transition-all duration-300">
+               {[1,2,3].map(i => (
+                 <div class="w-16 h-16 rounded-full border-4 border-white dark:border-gray-800 shadow-lg overflow-hidden transform hover:scale-110 transition-transform">
+                    <img src={`https://i.pravatar.cc/150?img=${i+5}`} class="w-full h-full object-cover" />
+                 </div>
+               ))}
+               <div class="w-16 h-16 rounded-full border-4 border-dashed border-gray-300 flex items-center justify-center bg-gray-50 dark:bg-gray-700 text-gray-400 font-bold">
+                 +
+               </div>
+             </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Smart Scheduler (Tall) -->
+      <div class="glass-card p-6 md:col-span-1 md:row-span-2 flex flex-col relative overflow-hidden group bg-gradient-to-b from-white/10 to-primary/5">
+        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-xl z-20">
+          Exclusivo
+        </div>
+        <div class="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center text-purple mb-4">
+          <Brain className="w-6 h-6" />
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Smart Scheduler</h3>
+        <p class="text-gray-500 text-sm mb-4">
+          Algoritmo que evita conflictos de horarios automáticamente.
+        </p>
+        
+        <!-- Animated Visual -->
+        <div class="flex-1 bg-white/50 dark:bg-black/20 rounded-xl p-3 relative overflow-hidden">
+            <div class="space-y-2">
+                <div class="h-8 bg-green-100 dark:bg-green-900/30 rounded-lg w-[80%] animate-pulse"></div>
+                <div class="h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg w-[60%] animate-pulse" style="animation-delay: 0.2s"></div>
+                <div class="h-8 bg-purple/10 rounded-lg w-[90%] animate-pulse" style="animation-delay: 0.4s"></div>
+            </div>
+            <!-- Magic effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Notifications -->
+      <div class="glass-card p-6 flex flex-col justify-between group hover:border-primary/50 transition-colors">
+        <div>
+          <Bell className="w-8 h-8 text-orange-500 mb-3" />
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">Recordatorios</h3>
+        </div>
+        <p class="text-sm text-gray-500 mt-2">Persistentes y discretos. Nunca fallan.</p>
+      </div>
+
+      <!-- Feature 4: Live Activities (Visual heavy) -->
+      <div class="glass-card p-0 md:col-span-1 md:row-span-1 flex items-center justify-center relative overflow-hidden group">
+         <img src="https://images.unsplash.com/photo-1611504996928-8d5c80757c32?q=80&w=400&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500" />
+         <div class="absolute inset-0 bg-black/40"></div>
+         <div class="z-10 text-center p-4">
+            <Clock className="w-8 h-8 text-white mx-auto mb-2" />
+            <h3 class="text-lg font-bold text-white">Live Activities</h3>
+         </div>
+      </div>
+
+      <!-- Feature 5: Medical Calendar -->
+      <div class="glass-card p-6 md:col-span-2 flex items-center gap-6 group">
+        <div class="flex-1">
+          <div class="w-10 h-10 bg-red-100 dark:bg-red-900/20 rounded-lg flex items-center justify-center text-red-500 mb-3">
+            <Calendar className="w-6 h-6" />
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Calendario Médico Infinito</h3>
+          <p class="text-gray-500 text-sm">
+            Visualiza citas, dosis y síntomas en una vista mensual expandida. Sincronización nativa con iOS.
+          </p>
+        </div>
+        <div class="w-1/3 h-24 bg-gray-100 dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10 relative overflow-hidden hidden sm:block">
+           <!-- Fake Calendar Grid -->
+           <div class="grid grid-cols-7 gap-1 p-2 h-full opacity-50">
+             {Array.from({length: 21}).map((_, i) => (
+               <div class={`rounded-sm ${i === 10 ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'} h-full w-full`}></div>
+             ))}
+           </div>
+        </div>
+      </div>
+
+      <!-- Feature 6: Wellness Score -->
+      <div class="glass-card p-6 text-center">
+        <div class="relative w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+            <!-- CSS Rings -->
+            <div class="absolute inset-0 rounded-full border-4 border-gray-200 dark:border-gray-700"></div>
+            <div class="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" style="animation-duration: 3s;"></div>
+            <span class="text-xl font-bold text-gray-900 dark:text-white">92</span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Wellness Score</h3>
+      </div>
+
+      <!-- Feature 7: Reports -->
+      <div class="glass-card p-6 flex flex-col justify-center items-center text-center group hover:bg-white/80 dark:hover:bg-white/10 transition-colors">
+        <FileText className="w-10 h-10 text-gray-400 group-hover:text-primary transition-colors mb-3" />
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Reportes PDF</h3>
+        <p class="text-xs text-gray-500 mt-1">Comparte con tu médico</p>
+      </div>
+
+    </div>
+  </div>
+</section>

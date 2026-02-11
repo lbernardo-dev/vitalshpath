@@ -1,0 +1,35 @@
+---
+import { ShieldCheck, Zap, Lock, Smartphone } from "lucide-react";
+---
+
+<section class="py-10 border-y border-white/10 bg-white/5 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      
+      <div class="flex items-center gap-2 group cursor-default">
+        <Smartphone className="w-6 h-6 text-primary" />
+        <span class="font-bold text-gray-400 group-hover:text-primary transition-colors">iOS 17+ Native</span>
+      </div>
+
+      <div class="flex items-center gap-2 group cursor-default">
+        <Zap className="w-6 h-6 text-yellow-500" />
+        <span class="font-bold text-gray-400 group-hover:text-yellow-500 transition-colors">Swift 6.0</span>
+      </div>
+
+      <div class="flex items-center gap-2 group cursor-default">
+        <ShieldCheck className="w-6 h-6 text-green-500" />
+        <span class="font-bold text-gray-400 group-hover:text-green-500 transition-colors">SwiftData</span>
+      </div>
+
+      <div class="flex items-center gap-2 group cursor-default">
+        <Lock className="w-6 h-6 text-purple" />
+        <span class="font-bold text-gray-400 group-hover:text-purple transition-colors">AES-256 Encrypted</span>
+      </div>
+      
+    </div>
+    
+    <p class="text-center text-xs text-gray-500 mt-6 tracking-widest uppercase">
+      Diseñado por ingenieros, aprobado por familias
+    </p>
+  </div>
+</section>

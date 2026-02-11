@@ -1,0 +1,56 @@
+---
+import { SearchX, BellOff, Users } from "lucide-react";
+---
+
+<section class="py-24 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white">
+        ¿Te resulta imposible llevar el control?
+      </h2>
+      <p class="text-xl text-gray-500">
+        Gestionar la salud familiar con notas dispersas, alarmas genéricas y mensajes de WhatsApp es una receta para el caos.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Pain Point 1 -->
+      <div class="glass-card p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6 text-red-500">
+          <BellOff className="w-8 h-8" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Tomas Olvidadas</h3>
+        <p class="text-gray-500 leading-relaxed">
+          "¿Se tomó la abuela su pastilla hoy?" La incertidumbre genera estrés y riesgos de salud innecesarios.
+        </p>
+      </div>
+
+      <!-- Pain Point 2 -->
+      <div class="glass-card p-8 text-center hover:-translate-y-2 transition-transform duration-300 transform md:scale-105 border-primary/20 shadow-primary/10">
+        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto mb-6 text-orange-500">
+          <SearchX className="w-8 h-8" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Historial Disperso</h3>
+        <p class="text-gray-500 leading-relaxed">
+          Citas en el calendario, síntomas en notas, recetas en fotos... imposible encontrar nada cuando el médico pregunta.
+        </p>
+      </div>
+
+      <!-- Pain Point 3 -->
+      <div class="glass-card p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-500">
+          <Users className="w-8 h-8" />
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Caos Multi-Persona</h3>
+        <p class="text-gray-500 leading-relaxed">
+          Gestionar tu salud es difícil. Gestionar la de tus hijos, pareja y padres mayores sin herramientas es imposible.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- Background decoration -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-[500px] bg-gradient-to-r from-red-500/5 to-orange-500/5 -z-10 skew-y-6"></div>
+</section>

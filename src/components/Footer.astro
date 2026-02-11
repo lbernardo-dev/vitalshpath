@@ -1,0 +1,65 @@
+---
+import { Github, Twitter, Linkedin, Heart } from "lucide-react";
+---
+
+<footer class="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      
+      <!-- Column 1: Brand -->
+      <div class="col-span-1 md:col-span-1">
+        <a href="#" class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-purple flex items-center justify-center text-white font-bold text-lg">
+                VP
+            </div>
+            <span class="text-xl font-bold text-gray-900 dark:text-white">VitalsPath</span>
+        </a>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Gestión de salud familiar inteligente, privada y segura. Diseñada para iOS.
+        </p>
+      </div>
+
+      <!-- Column 2: Product -->
+      <div>
+        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Producto</h4>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li><a href="#features" class="hover:text-primary transition-colors">Características</a></li>
+          <li><a href="#scheduler" class="hover:text-primary transition-colors">Smart Scheduler</a></li>
+          <li><a href="#pricing" class="hover:text-primary transition-colors">Precios</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Roadmap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Legal -->
+      <div>
+        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm text-gray-500">
+          <li><a href="#" class="hover:text-primary transition-colors">Privacidad</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Términos</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors">Cookies</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Social -->
+      <div>
+        <h4 class="font-bold text-gray-900 dark:text-white mb-4">Conecta</h4>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Twitter className="w-5 h-5" /></a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Github className="w-5 h-5" /></a>
+          <a href="#" class="text-gray-400 hover:text-primary transition-colors"><Linkedin className="w-5 h-5" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-500">
+        © 2026 VitalsPath. Todos los derechos reservados.
+      </p>
+      <div class="flex items-center gap-1 text-sm text-gray-500">
+        <span>Hecho con</span>
+        <Heart className="w-4 h-4 text-red-500 fill-current animate-pulse" />
+        <span>y SwiftUI por Lester Romero</span>
+      </div>
+    </div>
+  </div>
+</footer>
