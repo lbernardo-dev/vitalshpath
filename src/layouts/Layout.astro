@@ -46,13 +46,12 @@ const {
 
     <title>{title}</title>
     
-    <!-- Theme Script: Enforced Clinical Light Mode -->
+    <!-- Theme Script: Enforced Modern Dark Mode -->
     <script is:inline>
-      // VitalsPath Clinical is designed to be pristine and white.
-      // We enforce light mode for the landing page to ensure trust and clarity.
-      document.documentElement.classList.remove('dark');
+      // VitalsPath Modern is exclusively Dark Mode.
+      document.documentElement.classList.add('dark');
       if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('theme', 'dark');
       }
     </script>
   </head>

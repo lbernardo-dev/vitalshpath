@@ -1,111 +1,118 @@
 ---
-import { Users, Brain, Pill, Thermometer, Calendar, ClipboardList, Stethoscope } from "lucide-react";
+import { Users, Brain, Pill, Thermometer, Calendar, HandHeart, Smartphone, ShieldCheck } from "lucide-react";
 import { useTranslations } from "../../i18n/ui";
 
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="features" class="py-24 bg-surface relative">
+<section id="features" class="py-32 bg-zinc-950 relative overflow-hidden">
   
-  <div class="clinical-container relative z-10">
+  <div class="container mx-auto px-4 relative z-10">
+    
     <div class="text-center mb-20 max-w-3xl mx-auto">
-      <h2 class="text-label mb-4">{t('features.subtitle')}</h2>
-      <h3 class="text-display text-4xl md:text-5xl mb-6">{t('features.title')}</h3>
+      <h2 class="text-violet-400 font-semibold tracking-wide uppercase text-sm mb-4">Todo lo que necesitas</h2>
+      <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Un ecosistema de salud <br /><span class="text-zinc-500">sin precedentes.</span></h3>
+      <p class="text-zinc-400 text-lg leading-relaxed">
+        Diseñado obsesivamente para ser la herramienta definitiva de gestión sanitaria familiar.
+        Potente, privado y hermoso.
+      </p>
     </div>
 
-    <!-- Features Grid: Clinical Bento -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
       
-      <!-- Feature 1: Wellness (Large) -->
-      <div class="clinical-card col-span-1 md:col-span-2 row-span-2 p-8 flex flex-col justify-between group">
-        <div class="mb-8">
-          <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-6 border border-blue-100">
-            <Users className="w-6 h-6" />
-          </div>
-          <h3 class="text-2xl font-serif font-semibold mb-3 text-slate-900">{t('feature.profiles.title')}</h3>
-          <p class="text-slate-600 leading-relaxed max-w-md">
-            {t('feature.profiles.desc')}
-          </p>
-        </div>
-        
-        <div class="relative h-[300px] w-full rounded-lg overflow-hidden border border-slate-100 mt-auto shadow-inner">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-01.jpg`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" alt="Wellness Dashboard" />
-        </div>
-      </div>
-
-      <!-- Feature 2: Smart Scheduler -->
-      <div class="clinical-card p-8 flex flex-col group relative overflow-hidden">
-         <div class="mb-6 relative z-10">
-            <div class="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center text-purple-600 mb-4 border border-purple-100">
-              <Brain className="w-5 h-5" />
-            </div>
-            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('feature.scheduler.title')}</h3>
-            <p class="text-sm text-slate-500">{t('feature.scheduler.desc')}</p>
-         </div>
-         <div class="mt-4 h-40 w-full rounded-lg overflow-hidden border border-slate-100 relative z-0">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-03.jpg`} class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
-         </div>
-      </div>
-
-      <!-- Feature 3: Medications -->
-      <div class="clinical-card p-8 flex flex-col group relative overflow-hidden">
-         <div class="mb-6 relative z-10">
-            <div class="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center text-orange-600 mb-4 border border-orange-100">
-              <Pill className="w-5 h-5" />
-            </div>
-            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('feature.medications.title')}</h3>
-            <p class="text-sm text-slate-500">{t('feature.medications.desc')}</p>
-         </div>
-         <div class="absolute bottom-[-10px] right-[-10px] w-32 h-32 opacity-20 rotate-12 grayscale group-hover:grayscale-0 transition-all duration-500">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-05.jpg`} class="w-full h-full object-cover rounded-lg shadow-sm" />
-         </div>
-      </div>
-
-      <!-- Feature 4: Symptoms -->
-      <div class="clinical-card p-0 col-span-1 flex flex-col justify-between overflow-hidden group">
-         <div class="p-8">
-            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-red-600 mb-4 border border-red-100">
-                <Thermometer className="w-5 h-5" />
-            </div>
-            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('feature.symptoms.title')}</h3>
-            <p class="text-sm text-slate-500">{t('feature.symptoms.desc')}</p>
-         </div>
-         <div class="h-32 w-full mt-auto border-t border-slate-100 overflow-hidden">
-            <img src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-07.jpg`} class="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-500" />
-         </div>
-      </div>
-
-      <!-- Additional Features List (Compact) -->
-      <div class="clinical-card col-span-1 md:col-span-2 lg:col-span-1 p-8 flex flex-col gap-6 justify-center bg-slate-50">
-         <div class="flex gap-4 items-start">
-            <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-green-600 shrink-0"><ClipboardList className="w-4 h-4"/></div>
+      <!-- Card 1: Wellness (Large) -->
+      <div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-2 group">
+        <div class="p-8 h-full flex flex-col justify-between relative z-10">
             <div>
-               <h4 class="font-bold text-slate-900 text-sm">{t('feature.plans.title')}</h4>
-               <p class="text-xs text-slate-500 mt-1">{t('feature.plans.desc')}</p>
+                <div class="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-violet-600 transition-colors">
+                    <Users className="w-6 h-6" />
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Multi-Perfil Real</h3>
+                <p class="text-zinc-400 max-w-sm">
+                    Gestiona la salud de tus hijos, padres y mascotas desde una sola cuenta. Datos aislados y seguros.
+                </p>
             </div>
-         </div>
-         <div class="flex gap-4 items-start">
-            <div class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-yellow-600 shrink-0"><Stethoscope className="w-4 h-4"/></div>
-            <div>
-               <h4 class="font-bold text-slate-900 text-sm">{t('feature.conditions.title')}</h4>
-               <p class="text-xs text-slate-500 mt-1">{t('feature.conditions.desc')}</p>
+            <div class="relative w-full h-1/2 mt-8 rounded-lg overflow-hidden border border-zinc-800 group-hover:border-violet-500/50 transition-colors">
+                 <img src={`${import.meta.env.BASE_URL}/assets/images/screens/hero-clinical-v1.jpg`} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
             </div>
-         </div>
+        </div>
       </div>
 
-      <!-- Calendar Feature -->
-      <div class="clinical-card col-span-1 md:col-span-2 p-8 flex items-center gap-8 group overflow-hidden">
-          <div class="flex-1 relative z-10">
-             <div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-4 border border-indigo-100">
+      <!-- Card 2: Smart Scheduler -->
+      <div class="bento-card col-span-1 md:col-span-1 row-span-1 group">
+        <div class="p-6 h-full flex flex-col justify-between relative z-10">
+            <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-4 group-hover:bg-indigo-500 transition-colors">
+                <Brain className="w-5 h-5" />
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white">Smart Scheduler</h3>
+                <p class="text-sm text-zinc-500 mt-2">IA que evita conflictos de medicación.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Medications -->
+      <div class="bento-card col-span-1 md:col-span-1 row-span-1 group">
+        <div class="p-6 h-full flex flex-col justify-between relative z-10">
+             <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-4 group-hover:bg-pink-500 transition-colors">
+                <Pill className="w-5 h-5" />
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white">Control de Dosis</h3>
+                <p class="text-sm text-zinc-500 mt-2">Inventario y recordatorios precisos.</p>
+            </div>
+        </div>
+      </div>
+
+       <!-- Card 4: Calendar (Tall) -->
+      <div class="bento-card col-span-1 md:col-span-1 row-span-2 group">
+        <div class="p-6 h-full flex flex-col relative z-10">
+             <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-cyan-500 transition-colors">
                 <Calendar className="w-5 h-5" />
-             </div>
-             <h3 class="text-2xl font-serif font-semibold mb-2 text-slate-900">{t('feature.calendar.title')}</h3>
-             <p class="text-slate-600">{t('feature.calendar.desc')}</p>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Agenda</h3>
+            <p class="text-zinc-400 text-sm mb-6">Todas las citas, tomas y síntomas en una vista unificada.</p>
+            
+            <div class="mt-auto relative w-full h-64 bg-zinc-800/50 rounded-lg overflow-hidden border border-zinc-700">
+               <!-- Abstract Calendar Visual -->
+               <div class="absolute inset-2 space-y-2">
+                   <div class="h-2 w-1/2 bg-zinc-700 rounded"></div>
+                   <div class="h-16 w-full bg-violet-500/20 rounded border border-violet-500/30"></div>
+                   <div class="h-16 w-full bg-zinc-700/30 rounded border border-zinc-600/30"></div>
+               </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Symptoms -->
+      <div class="bento-card col-span-1 md:col-span-1 lg:col-span-1 row-span-1 group">
+         <div class="p-6 h-full flex flex-col justify-between relative z-10">
+            <div class="flex justify-between items-start">
+                <div class="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center text-white group-hover:bg-red-500 transition-colors">
+                    <Thermometer className="w-5 h-5" />
+                </div>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-white">Síntomas</h3>
+                <p class="text-sm text-zinc-500 mt-1">Registra patrones de dolor y fiebre.</p>
+            </div>
+         </div>
+      </div>
+    
+      <!-- Card 6: Privacy -->
+      <div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 flex items-center p-8 group overflow-hidden">
+          <div class="relative z-10 max-w-md">
+               <div class="inline-flex items-center gap-2 text-green-400 font-bold text-xs uppercase tracking-widest mb-2">
+                    <ShieldCheck className="w-4 h-4" /> Privacidad Primero
+               </div>
+               <h3 class="text-2xl font-bold text-white mb-2">Solo tus datos.</h3>
+               <p class="text-zinc-400">
+                   Almacenamiento local con SwiftData. Sin tracking, sin servidores externos, sin tonterías.
+               </p>
           </div>
-          <div class="hidden sm:block w-40 h-56 bg-white rounded-lg border border-slate-200 overflow-hidden shadow-md rotate-3 group-hover:rotate-0 transition-all duration-500 hover:scale-105">
-             <img src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-08.jpg`} class="w-full h-full object-cover" />
-          </div>
+          <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-green-500/10 to-transparent pointer-events-none"></div>
       </div>
 
     </div>

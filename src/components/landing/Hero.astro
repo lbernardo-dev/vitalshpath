@@ -1,94 +1,96 @@
 ---
-import { Download, ChevronRight, Star, ShieldCheck } from "lucide-react";
+import { ChevronRight, Play } from "lucide-react";
 import { useTranslations } from "../../i18n/ui";
 
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-bg-light">
+<section class="relative pt-32 pb-20 lg:pt-48 overflow-hidden bg-zinc-950 min-h-screen flex flex-col items-center justify-center">
   
-  <div class="clinical-container relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      
-      <!-- Text Content: Trust & Clarity -->
-      <div class="max-w-2xl animate-fade-in-up">
-        
-        <!-- Trust Badge -->
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-sm font-medium mb-8">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Privacidad y Seguridad Clínica Garantizada</span>
-        </div>
+  <!-- Background Effects -->
+  <div class="absolute inset-0 w-full h-full bg-zinc-950">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-violet-600/20 rounded-full blur-[120px] opacity-30 mix-blend-screen pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-t from-zinc-950 to-transparent z-10"></div>
+  </div>
 
-        <h1 class="text-display mb-6 text-slate-900">
-            {t('hero.title.1')} <br/>
-            <span class="text-teal-700 italic">{t('hero.title.2')}</span>
-        </h1>
-        
-        <p class="text-subhead mb-10 text-slate-600 max-w-lg">
-          {t('hero.subtitle')}
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href="#" class="clinical-button clinical-button-primary group">
-                <Download className="w-5 h-5 mr-2 group-hover:-translate-y-1 transition-transform" />
-                Descargar App
-            </a>
-            <a href="#features" class="clinical-button clinical-button-outline group">
-                Cómo funciona
-                <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-            </a>
-        </div>
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm mb-8 animate-fade-in-up">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+        </span>
+        <span class="text-xs font-medium text-zinc-400 uppercase tracking-widest">Nueva Generación de Salud</span>
+    </div>
 
-        <!-- Social Proof: Subtle -->
-        <div class="flex items-center gap-4 text-sm text-slate-500">
-            <div class="flex -space-x-3">
-                {[1,2,3].map(i => (
-                    <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                         <img src={`https://randomuser.me/api/portraits/women/${i + 40}.jpg`} class="w-full h-full object-cover grayscale opacity-80" />
-                    </div>
-                ))}
+    <!-- Title -->
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-white max-w-4xl mx-auto leading-tight animate-fade-in-up" style="animation-delay: 0.1s">
+      Tu salud, <br />
+      <span class="text-gradient-accent">simplificada.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s">
+      Gestiona expedientes, medicamentos y citas de toda tu familia en un solo lugar. 
+      Privacidad absoluta, diseño exquisito.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-fade-in-up" style="animation-delay: 0.3s">
+        <a href="#" class="btn-modern-primary group">
+            Descargar ahora
+            <ChevronRight className="w-4 h-4 ml-1 opacity-50 group-hover:translate-x-1 transition-transform" />
+        </a>
+        <a href="#features" class="btn-modern-secondary">
+            Ver demo
+        </a>
+    </div>
+
+    <!-- Hero Visual: Floating App -->
+    <div class="relative w-full max-w-5xl mx-auto animate-slide-up" style="animation-delay: 0.5s">
+        
+        <!-- Glow behind phone -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] -z-10"></div>
+        
+        <!-- Main Phone Mockup -->
+        <div class="relative z-20 mx-auto w-[300px] md:w-[380px] hover:scale-[1.02] transition-transform duration-700 ease-out">
+            <div class="relative aspect-[9/19.5] bg-black rounded-[60px] border-[6px] border-zinc-800 shadow-2xl shadow-violet-500/20 overflow-hidden">
+                <img src={`${import.meta.env.BASE_URL}/assets/images/screens/hero-clinical-v1.jpg`} class="w-full h-full object-cover" alt="App Interface" />
+                
+                <!-- Reflection/Glare -->
+                <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
             </div>
-            <div class="flex flex-col">
-                <div class="flex text-yellow-500">
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
+        </div>
+
+        <!-- Floating Context Cards (Left) -->
+        <div class="absolute top-1/3 left-0 md:-left-12 lg:left-0 hidden md:block animate-float">
+            <div class="bg-zinc-900/80 backdrop-blur-md border border-zinc-800 p-4 rounded-xl shadow-xl flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
                 </div>
-                <span>+1000 familias confían en nosotros</span>
+                <div>
+                    <div class="text-xs text-zinc-500 uppercase font-bold">Seguridad</div>
+                    <div class="text-sm text-white font-medium">Encriptado AES-256</div>
+                </div>
             </div>
         </div>
 
-      </div>
-
-      <!-- App Visual: Clean Split -->
-      <div class="relative lg:ml-auto animate-slide-up" style="animation-delay: 0.2s">
-          <!-- Main Phone -->
-          <div class="relative z-20 w-[300px] md:w-[350px] mx-auto">
-             <div class="relative aspect-[9/19.5] bg-slate-900 rounded-[55px] border-[8px] border-slate-900 shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                <img src={`${import.meta.env.BASE_URL}/assets/images/screens/hero-clinical-v1.jpg`} class="w-full h-full object-cover" alt="VitalsPath Dashboard" />
-             </div>
-          </div>
-          
-          <!-- Contextual Elements: Floating Cards (No blur, just clean shadow) -->
-          <div class="absolute top-[20%] -left-12 z-20 hidden md:block">
-              <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4 flex items-center gap-3 animate-pulse-subtle">
-                  <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Adherencia</div>
-                      <div class="text-lg font-bold text-slate-800">100%</div>
-                  </div>
-              </div>
-          </div>
-
-          <!-- Abstract Background Pattern -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-teal-50 to-blue-50 rounded-full blur-3xl -z-10 opacity-60"></div>
-      </div>
+        <!-- Floating Context Cards (Right) -->
+        <div class="absolute bottom-1/3 right-0 md:-right-12 lg:right-0 hidden md:block animate-float-delayed">
+             <div class="bg-zinc-900/80 backdrop-blur-md border border-zinc-800 p-4 rounded-xl shadow-xl flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2Z"/><path d="M9.5 7.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5Z"/><path d="M14 7.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5Z"/><path d="M10.5 16.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5Z"/></svg>
+                </div>
+                <div>
+                    <div class="text-xs text-zinc-500 uppercase font-bold">Familia</div>
+                    <div class="text-sm text-white font-medium">Perfiles Ilimitados</div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
   </div>
 </section>
