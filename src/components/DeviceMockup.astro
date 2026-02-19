@@ -8,42 +8,62 @@ const { color = "black", model = "iphone17" } = Astro.props;
 
 const isIP17 = model === "iphone17";
 
-// Bezel and rounded corner adjustments
+// More realistic bezel and rounded corner adjustments for iPhone 15/17 type
 const frameClass = isIP17
-    ? "border-[6px] rounded-[3rem] h-[640px] w-[320px]"
-    : "border-[10px] rounded-[2.8rem] h-[600px] w-[300px]";
+    ? "border-[4px] rounded-[3.2rem] h-[640px] w-[310px] ring-1 ring-gray-900/5 dark:ring-white/10"
+    : "border-[6px] rounded-[3.5rem] h-[640px] w-[310px] ring-1 ring-gray-900/10 dark:ring-white/10";
 
 const containerClass = isIP17
-    ? "w-[308px] h-[628px] rounded-[2.6rem]"
-    : "w-[280px] h-[580px] rounded-[2.3rem]";
+    ? "w-full h-full rounded-[3rem]"
+    : "w-full h-full rounded-[3.3rem]";
 
 const islandClass = isIP17
-    ? "w-[80px] h-[6px] top-4" // Thinner, more discreet island for IP17
-    : "w-[120px] h-[24px] top-3"; // Standard Dynamic Island for IP15
+    ? "w-[90px] h-[25px] top-3" // Modern dynamic island size
+    : "w-[120px] h-[30px] top-3"; // Standard Dynamic Island for IP15
 ---
 
 <div
-    class={`relative mx-auto border-gray-900 dark:border-gray-800 bg-gray-900 dark:bg-gray-800 shadow-2xl transition-all duration-500 ${frameClass}`}
+    class={`relative mx-auto border-gray-950 dark:border-black bg-gray-950 dark:bg-black shadow-2xl transition-all duration-500 overflow-hidden ${frameClass}`}
 >
     <!-- Dynamic Island -->
     <div
-        class={`absolute left-1/2 -translate-x-1/2 bg-black rounded-full z-20 ${islandClass}`}
+        class={`absolute left-1/2 -translate-x-1/2 bg-black rounded-full z-20 flex items-center justify-center gap-2 ${islandClass}`}
     >
+        <div
+            class="w-2.5 h-2.5 rounded-full bg-gray-800/80 ring-1 ring-white/5 opacity-80 backdrop-blur-md"
+        >
+        </div>
+        <div
+            class="w-3.5 h-3.5 rounded-full bg-slate-900/90 ring-2 ring-white/10 opacity-60 backdrop-blur-lg"
+        >
+        </div>
     </div>
 
     <!-- Buttons -->
+    <!-- Action Button (Left) -->
     <div
-        class="h-[40px] w-[3px] bg-gray-800 absolute -start-[9px] top-32 rounded-s-lg"
+        class="h-[25px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-28 rounded-s-md"
     >
     </div>
+    <!-- Volume Up (Left) -->
     <div
-        class="h-[60px] w-[3px] bg-gray-800 absolute -end-[9px] top-40 rounded-e-lg"
+        class="h-[45px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-40 rounded-s-md"
+    >
+    </div>
+    <!-- Volume Down (Left) -->
+    <div
+        class="h-[45px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-56 rounded-s-md"
+    >
+    </div>
+    <!-- Power Button (Right) -->
+    <div
+        class="h-[60px] w-[2px] bg-slate-600/50 absolute -end-[4px] top-44 rounded-e-md"
     >
     </div>
 
     <!-- Screen -->
     <div
-        class={`overflow-hidden bg-white dark:bg-gray-950 relative z-10 ${containerClass}`}
+        class={`overflow-hidden bg-white dark:bg-gray-950 relative z-10 w-full h-full mx-auto ${containerClass}`}
     >
         <slot />
     </div>

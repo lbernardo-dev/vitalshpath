@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 import screenMedications from "../../assets/images/screens/screen-04-medications.PNG";
 import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
 import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
+import screenCalendar from "../../assets/images/screens/Calendario.PNG";
 import DeviceMockup from "../DeviceMockup.astro";
 
 interface Props {
@@ -115,7 +116,7 @@ const t = useTranslations(lang);
                     </div>
                     <DeviceMockup model="iphone15">
                         <Image
-                            src={screenWellness}
+                            src={screenCalendar}
                             alt={t("gallery.labels.calendarWeek")}
                             class="w-full h-full object-cover"
                             width={300}
