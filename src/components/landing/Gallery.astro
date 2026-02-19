@@ -1,7 +1,18 @@
 ---
-import { Smartphone } from "lucide-react";
+import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
+
+// Import images directly
+import screenDashboard from "../../assets/images/screens/screen-01-dashboard.PNG";
+import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
+import screenMedications from "../../assets/images/screens/screen-04-medications.PNG";
+import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
+import screenConditions from "../../assets/images/screens/screen-15-conditions.PNG";
+import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
+import screenProfileDetail from "../../assets/images/screens/screen-03-profile-detail.PNG";
+import screenMedicationDetail from "../../assets/images/screens/screen-05-medication-detail.PNG";
+import screenDoseLog from "../../assets/images/screens/screen-06-dose-log.PNG";
 
 interface Props {
     lang: Lang;
@@ -10,339 +21,98 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const mainScreens = [
-    { src: "screen-01-dashboard.PNG", label: t("gallery.labels.dashboard") },
-    { src: "screen-02-profiles.PNG", label: t("gallery.labels.profiles") },
-    {
-        src: "screen-04-medications.PNG",
-        label: t("gallery.labels.medications"),
-    },
-    { src: "screen-13-symptoms.PNG", label: t("gallery.labels.symptoms") },
-    { src: "screen-15-conditions.PNG", label: t("gallery.labels.conditions") },
-    { src: "screen-18-wellness.PNG", label: t("gallery.labels.wellness") },
-];
-
-const detailScreens = [
-    {
-        src: "screen-03-profile-detail.PNG",
-        label: t("gallery.labels.profileDetail"),
-    },
-    {
-        src: "screen-05-medication-detail.PNG",
-        label: t("gallery.labels.medicationDetail"),
-    },
-    { src: "screen-06-dose-log.PNG", label: t("gallery.labels.doseLog") },
-    {
-        src: "screen-14-symptom-graph.PNG",
-        label: t("gallery.labels.symptomGraph"),
-    },
-    {
-        src: "screen-16-condition-detail.PNG",
-        label: t("gallery.labels.conditionDetail"),
-    },
-    { src: "screen-17-tasks.PNG", label: t("gallery.labels.tasks") },
-    {
-        src: "screen-28-notifications.PNG",
-        label: t("gallery.labels.notifications"),
-    },
-    { src: "screen-30-emergency.PNG", label: t("gallery.labels.emergency") },
-];
-
-const modeScreens = [
-    {
-        src: "screen-22-dashboard-light.PNG",
-        label: t("gallery.labels.lightMode"),
-        border: "gray-800",
-        bg: "white",
-    },
-    {
-        src: "screen-23-dashboard-dark.PNG",
-        label: t("gallery.labels.darkMode"),
-        border: "gray-600",
-        bg: "gray-900",
-    },
-];
-
-const widgetScreens = [
-    { src: "screen-20-widgets-home.PNG", label: t("gallery.labels.widgets") },
-    {
-        src: "screen-21-widgets-gallery.PNG",
-        label: t("gallery.labels.widgetsGallery"),
-    },
-    {
-        src: "screen-27-live-activity.PNG",
-        label: t("gallery.labels.liveActivity"),
-    },
-];
-
-const langScreens = [
-    { src: "screen-24-spanish.PNG", label: t("gallery.labels.spanish") },
-    { src: "screen-25-english.PNG", label: t("gallery.labels.english") },
-    { src: "screen-29-settings.PNG", label: t("gallery.labels.moreLanguages") },
-];
-
-const tabs = [
-    { id: "main", label: t("gallery.sections.main"), screens: mainScreens },
-    {
-        id: "detail",
-        label: t("gallery.sections.detail"),
-        screens: detailScreens,
-    },
-    { id: "modes", label: t("gallery.sections.modes"), screens: modeScreens },
-    {
-        id: "widgets",
-        label: t("gallery.sections.widgets"),
-        screens: widgetScreens,
-    },
-    {
-        id: "languages",
-        label: t("gallery.sections.languages"),
-        screens: langScreens,
-    },
+const galleryImages = [
+    { src: screenDashboard, alt: t("gallery.labels.dashboard") },
+    { src: screenProfiles, alt: t("gallery.labels.profiles") },
+    { src: screenMedications, alt: t("gallery.labels.medications") },
+    { src: screenSymptoms, alt: t("gallery.labels.symptoms") },
+    { src: screenConditions, alt: t("gallery.labels.conditions") },
+    { src: screenWellness, alt: t("gallery.labels.wellness") },
+    { src: screenProfileDetail, alt: t("gallery.labels.profileDetail") },
+    { src: screenMedicationDetail, alt: t("gallery.labels.medicationDetail") },
+    { src: screenDoseLog, alt: t("gallery.labels.doseLog") },
 ];
 ---
 
-<section
-    id="gallery"
-    class="py-12 md:py-24 relative bg-white dark:bg-black transition-colors duration-300"
->
-    <div class="container mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+<section id="gallery" class="py-24 bg-white dark:bg-black overflow-hidden">
+    <div class="container mx-auto px-6 mb-16 text-center">
+        <span
+            class="inline-block px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-cyan-500"
+        >
+            {t("gallery.badge")}
+        </span>
+        <h2
+            class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+        >
+            {t("gallery.title")}<br />
             <span
-                class="inline-block px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-cyan-500"
+                class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
             >
-                {t("gallery.badge")}
+                {t("gallery.titleHighlight")}
             </span>
-            <h2
-                class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-            >
-                {t("gallery.title")}<br />
-                <span
-                    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                    >{t("gallery.titleHighlight")}</span
-                >
-            </h2>
+        </h2>
+    </div>
+
+    {/* Marquee Container */}
+    <div class="relative w-full overflow-hidden">
+        {/* Gradient Masks */}
+        <div
+            class="absolute left-0 top-0 bottom-0 w-24 md:w-48 z-10 bg-gradient-to-r from-white dark:from-black to-transparent pointer-events-none"
+        >
+        </div>
+        <div
+            class="absolute right-0 top-0 bottom-0 w-24 md:w-48 z-10 bg-gradient-to-l from-white dark:from-black to-transparent pointer-events-none"
+        >
         </div>
 
-        <!-- Tabs Navigation -->
-        <div class="flex flex-wrap justify-center gap-2 mb-12">
+        <div class="flex animate-marquee gap-8">
+            {/* First Set */}
             {
-                tabs.map((tab, index) => (
-                    <button
-                        data-tab={tab.id}
-                        class={`
-                            px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                            ${
-                                index === 0
-                                    ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg scale-105"
-                                    : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 hover:scale-105"
-                            }
-                        `}
-                    >
-                        {tab.label}
-                    </button>
+                galleryImages.map((image) => (
+                    <div class="relative flex-none w-[200px] md:w-[240px] aspect-[9/19.5] rounded-[32px] overflow-hidden border-[6px] border-gray-100 dark:border-gray-800 shadow-2xl bg-gray-900">
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={480}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
                 ))
             }
-        </div>
-
-        <!-- Tab Contents -->
-        <div class="min-h-[600px]">
+            {/* Duplicate Set for Loop */}
             {
-                tabs.map((tab, index) => (
-                    <div
-                        id={`tab-content-${tab.id}`}
-                        class={`tab-content transition-all duration-500 ${
-                            index === 0
-                                ? "opacity-100 translate-y-0"
-                                : "opacity-0 translate-y-4 hidden"
-                        }`}
-                    >
-                        <div class="flex flex-wrap justify-center gap-6">
-                            {tab.screens.map((screen) => (
-                                <div class="group">
-                                    <div
-                                        class={`
-                                            relative w-[160px] sm:w-[180px] aspect-[9/19] rounded-[24px] 
-                                            border-[6px] shadow-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300
-                                            ${
-                                                (screen as any).border
-                                                    ? `border-${
-                                                          (screen as any).border
-                                                      }`
-                                                    : "border-gray-800 dark:border-gray-700"
-                                            }
-                                            ${
-                                                (screen as any).bg
-                                                    ? `bg-${(screen as any).bg}`
-                                                    : "bg-gray-900"
-                                            }
-                                        `}
-                                    >
-                                        <img
-                                            src={`${
-                                                import.meta.env.BASE_URL
-                                            }/assets/images/screens/${
-                                                screen.src
-                                            }`}
-                                            alt={screen.label}
-                                            class="w-full h-full object-cover"
-                                            loading="lazy"
-                                        />
-                                        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-4 bg-black rounded-full z-10" />
-                                    </div>
-                                    <p class="text-center text-sm font-medium text-gray-600 dark:text-gray-400 mt-4 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                                        {screen.label}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                galleryImages.map((image) => (
+                    <div class="relative flex-none w-[200px] md:w-[240px] aspect-[9/19.5] rounded-[32px] overflow-hidden border-[6px] border-gray-100 dark:border-gray-800 shadow-2xl bg-gray-900">
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={480}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
                     </div>
                 ))
             }
         </div>
-
-        <div class="text-center mt-16">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400"
-            >
-                <Smartphone className="w-4 h-4" />
-                <span>{t("gallery.note")}</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div
-        id="lightbox"
-        class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0"
-    >
-        <button
-            id="lightbox-close"
-            class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-        >
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><line x1="18" y1="6" x2="6" y2="18"></line><line
-                    x1="6"
-                    y1="6"
-                    x2="18"
-                    y2="18"></line>
-            </svg>
-        </button>
-        <div
-            class="relative max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl w-full"
-        >
-            <img
-                id="lightbox-image"
-                src=""
-                alt="Zoomed view"
-                class="w-full h-auto rounded-[32px] shadow-2xl transform transition-transform duration-300 scale-95 ring-8 ring-white/10"
-            />
-        </div>
     </div>
 </section>
 
-<script>
-    // Tab Logic
-    const tabButtons = document.querySelectorAll("[data-tab]");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    tabButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const targetId = button.getAttribute("data-tab");
-
-            // Update Buttons
-            tabButtons.forEach((btn) => {
-                if (btn === button) {
-                    btn.className =
-                        "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg scale-105";
-                } else {
-                    btn.className =
-                        "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 hover:scale-105";
-                }
-            });
-
-            // Update Content
-            tabContents.forEach((content) => {
-                if (content.id === `tab-content-${targetId}`) {
-                    content.classList.remove("hidden");
-                    // Small delay for fade-in
-                    requestAnimationFrame(() => {
-                        content.classList.remove("opacity-0", "translate-y-4");
-                        content.classList.add("opacity-100", "translate-y-0");
-                    });
-                } else {
-                    content.classList.add("opacity-0", "translate-y-4");
-                    content.classList.remove("opacity-100", "translate-y-0");
-                    setTimeout(() => {
-                        if (content.id !== `tab-content-${targetId}`) {
-                            content.classList.add("hidden");
-                        }
-                    }, 300);
-                }
-            });
-        });
-    });
-
-    // Lightbox Logic
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById(
-        "lightbox-image"
-    ) as HTMLImageElement;
-    const closeBtn = document.getElementById("lightbox-close");
-
-    // Add event listeners to all existing and future images in the gallery
-    document.querySelectorAll("#gallery img").forEach((img) => {
-        img.classList.add("cursor-pointer");
-        img.addEventListener("click", (e) => {
-            const target = e.target as HTMLImageElement;
-            openLightbox(target.src);
-        });
-    });
-
-    function openLightbox(src: string) {
-        if (!lightbox || !lightboxImage) return;
-
-        lightboxImage.src = src;
-        lightbox.classList.remove("hidden");
-        setTimeout(() => {
-            lightbox.classList.remove("opacity-0");
-            lightboxImage.classList.remove("scale-95");
-            lightboxImage.classList.add("scale-100");
-        }, 10);
-        document.body.style.overflow = "hidden";
-    }
-
-    function closeLightbox() {
-        if (!lightbox || !lightboxImage) return;
-
-        lightbox.classList.add("opacity-0");
-        lightboxImage.classList.remove("scale-100");
-        lightboxImage.classList.add("scale-95");
-
-        setTimeout(() => {
-            lightbox.classList.add("hidden");
-            lightboxImage.src = "";
-        }, 300);
-        document.body.style.overflow = "";
-    }
-
-    closeBtn?.addEventListener("click", closeLightbox);
-    lightbox?.addEventListener("click", (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !lightbox?.classList.contains("hidden")) {
-            closeLightbox();
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
         }
-    });
-</script>
+        100% {
+            transform: translateX(calc(-100% / 2 - 2rem));
+        }
+        /* Adjust calculation based on content width */
+    }
+    .animate-marquee {
+        animation: marquee 40s linear infinite;
+        width: fit-content;
+    }
+    .animate-marquee:hover {
+        animation-play-state: paused;
+    }
+</style>

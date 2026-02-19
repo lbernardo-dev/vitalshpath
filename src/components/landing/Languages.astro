@@ -1,5 +1,5 @@
 ---
-import { languages, supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
 
 interface Props {
@@ -8,34 +8,55 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const allLanguages = [
+    { name: "English", flag: "🇺🇸" },
+    { name: "Español", flag: "🇪🇸" },
+    { name: "Français", flag: "🇫🇷" },
+    { name: "Deutsch", flag: "🇩🇪" },
+    { name: "Italiano", flag: "🇮🇹" },
+    { name: "Português", flag: "🇵🇹" },
+    { name: "日本語", flag: "🇯🇵" },
+    { name: "中文", flag: "🇨🇳" },
+    { name: "한국어", flag: "🇰🇷" },
+    { name: "Русский", flag: "🇷🇺" },
+    { name: "العربية", flag: "🇸🇦" },
+    { name: "हिन्दी", flag: "🇮🇳" },
+    { name: "Türkçe", flag: "🇹🇷" },
+    { name: "Nederlands", flag: "🇳🇱" },
+    { name: "Polski", flag: "🇵🇱" },
+];
 ---
 
-<section id="languages" class="py-12 md:py-24 relative bg-gray-50 dark:bg-gray-900/50">
+<section id="languages" class="py-24 bg-gray-50 dark:bg-gray-900/50">
     <div class="container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2
-                class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+                class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
             >
-                {t("languages.title")}<br />
-                <span
-                    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                    >{t("languages.subtitle")}</span
-                >
+                {t("languages.title")}
             </h2>
+            <h3
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6"
+            >
+                {t("languages.subtitle")}
+            </h3>
             <p class="text-lg text-gray-600 dark:text-gray-400">
                 {t("languages.description")}
             </p>
         </div>
 
         <div
-            class="grid grid-cols-2 small:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
         >
             {
-                supportedLangs.map((l) => (
-                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm flex flex-col items-center justify-center hover:shadow-md transition-shadow">
-                        <span class="text-4xl mb-4">{languages[l].flag}</span>
-                        <span class="font-semibold text-gray-900 dark:text-white">
-                            {languages[l].name}
+                allLanguages.map((l) => (
+                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col items-center justify-center group cursor-default">
+                        <span class="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                            {l.flag}
+                        </span>
+                        <span class="font-semibold text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                            {l.name}
                         </span>
                     </div>
                 ))
