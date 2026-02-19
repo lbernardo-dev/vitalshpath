@@ -31,10 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build with Astro
-        run: |
-          npm run build -- \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+        run: npm run build
       - name: List dist content (Debug)
         run: ls -R dist
 
