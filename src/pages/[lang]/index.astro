@@ -21,6 +21,8 @@ import {
 	type Lang,
 } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
+import { Image } from "astro:assets";
+import appIcon from "../../assets/images/Icon.png";
 
 export function getStaticPaths() {
 	return supportedLangs.map((lang) => ({
@@ -56,12 +58,11 @@ const t = useTranslations(currentLang);
 						href={`${import.meta.env.BASE_URL}/${currentLang}/`}
 						class="flex items-center gap-2 flex-shrink-0"
 					>
-						<img
-							src={`${
-								import.meta.env.BASE_URL
-							}/assets/images/Icon.png`}
+						<Image
+							src={appIcon}
 							alt="VitalsPath"
 							class="w-8 h-8 rounded-xl"
+							width={32}
 						/>
 						<span
 							class="text-lg font-bold text-gray-900 dark:text-white hidden sm:block"

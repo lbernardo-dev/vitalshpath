@@ -2,6 +2,10 @@
 import { Syringe, CalendarDays, Stethoscope } from "lucide-react";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
+import { Image } from "astro:assets";
+import screenMedications from "../../assets/images/screens/screen-04-medications.PNG";
+import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
+import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
 
 interface Props {
     lang: Lang;
@@ -88,12 +92,11 @@ const t = useTranslations(lang);
                     <div
                         class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-900"
                     >
-                        <img
-                            src={`${
-                                import.meta.env.BASE_URL
-                            }/assets/images/screens/screen-04-medications.PNG`}
+                        <Image
+                            src={screenMedications}
                             alt={t("gallery.labels.medications")}
                             class="w-full h-full object-cover"
+                            width={400}
                         />
                     </div>
                 </div>
@@ -110,12 +113,11 @@ const t = useTranslations(lang);
                     <div
                         class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-900"
                     >
-                        <img
-                            src={`${
-                                import.meta.env.BASE_URL
-                            }/assets/images/screens/screen-18-wellness.PNG`}
+                        <Image
+                            src={screenWellness}
                             alt={t("gallery.labels.calendarWeek")}
                             class="w-full h-full object-cover"
+                            width={400}
                         />
                     </div>
                 </div>
@@ -220,16 +222,15 @@ const t = useTranslations(lang);
                     <div
                         class="aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-900"
                     >
-                        <img
-                            src={`${
-                                import.meta.env.BASE_URL
-                            }/assets/images/screens/screen-13-symptoms.PNG`}
+                        <Image
+                            src={screenSymptoms}
                             alt={t("gallery.labels.symptoms")}
                             class="w-full h-full object-cover"
+                            width={400}
                         />
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section>section>

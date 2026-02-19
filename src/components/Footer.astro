@@ -1,7 +1,9 @@
 ---
 import { Heart, Mail, Twitter } from "lucide-react";
+import { Image } from "astro:assets";
 import { type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
+import appIcon from "../assets/images/Icon.png";
 
 interface Props {
     lang: Lang;
@@ -17,10 +19,12 @@ const t = useTranslations(lang);
             class="flex flex-col md:flex-row justify-between items-center gap-6"
         >
             <div class="flex items-center gap-2">
-                <img
-                    src={`${import.meta.env.BASE_URL}/assets/images/Icon.png`}
+                <Image
+                    src={appIcon}
                     alt="VitalsPath Logo"
                     class="w-8 h-8 rounded-lg"
+                    width={32}
+                    height={32}
                 />
                 <span class="text-base font-bold text-gray-900 dark:text-white"
                     >VitalsPath</span
@@ -77,18 +81,7 @@ const t = useTranslations(lang);
             class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-500"
         >
             <div class="flex items-center gap-6">
-                <div class="flex items-center gap-2">
-                    <span
-                        class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
-                    ></span>
-                    <span id="stats-users">Loading...</span>
-                </div>
-                <div class="hidden sm:flex items-center gap-2">
-                    <span id="stats-regions">Loading...</span>
-                </div>
-                <div class="hidden sm:flex items-center gap-2">
-                    <span id="stats-plans">Loading...</span>
-                </div>
+                {/* Stats removed as requested */}
             </div>
 
             <p>
@@ -100,55 +93,3 @@ const t = useTranslations(lang);
         </div>
     </div>
 </footer>
-
-<script>
-    function updateStats() {
-        // Simple persistence simulation
-        const STORAGE_KEY = "vitalspath_stats";
-        let stats = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-
-        if (!stats) {
-            stats = {
-                users: 14250,
-                plans: 5800,
-                lastUpdate: Date.now(),
-            };
-        } else {
-            // Increment slightly on each visit if enough time passed
-            const now = Date.now();
-            if (now - stats.lastUpdate > 60000) {
-                // 1 minute
-                stats.users += Math.floor(Math.random() * 3) + 1;
-                stats.plans += Math.floor(Math.random() * 2);
-                stats.lastUpdate = now;
-            }
-        }
-
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
-
-        // Format numbers
-        const fmt = new Intl.NumberFormat();
-
-        const usersEl = document.getElementById("stats-users");
-        const plansEl = document.getElementById("stats-plans");
-        const regionsEl = document.getElementById("stats-regions");
-
-        if (usersEl)
-            usersEl.textContent = `${fmt.format(stats.users)} Active Users`;
-        if (plansEl)
-            plansEl.textContent = `${fmt.format(stats.plans)} Plans Created`;
-
-        // Detect region
-        try {
-            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            const region = timeZone.split("/")[0] || "Global";
-            if (regionsEl) regionsEl.textContent = `${region} Region`;
-        } catch (e) {
-            if (regionsEl) regionsEl.textContent = "Global Region";
-        }
-    }
-
-    // Run on load
-    document.addEventListener("DOMContentLoaded", updateStats);
-    // document.addEventListener('astro:page-load', updateStats); // If using view transitions
-</script>

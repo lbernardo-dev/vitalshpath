@@ -597,6 +597,11 @@
       }
     }
   },
+  "languages": {
+    "title": "We speak your language",
+    "subtitle": "Global from day one",
+    "description": "VitalsPath is natively translated into 15 languages so your entire family feels at home."
+  },
   "footerStats": {
     "activeUsers": "Active Users",
     "regions": "Regions",
