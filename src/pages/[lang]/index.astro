@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageSelector from '../../components/LanguageSelector.astro';
+import Hero from '../../components/landing/Hero.astro';
+import Problems from '../../components/landing/Problems.astro';
+import Features from '../../components/landing/Features.astro';
+import DeepFeatures from '../../components/landing/DeepFeatures.astro';
+import Benefits from '../../components/landing/Benefits.astro';
+import Gallery from '../../components/landing/Gallery.astro';
+import WaitlistForm from '../../components/landing/WaitlistForm.astro';
+import Footer from '../../components/Footer.astro';
+import { supportedLangs, isValidLang, defaultLang, type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+export function getStaticPaths() {
+    return supportedLangs.map((lang) => ({
+        params: { lang },
+    }));
+}
+
+const { lang } = Astro.params;
+
+const currentLang = lang as Lang;
+const t = useTranslations(currentLang);
+---
+
+<Layout lang={currentLang}>
+	<main class="relative overflow-hidden min-h-screen">
+		<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+			<div class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"></div>
+			<div class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"></div>
+		</div>
+
+		<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+			<div class="container mx-auto px-6 py-4">
+				<div class="flex items-center justify-between">
+					<a href={`/${currentLang}/`} class="flex items-center gap-2">
+						<img src="/assets/images/Icon.png" alt="VitalsPath" class="w-8 h-8 rounded-xl" />
+						<span class="text-lg font-bold text-gray-900 dark:text-white">VitalsPath</span>
+					</a>
+					
+					<div class="hidden md:flex items-center gap-8">
+						<a href="#features" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">{t('nav.features')}</a>
+						<a href="#benefits" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">{t('nav.benefits')}</a>
+						<a href="#gallery" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">{t('nav.gallery')}</a>
+					</div>
+					
+					<div class="flex items-center gap-3">
+						<LanguageSelector lang={currentLang} />
+						<ThemeToggle />
+						<a href="#waitlist" class="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-xl hover:opacity-90 transition-all">
+							{t('nav.waitlist')}
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<Hero lang={currentLang} />
+		<Problems lang={currentLang} />
+		<Features lang={currentLang} />
+		<DeepFeatures lang={currentLang} />
+		<Benefits lang={currentLang} />
+		<Gallery lang={currentLang} />
+		<WaitlistForm lang={currentLang} />
+		<Footer lang={currentLang} />
+	</main>
+</Layout>

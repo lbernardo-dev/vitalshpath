@@ -1,0 +1,112 @@
+---
+import { Mail, Bell, CheckCircle, Sparkles, Gift } from "lucide-react";
+import { type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="waitlist" class="py-24 relative">
+    <div class="container mx-auto px-6">
+        <div class="max-w-xl mx-auto">
+            
+            <div class="glass-panel p-8 md:p-10 rounded-3xl text-center">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6">
+                    <Sparkles className="w-4 h-4 text-purple-500" />
+                    <span class="text-sm font-medium text-gray-600 dark:text-gray-400">{t('waitlist.badge')}</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    {t('waitlist.title')}<br />
+                    <span class="text-gradient">{t('waitlist.titleHighlight')}</span>
+                </h2>
+                
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                    {t('waitlist.subtitle')}
+                </p>
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 mb-8">
+                    <Gift className="w-4 h-4 text-green-500" />
+                    <span class="text-sm text-green-700 dark:text-green-300 font-medium">{t('waitlist.discount')}</span>
+                </div>
+
+                <form 
+                    id="waitlist-form"
+                    class="flex flex-col sm:flex-row gap-3 mb-6"
+                    action="https://formsubmit.co/vitalspath@gmail.com" 
+                    method="POST"
+                >
+                    <input type="hidden" name="_subject" value="Nueva inscripción VitalsPath" />
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_next" value={`https://vitalspath.com/${lang}/?subscribed=true`} />
+                    
+                    <div class="relative flex-1">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                        <input 
+                            type="email" 
+                            name="email" 
+                            required
+                            placeholder={t('waitlist.form.placeholder')}
+                            class="w-full pl-12 pr-4 py-3 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                        />
+                    </div>
+                    <button 
+                        type="submit"
+                        class="px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+                    >
+                        <Bell className="w-4 h-4" />
+                        <span>{t('waitlist.form.button')}</span>
+                    </button>
+                </form>
+
+                <div id="success-message" class="hidden mb-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+                        <CheckCircle className="w-5 h-5 text-green-500" />
+                        <span class="text-green-700 dark:text-green-300 font-medium">{t('waitlist.success')}</span>
+                    </div>
+                </div>
+
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('waitlist.privacy')}</p>
+
+                <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">{t('waitlist.stats.label')}</p>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-2xl font-bold text-gray-900 dark:text-white">247</span>
+                        <span class="text-gray-600 dark:text-gray-400">{t('waitlist.stats.count')}</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-6 text-center space-y-1">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <strong class="text-gray-900 dark:text-white">{t('waitlist.plans.free.name')}</strong> {t('waitlist.plans.free.description')}
+                </p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    <strong class="text-gray-900 dark:text-white">{t('waitlist.plans.premium.name')}</strong> {t('waitlist.plans.premium.description')}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script define:vars={{}}>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('subscribed') === 'true') {
+        const successMessage = document.getElementById('success-message');
+        const form = document.getElementById('waitlist-form');
+        if (successMessage && form) {
+            successMessage.classList.remove('hidden');
+            form.classList.add('hidden');
+        }
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+</script>

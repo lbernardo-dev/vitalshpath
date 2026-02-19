@@ -1,97 +1,111 @@
 ---
-import { Users, Brain, Pill, Thermometer, Calendar, ShieldCheck } from "lucide-react";
+import { Users, Brain, Activity, Calendar, Shield, Syringe, ClipboardList, Bell, Heart } from "lucide-react";
+import { type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<section id="features" class="py-32 relative">
-  
-  <div class="container mx-auto px-6">
-    
-    <div class="mb-24 md:text-center max-w-3xl mx-auto">
-      <h2 class="text-4xl md:text-6xl font-semibold tracking-tight text-[#1d1d1f] mb-6">
-        Potente. Personal. <br />
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Profundamente humano.</span>
-      </h2>
-      <p class="text-xl text-[#86868b] leading-relaxed">
-        Cada píxel ha sido diseñado para reducir tu carga mental. 
-        VitalsPath no es solo una app, es tu asistente sanitario personal.
-      </p>
+<section id="features" class="py-24 relative bg-gray-50 dark:bg-gray-900/50">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-blue-500">
+                {t('features.badge')}
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                {t('features.title')}<br />
+                <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('features.titleHighlight')}</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm lg:col-span-1 lg:row-span-2">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg mb-6">
+                    <Users className="w-7 h-7" />
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">{t('features.items.profiles.title')}</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    {t('features.items.profiles.description')}
+                </p>
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center text-white text-xs font-bold">M</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold">P</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center text-white text-xs font-bold">H</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center text-white text-xs font-bold">A</div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Brain className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.scheduler.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.scheduler.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Shield className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.privacy.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.privacy.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Syringe className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.medication.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.medication.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Activity className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.wellness.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.wellness.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Calendar className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.calendar.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.calendar.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <ClipboardList className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.tasks.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.tasks.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Bell className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.notifications.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.notifications.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-4">
+                    <Heart className="w-6 h-6" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('features.items.widgets.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('features.items.widgets.description')}</p>
+            </div>
+
+        </div>
     </div>
-
-    <!-- Spatial Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
-      
-      <!-- Card 1: Family (Large) -->
-      <div class="glass-panel col-span-1 md:col-span-2 row-span-1 md:row-span-2 p-8 md:p-12 flex flex-col justify-between overflow-hidden relative group">
-          <div class="relative z-10">
-              <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30">
-                  <Users className="w-7 h-7" />
-              </div>
-              <h3 class="text-3xl font-semibold text-[#1d1d1f] mb-3">Núcleo Familiar</h3>
-              <p class="text-lg text-[#86868b] max-w-md">
-                  Crea perfiles ilimitados. Hijos, padres, abuelos. Cada uno con su propio historial, alergias y doctores. Todo sincronizado, todo privado.
-              </p>
-          </div>
-          
-          <!-- Visual: Profile Stack -->
-          <div class="absolute -right-12 bottom-12 flex flex-col gap-4 opacity-80 group-hover:opacity-100 group-hover:-translate-x-4 transition-all duration-700">
-               <div class="glass-panel p-4 flex items-center gap-4 w-64 transform rotate-[-2deg]">
-                   <div class="w-10 h-10 rounded-full bg-gray-200"></div>
-                   <div><div class="h-2 w-20 bg-gray-200 rounded"></div><div class="h-2 w-12 bg-gray-100 rounded mt-2"></div></div>
-               </div>
-               <div class="glass-panel p-4 flex items-center gap-4 w-64 transform rotate-[2deg] translate-x-8">
-                   <div class="w-10 h-10 rounded-full bg-blue-100"></div>
-                   <div><div class="h-2 w-20 bg-gray-300 rounded"></div><div class="h-2 w-12 bg-gray-200 rounded mt-2"></div></div>
-               </div>
-          </div>
-      </div>
-
-      <!-- Card 2: AI Scheduler -->
-      <div class="glass-panel col-span-1 md:col-span-1 row-span-1 p-8 flex flex-col relative overflow-hidden group">
-          <div class="w-12 h-12 bg-purple-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/30 relative z-10">
-              <Brain className="w-6 h-6" />
-          </div>
-          <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2 relative z-10">Smart AI</h3>
-          <p class="text-[#86868b] relative z-10">Detecta conflictos entre medicamentos automáticamente.</p>
-          
-          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-400/20 rounded-full blur-3xl -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-700"></div>
-      </div>
-
-      <!-- Card 3: Privacy (Shield) -->
-      <div class="glass-panel col-span-1 md:col-span-1 row-span-1 p-8 flex flex-col relative overflow-hidden group">
-           <div class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-green-500/30 relative z-10">
-              <ShieldCheck className="w-6 h-6" />
-          </div>
-          <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2 relative z-10">SwiftData Safe</h3>
-          <p class="text-[#86868b] relative z-10">Tus datos nunca salen de tu dispositivo. Encriptación local.</p>
-           <div class="absolute bottom-0 right-0 w-32 h-32 bg-green-400/20 rounded-full blur-3xl -mr-10 -mb-10 group-hover:scale-150 transition-transform duration-700"></div>
-      </div>
-
-       <!-- Card 4: Timeline (Tall) -->
-      <div class="glass-panel col-span-1 md:col-span-1 row-span-2 p-8 relative overflow-hidden group">
-           <div class="relative z-10 h-full flex flex-col">
-               <div class="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-orange-500/30">
-                  <Calendar className="w-6 h-6" />
-              </div>
-              <h3 class="text-2xl font-semibold text-[#1d1d1f] mb-2">Línea de Vida</h3>
-              <p class="text-[#86868b] mb-8">Un feed infinito con todos los eventos de salud de tu familia.</p>
-              
-              <!-- Abstract Timeline Visual -->
-              <div class="flex-1 border-l-2 border-gray-100 pl-6 space-y-6">
-                  <div class="relative">
-                      <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 border-4 border-white shadow-sm"></div>
-                      <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
-                      <div class="h-16 w-full bg-white rounded-xl shadow-sm border border-gray-100"></div>
-                  </div>
-                  <div class="relative opacity-50">
-                      <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-gray-300 border-4 border-white shadow-sm"></div>
-                      <div class="h-2 w-24 bg-gray-200 rounded mb-2"></div>
-                      <div class="h-16 w-full bg-white rounded-xl shadow-sm border border-gray-100"></div>
-                  </div>
-              </div>
-           </div>
-      </div>
-
-    </div>
-
-  </div>
 </section>

@@ -1,34 +1,50 @@
 ---
-import { Github, Twitter, Linkedin } from "lucide-react";
+import { Heart, Mail, Twitter } from "lucide-react";
+import { type Lang } from '../i18n/ui-locales';
+import { useTranslations } from '../i18n';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
-<footer class="py-20 border-t border-gray-200 bg-white/50 backdrop-blur-sm">
-  <div class="container mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-      
-      <!-- Brand -->
-      <div class="flex items-center gap-3">
-        <img src="/assets/images/Icon.png" alt="VitalsPath Logo" class="w-10 h-10 rounded-xl shadow-md" />
-        <span class="text-xl font-semibold tracking-tight text-[#1d1d1f]">VitalsPath</span>
-      </div>
+<footer class="py-10 border-t border-gray-200 dark:border-gray-800">
+    <div class="container mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            <div class="flex items-center gap-2">
+                <img src="/assets/images/Icon.png" alt="VitalsPath Logo" class="w-8 h-8 rounded-lg" />
+                <span class="text-base font-bold text-gray-900 dark:text-white">VitalsPath</span>
+            </div>
 
-      <!-- Links -->
-      <div class="flex gap-8 text-sm font-medium text-[#86868b]">
-        <a href="#features" class="hover:text-[#1d1d1f] transition-colors">Características</a>
-        <a href="#privacy" class="hover:text-[#1d1d1f] transition-colors">Privacidad</a>
-        <a href="#" class="hover:text-[#1d1d1f] transition-colors">Soporte</a>
-      </div>
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+                <a href={`/${lang}/feedback`} class="hover:text-gray-900 dark:hover:text-white transition-colors">{t('footer.feedback')}</a>
+                <a href={`/${lang}/subscription`} class="hover:text-gray-900 dark:hover:text-white transition-colors">{t('footer.subscription')}</a>
+                <a href={`/${lang}/terms`} class="hover:text-gray-900 dark:hover:text-white transition-colors">{t('footer.terms')}</a>
+                <a href={`/${lang}/privacy`} class="hover:text-gray-900 dark:hover:text-white transition-colors">{t('footer.privacy')}</a>
+                <a href={`/${lang}/disclaimer`} class="hover:text-gray-900 dark:hover:text-white transition-colors">{t('footer.disclaimer')}</a>
+            </div>
 
-      <!-- Social -->
-      <div class="flex gap-4">
-         <a href="#" class="text-[#86868b] hover:text-[#007aff] transition-colors"><Twitter className="w-5 h-5"/></a>
-         <a href="#" class="text-[#86868b] hover:text-[#007aff] transition-colors"><Github className="w-5 h-5"/></a>
-      </div>
+            <div class="flex gap-3">
+                <a href="#" class="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-blue-500 transition-colors">
+                    <Twitter className="w-4 h-4" />
+                </a>
+                <a href="mailto:vitalspath@gmail.com" class="w-9 h-9 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-blue-500 transition-colors">
+                    <Mail className="w-4 h-4" />
+                </a>
+            </div>
+
+        </div>
+        
+        <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 text-center">
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+                &copy; {t('footer.copyright')} <Heart className="w-3 h-3 text-red-400 inline" /> para iOS 18+
+            </p>
+        </div>
 
     </div>
-    
-    <div class="mt-12 text-center text-xs text-[#86868b]">
-        <p>&copy; 2026 VitalsPath. Creado con ❤️ para iOS 18.</p>
-    </div>
-  </div>
 </footer>

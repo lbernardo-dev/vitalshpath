@@ -1,45 +1,147 @@
 ---
+import { Smartphone } from "lucide-react";
+import { type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const mainScreens = [
+    { src: 'screen-01-dashboard.PNG', label: t('gallery.labels.dashboard') },
+    { src: 'screen-02-profiles.PNG', label: t('gallery.labels.profiles') },
+    { src: 'screen-04-medications.PNG', label: t('gallery.labels.medications') },
+    { src: 'screen-13-symptoms.PNG', label: t('gallery.labels.symptoms') },
+    { src: 'screen-15-conditions.PNG', label: t('gallery.labels.conditions') },
+    { src: 'screen-18-wellness.PNG', label: t('gallery.labels.wellness') },
+];
+
+const detailScreens = [
+    { src: 'screen-03-profile-detail.PNG', label: t('gallery.labels.profileDetail') },
+    { src: 'screen-05-medication-detail.PNG', label: t('gallery.labels.medicationDetail') },
+    { src: 'screen-06-dose-log.PNG', label: t('gallery.labels.doseLog') },
+    { src: 'screen-14-symptom-graph.PNG', label: t('gallery.labels.symptomGraph') },
+    { src: 'screen-16-condition-detail.PNG', label: t('gallery.labels.conditionDetail') },
+    { src: 'screen-17-tasks.PNG', label: t('gallery.labels.tasks') },
+    { src: 'screen-28-notifications.PNG', label: t('gallery.labels.notifications') },
+    { src: 'screen-30-emergency.PNG', label: t('gallery.labels.emergency') },
+];
+
+const modeScreens = [
+    { src: 'screen-22-dashboard-light.PNG', label: t('gallery.labels.lightMode'), border: 'gray-800', bg: 'white' },
+    { src: 'screen-23-dashboard-dark.PNG', label: t('gallery.labels.darkMode'), border: 'gray-600', bg: 'gray-900' },
+];
+
+const widgetScreens = [
+    { src: 'screen-20-widgets-home.PNG', label: t('gallery.labels.widgets') },
+    { src: 'screen-21-widgets-gallery.PNG', label: t('gallery.labels.widgetsGallery') },
+    { src: 'screen-27-live-activity.PNG', label: t('gallery.labels.liveActivity') },
+];
+
+const langScreens = [
+    { src: 'screen-24-spanish.PNG', label: t('gallery.labels.spanish') },
+    { src: 'screen-25-english.PNG', label: t('gallery.labels.english') },
+    { src: 'screen-29-settings.PNG', label: t('gallery.labels.moreLanguages') },
+];
 ---
 
-<section id="gallery" class="py-32 relative overflow-hidden">
-    
-    <div class="container mx-auto px-6 text-center mb-20">
-        <h2 class="text-3xl font-semibold text-[#1d1d1f] mb-4">Interfaz Cristalina</h2>
-        <p class="text-xl text-[#86868b]">Diseñada para desaparecer y dejar que el contenido brille.</p>
-    </div>
-    
-    <!-- Marquee Container -->
-    <div class="relative flex overflow-x-hidden group">
-        <!-- Gradient Overlay Left (White fade) -->
-        <div class="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-[#f5f5f7] to-transparent z-10 pointer-events-none"></div>
+<section id="gallery" class="py-24 relative">
+    <div class="container mx-auto px-6">
         
-        <!-- Marquee Track -->
-        <div class="py-12 animate-marquee whitespace-nowrap flex gap-12">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-               <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
-                  <img 
-                    src={`/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
-                    class="w-full h-full object-cover" 
-                    alt={`App Screen ${i}`} 
-                    loading="lazy"
-                  />
-                  <!-- Glass Glare -->
-                  <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none"></div>
-               </div>
-            ))}
-             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                <div class="relative w-[300px] md:w-[340px] aspect-[9/19] rounded-[40px] border-[12px] border-white shadow-[0_20px_60px_-10px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 transform hover:scale-105 transition-transform duration-500">
-                  <img 
-                    src={`/assets/images/screens/screen-${i.toString().padStart(2, '0')}.jpg`} 
-                    class="w-full h-full object-cover" 
-                    alt={`App Screen ${i} Duplicate`} 
-                    loading="lazy"
-                  />
-               </div>
-            ))}
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-cyan-500">
+                {t('gallery.badge')}
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                {t('gallery.title')}<br />
+                <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('gallery.titleHighlight')}</span>
+            </h2>
         </div>
-        
-        <!-- Gradient Overlay Right (White fade) -->
-        <div class="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-[#f5f5f7] to-transparent z-10 pointer-events-none"></div>
+
+        <div class="mb-10">
+            <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide">{t('gallery.sections.main')}</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                {mainScreens.map((screen) => (
+                    <div class="group">
+                        <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
+                            <img src={`/assets/images/screens/${screen.src}`} alt={screen.label} class="w-full h-full object-cover" loading="lazy" />
+                            <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full"></div>
+                        </div>
+                        <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">{screen.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide">{t('gallery.sections.detail')}</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                {detailScreens.map((screen) => (
+                    <div class="group">
+                        <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
+                            <img src={`/assets/images/screens/${screen.src}`} alt={screen.label} class="w-full h-full object-cover" loading="lazy" />
+                            <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full"></div>
+                        </div>
+                        <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">{screen.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide">{t('gallery.sections.modes')}</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                {modeScreens.map((screen) => (
+                    <div class="group">
+                        <div class={`relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-${screen.border} shadow-lg overflow-hidden bg-${screen.bg} transform group-hover:scale-105 transition-transform duration-300`}>
+                            <img src={`/assets/images/screens/${screen.src}`} alt={screen.label} class="w-full h-full object-cover" loading="lazy" />
+                            <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full"></div>
+                        </div>
+                        <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">{screen.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide">{t('gallery.sections.widgets')}</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                {widgetScreens.map((screen) => (
+                    <div class="group">
+                        <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 dark:border-gray-600 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
+                            <img src={`/assets/images/screens/${screen.src}`} alt={screen.label} class="w-full h-full object-cover" loading="lazy" />
+                            <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full"></div>
+                        </div>
+                        <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">{screen.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide">{t('gallery.sections.languages')}</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                {langScreens.map((screen) => (
+                    <div class="group">
+                        <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 dark:border-gray-600 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
+                            <img src={`/assets/images/screens/${screen.src}`} alt={screen.label} class="w-full h-full object-cover" loading="lazy" />
+                            <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full"></div>
+                        </div>
+                        <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">{screen.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400">
+                <Smartphone className="w-4 h-4" />
+                <span>{t('gallery.note')}</span>
+            </div>
+        </div>
+
     </div>
 </section>

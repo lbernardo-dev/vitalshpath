@@ -1,16 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/landing/Hero.astro';
-import Features from '../components/landing/Features.astro';
-import Gallery from '../components/landing/Gallery.astro';
-import Footer from '../components/Footer.astro';
+import { supportedLangs, defaultLang } from '../i18n/ui-locales';
 ---
 
-<Layout title="VitalsPath - Salud Familiar Elevada">
-  <main class="relative overflow-hidden min-h-screen">
-    <Hero />
-    <Features />
-    <Gallery />
-    <Footer />
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VitalsPath - Family Health Hub</title>
+    <script is:inline>
+        (function() {
+            var supportedLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'zh', 'ko', 'ru', 'ar', 'hi', 'tr', 'nl', 'pl'];
+            var defaultLang = 'en';
+            
+            function getPreferredLanguage() {
+                var saved = localStorage.getItem('vitalspath-lang');
+                if (saved && supportedLangs.indexOf(saved) !== -1) {
+                    return saved;
+                }
+                
+                var navLang = navigator.language || navigator.userLanguage;
+                if (navLang) {
+                    var langCode = navLang.toLowerCase().split('-')[0];
+                    if (supportedLangs.indexOf(langCode) !== -1) {
+                        return langCode;
+                    }
+                }
+                
+                return defaultLang;
+            }
+            
+            var lang = getPreferredLanguage();
+            var newPath = '/' + lang + '/';
+            
+            if (window.location.pathname !== newPath) {
+                window.location.replace(newPath);
+            }
+        })();
+    </script>
+    <meta http-equiv="refresh" content="0;url=/en/" />
+</head>
+<body>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/en/" />
+    </noscript>
+</body>
+</html>

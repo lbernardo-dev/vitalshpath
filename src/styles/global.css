@@ -3,159 +3,78 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        /* VitalsPath SPATIAL (Vision Pro) Palette */
-        --color-spatial-bg: #f5f5f7;
-        --color-glass-surface: rgba(255, 255, 255, 0.65);
-        --color-glass-border: rgba(255, 255, 255, 0.4);
-        --color-glass-highlight: rgba(255, 255, 255, 0.8);
-
-        --color-spatial-text: #1d1d1f;
-        /* Apple Off-Black */
-        --color-spatial-subtext: #86868b;
-        /* Apple Grey */
-
-        --color-accent-blue: #007aff;
-        --color-accent-purple: #af52de;
-        --color-accent-teal: #5ac8fa;
-
-        /* Typography */
-        --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
-        --font-body: "SF Pro Text", -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
     html {
-        font-family: var(--font-body);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
         -webkit-font-smoothing: antialiased;
         scroll-behavior: smooth;
-        background-color: var(--color-spatial-bg);
     }
 
-    body {
-        background-color: var(--color-spatial-bg);
-        color: var(--color-spatial-text);
-        background-image:
-            radial-gradient(at 0% 0%, rgba(175, 82, 222, 0.15) 0px, transparent 50%),
-            radial-gradient(at 100% 0%, rgba(0, 122, 255, 0.15) 0px, transparent 50%),
-            radial-gradient(at 50% 100%, rgba(90, 200, 250, 0.1) 0px, transparent 50%);
-        background-attachment: fixed;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: var(--font-display);
+    ::selection {
+        background-color: rgba(0, 122, 255, 0.25);
     }
 }
 
 @layer components {
     .glass-panel {
-        @apply bg-white/60 backdrop-blur-2xl border border-white/40 rounded-3xl shadow-xl;
-        box-shadow:
-            0 4px 6px -1px rgba(0, 0, 0, 0.02),
-            0 2px 4px -1px rgba(0, 0, 0, 0.02),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-            0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 24px;
+        box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.08);
+    }
+    
+    .dark .glass-panel {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
     }
 
-    .glass-panel:hover {
-        @apply bg-white/70 shadow-2xl;
-        transform: scale(1.01);
-        transition: all 0.5s ease-out;
+    .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .dark .glass-nav {
+        background: rgba(0, 0, 0, 0.85);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
     }
 
-    .btn-spatial {
-        @apply inline-flex items-center px-8 py-4 rounded-full bg-black text-white font-medium text-lg shadow-xl outline-none;
-        transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-spatial:hover {
-        @apply shadow-2xl;
-        transform: translateY(-4px);
-    }
-
-    .btn-spatial:active {
-        transform: scale(0.95);
-    }
-
-    .text-hero {
-        @apply font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight text-black leading-tight;
-        font-family: var(--font-display);
-    }
-
-    .text-body-lg {
-        @apply text-xl md:text-2xl text-gray-500 font-medium leading-relaxed;
-        font-family: var(--font-body);
+    .text-gradient {
+        background: linear-gradient(135deg, #007aff, #af52de, #ff2d55);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 }
 
 @layer utilities {
-    .animate-float {
-        animation: float 8s ease-in-out infinite;
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(20px, -20px) scale(1.02); }
     }
 
-    .animate-breathe {
-        animation: breathe 6s ease-in-out infinite;
+    @keyframes reveal {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
-    .animate-reveal {
-        animation: reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
-
-    .animate-marquee {
-        animation: marquee 60s linear infinite;
-    }
+    .animate-float { animation: float 8s ease-in-out infinite; }
+    .animate-reveal { animation: reveal 0.6s ease forwards; opacity: 0; }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-20px) rotate(1deg);
-    }
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.98);
-    }
-
-    to {
+@media (prefers-reduced-motion: reduce) {
+    .animate-float, .animate-reveal {
+        animation: none;
         opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
+        transform: none;
     }
 }

@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "title": "VitalsPath - Uw Gezondheidscentrum voor het Gezin",
+    "description": "VitalsPath - Uw gezondheidscentrum voor het gezin. Beheer medicatie, afspraken, symptomen en welzijn voor uw hele gezin in één intelligente iOS-app."
+  },
+  "nav": {
+    "features": "Functies",
+    "benefits": "Voordelen",
+    "gallery": "Gallerij",
+    "waitlist": "Aanmelden"
+  },
+  "hero": {
+    "badge": "Gezondheidscentrum voor het Gezin · iOS 18+",
+    "title": "Alle gezondheid van uw gezin,",
+    "titleHighlight": "in één enkele app.",
+    "subtitle": "<strong>VitalsPath</strong> centraliseert medicatie, afspraken, symptomen, stemming, taken en welzijnsstatistieken.",
+    "cta": {
+      "primary": "Aanmelden voor Wachtlijst",
+      "secondary": "Ontdek VitalsPath"
+    },
+    "features": {
+      "profiles": "Meerdere gezinsprofielen",
+      "privacy": "100% op uw apparaat",
+      "languages": "15 talen"
+    }
+  },
+  "problems": {
+    "badge": "De Echte Uitdaging",
+    "title": "Het beheren van de gezondheid van het gezin",
+    "titleLine2": "is moeilijker dan het zou moeten zijn.",
+    "subtitle": "Meerdere apps, mislukte herinneringen, verspreide informatie.",
+    "items": {
+      "medication": {
+        "title": "\"Heb ik mijn medicatie ingenomen of niet?\"",
+        "description": "Gewone herinneringen zijn niet genoeg."
+      },
+      "profiles": {
+        "title": "Eén app voor elk gezinslid",
+        "description": "Er zou een centrale plek moeten zijn."
+      },
+      "appointments": {
+        "title": "Medische afspraken overal",
+        "description": "Wie gaat waar en wanneer?"
+      },
+      "symptoms": {
+        "title": "\"Welk symptoom had je?\"",
+        "description": "Je herinnert belangrijke details niet meer."
+      },
+      "interactions": {
+        "title": "Kan ik deze medicijnen samen innemen?",
+        "description": "Interacties zijn gevaarlijk."
+      },
+      "tasks": {
+        "title": "Vergeten vervolgtaken",
+        "description": "Onderzoeken aanvragen, recepten vernieuwen..."
+      }
+    },
+    "cta": "VitalsPath lost dit allemaal op..."
+  },
+  "features": {
+    "badge": "Eén Centrum, Alle Oplossingen",
+    "title": "Alles wat je nodig hebt.",
+    "titleHighlight": "Niets wat je niet gebruikt.",
+    "items": {
+      "profiles": {
+        "title": "Eén profiel voor elk gezinslid",
+        "description": "Volwassenen, kinderen, ouderen. Elk met hun eigen gegevens, geschiedenis, allergieën en contacten voor noodgevallen."
+      },
+      "scheduler": {
+        "title": "Slimme Planner",
+        "description": "Verdeelt doses zonder overlappingen."
+      },
+      "privacy": {
+        "title": "100% Privé",
+        "description": "Uw gegevens verlaten nooit uw apparaat."
+      },
+      "medication": {
+        "title": "Dosisgerichte Medicatie",
+        "description": "Elke dosis met status en traceerbaarheid."
+      },
+      "wellness": {
+        "title": "Welzijnsscore",
+        "description": "Welzijnsstatistiek met meerdere factoren."
+      },
+      "calendar": {
+        "title": "Oneindige Kalender",
+        "description": "Maandweergave met alle gebeurtenissen."
+      },
+      "tasks": {
+        "title": "Vervolgtaken",
+        "description": "Onderzoeken aanvragen, recepten vernieuwen."
+      },
+      "notifications": {
+        "title": "Slimme Meldingen",
+        "description": "Discrete modus en herhalende herinneringen."
+      },
+      "widgets": {
+        "title": "Widgets & Live Activiteiten",
+        "description": "Dashboard op je startscherm."
+      }
+    }
+  },
+  "deepFeatures": {
+    "badge": "Diepgaand",
+    "title": "Functies ontworpen",
+    "titleHighlight": "voor het echte leven.",
+    "medication": {
+      "badge": "Medicatie",
+      "title": "Dosisgerichte Architectuur",
+      "description": "Elke dosis is een onafhankelijke entiteit met status, geplande tijd en volledige traceerbaarheid.",
+      "features": [
+        "Elke dosis met status, tijd en opmerkingen",
+        "Volledige wijzigingsgeschiedenis",
+        "Retroactieve verlenging van behandeling"
+      ]
+    },
+    "calendar": {
+      "badge": "Kalender",
+      "title": "Eén kalender, al uw afspraken",
+      "description": "Geoptimaliseerde maandweergave voor doses, behandelingen, afspraken en vervolgtaken.",
+      "features": [
+        "Medische afspraken met herhaling",
+        "Gekoppelde vervolgtaken",
+        "Herbruikbare sjablonen"
+      ]
+    },
+    "symptoms": {
+      "badge": "Symptomen",
+      "title": "Gezondheidscontrole",
+      "description": "Symptoomregistratie met ernst. Module voor medische aandoeningen met stadia.",
+      "features": [
+        "100+ symptomen met ernstschaal",
+        "Stadia: beginfase, chronisch, herstelfase",
+        "Grafieken in Gantt-stijl"
+      ]
+    }
+  },
+  "benefits": {
+    "badge": "Waarom VitalsPath?",
+    "title": "Een werkelijk complete",
+    "titleHighlight": "gezondheidstool.",
+    "items": {
+      "quick": {
+        "title": "Snelle installatie",
+        "description": "Voeg medicatie en gezinsleden toe in seconden."
+      },
+      "private": {
+        "title": "100% Privé",
+        "description": "Geen backend. Alles op uw apparaat."
+      },
+      "native": {
+        "title": "100% iOS Native",
+        "description": "Swift 6 + SwiftUI 5."
+      },
+      "accessibility": {
+        "title": "Toegankelijkheid voorop",
+        "description": "Dynamic Type, VoiceOver."
+      },
+      "languages": {
+        "title": "15 talen",
+        "description": "Spaans, Engels, Portugees en meer."
+      },
+      "export": {
+        "title": "PDF/CSV Export",
+        "description": "Rapporten voor artsen."
+      }
+    },
+    "stats": {
+      "languages": "Talen",
+      "symptoms": "Symptomen",
+      "profiles": "Profielen",
+      "private": "Privé"
+    },
+    "disclaimer": {
+      "title": "VitalsPath vervangt geen artsen.",
+      "description": "Het is een organisatietool. Raadpleeg altijd uw specialist."
+    }
+  },
+  "gallery": {
+    "badge": "iOS Interface",
+    "title": "Ontworpen om",
+    "titleHighlight": "aan te voelen als iOS.",
+    "sections": {
+      "main": "Hoofd",
+      "detail": "Detail",
+      "modes": "Licht / Donkere Modus",
+      "widgets": "Widgets",
+      "languages": "Talen"
+    },
+    "labels": {
+      "dashboard": "Dashboard",
+      "profiles": "Profielen",
+      "medications": "Medicatie",
+      "symptoms": "Symptomen",
+      "conditions": "Aandoeningen",
+      "wellness": "Welzijn",
+      "profileDetail": "Profiel Detail",
+      "medicationDetail": "Medicatie Detail",
+      "doseLog": "Dosis Log",
+      "symptomGraph": "Symptoom Grafiek",
+      "tasks": "Taken",
+      "notifications": "Meldingen",
+      "conditionDetail": "Aandoening Detail",
+      "emergency": "Noodgeval",
+      "lightMode": "Lichte Modus",
+      "darkMode": "Donkere Modus",
+      "widgets": "Widgets",
+      "widgetsGallery": "Widget Galerij",
+      "liveActivity": "Live Activiteit",
+      "spanish": "Spaans",
+      "english": "Engels",
+      "moreLanguages": "+ Talen"
+    },
+    "note": "Echte app screenshots"
+  },
+  "waitlist": {
+    "badge": "Lancering Q1 2026",
+    "title": "Wees een van de eersten om",
+    "titleHighlight": "voor uw gezin te zorgen",
+    "subtitle": "Meld u aan voor de wachtlijst en krijg vroegtijdige toegang.",
+    "discount": "25% lanceerkorting",
+    "form": {
+      "placeholder": "uw@email.nl",
+      "button": "Aanmelden"
+    },
+    "success": "U staat op de lijst!",
+    "privacy": "Geen spam. Alleen belangrijk nieuws.",
+    "stats": {
+      "label": "Al aangemeld",
+      "count": "mensen"
+    },
+    "plans": {
+      "free": {
+        "name": "Gratis:",
+        "description": "basisprofielen, essentiële medicatie."
+      },
+      "premium": {
+        "name": "Premium:",
+        "description": "onbeperkte multi-profielen, complete analyses."
+      }
+    }
+  },
+  "footer": {
+    "features": "Functies",
+    "privacy": "Privacy",
+    "support": "Ondersteuning",
+    "copyright": "2026 VitalsPath · Gemaakt met",
+    "feedback": "Feedback versturen",
+    "terms": "Algemene Voorwaarden",
+    "disclaimer": "Disclaimer",
+    "subscription": "Abonnement"
+  },
+  "legal": {
+    "terms": {
+      "title": "Algemene Voorwaarden van VitalsPath",
+      "subtitle": "Health & Medication Tracker",
+      "lastUpdated": "Laatst bijgewerkt: 2026",
+      "sections": {
+        "general": {
+          "title": "1. Algemene informatie",
+          "content": "Deze Algemene Voorwaarden regelen de toegang tot en het gebruik van de mobiele applicatie VitalsPath – Health & Medication Tracker (hierna de 'Applicatie'), bedoeld voor het beheren en volgen van medicatie, symptomen, medische afspraken, stemming, gezondheidsgerelateerde taken en andere gegevens gerelateerd aan het welzijn van de gebruiker.<br><br>Door de Applicatie te downloaden, installeren of gebruiken, accepteert de gebruiker deze Algemene Voorwaarden en het bijbehorende Privacybeleid volledig.<br><br>Als de gebruiker het niet eens is met een van de bepalingen hierin, moet hij afzien van het installeren of gebruiken van de Applicatie."
+        },
+        "owner": {
+          "title": "2. Eigenaar van de Applicatie",
+          "content": "Eigenaar: Lester Romero Bernardo, Informatica Ingenieur.<br>Woonplaats: Valencia, Spanje.<br>E-mailadres voor contact en ondersteuning: vitalspath@gmail.com<br>Website: (zal worden vermeld in de Applicatie en/of in de App Store zodra beschikbaar).<br><br>De Applicatie is voornamelijk gericht op gebruikers in de Europese Unie, zonder afbreuk te doen aan het feit dat deze vanuit andere landen kan worden gebruikt, mits dit niet in strijd is met de plaatselijke wetgeving.<br><br>De verwerkingsverantwoordelijke voor persoonsgegevens voor de AVG is Lester Romero Bernardo."
+        },
+        "purpose": {
+          "title": "3. Doel en aard van de dienst",
+          "content": "Het doel van VitalsPath is het bieden van tools voor organisatie, registratie en visualisatie van informatie gerelateerd aan gezondheid en welzijn, inclusief, maar niet beperkt tot:<br><br>• Planning en herinnering van medicatie, doseringen en schema's.<br>• Registratie en opvolging van symptomen, aandoeningen en behandelingen.<br>• Beheer van medische afspraken, vervolgtaken en favoriete locaties (zoals klinieken en apotheken).<br>• Welzijnspanelen, adherentiemetrieken, activiteitendreef en geavanceerde samenvattingen.<br>• Export van gegevens en generatie van rapporten in PDF/CSV-formaten voor persoonlijk gebruik en om te delen met zorgprofessionals.<br>• Optionele integratie met Apple Health/HealthKit, in leesmodus, voor het importeren van bepaalde compatibele gezondheidsgegevens.<br><br>De Applicatie biedt geen medische diagnose, behandeling, voorschriften of vervanging van consultatie met zorgprofessionals. Alle inhoud, aanbevelingen, 'inzichten', welzijnsscores of herinneringen zijn louter informatief en ondersteunend voor persoonlijke organisatie, en mogen niet worden gebruikt als enige basis voor klinische of noodsituatiebeslissingen."
+        },
+        "usage": {
+          "title": "4. Toegestaan gebruik, gebruikersprofiel en gezondheidswaarschuwingen",
+          "content": "De Applicatie is bedoeld voor personen van 18 jaar en ouder. De gebruiker verklaart en garandeert dat hij minstens 18 jaar oud is en voldoende wettelijke bevoegdheid heeft om deze Voorwaarden te accepteren en de Applicatie te gebruiken.<br><br>De gebruiker verbindt zich ertoe de Applicatie zorgvuldig, correct en rechtmatig te gebruiken, in overeenstemming met deze Voorwaarden, de geldende wetgeving en het App Store-beleid.<br><br><strong>Belangrijke gezondheidswaarschuwing:</strong><br>De Applicatie is geen gereguleerd medisch apparaat en is niet gecertificeerd als medisch hulpmiddel. De getoonde informatie kan onvolledig, onnauwkeurig of verouderd zijn en mag niet worden gebruikt om ziekten te diagnosticeren, behandelen of voorkomen.<br><br>Bij twijfel over uw medicatie, symptomen, resultaten of elke beslissing die uw gezondheid kan beïnvloeden, moet u altijd een arts, apotheker of andere gekwalificeerde zorgprofessional raadplegen.<br><br>In geval van een medische noodsituatie moet de gebruiker onmiddellijk contact opnemen met de nooddiensten van zijn land en mag hij niet vertrouwen op de Applicatie voor het aanvragen of ontvangen van spoedhulp."
+        },
+        "healthkit": {
+          "title": "5. Integratie met Apple Health / HealthKit",
+          "content": "De Applicatie kan integreren met Apple Health/HealthKit om bepaalde gezondheidsgegevens die door de gebruiker zijn geautoriseerd te lezen, met als doel grafieken, metrieken en welzijnssamenvattingen te verrijken.<br><br>In deze versie wordt de integratie uitsluitend in leesmodus uitgevoerd; de Applicatie schrijft geen gegevens naar Apple Health/HealthKit.<br><br>De gebruiker kan:<br>• Beslissen welke categorieën gegevens hij met de Applicatie deelt via de standaard iOS-toestemmingenpanelen.<br>• Deze toestemmingen op elk moment intrekken via de iOS-instellingen en de Gezondheid-app.<br><br>De Applicatie:<br>• Zal alleen toegang hebben tot de strikt noodzakelijke gezondheidsgegevens voor de aangeboden en door de gebruiker geautoriseerde functionaliteiten.<br>• Zal geen Apple Health/HealthKit-gegevens gebruiken voor marketingdoeleinden zonder de expliciete toestemming van de gebruiker, en zal deze nooit delen met derden zonder geldige rechtsgrond.<br>• Zal geen gegevens in Apple Health/HealthKit wijzigen, manipuleren of valse gegevens invoeren."
+        },
+        "data": {
+          "title": "6. Verwerking van persoonsgegevens en gezondheidsgegevens",
+          "content": "Het gebruik van de Applicatie impliceert de verwerking van persoonsgegevens, inclusief gezondheidsgegevens, die als bijzondere categorieën worden beschouwd volgens de Verordening (EU) 2016/679 (AVG).<br><br>De details van de verwerking (doeleinden, rechtsgronden, categorieën gegevens, ontvangers, internationale overdrachten, bewaartermijnen en hoe rechten uit te oefenen) worden beschreven in het Privacybeleid, dat een integraal onderdeel vormt van deze Voorwaarden.<br><br>In het bijzonder:<br>• De hoofdrechtsgrond voor de verwerking van gezondheidsgegevens is de expliciete toestemming van de gebruiker.<br>• Er zullen passende technische en organisatorische maatregelen worden toegepast (zoals versleuteling, toegangscontroles en back-ups) om de vertrouwelijkheid, integriteit en beschikbaarheid van gegevens te beschermen.<br>• Zodra de doeleinden zijn vervuld, kunnen de gegevens worden geblokkeerd gedurende de wettelijke verjaringstermijnen."
+        },
+        "accounts": {
+          "title": "7. Gebruikersaccounts, profielen en beveiliging",
+          "content": "De Applicatie kan het aanmaken en beheren van meerdere profielen (bijvoorbeeld voor gezinsleden) binnen hetzelfde apparaat en/of account toestaan.<br><br>De gebruiker verklaart over de noodzakelijke autorisaties en toestemmingen te beschikken om gegevens van derden in te voeren en te beheren, met name wanneer het gaat om gezondheidsgegevens.<br><br>De gebruiker is verantwoordelijk voor:<br>• Het handhaven van de vertrouwelijkheid van elke code, wachtwoord of toegangsmethode.<br>• Het adequaat configureren van de beveiliging van zijn apparaat (blokkering, Face ID/Touch ID, etc.).<br>• Het onverwijld melden van ongeautoriseerde toegang of beveiligingsincidenten aan de eigenaar.<br><br>De eigenaar kan de toegang tot de Applicatie opschorten of beëindigen in geval van frauduleus gebruik, niet-naleving van deze Voorwaarden of redelijke verdenking van illegale activiteiten."
+        },
+        "business": {
+          "title": "8. Bedrijfsmodel, abonnementen en prijzen",
+          "content": "VitalsPath gebruikt een freemium-model, dat gratis functies combineert met andere geavanceerde betaalde functies onder de modaliteit VitalsPath Premium.<br><br><strong>8.1. Gratis versie</strong><br>De gratis versie biedt beperkte toegang tot de basisfuncties van de Applicatie.<br><br><strong>8.2. VitalsPath Premium</strong><br>Het VitalsPath Premium-abonnement ontgrendelt aanvullende functies, die kunnen omvatten: onbeperkte profielen, favoriete klinieken en apotheken, geavanceerde planning, voorraadtracking, volledige gegevensexport, geavanceerde analyses, back-ups en meer.<br><br><strong>8.3. Aankooptypen</strong><br>VitalsPath Premium kan worden aangeboden via: maandelijks abonnement, jaarlijks abonnement, of eenmalige aankoop voor het leven (lifetime).<br><br>Aankopen worden beheerd via de App Store, waarbij de betalings-, facturerings-, terugbetalings- en annuleringsvoorwaarden van Apple van toepassing zijn."
+        },
+        "export": {
+          "title": "9. Gegevensexport en rapportgeneratie",
+          "content": "De Applicatie stelt de gebruiker in staat om de beheerde gegevens te exporteren in formaten zoals PDF en CSV, via lokale functies en/of VitalsPath Premium.<br><br>De gebruiker:<br>• Is verantwoordelijk voor het controleren van de inhoud van rapporten voordat deze met derden worden gedeeld.<br>• Erkent dat deze rapporten bijzonder beschermde gezondheidsgegevens kunnen bevatten en moet deze adequaat bewaren.<br>• Begrijpt dat de export mogelijk niet alle in de Applicatie opgeslagen gegevens omvat."
+        },
+        "ip": {
+          "title": "10. Intellectuele en industriële eigendom",
+          "content": "Alle intellectuele en industriële eigendomsrechten op de Applicatie, de broncode, het ontwerp, de interfaces, pictogrammen, logo's, handelsnamen, teksten, grafieken, animaties, geluiden en andere elementen zijn eigendom van Lester Romero Bernardo.<br><br>Elke reproductie, distributie, wijziging, reverse engineering, decompilatie, openbare mededeling of hergebruik van de Applicatie en haar inhoud is verboden, tenzij voorafgaande schriftelijke toestemming is verkregen.<br><br>De gebruiker verkrijgt een beperkte, persoonlijke, herroepbare, niet-overdraagbare en niet-exclusieve gebruikslicentie voor het installeren en gebruiken van de Applicatie."
+        },
+        "liability": {
+          "title": "11. Aansprakelijkheid en garanties",
+          "content": "De Applicatie wordt geleverd 'zoals deze is' ('as is'), zonder enige uitdrukkelijke of impliciete garanties met betrekking tot de werking, ononderbroken beschikbaarheid, volledige afwezigheid van fouten of geschiktheid voor een specifiek doel.<br><br>In het bijzonder, en zonder afbreuk te doen aan de consumentenwetgeving:<br>• De eigenaar garandeert niet de nauwkeurigheid, volledigheid of actualiteit van de getoonde gegevens.<br>• De eigenaar is niet aansprakelijk voor medische beslissingen die de gebruiker neemt op basis van de informatie uit de Applicatie.<br>• De eigenaar is niet aansprakelijk voor indirecte, gevolgschade, winstderving, gegevensverlies of claims van derden die voortvloeien uit het gebruik van de Applicatie.<br><br>Geen van de bepalingen sluit of beperkt de aansprakelijkheid in gevallen waarin de wet dit niet toestaat."
+        },
+        "appstore": {
+          "title": "12. Naleving van de App Store-richtlijnen",
+          "content": "De Applicatie is ontworpen om te voldoen aan de beoordelingsrichtlijnen van de App Store, met name die met betrekking tot privacy, beveiliging, gezondheidsgegevens en gebruik van HealthKit.<br><br>Onder andere:<br>• De functionaliteiten worden niet gepresenteerd als equivalent aan een medische diagnose.<br>• De expliciete toestemming van de gebruiker wordt gevraagd voordat toegang wordt verkregen tot gezondheidsgegevens.<br>• De verplichtingen met betrekking tot gevoelige gegevens worden nageleefd.<br><br>De eventuele verwijdering, afwijzing of wijziging van de Applicatie door Apple als gevolg van wijzigingen in hun beleid geeft op zichzelf geen recht op schadevergoeding."
+        },
+        "thirdparty": {
+          "title": "13. Diensten en inhoud van derden",
+          "content": "De Applicatie kan links of integraties bevatten met diensten van derden (bijvoorbeeld Apple Health/HealthKit, opslagdiensten, websites van klinieken of apotheken, of andere gezondheidsapplicaties).<br><br>Deze derden zijn verantwoordelijk voor hun eigen gebruiksvoorwaarden en privacybeleid, die de gebruiker afzonderlijk moet bekijken en accepteren, indien van toepassing.<br><br>De eigenaar is niet verantwoordelijk voor de inhoud, beschikbaarheid, beveiliging, nauwkeurigheid of werking van diensten van derden."
+        },
+        "modifications": {
+          "title": "14. Wijzigingen van de Applicatie en de Voorwaarden",
+          "content": "De eigenaar behoudt zich het recht voor om:<br>• De Applicatie bij te werken, te verbeteren, te wijzigen of stop te zetten (geheel of gedeeltelijk), inclusief het toevoegen van nieuwe functies of het verwijderen van andere.<br>• Deze Voorwaarden en het Privacybeleid te wijzigen. In dat geval wordt de gebruiker geïnformeerd via de Applicatie zelf, de website of andere redelijke middelen, waarbij de inwerkingtredingsdatum wordt vermeld.<br><br>Het voortgezet gebruik van de Applicatie na de inwerkingtreding van de nieuwe voorwaarden impliceert acceptatie daarvan. Als de gebruiker het niet eens is, moet hij stoppen met het gebruik van de Applicatie."
+        },
+        "termination": {
+          "title": "15. Beëindiging en opschorting",
+          "content": "De eigenaar kan de toegang van de gebruiker tot de Applicatie opschorten of beëindigen, geheel of gedeeltelijk, wanneer:<br>• Er een ernstige of herhaalde overtreding van deze Voorwaarden wordt gedetecteerd.<br>• Er gegronde redenen zijn voor veiligheid, fraude of misbruik.<br>• Dit nodig is om te voldoen aan de wet, gerechtelijke beslissingen of verzoeken van bevoegde autoriteiten.<br><br>De gebruiker kan op elk moment stoppen met het gebruik van de Applicatie en deze van zijn apparaten verwijderen. Het beëindigen van het gebruik ontslaat de gebruiker niet van het nakomen van eerder aangegane verplichtingen."
+        },
+        "law": {
+          "title": "16. Toepasselijk recht en jurisdictie",
+          "content": "Tenzij de consumentenwetgeving anders bepaalt, worden deze Voorwaarden beheerst door en geïnterpreteerd in overeenstemming met het Spaanse recht.<br><br>Voor elk geschil dat kan voortvloeien uit het gebruik van de Applicatie of de interpretatie van deze Voorwaarden, onderwerpen de partijen zich aan de bevoegde rechtbanken van Valencia (Spanje), onverminderd de dwingende jurisdictieregels die ten gunste van de consument van toepassing kunnen zijn."
+        },
+        "contact": {
+          "title": "17. Contact en ondersteuning",
+          "content": "Voor vragen met betrekking tot de Applicatie, deze Voorwaarden of het Privacybeleid, kan de gebruiker contact opnemen met:<br><br>Eigenaar en verwerkingsverantwoordelijke: Lester Romero Bernardo.<br>Ondersteunings-e-mailadres: vitalspath@gmail.com<br><br>Er zal getracht worden vragen te beantwoorden binnen een maximale indicatieve termijn van 72 werkdagen, zonder dat dit een verplichting tot onmiddellijk antwoord of garantie van oplossing inhoudt."
+        }
+      }
+    },
+    "privacy": {
+      "title": "VitalsPath Privacybeleid",
+      "subtitle": "Health & Medication Tracker",
+      "lastUpdated": "Laatst bijgewerkt: 18 februari 2026",
+      "sections": {
+        "intro": {
+          "title": "Inleiding",
+          "content": "Lester Romero Bernardo, met hoofdzetel in Valencia, Spanje (hierna de 'Eigenaar', 'wij' of 'ons'), in de hoedanigheid van verwerkingsverantwoordelijke, informeert u over hoe wij uw persoonsgegevens verzamelen, gebruiken, delen en beschermen bij het gebruik van de mobiele applicatie VitalsPath.<br><br>Dit Privacybeleid vormt een integraal onderdeel van de Algemene Voorwaarden van de Applicatie en moet in combinatie daarmee worden gelezen. Door de Applicatie te installeren, te openen of te gebruiken, stemt u uitdrukkelijk in met de verwerking van uw gegevens overeenkomstig dit Beleid."
+        },
+        "controller": {
+          "title": "1. Gegevens van de Verwerkingsverantwoordelijke",
+          "content": "Lester Romero Bernardo<br>Informatica-ingenieur<br>Adres: Valencia, Spanje<br>E-mail: vitalspath@gmail.com<br>Website: (Binnenkort beschikbaar in de App Store en in de Applicatie)"
+        },
+        "info": {
+          "title": "2. Informatie die wij verzamelen",
+          "content": "De Applicatie verzamelt twee hoofdtypen gegevens:<br><br><strong>2.1. Persoonsgegevens verstrekt door de gebruiker:</strong><br>• Identificatiegegevens: Profielnaam, bij benadering leeftijd (bereik), optionele foto/avatar.<br>• Gezondheids- en welzijnsgegevens: Medicatie (namen, doseringen, tijden, inventaris), symptomen en ernst, medische aandoeningen, behandelingen, medische afspraken, stemming, medicatie-adherentie, gezondheidstaken, favoriete locaties.<br>• Gebruiksgegevens: Notificatie-instellingen, thema/UI-voorkeuren, widget-instellingen.<br>• Technische gegevens: Apparaatidentificator (IDFV), iOS-versie, apparaatmodel, systeemtaal, tijdzone.<br><br><strong>2.2. Gezondheidsgegevens verkregen van Apple Health/HealthKit (alleen lezen):</strong><br>Met uw uitdrukkelijke toestemming kunnen wij toegang krijgen tot gegevens zoals fysieke activiteit, slaapgegevens, gewicht, hartslag, bloeddruk en andere compatibele gegevens die u autoriseert.<br><br><strong>2.3. Automatisch gegenereerde gegevens:</strong><br>• Gebruikslogboeken (tijdstempels van aanmaken/wijzigen).<br>• Technische logboeken voor foutdiagnose (zonder persoonlijk identificeerbare gegevens).<br>• Geaggregeerde en geanonimiseerde gebruiksmetrieken voor interne analyse.<br><br>Belangrijk: Alle gevoelige gezondheidsgegevens worden rechtstreeks door u ingevoerd of komen van HealthKit met uw uitdrukkelijke toestemming."
+        },
+        "usage": {
+          "title": "3. Hoe wij uw gegevens gebruiken",
+          "content": "Wij verwerken uw gegevens om de dienst van de Applicatie te leveren en te verbeteren:<br><br><strong>Hoofddoeleinden:</strong><br>• Beheer van profielen en registraties (medicatie, symptomen, afspraken, etc.) - Rechtsgrond: AVG-toestemming.<br>• Lokale herinneringen en notificaties - Rechtsgrond: Toestemming (iOS-machtigingen).<br>• Berekening van metrieken (welzijnsscore, adherentie, streaks) - Rechtsgrond: Toestemming.<br>• Generatie van PDF/CSV-rapporten voor export - Rechtsgrond: Toestemming.<br>• Integratie met HealthKit (lezen) - Rechtsgrond: Uitdrukkelijke toestemming.<br>• Lokale/iCloud-back-ups (Premium) - Rechtsgrond: Toestemming + Gerechtvaardigd belang.<br><br><strong>Nebendoeleinden:</strong><br>• Gebruiksanalyse en dienstverbetering - Rechtsgrond: Gerechtvaardigd belang (geanonimiseerde gegevens).<br>• Technische foutdiagnose - Rechtsgrond: Gerechtvaardigd belang (technische logboeken).<br>• Wettelijke naleving en claims - Rechtsgrond: Wettelijke verplichting AVG."
+        },
+        "storage": {
+          "title": "4. Hoe uw gegevens worden opgeslagen",
+          "content": "<strong>4.1. Lokale opslag:</strong><br>• Hoofd: Alle gegevens worden lokaal op het apparaat opgeslagen via SwiftData (versleutelde database).<br>• Versleuteling: Gevoelige gegevens worden versleuteld met iOS-beveiligings-API's.<br>• Back-ups: Gratis (exporteerbare versleutelde JSON-lokale back-up) / Premium (end-to-end versleutelde iCloud-back-up door Apple).<br><br><strong>4.2. GEEN externe servers:</strong><br>VitalsPath stuurt uw gegevens NIET naar externe servers. Alle verwerkingen worden lokaal op uw apparaat uitgevoerd.<br><br><strong>4.3. Diensten van derden (alleen wanneer u deze autoriseert):</strong><br>• Apple HealthKit: Gezondheidsgegevens lezen - Door u geautoriseerde gegevens - Rechtsgrond: Toestemming.<br>• iCloud (Premium): Versleutelde back-up - Alle gegevens (versleuteld) - Rechtsgrond: Toestemming.<br>• Share Sheet (export): PDF/CSV delen - Alleen geëxporteerde gegevens - Rechtsgrond: Toestemming."
+        },
+        "recipients": {
+          "title": "5. Wie uw gegevens ontvangt",
+          "content": "Wij verkopen, verhuren of delen uw gegevens niet met derden voor marketing of reclame.<br><br>Ontvangers:<br>• Geen derden: Er zijn geen overdrachten.<br>• Apple Inc.: HealthKit / iCloud (VS - Standaard Contractuele Bepalingen).<br>• Contacten van de gebruiker: Handmatige PDF/CSV-export (lokaal).<br><br>Alle internationale overdrachten worden uitgevoerd met de door de AVG vereiste waarborgen."
+        },
+        "retention": {
+          "title": "6. Bewaring van gegevens",
+          "content": "• Levering van de dienst: Zolang u de app gebruikt + 30 dagen na verwijdering.<br>• Back-ups: Tot handmatige verwijdering door de gebruiker.<br>• Wettelijke claims: 5 jaar vanaf de laatste interactie.<br>• Technische logboeken: Maximaal 30 dagen.<br><br>Gegevens worden automatisch verwijderd of geanonimiseerd na het verstrijken van de aangegeven termijnen."
+        },
+        "rights": {
+          "title": "7. Uw AVG-rechten",
+          "content": "Als gebruiker in de EU/EER kunt u de volgende rechten uitoefenen:<br><br>• Inzage: Wet welke gegevens wij verwerken.<br>• Rectificatie: Onjuiste gegevens corrigeren (direct in de app bewerken).<br>• Wissen ('Recht op vergetelheid'): Instellingen → Alle gegevens verwijderen.<br>• Beperking: Verwerking tijdelijk opschorten.<br>• Dataportabiliteit: Gegevens ontvangen in gestructureerd formaat (JSON/PDF exporteren).<br>• Bezwaar: Bezwaar maken tegen verwerkingen op basis van gerechtvaardigd belang.<br>• Toestemming intrekken: Instellingen → Privacy → Toestemmingen resetten.<br><br>Antwoordtermijn: Maximaal 1 maand, verlengbaar tot 3 maanden bij complexiteit.<br><br>Om rechten uit te oefenen, neem contact op: vitalspath@gmail.com"
+        },
+        "security": {
+          "title": "8. Beveiliging van gegevens",
+          "content": "Wij implementeren passende technische en organisatorische maatregelen afgestemd op het risico:<br><br>• AES-256-versleuteling voor gevoelige gegevens.<br>• Keychain voor referenties.<br>• Toegangscontrole via Face ID/Touch ID/PIN.<br>• Uitsluitend lokale opslag.<br>• End-to-end versleutelde back-ups.<br>• Roterende logboeken (maximaal 30 dagen).<br><br>Wij kunnen geen absolute beveiliging garanderen tegen geavanceerde aanvallen of als u uw gegevens deelt via onveilige kanalen."
+        },
+        "minors": {
+          "title": "9. Minderjarigen",
+          "content": "De Applicatie is gericht op personen boven de 18 jaar. Wij verzamelen niet bewust gegevens van minderjarigen. Als u ouder of voogd bent en u gelooft dat wij gegevens van een minderjarige hebben verzameld, neem dan onmiddellijk contact op met vitalspath@gmail.com."
+        },
+        "changes": {
+          "title": "10. Wijzigingen in het Privacybeleid",
+          "content": "Wij kunnen dit Beleid wijzigen om wettelijke wijzigingen, nieuwe functionaliteiten of beveiligingsverbeteringen te weerspiegelen. Wij zullen u op de hoogte stellen van significante wijzigingen via een pop-up in de app of e-mail. Voortgezet gebruik impliceert acceptatie.<br><br>Datum van inwerkingtreding: 18 februari 2026"
+        },
+        "contact": {
+          "title": "11. Contact",
+          "content": "Lester Romero Bernardo<br>E-mail: vitalspath@gmail.com<br>Maximale responstijd: 72 werkuren<br><br>Toezichthoudende autoriteit: U kunt klachten indienen bij het Spaanse Agentschap voor Gegevensbescherming (AEPD): www.aepd.es"
+        }
+      }
+    },
+    "disclaimer": {
+      "title": "Medische Disclaimer",
+      "notice": {
+        "title": "Belangrijke Mededeling",
+        "content": "VitalsPath is een organisatietool voor gezondheidsinformatie en vervangt geen professioneel medisch advies, diagnose of behandeling."
+      },
+      "sections": {
+        "notMedical": {
+          "title": "1. Geen Medisch Apparaat",
+          "content": "VitalsPath is geen geregistreerd medisch apparaat en is niet bedoeld om medische diagnoses te stellen, te behandelen of te voorkomen."
+        },
+        "professional": {
+          "title": "2. Raadpleeg Professionals",
+          "content": "Raadpleeg altijd gekwalificeerde artsen, apothekers of andere zorgverleners voor vragen over uw gezondheid of medicatie."
+        },
+        "emergency": {
+          "title": "3. Noodgevallen",
+          "content": "Bel in geval van een medisch noodgeval onmiddellijk de lokale hulpdiensten of ga naar de dichtstbijzijnde spoedeisende hulp. VitalsPath is niet ontworpen voor medische noodsituaties.",
+          "callToAction": "Bel 112 (EU) of uw lokale noodnummer"
+        },
+        "accuracy": {
+          "title": "4. Gegevensnauwkeurigheid",
+          "content": "Hoewel wij streven naar nauwkeurigheid, kunnen wij niet garanderen dat alle informatie in de app volledig accuraat of up-to-date is."
+        },
+        "medication": {
+          "title": "5. Medicatie-informatie",
+          "content": "Medicatieherinneringen en -informatie in de app zijn alleen ter referentie. Raadpleeg altijd uw arts of apotheker voordat u medicatie inneemt."
+        },
+        "responsibility": {
+          "title": "6. Gebruikersverantwoordelijkheid",
+          "content": "U bent zelf verantwoordelijk voor het nauwkeurig invoeren van gegevens en het nemen van medische beslissingen op basis van professioneel advies."
+        },
+        "contact": {
+          "title": "Contact",
+          "content": "Voor vragen over deze disclaimer, neem contact met ons op via support@vitalspath.app"
+        }
+      }
+    },
+    "subscription": {
+      "title": "VitalsPath Abonnementsvoorwaarden",
+      "lastUpdated": "Laatst bijgewerkt: 18 februari 2026",
+      "intro": "VitalsPath biedt een freemium-model met gratis en premium functies. Deze pagina legt uit hoe abonnementen, betalingen en annuleringen werken.",
+      "sections": {
+        "whatIs": {
+          "title": "1. Wat is VitalsPath Premium?",
+          "content": "VitalsPath Premium is een betaald plan dat geavanceerde functies voor gezinsgezondheidsbeheer ontgrendelt.<br><br><strong>Inbegrepen functies:</strong><br>• Onbeperkte gezinsprofielen<br>• Favoriete klinieken en apotheken<br>• Geavanceerde medicatieplanning<br>• Medicatievoorraadtracking<br>• Volledige data-export (PDF/CSV)<br>• Geavanceerde analyses en statistieken<br>• iCloud-back-ups (end-to-end-versleuteling)<br>• Prioriteit e-mailondersteuning<br><br><strong>Gratis versie:</strong><br>De gratis versie bevat tot 2 profielen, basis medicatie, lokale herinneringen en beperkte export."
+        },
+        "plans": {
+          "title": "2. Beschikbare abonnementsplannen",
+          "content": "<strong>Maandelijks:</strong> Betaling per maand, u kunt op elk moment annuleren.<br><br><strong>Jaarlijks:</strong> Jaarlijkse betaling met korting ten opzichte van het maandabonnement. Automatische verlenging elke 12 maanden.<br><br><strong>Lifetime:</strong> Eenmalige betaling. Permanente toegang tot alle huidige en toekomstige Premium-functies, geen terugkerende betalingen.<br><br>Prijzen kunnen per land variëren en kunnen lokale belastingen bevatten. Prijzen worden voor bevestiging op het aankoopscherm getoond."
+        },
+        "howItWorks": {
+          "title": "3. Hoe aankopen werken",
+          "content": "<strong>Beheer via Apple:</strong><br>Alle aankopen en abonnementen worden beheerd via uw Apple-account (App Store).<br><br><strong>Automatische verlenging:</strong><br>Maandelijkse en jaarlijkse abonnementen worden automatisch verlengd aan het einde van de periode, tenzij u eerder annuleert.<br><br><strong>Bevestiging:</strong><br>Bij bevestiging van de aankoop wordt de betaling belast op uw iTunes/Apple ID-account.<br><br><strong>Gratis proefperiode:</strong><br>Als we een gratis proefperiode aanbieden, wordt deze automatisch omgezet naar een betaald abonnement tenzij u voor het einde annuleert."
+        },
+        "management": {
+          "title": "4. Uw abonnement beheren",
+          "content": "U kunt uw abonnement beheren vanaf uw iOS-apparaat:<br><br>1. Open de app <strong>Instellingen</strong><br>2. Tik bovenaan op uw <strong>naam/Apple ID</strong><br>3. Selecteer <strong>Abonnementen</strong><br>4. Zoek <strong>VitalsPath</strong> en selecteer het<br>5. Hier kunt u van plan wisselen of annuleren<br><br>U kunt abonnementen ook beheren via de App Store door op uw profielfoto te tikken → Abonnementen."
+        },
+        "cancellation": {
+          "title": "5. Wat gebeurt er als u annuleert?",
+          "content": "<strong>Toegang tot einde periode:</strong><br>Als u een maand- of jaarabonnement annuleert, behoudt u toegang tot Premium-functies tot het einde van de huidige factuurperiode.<br><br><strong>Geen gedeeltelijke restitutie:</strong><br>Er wordt geen restitutie aangeboden voor ongebruikte periodes van actieve abonnementen.<br><br><strong>Gegevens bewaard:</strong><br>Uw gegevens worden bewaard. Als u opnieuw abonneert, krijgt u weer toegang tot al uw instellingen en geschiedenis.<br><br><strong>Lifetime-plan:</strong><br>Het Lifetime-plan heeft geen terugkerend abonnement, dus er is niets te annuleren. U hebt permanente toegang."
+        },
+        "issues": {
+          "title": "6. Technische problemen en ondersteuning",
+          "content": "<strong>Aankopen herstellen:</strong><br>Als u Premium heeft gekocht maar het is niet geactiveerd, ga naar Instellingen → Premium → Aankopen herstellen.<br><br><strong>Apparaat wijzigen:</strong><br>Uw aankopen zijn gekoppeld aan uw Apple ID. Installeer VitalsPath op uw nieuwe apparaat en herstel aankopen.<br><br><strong>Contact met ondersteuning:</strong><br>Voor betalings- of abonnementsproblemen, e-mail: vitalspath@gmail.com<br><br><strong>Restituties:</strong><br>Apple beheert alle restituties. U kunt deze aanvragen via reportaproblem.apple.com"
+        },
+        "changes": {
+          "title": "7. Wijzigingen aan Premium",
+          "content": "<strong>Nieuwe functies:</strong><br>We kunnen nieuwe Premium-functies toevoegen zonder extra kosten voor bestaande abonnees.<br><br><strong>Prijswijzigingen:</strong><br>Als we de prijs van een actief abonnement verhogen, informeren we u vooraf. U kunt de nieuwe prijs accepteren of annuleren.<br><br><strong>Functieverwijdering:</strong><br>We verwijderen zelden functies. Als we dit doen, zoeken we naar gelijkwaardige alternatieven.<br><br><strong>Lifetime-plan:</strong><br>Lifetime-toegang omvat alle toekomstige updates zonder extra kosten."
+        },
+        "law": {
+          "title": "8. Toepasselijk recht",
+          "content": "Deze voorwaarden worden beheerst door het Spaanse recht.<br><br>Voor geschillen onderwerpen de partijen zich aan de rechtbanken van Valencia (Spanje), met inachtneming van dwingende rechtsbevoegdheden.<br><br><strong>Contact:</strong><br>vitalspath@gmail.com"
+        }
+      }
+    }
+  },
+  "feedback": {
+    "title": "Feedback",
+    "subtitle": "Help ons VitalsPath te verbeteren door uw gedachten te delen",
+    "types": {
+      "feature": "Functieverzoek",
+      "bug": "Bug Melden",
+      "improvement": "Verbetering",
+      "question": "Vraag",
+      "other": "Anders"
+    },
+    "form": {
+      "type": "Type Feedback",
+      "name": "Uw Naam",
+      "email": "E-mailadres",
+      "subject": "Onderwerp",
+      "message": "Bericht",
+      "namePlaceholder": "Voer uw naam in",
+      "emailPlaceholder": "uw@email.nl",
+      "subjectPlaceholder": "Waar gaat uw feedback over?",
+      "messagePlaceholder": "Beschrijf uw feedback in detail...",
+      "submit": "Feedback Verzenden"
+    },
+    "success": {
+      "title": "Bedankt voor uw feedback!",
+      "message": "We waarderen uw input en zullen uw feedback bekijken om VitalsPath te verbeteren.",
+      "backHome": "Terug naar Home"
+    }
+  }
+}

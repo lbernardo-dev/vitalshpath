@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import LanguageSelector from '../../components/LanguageSelector.astro';
+import Footer from '../../components/Footer.astro';
+import { supportedLangs, type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+export function getStaticPaths() {
+    return supportedLangs.map((lang) => ({
+        params: { lang },
+    }));
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Lang;
+const t = useTranslations(currentLang);
+---
+
+<Layout lang={currentLang}>
+    <main class="relative overflow-hidden min-h-screen">
+        <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+            <div class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"></div>
+            <div class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"></div>
+        </div>
+
+        <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href={`/${currentLang}/`} class="flex items-center gap-2">
+                        <img src="/assets/images/Icon.png" alt="VitalsPath" class="w-8 h-8 rounded-xl" />
+                        <span class="text-lg font-bold text-gray-900 dark:text-white">VitalsPath</span>
+                    </a>
+                    
+                    <div class="flex items-center gap-3">
+                        <LanguageSelector lang={currentLang} />
+                        <ThemeToggle />
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="pt-32 pb-24 relative">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-8">{t('legal.disclaimer.title')}</h1>
+                
+                <div class="prose dark:prose-invert max-w-none">
+                    <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-6 rounded-xl mb-8">
+                        <p class="text-amber-800 dark:text-amber-200 font-semibold text-lg mb-2">{t('legal.disclaimer.notice.title')}</p>
+                        <p class="text-amber-700 dark:text-amber-300">{t('legal.disclaimer.notice.content')}</p>
+                    </div>
+                    
+                    <div class="space-y-8 text-gray-700 dark:text-gray-300">
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.notMedical.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.notMedical.content')}</p>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.professional.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.professional.content')}</p>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.emergency.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.emergency.content')}</p>
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 rounded-lg mt-4">
+                                <p class="text-red-700 dark:text-red-300 font-semibold">{t('legal.disclaimer.sections.emergency.callToAction')}</p>
+                            </div>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.accuracy.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.accuracy.content')}</p>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.medication.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.medication.content')}</p>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.responsibility.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.responsibility.content')}</p>
+                        </section>
+
+                        <section>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.disclaimer.sections.contact.title')}</h2>
+                            <p>{t('legal.disclaimer.sections.contact.content')}</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <Footer lang={currentLang} />
+    </main>
+</Layout>

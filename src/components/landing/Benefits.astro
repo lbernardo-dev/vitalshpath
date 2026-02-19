@@ -1,0 +1,110 @@
+---
+import { Zap, Lock, Smartphone, Globe, Accessibility, FileText, Heart } from "lucide-react";
+import { type Lang } from '../../i18n/ui-locales';
+import { useTranslations } from '../../i18n';
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="benefits" class="py-24 relative bg-gray-50 dark:bg-gray-900/50">
+    <div class="container mx-auto px-6">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="inline-block px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-green-500">
+                {t('benefits.badge')}
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                {t('benefits.title')}<br />
+                <span class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">{t('benefits.titleHighlight')}</span>
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <Zap className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.quick.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.quick.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <Lock className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.private.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.private.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <Smartphone className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.native.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.native.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <Accessibility className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.accessibility.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.accessibility.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <Globe className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.languages.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.languages.description')}</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm text-center">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5">
+                    <FileText className="w-7 h-7" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{t('benefits.items.export.title')}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.items.export.description')}</p>
+            </div>
+
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-1">15+</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.stats.languages')}</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-1">100+</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.stats.symptoms')}</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent mb-1">∞</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.stats.profiles')}</p>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mb-1">100%</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">{t('benefits.stats.private')}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <div class="inline-flex items-start gap-3 px-5 py-3 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 max-w-xl">
+                <Heart className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <p class="text-sm text-amber-700 dark:text-amber-300 text-left">
+                    <strong>{t('benefits.disclaimer.title')}</strong> {t('benefits.disclaimer.description')}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
