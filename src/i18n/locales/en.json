@@ -498,6 +498,18 @@
       "description": "Monthly billing, cancel anytime",
       "discount": "Save 35%"
     },
+    "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "Unlock the full potential of your family health management.",
+      "features_title": "Everything in Free, plus:"
+    },
+    "free": {
+      "title": "Free",
+      "price": "€0",
+      "period": "/forever",
+      "description": "Essential features for individuals",
+      "discount": "Always Free"
+    },
     "annual": {
       "title": "Annual",
       "badge": "BEST VALUE",
@@ -533,7 +545,10 @@
       "all_themes": "All Themes",
       "advanced_notifications": "Advanced Notifications",
       "haptic_feedback": "Haptic Feedback",
-      "widget_styles": "Widget Styles"
+      "widget_styles": "Widget Styles",
+      "basic_profiles": "2 Profiles",
+      "basic_medications": "Basic Medications",
+      "local_reminders": "Local Reminders"
     },
     "cta": "Get Premium"
   },

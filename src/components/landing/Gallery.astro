@@ -80,13 +80,36 @@ const langScreens = [
     { src: "screen-25-english.PNG", label: t("gallery.labels.english") },
     { src: "screen-29-settings.PNG", label: t("gallery.labels.moreLanguages") },
 ];
+
+const tabs = [
+    { id: "main", label: t("gallery.sections.main"), screens: mainScreens },
+    {
+        id: "detail",
+        label: t("gallery.sections.detail"),
+        screens: detailScreens,
+    },
+    { id: "modes", label: t("gallery.sections.modes"), screens: modeScreens },
+    {
+        id: "widgets",
+        label: t("gallery.sections.widgets"),
+        screens: widgetScreens,
+    },
+    {
+        id: "languages",
+        label: t("gallery.sections.languages"),
+        screens: langScreens,
+    },
+];
 ---
 
-<section id="gallery" class="py-24 relative">
+<section
+    id="gallery"
+    class="py-12 md:py-24 relative bg-white dark:bg-black transition-colors duration-300"
+>
     <div class="container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span
-                class="inline-block px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-cyan-500"
+                class="inline-block px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-cyan-500"
             >
                 {t("gallery.badge")}
             </span>
@@ -101,161 +124,86 @@ const langScreens = [
             </h2>
         </div>
 
-        <div class="mb-10">
-            <h3
-                class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide"
-            >
-                {t("gallery.sections.main")}
-            </h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                {
-                    mainScreens.map((screen) => (
-                        <div class="group">
-                            <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
-                                <img
-                                    src={`${
-                                        import.meta.env.BASE_URL
-                                    }/assets/images/screens/${screen.src}`}
-                                    alt={screen.label}
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full" />
-                            </div>
-                            <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">
-                                {screen.label}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12">
+            {
+                tabs.map((tab, index) => (
+                    <button
+                        data-tab={tab.id}
+                        class={`
+                            px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300
+                            ${
+                                index === 0
+                                    ? "bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg scale-105"
+                                    : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 hover:scale-105"
+                            }
+                        `}
+                    >
+                        {tab.label}
+                    </button>
+                ))
+            }
         </div>
 
-        <div class="mb-10">
-            <h3
-                class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide"
-            >
-                {t("gallery.sections.detail")}
-            </h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                {
-                    detailScreens.map((screen) => (
-                        <div class="group">
-                            <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
-                                <img
-                                    src={`${
-                                        import.meta.env.BASE_URL
-                                    }/assets/images/screens/${screen.src}`}
-                                    alt={screen.label}
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full" />
-                            </div>
-                            <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">
-                                {screen.label}
-                            </p>
+        <!-- Tab Contents -->
+        <div class="min-h-[600px]">
+            {
+                tabs.map((tab, index) => (
+                    <div
+                        id={`tab-content-${tab.id}`}
+                        class={`tab-content transition-all duration-500 ${
+                            index === 0
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-4 hidden"
+                        }`}
+                    >
+                        <div class="flex flex-wrap justify-center gap-6">
+                            {tab.screens.map((screen) => (
+                                <div class="group">
+                                    <div
+                                        class={`
+                                            relative w-[160px] sm:w-[180px] aspect-[9/19] rounded-[24px] 
+                                            border-[6px] shadow-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300
+                                            ${
+                                                (screen as any).border
+                                                    ? `border-${
+                                                          (screen as any).border
+                                                      }`
+                                                    : "border-gray-800 dark:border-gray-700"
+                                            }
+                                            ${
+                                                (screen as any).bg
+                                                    ? `bg-${(screen as any).bg}`
+                                                    : "bg-gray-900"
+                                            }
+                                        `}
+                                    >
+                                        <img
+                                            src={`${
+                                                import.meta.env.BASE_URL
+                                            }/assets/images/screens/${
+                                                screen.src
+                                            }`}
+                                            alt={screen.label}
+                                            class="w-full h-full object-cover"
+                                            loading="lazy"
+                                        />
+                                        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-4 bg-black rounded-full z-10" />
+                                    </div>
+                                    <p class="text-center text-sm font-medium text-gray-600 dark:text-gray-400 mt-4 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+                                        {screen.label}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))
-                }
-            </div>
+                    </div>
+                ))
+            }
         </div>
 
-        <div class="mb-10">
-            <h3
-                class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide"
-            >
-                {t("gallery.sections.modes")}
-            </h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                {
-                    modeScreens.map((screen) => (
-                        <div class="group">
-                            <div
-                                class={`relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-${screen.border} shadow-lg overflow-hidden bg-${screen.bg} transform group-hover:scale-105 transition-transform duration-300`}
-                            >
-                                <img
-                                    src={`${
-                                        import.meta.env.BASE_URL
-                                    }/assets/images/screens/${screen.src}`}
-                                    alt={screen.label}
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full" />
-                            </div>
-                            <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">
-                                {screen.label}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <div class="mb-10">
-            <h3
-                class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide"
-            >
-                {t("gallery.sections.widgets")}
-            </h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                {
-                    widgetScreens.map((screen) => (
-                        <div class="group">
-                            <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 dark:border-gray-600 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
-                                <img
-                                    src={`${
-                                        import.meta.env.BASE_URL
-                                    }/assets/images/screens/${screen.src}`}
-                                    alt={screen.label}
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full" />
-                            </div>
-                            <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">
-                                {screen.label}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <div class="mb-10">
-            <h3
-                class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-4 text-center uppercase tracking-wide"
-            >
-                {t("gallery.sections.languages")}
-            </h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                {
-                    langScreens.map((screen) => (
-                        <div class="group">
-                            <div class="relative w-[140px] sm:w-[160px] aspect-[9/19] rounded-[20px] border-[5px] border-gray-800 dark:border-gray-600 shadow-lg overflow-hidden bg-gray-900 transform group-hover:scale-105 transition-transform duration-300">
-                                <img
-                                    src={`${
-                                        import.meta.env.BASE_URL
-                                    }/assets/images/screens/${screen.src}`}
-                                    alt={screen.label}
-                                    class="w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                                <div class="absolute top-1 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full" />
-                            </div>
-                            <p class="text-center text-xs text-gray-600 dark:text-gray-400 mt-2">
-                                {screen.label}
-                            </p>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <div class="text-center">
+        <div class="text-center mt-16">
             <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400"
             >
                 <Smartphone className="w-4 h-4" />
                 <span>{t("gallery.note")}</span>
@@ -266,11 +214,11 @@ const langScreens = [
     <!-- Lightbox Modal -->
     <div
         id="lightbox"
-        class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 opacity-0"
+        class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0"
     >
         <button
             id="lightbox-close"
-            class="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -296,26 +244,75 @@ const langScreens = [
                 id="lightbox-image"
                 src=""
                 alt="Zoomed view"
-                class="w-full h-auto rounded-3xl shadow-2xl transform transition-transform duration-300 scale-95"
+                class="w-full h-auto rounded-[32px] shadow-2xl transform transition-transform duration-300 scale-95 ring-8 ring-white/10"
             />
         </div>
     </div>
 </section>
 
 <script>
+    // Tab Logic
+    const tabButtons = document.querySelectorAll("[data-tab]");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-tab");
+
+            // Update Buttons
+            tabButtons.forEach((btn) => {
+                if (btn === button) {
+                    btn.className =
+                        "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gray-900 text-white dark:bg-white dark:text-gray-900 shadow-lg scale-105";
+                } else {
+                    btn.className =
+                        "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 hover:scale-105";
+                }
+            });
+
+            // Update Content
+            tabContents.forEach((content) => {
+                if (content.id === `tab-content-${targetId}`) {
+                    content.classList.remove("hidden");
+                    // Small delay for fade-in
+                    requestAnimationFrame(() => {
+                        content.classList.remove("opacity-0", "translate-y-4");
+                        content.classList.add("opacity-100", "translate-y-0");
+                    });
+                } else {
+                    content.classList.add("opacity-0", "translate-y-4");
+                    content.classList.remove("opacity-100", "translate-y-0");
+                    setTimeout(() => {
+                        if (content.id !== `tab-content-${targetId}`) {
+                            content.classList.add("hidden");
+                        }
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Lightbox Logic
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById(
         "lightbox-image"
     ) as HTMLImageElement;
     const closeBtn = document.getElementById("lightbox-close");
-    const galleryImages = document.querySelectorAll("#gallery img");
+
+    // Add event listeners to all existing and future images in the gallery
+    document.querySelectorAll("#gallery img").forEach((img) => {
+        img.classList.add("cursor-pointer");
+        img.addEventListener("click", (e) => {
+            const target = e.target as HTMLImageElement;
+            openLightbox(target.src);
+        });
+    });
 
     function openLightbox(src: string) {
         if (!lightbox || !lightboxImage) return;
 
         lightboxImage.src = src;
         lightbox.classList.remove("hidden");
-        // Small delay to allow display:block to apply before adding opacity class for transition
         setTimeout(() => {
             lightbox.classList.remove("opacity-0");
             lightboxImage.classList.remove("scale-95");
@@ -337,14 +334,6 @@ const langScreens = [
         }, 300);
         document.body.style.overflow = "";
     }
-
-    galleryImages.forEach((img) => {
-        img.classList.add("cursor-pointer");
-        img.addEventListener("click", (e) => {
-            const target = e.target as HTMLImageElement;
-            openLightbox(target.src);
-        });
-    });
 
     closeBtn?.addEventListener("click", closeLightbox);
     lightbox?.addEventListener("click", (e) => {
