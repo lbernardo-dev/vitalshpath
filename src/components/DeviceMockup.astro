@@ -1,36 +1,49 @@
 ---
 interface Props {
-    color?: "black" | "silver";
+    color?: "black" | "silver" | "titanium";
+    model?: "iphone17" | "iphone15";
 }
 
-const { color = "black" } = Astro.props;
+const { color = "black", model = "iphone17" } = Astro.props;
+
+const isIP17 = model === "iphone17";
+
+// Bezel and rounded corner adjustments
+const frameClass = isIP17
+    ? "border-[6px] rounded-[3rem] h-[640px] w-[320px]"
+    : "border-[10px] rounded-[2.8rem] h-[600px] w-[300px]";
+
+const containerClass = isIP17
+    ? "w-[308px] h-[628px] rounded-[2.6rem]"
+    : "w-[280px] h-[580px] rounded-[2.3rem]";
+
+const islandClass = isIP17
+    ? "w-[80px] h-[6px] top-4" // Thinner, more discreet island for IP17
+    : "w-[120px] h-[24px] top-3"; // Standard Dynamic Island for IP15
 ---
 
 <div
-    class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl"
+    class={`relative mx-auto border-gray-900 dark:border-gray-800 bg-gray-900 dark:bg-gray-800 shadow-2xl transition-all duration-500 ${frameClass}`}
 >
+    <!-- Dynamic Island -->
     <div
-        class="w-[148px] h-[18px] bg-gray-800 top-0 left-1/2 -translate-x-1/2 absolute rounded-b-xl z-10"
+        class={`absolute left-1/2 -translate-x-1/2 bg-black rounded-full z-20 ${islandClass}`}
+    >
+    </div>
+
+    <!-- Buttons -->
+    <div
+        class="h-[40px] w-[3px] bg-gray-800 absolute -start-[9px] top-32 rounded-s-lg"
     >
     </div>
     <div
-        class="h-[32px] w-[3px] bg-gray-800 absolute -start-[11px] top-[72px] rounded-s-lg"
+        class="h-[60px] w-[3px] bg-gray-800 absolute -end-[9px] top-40 rounded-e-lg"
     >
     </div>
+
+    <!-- Screen -->
     <div
-        class="h-[46px] w-[3px] bg-gray-800 absolute -start-[11px] top-[124px] rounded-s-lg"
-    >
-    </div>
-    <div
-        class="h-[46px] w-[3px] bg-gray-800 absolute -start-[11px] top-[178px] rounded-s-lg"
-    >
-    </div>
-    <div
-        class="h-[64px] w-[3px] bg-gray-800 absolute -end-[11px] top-[142px] rounded-e-lg"
-    >
-    </div>
-    <div
-        class="rounded-[2rem] overflow-hidden w-[284px] h-[584px] bg-white dark:bg-gray-900"
+        class={`overflow-hidden bg-white dark:bg-gray-950 relative z-10 ${containerClass}`}
     >
         <slot />
     </div>

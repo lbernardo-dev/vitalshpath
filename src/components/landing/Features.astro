@@ -9,6 +9,9 @@ import {
     ClipboardList,
     Bell,
     Heart,
+    Thermometer,
+    Stethoscope,
+    FileText,
 } from "lucide-react";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
@@ -222,6 +225,60 @@ const t = useTranslations(lang);
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
                     {t("features.items.widgets.description")}
+                </p>
+            </div>
+
+            <div
+                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
+            >
+                <div
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center text-white shadow-lg mb-4"
+                >
+                    <Thermometer className="w-6 h-6" />
+                </div>
+                <h3
+                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                >
+                    {t("features.items.symptoms.title")}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    {t("features.items.symptoms.description")}
+                </p>
+            </div>
+
+            <div
+                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
+            >
+                <div
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white shadow-lg mb-4"
+                >
+                    <Stethoscope className="w-6 h-6" />
+                </div>
+                <h3
+                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                >
+                    {t("features.items.treatments.title")}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    {t("features.items.treatments.description")}
+                </p>
+            </div>
+
+            <div
+                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
+            >
+                <div
+                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white shadow-lg mb-4"
+                >
+                    <FileText className="w-6 h-6" />
+                </div>
+                <h3
+                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                >
+                    {t("features.items.reports.title")}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    {t("features.items.reports.description")}
                 </p>
             </div>
         </div>

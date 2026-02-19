@@ -94,6 +94,34 @@
         "title": "Intelligente Benachrichtigungen",
         "description": "Diskreter Modus und Erinnerungsfunktion."
       },
+      "symptoms": {
+        "title": "Symptom-Tracking",
+        "description": "Detailliertes Protokoll mit Schweregrad und Erholungsphasen."
+      },
+      "treatments": {
+        "title": "Behandlungsmanagement",
+        "description": "Organisieren Sie Erkrankungen und die dazugehörigen Medikamente."
+      },
+      "dashboards": {
+        "title": "Pro Dashboards",
+        "description": "Konsolidierte Ansicht der Gesundheit Ihrer gesamten Familie an einem Ort."
+      },
+      "metrics": {
+        "title": "Gesundheitsmetriken",
+        "description": "Erweitertes Tracking von Therapietreue, Stimmung und Familien-Wellness."
+      },
+      "exportImport": {
+        "title": "Export & Import",
+        "description": "Ihre Daten immer dabei. Exportieren und importieren Sie in den Formaten PDF, CSV oder JSON."
+      },
+      "reports": {
+        "title": "Medizinische Berichte",
+        "description": "Erstellen Sie detaillierte und professionelle Berichte für Ihre Spezialisten."
+      },
+      "encryption": {
+        "title": "Sensible Verschlüsselung",
+        "description": "Ihre sensibelsten Daten geschützt mit AES-256-Verschlüsselung auf Militärstandard."
+      },
       "widgets": {
         "title": "Widgets & Live Activities",
         "description": "Dashboard auf dem Startbildschirm."
@@ -485,6 +513,7 @@
     "terms": "Nutzungsbedingungen",
     "disclaimer": "Haftungsausschluss",
     "copyright": "2026 VitalsPath · Erstellt mit",
+    "developer": "von RomeroDev",
     "subscription": "Abonnement"
   }
 }

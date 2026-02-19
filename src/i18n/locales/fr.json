@@ -94,6 +94,34 @@
         "title": "Notifications Intelligentes",
         "description": "Mode discret et mode insistant."
       },
+      "symptoms": {
+        "title": "Suivi des Symptômes",
+        "description": "Journal détaillé avec sévérité et phases de récupération."
+      },
+      "treatments": {
+        "title": "Gestion des Traitements",
+        "description": "Organisez les pathologies et les médicaments associés."
+      },
+      "dashboards": {
+        "title": "Tableaux de Bord Pro",
+        "description": "Vue consolidée de toute la santé familiale en un seul endroit."
+      },
+      "metrics": {
+        "title": "Métriques de Santé",
+        "description": "Suivi avancé de l'adhérence, de l'humeur et du bien-être familial."
+      },
+      "exportImport": {
+        "title": "Exportation & Importation",
+        "description": "Vos données toujours avec vous. Exportez et importez en formats PDF, CSV ou JSON."
+      },
+      "reports": {
+        "title": "Rapports Médicaux",
+        "description": "Générez des rapports détaillés et professionnels pour vos spécialistes."
+      },
+      "encryption": {
+        "title": "Chiffrement Sensible",
+        "description": "Vos données les plus sensibles protégées par un chiffrement AES-256 de qualité militaire."
+      },
       "widgets": {
         "title": "Widgets & Activités en Direct",
         "description": "Tableau de bord sur l'écran d'accueil."
@@ -245,6 +273,7 @@
     "privacy": "Confidentialité",
     "support": "Support",
     "copyright": "2026 VitalsPath · Fait avec",
+    "developer": "par RomeroDev",
     "feedback": "Envoyer un commentaire",
     "terms": "Conditions générales",
     "disclaimer": "Avertissement",
@@ -379,84 +408,84 @@
           "title": "11. Contact",
           "content": "Lester Romero Bernardo<br>Email : vitalspath@gmail.com<br>Délai de réponse maximum : 72 heures ouvrables<br><br>Autorité de contrôle : Vous pouvez déposer des réclamations auprès de l'Agence Espagnole de Protection des Données (AEPD) : www.aepd.es"
         }
-        }
       }
+    }
+  },
+  "disclaimer": {
+    "title": "Avertissement Médical",
+    "notice": {
+      "title": "Avis important",
+      "content": "VitalsPath est un outil organisationnel conçu pour vous aider à gérer les informations de santé de votre famille. Ce n'est PAS un dispositif médical et ne remplace en aucun cas les conseils médicaux professionnels."
     },
-    "disclaimer": {
-      "title": "Avertissement Médical",
-      "notice": {
-        "title": "Avis important",
-        "content": "VitalsPath est un outil organisationnel conçu pour vous aider à gérer les informations de santé de votre famille. Ce n'est PAS un dispositif médical et ne remplace en aucun cas les conseils médicaux professionnels."
+    "sections": {
+      "notMedical": {
+        "title": "Pas un dispositif médical",
+        "content": "VitalsPath n'est pas approuvé comme dispositif médical par la FDA, l'EMA ou aucune autre agence de réglementation sanitaire. L'application n'est pas destinée à diagnostiquer, traiter, guérir ou prévenir quelque maladie que ce soit."
       },
-      "sections": {
-        "notMedical": {
-          "title": "Pas un dispositif médical",
-          "content": "VitalsPath n'est pas approuvé comme dispositif médical par la FDA, l'EMA ou aucune autre agence de réglementation sanitaire. L'application n'est pas destinée à diagnostiquer, traiter, guérir ou prévenir quelque maladie que ce soit."
-        },
-        "professional": {
-          "title": "Consultez toujours un professionnel",
-          "content": "Toujours consulter un professionnel de santé qualifié pour des conseils médicaux, des diagnostics ou des traitements. Ne jamais ignorer les conseils médicaux professionnels ni retarder la recherche de conseils médicaux à cause de quelque information contenue dans cette application."
-        },
-        "emergency": {
-          "title": "Situations d'urgence",
-          "content": "En cas d'urgence médicale, appelez immédiatement les services d'urgence de votre pays. VitalsPath n'est pas conçu pour gérer les urgences médicales.",
-          "callToAction": "En cas d'urgence, appelez le 15 (SAMU) ou le 112 (numéro d'urgence européen)"
-        },
-        "accuracy": {
-          "title": "Exactitude des données",
-          "content": "Bien que nous nous efforcions de fournir une application fiable, vous êtes seul responsable de l'exactitude des informations que vous saisissez dans VitalsPath. Vérifiez toujours vos informations médicales avec votre professionnel de santé."
-        },
-        "medication": {
-          "title": "Informations sur les médicaments",
-          "content": "Les informations sur les médicaments dans VitalsPath sont fournies à titre informatif uniquement. Elles ne remplacent pas les informations fournies par votre pharmacien ou professionnel de santé. Toujours lire les notices des médicaments et suivre les instructions de votre médecin."
-        },
-        "responsibility": {
-          "title": "Responsabilité de l'utilisateur",
-          "content": "Vous êtes seul responsable des décisions que vous prenez sur la base des informations stockées dans VitalsPath. Les développeurs de VitalsPath déclinent toute responsabilité pour les décisions ou actions prises à l'aide de cette application."
-        },
-        "contact": {
-          "title": "Questions ?",
-          "content": "Si vous avez des questions concernant cet avertissement, veuillez nous contacter à vitalspath@gmail.com"
-        }
+      "professional": {
+        "title": "Consultez toujours un professionnel",
+        "content": "Toujours consulter un professionnel de santé qualifié pour des conseils médicaux, des diagnostics ou des traitements. Ne jamais ignorer les conseils médicaux professionnels ni retarder la recherche de conseils médicaux à cause de quelque information contenue dans cette application."
+      },
+      "emergency": {
+        "title": "Situations d'urgence",
+        "content": "En cas d'urgence médicale, appelez immédiatement les services d'urgence de votre pays. VitalsPath n'est pas conçu pour gérer les urgences médicales.",
+        "callToAction": "En cas d'urgence, appelez le 15 (SAMU) ou le 112 (numéro d'urgence européen)"
+      },
+      "accuracy": {
+        "title": "Exactitude des données",
+        "content": "Bien que nous nous efforcions de fournir une application fiable, vous êtes seul responsable de l'exactitude des informations que vous saisissez dans VitalsPath. Vérifiez toujours vos informations médicales avec votre professionnel de santé."
+      },
+      "medication": {
+        "title": "Informations sur les médicaments",
+        "content": "Les informations sur les médicaments dans VitalsPath sont fournies à titre informatif uniquement. Elles ne remplacent pas les informations fournies par votre pharmacien ou professionnel de santé. Toujours lire les notices des médicaments et suivre les instructions de votre médecin."
+      },
+      "responsibility": {
+        "title": "Responsabilité de l'utilisateur",
+        "content": "Vous êtes seul responsable des décisions que vous prenez sur la base des informations stockées dans VitalsPath. Les développeurs de VitalsPath déclinent toute responsabilité pour les décisions ou actions prises à l'aide de cette application."
+      },
+      "contact": {
+        "title": "Questions ?",
+        "content": "Si vous avez des questions concernant cet avertissement, veuillez nous contacter à vitalspath@gmail.com"
       }
-    },
-    "subscription": {
-      "title": "Conditions d'abonnement VitalsPath",
-      "lastUpdated": "Dernière mise à jour : 18 février 2026",
-      "intro": "VitalsPath offre un modèle freemium avec des fonctionnalités gratuites et premium. Cette page explique le fonctionnement des abonnements, des paiements et des annulations.",
-      "sections": {
-        "whatIs": {
-          "title": "1. Qu'est-ce que VitalsPath Premium ?",
-          "content": "VitalsPath Premium est un plan payant qui débloque des fonctionnalités avancées pour gérer la santé familiale.<br><br><strong>Fonctionnalités incluses :</strong><br>• Profils familiaux illimités<br>• Cliniques et pharmacies favorites<br>• Planification avancée des médicaments<br>• Suivi de l'inventaire des médicaments<br>• Export complet des données (PDF/CSV)<br>• Analyses et statistiques avancées<br>• Sauvegardes iCloud (chiffrage de bout en bout)<br>• Support prioritaire par email<br><br><strong>Version gratuite :</strong><br>La version gratuite inclut jusqu'à 2 profils, médicaments de base, rappels locaux et export limité."
-        },
-        "plans": {
-          "title": "2. Plans d'abonnement disponibles",
-          "content": "<strong>Mensuel :</strong> Paiement mois par mois, vous pouvez annuler à tout moment.<br><br><strong>Annuel :</strong> Paiement annuel avec une réduction par rapport au plan mensuel. Renouvellement automatique tous les 12 mois.<br><br><strong>À vie (Lifetime) :</strong> Paiement unique. Accès permanent à toutes les fonctionnalités Premium actuelles et futures, sans paiements récurrents.<br><br>Les prix peuvent varier selon votre pays et peuvent inclure les taxes locales. Les prix sont affichés sur l'écran d'achat avant confirmation."
-        },
-        "howItWorks": {
-          "title": "3. Comment fonctionnent les achats",
-          "content": "<strong>Gestion via Apple :</strong><br>Tous les achats et abonnements sont gérés via votre compte Apple (App Store).<br><br><strong>Renouvellement automatique :</strong><br>Les abonnements mensuels et annuels se renouvellent automatiquement à la fin de la période, sauf si vous les annulez avant.<br><br><strong>Confirmation :</strong><br>En confirmant l'achat, le paiement sera débité de votre compte iTunes/Apple ID.<br><br><strong>Essai gratuit :</strong><br>Si nous proposons un essai gratuit, il se convertira automatiquement en abonnement payant sauf si vous annulez avant la fin."
-        },
-        "management": {
-          "title": "4. Gestion de votre abonnement",
-          "content": "Vous pouvez gérer votre abonnement depuis votre appareil iOS :<br><br>1. Ouvrez l'app <strong>Réglages</strong><br>2. Appuyez sur votre <strong>nom/Apple ID</strong> en haut<br>3. Sélectionnez <strong>Abonnements</strong><br>4. Trouvez <strong>VitalsPath</strong> et sélectionnez-le<br>5. Ici, vous pouvez changer de plan ou annuler<br><br>Vous pouvez également gérer les abonnements depuis l'App Store en appuyant sur votre photo de profil → Abonnements."
-        },
-        "cancellation": {
-          "title": "5. Que se passe-t-il si vous annulez ?",
-          "content": "<strong>Accès jusqu'à la fin de la période :</strong><br>Si vous annulez un abonnement mensuel ou annuel, vous continuerez à avoir accès aux fonctionnalités Premium jusqu'à la fin de la période de facturation actuelle.<br><br><strong>Pas de remboursements partiels :</strong><br>Aucun remboursement n'est offert pour les périodes non utilisées des abonnements actifs.<br><br><strong>Données conservées :</strong><br>Vos données sont préservées. Si vous vous réabonnez, vous retrouverez l'accès à tous vos paramètres et historique.<br><br><strong>Plan à vie :</strong><br>Le plan Lifetime n'a pas d'abonnement récurrent, il n'y a donc rien à annuler. Vous aurez un accès permanent."
-        },
-        "issues": {
-          "title": "6. Problèmes techniques et support",
-          "content": "<strong>Restaurer les achats :</strong><br>Si vous avez acheté Premium mais qu'il ne s'est pas activé, allez dans Réglages → Premium → Restaurer les achats.<br><br><strong>Changement d'appareil :</strong><br>Vos achats sont liés à votre Apple ID. Installez VitalsPath sur votre nouvel appareil et restaurez les achats.<br><br><strong>Contacter le support :</strong><br>Pour les problèmes de paiement ou d'abonnement, écrivez à : vitalspath@gmail.com<br><br><strong>Remboursements :</strong><br>Apple gère tous les remboursements. Vous pouvez les demander depuis reportaproblem.apple.com"
-        },
-        "changes": {
-          "title": "7. Modifications de Premium",
-          "content": "<strong>Nouvelles fonctionnalités :</strong><br>Nous pouvons ajouter de nouvelles fonctionnalités Premium sans coût supplémentaire pour les abonnés existants.<br><br><strong>Changements de prix :</strong><br>Si nous augmentons le prix d'un abonnement actif, nous vous informerons à l'avance. Vous pouvez accepter le nouveau prix ou annuler.<br><br><strong>Suppression de fonctionnalités :</strong><br>Nous supprimons rarement des fonctionnalités. Si nous le faisons, nous chercherons des alternatives équivalentes.<br><br><strong>Plan à vie :</strong><br>L'accès à vie inclut toutes les mises à jour futures sans coût supplémentaire."
-        },
-        "law": {
-          "title": "8. Loi applicable",
-          "content": "Ces conditions sont régies par le droit espagnol.<br><br>Pour tout litige, les parties se soumettent aux tribunaux de Valence (Espagne), sans préjudice des juridictions impératives applicables.<br><br><strong>Contact :</strong><br>vitalspath@gmail.com"
-        }
+    }
+  },
+  "subscription": {
+    "title": "Conditions d'abonnement VitalsPath",
+    "lastUpdated": "Dernière mise à jour : 18 février 2026",
+    "intro": "VitalsPath offre un modèle freemium avec des fonctionnalités gratuites et premium. Cette page explique le fonctionnement des abonnements, des paiements et des annulations.",
+    "sections": {
+      "whatIs": {
+        "title": "1. Qu'est-ce que VitalsPath Premium ?",
+        "content": "VitalsPath Premium est un plan payant qui débloque des fonctionnalités avancées pour gérer la santé familiale.<br><br><strong>Fonctionnalités incluses :</strong><br>• Profils familiaux illimités<br>• Cliniques et pharmacies favorites<br>• Planification avancée des médicaments<br>• Suivi de l'inventaire des médicaments<br>• Export complet des données (PDF/CSV)<br>• Analyses et statistiques avancées<br>• Sauvegardes iCloud (chiffrage de bout en bout)<br>• Support prioritaire par email<br><br><strong>Version gratuite :</strong><br>La version gratuite inclut jusqu'à 2 profils, médicaments de base, rappels locaux et export limité."
+      },
+      "plans": {
+        "title": "2. Plans d'abonnement disponibles",
+        "content": "<strong>Mensuel :</strong> Paiement mois par mois, vous pouvez annuler à tout moment.<br><br><strong>Annuel :</strong> Paiement annuel avec une réduction par rapport au plan mensuel. Renouvellement automatique tous les 12 mois.<br><br><strong>À vie (Lifetime) :</strong> Paiement unique. Accès permanent à toutes les fonctionnalités Premium actuelles et futures, sans paiements récurrents.<br><br>Les prix peuvent varier selon votre pays et peuvent inclure les taxes locales. Les prix sont affichés sur l'écran d'achat avant confirmation."
+      },
+      "howItWorks": {
+        "title": "3. Comment fonctionnent les achats",
+        "content": "<strong>Gestion via Apple :</strong><br>Tous les achats et abonnements sont gérés via votre compte Apple (App Store).<br><br><strong>Renouvellement automatique :</strong><br>Les abonnements mensuels et annuels se renouvellent automatiquement à la fin de la période, sauf si vous les annulez avant.<br><br><strong>Confirmation :</strong><br>En confirmant l'achat, le paiement sera débité de votre compte iTunes/Apple ID.<br><br><strong>Essai gratuit :</strong><br>Si nous proposons un essai gratuit, il se convertira automatiquement en abonnement payant sauf si vous annulez avant la fin."
+      },
+      "management": {
+        "title": "4. Gestion de votre abonnement",
+        "content": "Vous pouvez gérer votre abonnement depuis votre appareil iOS :<br><br>1. Ouvrez l'app <strong>Réglages</strong><br>2. Appuyez sur votre <strong>nom/Apple ID</strong> en haut<br>3. Sélectionnez <strong>Abonnements</strong><br>4. Trouvez <strong>VitalsPath</strong> et sélectionnez-le<br>5. Ici, vous pouvez changer de plan ou annuler<br><br>Vous pouvez également gérer les abonnements depuis l'App Store en appuyant sur votre photo de profil → Abonnements."
+      },
+      "cancellation": {
+        "title": "5. Que se passe-t-il si vous annulez ?",
+        "content": "<strong>Accès jusqu'à la fin de la période :</strong><br>Si vous annulez un abonnement mensuel ou annuel, vous continuerez à avoir accès aux fonctionnalités Premium jusqu'à la fin de la période de facturation actuelle.<br><br><strong>Pas de remboursements partiels :</strong><br>Aucun remboursement n'est offert pour les périodes non utilisées des abonnements actifs.<br><br><strong>Données conservées :</strong><br>Vos données sont préservées. Si vous vous réabonnez, vous retrouverez l'accès à tous vos paramètres et historique.<br><br><strong>Plan à vie :</strong><br>Le plan Lifetime n'a pas d'abonnement récurrent, il n'y a donc rien à annuler. Vous aurez un accès permanent."
+      },
+      "issues": {
+        "title": "6. Problèmes techniques et support",
+        "content": "<strong>Restaurer les achats :</strong><br>Si vous avez acheté Premium mais qu'il ne s'est pas activé, allez dans Réglages → Premium → Restaurer les achats.<br><br><strong>Changement d'appareil :</strong><br>Vos achats sont liés à votre Apple ID. Installez VitalsPath sur votre nouvel appareil et restaurez les achats.<br><br><strong>Contacter le support :</strong><br>Pour les problèmes de paiement ou d'abonnement, écrivez à : vitalspath@gmail.com<br><br><strong>Remboursements :</strong><br>Apple gère tous les remboursements. Vous pouvez les demander depuis reportaproblem.apple.com"
+      },
+      "changes": {
+        "title": "7. Modifications de Premium",
+        "content": "<strong>Nouvelles fonctionnalités :</strong><br>Nous pouvons ajouter de nouvelles fonctionnalités Premium sans coût supplémentaire pour les abonnés existants.<br><br><strong>Changements de prix :</strong><br>Si nous augmentons le prix d'un abonnement actif, nous vous informerons à l'avance. Vous pouvez accepter le nouveau prix ou annuler.<br><br><strong>Suppression de fonctionnalités :</strong><br>Nous supprimons rarement des fonctionnalités. Si nous le faisons, nous chercherons des alternatives équivalentes.<br><br><strong>Plan à vie :</strong><br>L'accès à vie inclut toutes les mises à jour futures sans coût supplémentaire."
+      },
+      "law": {
+        "title": "8. Loi applicable",
+        "content": "Ces conditions sont régies par le droit espagnol.<br><br>Pour tout litige, les parties se soumettent aux tribunaux de Valence (Espagne), sans préjudice des juridictions impératives applicables.<br><br><strong>Contact :</strong><br>vitalspath@gmail.com"
       }
     }
   }
+}

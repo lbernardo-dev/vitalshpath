@@ -99,6 +99,34 @@
         "title": "Notificaciones Inteligentes",
         "description": "Modo discreto y nagging."
       },
+      "symptoms": {
+        "title": "Seguimiento de Síntomas",
+        "description": "Registro detallado con severidad y fases de recuperación."
+      },
+      "treatments": {
+        "title": "Gestión de Tratamientos",
+        "description": "Organiza padecimientos y sus medicamentos asociados."
+      },
+      "dashboards": {
+        "title": "Dashboards Pro",
+        "description": "Vista consolidada de toda la salud familiar en un solo lugar."
+      },
+      "metrics": {
+        "title": "Métricas de Salud",
+        "description": "Seguimiento avanzado de adherencia, ánimo y bienestar familiar."
+      },
+      "exportImport": {
+        "title": "Exportación e Importación",
+        "description": "Tus datos siempre contigo. Exporta e importa en formatos PDF, CSV o JSON."
+      },
+      "reports": {
+        "title": "Reportes Médicos",
+        "description": "Genera informes detallados y profesionales para tus especialistas."
+      },
+      "encryption": {
+        "title": "Encriptación Sensible",
+        "description": "Tus datos más sensibles protegidos con encriptación AES-256 de grado militar."
+      },
       "widgets": {
         "title": "Widgets & Live Activities",
         "description": "Dashboard en pantalla de inicio."
@@ -168,6 +196,14 @@
       "export": {
         "title": "Export PDF/CSV",
         "description": "Informes para médicos."
+      },
+      "profiles_unlimited": {
+        "title": "Perfiles Ilimitados",
+        "description": "Gestiona a toda tu familia y conocidos."
+      },
+      "symptoms_plus": {
+        "title": "+100 Síntomas",
+        "description": "Registro exhaustivo de salud y bienestar."
       }
     },
     "stats": {
@@ -253,7 +289,8 @@
     "terms": "Términos y Condiciones",
     "disclaimer": "Aviso Legal",
     "subscription": "Suscripción",
-    "copyright": "2026 VitalsPath · Hecho con"
+    "copyright": "2026 VitalsPath · Hecho con",
+    "developer": "por RomeroDev"
   },
   "legal": {
     "terms": {
@@ -506,7 +543,8 @@
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Desbloquea todo el potencial de la gestión de salud familiar.",
-      "features_title": "Todo lo de Gratis, y además:"
+      "features_title": "Todo lo de Gratis, y además:",
+      "feature_desc": "Registros ilimitados en todos los servicios."
     },
     "free": {
       "title": "Gratis",
@@ -547,6 +585,7 @@
       "healthkit": "Integración HealthKit",
       "complex_symptoms": "Seguimiento de Síntomas Complejos",
       "icloud_backup": "Copia de Seguridad iCloud",
+      "icloud_backup_desc": "Protocolo Apple. También se pueden hacer en local y exportar.",
       "all_themes": "Todos los Temas",
       "advanced_notifications": "Notificaciones Avanzadas",
       "haptic_feedback": "Respuesta Háptica",
@@ -580,11 +619,11 @@
       },
       "2": {
         "title": "Análisis",
-        "desc": "Márgenes de Seguridad"
+        "desc": "Horarios reservados, Márgenes de Seguridad"
       },
       "3": {
         "title": "Verificación",
-        "desc": "Interacciones"
+        "desc": "Solapamientos"
       },
       "4": {
         "title": "Optimización",

@@ -99,6 +99,34 @@
         "title": "Smart Notifications",
         "description": "Discrete mode and nagging."
       },
+      "symptoms": {
+        "title": "Symptom Tracking",
+        "description": "Detailed log with severity and recovery phases."
+      },
+      "treatments": {
+        "title": "Treatment Management",
+        "description": "Organize conditions and their associated medications."
+      },
+      "dashboards": {
+        "title": "Pro Dashboards",
+        "description": "Consolidated view of your entire family's health in one place."
+      },
+      "metrics": {
+        "title": "Health Metrics",
+        "description": "Advanced tracking of adherence, mood, and family wellness."
+      },
+      "exportImport": {
+        "title": "Export & Import",
+        "description": "Your data always with you. Export and import in PDF, CSV, or JSON formats."
+      },
+      "reports": {
+        "title": "Medical Reports",
+        "description": "Generate detailed and professional reports for your specialists."
+      },
+      "encryption": {
+        "title": "Sensitive Encryption",
+        "description": "Your most sensitive data protected with military-grade AES-256 encryption."
+      },
       "widgets": {
         "title": "Widgets & Live Activities",
         "description": "Dashboard on home screen."
@@ -168,6 +196,14 @@
       "export": {
         "title": "PDF/CSV Export",
         "description": "Reports for doctors."
+      },
+      "profiles_unlimited": {
+        "title": "Unlimited Profiles",
+        "description": "Manage your entire family and dependents."
+      },
+      "symptoms_plus": {
+        "title": "100+ Symptoms",
+        "description": "Exhaustive health and wellness recording."
       }
     },
     "stats": {
@@ -250,6 +286,7 @@
     "privacy": "Privacy",
     "support": "Support",
     "copyright": "2026 VitalsPath · Made with",
+    "developer": "by RomeroDev",
     "feedback": "Send Feedback",
     "terms": "Terms & Conditions",
     "disclaimer": "Disclaimer",
@@ -506,7 +543,8 @@
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Unlock the full potential of your family health management.",
-      "features_title": "Everything in Free, plus:"
+      "features_title": "Everything in Free, plus:",
+      "feature_desc": "Unlimited registrations in all services."
     },
     "free": {
       "title": "Free",
@@ -547,6 +585,7 @@
       "healthkit": "HealthKit Integration",
       "complex_symptoms": "Complex Symptom Tracking",
       "icloud_backup": "iCloud Backup",
+      "icloud_backup_desc": "Apple Protocol. Can also be done locally and exported.",
       "all_themes": "All Themes",
       "advanced_notifications": "Advanced Notifications",
       "haptic_feedback": "Haptic Feedback",
@@ -580,11 +619,11 @@
       },
       "2": {
         "title": "Analysis",
-        "desc": "Safety Margins"
+        "desc": "Reserved Slots, Safety Margins"
       },
       "3": {
         "title": "Check",
-        "desc": "Interactions"
+        "desc": "Overlaps"
       },
       "4": {
         "title": "Optimize",

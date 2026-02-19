@@ -116,8 +116,19 @@ const t = useTranslations(lang);
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const email = emailInput?.value;
+            const email = emailInput?.value.trim();
             if (!email) return;
+
+            // Basic email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                if (errorText)
+                    errorText.textContent =
+                        "Por favor, introduce un email válido.";
+                errorMsg?.classList.remove("hidden");
+                emailInput?.focus();
+                return;
+            }
 
             if (submitBtn) submitBtn.disabled = true;
             if (buttonText) buttonText.textContent = "...";
@@ -136,12 +147,17 @@ const t = useTranslations(lang);
                         errorText.textContent = result.error || "Error";
                     errorMsg?.classList.remove("hidden");
                     if (submitBtn) submitBtn.disabled = false;
-                    if (buttonText) buttonText.textContent = "Reintentar";
+                    if (buttonText)
+                        buttonText.textContent = t("waitlist.form.button");
                 }
             } catch (error) {
-                if (errorText) errorText.textContent = "Error";
+                if (errorText)
+                    errorText.textContent =
+                        "Error de conexión. Inténtalo de nuevo.";
                 errorMsg?.classList.remove("hidden");
                 if (submitBtn) submitBtn.disabled = false;
+                if (buttonText)
+                    buttonText.textContent = t("waitlist.form.button");
             }
         });
     });

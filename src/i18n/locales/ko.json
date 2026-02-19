@@ -248,6 +248,7 @@
     "terms": "이용 약관",
     "disclaimer": "면책 조항",
     "copyright": "2026 VitalsPath · Made with",
+    "developer": "RomeroDev 제작",
     "subscription": "구독"
   },
   "legal": {
@@ -326,7 +327,7 @@
         }
       }
     },
-"privacy": {
+    "privacy": {
       "title": "VitalsPath 개인정보처리방침",
       "subtitle": "건강 및 약물 추적 앱",
       "lastUpdated": "마지막 업데이트: 2026년 2월 18일",

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
 import appMockup from "../assets/images/app-mockup.png";
+import appIcon from "../assets/images/Icon.png";
 
 interface Props {
 	lang: Lang;
@@ -54,7 +55,10 @@ const jsonLd = {
 		/>
 		<meta name="author" content="Lester Romero Bernardo" />
 		<meta name="robots" content="index, follow" />
-		<meta name="google-site-verification" content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk" />
+		<meta
+			name="google-site-verification"
+			content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk"
+		/>
 
 		<!-- Preconnect to external domains -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,15 +106,8 @@ const jsonLd = {
 		<meta name="twitter:creator" content="@vitalspath" />
 
 		<!-- Apple Web App -->
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href={`${import.meta.env.BASE_URL}/favicon.svg`}
-		/>
-		<link
-			rel="apple-touch-icon"
-			href={`${import.meta.env.BASE_URL}/assets/images/Icon.png`}
-		/>
+		<link rel="icon" type="image/png" href={appIcon.src} />
+		<link rel="apple-touch-icon" href={appIcon.src} />
 		<meta name="theme-color" content="#007aff" />
 		<meta
 			name="apple-mobile-web-app-status-bar-style"

@@ -3,6 +3,15 @@ import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
 import DeviceMockup from "../DeviceMockup.astro";
+import {
+    LayoutDashboard,
+    Activity,
+    Users,
+    TrendingUp,
+    ArrowLeftRight,
+    FileText,
+    Lock,
+} from "lucide-react";
 
 // Import images
 import screenDashboard from "../../assets/images/screens/screen-01-dashboard.PNG";
@@ -10,6 +19,8 @@ import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
 import screenMedications from "../../assets/images/screens/screen-04-medications.PNG";
 import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
 import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
+import screenDashboardLight from "../../assets/images/screens/screen-22-dashboard-light.PNG";
+import screenDashboardDark from "../../assets/images/screens/screen-23-dashboard-dark.PNG";
 
 interface Props {
     lang: Lang;
@@ -60,175 +71,184 @@ const t = useTranslations(lang);
         <div
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center"
         >
-            {/* Main View */}
+            {/* Left Column - Feature List */}
             <div class="lg:col-span-1 space-y-8" data-aos="fade-up">
+                {/* Dashboard */}
                 <div
                     class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-blue-500/10 transition-all group"
                 >
                     <div
                         class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="text-blue-600"
-                            ><rect width="7" height="9" x="3" y="3" rx="1"
-                            ></rect><rect
-                                width="7"
-                                height="5"
-                                x="14"
-                                y="3"
-                                rx="1"></rect><rect
-                                width="7"
-                                height="9"
-                                x="14"
-                                y="12"
-                                rx="1"></rect><rect
-                                width="7"
-                                height="5"
-                                x="3"
-                                y="16"
-                                rx="1"></rect>
-                        </svg>
+                        <LayoutDashboard className="w-7 h-7 text-blue-600" />
                     </div>
                     <h3
                         class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
                     >
-                        {t("gallery.labels.dashboard")}
+                        {t("features.items.dashboards.title")}
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {t("features.items.widgets.description")}
+                        {t("features.items.dashboards.description")}
                     </p>
                 </div>
 
+                {/* Metrics */}
                 <div
                     class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-purple-500/10 transition-all group"
                 >
                     <div
                         class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="text-purple-600"
-                            ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
-                            ></path><circle cx="9" cy="7" r="4"></circle><path
-                                d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path
-                                d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                        <TrendingUp className="w-7 h-7 text-purple-600" />
                     </div>
                     <h3
                         class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
                     >
-                        {t("gallery.labels.profiles")}
+                        {t("features.items.metrics.title")}
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {t("features.items.profiles.description")}
+                        {t("features.items.metrics.description")}
+                    </p>
+                </div>
+
+                {/* Reports */}
+                <div
+                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-indigo-500/10 transition-all group"
+                >
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    >
+                        <FileText className="w-7 h-7 text-indigo-600" />
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                        {t("features.items.reports.title")}
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {t("features.items.reports.description")}
                     </p>
                 </div>
             </div>
 
-            {/* Central Mockup */}
-            <div class="lg:col-span-1 flex justify-center" data-aos="zoom-in">
+            {/* Central Mockup Stack */}
+            <div
+                class="lg:col-span-1 flex justify-center py-12"
+                data-aos="zoom-in"
+            >
                 <div class="relative group">
+                    <!-- Large Glow Effect -->
                     <div
-                        class="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"
+                        class="absolute -inset-10 bg-gradient-to-tr from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-[4rem] blur-3xl opacity-50 group-hover:opacity-80 transition-opacity"
                     >
                     </div>
-                    <DeviceMockup>
-                        <Image
-                            src={screenDashboard}
-                            alt={t("gallery.labels.dashboard")}
-                            class="w-full h-full object-cover"
-                            width={284}
-                        />
-                    </DeviceMockup>
+
+                    <!-- Background Phone (iPhone 15 Pro - Dark Mode) -->
+                    <div
+                        class="absolute -left-20 top-10 transform -rotate-12 scale-90 opacity-60 group-hover:opacity-80 group-hover:-rotate-6 transition-all duration-700"
+                    >
+                        <DeviceMockup model="iphone15">
+                            <Image
+                                src={screenDashboardDark}
+                                alt="Dark Mode Dashboard"
+                                class="w-full h-full object-cover"
+                                width={280}
+                            />
+                        </DeviceMockup>
+                    </div>
+
+                    <!-- Foreground Phone (iPhone 17 Pro Max - Light Mode) -->
+                    <div
+                        class="relative z-10 transform scale-105 group-hover:scale-110 transition-transform duration-700"
+                    >
+                        <DeviceMockup model="iphone17">
+                            <Image
+                                src={screenDashboardLight}
+                                alt="Light Mode Dashboard"
+                                class="w-full h-full object-cover"
+                                width={308}
+                            />
+                        </DeviceMockup>
+
+                        <!-- Floating Highlight -->
+                        <div
+                            class="absolute -right-12 bottom-20 bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 z-20 animate-float hidden md:block"
+                        >
+                            <p
+                                class="text-[10px] font-black uppercase tracking-wider text-blue-500 mb-1"
+                            >
+                                Nueva Versión
+                            </p>
+                            <p
+                                class="text-sm font-bold text-gray-900 dark:text-white"
+                            >
+                                iOS 26 Ready
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Second Set */}
+            {/* Right Column - Feature List */}
             <div
                 class="lg:col-span-1 space-y-8"
                 data-aos="fade-up"
                 data-aos-delay="200"
             >
-                <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-pink-500/10 transition-all group"
-                >
-                    <div
-                        class="w-14 h-14 rounded-2xl bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="text-pink-600"
-                            ><path d="m12 14 4-4"></path><path
-                                d="M3.34 19a10 10 0 1 1 17.32 0"></path>
-                        </svg>
-                    </div>
-                    <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                    >
-                        {t("gallery.labels.wellness")}
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {t("features.items.wellness.description")}
-                    </p>
-                </div>
-
+                {/* Export & Import */}
                 <div
                     class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-teal-500/10 transition-all group"
                 >
                     <div
                         class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="text-teal-600"
-                            ><path
-                                d="M4.8 2.3A.3.3 0 1 0 5 2h0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h0a.3.3 0 1 0 .2-.3Z"
-                            ></path><path
-                                d="M13 19c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v14Z"
-                            ></path><path d="M6 7h4"></path><path d="M6 11h4"
-                            ></path><path d="M6 15h1"></path>
-                        </svg>
+                        <ArrowLeftRight className="w-7 h-7 text-teal-600" />
                     </div>
                     <h3
                         class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
                     >
-                        {t("gallery.labels.medications")}
+                        {t("features.items.exportImport.title")}
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {t("features.items.medication.description")}
+                        {t("features.items.exportImport.description")}
+                    </p>
+                </div>
+
+                {/* Encryption */}
+                <div
+                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-rose-500/10 transition-all group"
+                >
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    >
+                        <Lock className="w-7 h-7 text-rose-600" />
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                        {t("features.items.encryption.title")}
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {t("features.items.encryption.description")}
+                    </p>
+                </div>
+
+                {/* Profiles */}
+                <div
+                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-blue-500/10 transition-all group"
+                >
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                    >
+                        <Users className="w-7 h-7 text-blue-600" />
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                        {t("features.items.profiles.title")}
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {t("features.items.profiles.description")}
                     </p>
                 </div>
             </div>

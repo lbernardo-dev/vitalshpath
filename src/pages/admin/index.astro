@@ -4,199 +4,369 @@ const baseUrl = import.meta.env.BASE_URL;
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitalsPath Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-</head>
-<body class="bg-gray-50 min-h-screen">
-    <div id="loading" class="flex items-center justify-center min-h-screen">
-        <div class="text-center">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-            <p class="text-gray-600">Cargando...</p>
-        </div>
-    </div>
-
-    <div id="login" class="hidden min-h-screen flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>VitalsPath Admin</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen">
+        <div id="loading" class="flex items-center justify-center min-h-screen">
+            <div class="text-center">
+                <div
+                    class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"
+                >
+                </div>
+                <p class="text-gray-600">Cargando...</p>
             </div>
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">VitalsPath Admin</h1>
-            <p class="text-gray-600 mb-8">Acceso restringido</p>
-            <button id="google-login" class="w-full flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
-                <svg class="w-5 h-5" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                </svg>
-                <span class="font-medium text-gray-700">Continuar con Google</span>
-            </button>
         </div>
-    </div>
 
-    <div id="unauthorized" class="hidden min-h-screen flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        <div
+            id="login"
+            class="hidden min-h-screen flex items-center justify-center p-4"
+        >
+            <div
+                class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
+            >
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                >
+                    <svg
+                        class="w-8 h-8 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        ></path>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">
+                    VitalsPath Admin
+                </h1>
+                <p class="text-gray-600 mb-8">Acceso restringido</p>
+                <button
+                    id="google-login"
+                    class="w-full flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                        <path
+                            fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        ></path>
+                        <path
+                            fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        ></path>
+                        <path
+                            fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        ></path>
+                        <path
+                            fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        ></path>
+                    </svg>
+                    <span class="font-medium text-gray-700"
+                        >Continuar con Google</span
+                    >
+                </button>
             </div>
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">Acceso Denegado</h1>
-            <p class="text-gray-600 mb-6">Email no autorizado</p>
-            <button id="retry-login" class="px-6 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">Reintentar</button>
         </div>
-    </div>
 
-    <div id="dashboard" class="hidden">
-        <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
-                        <span class="text-white font-bold">VP</span>
+        <div
+            id="unauthorized"
+            class="hidden min-h-screen flex items-center justify-center p-4"
+        >
+            <div
+                class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center"
+            >
+                <div
+                    class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6"
+                >
+                    <svg
+                        class="w-8 h-8 text-red-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-2">
+                    Acceso Denegado
+                </h1>
+                <p class="text-gray-600 mb-6">Email no autorizado</p>
+                <button
+                    id="retry-login"
+                    class="px-6 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
+                    >Reintentar</button
+                >
+            </div>
+        </div>
+
+        <div id="dashboard" class="hidden">
+            <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+                <div
+                    class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+                >
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center"
+                        >
+                            <span class="text-white font-bold">VP</span>
+                        </div>
+                        <h1 class="text-xl font-bold text-gray-900">
+                            VitalsPath Admin
+                        </h1>
                     </div>
-                    <h1 class="text-xl font-bold text-gray-900">VitalsPath Admin</h1>
+                    <div class="flex items-center gap-4">
+                        <span
+                            id="user-name"
+                            class="text-sm font-medium text-gray-700"></span>
+                        <button
+                            id="logout-btn"
+                            class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg"
+                            >Cerrar sesión</button
+                        >
+                    </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <span id="user-name" class="text-sm font-medium text-gray-700"></span>
-                    <button id="logout-btn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">Cerrar sesión</button>
-                </div>
-            </div>
-        </nav>
+            </nav>
 
-        <main class="max-w-7xl mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white rounded-xl shadow-sm border p-6">
-                    <span class="text-sm text-gray-500">Total</span>
-                    <p id="stat-total" class="text-2xl font-bold text-gray-900 mt-1">0</p>
+            <main class="max-w-7xl mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Total</span>
+                        <p
+                            id="stat-total"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Hoy</span>
+                        <p
+                            id="stat-today-signups"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            +0
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Visitantes</span>
+                        <p
+                            id="stat-visitors"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Online</span>
+                        <p
+                            id="stat-online"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-sm border p-6">
-                    <span class="text-sm text-gray-500">Hoy</span>
-                    <p id="stat-today-signups" class="text-2xl font-bold text-gray-900 mt-1">+0</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-sm border p-6">
-                    <span class="text-sm text-gray-500">Visitantes</span>
-                    <p id="stat-visitors" class="text-2xl font-bold text-gray-900 mt-1">0</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-sm border p-6">
-                    <span class="text-sm text-gray-500">Online</span>
-                    <p id="stat-online" class="text-2xl font-bold text-gray-900 mt-1">0</p>
-                </div>
-            </div>
 
-            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
-                <div class="px-6 py-4 border-b flex justify-between items-center">
-                    <h2 class="font-semibold text-gray-900">Lista de Espera</h2>
-                    <button id="refresh-btn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">Actualizar</button>
+                <div
+                    class="bg-white rounded-xl shadow-sm border overflow-hidden"
+                >
+                    <div
+                        class="px-6 py-4 border-b flex justify-between items-center"
+                    >
+                        <h2 class="font-semibold text-gray-900">
+                            Lista de Espera
+                        </h2>
+                        <button
+                            id="refresh-btn"
+                            class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg"
+                            >Actualizar</button
+                        >
+                    </div>
+                    <table class="min-w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >Email</th
+                                >
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >Fecha</th
+                                >
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                                    >Origen</th
+                                >
+                            </tr>
+                        </thead>
+                        <tbody id="waitlist-body" class="divide-y">
+                            <tr
+                                ><td
+                                    colspan="3"
+                                    class="px-6 py-12 text-center text-gray-500"
+                                    >Cargando...</td
+                                >
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <table class="min-w-full">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen</th>
-                        </tr>
-                    </thead>
-                    <tbody id="waitlist-body" class="divide-y">
-                        <tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Cargando...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
+            </main>
+        </div>
 
-    <script is:inline>
-        var ADMIN_EMAILS = ['lbernardo.dev@gmail.com', 'yilianbs@gmail.com'];
-        var SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
-        var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
-        var BASE_URL = baseUrl;
-        
-        var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        
-        function show(id) { document.getElementById(id).classList.remove('hidden'); }
-        function hide(id) { document.getElementById(id).classList.add('hidden'); }
-        
-        function loadDashboard() {
-            supabase.rpc('get_stats').then(function(result) {
-                if (result.data) {
-                    document.getElementById('stat-total').textContent = result.data.total_signups || 0;
-                    document.getElementById('stat-today-signups').textContent = '+' + (result.data.today_signups || 0);
-                    document.getElementById('stat-visitors').textContent = result.data.today_visitors || 0;
-                    document.getElementById('stat-online').textContent = result.data.online_now || 0;
-                }
-            });
-            
-            supabase.from('waitlist').select('*').order('created_at', {ascending: false}).limit(50).then(function(result) {
-                var tbody = document.getElementById('waitlist-body');
-                if (result.data && result.data.length > 0) {
-                    var html = '';
-                    result.data.forEach(function(item) {
-                        html += '<tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm text-gray-900">' + item.email + '</td><td class="px-6 py-4 text-sm text-gray-500">' + new Date(item.created_at).toLocaleString('es-ES') + '</td><td class="px-6 py-4 text-sm text-gray-500">' + (item.source || 'landing') + '</td></tr>';
-                    });
-                    tbody.innerHTML = html;
-                } else {
-                    tbody.innerHTML = '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Sin datos</td></tr>';
-                }
-            });
-        }
-        
-        async function init() {
-            var { data: { session } } = await supabase.auth.getSession();
-            
-            if (session && session.user) {
-                if (ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
-                    hide('loading');
-                    show('dashboard');
-                    document.getElementById('user-name').textContent = session.user.email;
-                    loadDashboard();
-                } else {
-                    hide('loading');
-                    show('unauthorized');
-                }
-            } else {
-                hide('loading');
-                show('login');
+        <script is:inline define:vars={{ baseUrl }}>
+            var ADMIN_EMAILS = [
+                "lbernardo.dev@gmail.com",
+                "yilianbs@gmail.com",
+            ];
+            var SUPABASE_URL = "https://mvrsoaefuqrslzpbkvnf.supabase.co";
+            var SUPABASE_KEY =
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI";
+            var BASE_URL = baseUrl === "/" ? "" : baseUrl;
+
+            var supabase = window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+            function show(id) {
+                document.getElementById(id).classList.remove("hidden");
             }
-            
-            supabase.auth.onAuthStateChange(function(event, session) {
-                if (event === 'SIGNED_IN' && session) {
-                    if (ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
-                        hide('login');
-                        hide('unauthorized');
-                        show('dashboard');
-                        document.getElementById('user-name').textContent = session.user.email;
+            function hide(id) {
+                document.getElementById(id).classList.add("hidden");
+            }
+
+            function loadDashboard() {
+                supabase.rpc("get_stats").then(function (result) {
+                    if (result.data) {
+                        document.getElementById("stat-total").textContent =
+                            result.data.total_signups || 0;
+                        document.getElementById(
+                            "stat-today-signups"
+                        ).textContent = "+" + (result.data.today_signups || 0);
+                        document.getElementById("stat-visitors").textContent =
+                            result.data.today_visitors || 0;
+                        document.getElementById("stat-online").textContent =
+                            result.data.online_now || 0;
+                    }
+                });
+
+                supabase
+                    .from("waitlist")
+                    .select("*")
+                    .order("created_at", { ascending: false })
+                    .limit(50)
+                    .then(function (result) {
+                        var tbody = document.getElementById("waitlist-body");
+                        if (result.data && result.data.length > 0) {
+                            var html = "";
+                            result.data.forEach(function (item) {
+                                html +=
+                                    '<tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm text-gray-900">' +
+                                    item.email +
+                                    '</td><td class="px-6 py-4 text-sm text-gray-500">' +
+                                    new Date(item.created_at).toLocaleString(
+                                        "es-ES"
+                                    ) +
+                                    '</td><td class="px-6 py-4 text-sm text-gray-500">' +
+                                    (item.source || "landing") +
+                                    "</td></tr>";
+                            });
+                            tbody.innerHTML = html;
+                        } else {
+                            tbody.innerHTML =
+                                '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Sin datos</td></tr>';
+                        }
+                    });
+            }
+
+            async function init() {
+                var {
+                    data: { session },
+                } = await supabase.auth.getSession();
+
+                if (session && session.user) {
+                    if (
+                        ADMIN_EMAILS.includes(session.user.email.toLowerCase())
+                    ) {
+                        hide("loading");
+                        show("dashboard");
+                        document.getElementById("user-name").textContent =
+                            session.user.email;
                         loadDashboard();
                     } else {
-                        hide('login');
-                        show('unauthorized');
+                        hide("loading");
+                        show("unauthorized");
                     }
+                } else {
+                    hide("loading");
+                    show("login");
                 }
-            });
-        }
-        
-        document.getElementById('google-login').addEventListener('click', async function() {
-            await supabase.auth.signInWithOAuth({
-                provider: 'google',
-                options: {
-                    redirectTo: window.location.origin + BASE_URL + '/admin/'
-                }
-            });
-        });
-        
-        document.getElementById('retry-login').addEventListener('click', async function() {
-            await supabase.auth.signOut();
-            window.location.reload();
-        });
-        
-        document.getElementById('logout-btn').addEventListener('click', async function() {
-            await supabase.auth.signOut();
-            window.location.reload();
-        });
-        
-        document.getElementById('refresh-btn').addEventListener('click', loadDashboard);
-        
-        init();
-    </script>
-</body>
+
+                supabase.auth.onAuthStateChange(function (event, session) {
+                    if (event === "SIGNED_IN" && session) {
+                        if (
+                            ADMIN_EMAILS.includes(
+                                session.user.email.toLowerCase()
+                            )
+                        ) {
+                            hide("login");
+                            hide("unauthorized");
+                            show("dashboard");
+                            document.getElementById("user-name").textContent =
+                                session.user.email;
+                            loadDashboard();
+                        } else {
+                            hide("login");
+                            show("unauthorized");
+                        }
+                    }
+                });
+            }
+
+            document
+                .getElementById("google-login")
+                .addEventListener("click", async function () {
+                    await supabase.auth.signInWithOAuth({
+                        provider: "google",
+                        options: {
+                            redirectTo:
+                                window.location.origin + BASE_URL + "/admin/",
+                        },
+                    });
+                });
+
+            document
+                .getElementById("retry-login")
+                .addEventListener("click", async function () {
+                    await supabase.auth.signOut();
+                    window.location.reload();
+                });
+
+            document
+                .getElementById("logout-btn")
+                .addEventListener("click", async function () {
+                    await supabase.auth.signOut();
+                    window.location.reload();
+                });
+
+            document
+                .getElementById("refresh-btn")
+                .addEventListener("click", loadDashboard);
+
+            init();
+        </script>
+    </body>
 </html>
