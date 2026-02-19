@@ -2,8 +2,8 @@
 
 > **Nombre Comercial**: VitalsPath (proyecto interno: PersonalCare)  
 > **Autor**: Lester Romero  
-> **Versión**: 12.0 (Positive Wellness & Date Range Perspectives)  
-> **Última actualización**: 11 Febrero 2026, 12:45 CET
+> **Versión**: 12.9 (Data Integrity & UI Stability)  
+> **Última actualización**: 18 Febrero 2026, 21:00 CET
 
 Este documento es la fuente única de verdad ("Biblia") para el desarrollo de **VitalsPath**. Define la estructura técnica exhaustiva, los patrones de diseño, el estado actual del código, las áreas de mejora identificadas, y el roadmap para elevar la aplicación a un estándar de excelencia profesional que ame a los usuarios.
 
@@ -111,6 +111,17 @@ Este documento es la fuente única de verdad ("Biblia") para el desarrollo de **
 117. [**Actualización del Esquema de Backup a v9**](#117-actualización-del-esquema-de-backup-a-v9-8-febrero-2026)
 118. [**Refuerzo Positivo y Wellness Refactor**](#118-refuerzo-positivo-y-wellness-refactor-11-febrero-2026)
 119. [**Wellness Persistence & Design Harmony**](#119-wellness-persistence--design-harmony-11-febrero-2026)
+120. [**Estandarización de Botones de Acción en Footers**](#120-estandarización-de-botones-de-acción-en-footers-11-febrero-2026)
+121. [**Optimización de la Galería de Widgets y Limpieza de UX**](#121-optimización-de-la-galería-de-widgets-y-limpieza-de-ux-12-febrero-2026)
+122. [**Refinamiento y Estandarización de Widgets**](#122-refinamiento-y-estandarización-de-widgets-12-febrero-2026)
+123. [**Auditoría de Métricas de Bienestar y Racha de Actividad**](#123-auditoría-de-métricas-de-bienestar-y-racha-de-actividad-14-febrero-2026)
+124. [**Consistencia de UI y Refinamiento de Localización**](#124-consistencia-de-ui-y-refinamiento-de-localización-14-febrero-2026)
+125. [**Refinamiento de Estatus de Dosis Históricas**](#125-refinamiento-de-estatus-de-dosis-históricas-15-febrero-2026)
+126. [**Desactivación Automática de Integración con Health**](#126-desactivación-automática-de-integración-con-health-15-febrero-2026)
+127. [**Corrección de Renderizado de Avatares en Widgets**](#127-corrección-de-renderizado-de-avatares-en-widgets-ios-18-)
+128. [**Sistema de Notificaciones (Modos Globales y Restricciones)**](#128-sistema-de-notificaciones-modos-globales-y-restricciones-17-febrero-2026)
+129. [**Estandarización de Terminología Médica**](#129-estandarización-de-terminología-médica-18-febrero-2026)
+130. [**Reparación de Datos y Estabilidad UI**](#130-reparación-de-datos-y-estabilidad-ui-18-febrero-2026)
 ---
 
 ## 102. Historial Completo y Auditoría de Padecimientos (1 Febrero 2026)
@@ -2389,6 +2400,36 @@ Todas las frases soportan la invocación directa "Oye Siri, [Frase] en VitalsPat
 > **Integración Spotlight**: Estas acciones aparecen automáticamente en la búsqueda de iOS y en la app Atajos.
 - Comentarios para traductores
 
+### 9.5 Estandarización de Terminología Médica (Febrero 2026)
+
+Para garantizar la precisión clínica y la consistencia en todos los idiomas del proyecto, se han establecido las siguientes reglas estrictas de traducción y nomenclatura. Cualquier nueva cadena de texto debe adherirse a estos estándares.
+
+#### 9.5.1 Diccionario de Términos (Español)
+
+| Término Anterior (Incorrecto) | Término Estandarizado (Correcto) | Contexto |
+| :--- | :--- | :--- |
+| **Cita** | **Consulta** | Referencia a encuentros médicos (ej. "Consulta médica", "Próxima consulta"). |
+| **Padecimiento** | **Enfermedad** | Término clínico estándar. Incluye variantes gramaticales ("de la enfermedad", "nuevas enfermedades"). |
+| **Condición** | **Enfermedad** | Evitar anglicismos. *Excepción: "Términos y Condiciones" (Legales).* |
+| **Medicamento** | **Medicamento** | Se mantiene. Evitar "Medicina" o "Fármaco" en UI general. |
+| **Tratamiento** | **Tratamiento** | Se refiere al plan terapéutico global. |
+
+#### 9.5.2 Terminology Dictionary (English)
+
+| Previous Term (Incorrect) | Standardized Term (Correct) | Context |
+| :--- | :--- | :--- |
+| **Appointment** | **Appointment** | Remains standard. |
+| **Condition** | **Disease** | Clinical precision. *Exception: "Terms & Conditions" (Legal).* |
+| **Medicine** | **Medication** | "Medicine" is too broad/colloquial. Use "Medication" for specific drugs. |
+| **Treatment** | **Treatment** | Refers to the therapeutic plan. |
+| **Symptom** | **Symptom** | Remains standard. |
+
+> [!IMPORTANT]
+> **Regla de "Condición" vs "Enfermedad"**:
+> El término "Condition" en inglés debe traducirse siempre como **"Disease"** cuando se refiere a una patología médica en la UI en inglés, y como **"Enfermedad"** en español.
+>
+> **Excepción Crítica**: La frase legal **"Terms & Conditions"** / **"Términos y Condiciones"** es la ÚNICA excepción a esta regla y debe preservarse tal cual.
+
 ---
 
 ## 10. Sistema de Monetización
@@ -3664,73 +3705,36 @@ AddTreatmentViewModel
     └── modelContext.save()
 ```
 
-### 18.2 Algoritmo de Auto-Distribución
+### 18.2 Algoritmo de Auto-Distribución (Smart CSP)
 
-```swift
-func autoDistribute() {
-    // 1. Calcular total de slots necesarios
-    let totalSlots = medications.reduce(0) { $0 + $1.timesPerDay }
+A diferencia de una distribución lineal, el algoritmo ahora utiliza un enfoque de **Búsqueda de Huecos Inicial**:
+1. **Punto de Inicio Dinámico**: Busca la primera hora no bloqueada a partir de las 8:00 AM.
+2. **Grid de 5 Minutos**: Todas las dosis se ajustan estrictamente a múltiplos de 5 min (`Calendar.dateComponents`) para evitar derivas horarias indeseadas.
+3. **Captura de Estado Inicial**: Se realiza un backup (`initialSlots`) *antes* de la optimización para que el botón de **Reset** restaure los horarios prescritos exactos.
 
-    // 2. Distribuir en horas de vigilia (7 AM - 10 PM = 15 horas)
-    let wakingMinutes = 15 * 60
-    let spacing = wakingMinutes / totalSlots
+### 18.3 Detección de Conflictos y Resolución (Iterative Repair)
 
-    // 3. Crear slots con redondeo a 15 minutos
-    for (config, count) in allDoses {
-        for _ in 0..<count {
-            let hour = currentMinutes / 60
-            let minute = (currentMinutes % 60 / 15) * 15
-            scheduledSlots.append(MedicationTimeSlot(...))
-            currentMinutes += spacing
-        }
-    }
-}
-```
+Se ha implementado un motor de resolución de restricciones (CSP) robusto:
 
-### 18.3 Detección de Conflictos
+#### Lógica de Validación Estricta
+- **Bloqueos por Duración**: No solo se comprueba la hora de inicio; se verifica que **cada minuto de la duración** de la dosis esté fuera de las horas bloqueadas.
+- **Márgenes Médicos**: Se integra el `requiredGap` (máximo entre margen custom y global) contra todas las demás medicaciones.
 
-Medicamentos con menos de 30 minutos de separación generan alerta visual:
+#### Motor de Resolución (Solver)
+- **Chain Shifting**: Intenta mover bloques completos de medicación hacia adelante/atrás (hasta ±6h).
+- **Elastic Nudges**: Si el bloque falla, intenta mover dosis individuales en una ventana de ±2h.
+- **Escape de Mínimos Locales (Jitter)**: Si el solver se queda atascado, aplica pequeños saltos aleatorios para "agitar" la solución y encontrar un nuevo camino válido.
 
-```swift
-var hasConflicts: Bool {
-    let sortedSlots = scheduledSlots.sorted { ... }
-    for i in 0..<sortedSlots.count - 1 {
-        let currentMinutes = current.hour * 60 + current.minute
-        let nextMinutes = next.hour * 60 + next.minute
-        if nextMinutes - currentMinutes < 30 {
-            return true
-        }
-    }
-    return false
-}
-```
+### 18.4 Gestión de Borradores y Seguridad (v12.5)
 
-### 18.4 Integración con DayPlannerUI (Actualizado 19 Dic 2025)
+Para evitar que el usuario aplique planes basados en medicamentos que ya no existen o han cambiado:
 
-El planificador ahora usa el paquete **DayPlannerUI** (`https://github.com/fcollf/DayPlannerUI.git`) para una experiencia tipo Apple Calendar:
+#### Medication Fingerprint
+Cada borrador (`DraftTreatmentPlan`) guarda un **fingerprint** (Hash) de la lista de medicamentos actual (IDs + Propiedades críticas).
 
-#### Características:
-
-- ✅ Timeline 24 horas completo (no más limitación 6AM-11PM)
-- ✅ Drag-and-drop con resize visual
-- ✅ Haptic feedback en interacciones
-- ✅ Sin límite de dosis por medicamento
-- ✅ Horas bloqueadas configurables (ej: horas de sueño)
-- ✅ Presets rápidos: "Horas de sueño" (12AM-6AM), "Noche" (10PM-6AM)
-
-#### Nuevos Componentes:
-
-| Componente               | Descripción                                             |
-| ------------------------ | ------------------------------------------------------- |
-| `MedicationScheduleSlot` | Conforme a `SchedulableElement` del paquete             |
-| `EditScheduleSlotSheet`  | Edición de hora individual con alerta de hora bloqueada |
-| `BlockedHoursSheet`      | UI para seleccionar horas a evitar                      |
-| `HourToggleButton`       | Grid de 24 horas para selección rápida                  |
-| `PresetButton`           | Botones de preset de horas bloqueadas                   |
-
-#### Limitaciones Actuales:
-
-- Solo disponible para tratamientos temporales (no crónicos) - por diseño
+#### Invalidación Automática
+- Al cargar un borrador o abrir el planificador, se valida el fingerprint.
+- Si la lista de medicamentos ha cambiado (añadido/eliminado/editado), el borrador se marca como **inválido** y se solicita al usuario realizar una nueva optimización.
 
 ### 18.5 TreatmentScheduleView (Actualizado 20 Dic 2025)
 
@@ -9767,3 +9771,260 @@ Se ha introducido una lógica de "Armonía Visual" para facilitar la consistenci
 - **Sugerencia Proactiva**: Al modificar el estilo de cualquier widget, se muestra un banner informando al usuario la posibilidad de armonizar el resto de widgets con un solo toque.
 - **Acción Masiva**: El botón "Armonizar Todos" aplica el `variantIndex` seleccionado a todos los widgets del dashboard que soporten dicho estilo, garantizando una presentación visual uniforme.
 - **Localización Robusta**: Se han implementado fallbacks manuales en `LanguageManager` para asegurar que las etiquetas de estilo y filtros nunca se muestren como claves técnicas, incluso en condiciones de fallo del motor de String Catalogs.
+
+---
+
+## 121. Optimización de la Galería de Widgets y Limpieza de UX (12 Febrero 2026)
+
+Se ha llevado a cabo una auditoría y limpieza profunda de la Galería de Widgets para reducir la saturación visual y mejorar la relevancia de las opciones presentadas al usuario.
+
+### 121.1 Filosofía de "Curación de Galería"
+En lugar de ofrecer todos los tamaños posibles para cada widget, se ha adoptado una estrategia de selección basada en el impacto visual y la utilidad real de los datos en cada formato.
+- **Eliminación de Redundancia**: Se han eliminado tamaños que no aportaban valor diferencial o que presentaban la información de forma apretada (Ej: Próxima Cita en tamaño Small).
+- **Descluttering**: La galería ahora es más rápida de navegar y las opciones disponibles son las que mejor representan la identidad visual de la app.
+
+### 121.2 Widgets Optimizados (Restricción de Tamaños)
+Se han modificado los `supportedFamilies` de los siguientes widgets para conservar solo sus mejores versiones:
+- **Próxima Cita (`AppointmentWidget`)**: Se eliminaron los tamaños **Small** y **Medium**. Se mantienen las versiones de **Bloqueo/Accesorio** (Rectangular e Inline) por su alta utilidad en la Lock Screen.
+- **Síntomas Activos (`ActiveSymptomsWidget`)**: Se eliminó el tamaño **Large**. Se mantiene el **Medium** por ser el más equilibrado para listas cortas.
+- **Información de Emergencia (`EmergencyCardWidget`)**: Se eliminó el tamaño **Large**. Se mantiene el **Medium** por ser suficiente para el triage rápido.
+- **Dosis Siguiente (`NextDoseWidget`)**: Se eliminó el tamaño **Small** por saturación de información.
+- **Progreso Diario (`DailyProgressWidget`)**: Se eliminó el tamaño **Small**.
+- **Racha Premium (`StreakPremiumWidget`)**: Se eliminó el tamaño **Medium**.
+- **Acciones Rápidas (`QuickActionsWidget`)**: Se eliminó el tamaño **Small**.
+- **Agenda de Hoy (`CalendarTodayWidget`)**: Se eliminó el tamaño **Medium**.
+- **Adherencia Diaria (`DailyAdherenceWidget`)**: Se eliminó el tamaño **Small**.
+- **Puntaje de Bienestar (`WellnessScoreWidget`)**: Se eliminaron los tamaños **Medium** y **Large**.
+
+### 121.3 Widgets Retirados (Unregistered)
+Se han eliminado por completo del `VitalsPathWidgetsBundle.swift` aquellos widgets que ya no cumplen con los estándares de UX o cuyas únicas dimensiones soportadas fueron descartadas:
+- **Resumen de Bienestar (`WellnessOverviewWidget`)**: Retirado (solo soportaba Large).
+- **Mis Registros (`MyRecordsWidget`)**: Retirado (solo soportaba Medium).
+- **Resumen del Perfil (`ProfileSummaryWidget`)**: Retirado (solo soportaba Large).
+
+### 121.4 Mantenimiento del Bundle
+- **Limpieza de Duplicados**: Se detectaron y eliminaron registros duplicados en el bundle que afectaban el rendimiento de carga de la galería.
+- **Estandarización**: Todos los widgets activos ahora siguen el patrón de contenedores de cristal (`WidgetGlassContainer`) y efectos de transparencia consistentes.
+
+## 122. Refinamiento y Estandarización de Widgets (12 Febrero 2026)
+
+Se han implementado mejoras significativas en la arquitectura y experiencia de usuario de los widgets, enfocándose en la densidad de información y la interactividad.
+
+### 122.1 Agenda Unificada (CalendarTodayWidget)
+El widget de agenda ha evolucionado de mostrar una sola cita a una **vista consolidada** que incluye:
+- **Próximas Dosis**: Hasta 3 medicamentos pendientes.
+- **Citas Médicas**: Lista de próximas citas (ya no solo la inmediata).
+- **Gestión de Tareas**: Integración visual de tareas pendientes.
+Esto requirió refactorizar `ProfileWidgetData` para soportar colecciones (`[AppointmentWidgetDTO]`, `[TaskItemWidgetDTO]`) en lugar de propiedades singulares, manteniendo compatibilidad hacia atrás.
+
+### 122.2 Interactividad Avanzada (App Intents)
+- **Flip Interactions**: Implementación de `ToggleQuickActionsModeIntent` para simular una animación de "vuelta de tarjeta" en el widget de Acciones Rápidas (Quick Actions). Esto permite alternar entre un set básico y avanzado de acciones sin necesidad de abrir la aplicación principal, persistiendo el estado en `UserDefaults` compartido.
+
+### 122.3 Estrategia de Deep Links
+Se ha estandarizado el esquema de URL `vitalspath://` para una navegación precisa desde los widgets:
+- `vitalspath://calendar` -> Abre la vista de Calendario/Agenda.
+- `vitalspath://medications` -> Abre la lista de medicamentos.
+- `vitalspath://add-*` (med, appt, symptom, etc.) -> Abre directamente las hojas de creación correspondientes.
+
+### 122.4 Refinamiento Visual (Design System)
+- **Densidad de Información**: Reducción del tamaño de tarjetas en `NextDoseWidget` para mostrar más contexto sin abrumar visualmente.
+- **Contraste y Jerarquía**: Mejoras en `HealthStreakWidget` y `ContributionGraph` con colores más intensos y tipografía ajustada para mejor legibilidad en tamaños pequeños.
+- **Actionable Elements**: Conversión de números de teléfono en `EmergencyCardWidget` a enlaces interactivos (`tel://`).
+
+---
+
+## 123. Auditoría de Métricas de Bienestar y Racha de Actividad (14 Febrero 2026)
+
+Se ha realizado una auditoría profunda de los 8 componentes de métricas de bienestar ("Small Widgets") para garantizar la precisión de los datos y la alineación con el modelo de **Refuerzo Positivo**.
+
+### 123.1 Evolución: De "Libre de Síntomas" a "Racha de Registros"
+Se ha identificado que la métrica de racha anterior (basada en la ausencia de síntomas) era inconsistente con la filosofía de proactividad de VitalsPath.
+- **Nueva Lógica de Racha (Check-in Streak)**: Implementada en `StreakService.calculateCheckInStreak`. Ahora cuenta los días consecutivos en los que el usuario interactúa activamente con la app (registrar humor, medicación, síntomas o actividades).
+- **Periodo de Gracia**: La racha del día actual se mantiene viva (no se rompe por falta de actividad) hasta que el día concluye, eliminando la presión de registrar a primera hora y fomentando un hábito saludable.
+
+### 123.2 Agregación Global (All Profiles Mode)
+Se ha estandarizado el comportamiento de las métricas cuando se visualizan múltiples perfiles simultáneamente en el Dashboard:
+- **Sumatoria Matemática**: Métricas cuantitativas (Síntomas, Visitas, Medicinas, Planes, Condiciones, Tareas) ahora muestran el total real agregado de todos los perfiles activos.
+- **Promedio de Compromiso**: La "Racha de Registros" y el "Progreso de Tareas" en modo global muestran la media aritmética del grupo, reflejando la proactividad colectiva.
+- **Centralización**: Todas las sub-vistas (`TreatmentsWidget`, `TasksWidget`, etc.) ahora consumen la lógica unificada de `HomeWellnessService`, eliminando discrepancias entre el Dashboard y las pantallas de detalle.
+
+### 123.3 Documentación de Métricas (Transparencia)
+Se han añadido descripciones detalladas ("Qué / Cómo / Por qué") para cada una de las 8 métricas en la hoja de personalización/información (`WellnessCustomizationSheet`), educando al usuario sobre cómo sus acciones influyen en su puntuación de bienestar.
+
+## 124. Consistencia de UI y Refinamiento de Localización (14 Febrero 2026)
+
+Se han resuelto múltiples puntos de fricción en la experiencia de usuario y la estabilidad del sistema de idiomas.
+
+### 124.1 Reactividad Lingüística
+Se ha corregido un fallo donde ciertos componentes del Dashboard no respondían de inmediato al cambio de idioma en ajustes.
+- **Solución**: Refactorización de `LanguageManager` para ser un @Observable reactivo y uso de `.id(refreshID)` en el root de `WellnessWidgetView` para forzar la reconstrucción semántica con el nuevo bundle de strings.
+
+### 124.2 Estandarización de Formularios y Padding
+- **Edit Profile**: Localización completa de `EditProfileView.swift` eliminando todos los hardcoded strings. Corrección de márgenes y padding en la sección de geolocalización para mantener la armonía visual del Design System.
+- **Doctor Form**: Ajuste del horizontal padding en `DoctorFormSection` para alinearse perfectamente con los componentes `PremiumCard` de los flujos de "Añadir Tratamiento" y "Añadir Cita".
+
+### 124.3 Seguridad y Privacidad
+- Se mantiene la política estricta de **zero hardcoded tokens**, utilizando exclusivamente el Keychain para cualquier dato sensible y validación de input en todas las capas de servicio.
+
+---
+
+## 125. Refinamiento de Estatus de Dosis Históricas (15 Febrero 2026)
+
+Se ha optimizado el flujo de creación y edición de medicamentos para manejar de forma inteligente las dosis históricas cuando la fecha de inicio se sitúa en el pasado.
+
+### 125.1 HistoricalDoseConfigSheet (Premium UI)
+Se ha sustituido el sistema de alertas encadenadas por una nueva interfaz premium construida con `HistoricalDoseConfigSheet`:
+- **Liquid Glass Header**: Uso de `PremiumSheetHeader` para una integración visual coherente con el resto de la app.
+- **Acción Dinámica**: Permite al usuario decidir entre resetear la fecha a "Hoy" (Start from Today) o generar el histórico (Generate Historical Doses).
+- **Selector de Estatus**: Posibilidad de elegir el estado inicial de las dosis pasadas (Completada, Omitida o Desconocida) directamente en la hoja, con `.unknown` como valor por defecto.
+
+### 125.2 Lógica de Generación y Reconciliación
+- **DoseGenerationService**: El motor de generación ahora soporta el parámetro opcional `historicalStatus`. Si se proporciona, todas las dosis calculadas con fecha anterior a la creación del medicamento adoptarán este estado.
+- **DoseReconciliationService**: Durante la edición, si se expande el rango hacia el pasado, el reconciliation engine utiliza el estatus seleccionado por el usuario exclusivamente para las nuevas dosis "descubiertas", preservando la integridad de las dosis ya existentes y marcando como `.scheduled` únicamente las futuras.
+- **Integración con Apple Health Flow**: `MedicationRegistrationFlowView` centraliza ahora la captura de esta preferencia, eliminando interrupciones bruscas mediante diálogos estándar.
+
+
+---
+
+## 126. Desactivación Automática de Integración con Health (15 Febrero 2026)
+
+Se ha implementado un sistema inteligente para detectar y desactivar la integración con Apple Health en perfiles donde no se está utilizando activamente, optimizando la claridad de la interfaz.
+
+### 126.1 Detección de Inactividad (HealthInactivityService)
+El nuevo `HealthInactivityService` orquestado por `StartupManager` monitoriza la proactividad de la integración:
+- **Umbral de 72 Horas**: Si un perfil "Personal" ha sido activado hace más de 72 horas y no posee ningún dato sincronizado (`lastSyncDate == nil`), el sistema activa el flujo de desactivación.
+- **Notificaciones de Cortesía**: Se programan hasta **2 notificaciones diarias** consultando al usuario si desea desactivar la sección para liberar espacio visual.
+
+### 126.2 Ocultamiento Quirúrgico de UI
+Cuando la integración se marca como `isHealthIntegrationSystemDeactivated = true`, múltiples componentes adaptan su visibilidad dinámicamente:
+- **Home Dashboard**: El widget de `HealthKitSummaryView` desaparece de la pila de componentes.
+- **Perfil Detallado**: La sección de "Vitales y Mediciones" se reemplaza por una tarjeta informativa con un botón de reactivación.
+- **Vitals Explorer**: `VitalsListView` muestra un estado de "Sección Desactivada" con arte visual y acceso rápido a la reactivación.
+- **Calendario**: La pestaña de **Vitales** se filtra del sidebar para simplificar la navegación por eventos.
+
+### 126.3 Persistencia y Reactivación
+- **HealthKitSyncSettings**: Se ha extendido el modelo para incluir `healthInactivityNotificationCount`, `lastHealthInactivityNotificationDate` y el interruptor de estado `isHealthIntegrationSystemDeactivated`.
+- **Reactivación con 1 Tap**: El usuario puede revertir el estado en cualquier momento desde el Perfil o la vista de Vitales, restaurando instantáneamente la visibilidad de todos los componentes y reiniciando los contadores de inactividad.
+
+---
+
+## 127. Corrección de Renderizado de Avatares en Widgets (iOS 18 +)
+
+Se ha implementado una solución definitiva para el problema visual donde los avatares en los Widgets aparecían como círculos blancos/tintados cuando el dispositivo estaba en modo "Tinted" o "Translucent" (introducido en iOS 18).
+
+### 127.1 Diagnóstico del Problema (White Circle Glitch)
+El sistema de rendering "Accented" de iOS 18+ aplica automáticamente una desaturación y tinte a todas las imágenes bitmap dentro de un widget, a menos que se especifique lo contrario explícitamente.
+- **Síntoma**: La foto del perfil se reemplazaba por un círculo sólido del color de acento o blanco.
+- **Causa Raíz**: 
+    1.  Falta del modificador `.widgetAccentedRenderingMode(.fullColor)`.
+    2.  Conflicto con modifiers externos como `.glassEffect()` que añaden capas de recorte (`clipShape`) y fondo (`background`) que el sistema interpreta como "tintables", ocultando la imagen original.
+
+### 127.2 Solución Implementada: Full Color Rendering
+Para garantizar que la fotografía del usuario se respete en todos los modos de visualización (Light, Dark, Tinted), se ha reestructurado `WidgetAvatarView`:
+
+1.  **Modificador Clave**: Se aplica `.widgetAccentedRenderingMode(.fullColor)` directamente a la `Image`.
+2.  **Orden Crítico de Modificadores**:
+    ```swift
+    Image(uiImage: uiImage)
+      .resizable()              // 1. Modificador de Image
+      .interpolation(.high)     // 2. Modificador de Image
+      .widgetAccentedRenderingMode(.fullColor) // 3. Modificador de Image -> Retorna 'some View'
+      .scaledToFill()           // 4. Modificador de View
+      .frame(...)               // 5. Layout
+      .clipShape(Circle())      // 6. Recorte
+    ```
+    *Nota: Si se aplica cualquer modificador de `View` (como `.frame`) ANTES de `.widgetAccentedRenderingMode`, el compilador arrojará error porque el tipo deja de ser `Image`.*
+
+### 127.3 Eliminación de Glass Effects Redundantes
+Se han auditado y limpiado todos los Widgets padres (`WeeklyProgressWidget`, `HealthStreakWidget`, `DailyAdherenceWidget`, `MyRecordsWidget`, `StreakPremiumWidget`):
+- **Acción**: Se eliminó la llamada externa a `.glassEffect()` sobre el componente `WidgetAvatarView`.
+- **Razón**: El `GlassEffectModifier` envuelve la vista en un `ZStack` con fondos y bordes que interfieren con el rendering mode del sistema. El avatar ahora gestiona su propio estilo visual de forma autónoma y limpia.
+
+### 127.4 Resultado
+- **Modo Standard**: Avatar se ve normal.
+- **Modo Tinted**: Avatar se mantiene a "todo color" (fotografía real) mientras el resto del widget se tinta correctamente.
+- **Placeholder**: Si no hay foto, el fallback (iniciales/icono) SÍ acepta el tinte del sistema para mantener la coherencia.
+
+## 128. Sistema de Notificaciones (Modos Globales y Restricciones) (17 Febrero 2026)
+
+Se ha completado la refactorización del sistema de notificaciones para garantizar un comportamiento robusto en los modos críticos (Silencio/Discreto) y evitar conflictos de programación.
+
+### 128.1 Modos Globales de Notificación
+Dado que la aplicación opera en un único dispositivo físico, los modos de notificación se han unificado como **configuración global del sistema**, desacoplándolos de los perfiles individuales.
+
+- **Resolución Determinista**:
+  - Se introduce la clave `notif_resolved_mode` en `UserDefaults`, que actúa como la fuente de verdad sincronizada.
+  - `NotificationSettings` calcula el modo activo considerando:
+    1.  **Horarios Activos (Prioridad Alta)**: Si hay un horario vigente, este impone el modo.
+    2.  **Modo Manual (Fallback)**: Si no hay horarios, se usa la selección manual del usuario (`notif_mode_global`).
+  - **Ventaja**: El delegate `willPresent` (que corre en un contexto no aislado) ahora puede leer el modo correcto de forma síncrona y segura sin condiciones de carrera.
+
+### 128.2 Comportamiento Estricto de Modos
+Se han redefinido los comportamientos para eliminar fugas de ruido o vibración:
+
+| Modo       | Comportamiento UI (Banner) | Sonido      | Badge en Icono | Interruption Level |
+| :---       | :---                       | :---        | :---           | :---               |
+| **Normal** | ✅ Sí                      | ✅ Sí       | ✅ Sí          | `.timeSensitive`   |
+| **Discreto**| ✅ Sí                     | ❌ No (Vibra)| ✅ Sí          | `.active`*         |
+| **Silencio**| ❌ No                     | ❌ No       | ✅ Sí          | `.passive`         |
+
+*> **Nota sobre Discreto**: Se cambió de `.timeSensitive` a `.active` para evitar que las vibraciones "perforan" los modos de No Molestar del sistema iOS.*
+
+### 128.3 Supresión de Toasts In-App
+Se detectó y corrigió una fuga donde los recordatorios "In-App" (Toasts) aparecían incluso en modo Silencio.
+- **Acción**: Se añadieron guardas `NotificationSettings.shared.currentMode != .silent` en todos los puntos de emisión:
+  - `AppointmentNotificationService` (Recordatorios de citas)
+  - `MedicationNotificationService` (Recordatorios de dosis y alertas de escalación)
+  - `ToastManager` (Centralizado)
+
+### 128.4 Restricciones de Programación (UI Constraints)
+Para evitar estados inconsistentes, la vista de programación `NotificationsScheduleView` ahora impone reglas de negocio estrictas:
+
+1.  **Unicidad de Modo**: No se permite crear más de un horario para el mismo modo (ej. no puedes tener dos horarios separados de "Silencio"). Se insta al usuario a editar el existente.
+2.  **Saturación de 24h**: Si los horarios activos cubren los 1440 minutos del día, el botón "Añadir Horario" se deshabilita y se muestra un mensaje explicativo.
+3.  **Selector de Días**: Se añadió un selector granular (Lunes-Domingo) para permitir horarios que solo apliquen fines de semana o días laborales.
+
+### 128.5 Estado de la Migración
+- ✅ **Core**: `NotificationManager` y `NotificationSettings` actualizados.
+- ✅ **UI**: `NotificationsScheduleView` con nuevas validaciones.
+- ✅ **Resources**: Traducciones completas en `Notifications.xcstrings`.
+- 🔜 **Pendiente**: Refinar la lógica de "Snooze" para que respete el modo activo en el momento de la re-notificación.
+
+## 129. Estandarización de Terminología Médica (18 Febrero 2026)
+
+Se ha completado la auditoría y estandarización integral de la terminología clínica en toda la aplicación para garantizar precisión profesional y consistencia.
+
+### 129.1 Cambios Clave
+- **Español**: 
+  - "Padecimiento" -> "Enfermedad" (incluyendo variantes gramaticales).
+  - "Cita" -> "Consulta".
+  - "Condición" -> "Enfermedad".
+  - "Plan médico" -> "Tratamiento".
+- **Inglés**: 
+  - "Condition" -> "Disease".
+  - "Medicine" -> "Medication".
+  - "Medical Plan" -> "Treatment".
+- **Legal**: Se ha protegido explícitamente "Términos y Condiciones" / "Terms & Conditions".
+
+### 129.2 Alcance
+- **Archivos Modificados**: `Localizable.xcstrings`, `Exports.xcstrings`, `Treatments.xcstrings`, `Settings.xcstrings` y 22 archivos adicionales.
+- **Validación automatizada**: Scripts en Python para asegurar concordancia de género ("de la enfermedad" vs "del padecimiento").
+
+
+
+## 130. Reparación de Datos y Estabilidad UI (18 Febrero 2026)
+
+Se han implementado correcciones críticas para garantizar la integridad de los datos históricos de citas y la disponibilidad de las herramientas de gestión de recurrencia.
+
+### 130.1 Protocolo de Decodificación Robusta (Case-Insensitive)
+- **Problema**: Los inicializadores de Enums (`AppointmentType`, `AppointmentStatus`) eran sensibles a mayúsculas/minúsculas, provocando crashes con valores como "Emergency" o decodificaciones fallidas que marcaban citas "Attended" como "Scheduled" (y posteriormente "Missed").
+- **Solución**: Se actualizaron `init(rawValue:)` en `AppointmentEnums.swift` para normalizar el input (`rawValue.lowercased()`) antes del matching. Esto inmuniza la app contra inconsistencias de capitalización en la base de datos o migraciones futuras.
+
+### 130.2 Servicio de Reparación de Datos (Self-Healing)
+- **AppointmentRepairService**: Nuevo servicio de mantenimiento que se ejecuta **una sola vez** al inicio (`onAppear` de `HomeView`).
+- **Lógica Heurística**: Escanea todas las citas pasadas con estado erróneo (`.missed`, `.scheduled`) y analiza su historial de eventos de auditoría (`events`). Si detecta que la cita fue marcada explícitamente como "Attended" en el pasado (y no cancelada por el usuario), **restaura automáticamente** el estado a `.attended`.
+- **Performance**: Utiliza `UserDefaults` flags para garantizar costo cero en lanzamientos subsiguientes.
+
+### 130.3 Visibilidad de Recurrencia (Master Series Fix)
+- **Problema UI**: El banner "Manage Series" no aparecía en la cita original (maestra) de una serie, ya que la vista solo verificaba `isRecurringInstance` (que es false para el padre).
+- **Corrección**: Se amplió la condición en `AppointmentDetailView` para incluir `appointment.recurrenceRule != nil`. Ahora es posible gestionar la serie desde cualquier instancia, incluyendo la original.

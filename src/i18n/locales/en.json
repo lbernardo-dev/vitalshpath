@@ -486,5 +486,105 @@
       "message": "Your feedback has been received. We appreciate your input and will review it carefully.",
       "backHome": "Back to Home"
     }
+  },
+  "pricing": {
+    "badge": "Early Adopter Sale",
+    "title": "Choose your plan",
+    "subtitle": "Simple, transparent pricing. No hidden fees.",
+    "monthly": {
+      "title": "Monthly",
+      "price": "€4.99",
+      "period": "/month",
+      "description": "Monthly billing, cancel anytime",
+      "discount": "Save 35%"
+    },
+    "annual": {
+      "title": "Annual",
+      "badge": "BEST VALUE",
+      "price": "€39.99",
+      "period": "/year",
+      "description": "Annual billing, save 33%",
+      "discount": "Save 35%"
+    },
+    "lifetime": {
+      "title": "Lifetime",
+      "price": "€149.99",
+      "period": "one-time",
+      "description": "One-time payment, forever",
+      "discount": "Save 15%"
+    },
+    "features": {
+      "unlimited_profiles": "Unlimited Profiles",
+      "unlimited_diseases": "Unlimited Diseases",
+      "unlimited_medications": "Unlimited Medications",
+      "unlimited_treatments": "Unlimited Treatments",
+      "extended_pause": "Extended Pause",
+      "extend_medication": "Extend Medication",
+      "full_schedule": "Full Schedule",
+      "quiet_schedule": "Quiet Schedule",
+      "stock_inventory": "Stock & Inventory",
+      "export_pdf_csv": "Export to PDF/CSV",
+      "advanced_analytics": "Advanced Analytics",
+      "health_reports": "Health Reports",
+      "ocr_scanner": "Medication OCR Scanner",
+      "healthkit": "HealthKit Integration",
+      "complex_symptoms": "Complex Symptom Tracking",
+      "icloud_backup": "iCloud Backup",
+      "all_themes": "All Themes",
+      "advanced_notifications": "Advanced Notifications",
+      "haptic_feedback": "Haptic Feedback",
+      "widget_styles": "Widget Styles"
+    },
+    "cta": "Get Premium"
+  },
+  "smartScheduling": {
+    "badge": "Intelligent Algorithm",
+    "title": "Smart Scheduler",
+    "subtitle": "Our advanced algorithm optimizes your medication routine considering interactions, safety margins, and your lifestyle.",
+    "steps": {
+      "1": {
+        "title": "Input",
+        "desc": "Medications & Times"
+      },
+      "2": {
+        "title": "Analysis",
+        "desc": "Safety Margins"
+      },
+      "3": {
+        "title": "Check",
+        "desc": "Interactions"
+      },
+      "4": {
+        "title": "Optimize",
+        "desc": "Perfect Schedule"
+      }
+    }
+  },
+  "notificationModes": {
+    "badge": "Adaptive Alerts",
+    "title": "Notifications that adapt to you",
+    "modes": {
+      "normal": {
+        "title": "Normal",
+        "desc": "Standard alerts with sound and vibration."
+      },
+      "quiet": {
+        "title": "Quiet",
+        "desc": "Visual only, perfect for work or meetings."
+      },
+      "discrete": {
+        "title": "Discrete",
+        "desc": "Subtle haptics, privacy-focused content."
+      },
+      "off": {
+        "title": "Off",
+        "desc": "No interruptions, just badges."
+      }
+    }
+  },
+  "footerStats": {
+    "activeUsers": "Active Users",
+    "regions": "Regions",
+    "plansCreated": "Plans Created"
   }
 }

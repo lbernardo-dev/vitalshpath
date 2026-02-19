@@ -5,10 +5,13 @@ import LanguageSelector from "../../components/LanguageSelector.astro";
 import Hero from "../../components/landing/Hero.astro";
 import Problems from "../../components/landing/Problems.astro";
 import Features from "../../components/landing/Features.astro";
+import SmartScheduling from "../../components/landing/SmartScheduling.astro";
+import NotificationModes from "../../components/landing/NotificationModes.astro";
 import DeepFeatures from "../../components/landing/DeepFeatures.astro";
 import Benefits from "../../components/landing/Benefits.astro";
 import Languages from "../../components/landing/Languages.astro";
 import Gallery from "../../components/landing/Gallery.astro";
+import Pricing from "../../components/landing/Pricing.astro";
 import WaitlistForm from "../../components/landing/WaitlistForm.astro";
 import Footer from "../../components/Footer.astro";
 import {
@@ -101,10 +104,13 @@ const t = useTranslations(currentLang);
 		<Hero lang={currentLang} />
 		<Problems lang={currentLang} />
 		<Features lang={currentLang} />
+		<SmartScheduling lang={currentLang} />
+		<NotificationModes lang={currentLang} />
 		<DeepFeatures lang={currentLang} />
 		<Benefits lang={currentLang} />
 		<Languages lang={currentLang} />
 		<Gallery lang={currentLang} />
+		<Pricing lang={currentLang} />
 		<WaitlistForm lang={currentLang} />
 		<Footer lang={currentLang} />
 	</main>

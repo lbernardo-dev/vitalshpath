@@ -486,5 +486,105 @@
       "message": "Hemos recibido tu mensaje. Lo revisaremos y te contactaremos si es necesario.",
       "backHome": "Volver al inicio"
     }
+  },
+  "pricing": {
+    "badge": "Oferta Early Adopter",
+    "title": "Elige tu plan",
+    "subtitle": "Precios simples y transparentes. Sin costes ocultos.",
+    "monthly": {
+      "title": "Mensual",
+      "price": "€4.99",
+      "period": "/mes",
+      "description": "Facturación mensual, cancela cuando quieras",
+      "discount": "Ahorra 35%"
+    },
+    "annual": {
+      "title": "Anual",
+      "badge": "MEJOR PRECIO",
+      "price": "€39.99",
+      "period": "/año",
+      "description": "Facturación anual, ahorra 33%",
+      "discount": "Ahorra 35%"
+    },
+    "lifetime": {
+      "title": "De por vida",
+      "price": "€149.99",
+      "period": "pago único",
+      "description": "Pago único, acceso para siempre",
+      "discount": "Ahorra 15%"
+    },
+    "features": {
+      "unlimited_profiles": "Perfiles Ilimitados",
+      "unlimited_diseases": "Padecimientos Ilimitados",
+      "unlimited_medications": "Medicamentos Ilimitados",
+      "unlimited_treatments": "Tratamientos Ilimitados",
+      "extended_pause": "Pausa Extendida",
+      "extend_medication": "Extender Medicación",
+      "full_schedule": "Horario Completo",
+      "quiet_schedule": "Horario Silencioso",
+      "stock_inventory": "Stock e Inventario",
+      "export_pdf_csv": "Exportar a PDF/CSV",
+      "advanced_analytics": "Analíticas Avanzadas",
+      "health_reports": "Informes de Salud",
+      "ocr_scanner": "Escáner OCR de Medicamentos",
+      "healthkit": "Integración HealthKit",
+      "complex_symptoms": "Seguimiento de Síntomas Complejos",
+      "icloud_backup": "Copia de Seguridad iCloud",
+      "all_themes": "Todos los Temas",
+      "advanced_notifications": "Notificaciones Avanzadas",
+      "haptic_feedback": "Respuesta Háptica",
+      "widget_styles": "Estilos de Widgets"
+    },
+    "cta": "Obtener Premium"
+  },
+  "smartScheduling": {
+    "badge": "Algoritmo Inteligente",
+    "title": "Programación Inteligente",
+    "subtitle": "Nuestro algoritmo avanzado optimiza tu rutina de medicación considerando interacciones, márgenes de seguridad y tu estilo de vida.",
+    "steps": {
+      "1": {
+        "title": "Entrada",
+        "desc": "Medicamentos y Horas"
+      },
+      "2": {
+        "title": "Análisis",
+        "desc": "Márgenes de Seguridad"
+      },
+      "3": {
+        "title": "Verificación",
+        "desc": "Interacciones"
+      },
+      "4": {
+        "title": "Optimización",
+        "desc": "Horario Perfecto"
+      }
+    }
+  },
+  "notificationModes": {
+    "badge": "Alertas Adaptativas",
+    "title": "Notificaciones que se adaptan a ti",
+    "modes": {
+      "normal": {
+        "title": "Normal",
+        "desc": "Alertas estándar con sonido y vibración."
+      },
+      "quiet": {
+        "title": "Silencioso",
+        "desc": "Solo visual, perfecto para trabajo o reuniones."
+      },
+      "discrete": {
+        "title": "Discreto",
+        "desc": "Háptica sutil, contenido enfocado en privacidad."
+      },
+      "off": {
+        "title": "Apagado",
+        "desc": "Sin interrupciones, solo badges."
+      }
+    }
+  },
+  "footerStats": {
+    "activeUsers": "Usuarios Activos",
+    "regions": "Regiones",
+    "plansCreated": "Planes Creados"
   }
 }
