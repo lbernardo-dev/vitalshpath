@@ -1,4 +1,5 @@
 ---
+import "../../styles/global.css";
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
@@ -8,8 +9,6 @@ const baseUrl = import.meta.env.BASE_URL;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>VitalsPath Admin</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     </head>
     <body class="bg-gray-50 min-h-screen">
         <div id="loading" class="flex items-center justify-center min-h-screen">
@@ -226,29 +225,34 @@ const baseUrl = import.meta.env.BASE_URL;
             </main>
         </div>
 
-        <script is:inline define:vars={{ baseUrl }}>
+        <script>
+            import { getSupabase } from "../../lib/supabase";
+
             var ADMIN_EMAILS = [
                 "lbernardo.dev@gmail.com",
                 "yilianbs@gmail.com",
             ];
-            var SUPABASE_URL = "https://mvrsoaefuqrslzpbkvnf.supabase.co";
-            var SUPABASE_KEY =
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI";
-            var BASE_URL = baseUrl === "/" ? "" : baseUrl;
 
-            var supabase = window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
+            // Get base URL for redirects
+            const baseUrl =
+                import.meta.env.BASE_URL === "/"
+                    ? ""
+                    : import.meta.env.BASE_URL;
+
+            const supabase = getSupabase();
 
             function show(id) {
-                document.getElementById(id).classList.remove("hidden");
+                const el = document.getElementById(id);
+                if (el) el.classList.remove("hidden");
             }
             function hide(id) {
-                document.getElementById(id).classList.add("hidden");
+                const el = document.getElementById(id);
+                if (el) el.classList.add("hidden");
             }
 
             function loadDashboard() {
+                if (!supabase) return;
+
                 supabase.rpc("get_stats").then(function (result) {
                     if (result.data) {
                         document.getElementById("stat-total").textContent =
@@ -270,6 +274,8 @@ const baseUrl = import.meta.env.BASE_URL;
                     .limit(50)
                     .then(function (result) {
                         var tbody = document.getElementById("waitlist-body");
+                        if (!tbody) return;
+
                         if (result.data && result.data.length > 0) {
                             var html = "";
                             result.data.forEach(function (item) {
@@ -293,6 +299,12 @@ const baseUrl = import.meta.env.BASE_URL;
             }
 
             async function init() {
+                if (!supabase) {
+                    hide("loading");
+                    alert("Supabase not configured");
+                    return;
+                }
+
                 var {
                     data: { session },
                 } = await supabase.auth.getSession();
@@ -338,33 +350,36 @@ const baseUrl = import.meta.env.BASE_URL;
 
             document
                 .getElementById("google-login")
-                .addEventListener("click", async function () {
+                ?.addEventListener("click", async function () {
+                    if (!supabase) return;
                     await supabase.auth.signInWithOAuth({
                         provider: "google",
                         options: {
                             redirectTo:
-                                window.location.origin + BASE_URL + "/admin/",
+                                window.location.origin + baseUrl + "/admin/",
                         },
                     });
                 });
 
             document
                 .getElementById("retry-login")
-                .addEventListener("click", async function () {
+                ?.addEventListener("click", async function () {
+                    if (!supabase) return;
                     await supabase.auth.signOut();
                     window.location.reload();
                 });
 
             document
                 .getElementById("logout-btn")
-                .addEventListener("click", async function () {
+                ?.addEventListener("click", async function () {
+                    if (!supabase) return;
                     await supabase.auth.signOut();
                     window.location.reload();
                 });
 
             document
                 .getElementById("refresh-btn")
-                .addEventListener("click", loadDashboard);
+                ?.addEventListener("click", loadDashboard);
 
             init();
         </script>
