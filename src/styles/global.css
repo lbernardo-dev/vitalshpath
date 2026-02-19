@@ -16,18 +16,33 @@
 
 @layer components {
     .glass-panel {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        border-radius: 24px;
-        box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 28px;
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
     
     .dark .glass-panel {
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(40, 40, 40, 0.4);
         border-color: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .liquid-glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(40px) saturate(180%);
+        -webkit-backdrop-filter: blur(40px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 32px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .dark .liquid-glass {
+        background: rgba(30, 30, 30, 0.5);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .glass-nav {

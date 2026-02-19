@@ -32,13 +32,10 @@ const t = useTranslations(lang);
         )
     }
 
-    <form
-        id="waitlist-form"
-        class="flex flex-col md:flex-row lg:flex-col xl:flex-row gap-3 w-full"
-    >
-        <div class="relative flex-1 min-w-0">
+    <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 w-full">
+        <div class="relative flex-grow min-w-0">
             <Mail
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-500 dark:text-gray-400"
             />
             <input
                 type="email"
@@ -46,19 +43,19 @@ const t = useTranslations(lang);
                 id="waitlist-email"
                 required
                 placeholder={t("waitlist.form.placeholder")}
-                class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white/5 dark:bg-gray-800/10 border border-white/10 dark:border-white/5 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all backdrop-blur-md text-ellipsis overflow-hidden"
+                class="w-full pl-16 pr-6 py-5 text-lg rounded-full liquid-glass text-gray-900 dark:text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all text-ellipsis overflow-hidden shadow-sm hover:shadow-md"
             />
         </div>
         <button
             type="submit"
             id="waitlist-submit"
-            class="px-6 py-4 flex-shrink-0 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-black rounded-2xl shadow-xl hover:shadow-blue-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+            class="px-8 py-5 text-lg flex-shrink-0 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group hover:bg-cyan-500 dark:hover:bg-cyan-400 dark:hover:text-gray-900"
         >
             <span id="waitlist-button-text" class="whitespace-nowrap"
                 >{t("waitlist.form.button")}</span
             >
             <Bell
-                className="w-5 h-5 group-hover:rotate-12 transition-transform flex-shrink-0"
+                className="w-6 h-6 group-hover:rotate-12 transition-transform flex-shrink-0"
             />
         </button>
     </form>
