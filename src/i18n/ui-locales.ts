@@ -36,6 +36,6 @@ export function getLangFromUrl(url: string): Lang {
 
 export function useTranslatedPath(lang: Lang) {
     return function translatePath(path: string, l: Lang = lang) {
-        return `/${l}${path}`;
+        return `${import.meta.env.BASE_URL}/${l}${path}`;
     };
 }
