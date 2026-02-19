@@ -6,6 +6,6 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://lbernardo-dev.github.io',
-    base: '/vitalshpath_landing',
+    base: '/vitalshpath',
     integrations: [tailwind(), react()],
 });
