@@ -21,12 +21,10 @@ const baseUrl = import.meta.env.BASE_URL;
     <div id="login" class="hidden min-h-screen flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
             <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
+                <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
             </div>
             <h1 class="text-2xl font-bold text-gray-900 mb-2">VitalsPath Admin</h1>
-            <p class="text-gray-600 mb-8">Acceso restringido a administradores</p>
+            <p class="text-gray-600 mb-8">Acceso restringido</p>
             <button id="google-login" class="w-full flex items-center justify-center gap-3 px-6 py-3 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
                 <svg class="w-5 h-5" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -42,306 +40,194 @@ const baseUrl = import.meta.env.BASE_URL;
     <div id="unauthorized" class="hidden min-h-screen flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
             <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <svg class="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
             </div>
             <h1 class="text-2xl font-bold text-gray-900 mb-2">Acceso Denegado</h1>
-            <p class="text-gray-600 mb-6">Tu email no está autorizado.</p>
-            <button id="retry-login" class="px-6 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
-                Intentar con otra cuenta
-            </button>
+            <p class="text-gray-600 mb-6">Email no autorizado</p>
+            <button id="retry-login" class="px-6 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">Reintentar</button>
         </div>
     </div>
 
     <div id="dashboard" class="hidden">
         <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-16">
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
-                            <span class="text-white font-bold">VP</span>
-                        </div>
-                        <h1 class="text-xl font-bold text-gray-900">VitalsPath Admin</h1>
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold">VP</span>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="flex items-center gap-3">
-                            <img id="user-avatar" src="" alt="" class="w-8 h-8 rounded-full">
-                            <span id="user-name" class="text-sm font-medium text-gray-700"></span>
-                        </div>
-                        <button id="logout-btn" class="px-4 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors">
-                            Cerrar sesión
-                        </button>
-                    </div>
+                    <h1 class="text-xl font-bold text-gray-900">VitalsPath Admin</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span id="user-name" class="text-sm font-medium text-gray-700"></span>
+                    <button id="logout-btn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">Cerrar sesión</button>
                 </div>
             </div>
         </nav>
 
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-sm text-gray-500">Total Suscriptores</span>
-                    </div>
-                    <p id="stat-total" class="text-3xl font-bold text-gray-900">0</p>
-                    <p id="stat-today-signups" class="text-sm text-green-600 mt-1">+0 hoy</p>
+        <main class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <span class="text-sm text-gray-500">Total</span>
+                    <p id="stat-total" class="text-2xl font-bold text-gray-900 mt-1">0</p>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-sm text-gray-500">Visitantes Hoy</span>
-                    </div>
-                    <p id="stat-visitors" class="text-3xl font-bold text-gray-900">0</p>
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <span class="text-sm text-gray-500">Hoy</span>
+                    <p id="stat-today-signups" class="text-2xl font-bold text-gray-900 mt-1">+0</p>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-sm text-gray-500">Online Ahora</span>
-                        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    </div>
-                    <p id="stat-online" class="text-3xl font-bold text-gray-900">0</p>
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <span class="text-sm text-gray-500">Visitantes</span>
+                    <p id="stat-visitors" class="text-2xl font-bold text-gray-900 mt-1">0</p>
                 </div>
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <span class="text-sm text-gray-500">Conversión</span>
-                    </div>
-                    <p id="stat-conversion" class="text-3xl font-bold text-gray-900">0%</p>
+                <div class="bg-white rounded-xl shadow-sm border p-6">
+                    <span class="text-sm text-gray-500">Online</span>
+                    <p id="stat-online" class="text-2xl font-bold text-gray-900 mt-1">0</p>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-                    <h2 class="text-lg font-semibold text-gray-900">Lista de Espera</h2>
-                    <button id="refresh-btn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
-                        Actualizar
-                    </button>
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                <div class="px-6 py-4 border-b flex justify-between items-center">
+                    <h2 class="font-semibold text-gray-900">Lista de Espera</h2>
+                    <button id="refresh-btn" class="px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 rounded-lg">Actualizar</button>
                 </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen</th>
-                            </tr>
-                        </thead>
-                        <tbody id="waitlist-body" class="bg-white divide-y divide-gray-200">
-                            <tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Cargando...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Fecha</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Origen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="waitlist-body" class="divide-y">
+                        <tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Cargando...</td></tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>
 
-    <script>
-        // Config
-        const GOOGLE_CLIENT_ID = '1041110887191-j6qp6vtboo56tnai4gb6cfg1sa5b802m.apps.googleusercontent.com';
-        const ADMIN_EMAILS = ['lbernardo.dev@gmail.com', 'yilianbs@gmail.com'];
-        const AUTH_SESSION_KEY = 'vitalspath_admin_session';
-        const SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
-        const BASE_URL = `${baseUrl}`;
-        
-        // Elements
-        const loadingEl = document.getElementById('loading');
-        const loginEl = document.getElementById('login');
-        const unauthorizedEl = document.getElementById('unauthorized');
-        const dashboardEl = document.getElementById('dashboard');
-        
-        // Parse JWT
-        function parseJwt(token) {
-            try {
-                const base64Url = token.split('.')[1];
-                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
-                return JSON.parse(jsonPayload);
-            } catch (e) {
-                return null;
-            }
-        }
-        
-        // Get session
-        function getSession() {
-            const stored = localStorage.getItem(AUTH_SESSION_KEY);
-            if (!stored) return null;
-            try {
-                const session = JSON.parse(stored);
-                if (session.exp && session.exp < Date.now() / 1000) {
-                    localStorage.removeItem(AUTH_SESSION_KEY);
-                    return null;
-                }
-                return session;
-            } catch {
-                return null;
-            }
-        }
-        
-        // Logout
-        function logout() {
-            localStorage.removeItem(AUTH_SESSION_KEY);
-        }
-        
-        // Check if logged in
-        function isLoggedIn() {
-            return getSession() !== null;
-        }
-        
-        // Get Google Auth URL
-        function getGoogleAuthUrl() {
-            const state = crypto.randomUUID();
-            sessionStorage.setItem('oauth_state', state);
-            const redirectUri = `${window.location.origin}${BASE_URL}/admin/callback`;
-            const params = new URLSearchParams({
-                client_id: GOOGLE_CLIENT_ID,
-                redirect_uri: redirectUri,
-                response_type: 'token id_token',
-                scope: 'email profile',
-                state: state,
-                nonce: crypto.randomUUID(),
-            });
-            return `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
-        }
-        
-        // Handle callback
-        async function handleCallback(hash) {
-            const params = new URLSearchParams(hash.substring(1));
-            const idToken = params.get('id_token');
-            const state = params.get('state');
+    <script is:inline>
+        (function() {
+            var GOOGLE_CLIENT_ID = '1041110887191-j6qp6vtboo56tnai4gb6cfg1sa5b802m.apps.googleusercontent.com';
+            var ADMIN_EMAILS = ['lbernardo.dev@gmail.com', 'yilianbs@gmail.com'];
+            var AUTH_KEY = 'vitalspath_admin';
+            var SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
+            var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
+            var BASE_URL = baseUrl;
             
-            const storedState = sessionStorage.getItem('oauth_state');
-            if (!state || state !== storedState) {
-                return { success: false, error: 'Invalid state' };
+            function parseJwt(token) {
+                try {
+                    var parts = token.split('.');
+                    var payload = parts[1];
+                    var decoded = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
+                    return JSON.parse(decoded);
+                } catch(e) { return null; }
             }
             
-            if (!idToken) {
-                return { success: false, error: 'No ID token' };
+            function getSession() {
+                try {
+                    var s = localStorage.getItem(AUTH_KEY);
+                    if (!s) return null;
+                    var session = JSON.parse(s);
+                    if (session.exp && session.exp < Date.now()/1000) {
+                        localStorage.removeItem(AUTH_KEY);
+                        return null;
+                    }
+                    return session;
+                } catch(e) { return null; }
             }
             
-            const user = parseJwt(idToken);
-            if (!user || !user.email) {
-                return { success: false, error: 'Invalid token' };
-            }
+            function show(id) { document.getElementById(id).classList.remove('hidden'); }
+            function hide(id) { document.getElementById(id).classList.add('hidden'); }
             
-            if (!ADMIN_EMAILS.includes(user.email.toLowerCase())) {
-                return { success: false, error: 'Unauthorized email' };
-            }
-            
-            const session = {
-                email: user.email,
-                name: user.name,
-                picture: user.picture,
-                sub: user.sub,
-                exp: user.exp,
-            };
-            
-            localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(session));
-            return { success: true, user: session };
-        }
-        
-        // Load dashboard
-        async function loadDashboard() {
-            try {
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_stats`, {
+            function loadDashboard() {
+                fetch(SUPABASE_URL + '/rest/v1/rpc/get_stats', {
                     method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer '+SUPABASE_KEY, 'Content-Type': 'application/json' },
                     body: '{}'
-                });
-                
-                const stats = await response.json();
-                
-                if (stats) {
-                    document.getElementById('stat-total').textContent = stats.total_signups || 0;
-                    document.getElementById('stat-today-signups').textContent = `+${stats.today_signups || 0} hoy`;
-                    document.getElementById('stat-visitors').textContent = stats.today_visitors || 0;
-                    document.getElementById('stat-online').textContent = stats.online_now || 0;
-                    
-                    const conversion = stats.today_visitors > 0 
-                        ? ((stats.today_signups / stats.today_visitors) * 100).toFixed(1) 
-                        : '0';
-                    document.getElementById('stat-conversion').textContent = `${conversion}%`;
-                }
-                
-                // Get waitlist
-                const wlResponse = await fetch(`${SUPABASE_URL}/rest/v1/waitlist?select=*&order=created_at.desc&limit=100`, {
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`,
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(stats) {
+                    if (stats) {
+                        document.getElementById('stat-total').textContent = stats.total_signups || 0;
+                        document.getElementById('stat-today-signups').textContent = '+' + (stats.today_signups || 0);
+                        document.getElementById('stat-visitors').textContent = stats.today_visitors || 0;
+                        document.getElementById('stat-online').textContent = stats.online_now || 0;
                     }
                 });
                 
-                const waitlist = await wlResponse.json();
-                const tbody = document.getElementById('waitlist-body');
-                
-                if (tbody && waitlist && waitlist.length > 0) {
-                    tbody.innerHTML = waitlist.map(item => `
-                        <tr class="hover:bg-gray-50">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${item.email}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${new Date(item.created_at).toLocaleString('es-ES')}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${item.source || 'landing'}</td>
-                        </tr>
-                    `).join('');
-                } else if (tbody) {
-                    tbody.innerHTML = '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">No hay suscriptores</td></tr>';
-                }
-            } catch (error) {
-                console.error('Error:', error);
+                fetch(SUPABASE_URL + '/rest/v1/waitlist?select=*&order=created_at.desc&limit=50', {
+                    headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer '+SUPABASE_KEY }
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var tbody = document.getElementById('waitlist-body');
+                    if (data && data.length > 0) {
+                        var html = '';
+                        for (var i = 0; i < data.length; i++) {
+                            html += '<tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm text-gray-900">' + data[i].email + '</td><td class="px-6 py-4 text-sm text-gray-500">' + new Date(data[i].created_at).toLocaleString('es-ES') + '</td><td class="px-6 py-4 text-sm text-gray-500">' + (data[i].source || 'landing') + '</td></tr>';
+                        }
+                        tbody.innerHTML = html;
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Sin datos</td></tr>';
+                    }
+                });
             }
-        }
-        
-        // Main logic
-        (async function init() {
-            if (window.location.hash && window.location.hash.includes('access_token')) {
-                const result = await handleCallback(window.location.hash);
+            
+            // Init
+            var hash = window.location.hash;
+            if (hash && hash.indexOf('id_token') > -1) {
+                var params = new URLSearchParams(hash.substring(1));
+                var idToken = params.get('id_token');
+                var state = params.get('state');
+                var storedState = sessionStorage.getItem('oauth_state');
+                
                 window.location.hash = '';
                 
-                if (result.success) {
-                    window.location.reload();
-                } else {
-                    loadingEl.classList.add('hidden');
-                    if (result.error === 'Unauthorized email') {
-                        unauthorizedEl.classList.remove('hidden');
+                if (idToken && state === storedState) {
+                    var user = parseJwt(idToken);
+                    if (user && ADMIN_EMAILS.indexOf(user.email.toLowerCase()) > -1) {
+                        localStorage.setItem(AUTH_KEY, JSON.stringify({email:user.email, name:user.name, exp:user.exp}));
+                        window.location.reload();
+                        return;
                     } else {
-                        alert('Error: ' + result.error);
-                        loginEl.classList.remove('hidden');
+                        hide('loading');
+                        show('unauthorized');
+                        return;
                     }
                 }
-            } else if (isLoggedIn()) {
-                loadingEl.classList.add('hidden');
-                dashboardEl.classList.remove('hidden');
-                
-                const session = getSession();
-                if (session) {
-                    document.getElementById('user-avatar').src = session.picture || '';
-                    document.getElementById('user-name').textContent = session.name || session.email;
-                }
-                
-                await loadDashboard();
-                setInterval(loadDashboard, 30000);
-            } else {
-                loadingEl.classList.add('hidden');
-                loginEl.classList.remove('hidden');
             }
+            
+            var session = getSession();
+            if (session) {
+                hide('loading');
+                show('dashboard');
+                document.getElementById('user-name').textContent = session.name || session.email;
+                loadDashboard();
+            } else {
+                hide('loading');
+                show('login');
+            }
+            
+            // Events
+            document.getElementById('google-login').onclick = function() {
+                var state = crypto.randomUUID();
+                sessionStorage.setItem('oauth_state', state);
+                var redirect = window.location.origin + BASE_URL + '/admin/callback';
+                window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=' + GOOGLE_CLIENT_ID + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token%20id_token&scope=email%20profile&state=' + state;
+            };
+            
+            document.getElementById('retry-login').onclick = function() {
+                localStorage.removeItem(AUTH_KEY);
+                window.location.reload();
+            };
+            
+            document.getElementById('logout-btn').onclick = function() {
+                localStorage.removeItem(AUTH_KEY);
+                window.location.href = BASE_URL + '/admin/';
+            };
+            
+            document.getElementById('refresh-btn').onclick = loadDashboard;
         })();
-        
-        // Event listeners
-        document.getElementById('google-login').addEventListener('click', () => {
-            window.location.href = getGoogleAuthUrl();
-        });
-        
-        document.getElementById('retry-login').addEventListener('click', () => {
-            logout();
-            window.location.reload();
-        });
-        
-        document.getElementById('logout-btn').addEventListener('click', () => {
-            logout();
-            window.location.href = `${BASE_URL}/admin/`;
-        });
-        
-        document.getElementById('refresh-btn').addEventListener('click', loadDashboard);
     </script>
 </body>
 </html>

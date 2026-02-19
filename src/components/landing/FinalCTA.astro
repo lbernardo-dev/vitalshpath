@@ -1,0 +1,58 @@
+---
+import { type Lang } from "../../i18n/ui-locales";
+import { useTranslations } from "../../i18n";
+import WaitlistForm from "./WaitlistForm.astro";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<section class="py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gray-900 z-0">
+        <div
+            class="absolute top-0 left-0 w-full h-full opacity-30 bg-cover bg-center"
+            style={`background-image: url('${baseUrl}assets/images/abstract_glass_background.png')`}
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-gray-900"
+        >
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2
+                class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight"
+            >
+                {t("gallery.title")}<br />
+                <span
+                    class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent italic"
+                >
+                    {t("hero.titleHighlight")}
+                </span>
+            </h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                {
+                    t("hero.subtitle")
+                        .replace("<strong>", "")
+                        .replace("</strong>", "")
+                }
+            </p>
+
+            <div
+                class="bg-white/5 backdrop-blur-2xl p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl"
+            >
+                <WaitlistForm lang={lang} />
+                <p class="mt-6 text-sm text-gray-500">
+                    {t("waitlist.privacy")}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

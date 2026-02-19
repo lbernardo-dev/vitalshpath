@@ -22,6 +22,11 @@
       "profiles": "Multi-family profiles",
       "privacy": "100% on your device",
       "languages": "15 languages"
+    },
+    "labels": {
+      "wellness": "Wellness",
+      "vitamind3": "Vitamin D3",
+      "familyProfiles": "Family Profiles"
     }
   },
   "problems": {
@@ -550,7 +555,8 @@
       "basic_medications": "Basic Medications",
       "local_reminders": "Local Reminders"
     },
-    "cta": "Get Premium"
+    "cta": "Coming Soon",
+    "cta_alt": "Sign me up"
   },
   "smartScheduling": {
     "badge": "Intelligent Algorithm",

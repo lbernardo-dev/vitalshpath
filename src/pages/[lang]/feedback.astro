@@ -1,11 +1,20 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ThemeToggle from '../../components/ThemeToggle.astro';
-import LanguageSelector from '../../components/LanguageSelector.astro';
-import Footer from '../../components/Footer.astro';
-import { supportedLangs, type Lang } from '../../i18n/ui-locales';
-import { useTranslations } from '../../i18n';
-import { MessageSquare, Send, Star, Lightbulb, Bug, HelpCircle, CheckCircle } from 'lucide-react';
+import Layout from "../../layouts/Layout.astro";
+import ThemeToggle from "../../components/ThemeToggle.astro";
+import LanguageSelector from "../../components/LanguageSelector.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { useTranslations } from "../../i18n";
+import {
+    MessageSquare,
+    Send,
+    Star,
+    Lightbulb,
+    Bug,
+    HelpCircle,
+    CheckCircle,
+} from "lucide-react";
 
 export function getStaticPaths() {
     return supportedLangs.map((lang) => ({
@@ -18,141 +27,234 @@ const currentLang = lang as Lang;
 const t = useTranslations(currentLang);
 
 const feedbackTypes = [
-    { id: 'feature', icon: Lightbulb, label: t('feedback.types.feature'), color: 'text-yellow-500', bg: 'bg-yellow-100 dark:bg-yellow-900/30' },
-    { id: 'bug', icon: Bug, label: t('feedback.types.bug'), color: 'text-red-500', bg: 'bg-red-100 dark:bg-red-900/30' },
-    { id: 'improvement', icon: Star, label: t('feedback.types.improvement'), color: 'text-purple-500', bg: 'bg-purple-100 dark:bg-purple-900/30' },
-    { id: 'question', icon: HelpCircle, label: t('feedback.types.question'), color: 'text-blue-500', bg: 'bg-blue-100 dark:bg-blue-900/30' },
-    { id: 'other', icon: MessageSquare, label: t('feedback.types.other'), color: 'text-gray-500', bg: 'bg-gray-100 dark:bg-gray-800' },
+    {
+        id: "feature",
+        icon: Lightbulb,
+        label: t("feedback.types.feature"),
+        color: "text-yellow-500",
+        bg: "bg-yellow-100 dark:bg-yellow-900/30",
+    },
+    {
+        id: "bug",
+        icon: Bug,
+        label: t("feedback.types.bug"),
+        color: "text-red-500",
+        bg: "bg-red-100 dark:bg-red-900/30",
+    },
+    {
+        id: "improvement",
+        icon: Star,
+        label: t("feedback.types.improvement"),
+        color: "text-purple-500",
+        bg: "bg-purple-100 dark:bg-purple-900/30",
+    },
+    {
+        id: "question",
+        icon: HelpCircle,
+        label: t("feedback.types.question"),
+        color: "text-blue-500",
+        bg: "bg-blue-100 dark:bg-blue-900/30",
+    },
+    {
+        id: "other",
+        icon: MessageSquare,
+        label: t("feedback.types.other"),
+        color: "text-gray-500",
+        bg: "bg-gray-100 dark:bg-gray-800",
+    },
 ];
 ---
 
 <Layout lang={currentLang}>
     <main class="relative overflow-hidden min-h-screen">
         <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-            <div class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"></div>
-            <div class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"></div>
+            <div
+                class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"
+            >
+            </div>
+            <div
+                class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"
+            >
+            </div>
         </div>
 
-        <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href={`/${currentLang}/`} class="flex items-center gap-2">
-                        <img src="/assets/images/Icon.png" alt="VitalsPath" class="w-8 h-8 rounded-xl" />
-                        <span class="text-lg font-bold text-gray-900 dark:text-white">VitalsPath</span>
-                    </a>
-                    
-                    <div class="flex items-center gap-3">
-                        <LanguageSelector lang={currentLang} />
-                        <ThemeToggle />
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <Header lang={currentLang} />
 
         <section class="pt-32 pb-24 relative">
             <div class="container mx-auto px-6 max-w-3xl">
                 <div class="text-center mb-12">
-                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 text-white mb-6">
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 text-white mb-6"
+                    >
                         <MessageSquare class="w-8 h-8" />
                     </div>
-                    <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('feedback.title')}</h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400">{t('feedback.subtitle')}</p>
+                    <h1
+                        class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                        {t("feedback.title")}
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                        {t("feedback.subtitle")}
+                    </p>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-sm p-8 md:p-10">
-                    <form 
+                <div
+                    class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl shadow-sm p-8 md:p-10"
+                >
+                    <form
                         id="feedback-form"
-                        action="https://formsubmit.co/vitalspath@gmail.com" 
+                        action="https://formsubmit.co/vitalspath@gmail.com"
                         method="POST"
                         class="space-y-6"
                     >
-                        <input type="hidden" name="_subject" value="New VitalsPath Feedback" />
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="New VitalsPath Feedback"
+                        />
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_template" value="table" />
-                        <input type="hidden" name="_next" value={`https://vitalspath.com/${currentLang}/feedback?submitted=true`} />
+                        <input
+                            type="hidden"
+                            name="_next"
+                            value={`https://vitalspath.com/${currentLang}/feedback?submitted=true`}
+                        />
 
                         <div>
-                            <label class="block text-sm font-semibold text-gray-900 dark:text-white mb-3">{t('feedback.form.type')}</label>
+                            <label
+                                class="block text-sm font-semibold text-gray-900 dark:text-white mb-3"
+                                >{t("feedback.form.type")}</label
+                            >
                             <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
-                                {feedbackTypes.map((type) => (
-                                    <label class="cursor-pointer">
-                                        <input type="radio" name="feedback_type" value={type.id} class="sr-only peer" required />
-                                        <div class={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 transition-all`}>
-                                            <div class={`w-10 h-10 rounded-lg ${type.bg} flex items-center justify-center`}>
-                                                <type.icon class={`w-5 h-5 ${type.color}`} />
+                                {
+                                    feedbackTypes.map((type) => (
+                                        <label class="cursor-pointer">
+                                            <input
+                                                type="radio"
+                                                name="feedback_type"
+                                                value={type.id}
+                                                class="sr-only peer"
+                                                required
+                                            />
+                                            <div
+                                                class={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 border-transparent hover:bg-gray-50 dark:hover:bg-gray-700 peer-checked:border-blue-500 peer-checked:bg-blue-50 dark:peer-checked:bg-blue-900/20 transition-all`}
+                                            >
+                                                <div
+                                                    class={`w-10 h-10 rounded-lg ${type.bg} flex items-center justify-center`}
+                                                >
+                                                    <type.icon
+                                                        class={`w-5 h-5 ${type.color}`}
+                                                    />
+                                                </div>
+                                                <span class="text-xs font-medium text-gray-700 dark:text-gray-300 text-center">
+                                                    {type.label}
+                                                </span>
                                             </div>
-                                            <span class="text-xs font-medium text-gray-700 dark:text-gray-300 text-center">{type.label}</span>
-                                        </div>
-                                    </label>
-                                ))}
+                                        </label>
+                                    ))
+                                }
                             </div>
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <label for="name" class="block text-sm font-semibold text-gray-900 dark:text-white mb-2">{t('feedback.form.name')}</label>
-                                <input 
-                                    type="text" 
+                                <label
+                                    for="name"
+                                    class="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
+                                    >{t("feedback.form.name")}</label
+                                >
+                                <input
+                                    type="text"
                                     id="name"
                                     name="name"
                                     class="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                    placeholder={t('feedback.form.namePlaceholder')}
+                                    placeholder={t(
+                                        "feedback.form.namePlaceholder"
+                                    )}
                                 />
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-gray-900 dark:text-white mb-2">{t('feedback.form.email')}</label>
-                                <input 
-                                    type="email" 
+                                <label
+                                    for="email"
+                                    class="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
+                                    >{t("feedback.form.email")}</label
+                                >
+                                <input
+                                    type="email"
                                     id="email"
                                     name="email"
                                     required
                                     class="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                    placeholder={t('feedback.form.emailPlaceholder')}
+                                    placeholder={t(
+                                        "feedback.form.emailPlaceholder"
+                                    )}
                                 />
                             </div>
                         </div>
 
                         <div>
-                            <label for="subject" class="block text-sm font-semibold text-gray-900 dark:text-white mb-2">{t('feedback.form.subject')}</label>
-                            <input 
-                                type="text" 
+                            <label
+                                for="subject"
+                                class="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
+                                >{t("feedback.form.subject")}</label
+                            >
+                            <input
+                                type="text"
                                 id="subject"
                                 name="subject"
                                 required
                                 class="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                                placeholder={t('feedback.form.subjectPlaceholder')}
+                                placeholder={t(
+                                    "feedback.form.subjectPlaceholder"
+                                )}
                             />
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-semibold text-gray-900 dark:text-white mb-2">{t('feedback.form.message')}</label>
-                            <textarea 
+                            <label
+                                for="message"
+                                class="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
+                                >{t("feedback.form.message")}</label
+                            >
+                            <textarea
                                 id="message"
                                 name="message"
                                 rows="5"
                                 required
                                 class="w-full px-4 py-3 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
-                                placeholder={t('feedback.form.messagePlaceholder')}
-                            ></textarea>
+                                placeholder={t(
+                                    "feedback.form.messagePlaceholder"
+                                )}></textarea>
                         </div>
 
-                        <button 
+                        <button
                             type="submit"
                             class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
                         >
                             <Send class="w-5 h-5" />
-                            <span>{t('feedback.form.submit')}</span>
+                            <span>{t("feedback.form.submit")}</span>
                         </button>
                     </form>
 
                     <div id="success-message" class="hidden text-center py-8">
-                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-4">
+                        <div
+                            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-4"
+                        >
                             <CheckCircle class="w-8 h-8 text-green-500" />
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('feedback.success.title')}</h3>
-                        <p class="text-gray-600 dark:text-gray-400">{t('feedback.success.message')}</p>
-                        <a href={`/${currentLang}/`} class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-xl hover:opacity-90 transition-all">
-                            {t('feedback.success.backHome')}
+                        <h3
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+                        >
+                            {t("feedback.success.title")}
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            {t("feedback.success.message")}
+                        </p>
+                        <a
+                            href={`/${currentLang}/`}
+                            class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-xl hover:opacity-90 transition-all"
+                        >
+                            {t("feedback.success.backHome")}
                         </a>
                     </div>
                 </div>
@@ -165,13 +267,17 @@ const feedbackTypes = [
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('submitted') === 'true') {
-        const form = document.getElementById('feedback-form');
-        const successMessage = document.getElementById('success-message');
+    if (urlParams.get("submitted") === "true") {
+        const form = document.getElementById("feedback-form");
+        const successMessage = document.getElementById("success-message");
         if (form && successMessage) {
-            form.classList.add('hidden');
-            successMessage.classList.remove('hidden');
+            form.classList.add("hidden");
+            successMessage.classList.remove("hidden");
         }
-        window.history.replaceState({}, document.title, window.location.pathname);
+        window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+        );
     }
 </script>

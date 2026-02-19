@@ -1,10 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ThemeToggle from '../../components/ThemeToggle.astro';
-import LanguageSelector from '../../components/LanguageSelector.astro';
-import Footer from '../../components/Footer.astro';
-import { supportedLangs, type Lang } from '../../i18n/ui-locales';
-import { useTranslations } from '../../i18n';
+import Layout from "../../layouts/Layout.astro";
+import ThemeToggle from "../../components/ThemeToggle.astro";
+import LanguageSelector from "../../components/LanguageSelector.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { useTranslations } from "../../i18n";
 
 export function getStaticPaths() {
     return supportedLangs.map((lang) => ({
@@ -20,94 +21,208 @@ const t = useTranslations(currentLang);
 <Layout lang={currentLang}>
     <main class="relative overflow-hidden min-h-screen">
         <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-            <div class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"></div>
-            <div class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"></div>
+            <div
+                class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"
+            >
+            </div>
+            <div
+                class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"
+            >
+            </div>
         </div>
 
-        <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href={`/${currentLang}/`} class="flex items-center gap-2">
-                        <img src="/assets/images/Icon.png" alt="VitalsPath" class="w-8 h-8 rounded-xl" />
-                        <span class="text-lg font-bold text-gray-900 dark:text-white">VitalsPath</span>
-                    </a>
-                    
-                    <div class="flex items-center gap-3">
-                        <LanguageSelector lang={currentLang} />
-                        <ThemeToggle />
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <Header lang={currentLang} />
 
         <section class="pt-32 pb-24 relative">
             <div class="container mx-auto px-6 max-w-4xl">
-                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.title')}</h1>
-                <p class="text-gray-600 dark:text-gray-400 mb-8">{t('legal.privacy.subtitle')}</p>
-                <p class="text-sm text-gray-500 dark:text-gray-500 mb-12">{t('legal.privacy.lastUpdated')}</p>
-                
-                <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-8">
-                    
+                <h1
+                    class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                    {t("legal.privacy.title")}
+                </h1>
+                <p class="text-gray-600 dark:text-gray-400 mb-8">
+                    {t("legal.privacy.subtitle")}
+                </p>
+                <p class="text-sm text-gray-500 dark:text-gray-500 mb-12">
+                    {t("legal.privacy.lastUpdated")}
+                </p>
+
+                <div
+                    class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-8"
+                >
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.intro.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.intro.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.intro.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t("legal.privacy.sections.intro.content")}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.controller.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.controller.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.controller.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.controller.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.info.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.info.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.info.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t("legal.privacy.sections.info.content")}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.usage.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.usage.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.usage.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t("legal.privacy.sections.usage.content")}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.storage.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.storage.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.storage.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.storage.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.recipients.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.recipients.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.recipients.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.recipients.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.retention.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.retention.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.retention.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.retention.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.rights.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.rights.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.rights.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.rights.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.security.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.security.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.security.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.security.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.minors.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.minors.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.minors.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.minors.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.changes.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.changes.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.changes.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.changes.content"
+                            )}
+                        >
+                        </div>
                     </section>
 
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">{t('legal.privacy.sections.contact.title')}</h2>
-                        <div class="space-y-4" set:html={t('legal.privacy.sections.contact.content')} />
+                        <h2
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        >
+                            {t("legal.privacy.sections.contact.title")}
+                        </h2>
+                        <div
+                            class="space-y-4"
+                            set:html={t(
+                                "legal.privacy.sections.contact.content"
+                            )}
+                        >
+                        </div>
                     </section>
-
                 </div>
             </div>
         </section>

@@ -116,7 +116,6 @@ const jsonLd = {
 			href={`${import.meta.env.BASE_URL}/assets/images/Icon.png`}
 		/>
 		<meta name="theme-color" content="#007aff" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta
 			name="apple-mobile-web-app-status-bar-style"
 			content="black-translucent"
@@ -126,11 +125,22 @@ const jsonLd = {
 		<title>{title}</title>
 
 		<!-- Canonical and Hreflang -->
-		<link rel="canonical" href={`${siteUrl}/${lang}/`} />
-		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
+		<link
+			rel="canonical"
+			href={`${siteUrl}${import.meta.env.BASE_URL}${lang}/`}
+		/>
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href={`${siteUrl}${import.meta.env.BASE_URL}en/`}
+		/>
 		{
 			supportedLangs.map((l) => (
-				<link rel="alternate" hreflang={l} href={`${siteUrl}/${l}/`} />
+				<link
+					rel="alternate"
+					hreflang={l}
+					href={`${siteUrl}${import.meta.env.BASE_URL}${l}/`}
+				/>
 			))
 		}
 
