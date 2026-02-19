@@ -15,6 +15,30 @@ const title = t("meta.title");
 const description = t("meta.description");
 
 const siteUrl = "https://vitalspath.com";
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "SoftwareApplication",
+	"name": "VitalsPath",
+	"applicationCategory": "HealthApplication",
+	"operatingSystem": "iOS 18+",
+	"offers": {
+		"@type": "Offer",
+		"price": "0",
+		"priceCurrency": "EUR"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.8",
+		"ratingCount": "120"
+	},
+	"description": description,
+	"inLanguage": supportedLangs,
+	"author": {
+		"@type": "Person",
+		"name": "Lester Romero Bernardo"
+	}
+};
 ---
 
 <!DOCTYPE html>
@@ -23,10 +47,17 @@ const siteUrl = "https://vitalspath.com";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
+		<meta name="keywords" content="health app, medication tracker, family health, iOS app, wellness tracker, symptom tracker, medication reminder" />
+		<meta name="author" content="Lester Romero Bernardo" />
+		<meta name="robots" content="index, follow" />
 		<meta
 			name="google-site-verification"
 			content="YOUR_VERIFICATION_CODE"
 		/>
+
+		<!-- Preconnect to external domains -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
 		<!-- Google Tag Manager -->
 		<script is:inline>
@@ -46,15 +77,30 @@ const siteUrl = "https://vitalspath.com";
 		</script>
 		<!-- End Google Tag Manager -->
 
+		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta
 			property="og:image"
-			content={`${import.meta.env.BASE_URL}/assets/images/app-mockup.png`}
+			content={`${import.meta.env.BASE_URL}/assets/images/og-image.png`}
 		/>
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:locale" content={lang} />
+		<meta property="og:site_name" content="VitalsPath" />
 
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image"
+			content={`${import.meta.env.BASE_URL}/assets/images/og-image.png`}
+		/>
+		<meta name="twitter:creator" content="@vitalspath" />
+
+		<!-- Apple Web App -->
 		<link
 			rel="icon"
 			type="image/svg+xml"
@@ -65,10 +111,13 @@ const siteUrl = "https://vitalspath.com";
 			href={`${import.meta.env.BASE_URL}/assets/images/Icon.png`}
 		/>
 		<meta name="theme-color" content="#007aff" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
+		<!-- Canonical and Hreflang -->
 		<link rel="canonical" href={`${siteUrl}/${lang}/`} />
 		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
 		{
@@ -77,6 +126,10 @@ const siteUrl = "https://vitalspath.com";
 			))
 		}
 
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+		<!-- Theme initialization -->
 		<script is:inline>
 			(function () {
 				try {

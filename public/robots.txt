@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lbernardo-dev.github.io/vitalshpath/sitemap-index.xml

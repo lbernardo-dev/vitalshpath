@@ -14,6 +14,7 @@ import Gallery from "../../components/landing/Gallery.astro";
 import Pricing from "../../components/landing/Pricing.astro";
 import WaitlistForm from "../../components/landing/WaitlistForm.astro";
 import Footer from "../../components/Footer.astro";
+import StatsWidget from "../../components/StatsWidget.astro";
 import {
 	supportedLangs,
 	isValidLang,
@@ -134,5 +135,19 @@ const t = useTranslations(currentLang);
 		<Pricing lang={currentLang} />
 		<WaitlistForm lang={currentLang} />
 		<Footer lang={currentLang} />
+		
+		<!-- Live Stats Widget -->
+		<StatsWidget lang={currentLang} />
 	</main>
 </Layout>
+
+<!-- Tracking Script -->
+<script define:vars={{ currentLang }}>
+	import { trackPageView, startHeartbeat, isSupabaseConfigured } from '../../lib/supabase';
+	
+	// Track page view on load
+	if (isSupabaseConfigured()) {
+		trackPageView(window.location.pathname, currentLang);
+		startHeartbeat();
+	}
+</script>
