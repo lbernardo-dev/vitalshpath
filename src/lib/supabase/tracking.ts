@@ -91,17 +91,55 @@ export const getStats = async (): Promise<Stats | null> => {
     if (!supabase) return null;
     
     try {
+        // Try RPC first (best performance and bypasses strict RLS if security definer)
         const { data, error } = await (supabase as any).rpc('get_stats');
         
-        if (error) {
-            console.error('Error fetching stats:', error);
-            return null;
+        if (!error && data) {
+            return data as Stats;
         }
         
-        return data as Stats;
+        // Fallback: Client-side aggregation (subject to RLS)
+        // This allows the widget to work even if the RPC function isn't created,
+        // provided RLS policies allow reading these tables.
+        
+        const stats: Stats = {
+            total_signups: 0,
+            today_signups: 0,
+            today_visitors: 0,
+            online_now: 0,
+            total_visitors: 0
+        };
+
+        // 1. Total Signups
+        const { count: signupsCount } = await supabase
+            .from('waitlist')
+            .select('*', { count: 'exact', head: true });
+        if (signupsCount !== null) stats.total_signups = signupsCount;
+
+        // 2. Online Now (Active Sessions > 5 min ago)
+        const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000).toISOString();
+        const { count: onlineCount } = await supabase
+            .from('active_sessions')
+            .select('*', { count: 'exact', head: true })
+            .gt('last_activity', fiveMinutesAgo);
+        if (onlineCount !== null) stats.online_now = onlineCount;
+        
+        // 3. Today Visitors
+        const today = new Date().toISOString().split('T')[0];
+        const { data: visitorsData } = await supabase
+            .from('page_views')
+            .select('visitor_id')
+            .gt('created_at', today);
+            
+        if (visitorsData) {
+            const uniqueVisitors = new Set(visitorsData.map(v => v.visitor_id));
+            stats.today_visitors = uniqueVisitors.size;
+        }
+        
+        return stats;
     } catch (error) {
         console.error('Error fetching stats:', error);
-        return null;
+        return null; // Return null on catastrophic failure
     }
 };
 

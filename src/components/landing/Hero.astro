@@ -1,5 +1,14 @@
 ---
-import { ArrowRight, Heart, Shield, Sparkles, Users, Check } from "lucide-react";
+import {
+    ArrowRight,
+    Heart,
+    Shield,
+    Sparkles,
+    Users,
+    Check,
+} from "lucide-react";
+import { Image } from "astro:assets";
+import dashboardScreen from "../../assets/images/screens/screen-01-dashboard.PNG";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
 
@@ -16,8 +25,15 @@ const t = useTranslations(lang);
 >
     <!-- Animated background gradient -->
     <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-0 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-gradient-to-tl from-pink-400/20 via-blue-400/20 to-transparent rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div
+            class="absolute top-0 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-gradient-to-tl from-pink-400/20 via-blue-400/20 to-transparent rounded-full blur-3xl animate-pulse"
+            style="animation-delay: 1s;"
+        >
+        </div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
@@ -27,7 +43,9 @@ const t = useTranslations(lang);
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-blue-400/20 mb-8 backdrop-blur-sm"
                 >
-                    <Sparkles className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                    <Sparkles
+                        className="w-4 h-4 text-blue-500 dark:text-blue-400"
+                    />
                     <span
                         class="text-sm font-medium text-gray-700 dark:text-gray-300"
                         >{t("hero.badge")}</span
@@ -58,19 +76,25 @@ const t = useTranslations(lang);
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
                     >
                         <Users className="w-4 h-4 text-blue-500" />
-                        <span class="text-gray-700 dark:text-gray-300">{t("hero.features.profiles")}</span>
+                        <span class="text-gray-700 dark:text-gray-300"
+                            >{t("hero.features.profiles")}</span
+                        >
                     </div>
                     <div
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
                     >
                         <Shield className="w-4 h-4 text-green-500" />
-                        <span class="text-gray-700 dark:text-gray-300">{t("hero.features.privacy")}</span>
+                        <span class="text-gray-700 dark:text-gray-300"
+                            >{t("hero.features.privacy")}</span
+                        >
                     </div>
                     <div
                         class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
                     >
                         <Heart className="w-4 h-4 text-red-400" />
-                        <span class="text-gray-700 dark:text-gray-300">{t("hero.features.languages")}</span>
+                        <span class="text-gray-700 dark:text-gray-300"
+                            >{t("hero.features.languages")}</span
+                        >
                     </div>
                 </div>
 
@@ -82,11 +106,19 @@ const t = useTranslations(lang);
                         href="#waitlist"
                         class="group relative inline-flex items-center justify-center px-8 py-4 rounded-2xl text-white font-semibold shadow-2xl overflow-hidden"
                     >
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 transition-transform group-hover:scale-105"></div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 blur-xl transition-opacity"></div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 transition-transform group-hover:scale-105"
+                        >
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 blur-xl transition-opacity"
+                        >
+                        </div>
                         <span class="relative flex items-center gap-2">
                             {t("hero.cta.primary")}
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight
+                                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                            />
                         </span>
                     </a>
                     <a
@@ -102,111 +134,197 @@ const t = useTranslations(lang);
             <div class="flex-1 relative lg:max-w-xl">
                 <div class="relative mx-auto" style="perspective: 1000px;">
                     <!-- Main phone -->
-                    <div 
+                    <div
                         class="relative transform-gpu transition-transform duration-500 hover:rotate-y-0"
                         style="transform: rotateY(-5deg) rotateX(5deg);"
                     >
                         <!-- Phone frame -->
-                        <div class="relative w-[280px] sm:w-[320px] lg:w-[360px] mx-auto">
+                        <div
+                            class="relative w-[280px] sm:w-[320px] lg:w-[360px] mx-auto"
+                        >
                             <!-- Glow effect -->
-                            <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[50px] opacity-20 blur-2xl"></div>
-                            
+                            <div
+                                class="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-[50px] opacity-20 blur-2xl"
+                            >
+                            </div>
+
                             <!-- Device frame -->
-                            <div class="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-[45px] shadow-2xl">
+                            <div
+                                class="relative bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-[45px] shadow-2xl"
+                            >
                                 <!-- Screen bezel -->
                                 <div class="bg-black p-[2px] rounded-[40px]">
-                                        <!-- Screen -->
-                                    <div class="w-full aspect-[9/19.5] rounded-[38px] overflow-hidden bg-gray-100 dark:bg-gray-900 relative">
-                                        <img
-                                            src={`${import.meta.env.BASE_URL}/assets/images/screens/screen-01-dashboard.PNG`}
+                                    <!-- Screen -->
+                                    <div
+                                        class="w-full aspect-[9/19.5] rounded-[38px] overflow-hidden bg-gray-100 dark:bg-gray-900 relative"
+                                    >
+                                        <Image
+                                            src={dashboardScreen}
                                             alt="VitalsPath Dashboard"
                                             class="w-full h-full object-cover object-top"
                                             loading="eager"
+                                            width={600}
                                         />
                                         <!-- Dynamic Island -->
-                                        <div class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-8 bg-black rounded-full flex items-center justify-center gap-2">
-                                            <div class="w-2 h-2 rounded-full bg-gray-700"></div>
-                                            <div class="w-3 h-3 rounded-full bg-gray-800 ring-1 ring-gray-700"></div>
+                                        <div
+                                            class="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-8 bg-black rounded-full flex items-center justify-center gap-2"
+                                        >
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gray-700"
+                                            >
+                                            </div>
+                                            <div
+                                                class="w-3 h-3 rounded-full bg-gray-800 ring-1 ring-gray-700"
+                                            >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Side buttons -->
-                                <div class="absolute right-0 top-24 w-[3px] h-8 bg-gray-700 rounded-l-sm"></div>
-                                <div class="absolute right-0 top-36 w-[3px] h-16 bg-gray-700 rounded-l-sm"></div>
-                                <div class="absolute right-0 top-56 w-[3px] h-16 bg-gray-700 rounded-l-sm"></div>
-                                <div class="absolute left-0 top-36 w-[3px] h-8 bg-gray-700 rounded-r-sm"></div>
+                                <div
+                                    class="absolute right-0 top-24 w-[3px] h-8 bg-gray-700 rounded-l-sm"
+                                >
+                                </div>
+                                <div
+                                    class="absolute right-0 top-36 w-[3px] h-16 bg-gray-700 rounded-l-sm"
+                                >
+                                </div>
+                                <div
+                                    class="absolute right-0 top-56 w-[3px] h-16 bg-gray-700 rounded-l-sm"
+                                >
+                                </div>
+                                <div
+                                    class="absolute left-0 top-36 w-[3px] h-8 bg-gray-700 rounded-r-sm"
+                                >
+                                </div>
                             </div>
                         </div>
 
                         <!-- Floating cards -->
                         <!-- Wellness Score -->
-                        <div 
+                        <div
                             class="absolute -left-16 sm:-left-24 top-[10%] w-44 transform-gpu animate-float"
                             style="animation-delay: 0s;"
                         >
-                            <div class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Wellness</span>
-                                    <div class="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center">
+                            <div
+                                class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl"
+                            >
+                                <div
+                                    class="flex items-center justify-between mb-2"
+                                >
+                                    <span
+                                        class="text-xs font-medium text-gray-500 dark:text-gray-400"
+                                        >Wellness</span
+                                    >
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center"
+                                    >
                                         <Check className="w-3 h-3 text-white" />
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                                <div
+                                    class="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+                                >
                                     94%
                                 </div>
-                                <div class="mt-2 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                                    <div class="h-full w-[94%] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                                <div
+                                    class="mt-2 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
+                                >
+                                    <div
+                                        class="h-full w-[94%] bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                                    >
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Medication reminder -->
-                        <div 
+                        <div
                             class="absolute -right-12 sm:-right-20 top-[35%] w-48 transform-gpu animate-float"
                             style="animation-delay: 1.5s;"
                         >
-                            <div class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl">
+                            <div
+                                class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl"
+                            >
                                 <div class="flex items-center gap-3">
-                                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                                        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    <div
+                                        class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30"
+                                    >
+                                        <svg
+                                            class="w-5 h-5 text-white"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
                                         </svg>
                                     </div>
                                     <div class="flex-1 min-w-0">
-                                        <p class="text-xs text-gray-500 dark:text-gray-400">Vitamina D3</p>
-                                        <p class="font-semibold text-gray-900 dark:text-white">08:00</p>
+                                        <p
+                                            class="text-xs text-gray-500 dark:text-gray-400"
+                                        >
+                                            Vitamina D3
+                                        </p>
+                                        <p
+                                            class="font-semibold text-gray-900 dark:text-white"
+                                        >
+                                            08:00
+                                        </p>
                                     </div>
-                                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                    <div
+                                        class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
+                                    >
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Family profiles -->
-                        <div 
+                        <div
                             class="absolute -left-12 sm:-left-16 bottom-[12%] w-52 transform-gpu animate-float"
                             style="animation-delay: 2.5s;"
                         >
-                            <div class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl">
-                                <p class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-3">
+                            <div
+                                class="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 p-4 rounded-2xl shadow-xl"
+                            >
+                                <p
+                                    class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-3"
+                                >
                                     Perfiles Familiares
                                 </p>
                                 <div class="flex items-center gap-2">
                                     <div class="flex -space-x-2">
-                                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800">
+                                        <div
+                                            class="w-9 h-9 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800"
+                                        >
                                             M
                                         </div>
-                                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800">
+                                        <div
+                                            class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800"
+                                        >
                                             P
                                         </div>
-                                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800">
+                                        <div
+                                            class="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800"
+                                        >
                                             H
                                         </div>
-                                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800">
+                                        <div
+                                            class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center text-white text-xs font-bold ring-2 ring-white dark:ring-gray-800"
+                                        >
                                             A
                                         </div>
                                     </div>
-                                    <span class="text-xs text-gray-500 dark:text-gray-400 ml-1">+2</span>
+                                    <span
+                                        class="text-xs text-gray-500 dark:text-gray-400 ml-1"
+                                        >+2</span
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -218,26 +336,32 @@ const t = useTranslations(lang);
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div class="w-6 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-start justify-center p-2">
-            <div class="w-1.5 h-2.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-scroll"></div>
+        <div
+            class="w-6 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-start justify-center p-2"
+        >
+            <div
+                class="w-1.5 h-2.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-scroll"
+            >
+            </div>
         </div>
     </div>
 </section>
 
 <style>
     @keyframes float {
-        0%, 100% {
+        0%,
+        100% {
             transform: translateY(0px);
         }
         50% {
             transform: translateY(-10px);
         }
     }
-    
+
     .animate-float {
         animation: float 4s ease-in-out infinite;
     }
-    
+
     @keyframes scroll {
         0% {
             transform: translateY(0);
@@ -248,7 +372,7 @@ const t = useTranslations(lang);
             opacity: 0;
         }
     }
-    
+
     .animate-scroll {
         animation: scroll 1.5s ease-in-out infinite;
     }
