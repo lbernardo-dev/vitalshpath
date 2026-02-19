@@ -12,7 +12,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <footer class="py-10 border-t border-gray-200 dark:border-gray-800">
@@ -41,27 +41,27 @@ const baseUrl = import.meta.env.BASE_URL;
                 class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400"
             >
                 <a
-                    href={`${baseUrl}${lang}/feedback/`}
+                    href={`${baseUrl}/${lang}/feedback/`}
                     class="hover:text-gray-900 dark:hover:text-white transition-colors"
                     >{t("footer.feedback")}</a
                 >
                 <a
-                    href={`${baseUrl}${lang}/subscription/`}
+                    href={`${baseUrl}/${lang}/subscription/`}
                     class="hover:text-gray-900 dark:hover:text-white transition-colors"
                     >{t("footer.subscription")}</a
                 >
                 <a
-                    href={`${baseUrl}${lang}/terms/`}
+                    href={`${baseUrl}/${lang}/terms/`}
                     class="hover:text-gray-900 dark:hover:text-white transition-colors"
                     >{t("footer.terms")}</a
                 >
                 <a
-                    href={`${baseUrl}${lang}/privacy/`}
+                    href={`${baseUrl}/${lang}/privacy/`}
                     class="hover:text-gray-900 dark:hover:text-white transition-colors"
                     >{t("footer.privacy")}</a
                 >
                 <a
-                    href={`${baseUrl}${lang}/disclaimer/`}
+                    href={`${baseUrl}/${lang}/disclaimer/`}
                     class="hover:text-gray-900 dark:hover:text-white transition-colors"
                     >{t("footer.disclaimer")}</a
                 >

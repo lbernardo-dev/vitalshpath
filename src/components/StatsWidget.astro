@@ -10,101 +10,109 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<div id="stats-widget" class="mt-4 opacity-0 transition-opacity duration-500">
+<div
+    id="stats-widget"
+    class="mt-4 opacity-0 transition-opacity duration-500 w-full overflow-x-auto"
+>
     <div
-        class="inline-flex flex-col gap-2 p-3 bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl w-full max-w-[220px]"
+        class="inline-flex items-center gap-6 p-2 px-4 bg-gray-50 dark:bg-gray-800/40 border border-gray-100 dark:border-gray-800 rounded-2xl whitespace-nowrap"
     >
-        <div class="flex items-center gap-2 mb-1">
+        <div
+            class="flex items-center gap-2 pr-4 border-r border-gray-200 dark:border-gray-700"
+        >
             <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse">
             </div>
             <span
-                class="text-[10px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-500"
-                >Live Status</span
+                class="text-[10px] uppercase tracking-tighter font-black text-gray-400 dark:text-gray-500"
+                >Live</span
             >
         </div>
 
-        <div class="grid grid-cols-1 gap-2">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <svg
-                        class="w-3.5 h-3.5 text-blue-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-1.5">
+                <svg
+                    class="w-3.5 h-3.5 text-blue-500/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    ></path>
+                </svg>
+                <div class="flex items-center gap-1">
+                    <span
+                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
+                        >Ahora:</span
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                        ></path>
-                    </svg>
-                    <span class="text-xs text-gray-600 dark:text-gray-400"
-                        >Viendo ahora</span
+                    <span
+                        id="stat-online"
+                        class="text-xs font-bold text-gray-900 dark:text-white"
+                        >0</span
                     >
                 </div>
-                <span
-                    id="stat-online"
-                    class="text-sm font-bold text-gray-900 dark:text-white"
-                    >0</span
-                >
             </div>
 
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <svg
-                        class="w-3.5 h-3.5 text-purple-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+            <div class="flex items-center gap-1.5">
+                <svg
+                    class="w-3.5 h-3.5 text-purple-500/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+                    ></path>
+                </svg>
+                <div class="flex items-center gap-1">
+                    <span
+                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
+                        >Hoy:</span
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
-                        ></path>
-                    </svg>
-                    <span class="text-xs text-gray-600 dark:text-gray-400"
-                        >Visitantes hoy</span
+                    <span
+                        id="stat-today"
+                        class="text-xs font-bold text-gray-900 dark:text-white"
+                        >0</span
                     >
                 </div>
-                <span
-                    id="stat-today"
-                    class="text-sm font-bold text-gray-900 dark:text-white"
-                    >0</span
-                >
             </div>
 
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <svg
-                        class="w-3.5 h-3.5 text-green-500"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+            <div class="flex items-center gap-1.5">
+                <svg
+                    class="w-3.5 h-3.5 text-green-500/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                    ></path>
+                </svg>
+                <div class="flex items-center gap-1">
+                    <span
+                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
+                        >Lista:</span
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
-                        ></path>
-                    </svg>
-                    <span class="text-xs text-gray-600 dark:text-gray-400"
-                        >Apuntados</span
+                    <span
+                        id="stat-signups"
+                        class="text-xs font-bold text-gray-900 dark:text-white"
+                        >0</span
                     >
                 </div>
-                <span
-                    id="stat-signups"
-                    class="text-sm font-bold text-gray-900 dark:text-white"
-                    >0</span
-                >
             </div>
         </div>
     </div>

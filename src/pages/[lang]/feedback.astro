@@ -251,7 +251,10 @@ const feedbackTypes = [
                             {t("feedback.success.message")}
                         </p>
                         <a
-                            href={`${import.meta.env.BASE_URL}${currentLang}/`}
+                            href={`${import.meta.env.BASE_URL.replace(
+                                /\/$/,
+                                ""
+                            )}/${currentLang}/`}
                             class="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-xl hover:opacity-90 transition-all"
                         >
                             {t("feedback.success.backHome")}

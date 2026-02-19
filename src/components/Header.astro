@@ -13,7 +13,7 @@ interface Props {
 
 const { lang, isLanding = false } = Astro.props;
 const t = useTranslations(lang);
-const baseUrl = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <nav
@@ -22,7 +22,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
         <div class="flex items-center justify-between">
             <a
-                href={`${baseUrl}${lang}/`}
+                href={`${baseUrl}/${lang}/`}
                 class="flex items-center gap-2 flex-shrink-0"
             >
                 <Image
@@ -70,19 +70,19 @@ const baseUrl = import.meta.env.BASE_URL;
                     ) : (
                         <>
                             <a
-                                href={`${baseUrl}${lang}/#features`}
+                                href={`${baseUrl}/${lang}/#features`}
                                 class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.features")}
                             </a>
                             <a
-                                href={`${baseUrl}${lang}/#benefits`}
+                                href={`${baseUrl}/${lang}/#benefits`}
                                 class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.benefits")}
                             </a>
                             <a
-                                href={`${baseUrl}${lang}/#gallery`}
+                                href={`${baseUrl}/${lang}/#gallery`}
                                 class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.gallery")}
@@ -98,7 +98,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 <a
                     href={isLanding
                         ? "#waitlist"
-                        : `${baseUrl}${lang}/#waitlist`}
+                        : `${baseUrl}/${lang}/#waitlist`}
                     class="px-3 py-2 md:px-5 md:py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-xl hover:opacity-90 transition-all flex items-center justify-center"
                     aria-label={t("nav.waitlist")}
                 >

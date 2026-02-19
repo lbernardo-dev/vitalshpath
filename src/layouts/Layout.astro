@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
-import { type Lang } from "../i18n/ui-locales";
 import appMockup from "../assets/images/app-mockup.png";
 
 interface Props {
@@ -55,10 +54,7 @@ const jsonLd = {
 		/>
 		<meta name="author" content="Lester Romero Bernardo" />
 		<meta name="robots" content="index, follow" />
-		<meta
-			name="google-site-verification"
-			content="YOUR_VERIFICATION_CODE"
-		/>
+		<meta name="google-site-verification" content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk" />
 
 		<!-- Preconnect to external domains -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -127,19 +123,19 @@ const jsonLd = {
 		<!-- Canonical and Hreflang -->
 		<link
 			rel="canonical"
-			href={`${siteUrl}${import.meta.env.BASE_URL}${lang}/`}
+			href={`${siteUrl}${import.meta.env.BASE_URL}/${lang}/`}
 		/>
 		<link
 			rel="alternate"
 			hreflang="x-default"
-			href={`${siteUrl}${import.meta.env.BASE_URL}en/`}
+			href={`${siteUrl}${import.meta.env.BASE_URL}/en/`}
 		/>
 		{
 			supportedLangs.map((l) => (
 				<link
 					rel="alternate"
 					hreflang={l}
-					href={`${siteUrl}${import.meta.env.BASE_URL}${l}/`}
+					href={`${siteUrl}${import.meta.env.BASE_URL}/${l}/`}
 				/>
 			))
 		}
