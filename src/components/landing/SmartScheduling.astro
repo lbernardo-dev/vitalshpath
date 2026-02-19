@@ -1,6 +1,7 @@
 ---
 import {
     Pill,
+    Clock,
     ShieldCheck,
     Workflow,
     CalendarClock,
@@ -17,7 +18,10 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="smart-scheduler" class="py-12 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+<section
+    id="smart-scheduler"
+    class="py-12 md:py-24 bg-gray-50 dark:bg-gray-900/50"
+>
     <div class="container mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <span
@@ -42,7 +46,7 @@ const t = useTranslations(lang);
             >
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
                 <!-- Step 1 -->
                 <div class="relative group">
                     <div
@@ -52,7 +56,7 @@ const t = useTranslations(lang);
                     </div>
                     <div class="text-center mt-6">
                         <h3
-                            class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                            class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                         >
                             {t("smartScheduling.steps.1.title")}
                         </h3>
@@ -70,13 +74,13 @@ const t = useTranslations(lang);
                 <!-- Step 2 -->
                 <div class="relative group">
                     <div
-                        class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-purple-100 dark:border-purple-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
+                        class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-indigo-100 dark:border-indigo-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
                     >
-                        <ShieldCheck className="w-10 h-10 text-purple-500" />
+                        <Clock className="w-10 h-10 text-indigo-500" />
                     </div>
                     <div class="text-center mt-6">
                         <h3
-                            class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                            class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                         >
                             {t("smartScheduling.steps.2.title")}
                         </h3>
@@ -94,13 +98,13 @@ const t = useTranslations(lang);
                 <!-- Step 3 -->
                 <div class="relative group">
                     <div
-                        class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-pink-100 dark:border-pink-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
+                        class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-purple-100 dark:border-purple-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
                     >
-                        <Workflow className="w-10 h-10 text-pink-500" />
+                        <ShieldCheck className="w-10 h-10 text-purple-500" />
                     </div>
                     <div class="text-center mt-6">
                         <h3
-                            class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                            class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                         >
                             {t("smartScheduling.steps.3.title")}
                         </h3>
@@ -118,18 +122,42 @@ const t = useTranslations(lang);
                 <!-- Step 4 -->
                 <div class="relative group">
                     <div
+                        class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-pink-100 dark:border-pink-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
+                    >
+                        <Workflow className="w-10 h-10 text-pink-500" />
+                    </div>
+                    <div class="text-center mt-6">
+                        <h3
+                            class="text-lg font-bold text-gray-900 dark:text-white mb-2"
+                        >
+                            {t("smartScheduling.steps.4.title")}
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            {t("smartScheduling.steps.4.desc")}
+                        </p>
+                    </div>
+                    <div class="md:hidden flex justify-center mt-4">
+                        <ArrowRight
+                            className="w-6 h-6 text-gray-300 transform rotate-90"
+                        />
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative group">
+                    <div
                         class="w-24 h-24 mx-auto bg-white dark:bg-gray-800 border-4 border-green-100 dark:border-green-900/50 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10"
                     >
                         <CalendarClock className="w-10 h-10 text-green-500" />
                     </div>
                     <div class="text-center mt-6">
                         <h3
-                            class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                            class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                         >
-                            {t("smartScheduling.steps.4.title")}
+                            {t("smartScheduling.steps.5.title")}
                         </h3>
                         <p class="text-gray-500 dark:text-gray-400 text-sm">
-                            {t("smartScheduling.steps.4.desc")}
+                            {t("smartScheduling.steps.5.desc")}
                         </p>
                     </div>
                 </div>

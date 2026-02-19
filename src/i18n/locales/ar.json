@@ -495,4 +495,149 @@
       "backHome": "العودة للصفحة الرئيسية"
     }
   }
+  "pricing": {
+    "badge": "عرض الانضمام المبكر",
+    "title": "اختر خطتك",
+    "subtitle": "أسعار بسيطة وشفافة. لا توجد رسوم خفية.",
+    "monthly": {
+      "title": "شهري",
+      "price": "$4.99",
+      "period": "/شهر",
+      "description": "فوترة شهرية، إلغاء في أي وقت",
+      "discount": "وفر ٣٥٪"
+    },
+    "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "افتح الإمكانات الكاملة لإدارة صحة العائلة.",
+      "features_title": "كل ما في المجاني، بالإضافة إلى:",
+      "feature_desc": "سجلات غير محدودة في جميع الخدمات."
+    },
+    "free": {
+      "title": "مجاني",
+      "price": "$0",
+      "period": "/دائماً",
+      "description": "وظائف أساسية للاستخدام الفردي",
+      "discount": "مجاني دائماً"
+    },
+    "annual": {
+      "title": "سنوي",
+      "badge": "أفضل سعر",
+      "price": "$39.99",
+      "period": "/سنة",
+      "description": "فوترة سنوية، وفر ٣٣٪",
+      "discount": "وفر ٣٥٪"
+    },
+    "lifetime": {
+      "title": "مدى الحياة",
+      "price": "$149.99",
+      "period": "دفع لمرة واحدة",
+      "description": "دفع لمرة واحدة، وصول مدى الحياة",
+      "discount": "وفر ١٥٪"
+    },
+    "features": {
+      "unlimited_profiles": "ملفات غير محدودة",
+      "unlimited_diseases": "أمراض غير محدودة",
+      "unlimited_medications": "أدوية غير محدودة",
+      "unlimited_treatments": "علاجات غير محدودة",
+      "extended_pause": "إيقاف مؤقت ممتد",
+      "extend_medication": "تمديد الدواء",
+      "full_schedule": "تقويم كامل",
+      "quiet_schedule": "تقويم صامت",
+      "stock_inventory": "المخزون والجرد",
+      "export_pdf_csv": "تصدير PDF/CSV",
+      "advanced_analytics": "تحليلات متقدمة (٣٠، ٩٠ يوماً، السجل)",
+      "health_reports": "تقارير صحية",
+      "ocr_scanner": "ماسح الأدوية بالذكاء الاصطناعي",
+      "healthkit": "التكامل مع HealthKit",
+      "complex_symptoms": "تتبع الأعراض المعقدة",
+      "icloud_backup": "نسخ احتياطي iCloud",
+      "icloud_backup_desc": "بروتوكول أبل. يمكن أيضاً عمل نسخ محلية وتصديرها.",
+      "all_themes": "جميع السمات",
+      "all_themes_desc": "تخصيص كامل مع سمات ديناميكية.",
+      "advanced_notifications": "إشعارات متقدمة",
+      "advanced_notifications_desc": "تنبيهات حرجة وتذكيرات ذكية.",
+      "haptic_feedback": "ردود فعل لمسية",
+      "haptic_feedback_desc": "ملاحة لمسية غامرة.",
+      "widget_styles": "أنماط التطبيقات المصغرة",
+      "widget_styles_desc": "أحجام وتصميمات متنوعة لشاشتك الرئيسية.",
+      "unlimited_profiles_desc": "إدارة عائلتك بأكملها دون قيود.",
+      "smart_scheduler_ia_desc": "تحسين ذكي للمواعيد والتذكيرات.",
+      "advanced_analytics_desc": "رسوم بيانية مفصلة لتقدمك الصحي.",
+      "health_reports_desc": "تصدير تقارير مفصلة لطبيبك.",
+      "export_pdf_csv_desc": "بياناتك معك دائماً بتنسيقات متعددة.",
+      "basic_profiles": "ملف واحد (غير محدود في المميز)",
+      "basic_medications": "٣ أدوية لكل ملف",
+      "local_reminders": "تذكيرات أساسية",
+      "wellness_score": "مؤشر العافية (حلقات يومية)",
+      "wellness_details": "تفصيل متقدم للعوامل",
+      "smart_scheduler": "مدقق التعارض (تصحيح يدوي)",
+      "smart_scheduler_ia": "تحسين تلقائي بالذكاء الاصطناعي",
+      "appointments_limit": "٣ مواعيد شهرياً",
+      "unlimited_appointments": "مواعيد غير محدودة",
+      "locations_limit": "مكانان مفضلان",
+      "insurance_limit": "تأمين صحي واحد",
+      "symptoms_basic": "أعراض أساسية",
+      "symptoms_complex": "أعراض معقدة (الصدر، البطن، القلق)",
+      "inventory_basic": "مخزون وجرد أساسي"
+    },
+    "cta": "قريباً",
+    "cta_alt": "سجلني"
+  },
+  "smartScheduling": {
+    "badge": "خوارزمية ذكية",
+    "title": "برمجة ذكية",
+    "subtitle": "خوارزميتنا المتقدمة تحسن روتين الأدوية الخاص بك مع مراعاة التفاعلات وهوامش الأمان وأسلوب حياتك.",
+    "steps": {
+      "1": {
+        "title": "المدخلات",
+        "desc": "الأدوية والأوقات"
+      },
+      "2": {
+        "title": "الجداول",
+        "desc": "المربعات الزمنية المحجوزة"
+      },
+      "3": {
+        "title": "التحليل",
+        "desc": "هوامش الأمان"
+      },
+      "4": {
+        "title": "التحقق",
+        "desc": "تداخل الأوقات"
+      },
+      "5": {
+        "title": "التحسين",
+        "desc": "الجدول المثالي"
+      }
+    }
+  },
+  "notificationModes": {
+    "badge": "تنبيهات تكيفية",
+    "title": "إشعارات تتكيف معك",
+    "modes": {
+      "normal": {
+        "title": "عادي",
+        "desc": "تنبيهات قياسية مع صوت واهتزاز."
+      },
+      "quiet": {
+        "title": "صامت",
+        "desc": "مرئي فقط، مثالي للعمل أو الاجتماعات."
+      },
+      "discrete": {
+        "title": "خفي",
+        "desc": "اهتزاز خفيف، محتوى يركز على الخصوصية."
+      },
+      "off": {
+        "title": "إيقاف",
+        "desc": "بدون مقاطعة، شارات فقط."
+      }
+    }
+  },
+  "languages": {
+    "title": "نتحدث لغتك",
+    "subtitle": "عالمي منذ اليوم الأول",
+    "description": "VitalsPath مترجم بشكل أصلي لـ ١٥ لغة لتشعر عائلتك بالراحة."
+  },
+  "footerStats": {
+    "activeUsers": "المستخدمون النشطون"
+  }
 }

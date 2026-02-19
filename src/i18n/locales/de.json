@@ -516,4 +516,145 @@
     "developer": "von RomeroDev",
     "subscription": "Abonnement"
   }
+  "pricing": {
+    "badge": "Early Adopter Angebot",
+    "title": "Wählen Sie Ihren Plan",
+    "subtitle": "Einfache und transparente Preisgestaltung. Keine versteckten Gebühren.",
+    "monthly": {
+      "title": "Monatlich",
+      "price": "4,99 €",
+      "period": "/Monat",
+      "description": "Monatliche Abrechnung, jederzeit kündbar",
+      "discount": "Sparen Sie 35 %"
+    },
+    "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "Schaltet das volle Potenzial des Familien-Gesundheitsmanagements frei.",
+      "features_title": "Alles aus der kostenlosen Version, und zusätzlich:",
+      "feature_desc": "Unbegrenzte Registrierungen in allen Diensten."
+    },
+    "free": {
+      "title": "Kostenlos",
+      "price": "0 €",
+      "period": "/immer",
+      "description": "Grundlegende Funktionen für den individuellen Gebrauch",
+      "discount": "Immer Kostenlos"
+    },
+    "annual": {
+      "title": "Jährlich",
+      "badge": "BESTER PREIS",
+      "price": "39,99 €",
+      "period": "/Jahr",
+      "description": "Jährliche Abrechnung, sparen Sie 33 %",
+      "discount": "Sparen Sie 35 %"
+    },
+    "lifetime": {
+      "title": "Lebenslang",
+      "price": "149,99 €",
+      "period": "Einmalzahlung",
+      "description": "Einmalige Zahlung, lebenslanger Zugriff",
+      "discount": "Sparen Sie 15 %"
+    },
+    "features": {
+      "unlimited_profiles": "Unbegrenzte Profile",
+      "unlimited_diseases": "Unbegrenzte Krankheiten",
+      "unlimited_medications": "Unbegrenzte Medikamente",
+      "unlimited_treatments": "Unbegrenzte Behandlungen",
+      "extended_pause": "Verlängerte Pause",
+      "extend_medication": "Medikament verlängern",
+      "full_schedule": "Vollständiger Zeitplan",
+      "quiet_schedule": "Lautloser Zeitplan",
+      "stock_inventory": "Bestand & Inventar",
+      "export_pdf_csv": "Export als PDF/CSV",
+      "advanced_analytics": "Erweiterte Analysen (30, 90 Tage, Verlauf)",
+      "health_reports": "Gesundheitsberichte",
+      "health_reports_desc": "Exportieren Sie detaillierte Berichte für Ihren Arzt.",
+      "ocr_scanner": "Medikamenten-OCR-Scanner",
+      "healthkit": "HealthKit-Integration",
+      "complex_symptoms": "Tracking komplexer Symptome",
+      "icloud_backup": "iCloud-Backup",
+      "icloud_backup_desc": "Apple-Protokoll. Kann auch lokal durchgeführt und exportiert werden.",
+      "all_themes": "Alle Designs",
+      "all_themes_desc": "Vollständige Anpassung mit dynamischen Designs.",
+      "advanced_notifications": "Erweiterte Benachrichtigungen",
+      "advanced_notifications_desc": "Kritische Warnungen und intelligente Erinnerungen.",
+      "haptic_feedback": "Haptisches Feedback",
+      "haptic_feedback_desc": "Immersive taktile Navigation.",
+      "widget_styles": "Widget-Stile",
+      "widget_styles_desc": "Verschiedene Größen und Layouts für Ihren Startbildschirm.",
+      "basic_profiles": "1 Profil (Unbegrenzt in Premium)",
+      "basic_medications": "3 Medikamente pro Profil",
+      "local_reminders": "Grundlegende Erinnerungen",
+      "wellness_score": "Wohlbefindens-Score (Tägliche Ringe)",
+      "wellness_details": "Erweiterte Aufschlüsselung der Faktoren",
+      "smart_scheduler": "Conflict Checker (Manuelle Korrektur)",
+      "smart_scheduler_ia": "Automatische KI-Optimierung",
+      "appointments_limit": "3 Termine pro Monat",
+      "unlimited_appointments": "Unbegrenzte Termine",
+      "locations_limit": "2 Favorisierte Orte",
+      "insurance_limit": "1 Krankenversicherung",
+      "symptoms_basic": "Grundlegende Symptome",
+      "symptoms_complex": "Komplexe Symptome (Brust, Abdominal, Angst)",
+      "inventory_basic": "Grundlegender Bestand & Inventar"
+    },
+    "cta": "Demnächst",
+    "cta_alt": "Ich bin dabei"
+  },
+  "smartScheduling": {
+    "badge": "Intelligenter Algorithmus",
+    "title": "Intelligente Planung",
+    "subtitle": "Unser fortschrittlicher Algorithmus optimiert Ihre Medikamentenroutine unter Berücksichtigung von Wechselwirkungen, Sicherheitsmargen und Ihrem Lebensstil.",
+    "steps": {
+      "1": {
+        "title": "Eingabe",
+        "desc": "Medikamente & Zeiten"
+      },
+      "2": {
+        "title": "Zeitpläne",
+        "desc": "Reservierte Zeitfenster"
+      },
+      "3": {
+        "title": "Analyse",
+        "desc": "Sicherheitsmargen"
+      },
+      "4": {
+        "title": "Prüfung",
+        "desc": "Überschneidungen"
+      },
+      "5": {
+        "title": "Optimierung",
+        "desc": "Perfekter Zeitplan"
+      }
+    }
+  },
+  "notificationModes": {
+    "badge": "Adaptive Alarme",
+    "title": "Benachrichtigungen, die sich Ihnen anpassen",
+    "modes": {
+      "normal": {
+        "title": "Normal",
+        "desc": "Standardalarme mit Ton und Vibration."
+      },
+      "quiet": {
+        "title": "Lautlos",
+        "desc": "Nur visuell, perfekt für Arbeit oder Meetings."
+      },
+      "discrete": {
+        "title": "Diskret",
+        "desc": "Subtile Haptik, auf Privatsphäre ausgerichtete Inhalte."
+      },
+      "off": {
+        "title": "Aus",
+        "desc": "Keine Unterbrechungen, nur Badges."
+      }
+    }
+  },
+  "languages": {
+    "title": "Wir sprechen Ihre Sprache",
+    "subtitle": "Global vom ersten Tag an",
+    "description": "VitalsPath ist nativ in 15 Sprachen übersetzt, damit sich Ihre ganze Familie wohlfühlt."
+  },
+  "footerStats": {
+    "activeUsers": "Aktive Benutzer"
+  }
 }

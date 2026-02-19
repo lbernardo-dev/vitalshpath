@@ -587,9 +587,13 @@
       "icloud_backup": "Copia de Seguridad iCloud",
       "icloud_backup_desc": "Protocolo Apple. También se pueden hacer en local y exportar.",
       "all_themes": "Todos los Temas",
+      "all_themes_desc": "Personalización completa con temas dinámicos.",
       "advanced_notifications": "Notificaciones Avanzadas",
+      "advanced_notifications_desc": "Alertas críticas y recordatorios inteligentes.",
       "haptic_feedback": "Respuesta Háptica",
+      "haptic_feedback_desc": "Navegación táctil inmersiva.",
       "widget_styles": "Estilos de Widgets",
+      "widget_styles_desc": "Varios tamaños y diseños para tu pantalla de inicio.",
       "basic_profiles": "1 Perfil (Ilimitados en Premium)",
       "basic_medications": "3 Medicamentos por perfil",
       "local_reminders": "Recordatorios Básicos",
@@ -597,6 +601,7 @@
       "wellness_details": "Desglose avanzado de factores",
       "smart_scheduler": "Conflict Checker (Corrección manual)",
       "smart_scheduler_ia": "Optimización Automática con IA",
+      "smart_scheduler_ia_desc": "Optimización inteligente de tomas y recordatorios.",
       "appointments_limit": "3 Citas por mes",
       "unlimited_appointments": "Citas Ilimitadas",
       "locations_limit": "2 Lugares Favoritos",
@@ -618,14 +623,18 @@
         "desc": "Medicamentos y Horas"
       },
       "2": {
-        "title": "Análisis",
-        "desc": "Horarios reservados, Márgenes de Seguridad"
+        "title": "Horarios",
+        "desc": "Horarios Reservados"
       },
       "3": {
+        "title": "Análisis",
+        "desc": "Márgenes de Seguridad"
+      },
+      "4": {
         "title": "Verificación",
         "desc": "Solapamientos"
       },
-      "4": {
+      "5": {
         "title": "Optimización",
         "desc": "Horario Perfecto"
       }

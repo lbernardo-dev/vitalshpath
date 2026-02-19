@@ -581,15 +581,24 @@
       "export_pdf_csv": "Export to PDF/CSV",
       "advanced_analytics": "Advanced Analytics (30, 90 days, All time)",
       "health_reports": "Health Reports",
+      "health_reports_desc": "Export detailed reports for your doctor.",
       "ocr_scanner": "Medication OCR Scanner",
       "healthkit": "HealthKit Integration",
       "complex_symptoms": "Complex Symptom Tracking",
       "icloud_backup": "iCloud Backup",
       "icloud_backup_desc": "Apple Protocol. Can also be done locally and exported.",
       "all_themes": "All Themes",
+      "all_themes_desc": "Full customization with dynamic themes.",
       "advanced_notifications": "Advanced Notifications",
+      "advanced_notifications_desc": "Critical alerts and intelligent reminders.",
       "haptic_feedback": "Haptic Feedback",
+      "haptic_feedback_desc": "Immersive tactile navigation.",
       "widget_styles": "Widget Styles",
+      "widget_styles_desc": "Various sizes and layouts for your home screen.",
+      "unlimited_profiles_desc": "Manage your entire family with no limits.",
+      "smart_scheduler_ia_desc": "Intelligent optimization of intakes and reminders.",
+      "advanced_analytics_desc": "Detailed charts of your health progress.",
+      "export_pdf_csv_desc": "Your data always with you in multiple formats.",
       "basic_profiles": "1 Profile (Unlimited in Premium)",
       "basic_medications": "3 Medications per profile",
       "local_reminders": "Basic Reminders",
@@ -618,14 +627,18 @@
         "desc": "Medications & Times"
       },
       "2": {
-        "title": "Analysis",
-        "desc": "Reserved Slots, Safety Margins"
+        "title": "Schedules",
+        "desc": "Reserved Slots"
       },
       "3": {
+        "title": "Analysis",
+        "desc": "Safety Margins"
+      },
+      "4": {
         "title": "Check",
         "desc": "Overlaps"
       },
-      "4": {
+      "5": {
         "title": "Optimize",
         "desc": "Perfect Schedule"
       }

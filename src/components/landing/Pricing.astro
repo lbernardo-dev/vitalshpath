@@ -267,12 +267,19 @@ const premiumFeatures = [
                                                         )}
                                                     </p>
                                                     <p class="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-                                                        {t(
-                                                            `pricing.features.${f.key}_desc`
-                                                        ) ||
-                                                            t(
-                                                                "pricing.premium.feature_desc"
-                                                            )}
+                                                        {(() => {
+                                                            const specificDesc =
+                                                                t(
+                                                                    `pricing.features.${f.key}_desc`
+                                                                );
+                                                            return specificDesc.includes(
+                                                                `pricing.features.${f.key}_desc`
+                                                            )
+                                                                ? t(
+                                                                      "pricing.premium.feature_desc"
+                                                                  )
+                                                                : specificDesc;
+                                                        })()}
                                                     </p>
                                                 </div>
                                             </div>

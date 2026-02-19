@@ -75,57 +75,63 @@ const t = useTranslations(lang);
             <div class="lg:col-span-1 space-y-8" data-aos="fade-up">
                 {/* Dashboard */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-blue-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-blue-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <LayoutDashboard className="w-7 h-7 text-blue-600" />
+                        <LayoutDashboard className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.dashboards.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.dashboards.description")}
                     </p>
                 </div>
 
                 {/* Metrics */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-purple-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-purple-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <TrendingUp className="w-7 h-7 text-purple-600" />
+                        <TrendingUp className="w-6 h-6 text-purple-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.metrics.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.metrics.description")}
                     </p>
                 </div>
 
                 {/* Reports */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-indigo-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-indigo-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <FileText className="w-7 h-7 text-indigo-600" />
+                        <FileText className="w-6 h-6 text-indigo-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.reports.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.reports.description")}
                     </p>
                 </div>
@@ -133,54 +139,54 @@ const t = useTranslations(lang);
 
             {/* Central Mockup Stack */}
             <div
-                class="lg:col-span-1 flex justify-center py-12"
+                class="lg:col-span-1 flex justify-center py-8"
                 data-aos="zoom-in"
             >
                 <div class="relative group">
                     <!-- Large Glow Effect -->
                     <div
-                        class="absolute -inset-10 bg-gradient-to-tr from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-[4rem] blur-3xl opacity-50 group-hover:opacity-80 transition-opacity"
+                        class="absolute -inset-8 bg-gradient-to-tr from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-[3rem] blur-2xl opacity-40 group-hover:opacity-70 transition-opacity"
                     >
                     </div>
 
                     <!-- Background Phone (iPhone 15 Pro - Dark Mode) -->
                     <div
-                        class="absolute -left-20 top-10 transform -rotate-12 scale-90 opacity-60 group-hover:opacity-80 group-hover:-rotate-6 transition-all duration-700"
+                        class="absolute -left-16 top-8 transform -rotate-12 scale-90 opacity-60 group-hover:opacity-80 group-hover:-rotate-6 transition-all duration-700"
                     >
                         <DeviceMockup model="iphone15">
                             <Image
                                 src={screenDashboardDark}
                                 alt="Dark Mode Dashboard"
                                 class="w-full h-full object-cover"
-                                width={280}
+                                width={240}
                             />
                         </DeviceMockup>
                     </div>
 
                     <!-- Foreground Phone (iPhone 17 Pro Max - Light Mode) -->
                     <div
-                        class="relative z-10 transform scale-105 group-hover:scale-110 transition-transform duration-700"
+                        class="relative z-10 transform scale-100 group-hover:scale-105 transition-transform duration-700"
                     >
                         <DeviceMockup model="iphone17">
                             <Image
                                 src={screenDashboardLight}
                                 alt="Light Mode Dashboard"
                                 class="w-full h-full object-cover"
-                                width={308}
+                                width={280}
                             />
                         </DeviceMockup>
 
                         <!-- Floating Highlight -->
                         <div
-                            class="absolute -right-12 bottom-20 bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 z-20 animate-float hidden md:block"
+                            class="absolute -right-8 bottom-16 bg-white dark:bg-gray-900 p-3 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 z-20 animate-float hidden md:block"
                         >
                             <p
-                                class="text-[10px] font-black uppercase tracking-wider text-blue-500 mb-1"
+                                class="text-[9px] font-black uppercase tracking-wider text-blue-500 mb-1"
                             >
                                 Nueva Versión
                             </p>
                             <p
-                                class="text-sm font-bold text-gray-900 dark:text-white"
+                                class="text-xs font-bold text-gray-900 dark:text-white"
                             >
                                 iOS 26 Ready
                             </p>
@@ -197,108 +203,65 @@ const t = useTranslations(lang);
             >
                 {/* Export & Import */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-teal-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-teal-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <ArrowLeftRight className="w-7 h-7 text-teal-600" />
+                        <ArrowLeftRight className="w-6 h-6 text-teal-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.exportImport.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.exportImport.description")}
                     </p>
                 </div>
 
                 {/* Encryption */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-rose-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-rose-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <Lock className="w-7 h-7 text-rose-600" />
+                        <Lock className="w-6 h-6 text-rose-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.encryption.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.encryption.description")}
                     </p>
                 </div>
 
                 {/* Profiles */}
                 <div
-                    class="p-8 rounded-[2.5rem] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-2xl hover:shadow-blue-500/10 transition-all group"
+                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-blue-500/10 transition-all group"
                 >
                     <div
-                        class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
                     >
-                        <Users className="w-7 h-7 text-blue-600" />
+                        <Users className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3
-                        class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
                     >
                         {t("features.items.profiles.title")}
                     </h3>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
                         {t("features.items.profiles.description")}
                     </p>
-                </div>
-            </div>
-        </div>
-
-        {/* Floating Mockups Bottom */}
-        <div class="mt-32 flex flex-wrap justify-center gap-8 md:gap-16">
-            <div
-                class="w-48 transform -rotate-6 hover:rotate-0 transition-transform duration-500"
-                data-aos="fade-right"
-            >
-                <div
-                    class="rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl"
-                >
-                    <Image
-                        src={screenWellness}
-                        alt="Wellness"
-                        width={200}
-                        class="w-full"
-                    />
-                </div>
-            </div>
-            <div
-                class="w-48 transform rotate-3 hover:rotate-0 transition-transform duration-500"
-                data-aos="fade-up"
-            >
-                <div
-                    class="rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl"
-                >
-                    <Image
-                        src={screenProfiles}
-                        alt="Profiles"
-                        width={200}
-                        class="w-full"
-                    />
-                </div>
-            </div>
-            <div
-                class="w-48 transform -rotate-3 hover:rotate-0 transition-transform duration-500"
-                data-aos="fade-left"
-            >
-                <div
-                    class="rounded-3xl overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl"
-                >
-                    <Image
-                        src={screenSymptoms}
-                        alt="Symptoms"
-                        width={200}
-                        class="w-full"
-                    />
                 </div>
             </div>
         </div>
