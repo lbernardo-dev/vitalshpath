@@ -10,154 +10,219 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<div id="stats-widget" class="fixed bottom-4 right-4 z-40 opacity-0 transition-opacity duration-500">
-    <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl p-4 min-w-[200px]">
-        <div class="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200 dark:border-gray-700">
-            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span class="text-xs font-medium text-gray-600 dark:text-gray-400">En vivo</span>
+<div id="stats-widget" class="mt-4 opacity-0 transition-opacity duration-500">
+    <div
+        class="inline-flex flex-col gap-2 p-3 bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl w-full max-w-[220px]"
+    >
+        <div class="flex items-center gap-2 mb-1">
+            <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse">
+            </div>
+            <span
+                class="text-[10px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-500"
+                >Live Status</span
+            >
         </div>
-        
-        <div class="space-y-3">
+
+        <div class="grid grid-cols-1 gap-2">
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    <svg
+                        class="w-3.5 h-3.5 text-blue-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                        ></path>
                     </svg>
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Viendo ahora</span>
+                    <span class="text-xs text-gray-600 dark:text-gray-400"
+                        >Viendo ahora</span
+                    >
                 </div>
-                <span id="stat-online" class="text-lg font-bold text-gray-900 dark:text-white">0</span>
+                <span
+                    id="stat-online"
+                    class="text-sm font-bold text-gray-900 dark:text-white"
+                    >0</span
+                >
             </div>
-            
+
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                    <svg
+                        class="w-3.5 h-3.5 text-purple-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+                        ></path>
                     </svg>
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Visitantes hoy</span>
+                    <span class="text-xs text-gray-600 dark:text-gray-400"
+                        >Visitantes hoy</span
+                    >
                 </div>
-                <span id="stat-today" class="text-lg font-bold text-gray-900 dark:text-white">0</span>
+                <span
+                    id="stat-today"
+                    class="text-sm font-bold text-gray-900 dark:text-white"
+                    >0</span
+                >
             </div>
-            
+
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                    <svg
+                        class="w-3.5 h-3.5 text-green-500"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                        ></path>
                     </svg>
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Apuntados</span>
+                    <span class="text-xs text-gray-600 dark:text-gray-400"
+                        >Apuntados</span
+                    >
                 </div>
-                <span id="stat-signups" class="text-lg font-bold text-gray-900 dark:text-white">0</span>
+                <span
+                    id="stat-signups"
+                    class="text-sm font-bold text-gray-900 dark:text-white"
+                    >0</span
+                >
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    const SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
-    
+    const SUPABASE_URL = "https://mvrsoaefuqrslzpbkvnf.supabase.co";
+    const SUPABASE_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI";
+
     function getVisitorId() {
-        const key = 'vitalspath_visitor_id';
+        const key = "vitalspath_visitor_id";
         let id = localStorage.getItem(key);
         if (!id) {
-            id = 'vp_' + crypto.randomUUID();
+            id = "vp_" + crypto.randomUUID();
             localStorage.setItem(key, id);
         }
         return id;
     }
-    
+
     async function trackPageView() {
         const visitorId = getVisitorId();
         const page = window.location.pathname;
-        const lang = document.documentElement.lang || 'es';
-        
+        const lang = document.documentElement.lang || "es";
+
         try {
             await fetch(`${SUPABASE_URL}/rest/v1/page_views`, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Prefer': 'return=minimal'
+                    apikey: SUPABASE_KEY,
+                    Authorization: `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    Prefer: "return=minimal",
                 },
                 body: JSON.stringify({
                     visitor_id: visitorId,
                     page: page,
                     lang: lang,
                     referrer: document.referrer || null,
-                    user_agent: navigator.userAgent
-                })
+                    user_agent: navigator.userAgent,
+                }),
             });
-            
+
             await fetch(`${SUPABASE_URL}/rest/v1/active_sessions`, {
-                method: 'POST',
+                method: "POST",
                 headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Prefer': 'resolution=merge-duplicates'
+                    apikey: SUPABASE_KEY,
+                    Authorization: `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    Prefer: "resolution=merge-duplicates",
                 },
                 body: JSON.stringify({
                     visitor_id: visitorId,
                     page: page,
                     lang: lang,
-                    last_activity: new Date().toISOString()
-                })
+                    last_activity: new Date().toISOString(),
+                }),
             });
         } catch (e) {
-            console.error('Tracking error:', e);
+            console.error("Tracking error:", e);
         }
     }
-    
+
     async function updateHeartbeat() {
         const visitorId = getVisitorId();
         try {
-            await fetch(`${SUPABASE_URL}/rest/v1/active_sessions?visitor_id=eq.${visitorId}`, {
-                method: 'PATCH',
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    last_activity: new Date().toISOString()
-                })
-            });
+            await fetch(
+                `${SUPABASE_URL}/rest/v1/active_sessions?visitor_id=eq.${visitorId}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        apikey: SUPABASE_KEY,
+                        Authorization: `Bearer ${SUPABASE_KEY}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        last_activity: new Date().toISOString(),
+                    }),
+                }
+            );
         } catch (e) {}
     }
-    
+
     async function updateStats() {
         try {
-            const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/get_stats`, {
-                method: 'POST',
-                headers: {
-                    'apikey': SUPABASE_KEY,
-                    'Authorization': `Bearer ${SUPABASE_KEY}`,
-                    'Content-Type': 'application/json'
-                },
-                body: '{}'
-            });
-            
+            const response = await fetch(
+                `${SUPABASE_URL}/rest/v1/rpc/get_stats`,
+                {
+                    method: "POST",
+                    headers: {
+                        apikey: SUPABASE_KEY,
+                        Authorization: `Bearer ${SUPABASE_KEY}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: "{}",
+                }
+            );
+
             const stats = await response.json();
-            
+
             if (stats) {
-                const onlineEl = document.getElementById('stat-online');
-                const todayEl = document.getElementById('stat-today');
-                const signupsEl = document.getElementById('stat-signups');
-                const widget = document.getElementById('stats-widget');
-                
+                const onlineEl = document.getElementById("stat-online");
+                const todayEl = document.getElementById("stat-today");
+                const signupsEl = document.getElementById("stat-signups");
+                const widget = document.getElementById("stats-widget");
+
                 if (onlineEl) onlineEl.textContent = stats.online_now || 0;
                 if (todayEl) todayEl.textContent = stats.today_visitors || 0;
                 if (signupsEl) signupsEl.textContent = stats.total_signups || 0;
-                if (widget) widget.classList.remove('opacity-0');
+                if (widget) widget.classList.remove("opacity-0");
             }
         } catch (e) {
-            console.error('Stats error:', e);
-            const widget = document.getElementById('stats-widget');
-            if (widget) widget.classList.remove('opacity-0');
+            console.error("Stats error:", e);
+            const widget = document.getElementById("stats-widget");
+            if (widget) widget.classList.remove("opacity-0");
         }
     }
-    
+
     trackPageView();
     updateStats();
     setInterval(updateHeartbeat, 30000);

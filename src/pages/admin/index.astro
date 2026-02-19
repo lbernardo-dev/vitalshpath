@@ -9,6 +9,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VitalsPath Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <div id="loading" class="flex items-center justify-center min-h-screen">
@@ -106,128 +107,96 @@ const baseUrl = import.meta.env.BASE_URL;
     </div>
 
     <script is:inline>
-        (function() {
-            var GOOGLE_CLIENT_ID = '1041110887191-j6qp6vtboo56tnai4gb6cfg1sa5b802m.apps.googleusercontent.com';
-            var ADMIN_EMAILS = ['lbernardo.dev@gmail.com', 'yilianbs@gmail.com'];
-            var AUTH_KEY = 'vitalspath_admin';
-            var SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
-            var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
-            var BASE_URL = baseUrl;
-            
-            function parseJwt(token) {
-                try {
-                    var parts = token.split('.');
-                    var payload = parts[1];
-                    var decoded = atob(payload.replace(/-/g, '+').replace(/_/g, '/'));
-                    return JSON.parse(decoded);
-                } catch(e) { return null; }
-            }
-            
-            function getSession() {
-                try {
-                    var s = localStorage.getItem(AUTH_KEY);
-                    if (!s) return null;
-                    var session = JSON.parse(s);
-                    if (session.exp && session.exp < Date.now()/1000) {
-                        localStorage.removeItem(AUTH_KEY);
-                        return null;
-                    }
-                    return session;
-                } catch(e) { return null; }
-            }
-            
-            function show(id) { document.getElementById(id).classList.remove('hidden'); }
-            function hide(id) { document.getElementById(id).classList.add('hidden'); }
-            
-            function loadDashboard() {
-                fetch(SUPABASE_URL + '/rest/v1/rpc/get_stats', {
-                    method: 'POST',
-                    headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer '+SUPABASE_KEY, 'Content-Type': 'application/json' },
-                    body: '{}'
-                })
-                .then(function(r) { return r.json(); })
-                .then(function(stats) {
-                    if (stats) {
-                        document.getElementById('stat-total').textContent = stats.total_signups || 0;
-                        document.getElementById('stat-today-signups').textContent = '+' + (stats.today_signups || 0);
-                        document.getElementById('stat-visitors').textContent = stats.today_visitors || 0;
-                        document.getElementById('stat-online').textContent = stats.online_now || 0;
-                    }
-                });
-                
-                fetch(SUPABASE_URL + '/rest/v1/waitlist?select=*&order=created_at.desc&limit=50', {
-                    headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer '+SUPABASE_KEY }
-                })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    var tbody = document.getElementById('waitlist-body');
-                    if (data && data.length > 0) {
-                        var html = '';
-                        for (var i = 0; i < data.length; i++) {
-                            html += '<tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm text-gray-900">' + data[i].email + '</td><td class="px-6 py-4 text-sm text-gray-500">' + new Date(data[i].created_at).toLocaleString('es-ES') + '</td><td class="px-6 py-4 text-sm text-gray-500">' + (data[i].source || 'landing') + '</td></tr>';
-                        }
-                        tbody.innerHTML = html;
-                    } else {
-                        tbody.innerHTML = '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Sin datos</td></tr>';
-                    }
-                });
-            }
-            
-            // Init
-            var hash = window.location.hash;
-            if (hash && hash.indexOf('id_token') > -1) {
-                var params = new URLSearchParams(hash.substring(1));
-                var idToken = params.get('id_token');
-                var state = params.get('state');
-                var storedState = sessionStorage.getItem('oauth_state');
-                
-                window.location.hash = '';
-                
-                if (idToken && state === storedState) {
-                    var user = parseJwt(idToken);
-                    if (user && ADMIN_EMAILS.indexOf(user.email.toLowerCase()) > -1) {
-                        localStorage.setItem(AUTH_KEY, JSON.stringify({email:user.email, name:user.name, exp:user.exp}));
-                        window.location.reload();
-                        return;
-                    } else {
-                        hide('loading');
-                        show('unauthorized');
-                        return;
-                    }
+        var ADMIN_EMAILS = ['lbernardo.dev@gmail.com', 'yilianbs@gmail.com'];
+        var SUPABASE_URL = 'https://mvrsoaefuqrslzpbkvnf.supabase.co';
+        var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI';
+        var BASE_URL = baseUrl;
+        
+        var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
+        function show(id) { document.getElementById(id).classList.remove('hidden'); }
+        function hide(id) { document.getElementById(id).classList.add('hidden'); }
+        
+        function loadDashboard() {
+            supabase.rpc('get_stats').then(function(result) {
+                if (result.data) {
+                    document.getElementById('stat-total').textContent = result.data.total_signups || 0;
+                    document.getElementById('stat-today-signups').textContent = '+' + (result.data.today_signups || 0);
+                    document.getElementById('stat-visitors').textContent = result.data.today_visitors || 0;
+                    document.getElementById('stat-online').textContent = result.data.online_now || 0;
                 }
-            }
+            });
             
-            var session = getSession();
-            if (session) {
-                hide('loading');
-                show('dashboard');
-                document.getElementById('user-name').textContent = session.name || session.email;
-                loadDashboard();
+            supabase.from('waitlist').select('*').order('created_at', {ascending: false}).limit(50).then(function(result) {
+                var tbody = document.getElementById('waitlist-body');
+                if (result.data && result.data.length > 0) {
+                    var html = '';
+                    result.data.forEach(function(item) {
+                        html += '<tr class="hover:bg-gray-50"><td class="px-6 py-4 text-sm text-gray-900">' + item.email + '</td><td class="px-6 py-4 text-sm text-gray-500">' + new Date(item.created_at).toLocaleString('es-ES') + '</td><td class="px-6 py-4 text-sm text-gray-500">' + (item.source || 'landing') + '</td></tr>';
+                    });
+                    tbody.innerHTML = html;
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="3" class="px-6 py-12 text-center text-gray-500">Sin datos</td></tr>';
+                }
+            });
+        }
+        
+        async function init() {
+            var { data: { session } } = await supabase.auth.getSession();
+            
+            if (session && session.user) {
+                if (ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
+                    hide('loading');
+                    show('dashboard');
+                    document.getElementById('user-name').textContent = session.user.email;
+                    loadDashboard();
+                } else {
+                    hide('loading');
+                    show('unauthorized');
+                }
             } else {
                 hide('loading');
                 show('login');
             }
             
-            // Events
-            document.getElementById('google-login').onclick = function() {
-                var state = crypto.randomUUID();
-                sessionStorage.setItem('oauth_state', state);
-                var redirect = window.location.origin + BASE_URL + '/admin/callback';
-                window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=' + GOOGLE_CLIENT_ID + '&redirect_uri=' + encodeURIComponent(redirect) + '&response_type=token%20id_token&scope=email%20profile&state=' + state;
-            };
-            
-            document.getElementById('retry-login').onclick = function() {
-                localStorage.removeItem(AUTH_KEY);
-                window.location.reload();
-            };
-            
-            document.getElementById('logout-btn').onclick = function() {
-                localStorage.removeItem(AUTH_KEY);
-                window.location.href = BASE_URL + '/admin/';
-            };
-            
-            document.getElementById('refresh-btn').onclick = loadDashboard;
-        })();
+            supabase.auth.onAuthStateChange(function(event, session) {
+                if (event === 'SIGNED_IN' && session) {
+                    if (ADMIN_EMAILS.includes(session.user.email.toLowerCase())) {
+                        hide('login');
+                        hide('unauthorized');
+                        show('dashboard');
+                        document.getElementById('user-name').textContent = session.user.email;
+                        loadDashboard();
+                    } else {
+                        hide('login');
+                        show('unauthorized');
+                    }
+                }
+            });
+        }
+        
+        document.getElementById('google-login').addEventListener('click', async function() {
+            await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                    redirectTo: window.location.origin + BASE_URL + '/admin/'
+                }
+            });
+        });
+        
+        document.getElementById('retry-login').addEventListener('click', async function() {
+            await supabase.auth.signOut();
+            window.location.reload();
+        });
+        
+        document.getElementById('logout-btn').addEventListener('click', async function() {
+            await supabase.auth.signOut();
+            window.location.reload();
+        });
+        
+        document.getElementById('refresh-btn').addEventListener('click', loadDashboard);
+        
+        init();
     </script>
 </body>
 </html>
