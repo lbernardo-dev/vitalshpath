@@ -1,5 +1,5 @@
 ---
-import { languages, supportedLangs, type Lang } from '../i18n/ui-locales';
+import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 
 interface Props {
     lang: Lang;
@@ -9,7 +9,7 @@ const { lang: currentLang } = Astro.props;
 ---
 
 <div class="relative" id="language-selector">
-    <button 
+    <button
         type="button"
         class="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm"
         aria-label="Select language"
@@ -17,66 +17,109 @@ const { lang: currentLang } = Astro.props;
         aria-haspopup="true"
     >
         <span class="text-base">{languages[currentLang].flag}</span>
-        <span class="hidden sm:inline text-gray-700 dark:text-gray-300 font-medium">{languages[currentLang].name}</span>
-        <svg class="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        <span
+            class="hidden sm:inline text-gray-700 dark:text-gray-300 font-medium"
+            >{languages[currentLang].name}</span
+        >
+        <svg
+            class="w-4 h-4 text-gray-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
         </svg>
     </button>
-    
-    <div class="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50" id="language-dropdown">
+
+    <div
+        class="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50"
+        id="language-dropdown"
+    >
         <div class="py-2 max-h-64 overflow-y-auto">
-            {supportedLangs.map((lang) => (
-                <a 
-                    href={`/${lang}/`}
-                    class={`flex items-center gap-3 px-4 py-2 text-sm transition-colors ${lang === currentLang 
-                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' 
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                >
-                    <span class="text-base">{languages[lang].flag}</span>
-                    <span>{languages[lang].name}</span>
-                    {lang === currentLang && (
-                        <svg class="w-4 h-4 ml-auto text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                        </svg>
-                    )}
-                </a>
-            ))}
+            {
+                supportedLangs.map((lang) => (
+                    <a
+                        href={`${import.meta.env.BASE_URL}/${lang}/`}
+                        class={`flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
+                            lang === currentLang
+                                ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        }`}
+                    >
+                        <span class="text-base">{languages[lang].flag}</span>
+                        <span>{languages[lang].name}</span>
+                        {lang === currentLang && (
+                            <svg
+                                class="w-4 h-4 ml-auto text-blue-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                        )}
+                    </a>
+                ))
+            }
         </div>
     </div>
 </div>
 
 <script>
-    const selector = document.getElementById('language-selector');
-    const button = selector?.querySelector('button');
-    const dropdown = document.getElementById('language-dropdown');
-    
-    button?.addEventListener('click', () => {
-        const isOpen = dropdown?.classList.contains('opacity-100');
-        
+    const selector = document.getElementById("language-selector");
+    const button = selector?.querySelector("button");
+    const dropdown = document.getElementById("language-dropdown");
+
+    button?.addEventListener("click", () => {
+        const isOpen = dropdown?.classList.contains("opacity-100");
+
         if (isOpen) {
-            dropdown?.classList.remove('opacity-100', 'visible', 'translate-y-0');
-            dropdown?.classList.add('opacity-0', 'invisible', '-translate-y-2');
-            button.setAttribute('aria-expanded', 'false');
+            dropdown?.classList.remove(
+                "opacity-100",
+                "visible",
+                "translate-y-0"
+            );
+            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
+            button.setAttribute("aria-expanded", "false");
         } else {
-            dropdown?.classList.remove('opacity-0', 'invisible', '-translate-y-2');
-            dropdown?.classList.add('opacity-100', 'visible', 'translate-y-0');
-            button.setAttribute('aria-expanded', 'true');
+            dropdown?.classList.remove(
+                "opacity-0",
+                "invisible",
+                "-translate-y-2"
+            );
+            dropdown?.classList.add("opacity-100", "visible", "translate-y-0");
+            button.setAttribute("aria-expanded", "true");
         }
     });
-    
-    document.addEventListener('click', (e) => {
+
+    document.addEventListener("click", (e) => {
         if (!selector?.contains(e.target as Node)) {
-            dropdown?.classList.remove('opacity-100', 'visible', 'translate-y-0');
-            dropdown?.classList.add('opacity-0', 'invisible', '-translate-y-2');
-            button?.setAttribute('aria-expanded', 'false');
+            dropdown?.classList.remove(
+                "opacity-100",
+                "visible",
+                "translate-y-0"
+            );
+            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
+            button?.setAttribute("aria-expanded", "false");
         }
     });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            dropdown?.classList.remove('opacity-100', 'visible', 'translate-y-0');
-            dropdown?.classList.add('opacity-0', 'invisible', '-translate-y-2');
-            button?.setAttribute('aria-expanded', 'false');
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            dropdown?.classList.remove(
+                "opacity-100",
+                "visible",
+                "translate-y-0"
+            );
+            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
+            button?.setAttribute("aria-expanded", "false");
         }
     });
 </script>

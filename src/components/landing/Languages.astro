@@ -1,0 +1,45 @@
+---
+import { languages, supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { useTranslations } from "../../i18n";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="languages" class="py-24 relative bg-gray-50 dark:bg-gray-900/50">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+            >
+                {t("languages.title")}<br />
+                <span
+                    class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+                    >{t("languages.subtitle")}</span
+                >
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400">
+                {t("languages.description")}
+            </p>
+        </div>
+
+        <div
+            class="grid grid-cols-2 small:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        >
+            {
+                supportedLangs.map((l) => (
+                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm flex flex-col items-center justify-center hover:shadow-md transition-shadow">
+                        <span class="text-4xl mb-4">{languages[l].flag}</span>
+                        <span class="font-semibold text-gray-900 dark:text-white">
+                            {languages[l].name}
+                        </span>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
