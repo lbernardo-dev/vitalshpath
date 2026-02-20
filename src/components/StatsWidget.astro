@@ -90,6 +90,59 @@ const t = useTranslations(lang);
 
             <div class="flex items-center gap-1.5">
                 <svg
+                    class="w-3.5 h-3.5 text-orange-500/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                </svg>
+                <div class="flex items-center gap-1">
+                    <span
+                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
+                        >Visitas:</span
+                    >
+                    <span
+                        id="stat-total-visitors"
+                        class="text-xs font-bold text-gray-900 dark:text-white"
+                        >0</span
+                    >
+                </div>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+                <svg
+                    class="w-3.5 h-3.5 text-indigo-500/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div class="flex items-center gap-1">
+                    <span
+                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
+                        >Media:</span
+                    >
+                    <span
+                        id="stat-duration"
+                        class="text-xs font-bold text-gray-900 dark:text-white"
+                        >0m</span
+                    >
+                </div>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+                <svg
                     class="w-3.5 h-3.5 text-green-500/70"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -217,11 +270,30 @@ const t = useTranslations(lang);
                 const onlineEl = document.getElementById("stat-online");
                 const todayEl = document.getElementById("stat-today");
                 const signupsEl = document.getElementById("stat-signups");
+                const totalVisitorsEl = document.getElementById(
+                    "stat-total-visitors"
+                );
+                const durationEl = document.getElementById("stat-duration");
                 const widget = document.getElementById("stats-widget");
 
                 if (onlineEl) onlineEl.textContent = stats.online_now || 0;
                 if (todayEl) todayEl.textContent = stats.today_visitors || 0;
                 if (signupsEl) signupsEl.textContent = stats.total_signups || 0;
+                if (totalVisitorsEl)
+                    totalVisitorsEl.textContent = stats.total_visitors || 0;
+
+                if (durationEl && stats.avg_duration_seconds !== undefined) {
+                    const secs = Math.round(stats.avg_duration_seconds);
+                    if (secs < 60) {
+                        durationEl.textContent = `${secs}s`;
+                    } else {
+                        const mins = Math.floor(secs / 60);
+                        const remSecs = secs % 60;
+                        durationEl.textContent =
+                            remSecs > 0 ? `${mins}m ${remSecs}s` : `${mins}m`;
+                    }
+                }
+
                 if (widget) widget.classList.remove("opacity-0");
             }
         } catch (e) {

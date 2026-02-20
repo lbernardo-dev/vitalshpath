@@ -36,13 +36,78 @@
     </head>
     <body>
         <div class="spinner"></div>
-        <script type="module">
-            // This page just renders and the main admin page handles the hash
-            const base = (import.meta.env.BASE_URL || "").replace(/\/$/, "");
-            const targetUrl = `${base}/admin/${window.location.hash}`;
+        <div
+            id="fallback"
+            style="display: none; text-align: center; margin-top: 20px; font-family: sans-serif;"
+        >
+            <p>Si no eres redirigido, haz clic aquí:</p>
+            <a
+                id="redirect-link"
+                href="#"
+                style="color: #3b82f6; text-decoration: underline; font-weight: bold;"
+                >Volver al panel de administración</a
+            >
+        </div>
 
-            console.log("Sesión recibida, redireccionando a:", targetUrl);
-            window.location.href = targetUrl;
+        <script type="module">
+            console.log("=== Auth Callback Debug ===");
+            console.log("Full URL:", window.location.href);
+            console.log("Pathname:", window.location.pathname);
+
+            // Get session data from hash or search
+            const authData = window.location.hash || window.location.search;
+            console.log(
+                "Auth data found:",
+                authData ? "Yes (length " + authData.length + ")" : "No"
+            );
+
+            // Calculate admin path dynamically from current path
+            // Current is something like /vitalshpath/admin/callback or /vitalshpath/admin/callback/
+            let adminPath = window.location.pathname;
+
+            // Standardize: remove trailing slash for calculation
+            if (adminPath.endsWith("/")) {
+                adminPath = adminPath.slice(0, -1);
+            }
+
+            // Remove 'callback' to get to parent 'admin'
+            if (adminPath.endsWith("/callback")) {
+                adminPath = adminPath.slice(0, -9);
+            }
+
+            // Ensure it ends with /
+            if (!adminPath.endsWith("/")) {
+                adminPath += "/";
+            }
+
+            const targetUrl = window.location.origin + adminPath + authData;
+
+            console.log("Detected Admin Path:", adminPath);
+            console.log("Final Target URL:", targetUrl);
+
+            // Set fallback link
+            const link = document.getElementById("redirect-link");
+            if (link) link.href = targetUrl;
+
+            // Show fallback after 3 seconds if redirect hasn't happened
+            setTimeout(() => {
+                const fallback = document.getElementById("fallback");
+                if (fallback) fallback.style.display = "block";
+                console.log("Fallback link displayed");
+            }, 3000);
+
+            // Perform redirect with a tiny delay to ensure everything is logged
+            setTimeout(() => {
+                console.log(
+                    "Attempting redirect via window.location.replace..."
+                );
+                try {
+                    window.location.replace(targetUrl);
+                } catch (e) {
+                    console.error("Redirect failed:", e);
+                    window.location.href = targetUrl;
+                }
+            }, 500);
         </script>
     </body>
 </html>

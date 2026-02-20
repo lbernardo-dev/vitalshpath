@@ -140,9 +140,11 @@ const baseUrl = import.meta.env.BASE_URL;
             </nav>
 
             <main class="max-w-7xl mx-auto px-4 py-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8"
+                >
                     <div class="bg-white rounded-xl shadow-sm border p-6">
-                        <span class="text-sm text-gray-500">Total</span>
+                        <span class="text-sm text-gray-500">Total Lista</span>
                         <p
                             id="stat-total"
                             class="text-2xl font-bold text-gray-900 mt-1"
@@ -151,7 +153,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         </p>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm border p-6">
-                        <span class="text-sm text-gray-500">Hoy</span>
+                        <span class="text-sm text-gray-500">Hoy (Lista)</span>
                         <p
                             id="stat-today-signups"
                             class="text-2xl font-bold text-gray-900 mt-1"
@@ -160,9 +162,18 @@ const baseUrl = import.meta.env.BASE_URL;
                         </p>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm border p-6">
-                        <span class="text-sm text-gray-500">Visitantes</span>
+                        <span class="text-sm text-gray-500">Hoy (Visitas)</span>
                         <p
-                            id="stat-visitors"
+                            id="stat-today-visitors"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Total Visitas</span>
+                        <p
+                            id="stat-total-visitors"
                             class="text-2xl font-bold text-gray-900 mt-1"
                         >
                             0
@@ -175,6 +186,15 @@ const baseUrl = import.meta.env.BASE_URL;
                             class="text-2xl font-bold text-gray-900 mt-1"
                         >
                             0
+                        </p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">Tiempo Medio</span>
+                        <p
+                            id="stat-avg-time"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0s
                         </p>
                     </div>
                 </div>
@@ -255,15 +275,35 @@ const baseUrl = import.meta.env.BASE_URL;
 
                 supabase.rpc("get_stats").then(function (result) {
                     if (result.data) {
+                        const data = result.data;
                         document.getElementById("stat-total").textContent =
-                            result.data.total_signups || 0;
+                            data.total_signups || 0;
                         document.getElementById(
                             "stat-today-signups"
-                        ).textContent = "+" + (result.data.today_signups || 0);
-                        document.getElementById("stat-visitors").textContent =
-                            result.data.today_visitors || 0;
+                        ).textContent = "+" + (data.today_signups || 0);
+                        document.getElementById(
+                            "stat-today-visitors"
+                        ).textContent = data.today_visitors || 0;
+                        document.getElementById(
+                            "stat-total-visitors"
+                        ).textContent = data.total_visitors || 0;
                         document.getElementById("stat-online").textContent =
-                            result.data.online_now || 0;
+                            data.online_now || 0;
+
+                        if (data.avg_duration_seconds !== undefined) {
+                            const secs = Math.round(data.avg_duration_seconds);
+                            const el = document.getElementById("stat-avg-time");
+                            if (secs < 60) {
+                                el.textContent = `${secs}s`;
+                            } else {
+                                const mins = Math.floor(secs / 60);
+                                const remSecs = secs % 60;
+                                el.textContent =
+                                    remSecs > 0
+                                        ? `${mins}m ${remSecs}s`
+                                        : `${mins}m`;
+                            }
+                        }
                     }
                 });
 
@@ -299,51 +339,100 @@ const baseUrl = import.meta.env.BASE_URL;
             }
 
             async function init() {
+                console.log("Iniciando administración...");
                 if (!supabase) {
+                    console.error("Supabase no está configurado");
                     hide("loading");
                     alert("Supabase not configured");
                     return;
                 }
 
+                console.log("Verificando sesión actual...");
                 var {
                     data: { session },
+                    error: sessionError,
                 } = await supabase.auth.getSession();
 
+                if (sessionError) {
+                    console.error(
+                        "Error al obtener sesión:",
+                        sessionError.message
+                    );
+                }
+
                 if (session && session.user) {
+                    console.log("Sesión encontrada para:", session.user.email);
                     if (
                         ADMIN_EMAILS.includes(session.user.email.toLowerCase())
                     ) {
+                        console.log("Acceso autorizado");
                         hide("loading");
+                        hide("login");
                         show("dashboard");
-                        document.getElementById("user-name").textContent =
-                            session.user.email;
+                        const nameEl = document.getElementById("user-name");
+                        if (nameEl) nameEl.textContent = session.user.email;
                         loadDashboard();
                     } else {
+                        console.warn(
+                            "Email no autorizado:",
+                            session.user.email
+                        );
                         hide("loading");
+                        hide("login");
                         show("unauthorized");
                     }
                 } else {
-                    hide("loading");
-                    show("login");
+                    console.log("No hay sesión activa");
+                    // If we are coming back from callback, the hash might be handled by onAuthStateChange
+                    // Still hidden logout/login if loading is visible
+                    setTimeout(() => {
+                        const loadingVisible = !document
+                            .getElementById("loading")
+                            ?.classList.contains("hidden");
+                        if (loadingVisible) {
+                            console.log("Mostrando pantalla de login");
+                            hide("loading");
+                            show("login");
+                        }
+                    }, 2000); // Give it a bit more time for onAuthStateChange to fire
                 }
 
                 supabase.auth.onAuthStateChange(function (event, session) {
-                    if (event === "SIGNED_IN" && session) {
+                    console.log(
+                        "Auth State Change:",
+                        event,
+                        session?.user?.email
+                    );
+                    if (
+                        (event === "SIGNED_IN" || event === "USER_UPDATED") &&
+                        session
+                    ) {
                         if (
                             ADMIN_EMAILS.includes(
                                 session.user.email.toLowerCase()
                             )
                         ) {
+                            console.log("Acceso autorizado vía evento");
+                            hide("loading");
                             hide("login");
                             hide("unauthorized");
                             show("dashboard");
-                            document.getElementById("user-name").textContent =
-                                session.user.email;
+                            const nameEl = document.getElementById("user-name");
+                            if (nameEl) nameEl.textContent = session.user.email;
                             loadDashboard();
                         } else {
+                            console.warn(
+                                "Email no autorizado vía evento:",
+                                session.user.email
+                            );
+                            hide("loading");
                             hide("login");
                             show("unauthorized");
                         }
+                    } else if (event === "SIGNED_OUT") {
+                        console.log("Sesión cerrada");
+                        hide("dashboard");
+                        show("login");
                     }
                 });
             }
