@@ -34,27 +34,29 @@ const t = useTranslations(lang);
 
     <form
         id="waitlist-form"
-        class="w-full relative liquid-glass rounded-full flex items-center p-1.5 sm:p-2 focus-within:ring-2 focus-within:ring-cyan-500 transition-all shadow-lg hover:shadow-xl"
+        class="w-full relative liquid-glass rounded-[2rem] sm:rounded-full flex flex-col sm:flex-row items-center p-2 focus-within:ring-2 focus-within:ring-cyan-500 transition-all shadow-lg hover:shadow-xl gap-2 sm:gap-0"
     >
-        <Mail
-            className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400 pointer-events-none"
-        />
-        <input
-            type="email"
-            name="email"
-            id="waitlist-email"
-            required
-            placeholder={t("waitlist.form.placeholder")}
-            class="flex-1 w-full pl-12 sm:pl-14 pr-2 py-3 sm:py-3.5 bg-transparent border-none text-base sm:text-[17px] text-gray-900 dark:text-white placeholder:text-gray-500 focus:outline-none focus:ring-0 text-ellipsis"
-        />
+        <div class="relative w-full flex-1">
+            <Mail
+                className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400 pointer-events-none"
+            />
+            <input
+                type="email"
+                name="email"
+                id="waitlist-email"
+                required
+                placeholder={t("waitlist.form.placeholder")}
+                class="w-full pl-12 sm:pl-14 pr-4 py-3 sm:py-3.5 bg-transparent border-none text-base sm:text-[17px] text-gray-900 dark:text-white placeholder:text-gray-500 focus:outline-none focus:ring-0 text-ellipsis min-h-[48px]"
+            />
+        </div>
         <button
             type="submit"
             id="waitlist-submit"
-            class="shrink-0 px-6 sm:px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all flex items-center justify-center gap-2 group hover:bg-cyan-500 dark:hover:bg-cyan-400 dark:hover:text-gray-900"
+            class="w-full sm:w-auto shrink-0 px-6 sm:px-8 py-3.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all flex items-center justify-center gap-2 group hover:bg-cyan-500 dark:hover:bg-cyan-400 dark:hover:text-gray-900 min-h-[48px]"
         >
             <span
                 id="waitlist-button-text"
-                class="whitespace-nowrap text-sm sm:text-base"
+                class="whitespace-nowrap text-[15px] sm:text-base font-bold"
                 >{t("waitlist.form.button")}</span
             >
             <Bell
