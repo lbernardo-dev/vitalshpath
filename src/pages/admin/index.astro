@@ -352,18 +352,32 @@ const baseUrl = import.meta.env.BASE_URL;
                 .getElementById("google-login")
                 ?.addEventListener("click", async function () {
                     if (!supabase) return;
-                    await supabase.auth.signInWithOAuth({
+
+                    // Construct explicit redirect URL
+                    const origin = window.location.origin;
+                    const path = window.location.pathname.replace(/\/$/, "");
+                    const redirectUrl = origin + path + "/callback";
+
+                    console.log("Iniciando login con Google...");
+                    console.log("URL de redirección:", redirectUrl);
+
+                    const { error } = await supabase.auth.signInWithOAuth({
                         provider: "google",
                         options: {
-                            redirectTo:
-                                window.location.href
-                                    .split("?")[0]
-                                    .replace(/\/$/, "") + "/callback",
+                            redirectTo: redirectUrl,
                             queryParams: {
                                 prompt: "consent select_account",
                             },
                         },
                     });
+
+                    if (error) {
+                        console.error(
+                            "Error al iniciar sesión:",
+                            error.message
+                        );
+                        alert("Error al iniciar sesión: " + error.message);
+                    }
                 });
 
             document
