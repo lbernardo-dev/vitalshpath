@@ -607,15 +607,29 @@ const baseUrl = import.meta.env.BASE_URL;
                             "pricing-editor-container"
                         );
                         pricingEl.innerHTML = (data.pricing || [])
-                            .map(
-                                (p) => `
+                            .filter((p) => p.id !== "free") // Only premium plans for now
+                            .map((p) => {
+                                const labels = {
+                                    premium_monthly: "Premium Mensual",
+                                    premium_annual: "Premium Anual",
+                                    premium_lifetime:
+                                        "Premium De Por Vida (Lifetime)",
+                                };
+                                const label = labels[p.id] || p.id;
+
+                                return `
                             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-all">
-                                <h4 class="text-lg font-black text-gray-900 uppercase tracking-tighter mb-6">${
-                                    p.id
-                                } Version</h4>
+                                <div class="flex items-center justify-between mb-6">
+                                    <h4 class="text-lg font-black text-gray-900 uppercase tracking-tighter">${label}</h4>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-[10px] font-black uppercase tracking-widest">${
+                                        p.id.split("_")[1] || ""
+                                    }</span>
+                                </div>
                                 <div class="space-y-6">
                                     <div class="space-y-2">
-                                        <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Precio Base (€)</label>
+                                        <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Precio Base (${
+                                            p.currency
+                                        })</label>
                                         <input type="number" step="0.01" class="pricing-base w-full px-4 py-3 bg-gray-50 border-none rounded-xl font-bold text-xl" data-id="${
                                             p.id
                                         }" value="${p.base_price}">
@@ -627,18 +641,20 @@ const baseUrl = import.meta.env.BASE_URL;
                                         }" value="${p.discount_percentage}">
                                     </div>
                                     <div class="pt-4 flex items-center justify-between border-t border-gray-50 mt-4">
-                                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wider">Final: <span class="text-blue-600 font-black text-lg">€${(
-                                            p.base_price *
-                                            (1 - p.discount_percentage / 100)
-                                        ).toFixed(2)}</span></div>
+                                        <div class="text-xs font-bold text-gray-500 uppercase tracking-wider">Final: <span class="text-blue-600 font-black text-lg">${
+                                            p.currency
+                                        }${(
+                                    p.base_price *
+                                    (1 - p.discount_percentage / 100)
+                                ).toFixed(2)}</span></div>
                                         <button class="save-pricing-btn px-6 py-2 bg-gray-900 text-white text-xs font-black rounded-lg hover:bg-blue-600 transition-colors" data-id="${
                                             p.id
                                         }">Guardar</button>
                                     </div>
                                 </div>
                             </div>
-                        `
-                            )
+                        `;
+                            })
                             .join("");
                     }
                 });

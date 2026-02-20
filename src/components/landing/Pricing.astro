@@ -174,6 +174,9 @@ const premiumFeatures = [
                                             >
                                                 {t("pricing.monthly.price")}
                                             </p>
+                                            <span
+                                                class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold hidden"
+                                            ></span>
                                         </div>
                                     </button>
 
@@ -262,6 +265,9 @@ const premiumFeatures = [
                                             >
                                                 {t("pricing.lifetime.price")}
                                             </p>
+                                            <span
+                                                class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold hidden"
+                                            ></span>
                                         </div>
                                     </button>
                                 </div>
@@ -389,61 +395,65 @@ const premiumFeatures = [
         const { data } = await supabase.from("pricing_plans").select("*");
         if (!data) return;
 
-        const premium = data.find((p) => p.id === "premium");
-        if (premium) {
-            const currency = premium.currency || "€";
-            const base = premium.base_price;
-            const discount = premium.discount_percentage;
+        const plans = {
+            monthly: data.find((p) => p.id === "premium_monthly"),
+            annual: data.find((p) => p.id === "premium_annual"),
+            lifetime: data.find((p) => p.id === "premium_lifetime"),
+        };
 
-            // Update toggles with new calculated prices
-            toggles.forEach((t) => {
-                const isMonthly = t
-                    .querySelector("p")
-                    ?.textContent?.includes("Mensual");
-                const isAnnual = t
-                    .querySelector("p")
-                    ?.textContent?.includes("Anual");
-                const isLifetime = t
-                    .querySelector("p")
-                    ?.textContent?.includes("Lifetime");
+        // Update toggles with data from DB
+        toggles.forEach((t) => {
+            const isMonthly = t
+                .querySelector("p")
+                ?.textContent?.includes("Mensual");
+            const isAnnual = t
+                .querySelector("p")
+                ?.textContent?.includes("Anual");
+            const isLifetime = t
+                .querySelector("p")
+                ?.textContent?.includes("vida");
 
-                let finalPrice = base;
-                let originalPrice = base;
+            let plan = isMonthly
+                ? plans.monthly
+                : isAnnual
+                ? plans.annual
+                : plans.lifetime;
 
-                if (isMonthly) {
-                    finalPrice = base * (1 - discount / 100);
-                    originalPrice = base;
-                } else if (isAnnual) {
-                    finalPrice = base * 8 * (1 - discount / 100);
-                    originalPrice = base * 8;
-                } else if (isLifetime) {
-                    finalPrice = base * 30 * (1 - discount / 100);
-                    originalPrice = base * 30;
-                }
+            if (plan) {
+                const currency = plan.currency || "€";
+                const base = plan.base_price;
+                const discount = plan.discount_percentage;
+                const finalPrice = base * (1 - discount / 100);
 
                 const priceStr = `${currency}${finalPrice.toFixed(2)}`;
-                const origStr = `${currency}${originalPrice.toFixed(2)}`;
+                const origStr = `${currency}${base.toFixed(2)}`;
 
                 t.setAttribute("data-price", priceStr);
                 t.setAttribute("data-original-price", origStr);
+                t.setAttribute("data-discount", discount.toString());
 
-                // Update text inside toggle if active or visible
+                // Update text inside toggle
                 const priceEl = t.querySelector(".text-right p:last-of-type");
                 const origEl = t.querySelector(".text-right p:first-of-type");
+                const toggleBadge = t.querySelector(".text-right span"); // The small -25% badge
+
                 if (priceEl) priceEl.textContent = priceStr;
                 if (origEl) origEl.textContent = origStr;
-            });
+                if (toggleBadge && discount > 0) {
+                    toggleBadge.textContent = `-${discount}%`;
+                    toggleBadge.classList.remove("hidden");
+                } else if (toggleBadge) {
+                    toggleBadge.classList.add("hidden");
+                }
+            }
+        });
 
-            // Update main badge
-            const badgeEl = document.getElementById("premium-discount-badge");
-            if (badgeEl) badgeEl.textContent = `Launch -${discount}%`;
-
-            // Refresh main display if annual is selected by default
-            const annualToggle = Array.from(toggles).find(
+        // Trigger click on the currently active toggle to refresh main display
+        const activeToggle =
+            Array.from(toggles).find(
                 (t) => t.getAttribute("data-active") === "true"
-            );
-            if (annualToggle) annualToggle.click();
-        }
+            ) || toggles[1]; // Default to annual if none active
+        if (activeToggle) (activeToggle as HTMLElement).click();
     }
 
     const toggles = document.querySelectorAll(".plan-toggle");
@@ -484,11 +494,21 @@ const premiumFeatures = [
                     "data-original-price"
                 );
                 const period = toggle.getAttribute("data-period");
+                const discount = toggle.getAttribute("data-discount");
 
                 priceDisplay.textContent = price;
                 periodDisplay.textContent = period;
                 if (originalPriceDisplay) {
                     originalPriceDisplay.textContent = originalPrice;
+                }
+
+                // Update main badge
+                const badgeEl = document.getElementById(
+                    "premium-discount-badge"
+                );
+                if (badgeEl && discount) {
+                    badgeEl.textContent = `Launch -${discount}%`;
+                    badgeEl.classList.toggle("hidden", parseInt(discount) <= 0);
                 }
 
                 // Animation trigger
