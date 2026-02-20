@@ -24,6 +24,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
+const premiumFeatures = [
     { key: "unlimited_profiles", icon: Infinity },
     { key: "smart_scheduler_ia", icon: Zap },
     { key: "advanced_analytics", icon: BarChart3 },
@@ -72,41 +73,43 @@ const t = useTranslations(lang);
             >
                 <!-- Free Plan Card -->
                 <div
-                                    class="p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex flex-col"
-                                >
-                                    <div class="mb-6">
-                                        <div class="flex items-center gap-2 mb-2">
-                                            <span
-                                                class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 block"
-                                                >{t("pricing.free.title")}</span
-                                            >
-                                            <span class="text-[9px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full font-black border border-blue-200 dark:border-blue-800 uppercase tracking-tighter">
-                                                {t("pricing.free.functional_badge")}
-                                            </span>
-                                        </div>
-                                        <div class="flex items-baseline gap-1">
-                                            <span
-                                                class="text-4xl font-black text-gray-900 dark:text-white"
-                                                >€0</span
-                                            >
-                                            <span
-                                                class="text-blue-500 dark:text-blue-400 text-xs font-black uppercase"
-                                                >{t("pricing.free.forever_badge")}</span
-                                            >
-                                        </div>
-                                    </div>
-                                    <p
-                                        class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-1"
-                                    >
-                                        {t("pricing.free.description")}
-                                    </p>
-                                    <a
-                                        href="#waitlist"
-                                        class="w-full py-4 px-6 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded-2xl transition-all text-center"
-                                    >
-                                        {t("pricing.cta_alt")}
-                                    </a>
-                                </div>
+                    class="p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex flex-col"
+                >
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 block"
+                                >{t("pricing.free.title")}</span
+                            >
+                            <span
+                                class="text-[9px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full font-black border border-blue-200 dark:border-blue-800 uppercase tracking-tighter"
+                            >
+                                {t("pricing.free.functional_badge")}
+                            </span>
+                        </div>
+                        <div class="flex items-baseline gap-1">
+                            <span
+                                class="text-4xl font-black text-gray-900 dark:text-white"
+                                >€0</span
+                            >
+                            <span
+                                class="text-blue-500 dark:text-blue-400 text-xs font-black uppercase"
+                                >{t("pricing.free.forever_badge")}</span
+                            >
+                        </div>
+                    </div>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-1"
+                    >
+                        {t("pricing.free.description")}
+                    </p>
+                    <a
+                        href="#waitlist"
+                        class="w-full py-4 px-6 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded-2xl transition-all text-center"
+                    >
+                        {t("pricing.cta_alt")}
+                    </a>
+                </div>
 
                 <!-- Premium Plans -->
                 <div
