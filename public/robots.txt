@@ -2,18 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lbernardo-dev.github.io/vitalshpath/sitemap-index.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/en/sitemap-en.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/es/sitemap-es.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/fr/sitemap-fr.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/de/sitemap-de.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/it/sitemap-it.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/pt/sitemap-pt.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/ja/sitemap-ja.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/zh/sitemap-zh.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/ko/sitemap-ko.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/ru/sitemap-ru.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/ar/sitemap-ar.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/hi/sitemap-hi.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/tr/sitemap-tr.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/nl/sitemap-nl.xml
-Sitemap: https://lbernardo-dev.github.io/vitalshpath/pl/sitemap-pl.xml
