@@ -24,15 +24,16 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const premiumFeatures = [
     { key: "unlimited_profiles", icon: Infinity },
     { key: "smart_scheduler_ia", icon: Zap },
     { key: "advanced_analytics", icon: BarChart3 },
     { key: "health_reports", icon: Layers },
+    { key: "health_status", icon: Heart },
+    { key: "gamification", icon: Star },
     { key: "icloud_backup", icon: Shield },
     { key: "all_themes", icon: LayoutIcon },
     { key: "advanced_notifications", icon: Bell },
-    { key: "export_pdf_csv", icon: Heart },
+    { key: "export_pdf_csv", icon: Globe },
 ];
 ---
 
@@ -71,36 +72,41 @@ const premiumFeatures = [
             >
                 <!-- Free Plan Card -->
                 <div
-                    class="p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex flex-col"
-                >
-                    <div class="mb-6">
-                        <span
-                            class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2 block"
-                            >{t("pricing.free.title")}</span
-                        >
-                        <div class="flex items-baseline gap-1">
-                            <span
-                                class="text-4xl font-black text-gray-900 dark:text-white"
-                                >€0</span
-                            >
-                            <span
-                                class="text-gray-500 dark:text-gray-400 text-sm"
-                                >{t("pricing.free.period")}</span
-                            >
-                        </div>
-                    </div>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-1"
-                    >
-                        {t("pricing.free.description")}
-                    </p>
-                    <a
-                        href="#waitlist"
-                        class="w-full py-4 px-6 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded-2xl transition-all text-center"
-                    >
-                        {t("pricing.cta_alt")}
-                    </a>
-                </div>
+                                    class="p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex flex-col"
+                                >
+                                    <div class="mb-6">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <span
+                                                class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 block"
+                                                >{t("pricing.free.title")}</span
+                                            >
+                                            <span class="text-[9px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full font-black border border-blue-200 dark:border-blue-800 uppercase tracking-tighter">
+                                                {t("pricing.free.functional_badge")}
+                                            </span>
+                                        </div>
+                                        <div class="flex items-baseline gap-1">
+                                            <span
+                                                class="text-4xl font-black text-gray-900 dark:text-white"
+                                                >€0</span
+                                            >
+                                            <span
+                                                class="text-blue-500 dark:text-blue-400 text-xs font-black uppercase"
+                                                >{t("pricing.free.forever_badge")}</span
+                                            >
+                                        </div>
+                                    </div>
+                                    <p
+                                        class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-1"
+                                    >
+                                        {t("pricing.free.description")}
+                                    </p>
+                                    <a
+                                        href="#waitlist"
+                                        class="w-full py-4 px-6 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded-2xl transition-all text-center"
+                                    >
+                                        {t("pricing.cta_alt")}
+                                    </a>
+                                </div>
 
                 <!-- Premium Plans -->
                 <div
@@ -152,7 +158,7 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
-                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
                                             >
                                                 {
                                                     t(
@@ -193,7 +199,7 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
-                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
                                             >
                                                 {
                                                     t(
@@ -208,7 +214,7 @@ const premiumFeatures = [
                                             </p>
                                             <span
                                                 class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold"
-                                                >-33%</span
+                                                >-25%</span
                                             >
                                         </div>
                                     </button>
@@ -240,7 +246,7 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
-                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
                                             >
                                                 {
                                                     t(
@@ -263,7 +269,7 @@ const premiumFeatures = [
                                     <div class="flex flex-col mb-1">
                                         <span
                                             id="premium-original-price-display"
-                                            class="text-sm text-gray-400 dark:text-gray-500 line-through font-medium"
+                                            class="text-sm text-red-500 dark:text-red-400 line-through font-bold"
                                         >
                                             {t("pricing.annual.originalPrice")}
                                         </span>

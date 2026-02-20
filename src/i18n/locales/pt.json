@@ -472,11 +472,11 @@
     "subtitle": "Preços simples e transparentes. Sem taxas escondidas.",
     "monthly": {
       "title": "Mensal",
-      "price": "€4,99",
+      "price": "€3.74",
       "period": "/mês",
       "description": "Faturamento mensal, cancele quando quiser",
       "discount": "Economize 35%",
-      "originalPrice": "€6.99"
+      "originalPrice": "€4.99"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -498,19 +498,19 @@
     "annual": {
       "title": "Anual",
       "badge": "MELHOR VALOR",
-      "price": "€39,99",
+      "price": "€29.99",
       "period": "/ano",
       "description": "Faturamento anual, economize 33%",
       "discount": "Economize 35%",
-      "originalPrice": "€54.99"
+      "originalPrice": "€39.99"
     },
     "lifetime": {
       "title": "Vitalício",
-      "price": "€149,99",
+      "price": "€112.49",
       "period": "pagamento único",
       "description": "Pagamento único, para sempre",
       "discount": "Economize 15%",
-      "originalPrice": "€199.99"
+      "originalPrice": "€149.99"
     },
     "features": {
       "unlimited_profiles": "Perfis ilimitados",
@@ -557,7 +557,11 @@
       "insurance_limit": "1 Seguro saúde",
       "symptoms_basic": "Sintomas básicos",
       "symptoms_complex": "Sintomas complexos",
-      "inventory_basic": "Estoque básico e Validade"
+      "inventory_basic": "Estoque básico e Validade",
+      "health_status": "Análise da Situação de Saúde",
+      "health_status_desc": "Visão holística e recomendações personalizadas baseadas nos seus dados.",
+      "gamification": "Gamificação e Motivação",
+      "gamification_desc": "Objetivos, conquistas e recompensas para cuidar da sua saúde de forma divertida."
     },
     "cta": "Em breve",
     "cta_alt": "Inscreva-me"

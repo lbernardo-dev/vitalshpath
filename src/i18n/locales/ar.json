@@ -507,11 +507,11 @@
     "subtitle": "أسعار بسيطة وشفافة. لا توجد رسوم خفية.",
     "monthly": {
       "title": "شهري",
-      "price": "$4.99",
+      "price": "€٣.٧٤",
       "period": "/شهر",
       "description": "فوترة شهرية، إلغاء في أي وقت",
       "discount": "وفر ٣٥٪",
-      "originalPrice": "€٦.٩٩"
+      "originalPrice": "€٤.٩٩"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -533,19 +533,19 @@
     "annual": {
       "title": "سنوي",
       "badge": "أفضل سعر",
-      "price": "$39.99",
+      "price": "€٢٩.٩٩",
       "period": "/سنة",
       "description": "فوترة سنوية، وفر ٣٣٪",
       "discount": "وفر ٣٥٪",
-      "originalPrice": "€٥٤.٩٩"
+      "originalPrice": "€٣٩.٩٩"
     },
     "lifetime": {
       "title": "مدى الحياة",
-      "price": "$149.99",
+      "price": "€١١٢.٤٩",
       "period": "دفع لمرة واحدة",
       "description": "دفع لمرة واحدة، وصول مدى الحياة",
       "discount": "وفر ١٥٪",
-      "originalPrice": "€١٩٩.٩٩"
+      "originalPrice": "€١٤٩.٩٩"
     },
     "features": {
       "unlimited_profiles": "ملفات غير محدودة",
@@ -591,7 +591,11 @@
       "insurance_limit": "تأمين صحي واحد",
       "symptoms_basic": "أعراض أساسية",
       "symptoms_complex": "أعراض معقدة (الصدر، البطن، القلق)",
-      "inventory_basic": "مخزون وجرد أساسي"
+      "inventory_basic": "مخزون وجرد أساسي",
+      "health_status": "تحليل الحالة الصحية",
+      "health_status_desc": "رؤية شاملة وتوصيات مخصصة بناءً على بياناتك.",
+      "gamification": "التلعيب والتحفيز",
+      "gamification_desc": "أهداف، إنجازات ومكافآت للاهتمام بصحتك بطريقة ممتعة."
     },
     "cta": "قريباً",
     "cta_alt": "سجلني"

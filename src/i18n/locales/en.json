@@ -541,11 +541,11 @@
     "subtitle": "Simple, transparent pricing. No hidden fees.",
     "monthly": {
       "title": "Monthly",
-      "price": "€4.99",
+      "price": "€3.74",
       "period": "/month",
       "description": "Monthly billing, cancel anytime",
       "discount": "Save 35%",
-      "originalPrice": "€6.99"
+      "originalPrice": "€4.99"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -567,19 +567,19 @@
     "annual": {
       "title": "Annual",
       "badge": "BEST VALUE",
-      "price": "€39.99",
+      "price": "€29.99",
       "period": "/year",
       "description": "Annual billing, save 33%",
       "discount": "Save 35%",
-      "originalPrice": "€54.99"
+      "originalPrice": "€39.99"
     },
     "lifetime": {
       "title": "Lifetime",
-      "price": "€149.99",
+      "price": "€112.49",
       "period": "one-time",
       "description": "One-time payment, forever",
       "discount": "Save 15%",
-      "originalPrice": "€199.99"
+      "originalPrice": "€149.99"
     },
     "features": {
       "unlimited_profiles": "Unlimited Profiles",
@@ -625,7 +625,11 @@
       "insurance_limit": "1 Health Insurance",
       "symptoms_basic": "Basic Symptoms",
       "symptoms_complex": "Complex Symptoms (Chest, Abdominal, Anxiety)",
-      "inventory_basic": "Basic Stock & Expiration"
+      "inventory_basic": "Basic Stock & Expiration",
+      "health_status": "Health Status Analysis",
+      "health_status_desc": "Holistic view and personalized recommendations based on your data.",
+      "gamification": "Gamification & Motivation",
+      "gamification_desc": "Goals, achievements, and rewards to care for your health in a fun way."
     },
     "cta": "Coming Soon",
     "cta_alt": "Sign me up"

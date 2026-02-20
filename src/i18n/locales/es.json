@@ -541,11 +541,11 @@
     "subtitle": "Precios simples y transparentes. Sin costes ocultos.",
     "monthly": {
       "title": "Mensual",
-      "price": "€4.99",
+      "price": "€3.74",
       "period": "/mes",
       "description": "Facturación mensual, cancela cuando quieras",
       "discount": "Ahorra 35%",
-      "originalPrice": "€6.99"
+      "originalPrice": "€4.99"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -567,19 +567,19 @@
     "annual": {
       "title": "Anual",
       "badge": "MEJOR PRECIO",
-      "price": "€39.99",
+      "price": "€29.99",
       "period": "/año",
       "description": "Facturación anual, ahorra 33%",
       "discount": "Ahorra 35%",
-      "originalPrice": "€54.99"
+      "originalPrice": "€39.99"
     },
     "lifetime": {
       "title": "De por vida",
-      "price": "€149.99",
+      "price": "€112.49",
       "period": "pago único",
       "description": "Pago único, acceso para siempre",
       "discount": "Ahorra 15%",
-      "originalPrice": "€199.99"
+      "originalPrice": "€149.99"
     },
     "features": {
       "unlimited_profiles": "Perfiles Ilimitados",
@@ -621,7 +621,11 @@
       "insurance_limit": "1 Seguro de Salud",
       "symptoms_basic": "Síntomas Básicos",
       "symptoms_complex": "Síntomas Complejos (Pecho, Abdominal, Ansiedad)",
-      "inventory_basic": "Stock e Inventario Básico"
+      "inventory_basic": "Stock e Inventario Básico",
+      "health_status": "Análisis de Situación de Salud",
+      "health_status_desc": "Visión holística y recomendaciones personalizadas basadas en tus datos.",
+      "gamification": "Gamificación y Motivación",
+      "gamification_desc": "Objetivos, logros y recompensas para cuidar tu salud de forma divertida."
     },
     "cta": "Próximamente",
     "cta_alt": "Apúntame"
