@@ -4,6 +4,7 @@ import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
 import appMockup from "../assets/images/app-mockup.png";
 import appIcon from "../assets/images/Icon.png";
+import SurveyWidget from "../components/SurveyWidget.astro";
 
 interface Props {
 	lang: Lang;
@@ -190,5 +191,6 @@ const jsonLd = {
 			</div>
 		</div>
 		<slot />
+		<SurveyWidget />
 	</body>
 </html>

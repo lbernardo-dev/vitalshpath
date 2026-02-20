@@ -278,6 +278,7 @@ const premiumFeatures = [
                                         </span>
                                         <div class="flex items-center gap-2">
                                             <span
+                                                id="premium-discount-badge"
                                                 class="text-[10px] bg-cyan-500 text-white px-2 py-0.5 rounded-full font-black uppercase tracking-wider"
                                                 >Launch -25%</span
                                             >
@@ -380,6 +381,71 @@ const premiumFeatures = [
 </section>
 
 <script>
+    import { getSupabase } from "../../lib/supabase";
+    const supabase = getSupabase();
+
+    async function syncPricing() {
+        if (!supabase) return;
+        const { data } = await supabase.from("pricing_plans").select("*");
+        if (!data) return;
+
+        const premium = data.find((p) => p.id === "premium");
+        if (premium) {
+            const currency = premium.currency || "€";
+            const base = premium.base_price;
+            const discount = premium.discount_percentage;
+
+            // Update toggles with new calculated prices
+            toggles.forEach((t) => {
+                const isMonthly = t
+                    .querySelector("p")
+                    ?.textContent?.includes("Mensual");
+                const isAnnual = t
+                    .querySelector("p")
+                    ?.textContent?.includes("Anual");
+                const isLifetime = t
+                    .querySelector("p")
+                    ?.textContent?.includes("Lifetime");
+
+                let finalPrice = base;
+                let originalPrice = base;
+
+                if (isMonthly) {
+                    finalPrice = base * (1 - discount / 100);
+                    originalPrice = base;
+                } else if (isAnnual) {
+                    finalPrice = base * 8 * (1 - discount / 100);
+                    originalPrice = base * 8;
+                } else if (isLifetime) {
+                    finalPrice = base * 30 * (1 - discount / 100);
+                    originalPrice = base * 30;
+                }
+
+                const priceStr = `${currency}${finalPrice.toFixed(2)}`;
+                const origStr = `${currency}${originalPrice.toFixed(2)}`;
+
+                t.setAttribute("data-price", priceStr);
+                t.setAttribute("data-original-price", origStr);
+
+                // Update text inside toggle if active or visible
+                const priceEl = t.querySelector(".text-right p:last-of-type");
+                const origEl = t.querySelector(".text-right p:first-of-type");
+                if (priceEl) priceEl.textContent = priceStr;
+                if (origEl) origEl.textContent = origStr;
+            });
+
+            // Update main badge
+            const badgeEl = document.getElementById("premium-discount-badge");
+            if (badgeEl) badgeEl.textContent = `Launch -${discount}%`;
+
+            // Refresh main display if annual is selected by default
+            const annualToggle = Array.from(toggles).find(
+                (t) => t.getAttribute("data-active") === "true"
+            );
+            if (annualToggle) annualToggle.click();
+        }
+    }
+
     const toggles = document.querySelectorAll(".plan-toggle");
     const priceDisplay = document.getElementById("premium-price-display");
     const originalPriceDisplay = document.getElementById(
@@ -398,6 +464,7 @@ const premiumFeatures = [
                     "shadow-md"
                 );
                 t.classList.add("border-gray-100", "dark:border-gray-800");
+                t.setAttribute("data-active", "false");
             });
 
             // Add active classes
@@ -408,6 +475,7 @@ const premiumFeatures = [
                 "dark:bg-blue-900/10",
                 "shadow-md"
             );
+            toggle.setAttribute("data-active", "true");
 
             // Update displays
             if (priceDisplay && periodDisplay) {
@@ -431,6 +499,8 @@ const premiumFeatures = [
             }
         });
     });
+
+    syncPricing();
 </script>
 
 <style>
