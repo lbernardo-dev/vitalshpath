@@ -493,5 +493,15 @@
       "message": "Geri bildiriminiz başarıyla alındı. Değerli katkınız için teşekkür ederiz.",
       "backHome": "Ana Sayfaya Dön"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "%100 Cihaz İçi Gizlilik",
+      "privacy_desc": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. VitalsPath, sizi korumak için iCloud Anahtar Zinciri'ni ve şifrelenmiş yerel veritabanlarını kullanır."
+    },
+    "free": {
+      "functional_badge": "%100 İŞLEVSEL",
+      "forever_badge": "SONSUZA DEK"
+    }
   }
 }

@@ -493,5 +493,15 @@
       "message": "We waarderen uw input en zullen uw feedback bekijken om VitalsPath te verbeteren.",
       "backHome": "Terug naar Home"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "100% On-Device Privacy",
+      "privacy_desc": "Je gezondheidsgegevens verlaten je iPhone nooit. VitalsPath maakt gebruik van iCloud-sleutelhanger en versleutelde lokale databases om je te beschermen."
+    },
+    "free": {
+      "functional_badge": "100% FUNCTIONEEL",
+      "forever_badge": "VOOR ALTIJD"
+    }
   }
 }

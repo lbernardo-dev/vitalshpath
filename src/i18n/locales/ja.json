@@ -493,5 +493,15 @@
       "message": "フィードバックを受け取りました。あなたのご意見を感謝し、慎重に検討いたします。",
       "backHome": "ホームに戻る"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "100% オンデバイスプライバシー",
+      "privacy_desc": "あなたの健康データが iPhone から離れることはありません。VitalsPath は iCloud Keychain と暗号化されたローカルデータベースを使用してあなたを保護します。"
+    },
+    "free": {
+      "functional_badge": "100% 機能的",
+      "forever_badge": "永久"
+    }
   }
 }

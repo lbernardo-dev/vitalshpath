@@ -493,5 +493,15 @@
       "message": "피드백을 받았습니다. 기여에 감사드리며 주의 깊게 검토하겠습니다.",
       "backHome": "홈으로 돌아가기"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "100% 온디바이스 프라이버시",
+      "privacy_desc": "귀하의 건강 데이터는 절대로 iPhone을 벗어나지 않습니다. VitalsPath는 iCloud 키체인과 암호화된 로컬 데이터베이스를 사용하여 귀하를 보호합니다."
+    },
+    "free": {
+      "functional_badge": "100% 기능적",
+      "forever_badge": "영구적"
+    }
   }
 }

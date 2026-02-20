@@ -493,5 +493,15 @@
       "message": "Twoja opinia została wysłana. Doceniamy Twój czas i wkład.",
       "backHome": "Powrót do strony głównej"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "100% Prywatności na Urządzeniu",
+      "privacy_desc": "Twoje dane medyczne nigdy nie opuszczają Twojego iPhone'a. VitalsPath korzysta z pęku kluczy iCloud i zaszyfrowanych lokalnych baz danych, aby Cię chronić."
+    },
+    "free": {
+      "functional_badge": "100% FUNKCJONALNA",
+      "forever_badge": "NA ZAWSZE"
+    }
   }
 }

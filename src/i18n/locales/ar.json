@@ -510,20 +510,25 @@
       "price": "$4.99",
       "period": "/شهر",
       "description": "فوترة شهرية، إلغاء في أي وقت",
-      "discount": "وفر ٣٥٪"
+      "discount": "وفر ٣٥٪",
+      "originalPrice": "€٦.٩٩"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "افتح الإمكانات الكاملة لإدارة صحة العائلة.",
       "features_title": "كل ما في المجاني، بالإضافة إلى:",
-      "feature_desc": "سجلات غير محدودة في جميع الخدمات."
+      "feature_desc": "سجلات غير محدودة في جميع الخدمات.",
+      "privacy_title": "خصوصية بنسبة ١٠٠٪ على الجهاز",
+      "privacy_desc": "بياناتك الصحية لا تغادر جهاز iPhone الخاص بك أبداً. يستخدم VitalsPath سلسلة مفاتيح iCloud وقواعد بيانات محلية مشفرة لحمايتك."
     },
     "free": {
       "title": "مجاني",
       "price": "$0",
       "period": "/دائماً",
-      "description": "وظائف أساسية للاستخدام الفردي",
-      "discount": "مجاني دائماً"
+      "description": "تطبيق فعال بنسبة ١٠٠٪ للأبد، مع حدود للملفات الشخصية والسجلات. مثالي للاستخدام الفردي.",
+      "discount": "مجاني دائماً",
+      "functional_badge": "فعال بنسبة ١٠٠٪",
+      "forever_badge": "للأبد"
     },
     "annual": {
       "title": "سنوي",
@@ -531,14 +536,16 @@
       "price": "$39.99",
       "period": "/سنة",
       "description": "فوترة سنوية، وفر ٣٣٪",
-      "discount": "وفر ٣٥٪"
+      "discount": "وفر ٣٥٪",
+      "originalPrice": "€٥٤.٩٩"
     },
     "lifetime": {
       "title": "مدى الحياة",
       "price": "$149.99",
       "period": "دفع لمرة واحدة",
       "description": "دفع لمرة واحدة، وصول مدى الحياة",
-      "discount": "وفر ١٥٪"
+      "discount": "وفر ١٥٪",
+      "originalPrice": "€١٩٩.٩٩"
     },
     "features": {
       "unlimited_profiles": "ملفات غير محدودة",

@@ -493,5 +493,15 @@
       "message": "您的反馈已收到。我们感谢您的意见，并将仔细审查。",
       "backHome": "返回首页"
     }
+  },
+  "pricing": {
+    "premium": {
+      "privacy_title": "100% 设备端隐私",
+      "privacy_desc": "您的健康数据永远不会离开您的 iPhone。VitalsPath 使用 iCloud 钥匙串和加密的本地数据库来保护您。"
+    },
+    "free": {
+      "functional_badge": "100% 功能完整",
+      "forever_badge": "永久有效"
+    }
   }
 }

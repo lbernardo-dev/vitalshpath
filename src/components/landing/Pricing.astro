@@ -127,8 +127,13 @@ const premiumFeatures = [
                                 <div class="space-y-3 mb-8">
                                     <button
                                         class="plan-toggle w-full p-4 rounded-2xl border-2 transition-all text-left flex justify-between items-center group"
-                                        data-price="€4.99"
-                                        data-period="/mes"
+                                        data-price={t("pricing.monthly.price")}
+                                        data-original-price={t(
+                                            "pricing.monthly.originalPrice"
+                                        )}
+                                        data-period={t(
+                                            "pricing.monthly.period"
+                                        )}
                                         data-active="false"
                                     >
                                         <div>
@@ -147,17 +152,29 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
+                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                            >
+                                                {
+                                                    t(
+                                                        "pricing.monthly.originalPrice"
+                                                    )
+                                                }
+                                            </p>
+                                            <p
                                                 class="font-black text-gray-900 dark:text-white"
                                             >
-                                                €4.99
+                                                {t("pricing.monthly.price")}
                                             </p>
                                         </div>
                                     </button>
 
                                     <button
                                         class="plan-toggle w-full p-4 rounded-2xl border-2 border-blue-500 bg-blue-50/50 dark:bg-blue-900/10 transition-all text-left flex justify-between items-center group shadow-md"
-                                        data-price="€39.99"
-                                        data-period="/año"
+                                        data-price={t("pricing.annual.price")}
+                                        data-original-price={t(
+                                            "pricing.annual.originalPrice"
+                                        )}
+                                        data-period={t("pricing.annual.period")}
                                         data-active="true"
                                     >
                                         <div>
@@ -176,9 +193,18 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
+                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                            >
+                                                {
+                                                    t(
+                                                        "pricing.annual.originalPrice"
+                                                    )
+                                                }
+                                            </p>
+                                            <p
                                                 class="font-black text-gray-900 dark:text-white"
                                             >
-                                                €39.99
+                                                {t("pricing.annual.price")}
                                             </p>
                                             <span
                                                 class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold"
@@ -189,8 +215,13 @@ const premiumFeatures = [
 
                                     <button
                                         class="plan-toggle w-full p-4 rounded-2xl border-2 transition-all text-left flex justify-between items-center group"
-                                        data-price="€149.99"
-                                        data-period="One-time"
+                                        data-price={t("pricing.lifetime.price")}
+                                        data-original-price={t(
+                                            "pricing.lifetime.originalPrice"
+                                        )}
+                                        data-period={t(
+                                            "pricing.lifetime.period"
+                                        )}
                                         data-active="false"
                                     >
                                         <div>
@@ -209,9 +240,18 @@ const premiumFeatures = [
                                         </div>
                                         <div class="text-right">
                                             <p
+                                                class="text-[10px] text-gray-400 dark:text-gray-500 line-through"
+                                            >
+                                                {
+                                                    t(
+                                                        "pricing.lifetime.originalPrice"
+                                                    )
+                                                }
+                                            </p>
+                                            <p
                                                 class="font-black text-gray-900 dark:text-white"
                                             >
-                                                €149.99
+                                                {t("pricing.lifetime.price")}
                                             </p>
                                         </div>
                                     </button>
@@ -220,16 +260,30 @@ const premiumFeatures = [
                                 <div
                                     class="mb-8 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800"
                                 >
+                                    <div class="flex flex-col mb-1">
+                                        <span
+                                            id="premium-original-price-display"
+                                            class="text-sm text-gray-400 dark:text-gray-500 line-through font-medium"
+                                        >
+                                            {t("pricing.annual.originalPrice")}
+                                        </span>
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="text-[10px] bg-cyan-500 text-white px-2 py-0.5 rounded-full font-black uppercase tracking-wider"
+                                                >Launch -25%</span
+                                            >
+                                        </div>
+                                    </div>
                                     <div class="flex items-baseline gap-2">
                                         <span
                                             id="premium-price-display"
                                             class="text-4xl font-black text-gray-900 dark:text-white tracking-tight"
-                                            >€39.99</span
+                                            >{t("pricing.annual.price")}</span
                                         >
                                         <span
                                             id="premium-period-display"
                                             class="text-gray-500 text-sm"
-                                            >/año</span
+                                            >{t("pricing.annual.period")}</span
                                         >
                                     </div>
                                 </div>
@@ -319,6 +373,9 @@ const premiumFeatures = [
 <script>
     const toggles = document.querySelectorAll(".plan-toggle");
     const priceDisplay = document.getElementById("premium-price-display");
+    const originalPriceDisplay = document.getElementById(
+        "premium-original-price-display"
+    );
     const periodDisplay = document.getElementById("premium-period-display");
 
     toggles.forEach((toggle) => {
@@ -331,11 +388,11 @@ const premiumFeatures = [
                     "dark:bg-blue-900/10",
                     "shadow-md"
                 );
-                t.classList.add("border-transparent");
+                t.classList.add("border-gray-100", "dark:border-gray-800");
             });
 
             // Add active classes
-            toggle.classList.remove("border-transparent");
+            toggle.classList.remove("border-gray-100", "dark:border-gray-800");
             toggle.classList.add(
                 "border-blue-500",
                 "bg-blue-50/50",
@@ -346,10 +403,16 @@ const premiumFeatures = [
             // Update displays
             if (priceDisplay && periodDisplay) {
                 const price = toggle.getAttribute("data-price");
+                const originalPrice = toggle.getAttribute(
+                    "data-original-price"
+                );
                 const period = toggle.getAttribute("data-period");
 
                 priceDisplay.textContent = price;
                 periodDisplay.textContent = period;
+                if (originalPriceDisplay) {
+                    originalPriceDisplay.textContent = originalPrice;
+                }
 
                 // Animation trigger
                 priceDisplay.classList.add("scale-110", "text-blue-500");

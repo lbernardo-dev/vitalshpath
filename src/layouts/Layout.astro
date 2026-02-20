@@ -105,9 +105,16 @@ const jsonLd = {
 		/>
 		<meta name="twitter:creator" content="@vitalspath" />
 
-		<!-- Apple Web App -->
-		<link rel="icon" type="image/png" href={appIcon.src} />
-		<link rel="apple-touch-icon" href={appIcon.src} />
+		<!-- Apple Web App & Favicon -->
+		<link
+			rel="icon"
+			type="image/png"
+			href={`${import.meta.env.BASE_URL}/favicon.png`}
+		/>
+		<link
+			rel="apple-touch-icon"
+			href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`}
+		/>
 		<meta name="theme-color" content="#007aff" />
 		<meta
 			name="apple-mobile-web-app-status-bar-style"
@@ -115,10 +122,6 @@ const jsonLd = {
 		/>
 
 		<meta name="generator" content={Astro.generator} />
-		<meta
-			name="google-site-verification"
-			content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk"
-		/>
 		<title>{title}</title>
 
 		<!-- Canonical and Hreflang -->

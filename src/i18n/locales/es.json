@@ -544,20 +544,25 @@
       "price": "€4.99",
       "period": "/mes",
       "description": "Facturación mensual, cancela cuando quieras",
-      "discount": "Ahorra 35%"
+      "discount": "Ahorra 35%",
+      "originalPrice": "€6.99"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Desbloquea todo el potencial de la gestión de salud familiar.",
       "features_title": "Todo lo de Gratis, y además:",
-      "feature_desc": "Registros ilimitados en todos los servicios."
+      "feature_desc": "Registros ilimitados en todos los servicios.",
+      "privacy_title": "Privacidad 100% On-Device",
+      "privacy_desc": "Tus datos de salud nunca salen de tu iPhone. VitalsPath utiliza el iCloud Keychain y bases de datos locales cifradas para protegerte."
     },
     "free": {
       "title": "Gratis",
       "price": "€0",
       "period": "/siempre",
-      "description": "Funciones esenciales para uso individual",
-      "discount": "Siempre Gratis"
+      "description": "App 100% funcional para siempre, con límites de perfiles y registros. Ideal para uso individual.",
+      "discount": "Siempre Gratis",
+      "functional_badge": "100% FUNCIONAL",
+      "forever_badge": "PARA SIEMPRE"
     },
     "annual": {
       "title": "Anual",
@@ -565,14 +570,16 @@
       "price": "€39.99",
       "period": "/año",
       "description": "Facturación anual, ahorra 33%",
-      "discount": "Ahorra 35%"
+      "discount": "Ahorra 35%",
+      "originalPrice": "€54.99"
     },
     "lifetime": {
       "title": "De por vida",
       "price": "€149.99",
       "period": "pago único",
       "description": "Pago único, acceso para siempre",
-      "discount": "Ahorra 15%"
+      "discount": "Ahorra 15%",
+      "originalPrice": "€199.99"
     },
     "features": {
       "unlimited_profiles": "Perfiles Ilimitados",
