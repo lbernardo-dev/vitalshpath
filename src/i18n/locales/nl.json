@@ -238,7 +238,13 @@
         "name": "Premium:",
         "description": "onbeperkte multi-profielen, complete analyses."
       }
-    }
+    },
+    "badgeOffer": "Lanceringsaanbod: -25% KORTING",
+    "privacyTitle": "Volledige Privacy",
+    "privacyDesc": "Je gegevens verlaten je apparaat nooit.",
+    "discountDesc": "Exclusief voor de eerste leden.",
+    "joinTitle": "Meld je aan voor de wachtlijst",
+    "joinDesc": "Ontvang een exclusieve uitnodiging bij de lancering."
   },
   "footer": {
     "features": "Functies",

@@ -266,7 +266,13 @@
         "name": "Premium:",
         "description": "unbegrenzte Mehrfachprofile, vollständige Analysen."
       }
-    }
+    },
+    "badgeOffer": "Einführungsangebot: -25% Rabatt",
+    "privacyTitle": "Volle Privatsphäre",
+    "privacyDesc": "Deine Daten verlassen niemals dein Gerät.",
+    "discountDesc": "Exklusiv für die ersten Mitglieder.",
+    "joinTitle": "Trag dich in die Warteliste ein",
+    "joinDesc": "Erhalte eine exklusive Einladung zum Launch."
   },
   "legal": {
     "terms": {

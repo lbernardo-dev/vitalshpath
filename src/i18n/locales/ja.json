@@ -238,7 +238,13 @@
         "name": "プレミアム：",
         "description": "無制限マルチプロフィール、完全な分析。"
       }
-    }
+    },
+    "badgeOffer": "ローンチオファー：-25％オフ",
+    "privacyTitle": "完全なプライバシー",
+    "privacyDesc": "データがデバイスから离れることはありません。",
+    "discountDesc": "初期メンバー限定。",
+    "joinTitle": "順番待ちリストに参加する",
+    "joinDesc": "公開時に限定招待を受け取れます。"
   },
   "footer": {
     "features": "機能",

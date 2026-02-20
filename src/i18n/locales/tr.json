@@ -238,7 +238,13 @@
         "name": "Premium:",
         "description": "sınırsız çoklu profil, tam analizler."
       }
-    }
+    },
+    "badgeOffer": "Lansman Fırsatı: %25 İNDİRİM",
+    "privacyTitle": "Tam Gizlilik",
+    "privacyDesc": "Verileriniz cihazınızdan asla ayrılmaz.",
+    "discountDesc": "İlk üyelere özel.",
+    "joinTitle": "Bekleme listesine katılın",
+    "joinDesc": "Piyasaya çıktığımızda özel davetiye alın."
   },
   "footer": {
     "features": "Özellikler",

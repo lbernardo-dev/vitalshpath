@@ -238,7 +238,13 @@
         "name": "Premium:",
         "description": "nieograniczone profile, pełna analityka."
       }
-    }
+    },
+    "badgeOffer": "Oferta powitalna: -25%",
+    "privacyTitle": "Pełna Prywatność",
+    "privacyDesc": "Twoje dane nigdy nie opuszczają Twojego urządzenia.",
+    "discountDesc": "Ekskluzywne dla pierwszych członków.",
+    "joinTitle": "Dołącz do listy rezerwowej",
+    "joinDesc": "Zdobądź ekskluzywne zaproszenie po premierze."
   },
   "footer": {
     "features": "Funkcje",

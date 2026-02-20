@@ -238,7 +238,13 @@
         "name": "프리미엄:",
         "description": "무제한 다중 프로필, 완전한 분석."
       }
-    }
+    },
+    "badgeOffer": "출시 기념 상품: -25% 할인",
+    "privacyTitle": "완벽한 프라이버시",
+    "privacyDesc": "데이터는 절대로 기기를 벗어나지 않습니다.",
+    "discountDesc": "초기 멤버 전용.",
+    "joinTitle": "대기자 명단 참여",
+    "joinDesc": "출시 시 특별 초대장을 받으세요."
   },
   "footer": {
     "features": "기능",

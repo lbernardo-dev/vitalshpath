@@ -238,7 +238,13 @@
         "name": "高级版：",
         "description": "无限多档案、完整分析。"
       }
-    }
+    },
+    "badgeOffer": "上架特惠：-25%折扣",
+    "privacyTitle": "完全隐私",
+    "privacyDesc": "您的数据永远不会离开您的设备。",
+    "discountDesc": "早期会员专享。",
+    "joinTitle": "加入等候名单",
+    "joinDesc": "当应用启动时将收到独家邀请。"
   },
   "footer": {
     "features": "功能",

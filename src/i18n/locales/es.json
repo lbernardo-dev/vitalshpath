@@ -279,7 +279,13 @@
         "name": "Premium:",
         "description": "multi-perfil ilimitado, analíticas completas."
       }
-    }
+    },
+    "badgeOffer": "Oferta Lanzamiento: -25% OFF",
+    "privacyTitle": "Privacidad Total",
+    "privacyDesc": "Tus datos nunca salen de tu dispositivo.",
+    "discountDesc": "Exclusivo para los primeros miembros.",
+    "joinTitle": "Únete a la lista",
+    "joinDesc": "Recibe una invitación exclusiva cuando lancemos."
   },
   "footer": {
     "features": "Características",
