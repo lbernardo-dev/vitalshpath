@@ -1,5 +1,8 @@
 ---
 import { supportedLangs, defaultLang } from "../i18n/ui-locales";
+
+// Retrieve the base URL from Astro's environment (e.g., "/vitalshpath") and avoid trailing slashes
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ import { supportedLangs, defaultLang } from "../i18n/ui-locales";
             content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk"
         />
         <title>VitalsPath - Family Health Hub</title>
-        <script is:inline>
+        <script is:inline define:vars={{ baseUrl }}>
             (function () {
                 var supportedLangs = [
                     "en",
@@ -51,18 +54,18 @@ import { supportedLangs, defaultLang } from "../i18n/ui-locales";
                 }
 
                 var lang = getPreferredLanguage();
-                var newPath = "/" + lang + "/";
+                var newPath = baseUrl + "/" + lang + "/";
 
                 if (window.location.pathname !== newPath) {
                     window.location.replace(newPath);
                 }
             })();
         </script>
-        <meta http-equiv="refresh" content="0;url=/en/" />
+        <meta http-equiv="refresh" content={`0;url=${baseUrl}/en/`} />
     </head>
     <body>
         <noscript>
-            <meta http-equiv="refresh" content="0;url=/en/" />
+            <meta http-equiv="refresh" content={`0;url=${baseUrl}/en/`} />
         </noscript>
     </body>
 </html>
