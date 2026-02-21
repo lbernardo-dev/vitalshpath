@@ -112,12 +112,12 @@ const steps = [
             <!-- Flow Simulation Box -->
             <div class="reveal reveal-scale stagger-5">
                 <div
-                    class="liquid-glass p-1 md:p-12 overflow-hidden relative border-purple-500/20 min-h-[400px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-900/30"
+                    class="liquid-glass p-0 sm:p-4 md:p-12 relative border-purple-500/20 min-h-[350px] md:min-h-[400px] flex items-center justify-start md:justify-center bg-gray-50/50 dark:bg-gray-900/30 overflow-x-auto overflow-y-hidden"
                 >
                     <!-- Simulation Content -->
                     <div
                         id="algo-sim-container"
-                        class="relative w-full h-[300px] flex items-center justify-between px-10"
+                        class="relative min-w-[800px] md:w-full h-[300px] flex items-center justify-between px-10"
                     >
                         <!-- Animated Flow Paths (Moved to span full width) -->
                         <svg
@@ -196,7 +196,9 @@ const steps = [
                         </svg>
 
                         <!-- Left: Inputs (Particles) -->
-                        <div class="flex flex-col gap-16 items-center z-20">
+                        <div
+                            class="flex flex-col gap-16 items-center z-20 shrink-0"
+                        >
                             <div class="group relative">
                                 <div
                                     class="absolute inset-0 bg-blue-500/20 rounded-2xl blur-xl group-hover:bg-blue-500/40 transition-all duration-500"
@@ -237,7 +239,9 @@ const steps = [
                         </div>
 
                         <!-- Center: The Silicon Core -->
-                        <div class="relative z-10 scale-110 lg:scale-125">
+                        <div
+                            class="relative z-10 scale-110 lg:scale-125 shrink-0"
+                        >
                             <!-- Processing Glow -->
                             <div
                                 class="absolute inset-0 bg-purple-500/20 rounded-full blur-[80px] animate-pulse"
@@ -382,7 +386,7 @@ const steps = [
                         </div>
 
                         <!-- Right: Output (Optimized Slots) -->
-                        <div class="flex flex-col gap-4 z-20">
+                        <div class="flex flex-col gap-4 z-20 shrink-0">
                             {
                                 [1, 2, 3].map((i) => (
                                     <div

@@ -87,10 +87,10 @@ const modes = [
             </div>
 
             <!-- Right: Interactive Phone Simulator -->
-            <div class="flex-1 flex justify-center perspective-[2000px] reveal-right relative">
+            <div class="flex-1 flex justify-center perspective-[2000px] w-full h-[580px] lg:h-[700px] reveal-right relative">
                 
                 <!-- Haptic Engine Background Effect - INDUSTRIAL PREMIUM -->
-                <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[650px] h-[650px] -z-10 pointer-events-none scale-100 origin-center">
+                <div class="absolute -right-5 lg:-right-32 top-1/2 -translate-y-[60%] lg:-translate-y-1/2 w-[650px] h-[650px] -z-10 pointer-events-none scale-[0.6] lg:scale-100 origin-center">
                     <!-- Tech Atmosphere Glow (Ambient) -->
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/15 to-transparent blur-[140px] rounded-full dark:from-blue-500/30 dark:via-indigo-500/20 dark:opacity-70"></div>
                     
@@ -134,7 +134,7 @@ const modes = [
                     </div>
                 </div>
 
-                <div id="notif-simulator" class="relative group">
+                <div id="notif-simulator" class="relative w-[310px] h-[672px] transform scale-[0.85] lg:scale-100 origin-top group">
                     <DeviceMockup model="iphone17">
                         <div class="w-full h-full bg-[#F3F4F6] dark:bg-[#0a0a0b] p-6 flex flex-col pt-20">
                             <!-- Simulated Alert -->
@@ -183,7 +183,7 @@ const modes = [
                     </DeviceMockup>
 
                     <!-- Status Indicator Floating -->
-                    <div class="absolute -right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                    <div class="absolute -right-2 sm:-right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
                         <div id="mode-badge" class="px-3 py-1.5 rounded-lg bg-gray-900 dark:bg-white text-white dark:text-black text-[8px] font-black uppercase tracking-[0.2em] shadow-2xl transition-all duration-500 border border-white/10">
                             {t("notificationModes.simulator.ready")}
                         </div>
