@@ -102,6 +102,14 @@
         "title": "إدارة العلاجات",
         "description": "تنظيم الحالات الطبية والأدوية المرتبطة بها."
       },
+      "metrics": {
+        "title": "مقاييس الصحة",
+        "description": "تتبع متقدم للالتزام والمزاج وصحة العائلة."
+      },
+      "reports": {
+        "title": "تقارير طبية",
+        "description": "إنشاء تقارير مفصلة واحترافية للمتخصصين."
+      },
       "widgets": {
         "title": "التطبيقات المصغرة والأنشطة الحية",
         "description": "لوحة معلومات على الشاشة الرئيسية."
@@ -148,29 +156,29 @@
     "title": "أداة صحية",
     "titleHighlight": "شاملة حقاً.",
     "items": {
-      "quick": {
-        "title": "إعداد سريع",
-        "description": "أضف الأدوية وأفراد العائلة في ثوانٍ."
+      "medications": {
+        "title": "الأدوية والجرعات",
+        "description": "تحكم كامل في التناول، التنبيهات، والمخزون."
       },
-      "private": {
-        "title": "خصوصية ١٠٠٪",
-        "description": "لا خادم خلفي. كل شيء على جهازك."
+      "treatments": {
+        "title": "إدارة العلاجات",
+        "description": "نظم الأمراض والأدوية المرتبطة بها."
       },
-      "native": {
-        "title": "أصلي ١٠٠٪ لـ iOS",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "المواعيد الطبية",
+        "description": "إدارة الزيارات، الأخصائيين، والعيادات."
       },
-      "accessibility": {
-        "title": "الإتاحة أولاً",
-        "description": "نوع ديناميكي، VoiceOver."
+      "profiles_unlimited": {
+        "title": "ملفات العائلة",
+        "description": "إدارة جميع أفراد العائلة من مكان واحد."
       },
-      "languages": {
-        "title": "١٥ لغة",
-        "description": "العربية، الإسبانية، الإنجليزية، البرتغالية، والمزيد."
+      "diseases": {
+        "title": "الأمراض والحالات",
+        "description": "تتبع تفصيلي للتاريخ الطبي."
       },
-      "export": {
-        "title": "تصدير PDF/CSV",
-        "description": "تقارير للأطباء."
+      "symptoms_plus": {
+        "title": "+100 عرض",
+        "description": "سجل مفصل مع درجة الشدة ومراحل التعافي."
       }
     },
     "stats": {
@@ -219,7 +227,24 @@
       "english": "الإنجليزية",
       "moreLanguages": "+ لغات"
     },
-    "note": "لقطات حقيقية من التطبيق"
+    "note": "لقطات حقيقية من التطبيق",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "الإطلاق الربع الأول ٢٠٢٦",
@@ -647,7 +672,8 @@
         "title": "إيقاف",
         "desc": "بدون مقاطعة، شارات فقط."
       }
-    }
+    },
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   },
   "languages": {
     "title": "نتحدث لغتك",

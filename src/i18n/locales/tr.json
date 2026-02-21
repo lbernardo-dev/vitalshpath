@@ -94,6 +94,22 @@
         "title": "Akıllı Bildirimler",
         "description": "Gizli mod ve ısrarlı hatırlatma."
       },
+      "symptoms": {
+        "title": "Semptom Takibi",
+        "description": "Şiddet ve iyileşme aşamaları ile detaylı günlük."
+      },
+      "treatments": {
+        "title": "Tedavi Yönetimi",
+        "description": "Hastalıkları ve ilgili ilaçları organize edin."
+      },
+      "metrics": {
+        "title": "Sağlık Metrikleri",
+        "description": "Uyum, ruh hali ve aile sağlığının gelişmiş takibi."
+      },
+      "reports": {
+        "title": "Tıbbi Raporlar",
+        "description": "Uzmanlarınız için detaylı ve profesyonel raporlar oluşturun."
+      },
       "widgets": {
         "title": "Widget'lar ve Canlı Etkinlikler",
         "description": "Ana ekranda kontrol paneli."
@@ -140,29 +156,29 @@
     "title": "Gerçekten eksiksiz bir",
     "titleHighlight": "sağlık aracı.",
     "items": {
-      "quick": {
-        "title": "Hızlı kurulum",
-        "description": "İlaçları ve aile üyelerini saniyeler içinde ekleyin."
+      "medications": {
+        "title": "İlaçlar ve Dozlar",
+        "description": "Alımlar, uyarılar ve stok üzerinde tam kontrol."
       },
-      "private": {
-        "title": "Tamamen Gizli",
-        "description": "Arka uç yok. Her şey cihazınızda."
+      "treatments": {
+        "title": "Tedavi Yönetimi",
+        "description": "Hastalıkları ve ilişkili ilaçları düzenleyin."
       },
-      "native": {
-        "title": "Yerel iOS Uygulaması",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "Tıbbi Randevular",
+        "description": "Ziyaretleri, uzmanları ve klinikleri yönetin."
       },
-      "accessibility": {
-        "title": "Öncelik Erişilebilirlik",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Aile Profilleri",
+        "description": "Tüm ailenizi tek bir yerden yönetin."
       },
-      "languages": {
-        "title": "15 dil",
-        "description": "İspanyolca, İngilizce, Portekizce ve daha fazlası."
+      "diseases": {
+        "title": "Hastalıklar ve Koşullar",
+        "description": "Tıbbi geçmişin ayrıntılı takibi."
       },
-      "export": {
-        "title": "PDF/CSV Dışa Aktarma",
-        "description": "Doktorlar için raporlar."
+      "symptoms_plus": {
+        "title": "+100 Semptom",
+        "description": "Şiddet ve iyileşme evreleri ile ayrıntılı günlük."
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "İngilizce",
       "moreLanguages": "+ Diller"
     },
-    "note": "Uygulamanın gerçek ekran görüntüleri"
+    "note": "Uygulamanın gerçek ekran görüntüleri",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Lansman 2026 1. Çeyrek",
@@ -503,5 +536,8 @@
       "functional_badge": "%100 İŞLEVSEL",
       "forever_badge": "SONSUZA DEK"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

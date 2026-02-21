@@ -94,6 +94,22 @@
         "title": "स्मार्ट नोटिफिकेशन",
         "description": "डिस्क्रीट मोड और नैगिंग।"
       },
+      "symptoms": {
+        "title": "लक्षण ट्रैकिंग",
+        "description": "तीव्रता और रिकवरी चरणों के साथ विस्तृत लॉग।"
+      },
+      "treatments": {
+        "title": "उपचार प्रबंधन",
+        "description": "बीमारियों और संबंधित दवाओं को व्यवस्थित करें।"
+      },
+      "metrics": {
+        "title": "स्वास्थ्य मेट्रिक्स",
+        "description": "अनुपालन, मूड और पारिवारिक स्वास्थ्य की उन्नत ट्रैकिंग।"
+      },
+      "reports": {
+        "title": "चिकित्सा रिपोर्ट",
+        "description": "अपने विशेषज्ञों के लिए विस्तृत और पेशेवर रिपोर्ट तैयार करें।"
+      },
       "widgets": {
         "title": "विजेट्स और लाइव एक्टिविटीज",
         "description": "होम स्क्रीन पर डैशबोर्ड।"
@@ -140,29 +156,29 @@
     "title": "एक वास्तव में पूर्ण",
     "titleHighlight": "स्वास्थ्य उपकरण।",
     "items": {
-      "quick": {
-        "title": "त्वरित सेटअप",
-        "description": "सेकंड में दवाइयां और परिवार के सदस्य जोड़ें।"
+      "medications": {
+        "title": "दवाएं और खुराक",
+        "description": "सेवन, अलर्ट और स्टॉक पर पूर्ण नियंत्रण।"
       },
-      "private": {
-        "title": "100% निजी",
-        "description": "कोई बैकएंड नहीं। सब कुछ आपके डिवाइस पर।"
+      "treatments": {
+        "title": "उपचार प्रबंधन",
+        "description": "बीमारियों और संबंधित दवाओं को व्यवस्थित करें।"
       },
-      "native": {
-        "title": "100% iOS नेटिव",
-        "description": "Swift 6 + SwiftUI 5।"
+      "appointments": {
+        "title": "चिकित्सा नियुक्तियां",
+        "description": "विज़िट, विशेषज्ञों और क्लीनिकों का प्रबंधन करें।"
       },
-      "accessibility": {
-        "title": "एक्सेसिबिलिटी फर्स्ट",
-        "description": "डायनामिक टाइप, वॉइसओवर।"
+      "profiles_unlimited": {
+        "title": "पारिवारिक प्रोफ़ाइल",
+        "description": "पूरे परिवार को एक ही स्थान से प्रबंधित करें।"
       },
-      "languages": {
-        "title": "15 भाषाएं",
-        "description": "स्पैनिश, अंग्रेजी, पुर्तगाली, और अधिक।"
+      "diseases": {
+        "title": "बीमारियां और स्थितियां",
+        "description": "चिकित्सा इतिहास की विस्तृत ट्रैकिंग।"
       },
-      "export": {
-        "title": "PDF/CSV एक्सपोर्ट",
-        "description": "डॉक्टरों के लिए रिपोर्ट।"
+      "symptoms_plus": {
+        "title": "+100 लक्षण",
+        "description": "तीव्रता और रिकवरी चरणों के साथ विस्तृत लॉग।"
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "अंग्रेजी",
       "moreLanguages": "+ भाषाएं"
     },
-    "note": "ऐप के वास्तविक स्क्रीनशॉट"
+    "note": "ऐप के वास्तविक स्क्रीनशॉट",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "लॉन्च Q1 2026",
@@ -442,5 +475,8 @@
       "functional_badge": "100% कार्यात्मक",
       "forever_badge": "हमेशा के लिए"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

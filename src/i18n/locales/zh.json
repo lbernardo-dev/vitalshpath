@@ -94,6 +94,22 @@
         "title": "智能通知",
         "description": "勿扰模式和提醒。"
       },
+      "symptoms": {
+        "title": "症状追踪",
+        "description": "具有严重程度和恢复阶段的详细日志。"
+      },
+      "treatments": {
+        "title": "治疗管理",
+        "description": "组织疾病并记录相关的药物。"
+      },
+      "metrics": {
+        "title": "健康指标",
+        "description": "对依从性、情绪和家庭健康的深入追踪。"
+      },
+      "reports": {
+        "title": "医疗报告",
+        "description": "为您的专家生成详细和专业的报告。"
+      },
       "widgets": {
         "title": "小组件和实时活动",
         "description": "主屏幕上的仪表盘。"
@@ -140,29 +156,29 @@
     "title": "真正完整的",
     "titleHighlight": "健康工具。",
     "items": {
-      "quick": {
-        "title": "快速设置",
-        "description": "几秒钟内添加药物和家庭成员。"
+      "medications": {
+        "title": "药物与剂量",
+        "description": "全面控制服用、提醒和库存。"
       },
-      "private": {
-        "title": "100% 隐私保护",
-        "description": "无后端。全部在您的设备上。"
+      "treatments": {
+        "title": "治疗管理",
+        "description": "管理疾病及相关联的药物。"
       },
-      "native": {
-        "title": "100% iOS 原生",
-        "description": "Swift 6 + SwiftUI 5。"
+      "appointments": {
+        "title": "医疗预约",
+        "description": "管理就诊、专家和诊所。"
       },
-      "accessibility": {
-        "title": "无障碍优先",
-        "description": "动态类型、旁白。"
+      "profiles_unlimited": {
+        "title": "家庭档案",
+        "description": "一站式管理全家健康。"
       },
-      "languages": {
-        "title": "15种语言",
-        "description": "西班牙语、英语、葡萄牙语等。"
+      "diseases": {
+        "title": "疾病与状况",
+        "description": "详细追踪医疗历史。"
       },
-      "export": {
-        "title": "PDF/CSV 导出",
-        "description": "给医生的报告。"
+      "symptoms_plus": {
+        "title": "+100 种症状",
+        "description": "包含严重程度和恢复阶段的详细日志。"
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "英语",
       "moreLanguages": "+ 更多语言"
     },
-    "note": "应用真实截图"
+    "note": "应用真实截图",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "2026年第一季度发布",
@@ -503,5 +536,8 @@
       "functional_badge": "100% 功能完整",
       "forever_badge": "永久有效"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

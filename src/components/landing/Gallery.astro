@@ -11,16 +11,17 @@ import {
     ArrowLeftRight,
     FileText,
     Lock,
+    Smartphone,
+    Cloud,
+    Calendar,
+    MapPin,
+    BellRing,
+    Watch,
 } from "lucide-react";
 
 // Import images
-import screenDashboard from "../../assets/images/screens/screen-01-dashboard.PNG";
-import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
-import screenMedications from "../../assets/images/screens/screen-04-medications.PNG";
-import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
-import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
-import screenDashboardLight from "../../assets/images/screens/screen-22-dashboard-light.PNG";
-import screenDashboardDark from "../../assets/images/screens/screen-23-dashboard-dark.PNG";
+import screenDashboard from "../../assets/images/screens/screen-23-dashboard-dark.PNG";
+import screenAppleHealth from "../../assets/images/screens/screen-11-appointments.PNG";
 
 interface Props {
     lang: Lang;
@@ -28,26 +29,51 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const ecosystemIntegrations = [
+    {
+        icon: Cloud,
+        label: "iCloud Sync",
+        desc: "End-to-end Encrypted",
+        color: "blue",
+    },
+    {
+        icon: Calendar,
+        label: "Apple Calendar",
+        desc: "Automatic Events",
+        color: "purple",
+    },
+    {
+        icon: MapPin,
+        label: "Apple Maps",
+        desc: "Pharmacy Finder",
+        color: "green",
+    },
+    {
+        icon: BellRing,
+        label: "Native Haptics",
+        desc: "Taptic Engine 3",
+        color: "pink",
+    },
+];
 ---
 
 <section
     id="gallery"
-    class="py-24 relative overflow-hidden bg-gray-50 dark:bg-black"
+    class="py-32 relative overflow-hidden bg-white dark:bg-black"
 >
-    {/* Decorative background elements */}
-    <div class="absolute inset-0 pointer-events-none">
-        <div
-            class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]"
-        >
-        </div>
-        <div
-            class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]"
-        >
-        </div>
+    <!-- Background Decorators -->
+    <div
+        class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[120px] -z-10"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-[120px] -z-10"
+    >
     </div>
 
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
             <span
                 class="inline-block px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-4"
             >
@@ -63,207 +89,281 @@ const t = useTranslations(lang);
                     {t("gallery.titleHighlight")}
                 </span>
             </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400">
-                {t("gallery.note")}
-            </p>
         </div>
 
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center"
-        >
-            {/* Left Column - Feature List */}
-            <div class="lg:col-span-1 space-y-8" data-aos="fade-up">
-                {/* Dashboard */}
+        <div class="flex flex-col lg:flex-row items-center gap-24">
+            <!-- Left: Ecosystem Compositions -->
+            <div class="flex-1 relative order-2 lg:order-1 reveal stagger-1">
                 <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-blue-500/10 transition-all group"
+                    class="relative w-full max-w-[500px] aspect-square flex items-center justify-center mx-auto"
                 >
+                    <!-- Central Cloud Orbit (Animated) -->
                     <div
-                        class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="absolute inset-0 flex items-center justify-center"
                     >
-                        <LayoutDashboard className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
-                    >
-                        {t("features.items.dashboards.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                        {t("features.items.dashboards.description")}
-                    </p>
-                </div>
-
-                {/* Metrics */}
-                <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-purple-500/10 transition-all group"
-                >
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                    >
-                        <TrendingUp className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
-                    >
-                        {t("features.items.metrics.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                        {t("features.items.metrics.description")}
-                    </p>
-                </div>
-
-                {/* Reports */}
-                <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-indigo-500/10 transition-all group"
-                >
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                    >
-                        <FileText className="w-6 h-6 text-indigo-600" />
-                    </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
-                    >
-                        {t("features.items.reports.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                        {t("features.items.reports.description")}
-                    </p>
-                </div>
-            </div>
-
-            {/* Central Mockup Stack */}
-            <div
-                class="lg:col-span-1 flex justify-center py-8"
-                data-aos="zoom-in"
-            >
-                <div class="relative group">
-                    <!-- Large Glow Effect -->
-                    <div
-                        class="absolute -inset-8 bg-gradient-to-tr from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-[3rem] blur-2xl opacity-40 group-hover:opacity-70 transition-opacity"
-                    >
-                    </div>
-
-                    <!-- Background Phone (iPhone 15 Pro - Dark Mode) -->
-                    <div
-                        class="absolute -left-16 top-8 transform -rotate-12 scale-90 opacity-60 group-hover:opacity-80 group-hover:-rotate-6 transition-all duration-700"
-                    >
-                        <DeviceMockup model="iphone15">
-                            <Image
-                                src={screenDashboardDark}
-                                alt="Dark Mode Dashboard"
-                                class="w-full h-full object-cover object-top"
-                                width={240}
-                            />
-                        </DeviceMockup>
-                    </div>
-
-                    <!-- Foreground Phone (iPhone 17 Pro Max - Light Mode) -->
-                    <div
-                        class="relative z-10 transform scale-100 group-hover:scale-105 transition-transform duration-700"
-                    >
-                        <DeviceMockup model="iphone17">
-                            <Image
-                                src={screenDashboardLight}
-                                alt="Light Mode Dashboard"
-                                class="w-full h-full object-cover object-top"
-                                width={280}
-                            />
-                        </DeviceMockup>
-
-                        <!-- Floating Highlight -->
                         <div
-                            class="absolute -right-8 bottom-16 bg-white dark:bg-gray-900 p-3 rounded-2xl shadow-2xl border border-gray-100 dark:border-gray-800 z-20 animate-float hidden md:block"
+                            class="w-full h-full border-[1px] border-dashed border-gray-200 dark:border-gray-800 rounded-full animate-spin-slow"
                         >
-                            <p
-                                class="text-[9px] font-black uppercase tracking-wider text-blue-500 mb-1"
-                            >
-                                Nueva Versión
-                            </p>
-                            <p
-                                class="text-xs font-bold text-gray-900 dark:text-white"
-                            >
-                                iOS 26 Ready
-                            </p>
+                        </div>
+                        <div
+                            class="absolute w-[80%] h-[80%] border-[1px] border-dashed border-gray-100 dark:border-gray-900 rounded-full animate-spin-reverse"
+                            style="animation-duration: 15s;"
+                        >
                         </div>
                     </div>
+
+                    <!-- Mockups Stack -->
+                    <div
+                        class="relative z-10 w-full flex justify-center perspective-[2000px]"
+                    >
+                        <!-- iPad-like mockup (Large Background) -->
+                        <div
+                            class="absolute top-1/2 -translate-y-1/2 -left-10 transform -rotate-6 scale-90 opacity-20 blur-[1px] hidden md:block transition-all duration-700 hover:opacity-40 hover:scale-95"
+                        >
+                            <DeviceMockup model="iphone15" showIsland={false}>
+                                <Image
+                                    src={screenAppleHealth}
+                                    alt="Apple Health Integration"
+                                    class="w-full h-full object-cover"
+                                    width={280}
+                                />
+                            </DeviceMockup>
+                        </div>
+
+                        <!-- Primary iPhone -->
+                        <div
+                            class="relative z-20 transform group hover:rotate-2 transition-all duration-700"
+                        >
+                            <DeviceMockup model="iphone17" showIsland={false}>
+                                <Image
+                                    src={screenDashboard}
+                                    alt="Dashboard"
+                                    class="w-full h-full object-cover"
+                                    width={320}
+                                />
+                            </DeviceMockup>
+                        </div>
+
+                        <!-- Floating Apple Watch (Indicator) -->
+                        <div
+                            class="absolute -right-8 bottom-20 w-32 h-32 liquid-glass border-white/20 rounded-[2.5rem] p-4 shadow-2xl animate-float z-30 flex flex-col items-center justify-center text-center"
+                        >
+                            <Watch className="w-8 h-8 text-blue-500 mb-2" />
+                            <span
+                                class="text-[8px] font-black uppercase tracking-widest leading-tight"
+                                >Live<br />Companion</span
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Orbiting Nodes -->
+                    {
+                        ecosystemIntegrations.map((item, i) => (
+                            <div
+                                class={`absolute hidden md:flex flex-col items-center gap-2 p-3 liquid-glass border-${
+                                    item.color
+                                }-500/10 rounded-2xl z-20 animate-orbit-${
+                                    i + 1
+                                }`}
+                            >
+                                <item.icon
+                                    className={`w-5 h-5 text-${item.color}-500`}
+                                />
+                                <span class="text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
+                                    {item.label}
+                                </span>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
 
-            {/* Right Column - Feature List */}
-            <div
-                class="lg:col-span-1 space-y-8"
-                data-aos="fade-up"
-                data-aos-delay="200"
-            >
-                {/* Export & Import */}
+            <!-- Right: Content & GRID -->
+            <div class="flex-1 order-1 lg:order-2 reveal stagger-2">
                 <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-teal-500/10 transition-all group"
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6 font-bold text-xs uppercase tracking-widest text-indigo-500"
                 >
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                    >
-                        <ArrowLeftRight className="w-6 h-6 text-teal-600" />
-                    </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
-                    >
-                        {t("features.items.exportImport.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                        {t("features.items.exportImport.description")}
-                    </p>
+                    <Smartphone className="w-3 h-3" />
+                    iOS 26 Liquid Experience
                 </div>
-
-                {/* Encryption */}
-                <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-rose-500/10 transition-all group"
+                <h2
+                    class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 tracking-tighter italic leading-[0.9]"
                 >
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
-                    >
-                        <Lock className="w-6 h-6 text-rose-600" />
-                    </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
-                    >
-                        {t("features.items.encryption.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
-                    >
-                        {t("features.items.encryption.description")}
-                    </p>
-                </div>
+                    NATIVO.<br />
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
+                        >SINCRONIZADO.</span
+                    ><br />
+                    SEGURO.
+                </h2>
 
-                {/* Profiles */}
-                <div
-                    class="p-6 rounded-3xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-xl hover:shadow-blue-500/10 transition-all group"
+                <p
+                    class="text-xl text-gray-500 dark:text-gray-400 mb-12 font-medium"
                 >
+                    {t("gallery.subtitle")}
+                </p>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                        class="group p-6 rounded-3xl bg-gray-50/50 dark:bg-white/5 border border-transparent dark:border-white/5 hover:border-blue-500/20 transition-all hover:bg-white dark:hover:bg-white/10 shadow-sm hover:shadow-xl backdrop-blur-sm"
                     >
-                        <Users className="w-6 h-6 text-blue-600" />
+                        <Lock
+                            className="w-8 h-8 text-blue-500 mb-4 group-hover:scale-110 transition-transform"
+                        />
+                        <h4
+                            class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight mb-2"
+                        >
+                            {t("gallery.privacy.title")}
+                        </h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">
+                            {t("gallery.privacy.desc")}
+                        </p>
                     </div>
-                    <h3
-                        class="text-xl font-bold text-gray-900 dark:text-white mb-3"
+
+                    <div
+                        class="group p-6 rounded-3xl bg-gray-50/50 dark:bg-white/5 border border-transparent dark:border-white/5 hover:border-purple-500/20 transition-all hover:bg-white dark:hover:bg-white/10 shadow-sm hover:shadow-xl backdrop-blur-sm"
                     >
-                        {t("features.items.profiles.title")}
-                    </h3>
-                    <p
-                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                        <Cloud
+                            className="w-8 h-8 text-purple-500 mb-4 group-hover:scale-110 transition-transform"
+                        />
+                        <h4
+                            class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight mb-2"
+                        >
+                            {t("gallery.sync.title")}
+                        </h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">
+                            {t("gallery.sync.desc")}
+                        </p>
+                    </div>
+
+                    <div
+                        class="group p-6 rounded-3xl bg-gray-50/50 dark:bg-white/5 border border-transparent dark:border-white/5 hover:border-green-500/20 transition-all hover:bg-white dark:hover:bg-white/10 shadow-sm hover:shadow-xl backdrop-blur-sm"
                     >
-                        {t("features.items.profiles.description")}
-                    </p>
+                        <Users
+                            className="w-8 h-8 text-green-500 mb-4 group-hover:scale-110 transition-transform"
+                        />
+                        <h4
+                            class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight mb-2"
+                        >
+                            {t("gallery.profiles.title")}
+                        </h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">
+                            {t("gallery.profiles.desc")}
+                        </p>
+                    </div>
+
+                    <div
+                        class="group p-6 rounded-3xl bg-gray-50/50 dark:bg-white/5 border border-transparent dark:border-white/5 hover:border-pink-500/20 transition-all hover:bg-white dark:hover:bg-white/10 shadow-sm hover:shadow-xl backdrop-blur-sm"
+                    >
+                        <Activity
+                            className="w-8 h-8 text-pink-500 mb-4 group-hover:scale-110 transition-transform"
+                        />
+                        <h4
+                            class="text-lg font-black text-gray-900 dark:text-white uppercase tracking-tight mb-2"
+                        >
+                            {t("gallery.metrics.title")}
+                        </h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-300">
+                            {t("gallery.metrics.desc")}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .animate-spin-slow {
+        animation: spin 20s linear infinite;
+    }
+    .animate-spin-reverse {
+        animation: spin 15s linear infinite reverse;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0) rotate(0);
+        }
+        50% {
+            transform: translateY(-15px) rotate(3deg);
+        }
+    }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Orbiting Animations */
+    @keyframes orbit-1 {
+        0% {
+            transform: rotate(0deg) translateX(320px) rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg) translateX(320px) rotate(-360deg);
+        }
+    }
+    @keyframes orbit-2 {
+        0% {
+            transform: rotate(90deg) translateX(320px) rotate(-90deg);
+        }
+        100% {
+            transform: rotate(450deg) translateX(320px) rotate(-450deg);
+        }
+    }
+    @keyframes orbit-3 {
+        0% {
+            transform: rotate(180deg) translateX(320px) rotate(-180deg);
+        }
+        100% {
+            transform: rotate(540deg) translateX(320px) rotate(-540deg);
+        }
+    }
+    @keyframes orbit-4 {
+        0% {
+            transform: rotate(270deg) translateX(320px) rotate(-270deg);
+        }
+        100% {
+            transform: rotate(630deg) translateX(320px) rotate(-630deg);
+        }
+    }
+
+    .animate-orbit-1 {
+        animation: orbit-1 30s linear infinite;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -40px;
+    }
+    .animate-orbit-2 {
+        animation: orbit-2 30s linear infinite;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -40px;
+    }
+    .animate-orbit-3 {
+        animation: orbit-3 30s linear infinite;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -40px;
+    }
+    .animate-orbit-4 {
+        animation: orbit-4 30s linear infinite;
+        top: 50%;
+        left: 50%;
+        margin-top: -20px;
+        margin-left: -40px;
+    }
+</style>

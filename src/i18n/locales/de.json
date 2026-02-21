@@ -168,29 +168,29 @@
     "title": "Ein wirklich vollständiges",
     "titleHighlight": "Gesundheits-Tool.",
     "items": {
-      "quick": {
-        "title": "Schnelle Einrichtung",
-        "description": "Fügen Sie in Sekunden Medikamente und Familienmitglieder hinzu."
+      "medications": {
+        "title": "Medikamente und Dosen",
+        "description": "Umfassende Kontrolle über Einnahmen, Warnungen und Bestand."
       },
-      "private": {
-        "title": "100% Privat",
-        "description": "Kein Backend. Alles auf Ihrem Gerät."
+      "treatments": {
+        "title": "Behandlungsmanagement",
+        "description": "Organisieren Sie Erkrankungen und die dazugehörigen Medikamente."
       },
-      "native": {
-        "title": "100% iOS Nativ",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "Arzttermine",
+        "description": "Verwalten Sie Besuche, Spezialisten und Kliniken."
       },
-      "accessibility": {
-        "title": "Barrierefreiheit zuerst",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Familienprofile",
+        "description": "Verwalten Sie Ihre gesamte Familie an einem zentralen Ort."
       },
-      "languages": {
-        "title": "15 Sprachen",
-        "description": "Spanisch, Englisch, Portugiesisch und mehr."
+      "diseases": {
+        "title": "Krankheiten und Befunde",
+        "description": "Detaillierte Verfolgung der Krankengeschichte."
       },
-      "export": {
-        "title": "PDF/CSV-Export",
-        "description": "Berichte für Ärzte."
+      "symptoms_plus": {
+        "title": "+100 Symptome",
+        "description": "Journal mit Schweregrad und Erholungsphasen."
       }
     },
     "stats": {
@@ -239,7 +239,24 @@
       "english": "Englisch",
       "moreLanguages": "+ Sprachen"
     },
-    "note": "Echte App-Screenshots"
+    "note": "Echte App-Screenshots",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Start Q1 2026",
@@ -664,7 +681,8 @@
         "title": "Aus",
         "desc": "Keine Unterbrechungen, nur Badges."
       }
-    }
+    },
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   },
   "languages": {
     "title": "Wir sprechen Ihre Sprache",

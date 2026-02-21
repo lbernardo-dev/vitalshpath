@@ -13,6 +13,7 @@ import {
     Layers,
     Infinity,
     Calendar,
+    Check,
 } from "lucide-react";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
@@ -43,300 +44,232 @@ const premiumFeatures = [
     class="py-24 relative overflow-hidden bg-white dark:bg-black"
 >
     <!-- Ambient background -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-            class="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/10 dark:bg-blue-600/5 rounded-full blur-[100px]"
-        >
-        </div>
-        <div
-            class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/10 dark:bg-purple-600/5 rounded-full blur-[100px]"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-500/5 blur-[150px] rounded-full"
         >
         </div>
     </div>
 
-    <div class="container mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
             <h2
-                class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight"
+                class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight"
             >
                 {t("pricing.title")}
             </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400">
+            <p class="text-xl text-gray-600 dark:text-gray-400">
                 {t("pricing.subtitle")}
             </p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
-            <!-- Left Side: Plans -->
-            <div
-                class="lg:col-span-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-            >
-                <!-- Free Plan Card -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 max-w-7xl mx-auto items-start"
+        >
+            <!-- Free Plan -->
+            <div class="lg:col-span-4 reveal reveal-left">
                 <div
-                    class="p-8 rounded-[2.5rem] bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 flex flex-col"
+                    class="h-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-white/10 p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col backdrop-blur-sm"
                 >
-                    <div class="mb-6">
-                        <div class="flex items-center gap-2 mb-2">
+                    <div class="mb-10">
+                        <span
+                            class="text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 block mb-2"
+                            >{t("pricing.free.title")}</span
+                        >
+                        <div class="flex items-baseline gap-2">
                             <span
-                                class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 block"
-                                >{t("pricing.free.title")}</span
-                            >
-                            <span
-                                class="text-[9px] bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-0.5 rounded-full font-black border border-blue-200 dark:border-blue-800 uppercase tracking-tighter"
-                            >
-                                {t("pricing.free.functional_badge")}
-                            </span>
-                        </div>
-                        <div class="flex items-baseline gap-1">
-                            <span
-                                class="text-4xl font-black text-gray-900 dark:text-white"
+                                class="text-5xl font-black text-gray-900 dark:text-white"
                                 >€0</span
                             >
                             <span
-                                class="text-blue-500 dark:text-blue-400 text-xs font-black uppercase"
+                                class="text-blue-500 dark:text-blue-400 text-sm font-black uppercase"
                                 >{t("pricing.free.forever_badge")}</span
                             >
                         </div>
                     </div>
+
                     <p
-                        class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex-1"
+                        class="text-gray-600 dark:text-gray-400 mb-10 flex-1 leading-relaxed font-medium"
                     >
                         {t("pricing.free.description")}
                     </p>
+
                     <a
                         href="#waitlist"
-                        class="w-full py-4 px-6 bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 font-bold rounded-2xl transition-all text-center"
+                        class="w-full py-5 px-6 bg-gray-200 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-transparent dark:border-white/10 font-bold rounded-2xl transition-all text-center hover:bg-gray-300 dark:hover:bg-white/10"
                     >
                         {t("pricing.cta_alt")}
                     </a>
                 </div>
+            </div>
 
-                <!-- Premium Plans -->
+            <!-- Premium Plan -->
+            <div class="lg:col-span-8 reveal reveal-right stagger-1">
                 <div
-                    class="lg:col-span-3 p-1 rounded-[3rem] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-2xl"
+                    class="p-1 rounded-[40px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-[0_32px_64px_-16px_rgba(59,130,246,0.2)] dark:shadow-2xl"
                 >
                     <div
-                        class="h-full w-full bg-white dark:bg-gray-950 rounded-[2.9rem] p-8 md:p-10"
+                        class="bg-white dark:bg-gray-900 rounded-[39px] p-8 md:p-12 overflow-hidden relative transition-colors"
                     >
-                        <div class="flex flex-col lg:flex-row gap-12">
-                            <!-- Pricing & Selection -->
-                            <div class="lg:w-1/3 flex flex-col">
-                                <span
-                                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase tracking-wider mb-4"
+                        <!-- Decorative glow -->
+                        <div
+                            class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"
+                        >
+                        </div>
+
+                        <div
+                            class="flex flex-col lg:flex-row gap-12 relative z-10"
+                        >
+                            <!-- Left: Selection -->
+                            <div class="lg:w-2/5 flex flex-col">
+                                <div
+                                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-black uppercase tracking-wider mb-6 w-fit"
                                 >
-                                    <Star className="w-3 h-3 fill-current" />
+                                    <Star
+                                        className="w-3.5 h-3.5 fill-current"
+                                    />
                                     {t("pricing.annual.badge")}
-                                </span>
+                                </div>
                                 <h3
-                                    class="text-3xl font-black text-gray-900 dark:text-white mb-6"
+                                    class="text-3xl font-black text-gray-900 dark:text-white mb-8 italic tracking-tight"
                                 >
                                     VitalsPath Premium
                                 </h3>
 
-                                <div class="space-y-3 mb-8">
-                                    <button
-                                        class="plan-toggle w-full p-4 rounded-2xl border-2 transition-all text-left flex justify-between items-center group"
-                                        data-price={t("pricing.monthly.price")}
-                                        data-original-price={t(
-                                            "pricing.monthly.originalPrice"
-                                        )}
-                                        data-period={t(
-                                            "pricing.monthly.period"
-                                        )}
-                                        data-active="false"
-                                    >
-                                        <div>
-                                            <p
-                                                class="font-bold text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.monthly.title")}
-                                            </p>
-                                            <p class="text-xs text-gray-500">
-                                                {
-                                                    t(
-                                                        "pricing.monthly.description"
-                                                    )
-                                                }
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p
-                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
-                                            >
-                                                {
-                                                    t(
-                                                        "pricing.monthly.originalPrice"
-                                                    )
-                                                }
-                                            </p>
-                                            <p
-                                                class="font-black text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.monthly.price")}
-                                            </p>
-                                            <span
-                                                class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold hidden"
-                                            ></span>
-                                        </div>
-                                    </button>
-
-                                    <button
-                                        class="plan-toggle w-full p-4 rounded-2xl border-2 border-blue-500 bg-blue-50/50 dark:bg-blue-900/10 transition-all text-left flex justify-between items-center group shadow-md"
-                                        data-price={t("pricing.annual.price")}
-                                        data-original-price={t(
-                                            "pricing.annual.originalPrice"
-                                        )}
-                                        data-period={t("pricing.annual.period")}
-                                        data-active="true"
-                                    >
-                                        <div>
-                                            <p
-                                                class="font-bold text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.annual.title")}
-                                            </p>
-                                            <p class="text-xs text-gray-500">
-                                                {
-                                                    t(
-                                                        "pricing.annual.description"
-                                                    )
-                                                }
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p
-                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
-                                            >
-                                                {
-                                                    t(
-                                                        "pricing.annual.originalPrice"
-                                                    )
-                                                }
-                                            </p>
-                                            <p
-                                                class="font-black text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.annual.price")}
-                                            </p>
-                                            <span
-                                                class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold"
-                                                >-25%</span
-                                            >
-                                        </div>
-                                    </button>
-
-                                    <button
-                                        class="plan-toggle w-full p-4 rounded-2xl border-2 transition-all text-left flex justify-between items-center group"
-                                        data-price={t("pricing.lifetime.price")}
-                                        data-original-price={t(
-                                            "pricing.lifetime.originalPrice"
-                                        )}
-                                        data-period={t(
-                                            "pricing.lifetime.period"
-                                        )}
-                                        data-active="false"
-                                    >
-                                        <div>
-                                            <p
-                                                class="font-bold text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.lifetime.title")}
-                                            </p>
-                                            <p class="text-xs text-gray-500">
-                                                {
-                                                    t(
-                                                        "pricing.lifetime.description"
-                                                    )
-                                                }
-                                            </p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p
-                                                class="text-[10px] text-red-500 dark:text-red-400 line-through font-bold"
-                                            >
-                                                {
-                                                    t(
-                                                        "pricing.lifetime.originalPrice"
-                                                    )
-                                                }
-                                            </p>
-                                            <p
-                                                class="font-black text-gray-900 dark:text-white"
-                                            >
-                                                {t("pricing.lifetime.price")}
-                                            </p>
-                                            <span
-                                                class="text-[10px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold hidden"
-                                            ></span>
-                                        </div>
-                                    </button>
+                                <div class="space-y-3 mb-10">
+                                    {
+                                        ["monthly", "annual", "lifetime"].map(
+                                            (planKey) => (
+                                                <button
+                                                    class={`plan-toggle w-full p-4 rounded-3xl border-2 transition-all text-left flex justify-between items-center group ${
+                                                        planKey === "annual"
+                                                            ? "border-blue-500 bg-blue-50/50 dark:bg-blue-500/10 shadow-lg"
+                                                            : "border-gray-100 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10"
+                                                    }`}
+                                                    data-plan={planKey}
+                                                    data-price={t(
+                                                        `pricing.${planKey}.price`
+                                                    )}
+                                                    data-original-price={t(
+                                                        `pricing.${planKey}.originalPrice`
+                                                    )}
+                                                    data-period={t(
+                                                        `pricing.${planKey}.period`
+                                                    )}
+                                                    data-active={
+                                                        planKey === "annual"
+                                                            ? "true"
+                                                            : "false"
+                                                    }
+                                                >
+                                                    <div class="flex flex-col">
+                                                        <p class="font-bold text-gray-900 dark:text-white">
+                                                            {t(
+                                                                `pricing.${planKey}.title`
+                                                            )}
+                                                        </p>
+                                                        <p class="text-[10px] text-gray-500 dark:text-gray-500 uppercase tracking-wide font-black">
+                                                            {t(
+                                                                `pricing.${planKey}.description`
+                                                            )}
+                                                        </p>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        {t(
+                                                            `pricing.${planKey}.originalPrice`
+                                                        ) && (
+                                                            <p class="text-[10px] text-red-500 line-through font-bold leading-none mb-1">
+                                                                {t(
+                                                                    `pricing.${planKey}.originalPrice`
+                                                                )}
+                                                            </p>
+                                                        )}
+                                                        <p class="font-black text-gray-900 dark:text-white leading-none">
+                                                            {t(
+                                                                `pricing.${planKey}.price`
+                                                            )}
+                                                        </p>
+                                                        {planKey ===
+                                                            "annual" && (
+                                                            <span class="inline-block mt-1 text-[9px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold">
+                                                                -25%
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </button>
+                                            )
+                                        )
+                                    }
                                 </div>
 
                                 <div
-                                    class="mb-8 p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800"
+                                    class="mt-auto p-6 bg-gray-50 dark:bg-white/5 rounded-3xl border border-gray-100 dark:border-white/10"
                                 >
                                     <div class="flex flex-col mb-1">
                                         <span
                                             id="premium-original-price-display"
-                                            class="text-sm text-red-500 dark:text-red-400 line-through font-bold"
+                                            class="text-sm text-red-500 line-through font-bold"
                                         >
                                             {t("pricing.annual.originalPrice")}
                                         </span>
-                                        <div class="flex items-center gap-2">
-                                            <span
-                                                id="premium-discount-badge"
-                                                class="text-[10px] bg-cyan-500 text-white px-2 py-0.5 rounded-full font-black uppercase tracking-wider"
-                                                >Launch -25%</span
-                                            >
-                                        </div>
+                                        <span
+                                            id="premium-discount-badge"
+                                            class="text-[10px] bg-cyan-500 text-white px-2 py-0.5 rounded-full font-black uppercase tracking-wider w-fit mb-2"
+                                        >
+                                            {
+                                                t(
+                                                    "pricing.premium.badge_discount"
+                                                )
+                                            }
+                                        </span>
                                     </div>
                                     <div class="flex items-baseline gap-2">
                                         <span
                                             id="premium-price-display"
-                                            class="text-4xl font-black text-gray-900 dark:text-white tracking-tight"
-                                            >{t("pricing.annual.price")}</span
+                                            class="text-5xl font-black text-gray-900 dark:text-white tracking-tight"
                                         >
+                                            {t("pricing.annual.price")}
+                                        </span>
                                         <span
                                             id="premium-period-display"
-                                            class="text-gray-500 text-sm"
+                                            class="text-gray-500 dark:text-gray-500 font-medium"
                                             >{t("pricing.annual.period")}</span
                                         >
                                     </div>
+                                    <a
+                                        href="#waitlist"
+                                        class="w-full mt-6 py-5 px-6 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black rounded-2xl hover:scale-[1.02] transition-all shadow-xl shadow-blue-500/20 text-center block"
+                                    >
+                                        {t("pricing.cta_alt")}
+                                    </a>
                                 </div>
-
-                                <a
-                                    href="#waitlist"
-                                    class="w-full py-4 px-6 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black rounded-2xl hover:opacity-90 transition-all shadow-xl shadow-blue-500/20 text-center block mt-auto"
-                                >
-                                    {t("pricing.cta_alt")}
-                                </a>
                             </div>
 
-                            <!-- Exclusive Features Grid -->
+                            <!-- Right: Features -->
                             <div
-                                class="lg:w-2/3 border-l border-gray-100 dark:border-gray-800 lg:pl-12"
+                                class="lg:w-3/5 lg:border-l lg:border-gray-100 lg:dark:border-gray-800 lg:pl-12"
                             >
                                 <h4
-                                    class="text-sm font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8"
+                                    class="text-xs font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8"
                                 >
                                     {t("pricing.premium.features_title")}
                                 </h4>
                                 <div
-                                    class="grid sm:grid-cols-2 gap-x-8 gap-y-6"
+                                    class="grid sm:grid-cols-2 gap-x-8 gap-y-8"
                                 >
                                     {
                                         premiumFeatures.map((f) => (
-                                            <div class="flex items-start gap-4">
-                                                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-500 shrink-0">
+                                            <div class="flex items-start gap-4 group">
+                                                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center text-blue-500 shrink-0 group-hover:scale-110 transition-transform">
                                                     <f.icon className="w-5 h-5" />
                                                 </div>
                                                 <div>
-                                                    <p class="text-sm font-bold text-gray-900 dark:text-white mb-1 leading-tight">
+                                                    <p class="text-sm font-bold text-gray-900 dark:text-white mb-1.5 leading-tight">
                                                         {t(
                                                             `pricing.features.${f.key}`
                                                         )}
                                                     </p>
-                                                    <p class="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
+                                                    <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
                                                         {(() => {
                                                             const specificDesc =
                                                                 t(
@@ -358,23 +291,25 @@ const premiumFeatures = [
                                 </div>
 
                                 <div
-                                    class="mt-8 p-6 bg-gray-50 dark:bg-gray-900/50 rounded-3xl border border-dashed border-gray-200 dark:border-gray-700"
+                                    class="mt-12 p-6 rounded-[2rem] bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-900 border border-gray-200 dark:border-gray-800 border-dashed"
                                 >
                                     <div
                                         class="flex items-center gap-3 text-blue-500 mb-2"
                                     >
                                         <Shield className="w-5 h-5" />
-                                        <span class="text-sm font-bold"
-                                            >Privacidad 100% On-Device</span
+                                        <span
+                                            class="text-sm font-black uppercase tracking-tight"
+                                            >{
+                                                t(
+                                                    "pricing.premium.privacy_title"
+                                                )
+                                            }</span
                                         >
                                     </div>
                                     <p
-                                        class="text-xs text-gray-500 leading-relaxed"
+                                        class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed"
                                     >
-                                        Tus datos de salud nunca salen de tu
-                                        iPhone. VitalsPath utiliza el iCloud
-                                        Keychain y bases de datos locales
-                                        cifradas para protegerte.
+                                        {t("pricing.premium.privacy_desc")}
                                     </p>
                                 </div>
                             </div>
@@ -390,6 +325,14 @@ const premiumFeatures = [
     import { getSupabase } from "../../lib/supabase";
     const supabase = getSupabase();
 
+    const toggles = document.querySelectorAll(".plan-toggle");
+    const priceDisplay = document.getElementById("premium-price-display");
+    const originalPriceDisplay = document.getElementById(
+        "premium-original-price-display"
+    );
+    const periodDisplay = document.getElementById("premium-period-display");
+    const discountBadge = document.getElementById("premium-discount-badge");
+
     async function syncPricing() {
         if (!supabase) return;
         const { data } = await supabase.from("pricing_plans").select("*");
@@ -401,28 +344,14 @@ const premiumFeatures = [
             lifetime: data.find((p) => p.id === "premium_lifetime"),
         };
 
-        // Update toggles with data from DB
         toggles.forEach((t) => {
-            const isMonthly = t
-                .querySelector("p")
-                ?.textContent?.includes("Mensual");
-            const isAnnual = t
-                .querySelector("p")
-                ?.textContent?.includes("Anual");
-            const isLifetime = t
-                .querySelector("p")
-                ?.textContent?.includes("vida");
+            const planKey = t.getAttribute("data-plan");
+            const planData = plans[planKey as keyof typeof plans];
 
-            let plan = isMonthly
-                ? plans.monthly
-                : isAnnual
-                ? plans.annual
-                : plans.lifetime;
-
-            if (plan) {
-                const currency = plan.currency || "€";
-                const base = plan.base_price;
-                const discount = plan.discount_percentage;
+            if (planData) {
+                const currency = planData.currency || "€";
+                const base = planData.base_price;
+                const discount = planData.discount_percentage;
                 const finalPrice = base * (1 - discount / 100);
 
                 const priceStr = `${currency}${finalPrice.toFixed(2)}`;
@@ -433,61 +362,54 @@ const premiumFeatures = [
                 t.setAttribute("data-discount", discount.toString());
 
                 // Update text inside toggle
-                const priceEl = t.querySelector(".text-right p:last-of-type");
-                const origEl = t.querySelector(".text-right p:first-of-type");
-                const toggleBadge = t.querySelector(".text-right span"); // The small -25% badge
+                const pEl = t.querySelector(".text-right p:last-of-type");
+                const oEl = t.querySelector(".text-right p:first-of-type");
+                const bEl = t.querySelector(".text-right span");
 
-                if (priceEl) priceEl.textContent = priceStr;
-                if (origEl) origEl.textContent = origStr;
-                if (toggleBadge && discount > 0) {
-                    toggleBadge.textContent = `-${discount}%`;
-                    toggleBadge.classList.remove("hidden");
-                } else if (toggleBadge) {
-                    toggleBadge.classList.add("hidden");
+                if (pEl) pEl.textContent = priceStr;
+                if (oEl) oEl.textContent = origStr;
+                if (bEl && discount > 0) {
+                    bEl.textContent = `-${discount}%`;
+                    bEl.classList.remove("hidden");
                 }
             }
         });
 
-        // Trigger click on the currently active toggle to refresh main display
-        const activeToggle =
-            Array.from(toggles).find(
-                (t) => t.getAttribute("data-active") === "true"
-            ) || toggles[1]; // Default to annual if none active
-        if (activeToggle) (activeToggle as HTMLElement).click();
+        const activeToggle = Array.from(toggles).find(
+            (t) => t.getAttribute("data-active") === "true"
+        ) as HTMLElement;
+        if (activeToggle) activeToggle.click();
     }
-
-    const toggles = document.querySelectorAll(".plan-toggle");
-    const priceDisplay = document.getElementById("premium-price-display");
-    const originalPriceDisplay = document.getElementById(
-        "premium-original-price-display"
-    );
-    const periodDisplay = document.getElementById("premium-period-display");
 
     toggles.forEach((toggle) => {
         toggle.addEventListener("click", () => {
-            // Remove active classes
+            const planKey = toggle.getAttribute("data-plan");
+            // Save selected plan for waitlist
+            localStorage.setItem(
+                "vitalspath_interested_plan",
+                planKey || "annual"
+            );
+
             toggles.forEach((t) => {
                 t.classList.remove(
                     "border-blue-500",
                     "bg-blue-50/50",
                     "dark:bg-blue-900/10",
-                    "shadow-md"
+                    "shadow-lg"
                 );
                 t.classList.add("border-gray-100", "dark:border-gray-800");
                 t.setAttribute("data-active", "false");
             });
 
-            // Add active classes
             toggle.classList.remove("border-gray-100", "dark:border-gray-800");
             toggle.classList.add(
                 "border-blue-500",
                 "bg-blue-50/50",
                 "dark:bg-blue-900/10",
-                "shadow-md"
+                "shadow-lg"
             );
             toggle.setAttribute("data-active", "true");
 
-            // Update displays
             if (priceDisplay && periodDisplay) {
                 const price = toggle.getAttribute("data-price");
                 const originalPrice = toggle.getAttribute(
@@ -498,33 +420,48 @@ const premiumFeatures = [
 
                 priceDisplay.textContent = price;
                 periodDisplay.textContent = period;
-                if (originalPriceDisplay) {
+                if (originalPriceDisplay)
                     originalPriceDisplay.textContent = originalPrice;
+                if (discountBadge && discount) {
+                    discountBadge.textContent = `Launch -${discount}%`;
+                    discountBadge.classList.toggle(
+                        "hidden",
+                        parseInt(discount) <= 0
+                    );
                 }
 
-                // Update main badge
-                const badgeEl = document.getElementById(
-                    "premium-discount-badge"
+                priceDisplay.classList.add("animate-pulse", "text-blue-500");
+                setTimeout(
+                    () =>
+                        priceDisplay.classList.remove(
+                            "animate-pulse",
+                            "text-blue-500"
+                        ),
+                    300
                 );
-                if (badgeEl && discount) {
-                    badgeEl.textContent = `Launch -${discount}%`;
-                    badgeEl.classList.toggle("hidden", parseInt(discount) <= 0);
-                }
-
-                // Animation trigger
-                priceDisplay.classList.add("scale-110", "text-blue-500");
-                setTimeout(() => {
-                    priceDisplay.classList.remove("scale-110", "text-blue-500");
-                }, 200);
             }
         });
     });
 
+    // Handle Free Plan CTA
+    const freeCta = document.querySelector('a[href="#waitlist"]');
+    if (freeCta && freeCta.closest(".lg:col-span-4")) {
+        freeCta.addEventListener("click", () => {
+            localStorage.setItem("vitalspath_interested_plan", "free");
+        });
+    }
+
+    // Handle Premium CTA (main button)
+    const premiumCta = document.querySelector('.lg:w-2/5 a[href="#waitlist"]');
+    if (premiumCta) {
+        premiumCta.addEventListener("click", () => {
+            const activeToggle = Array.from(toggles).find(
+                (t) => t.getAttribute("data-active") === "true"
+            );
+            const planKey = activeToggle?.getAttribute("data-plan") || "annual";
+            localStorage.setItem("vitalspath_interested_plan", planKey);
+        });
+    }
+
     syncPricing();
 </script>
-
-<style>
-    .plan-toggle {
-        @apply border-gray-100 dark:border-gray-800;
-    }
-</style>

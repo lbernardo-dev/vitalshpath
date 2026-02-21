@@ -13,6 +13,7 @@ import {
     Stethoscope,
     FileText,
     ArrowRight,
+    Sparkles,
 } from "lucide-react";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
@@ -25,274 +26,237 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<section id="features" class="py-12 md:py-24 relative bg-white dark:bg-black">
-    <div class="container mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span
-                class="inline-block px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm font-semibold mb-4 text-blue-500"
+<section
+    id="features"
+    class="py-24 relative overflow-hidden bg-white dark:bg-black"
+>
+    <!-- Decorative background elements -->
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+    <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
             >
-                {t("features.badge")}
-            </span>
+                <Sparkles className="w-4 h-4 text-blue-500" />
+                <span
+                    class="text-sm font-medium text-blue-600 dark:text-blue-400"
+                    >{t("features.badge")}</span
+                >
+            </div>
             <h2
-                class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+                class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight"
             >
                 {t("features.title")}<br />
                 <span
                     class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                    >{t("features.titleHighlight")}</span
                 >
+                    {t("features.titleHighlight")}
+                </span>
             </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                {t("features.subtitle")}
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-3xl shadow-sm lg:col-span-1 lg:row-span-2"
-            >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Family Profiles - Large Card -->
+            <div class="lg:col-span-2 lg:row-span-2 reveal reveal-left">
                 <div
-                    class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg mb-6"
+                    class="h-full liquid-glass p-10 group hover:scale-[1.01] transition-all duration-500"
                 >
-                    <Users className="w-7 h-7" />
-                </div>
-                <h3
-                    class="text-2xl font-bold text-gray-900 dark:text-white mb-3"
-                >
-                    {t("features.items.profiles.title")}
-                </h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-6">
-                    {t("features.items.profiles.description")}
-                </p>
-                <div class="flex items-center gap-2">
                     <div
-                        class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-400 to-pink-500 flex items-center justify-center text-white text-xs font-bold"
+                        class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform"
                     >
-                        M
+                        <Users className="w-8 h-8 text-white" />
                     </div>
+                    <h3
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-4"
+                    >
+                        {t("features.items.profiles.title")}
+                    </h3>
+                    <p
+                        class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md"
+                    >
+                        {t("features.items.profiles.description")}
+                    </p>
+
+                    <!-- Interactive profile preview -->
                     <div
-                        class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold"
+                        class="flex items-center gap-4 p-6 rounded-3xl bg-white/50 dark:bg-white/5 border border-white dark:border-white/10 shadow-xl shadow-black/5"
                     >
-                        P
+                        <div class="flex -space-x-3">
+                            {
+                                ["pink", "blue", "green", "purple"].map(
+                                    (color, i) => (
+                                        <div
+                                            class={`w-12 h-12 rounded-full bg-gradient-to-br from-${color}-400 to-${color}-600 border-2 border-white dark:border-gray-900 flex items-center justify-center text-white font-bold text-sm shadow-lg`}
+                                        >
+                                            {["M", "P", "H", "A"][i]}
+                                        </div>
+                                    )
+                                )
+                            }
+                        </div>
+                        <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2">
+                        </div>
+                        <p
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400"
+                        >
+                            {t("hero.labels.familyProfiles")}
+                        </p>
                     </div>
+                </div>
+            </div>
+
+            <!-- Treatments (replacing Scheduler) -->
+            <div class="reveal stagger-1">
+                <div
+                    class="h-full liquid-glass p-8 group hover:scale-[1.02] transition-all duration-300"
+                >
                     <div
-                        class="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center text-white text-xs font-bold"
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
                     >
-                        H
+                        <Stethoscope className="w-6 h-6 text-white" />
                     </div>
+                    <h4
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                    >
+                        {t("features.items.treatments.title")}
+                    </h4>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
+                        {t("features.items.treatments.description")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Medication -->
+            <div class="reveal stagger-2">
+                <div
+                    class="h-full liquid-glass p-8 group hover:scale-[1.02] transition-all duration-300"
+                >
                     <div
-                        class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-400 to-purple-500 flex items-center justify-center text-white text-xs font-bold"
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center mb-6 shadow-lg shadow-red-500/20 group-hover:scale-110 transition-transform"
                     >
-                        A
+                        <Syringe className="w-6 h-6 text-white" />
+                    </div>
+                    <h4
+                        class="text-xl font-bold text-gray-900 dark:text-white mb-2"
+                    >
+                        {t("features.items.medication.title")}
+                    </h4>
+                    <p
+                        class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                    >
+                        {t("features.items.medication.description")}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Reports - Medium Card -->
+            <div class="lg:col-span-2 reveal stagger-1">
+                <div
+                    class="h-full liquid-glass p-8 group hover:scale-[1.01] transition-all duration-500 flex gap-6 items-center"
+                >
+                    <div
+                        class="hidden sm:flex w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 items-center justify-center shadow-lg shadow-teal-500/20 group-hover:rotate-3 transition-transform flex-shrink-0"
+                    >
+                        <FileText className="w-10 h-10 text-white" />
+                    </div>
+                    <div>
+                        <h4
+                            class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+                        >
+                            {t("features.items.reports.title")}
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            {t("features.items.reports.description")}
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
+            <!-- Symptoms (replacing Privacy) -->
+            <div class="reveal stagger-2">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white shadow-lg mb-4"
+                    class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Brain className="w-6 h-6" />
+                    <Thermometer
+                        className="w-8 h-8 text-green-500 mb-4 group-hover:scale-110 transition-transform"
+                    />
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                        {t("features.items.symptoms.title")}
+                    </h5>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                        {t("features.items.symptoms.description")}
+                    </p>
                 </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.scheduler.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.scheduler.description")}
-                </p>
             </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
+            <div class="reveal stagger-3">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white shadow-lg mb-4"
+                    class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Shield className="w-6 h-6" />
+                    <Activity
+                        className="w-8 h-8 text-blue-500 mb-4 group-hover:scale-110 transition-transform"
+                    />
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                        {t("features.items.wellness.title")}
+                    </h5>
+                    <p class="text-xs text-gray-500">
+                        {t("features.items.wellness.description")}
+                    </p>
                 </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.privacy.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.privacy.description")}
-                </p>
             </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
+            <div class="reveal stagger-4">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white shadow-lg mb-4"
+                    class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Syringe className="w-6 h-6" />
+                    <Calendar
+                        className="w-8 h-8 text-purple-500 mb-4 group-hover:scale-110 transition-transform"
+                    />
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                        {t("features.items.calendar.title")}
+                    </h5>
+                    <p class="text-xs text-gray-500">
+                        {t("features.items.calendar.description")}
+                    </p>
                 </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.medication.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.medication.description")}
-                </p>
             </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
+            <!-- Metrics (replacing Notifications) -->
+            <div class="reveal stagger-5">
                 <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-lg mb-4"
+                    class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Activity className="w-6 h-6" />
+                    <Activity
+                        className="w-8 h-8 text-orange-500 mb-4 group-hover:scale-110 transition-transform"
+                    />
+                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                        {t("features.items.metrics.title")}
+                    </h5>
+                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                        {t("features.items.metrics.description")}
+                    </p>
                 </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.wellness.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.wellness.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <Calendar className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.calendar.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.calendar.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <ClipboardList className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.tasks.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.tasks.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <Bell className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.notifications.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.notifications.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <Heart className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.widgets.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.widgets.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <Thermometer className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.symptoms.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.symptoms.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <Stethoscope className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.treatments.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.treatments.description")}
-                </p>
-            </div>
-
-            <div
-                class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-3xl shadow-sm"
-            >
-                <div
-                    class="w-12 h-12 rounded-2xl bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white shadow-lg mb-4"
-                >
-                    <FileText className="w-6 h-6" />
-                </div>
-                <h3
-                    class="text-xl font-bold text-gray-900 dark:text-white mb-2"
-                >
-                    {t("features.items.reports.title")}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("features.items.reports.description")}
-                </p>
             </div>
         </div>
 
-        <div class="mt-20 text-center">
+        <!-- Footer CTA in section -->
+        <div class="mt-24 text-center reveal reveal-scale">
             <a
                 href="#waitlist"
-                class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold hover:underline group"
+                class="inline-flex items-center gap-3 px-10 py-5 rounded-[32px] bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-bold text-lg hover:scale-105 transition-all shadow-2xl shadow-blue-500/20"
             >
-                {t("waitlist.form.button")}
-                <ArrowRight
-                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                />
+                {t("features.cta.primary")}
+                <ArrowRight className="w-6 h-6" />
             </a>
         </div>
     </div>

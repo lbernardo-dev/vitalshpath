@@ -39,7 +39,9 @@ const t = useTranslations(lang);
     <div class="container mx-auto px-6 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <!-- Left content -->
-            <div class="flex-1 text-center lg:text-left max-w-2xl">
+            <div
+                class="flex-1 text-center lg:text-left max-w-2xl reveal reveal-left"
+            >
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-blue-400/20 mb-8 backdrop-blur-sm"
                 >
@@ -53,7 +55,7 @@ const t = useTranslations(lang);
                 </div>
 
                 <h1
-                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight"
+                    class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight stagger-1"
                 >
                     {t("hero.title")}
                     <span class="block text-cyan-500"
@@ -62,36 +64,36 @@ const t = useTranslations(lang);
                 </h1>
 
                 <p
-                    class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+                    class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed stagger-2"
                     set:html={t("hero.subtitle")}
                 >
                 </p>
 
                 <!-- Feature pills -->
                 <div
-                    class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10"
+                    class="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10 stagger-3"
                 >
                     <div
-                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm backdrop-blur-sm"
                     >
                         <Users className="w-4 h-4 text-blue-500" />
-                        <span class="text-gray-700 dark:text-gray-300"
+                        <span class="text-gray-700 dark:text-gray-200"
                             >{t("hero.features.profiles")}</span
                         >
                     </div>
                     <div
-                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm backdrop-blur-sm"
                     >
                         <Shield className="w-4 h-4 text-green-500" />
-                        <span class="text-gray-700 dark:text-gray-300"
+                        <span class="text-gray-700 dark:text-gray-200"
                             >{t("hero.features.privacy")}</span
                         >
                     </div>
                     <div
-                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800/50 text-sm"
+                        class="flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-white/5 border border-transparent dark:border-white/10 text-sm backdrop-blur-sm"
                     >
                         <Heart className="w-4 h-4 text-red-400" />
-                        <span class="text-gray-700 dark:text-gray-300"
+                        <span class="text-gray-700 dark:text-gray-200"
                             >{t("hero.features.languages")}</span
                         >
                     </div>
@@ -99,7 +101,7 @@ const t = useTranslations(lang);
 
                 <!-- CTA buttons -->
                 <div
-                    class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+                    class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 stagger-4"
                 >
                     <a
                         href="#waitlist"
@@ -122,11 +124,18 @@ const t = useTranslations(lang);
             </div>
 
             <!-- Right: 3D Phone Mockup -->
-            <div class="flex-1 relative lg:max-w-xl">
-                <div class="relative mx-auto" style="perspective: 1000px;">
+            <div
+                class="flex-1 relative lg:max-w-xl reveal reveal-right stagger-2"
+            >
+                <div
+                    id="hero-scene"
+                    class="relative mx-auto"
+                    style="perspective: 1200px;"
+                >
                     <!-- Main phone -->
                     <div
-                        class="relative transform-gpu transition-transform duration-500 hover:rotate-y-0"
+                        id="hero-phone"
+                        class="relative transform-gpu transition-all duration-700 ease-out"
                         style="transform: rotateY(-5deg) rotateX(5deg);"
                     >
                         <!-- Phone frame -->
@@ -195,7 +204,8 @@ const t = useTranslations(lang);
                         <!-- Floating cards -->
                         <!-- Wellness Score -->
                         <div
-                            class="absolute -left-16 sm:-left-24 top-[10%] w-44 transform-gpu animate-float"
+                            class="parallax-item absolute -left-16 sm:-left-24 top-[10%] w-44 transform-gpu animate-float"
+                            data-speed="0.05"
                             style="animation-delay: 0s;"
                         >
                             <div class="liquid-glass p-4 rounded-3xl">
@@ -230,7 +240,8 @@ const t = useTranslations(lang);
 
                         <!-- Medication reminder -->
                         <div
-                            class="absolute -right-12 sm:-right-20 top-[35%] w-48 transform-gpu animate-float"
+                            class="parallax-item absolute -right-12 sm:-right-20 top-[35%] w-48 transform-gpu animate-float"
+                            data-speed="0.07"
                             style="animation-delay: 1.5s;"
                         >
                             <div class="liquid-glass p-4 rounded-3xl">
@@ -274,7 +285,8 @@ const t = useTranslations(lang);
 
                         <!-- Family profiles -->
                         <div
-                            class="absolute -left-12 sm:-left-16 bottom-[12%] w-52 transform-gpu animate-float"
+                            class="parallax-item absolute -left-12 sm:-left-16 bottom-[12%] w-52 transform-gpu animate-float"
+                            data-speed="0.03"
                             style="animation-delay: 2.5s;"
                         >
                             <div class="liquid-glass p-4 rounded-3xl">
@@ -320,7 +332,7 @@ const t = useTranslations(lang);
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 reveal delay-500">
         <div
             class="w-6 h-10 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-start justify-center p-2"
         >
@@ -332,7 +344,56 @@ const t = useTranslations(lang);
     </div>
 </section>
 
+<script>
+    // Mouse Parallax Logic
+    const scene = document.getElementById("hero-scene");
+    const phone = document.getElementById("hero-phone");
+    const items = document.querySelectorAll(".parallax-item");
+
+    if (scene && phone) {
+        window.addEventListener("mousemove", (e) => {
+            const x = (window.innerWidth / 2 - e.pageX) / 25;
+            const y = (window.innerHeight / 2 - e.pageY) / 25;
+
+            phone.style.transform = `rotateY(${x - 5}deg) rotateX(${y + 5}deg)`;
+
+            items.forEach((item) => {
+                const speed = parseFloat(
+                    (item as HTMLElement).dataset.speed || "0.05"
+                );
+                const ix = (window.innerWidth / 2 - e.pageX) * speed;
+                const iy = (window.innerHeight / 2 - e.pageY) * speed;
+                (
+                    item as HTMLElement
+                ).style.transform = `translate(${ix}px, ${iy}px)`;
+            });
+        });
+    }
+
+    // Specular shine reaction
+    const cards = document.querySelectorAll(".liquid-glass");
+    cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = (card as HTMLElement).getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const shine = card.querySelector("::before") as any; // CSS handled
+            (card as HTMLElement).style.setProperty("--x", `${x}px`);
+            (card as HTMLElement).style.setProperty("--y", `${y}px`);
+        });
+    });
+</script>
+
 <style>
+    .liquid-glass:hover::before {
+        background: radial-gradient(
+            circle at var(--x, 50%) var(--y, 50%),
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 60%
+        );
+    }
+
     @keyframes float {
         0%,
         100% {

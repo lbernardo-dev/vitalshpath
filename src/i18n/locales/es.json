@@ -66,6 +66,7 @@
     "badge": "Un Hub, Todas las Soluciones",
     "title": "Todo lo que necesitas.",
     "titleHighlight": "Nada que no uses.",
+    "subtitle": "Todo lo que necesitas para gestionar la salud de tu familia, simplificado en un panel inteligente y potente.",
     "items": {
       "profiles": {
         "title": "Un perfil para cada familiar",
@@ -131,6 +132,9 @@
         "title": "Widgets & Live Activities",
         "description": "Dashboard en pantalla de inicio."
       }
+    },
+    "cta": {
+      "primary": "Únete a la Lista de Espera"
     }
   },
   "deepFeatures": {
@@ -173,37 +177,29 @@
     "title": "Una herramienta de salud",
     "titleHighlight": "verdaderamente completa.",
     "items": {
-      "quick": {
-        "title": "Configuración rápida",
-        "description": "Añade medicamentos y familiares en segundos."
+      "treatments": {
+        "title": "Control de Tratamientos",
+        "description": "Organiza medicamentos asociados a padecimientos médicos."
       },
-      "private": {
-        "title": "100% Privado",
-        "description": "Sin backend. Todo en tu dispositivo."
+      "appointments": {
+        "title": "Citas Médicas",
+        "description": "Gestiona visitas, especialistas y clínicas favoritas."
       },
-      "native": {
-        "title": "100% iOS Nativo",
-        "description": "Swift 6 + SwiftUI 5."
-      },
-      "accessibility": {
-        "title": "Accesibilidad First",
-        "description": "Dynamic Type, VoiceOver."
-      },
-      "languages": {
-        "title": "15 idiomas",
-        "description": "Español, inglés, portugués y más."
-      },
-      "export": {
-        "title": "Export PDF/CSV",
-        "description": "Informes para médicos."
+      "diseases": {
+        "title": "Enfermedades y Condiciones",
+        "description": "Seguimiento detallado del historial de patologías."
       },
       "profiles_unlimited": {
-        "title": "Perfiles Ilimitados",
-        "description": "Gestiona a toda tu familia y conocidos."
+        "title": "Perfiles Familiares",
+        "description": "Gestiona a toda tu familia de forma centralizada."
+      },
+      "medications": {
+        "title": "Medicamentos y Dosis",
+        "description": "Control exhaustivo de tomas, avisos y stock."
       },
       "symptoms_plus": {
         "title": "+100 Síntomas",
-        "description": "Registro exhaustivo de salud y bienestar."
+        "description": "Registro de severidad y fases de recuperación."
       }
     },
     "stats": {
@@ -252,7 +248,24 @@
       "english": "Inglés",
       "moreLanguages": "+ Idiomas"
     },
-    "note": "Capturas reales de la app"
+    "note": "Capturas reales de la app",
+    "subtitle": "VitalsPath ha sido diseñado desde cero para ser un ciudadano de primera clase en el ecosistema Apple, respetando tu privacidad e integrándose con las herramientas que ya usas.",
+    "privacy": {
+      "title": "Privacidad Nativa",
+      "desc": "Tus datos de salud están cifrados en el dispositivo y nunca salen de tu iPhone sin tu permiso."
+    },
+    "sync": {
+      "title": "Sincronización iCloud",
+      "desc": "Mantén todos tus perfiles familiares sincronizados mediante el protocolo cifrado de Apple."
+    },
+    "profiles": {
+      "title": "Perfiles Familiares",
+      "desc": "Gestiona múltiples perfiles con historiales, alergias e información de emergencia de forma independiente."
+    },
+    "metrics": {
+      "title": "Análisis de Salud",
+      "desc": "Visualiza tendencias a largo plazo y el bienestar general de toda tu familia."
+    }
   },
   "waitlist": {
     "badge": "Lanzamiento Q1 2026",
@@ -553,7 +566,8 @@
       "features_title": "Todo lo de Gratis, y además:",
       "feature_desc": "Registros ilimitados en todos los servicios.",
       "privacy_title": "Privacidad 100% On-Device",
-      "privacy_desc": "Tus datos de salud nunca salen de tu iPhone. VitalsPath utiliza el iCloud Keychain y bases de datos locales cifradas para protegerte."
+      "privacy_desc": "Tus datos de salud nunca salen de tu iPhone. VitalsPath utiliza el iCloud Keychain y bases de datos locales cifradas para protegerte.",
+      "badge_discount": "Oferta Lanzamiento: -25%"
     },
     "free": {
       "title": "Gratis",
@@ -658,8 +672,10 @@
     }
   },
   "notificationModes": {
-    "badge": "Alertas Adaptativas",
-    "title": "Notificaciones que se adaptan a ti",
+    "badge": "Notificaciones Intuitivas",
+    "title": "Modos de notificación que se adaptan a ti",
+    "subtitle": "Elige el estilo de notificación perfecto para cada contexto, desde el silencio absoluto hasta patrones que puedes sentir.",
+    "hapticTip": "Disponibilidad de modos adaptada a las capacidades hápticas de tu iPhone (Taptic Engine Gen 3+ recomendado).",
     "modes": {
       "normal": {
         "title": "Normal",
@@ -677,6 +693,32 @@
         "title": "Apagado",
         "desc": "Sin interrupciones, solo badges."
       }
+    },
+    "simulator": {
+      "now": "AHORA",
+      "doseTitle": "Dosis de Ibuprofeno",
+      "ready": "LISTO"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Experiencia Nativa",
+    "title": "Widgets y",
+    "titleHighlight": "Live Activities.",
+    "subtitle": "Información de un vistazo, directo desde tu pantalla de inicio o bloqueo.",
+    "description": "Mantén el control sin abrir la app. Con más de 10 widgets personalizados, Live Activities para seguimiento en tiempo real y soporte completo de Dynamic Island para citas y medicamentos.",
+    "items": {
+      "widgets": {
+        "title": "Más de 10 Widgets",
+        "desc": "Desde recordatorios de medicación hasta resúmenes de salud familiar."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Actualizaciones en tiempo real para tus citas médicas actuales."
+      },
+      "live": {
+        "title": "Live Activities",
+        "desc": "Sigue tu tratamiento de dosis activa directamente en la pantalla de bloqueo."
+      }
     }
   },
   "languages": {
@@ -688,5 +730,15 @@
     "activeUsers": "Usuarios Activos",
     "regions": "Regiones",
     "plansCreated": "Planes Creados"
+  },
+  "survey": {
+    "badge": "Encuesta Rápida",
+    "question": "¿Crees que esta app pueda ser útil para tu familia?",
+    "options": {
+      "yes": "Sí",
+      "no": "No",
+      "maybe": "Quizás"
+    },
+    "thanks": "¡Gracias por participar!"
   }
 }

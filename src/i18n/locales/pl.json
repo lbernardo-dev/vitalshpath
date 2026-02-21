@@ -94,6 +94,22 @@
         "title": "Inteligentne Powiadomienia",
         "description": "Tryb dyskretny i przypominający."
       },
+      "symptoms": {
+        "title": "Śledzenie Objawów",
+        "description": "Szczegółowy log z nasileniem i fazami regeneracji."
+      },
+      "treatments": {
+        "title": "Zarządzanie Leczeniem",
+        "description": "Organizuj schorzenia i powiązane z nimi leki."
+      },
+      "metrics": {
+        "title": "Metryki Zdrowia",
+        "description": "Zaawansowane śledzenie przestrzegania zaleceń, nastroju i wellness rodziny."
+      },
+      "reports": {
+        "title": "Raporty Medyczne",
+        "description": "Generuj szczegółowe i profesjonalne raporty dla specjalistów."
+      },
       "widgets": {
         "title": "Widgety i Live Activities",
         "description": "Panel na ekranie głównym."
@@ -140,29 +156,29 @@
     "title": "Naprawdę kompletne",
     "titleHighlight": "narzędzie zdrowotne.",
     "items": {
-      "quick": {
-        "title": "Szybka konfiguracja",
-        "description": "Dodaj leki i członków rodziny w sekundy."
+      "medications": {
+        "title": "Leki i Dawki",
+        "description": "Pełna kontrola przyjmowania, alerty i zapasy."
       },
-      "private": {
-        "title": "100% Prywatności",
-        "description": "Brak backendu. Wszystko na Twoim urządzeniu."
+      "treatments": {
+        "title": "Zarządzanie Leczeniem",
+        "description": "Organizuj schorzenia i przypisane leki."
       },
-      "native": {
-        "title": "100% Natywne iOS",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "Wizyty Lekarskie",
+        "description": "Zarządzaj wizytami, specjalistami i klinikami."
       },
-      "accessibility": {
-        "title": "Dostępność na pierwszym miejscu",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Profile Rodzinne",
+        "description": "Zarządzaj całą rodziną z jednego miejsca."
       },
-      "languages": {
-        "title": "15 języków",
-        "description": "Hiszpański, angielski, portugalski i więcej."
+      "diseases": {
+        "title": "Choroby i Schorzenia",
+        "description": "Szczegółowe śledzenie historii medycznej."
       },
-      "export": {
-        "title": "Eksport PDF/CSV",
-        "description": "Raporty dla lekarzy."
+      "symptoms_plus": {
+        "title": "+100 Objawów",
+        "description": "Szczegółowy dziennik z nasileniem i fazami powrotu."
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "Angielski",
       "moreLanguages": "+ Języki"
     },
-    "note": "Prawdziwe zrzuty ekranu aplikacji"
+    "note": "Prawdziwe zrzuty ekranu aplikacji",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Premiera Q1 2026",
@@ -503,5 +536,8 @@
       "functional_badge": "100% FUNKCJONALNA",
       "forever_badge": "NA ZAWSZE"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

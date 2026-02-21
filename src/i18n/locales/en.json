@@ -65,7 +65,8 @@
   "features": {
     "badge": "One Hub, All Solutions",
     "title": "Everything you need.",
-    "titleHighlight": "Nothing you won't use.",
+    "titleHighlight": "Nothing you don't.",
+    "subtitle": "Everything you need to manage your family health, simplified into one powerful and smart dashboard.",
     "items": {
       "profiles": {
         "title": "One profile for each family member",
@@ -129,8 +130,11 @@
       },
       "widgets": {
         "title": "Widgets & Live Activities",
-        "description": "Dashboard on home screen."
+        "description": "Home screen dashboard."
       }
+    },
+    "cta": {
+      "primary": "Join the Waitlist"
     }
   },
   "deepFeatures": {
@@ -173,37 +177,29 @@
     "title": "A truly complete",
     "titleHighlight": "health tool.",
     "items": {
-      "quick": {
-        "title": "Quick setup",
-        "description": "Add medications and family members in seconds."
+      "treatments": {
+        "title": "Treatment Control",
+        "description": "Organize medications associated with medical conditions."
       },
-      "private": {
-        "title": "100% Private",
-        "description": "No backend. Everything on your device."
+      "appointments": {
+        "title": "Medical Appointments",
+        "description": "Manage visits, specialists, and favorite clinics."
       },
-      "native": {
-        "title": "100% iOS Native",
-        "description": "Swift 6 + SwiftUI 5."
-      },
-      "accessibility": {
-        "title": "Accessibility First",
-        "description": "Dynamic Type, VoiceOver."
-      },
-      "languages": {
-        "title": "15 languages",
-        "description": "Spanish, English, Portuguese, and more."
-      },
-      "export": {
-        "title": "PDF/CSV Export",
-        "description": "Reports for doctors."
+      "diseases": {
+        "title": "Diseases & Conditions",
+        "description": "Detailed tracking of pathology history."
       },
       "profiles_unlimited": {
-        "title": "Unlimited Profiles",
-        "description": "Manage your entire family and dependents."
+        "title": "Family Profiles",
+        "description": "Manage your entire family from one central place."
+      },
+      "medications": {
+        "title": "Medications & Doses",
+        "description": "Exhaustive control of intakes, alerts, and stock."
       },
       "symptoms_plus": {
         "title": "100+ Symptoms",
-        "description": "Exhaustive health and wellness recording."
+        "description": "Tracking of severity and recovery phases."
       }
     },
     "stats": {
@@ -221,6 +217,23 @@
     "badge": "iOS Interface",
     "title": "Designed to",
     "titleHighlight": "feel like iOS.",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    },
     "sections": {
       "main": "Main",
       "detail": "Detail",
@@ -553,7 +566,8 @@
       "features_title": "Everything in Free, plus:",
       "feature_desc": "Unlimited registrations in all services.",
       "privacy_title": "100% On-Device Privacy",
-      "privacy_desc": "Your health data never leaves your iPhone. VitalsPath uses iCloud Keychain and encrypted local databases to protect you."
+      "privacy_desc": "Your health data never leaves your iPhone. VitalsPath uses iCloud Keychain and encrypted local databases to protect you.",
+      "badge_discount": "Launch Offer: -25%"
     },
     "free": {
       "title": "Free",
@@ -662,8 +676,10 @@
     }
   },
   "notificationModes": {
-    "badge": "Adaptive Alerts",
-    "title": "Notifications that adapt to you",
+    "badge": "Intuitive Notifications",
+    "title": "Notification modes that adapt to you",
+    "subtitle": "Choose the perfect notification style for every context, from absolute silence to patterns you can feel.",
+    "hapticTip": "Mode availability adapted to your iPhone's haptic capabilities (Taptic Engine Gen 3+ recommended).",
     "modes": {
       "normal": {
         "title": "Normal",
@@ -681,6 +697,32 @@
         "title": "Off",
         "desc": "No interruptions, just badges."
       }
+    },
+    "simulator": {
+      "now": "Now",
+      "doseTitle": "Ibuprofen Dose",
+      "ready": "Ready"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Native Experience",
+    "title": "Widgets &",
+    "titleHighlight": "Live Activities.",
+    "subtitle": "Information at a glance, directly from your Home or Lock Screen.",
+    "description": "Stay in control without opening the app. With over 10 custom widgets, Live Activities for real-time tracking, and full Dynamic Island support for appointments and medications.",
+    "items": {
+      "widgets": {
+        "title": "10+ Widgets",
+        "desc": "From medication reminders to family health overviews."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Real-time updates for your current medical appointments."
+      },
+      "live": {
+        "title": "Live Activities",
+        "desc": "Follow your active dose treatment directly from the Lock Screen."
+      }
     }
   },
   "languages": {
@@ -692,5 +734,15 @@
     "activeUsers": "Active Users",
     "regions": "Regions",
     "plansCreated": "Plans Created"
+  },
+  "survey": {
+    "badge": "Quick Survey",
+    "question": "Do you think this app would be useful for your family?",
+    "options": {
+      "yes": "Yes",
+      "no": "No",
+      "maybe": "Maybe"
+    },
+    "thanks": "Thanks for participating!"
   }
 }

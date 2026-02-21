@@ -94,6 +94,22 @@
         "title": "Умные уведомления",
         "description": "Тихий режим и nagging."
       },
+      "symptoms": {
+        "title": "Отслеживание симптомов",
+        "description": "Детальный журнал с тяжестью и фазами выздоровления."
+      },
+      "treatments": {
+        "title": "Управление лечением",
+        "description": "Организуйте заболевания и связанные лекарства."
+      },
+      "metrics": {
+        "title": "Метрики здоровья",
+        "description": "Продвинутое отслеживание приверженности, настроения и благополучия."
+      },
+      "reports": {
+        "title": "Медицинские отчеты",
+        "description": "Создавайте детальные отчеты для специалистов."
+      },
       "widgets": {
         "title": "Виджеты",
         "description": "Dashboard на главном экране."
@@ -140,29 +156,29 @@
     "title": "По-настоящему полный",
     "titleHighlight": "инструмент здоровья.",
     "items": {
-      "quick": {
-        "title": "Быстрая настройка",
-        "description": "Добавьте лекарства за секунды."
+      "medications": {
+        "title": "Лекарства и дозы",
+        "description": "Полный контроль приема, оповещения и склад."
       },
-      "private": {
-        "title": "100% Приватно",
-        "description": "Без сервера. Все на устройстве."
+      "treatments": {
+        "title": "Управление лечением",
+        "description": "Организуйте заболевания и связанные лекарства."
       },
-      "native": {
-        "title": "100% iOS Нативно",
-        "description": "Swift 6 - SwiftUI 5."
+      "appointments": {
+        "title": "Медицинские приемы",
+        "description": "Управляйте визитами, специалистами и клиниками."
       },
-      "accessibility": {
-        "title": "Доступность прежде всего",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Семейные профили",
+        "description": "Управляйте всей семьей из одного места."
       },
-      "languages": {
-        "title": "15 языков",
-        "description": "Испанский, английский, португальский и др."
+      "diseases": {
+        "title": "Болезни и состояния",
+        "description": "Детальное отслеживание медицинской истории."
       },
-      "export": {
-        "title": "Экспорт PDF/CSV",
-        "description": "Отчеты для врачей."
+      "symptoms_plus": {
+        "title": "+100 Симптомов",
+        "description": "Подробный журнал с тяжестью и фазами выздоровления."
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "Английский",
       "moreLanguages": "Языки"
     },
-    "note": "Реальные скриншоты приложения"
+    "note": "Реальные скриншоты приложения",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Запуск Q1 2026",
@@ -503,5 +536,8 @@
       "functional_badge": "100% ФУНКЦИОНАЛЬНО",
       "forever_badge": "НАВСЕГДА"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

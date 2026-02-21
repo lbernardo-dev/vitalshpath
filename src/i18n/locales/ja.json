@@ -94,6 +94,22 @@
         "title": "スマート通知",
         "description": "Discreteモードとしつこさ。"
       },
+      "symptoms": {
+        "title": "症状の追跡",
+        "description": "重症度と回復段階を備えた詳細なログ。"
+      },
+      "treatments": {
+        "title": "治療管理",
+        "description": "疾患と関連する薬を整理します。"
+      },
+      "metrics": {
+        "title": "健康指標",
+        "description": "服用、機嫌、家族の健康の高度な追跡。"
+      },
+      "reports": {
+        "title": "医療レポート",
+        "description": "専門医向けの、詳細で専門的なレポートを作成。"
+      },
       "widgets": {
         "title": "ウィジェットとライブアクティビティ",
         "description": "ホーム画面上のダッシュボード。"
@@ -140,29 +156,29 @@
     "title": "本当に完全な",
     "titleHighlight": "ヘルスツール。",
     "items": {
-      "quick": {
-        "title": "クイックセットアップ",
-        "description": "数秒で薬と家族を追加。"
+      "medications": {
+        "title": "薬と用量",
+        "description": "服用、アラート、在庫の完全なコントロール。"
       },
-      "private": {
-        "title": "100%プライベート",
-        "description": "バックエンドなし。全てデバイス上。"
+      "treatments": {
+        "title": "治療管理",
+        "description": "疾患と関連する薬を整理します。"
       },
-      "native": {
-        "title": "100% iOSネイティブ",
-        "description": "Swift 6 + SwiftUI 5。"
+      "appointments": {
+        "title": "通院・予定",
+        "description": "診察、専門医、クリニックを管理。"
       },
-      "accessibility": {
-        "title": "アクセシビリティファースト",
-        "description": "Dynamic Type、VoiceOver。"
+      "profiles_unlimited": {
+        "title": "家族プロフィール",
+        "description": "一箇所で家族全員を管理。"
       },
-      "languages": {
-        "title": "15言語",
-        "description": "スペイン語、英語、ポルトガル語など。"
+      "diseases": {
+        "title": "疾患と状態",
+        "description": "病歴の詳細な追跡。"
       },
-      "export": {
-        "title": "PDF/CSVエクスポート",
-        "description": "医師向けレポート。"
+      "symptoms_plus": {
+        "title": "100以上の症状",
+        "description": "重症度と回復段階を備えた詳細なログ。"
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "英語",
       "moreLanguages": "+言語"
     },
-    "note": "アプリの実際のスクリーンショット"
+    "note": "アプリの実際のスクリーンショット",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "発売予定 2026年第1四半期",
@@ -503,5 +536,8 @@
       "functional_badge": "100% 機能的",
       "forever_badge": "永久"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

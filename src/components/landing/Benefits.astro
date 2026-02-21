@@ -1,11 +1,11 @@
 ---
 import {
-    Zap,
-    Lock,
-    Smartphone,
-    Globe,
-    Accessibility,
-    FileText,
+    Pill,
+    Stethoscope,
+    Calendar,
+    Activity,
+    Users,
+    Thermometer,
     Heart,
 } from "lucide-react";
 import { type Lang } from "../../i18n/ui-locales";
@@ -45,15 +45,15 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <Zap className="w-7 h-7" />
+                    <Pill className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                 >
-                    {t("benefits.items.quick.title")}
+                    {t("benefits.items.medications.title")}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("benefits.items.quick.description")}
+                    {t("benefits.items.medications.description")}
                 </p>
             </div>
 
@@ -63,15 +63,15 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <Lock className="w-7 h-7" />
+                    <Stethoscope className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                 >
-                    {t("benefits.items.private.title")}
+                    {t("benefits.items.treatments.title")}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("benefits.items.private.description")}
+                    {t("benefits.items.treatments.description")}
                 </p>
             </div>
 
@@ -81,15 +81,15 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <Smartphone className="w-7 h-7" />
+                    <Calendar className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                 >
-                    {t("benefits.items.native.title")}
+                    {t("benefits.items.appointments.title")}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("benefits.items.native.description")}
+                    {t("benefits.items.appointments.description")}
                 </p>
             </div>
 
@@ -99,7 +99,7 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <Heart className="w-7 h-7" />
+                    <Users className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"
@@ -117,15 +117,15 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <Globe className="w-7 h-7" />
+                    <Activity className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"
                 >
-                    {t("benefits.items.languages.title")}
+                    {t("benefits.items.diseases.title")}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    {t("benefits.items.languages.description")}
+                    {t("benefits.items.diseases.description")}
                 </p>
             </div>
 
@@ -135,7 +135,7 @@ const t = useTranslations(lang);
                 <div
                     class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-lg mx-auto mb-5"
                 >
-                    <FileText className="w-7 h-7" />
+                    <Thermometer className="w-7 h-7" />
                 </div>
                 <h3
                     class="text-lg font-bold text-gray-900 dark:text-white mb-2"

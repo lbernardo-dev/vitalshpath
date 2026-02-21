@@ -191,6 +191,11 @@ const jsonLd = {
 			</div>
 		</div>
 		<slot />
-		<SurveyWidget />
+		<SurveyWidget lang={lang} />
+		<script>
+			import { initScrollReveal } from "../lib/scrollReveal";
+			// Initialize scroll reveal animations
+			initScrollReveal();
+		</script>
 	</body>
 </html>

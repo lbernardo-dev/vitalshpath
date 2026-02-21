@@ -94,6 +94,22 @@
         "title": "Notifiche Intelligenti",
         "description": "Modalità discreta e insistente."
       },
+      "symptoms": {
+        "title": "Monitoraggio Sintomi",
+        "description": "Registro dettagliato con gravità e fasi di recupero."
+      },
+      "treatments": {
+        "title": "Gestione Trattamenti",
+        "description": "Organizza le patologie e i farmaci associati."
+      },
+      "metrics": {
+        "title": "Metriche Salute",
+        "description": "Monitoraggio avanzato di aderenza, umore e benessere familiare."
+      },
+      "reports": {
+        "title": "Report Medici",
+        "description": "Genera report dettagliati e professionali per i tuoi specialisti."
+      },
       "widgets": {
         "title": "Widget e Live Activities",
         "description": "Dashboard sulla schermata principale."
@@ -140,29 +156,29 @@
     "title": "Uno strumento sanitario",
     "titleHighlight": "davvero completo.",
     "items": {
-      "quick": {
-        "title": "Configurazione rapida",
-        "description": "Aggiungi farmaci e familiari in pochi secondi."
+      "medications": {
+        "title": "Farmaci e Dosi",
+        "description": "Controllo esaustivo di assunzioni, avvisi e scorte."
       },
-      "private": {
-        "title": "100% Privato",
-        "description": "Nessun backend. Tutto sul tuo dispositivo."
+      "treatments": {
+        "title": "Controllo Trattamenti",
+        "description": "Organizza i farmaci associati alle condizioni mediche."
       },
-      "native": {
-        "title": "100% Nativo iOS",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "Appuntamenti Medici",
+        "description": "Gestisci visite, specialisti e cliniche preferite."
       },
-      "accessibility": {
-        "title": "Accessibilità Prima",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Profili Familiari",
+        "description": "Gestisci tutta la tua famiglia in modo centralizzato."
       },
-      "languages": {
-        "title": "15 lingue",
-        "description": "Spagnolo, Inglese, Portoghese e altre."
+      "diseases": {
+        "title": "Malattie e Condizioni",
+        "description": "Monitoraggio dettagliato della storia clinica."
       },
-      "export": {
-        "title": "Esportazione PDF/CSV",
-        "description": "Report per i medici."
+      "symptoms_plus": {
+        "title": "+100 Sintomi",
+        "description": "Registro della gravità e delle fasi di recupero."
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "Inglese",
       "moreLanguages": "+ Lingue"
     },
-    "note": "Screenshot reali dell'app"
+    "note": "Screenshot reali dell'app",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Lancio Q1 2026",
@@ -593,5 +626,8 @@
       "message": "Il tuo feedback è stato inviato con successo. Lo esamineremo al più presto.",
       "backHome": "Torna alla Home"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

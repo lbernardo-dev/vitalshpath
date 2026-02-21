@@ -94,6 +94,22 @@
         "title": "Slimme Meldingen",
         "description": "Discrete modus en herhalende herinneringen."
       },
+      "symptoms": {
+        "title": "Symptomen Bijhouden",
+        "description": "Gedetailleerd logboek met ernst en herstelfases."
+      },
+      "treatments": {
+        "title": "Behandelingsbeheer",
+        "description": "Organiseer aandoeningen en bijbehorende medicatie."
+      },
+      "metrics": {
+        "title": "Gezondheidsstatistieken",
+        "description": "Geavanceerde tracking van therapietrouw, stemming en gezinswelzijn."
+      },
+      "reports": {
+        "title": "Medische Rapporten",
+        "description": "Genereer gedetailleerde en professionele rapporten voor uw specialisten."
+      },
       "widgets": {
         "title": "Widgets & Live Activiteiten",
         "description": "Dashboard op je startscherm."
@@ -140,29 +156,29 @@
     "title": "Een werkelijk complete",
     "titleHighlight": "gezondheidstool.",
     "items": {
-      "quick": {
-        "title": "Snelle installatie",
-        "description": "Voeg medicatie en gezinsleden toe in seconden."
+      "medications": {
+        "title": "Medicijnen en Doses",
+        "description": "Uitgebreide controle over innames, waarschuwingen en voorraad."
       },
-      "private": {
-        "title": "100% Privé",
-        "description": "Geen backend. Alles op uw apparaat."
+      "treatments": {
+        "title": "Behandelingsbeheer",
+        "description": "Organiseer aandoeningen en bijbehorende medicatie."
       },
-      "native": {
-        "title": "100% iOS Native",
-        "description": "Swift 6 + SwiftUI 5."
+      "appointments": {
+        "title": "Medische Afspraken",
+        "description": "Beheer bezoeken, specialisten en klinieken."
       },
-      "accessibility": {
-        "title": "Toegankelijkheid voorop",
-        "description": "Dynamic Type, VoiceOver."
+      "profiles_unlimited": {
+        "title": "Familieprofielen",
+        "description": "Beheer je hele gezin vanaf één centrale plek."
       },
-      "languages": {
-        "title": "15 talen",
-        "description": "Spaans, Engels, Portugees en meer."
+      "diseases": {
+        "title": "Ziekten en Condities",
+        "description": "Gedetailleerde opvolging van de medische geschiedenis."
       },
-      "export": {
-        "title": "PDF/CSV Export",
-        "description": "Rapporten voor artsen."
+      "symptoms_plus": {
+        "title": "+100 Symptomen",
+        "description": "Gedetailleerd logboek met ernst en herstelfasen."
       }
     },
     "stats": {
@@ -211,7 +227,24 @@
       "english": "Engels",
       "moreLanguages": "+ Talen"
     },
-    "note": "Echte app screenshots"
+    "note": "Echte app screenshots",
+    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "privacy": {
+      "title": "Secure by Design",
+      "desc": "Health data is encrypted on-device and never shared without your permission."
+    },
+    "sync": {
+      "title": "iCloud Encrypted",
+      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+    },
+    "profiles": {
+      "title": "Family First",
+      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+    },
+    "metrics": {
+      "title": "Health Insights",
+      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+    }
   },
   "waitlist": {
     "badge": "Lancering Q1 2026",
@@ -503,5 +536,8 @@
       "functional_badge": "100% FUNCTIONEEL",
       "forever_badge": "VOOR ALTIJD"
     }
+  },
+  "notificationModes": {
+    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
   }
 }

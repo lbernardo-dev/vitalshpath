@@ -53,16 +53,18 @@ const t = useTranslations(lang);
                 id="waitlist-email"
                 required
                 placeholder={t("waitlist.form.placeholder")}
-                class="w-full pl-12 pr-4 py-4 md:py-5 bg-white/5 border border-white/10 rounded-2xl text-[15px] sm:text-base text-white placeholder:text-gray-400 focus:outline-none focus:border-cyan-500 focus:bg-white/10 transition-all font-medium autofill-fix relative z-10 backdrop-blur-md"
+                class="w-full pl-12 pr-4 py-4 md:py-5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl text-[15px] sm:text-base text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 dark:focus:border-cyan-500 focus:bg-white/40 dark:focus:bg-white/10 transition-all font-bold autofill-fix relative z-10 backdrop-blur-md"
             />
         </div>
 
         <button
             type="submit"
             id="waitlist-submit"
-            class="w-full py-4 md:py-5 bg-gray-900 dark:bg-white text-white dark:text-gray-950 font-black rounded-2xl shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] hover:-translate-y-1 active:translate-y-0 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group hover:bg-cyan-500 dark:hover:bg-cyan-400"
+            class="w-full py-4 md:py-5 bg-gray-900 dark:bg-white text-white dark:text-gray-950 font-black rounded-2xl shadow-xl hover:shadow-blue-500/20 dark:hover:shadow-cyan-500/20 hover:-translate-y-1 active:translate-y-0 active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 group hover:bg-blue-600 dark:hover:bg-cyan-400"
         >
-            <span id="waitlist-button-text" class="whitespace-nowrap text-base"
+            <span
+                id="waitlist-button-text"
+                class="whitespace-nowrap text-base uppercase tracking-widest"
                 >{t("waitlist.form.button")}</span
             >
             <Bell
@@ -150,7 +152,13 @@ const t = useTranslations(lang);
             errorMsg?.classList.add("hidden");
 
             try {
-                const result = await subscribeToWaitlist(email, "landing");
+                const interestedPlan =
+                    localStorage.getItem("vitalspath_interested_plan") ||
+                    "unknown";
+                const result = await subscribeToWaitlist(email, "landing", {
+                    plan: interestedPlan,
+                    browser_lang: document.documentElement.lang,
+                });
 
                 if (result.success) {
                     successMsg?.classList.remove("hidden");
@@ -184,6 +192,10 @@ const t = useTranslations(lang);
     .autofill-fix:-webkit-autofill:active {
         transition: background-color 5000s ease-in-out 0s,
             color 5000s ease-in-out 0s !important;
+        -webkit-text-fill-color: #111827 !important;
+    }
+
+    :global(.dark) .autofill-fix:-webkit-autofill {
         -webkit-text-fill-color: white !important;
     }
 </style>

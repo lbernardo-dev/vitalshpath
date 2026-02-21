@@ -59,7 +59,7 @@ export const updateHeartbeat = async (): Promise<void> => {
 };
 
 // Subscribe to waitlist
-export const subscribeToWaitlist = async (email: string, source: string = 'landing'): Promise<{ success: boolean; error?: string }> => {
+export const subscribeToWaitlist = async (email: string, source: string = 'landing', metadata: any = {}): Promise<{ success: boolean; error?: string }> => {
     const supabase = getSupabase();
 
     if (!supabase) {
@@ -70,6 +70,7 @@ export const subscribeToWaitlist = async (email: string, source: string = 'landi
         const { error } = await (supabase as any).from('waitlist').insert({
             email: email.toLowerCase().trim(),
             source,
+            metadata: metadata || {}
         });
 
         if (error) {
