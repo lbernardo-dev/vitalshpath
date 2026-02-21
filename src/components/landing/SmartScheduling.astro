@@ -412,29 +412,29 @@ const steps = [
                         </div>
                     </div>
 
-                    <!-- Mobile Simulation Content (Vertical Layout) -->
+                    <!-- Mobile Simulation Content (Vertical Layout - Absolute Positioning) -->
                     <div
                         id="algo-sim-container-mobile"
-                        class="flex md:hidden relative w-full py-8 flex-col items-center gap-12"
+                        class="block md:hidden relative w-full h-[600px] max-w-[320px] mx-auto mt-4"
                     >
                         <!-- Vertical Flow Paths SVG -->
                         <svg
                             class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible"
-                            viewBox="0 0 300 600"
+                            viewBox="0 0 320 600"
                         >
                             <!-- Input A Path (Left to center down) -->
                             <path
-                                d="M 80 80 Q 80 150 150 220"
+                                d="M 68 68 Q 68 180 160 260"
                                 class="stroke-blue-500/40 stroke-[3] fill-none"
                                 stroke-linecap="round"></path>
                             <!-- Input B Path (Right to center down) -->
                             <path
-                                d="M 220 80 Q 220 150 150 220"
+                                d="M 252 68 Q 252 180 160 260"
                                 class="stroke-indigo-500/40 stroke-[3] fill-none"
                                 stroke-linecap="round"></path>
                             <!-- Output Path (Center down to bottom) -->
                             <path
-                                d="M 150 400 L 150 480"
+                                d="M 160 260 L 160 540"
                                 class="stroke-green-500/40 stroke-[3] fill-none"
                                 stroke-linecap="round"></path>
 
@@ -447,7 +447,7 @@ const steps = [
                                 <animateMotion
                                     dur="2.5s"
                                     repeatCount="indefinite"
-                                    path="M 80 80 Q 80 150 150 220"
+                                    path="M 68 68 Q 68 180 160 260"
                                 ></animateMotion>
                             </circle>
                             <circle
@@ -459,7 +459,7 @@ const steps = [
                                     dur="2.5s"
                                     repeatCount="indefinite"
                                     begin="1.25s"
-                                    path="M 220 80 Q 220 150 150 220"
+                                    path="M 252 68 Q 252 180 160 260"
                                 ></animateMotion>
                             </circle>
                             <circle
@@ -471,93 +471,86 @@ const steps = [
                                     dur="2s"
                                     repeatCount="indefinite"
                                     begin="0.8s"
-                                    path="M 150 400 L 150 480"></animateMotion>
+                                    path="M 160 260 L 160 540"></animateMotion>
                             </circle>
                         </svg>
 
-                        <!-- Mobile Top: Inputs -->
-                        <div
-                            class="flex justify-between w-full max-w-[240px] z-20"
-                        >
-                            <!-- Input A -->
-                            <div class="group relative">
-                                <div
-                                    class="w-14 h-14 rounded-2xl bg-white dark:bg-gray-900 border border-blue-500/20 flex items-center justify-center shadow-xl"
-                                >
-                                    <Pill className="w-6 h-6 text-blue-500" />
-                                </div>
-                                <div
-                                    class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] font-black text-blue-500/60 uppercase tracking-widest whitespace-nowrap"
-                                >
-                                    Input A
-                                </div>
+                        <!-- Input A -->
+                        <div class="group absolute top-[40px] left-[40px] z-20">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white dark:bg-gray-900 border border-blue-500/20 flex items-center justify-center shadow-xl"
+                            >
+                                <Pill className="w-6 h-6 text-blue-500" />
                             </div>
+                            <div
+                                class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] font-black text-blue-500/60 uppercase tracking-widest whitespace-nowrap"
+                            >
+                                Input A
+                            </div>
+                        </div>
 
-                            <!-- Input B -->
-                            <div class="group relative">
-                                <div
-                                    class="w-14 h-14 rounded-2xl bg-white dark:bg-gray-900 border border-indigo-500/20 flex items-center justify-center shadow-xl"
-                                >
-                                    <Clock
-                                        className="w-6 h-6 text-indigo-500"
-                                    />
-                                </div>
-                                <div
-                                    class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] font-black text-indigo-500/60 uppercase tracking-widest whitespace-nowrap"
-                                >
-                                    Input B
-                                </div>
+                        <!-- Input B -->
+                        <div
+                            class="group absolute top-[40px] right-[40px] z-20"
+                        >
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white dark:bg-gray-900 border border-indigo-500/20 flex items-center justify-center shadow-xl"
+                            >
+                                <Clock className="w-6 h-6 text-indigo-500" />
+                            </div>
+                            <div
+                                class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[9px] font-black text-indigo-500/60 uppercase tracking-widest whitespace-nowrap"
+                            >
+                                Input B
                             </div>
                         </div>
 
                         <!-- Mobile Center: The Silicon Core -->
-                        <div class="relative z-10 shrink-0 mt-8 mb-8">
+                        <div
+                            class="absolute top-[260px] left-[160px] -translate-x-1/2 -translate-y-1/2 z-10 w-40 h-40 flex items-center justify-center"
+                        >
                             <div
                                 class="absolute inset-0 bg-purple-500/20 rounded-full blur-[60px] animate-pulse"
                             >
                             </div>
 
-                            <div
-                                class="relative w-48 h-48 flex items-center justify-center -m-4"
+                            <svg
+                                class="absolute inset-0 w-full h-full rotate-animation"
                             >
-                                <svg
-                                    class="absolute inset-0 w-full h-full rotate-animation"
-                                >
-                                    <circle
-                                        cx="96"
-                                        cy="96"
-                                        r="90"
-                                        fill="none"
-                                        class="stroke-gray-200 dark:stroke-gray-800"
-                                        stroke-width="1"></circle>
-                                    <circle
-                                        cx="96"
-                                        cy="96"
-                                        r="90"
-                                        fill="none"
-                                        class="stroke-purple-500/40"
-                                        stroke-width="2"
-                                        stroke-dasharray="10 150"
-                                        stroke-linecap="round"></circle>
-                                </svg>
+                                <circle
+                                    cx="80"
+                                    cy="80"
+                                    r="76"
+                                    fill="none"
+                                    class="stroke-gray-200 dark:stroke-gray-800"
+                                    stroke-width="1"></circle>
+                                <circle
+                                    cx="80"
+                                    cy="80"
+                                    r="76"
+                                    fill="none"
+                                    class="stroke-purple-500/40"
+                                    stroke-width="2"
+                                    stroke-dasharray="10 150"
+                                    stroke-linecap="round"></circle>
+                            </svg>
 
-                                <div class="relative z-20">
-                                    <div
-                                        class="w-20 h-20 bg-gradient-to-br from-gray-900 via-purple-950 to-black rounded-[1.5rem] border-2 border-white/10 shadow-3xl flex items-center justify-center relative overflow-hidden ring-1 ring-purple-500/30"
-                                    >
-                                        <Image
-                                            src={appIcon}
-                                            alt="VitalsPath Core"
-                                            class="w-10 h-10 relative z-10 animate-pulse rounded-2xl"
-                                        />
-                                    </div>
+                            <div class="relative z-20">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-gray-900 via-purple-950 to-black rounded-[1.5rem] border-2 border-white/10 shadow-3xl flex items-center justify-center relative overflow-hidden ring-1 ring-purple-500/30"
+                                >
+                                    <Image
+                                        src={appIcon}
+                                        alt="VitalsPath Core"
+                                        class="w-10 h-10 relative z-10 animate-pulse rounded-2xl"
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         <!-- Mobile Bottom: Outputs -->
                         <div
-                            class="flex flex-col gap-3 w-full max-w-[200px] z-20 relative"
+                            class="absolute top-[400px] left-[160px] -translate-x-1/2 flex flex-col gap-3 w-[220px] z-20"
                         >
                             {
                                 [1, 2, 3].map((i) => (
