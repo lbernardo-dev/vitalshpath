@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://lbernardo-dev.github.io',
-    base: '/vitalshpath_landing',
+    base: '/vitalshpath',
     server: {
         port: 3000,
     },
