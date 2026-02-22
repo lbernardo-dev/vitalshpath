@@ -35,10 +35,14 @@ export default defineConfig({
                     pl: 'pl-PL',
                 },
             },
-            changefreq: 'weekly',
-            priority: 0.7,
-            lastmod: new Date(),
             filter: (page) => !page.includes('/404'),
+            serialize(item) {
+                return {
+                    ...item,
+                    changefreq: 'weekly',
+                    priority: 0.7,
+                };
+            },
         }),
     ],
 });
