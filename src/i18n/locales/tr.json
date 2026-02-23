@@ -1,156 +1,177 @@
 {
   "meta": {
-    "title": "VitalsPath - Aile Sağlık Merkeziniz",
-    "description": "VitalsPath - Aile sağlık merkeziniz. Tüm aileniz için ilaçları, randevuları, semptomları ve sağlığı tek akıllı iOS uygulamasında yönetin."
+    "title": "VitalsPath - Ailenizin Sağlık Merkezi",
+    "description": "VitalsPath - Ailenizin Sağlık Merkezi. Tüm ailenizin ilaçlarını, randevularını, semptomlarını ve sağlığını tek bir akıllı iOS uygulamasında yönetin."
   },
   "nav": {
     "features": "Özellikler",
-    "scheduler": "Planlayıcı",
+    "scheduler": "Zamanlayıcı",
     "ecosystem": "Ekosistem",
     "benefits": "Avantajlar",
     "pricing": "Planlar",
-    "waitlist": "Bekleme Listesine Katıl",
+    "waitlist": "Listeye Katıl",
     "gallery": "Galeri"
   },
   "hero": {
-    "badge": "Aile Sağlık Merkezi · iOS 18+",
-    "title": "Tüm ailenizin sağlığı,",
+    "badge": "Aile Sağlığı Merkezi · iOS 18+",
+    "title": "Ailenizin tüm sağlığı,",
     "titleHighlight": "tek bir uygulamada.",
-    "subtitle": "<strong>VitalsPath</strong> ilaçları, randevuları, semptomları, ruh halini, görevleri ve sağlık metriklerini merkezi olarak yönetir.",
+    "subtitle": "<strong>VitalsPath</strong> ilaçları, randevuları, semptomları, ruh halini, görevleri ve sağlık metriklerini bir araya getirir.",
     "cta": {
-      "primary": "Bekleme Listesine Katıl",
-      "secondary": "VitalsPath'i Keşfet"
+      "primary": "Listeye Katıl",
+      "secondary": "Keşfet"
     },
     "features": {
-      "profiles": "Çoklu aile profilleri",
-      "privacy": "Tamamen cihazınızda",
-      "languages": "15 dil"
+      "profiles": "Çoklu Aile Profili",
+      "privacy": "%100 Cihazınızda",
+      "languages": "15 Dil Desteği"
+    },
+    "labels": {
+      "wellness": "Zindelik",
+      "vitamind3": "Vitamin D3",
+      "familyProfiles": "Aile Profilleri"
     }
   },
   "problems": {
     "badge": "Gerçek Zorluk",
     "title": "Aile sağlığını yönetmek",
     "titleLine2": "olması gerekenden daha zor.",
-    "subtitle": "Birden fazla uygulama, başarısız hatırlatıcılar, dağınık bilgiler.",
+    "subtitle": "Çok fazla uygulama, unutulan hatırlatıcılar, dağınık bilgiler.",
     "items": {
       "medication": {
         "title": "\"İlacımı aldım mı almadım mı?\"",
-        "description": "Not hatırlatıcıları yeterli değil."
+        "description": "Basit not hatırlatıcıları yeterli değil."
       },
       "profiles": {
-        "title": "Her aile üyesi için ayrı bir uygulama",
-        "description": "Merkezi bir yer olmalı."
+        "title": "Her aile üyesi için farklı uygulama",
+        "description": "Merkezi bir merkeze ihtiyacınız var."
       },
       "appointments": {
-        "title": "Tıbbi randevular her yerde",
-        "description": "Kim nereye ve ne zaman gidecek?"
+        "title": "Randevular her yerde dağınık",
+        "description": "Kim, ne zaman, nereye gitmeli?"
       },
       "symptoms": {
-        "title": "\"Hangi semptomu yaşamıştın?\"",
-        "description": "Önemli detayları hatırlamıyorsunuz."
+        "title": "\"O semptom neydi?\"",
+        "description": "Doktora gittiğinizde önemli detayları unutuyorsunuz."
       },
       "interactions": {
         "title": "Bu ilaçları birlikte alabilir miyim?",
-        "description": "Etkileşimler tehlikeli olabilir."
+        "description": "İlaç etkileşimleri ciddidir."
       },
       "tasks": {
         "title": "Unutulan takip görevleri",
-        "description": "Test iste, reçene yenile..."
+        "description": "Laboratuvar testleri, reçete yenilemeleri vb."
       }
     },
-    "cta": "VitalsPath tüm bunları çözüyor..."
+    "cta": "VitalsPath tüm bunları çözer..."
   },
   "features": {
     "badge": "Tek Merkez, Tüm Çözümler",
     "title": "İhtiyacınız olan her şey.",
-    "titleHighlight": "Kullanmayacağınız hiçbir şey yok.",
+    "titleHighlight": "Gereksiz hiçbir şey yok.",
+    "subtitle": "Akıllı ve güçlü bir panelde basitleştirilmiş aile sağlığı yönetimi.",
     "items": {
       "profiles": {
-        "title": "Her aile üyesi için bir profil",
-        "description": "Yetişkinler, çocuklar, yaşlılar. Her biri kendi verileri, geçmişi, alerjileri ve acil durum kişileriyle."
+        "title": "Her üye için profil",
+        "description": "Yetişkinler, çocuklar, yaşlılar. Her biri için ayrı veriler, geçmiş, alerjiler ve acil durum kontakları."
       },
       "scheduler": {
-        "title": "Akıllı Planlayıcı",
-        "description": "Dozları örtüşme olmayacak şekilde dağıtır."
+        "title": "Akıllı Zamanlayıcı",
+        "description": "Dozları çakışmaları önleyerek dağıtır."
       },
       "privacy": {
-        "title": "Tamamen Gizli",
-        "description": "Verileriniz asla cihazınızdan ayrılmaz."
+        "title": "%100 Özel",
+        "description": "Verileriniz asla cihazınızdan çıkmaz."
       },
       "medication": {
-        "title": "Doz Merkezli İlaç Yönetimi",
-        "description": "Her doz durum ve izlenebilirlik ile."
+        "title": "Doz Odaklı Yönetim",
+        "description": "Durum ve izlenebilirlik ile her dozun kaydı."
       },
       "wellness": {
-        "title": "Sağlık Puanı",
-        "description": "Çok faktörlü sağlık metriği."
+        "title": "Zindelik Puanı",
+        "description": "Çok faktörlü sağlık endeksi."
       },
       "calendar": {
         "title": "Sonsuz Takvim",
-        "description": "Tüm etkinliklerle aylık görünüm."
+        "description": "Tüm etkinliklerle birlikte aylık görünüm."
       },
       "tasks": {
         "title": "Takip Görevleri",
-        "description": "Test iste, reçene yenile."
+        "description": "Testler, reçeteler ve alışveriş görevleri."
       },
       "notifications": {
         "title": "Akıllı Bildirimler",
-        "description": "Gizli mod ve ısrarlı hatırlatma."
+        "description": "Sessiz moddan ısrarcı hatırlatıcılara kadar."
       },
       "symptoms": {
         "title": "Semptom Takibi",
-        "description": "Şiddet ve iyileşme aşamaları ile detaylı günlük."
+        "description": "Şiddet ve iyileşme aşamalarıyla detaylı günlük."
       },
       "treatments": {
         "title": "Tedavi Yönetimi",
-        "description": "Hastalıkları ve ilgili ilaçları organize edin."
+        "description": "Hastalıkları ve ilgili ilaçları düzenleyin."
+      },
+      "dashboards": {
+        "title": "Profesyonel Paneller",
+        "description": "Tüm ailenizin sağlığına tek bir yerden bakış."
       },
       "metrics": {
         "title": "Sağlık Metrikleri",
-        "description": "Uyum, ruh hali ve aile sağlığının gelişmiş takibi."
+        "description": "Uyum, ruh hali ve sağlığın gelişmiş takibi."
+      },
+      "exportImport": {
+        "title": "Dışa Aktar ve İçe Aktar",
+        "description": "Verileriniz size aittir. PDF, CSV veya JSON olarak dışa aktarın."
       },
       "reports": {
-        "title": "Tıbbi Raporlar",
-        "description": "Uzmanlarınız için detaylı ve profesyonel raporlar oluşturun."
+        "title": "Sağlık Raporları",
+        "description": "Uzmanlar için detaylı ve profesyonel raporlar oluşturun."
+      },
+      "encryption": {
+        "title": "Güçlü Şifreleme",
+        "description": "Kişisel bilgileriniz AES-256 şifreleme ile korunur."
       },
       "widgets": {
         "title": "Widget'lar ve Canlı Etkinlikler",
-        "description": "Ana ekranda kontrol paneli."
+        "description": "Paneliniz doğrudan ana ekranınızda."
       }
+    },
+    "cta": {
+      "primary": "Listeye Katıl"
     }
   },
   "deepFeatures": {
     "badge": "Derinlemesine",
     "title": "Gerçek hayat için",
-    "titleHighlight": "tasarlanmış özellikler.",
+    "titleHighlight": "tasarlanan özellikler.",
     "medication": {
-      "badge": "İlaç",
-      "title": "Doz Merkezli Mimari",
-      "description": "Her doz, durum, planlanan zaman ve tam izlenebilirlik ile bağımsız bir varlıktır.",
+      "badge": "İlaçlar",
+      "title": "Doz Odaklı Mimari",
+      "description": "Her doz, durumu, zamanı ve tam geçmişi olan bağımsız bir varlıktır.",
       "features": [
-        "Her doz durum, zaman ve yorumlarla",
-        "Tam değişiklik geçmişi",
+        "Durum, zaman ve notlarla her doz",
+        "Değişikliklerin tam geçmiş takibi",
         "Geriye dönük tedavi uzatma"
       ]
     },
     "calendar": {
       "badge": "Takvim",
-      "title": "Bir takvim, tüm etkinlikleriniz",
-      "description": "Dozlar, tedaviler, randevular ve takip görevleri için optimize edilmiş aylık görünüm.",
+      "title": "Tek takvim, tüm etkinlikleriniz",
+      "description": "Dozlar, tedaviler ve randevular için optimize edilmiş aylık görünüm.",
       "features": [
-        "Tekrarlanan tıbbi randevular",
-        "İlişkili takip görevleri",
+        "Tekrarlı tıbbi randevular",
+        "Bağlantılı takip görevleri",
         "Yeniden kullanılabilir şablonlar"
       ]
     },
     "symptoms": {
       "badge": "Semptomlar",
       "title": "Sağlık Denetimi",
-      "description": "Şiddet ile semptom kaydı. Aşamalı tıbbi durumlar modülü.",
+      "description": "Şiddet belirtilerek semptom kaydı. Aşamalı hastalık modülü.",
       "features": [
         "Şiddet ölçeği ile 100+ semptom",
         "Aşamalar: başlangıç, kronik, iyileşme",
-        "Gantt tarzı grafikler"
+        "Gantt şeması tarzı grafikler"
       ]
     }
   },
@@ -161,7 +182,7 @@
     "items": {
       "medications": {
         "title": "İlaçlar ve Dozlar",
-        "description": "Alımlar, uyarılar ve stok üzerinde tam kontrol."
+        "description": "Alım, uyarılar ve stok üzerinde tam kontrol."
       },
       "treatments": {
         "title": "Tedavi Yönetimi",
@@ -173,32 +194,32 @@
       },
       "profiles_unlimited": {
         "title": "Aile Profilleri",
-        "description": "Tüm ailenizi tek bir yerden yönetin."
+        "description": "Tüm aileye tek bir yerden bakın."
       },
       "diseases": {
-        "title": "Hastalıklar ve Koşullar",
-        "description": "Tıbbi geçmişin ayrıntılı takibi."
+        "title": "Hastalıklar ve Durumlar",
+        "description": "Detaylı tıbbi geçmiş takibi."
       },
       "symptoms_plus": {
-        "title": "+100 Semptom",
-        "description": "Şiddet ve iyileşme evreleri ile ayrıntılı günlük."
+        "title": "100+ Semptom",
+        "description": "Şiddet ve aşamalarla detaylı günlük."
       }
     },
     "stats": {
-      "languages": "Dil",
-      "symptoms": "Semptom",
-      "profiles": "Profil",
-      "private": "Gizli"
+      "languages": "Diller",
+      "symptoms": "Semptomlar",
+      "profiles": "Profiller",
+      "private": "Özel"
     },
     "disclaimer": {
-      "title": "VitalsPath doktorların yerini almaz.",
-      "description": "Bu bir organizasyon aracıdır. Her zaman uzmanınıza danışın."
+      "title": "VitalsPath doktorun yerini tutmaz.",
+      "description": "Bu bir organizasyon aracıdır. Daima bir uzmana danışın."
     }
   },
   "gallery": {
     "badge": "iOS Arayüzü",
-    "title": "iOS gibi hissettirecek",
-    "titleHighlight": "şekilde tasarlandı.",
+    "title": "iOS gibi hissettirmek için",
+    "titleHighlight": "tasarlandı.",
     "sections": {
       "main": "Ana",
       "detail": "Detay",
@@ -207,7 +228,7 @@
       "languages": "Diller"
     },
     "labels": {
-      "dashboard": "Kontrol Paneli",
+      "dashboard": "Panel",
       "profiles": "Profiller",
       "medications": "İlaçlar",
       "symptoms": "Semptomlar",
@@ -215,12 +236,12 @@
       "wellness": "Sağlık",
       "profileDetail": "Profil Detayı",
       "medicationDetail": "İlaç Detayı",
-      "doseLog": "Doz Kaydı",
+      "doseLog": "Doz Günlüğü",
       "symptomGraph": "Semptom Grafiği",
       "tasks": "Görevler",
       "notifications": "Bildirimler",
       "conditionDetail": "Durum Detayı",
-      "emergency": "Acil Durum",
+      "emergency": "Acil",
       "lightMode": "Açık Mod",
       "darkMode": "Koyu Mod",
       "widgets": "Widget'lar",
@@ -228,276 +249,176 @@
       "liveActivity": "Canlı Etkinlik",
       "spanish": "İspanyolca",
       "english": "İngilizce",
-      "moreLanguages": "+ Diller"
+      "moreLanguages": "+ Diller",
+      "italian": "İtalyanca"
     },
     "note": "Uygulamanın gerçek ekran görüntüleri",
-    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "subtitle": "VitalsPath, gizliliğinize saygı duyan ve halihazırda kullandığınız araçlarla entegre olan, Apple ekosisteminde birinci sınıf bir deneyim sunmak için sıfırdan oluşturulmuştur.",
+    "native": "Yerel.",
+    "synced": "Senkronize.",
+    "secure": "Güvenli.",
+    "integrations": {
+      "icloud": {
+        "label": "iCloud Senkronizasyonu",
+        "desc": "E2E Şifreleme"
+      },
+      "calendar": {
+        "label": "Apple Takvim",
+        "desc": "Otomatik Etkinlikler"
+      },
+      "maps": {
+        "label": "Apple Haritalar",
+        "desc": "Eczane Bul"
+      },
+      "haptics": {
+        "label": "Haptikler",
+        "desc": "Taptic Motoru"
+      }
+    },
     "privacy": {
-      "title": "Secure by Design",
-      "desc": "Health data is encrypted on-device and never shared without your permission."
+      "title": "Tasarım Gereği Güvenli",
+      "desc": "Sağlık verileri cihazda şifrelenir ve izniniz olmadan asla paylaşılmaz."
     },
     "sync": {
-      "title": "iCloud Encrypted",
-      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+      "title": "iCloud Şifreli",
+      "desc": "Tüm aile profillerinizi iPhone, iPad ve Mac'inizde güvenli bir şekilde senkronize tutun."
     },
     "profiles": {
-      "title": "Family First",
-      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+      "title": "Önce Aile",
+      "desc": "Ayrı geçmiş, alerji ve acil durum bilgileriyle birden fazla profili yönetin."
     },
     "metrics": {
-      "title": "Health Insights",
-      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+      "title": "Sağlık Analizleri",
+      "desc": "Uyum, semptomlar ve genel aile sağlığındaki uzun vadeli eğilimleri görselleştirin."
     }
   },
   "waitlist": {
-    "badge": "Lansman 2026 1. Çeyrek",
-    "title": "Ailenize ilgi gösteren ilk",
-    "titleHighlight": "kişilerden biri olun",
-    "subtitle": "Bekleme listesine katılın ve erken erişim kazanın.",
-    "discount": "Lansman indirimi %25",
+    "badge": "Lansman Q1 2026",
+    "title": "Ailesine değer veren",
+    "titleHighlight": "ilk kişilerden olun",
+    "subtitle": "Listeye katılın ve erken erişim kazanın.",
+    "discount": "Açılışta %25 indirim",
     "form": {
       "placeholder": "eposta@adresiniz.com",
       "button": "Katıl"
     },
-    "success": "Listeye eklendiniz!",
+    "success": "Listedisiniz!",
     "privacy": "Spam yok. Sadece önemli haberler.",
     "stats": {
-      "label": "Zaten kayıt olan",
+      "label": "Zaten kayıtlı",
       "count": "kişi"
     },
     "plans": {
       "free": {
         "name": "Ücretsiz:",
-        "description": "temel profiller, temel ilaç yönetimi."
+        "description": "Temel profiller, temel ilaçlar."
       },
       "premium": {
         "name": "Premium:",
-        "description": "sınırsız çoklu profil, tam analizler."
+        "description": "Sınırsız profil, tam analiz."
       }
     },
-    "badgeOffer": "Lansman Fırsatı: %25 İNDİRİM",
+    "badgeOffer": "Açılış Teklifi: %25 İndirim",
     "privacyTitle": "Tam Gizlilik",
-    "privacyDesc": "Verileriniz cihazınızdan asla ayrılmaz.",
-    "discountDesc": "İlk üyelere özel.",
-    "joinTitle": "Bekleme listesine katılın",
-    "joinDesc": "Piyasaya çıktığımızda özel davetiye alın."
+    "privacyDesc": "Veriler asla cihazınızdan çıkmaz.",
+    "discountDesc": "Sadece ilk üyeler için.",
+    "joinTitle": "Listeye Katıl",
+    "joinDesc": "Lansmanda özel davetiye alın."
   },
   "footer": {
     "features": "Özellikler",
     "privacy": "Gizlilik",
     "support": "Destek",
-    "feedback": "Geri Bildirim Gönder",
-    "terms": "Kullanım Koşulları",
-    "disclaimer": "Sorumluluk Reddi",
-    "copyright": "2026 VitalsPath · İle yapıldı",
-    "developer": "RomeroDev tarafından",
-    "subscription": "Abonelik"
+    "feedback": "Geri Bildirim",
+    "terms": "Şartlar",
+    "disclaimer": "Feragatname",
+    "subscription": "Abonelik",
+    "copyright": "2026 VitalsPath · Hazırlayan",
+    "developer": "RomeroDev"
   },
   "legal": {
     "terms": {
-      "title": "VitalsPath Kullanım Koşulları",
-      "subtitle": "Sağlık ve İlaç Takipçisi",
-      "lastUpdated": "Son güncelleme: 2026",
+      "title": "VitalsPath Şartları ve Koşulları",
+      "subtitle": "Health & Medication Tracker",
+      "lastUpdated": "Son Güncelleme: 2026",
       "sections": {
         "general": {
           "title": "1. Genel Bilgiler",
-          "content": "İşbu Kullanım Koşulları, kullanıcının ilaç, semptom, tıbbi randevu, ruh hali, sağlık görevleri ve kullanıcının refahıyla ilgili diğer verilerin yönetimi ve takibi için tasarlanan VitalsPath – Sağlık ve İlaç Takipçisi mobil uygulamasına (bundan böyle 'Uygulama') erişimi ve kullanımını düzenler.<br><br>Uygulamayı indirerek, yükleyerek veya kullanarak, kullanıcı bu Kullanım Koşullarını ve ilgili Gizlilik Politikasını tamamen kabul eder.<br><br>Kullanıcı, burada yer alan hükümlerden herhangi biriyle aynı fikirde değilse, Uygulamayı yüklememeli veya kullanmamalıdır."
+          "content": "Bu şartlar VitalsPath uygulamasının kullanımını düzenler."
         },
         "owner": {
-          "title": "2. Uygulama Sahibi",
-          "content": "Sahip: Bilgisayar Bilimleri Mühendisi Lester Romero Bernardo.<br>Adres: Valencia, İspanya.<br>İletişim ve destek e-posta adresi: vitalspath@gmail.com<br>Web sitesi: (Uygulamada ve/veya App Store'da kullanıma sunulduğunda belirtilecektir).<br><br>Uygulama esas olarak Avrupa Birliği'nde bulunan kullanıcılara yöneliktir; yerel yürürlükteki mevzuata aykırı olmadığı sürece diğer ülkelerden de kullanılabilir.<br><br>GDPR kapsamında kişisel verilerin işlenmesinden sorumlu veri sorumlusu Lester Romero Bernardo'dur."
+          "title": "2. Sahibi",
+          "content": "Sahibi: Lester Romero Bernardo. E-posta: vitalspath@gmail.com"
         },
         "purpose": {
-          "title": "3. Hizmetin Amacı ve Niteliği",
-          "content": "VitalsPath'in amacı, sağlık ve refahla ilgili bilgilerin organize edilmesi, kaydedilmesi ve görselleştirilmesi için araçlar sunmaktır; bunlar arasında şunlar yer alır:<br><br>• İlaç, doz ve programların planlanması ve hatırlatılması.<br>• Semptomların, durumların ve tedavilerin kaydedilmesi ve takibi.<br>• Tıbbi randevuların, takip görevlerinin ve favori yerlerin (klinik ve eczaneler gibi) yönetimi.<br>• Sağlık panoları, uyum metrikleri, aktivite serileri ve gelişmiş özetler.<br>• Veri dışa aktarımı ve PDF/CSV formatlarında rapor oluşturma (kişisel kullanım ve sağlık profesyonelleriyle paylaşım için).<br>• Apple Health/HealthKit ile isteğe bağlı entegrasyon, uyumlu sağlık verilerini içe aktarmak için salt okuma modunda.<br><br>Uygulama tıbbi teşhis, tedavi, reçete veya nitelikli sağlık profesyonelleriyle danışmanlık hizmeti sağlamaz. Herhangi bir içerik, öneri, 'insight', sağlık puanı veya hatırlatma yalnızca bilgilendirme amaçlıdır ve kişisel organizasyonu desteklemek için tasarlanmıştır; klinik veya acil durum kararlarının tek temeli olarak kullanılmamalıdır."
+          "title": "3. Amaç",
+          "content": "VitalsPath sağlık bilgilerini düzenlemek için araçlar sunar."
         },
         "usage": {
-          "title": "4. İzin Verilen Kullanım, Kullanıcı Profili ve Sağlık Uyarıları",
-          "content": "Uygulama 18 yaşın üzerindeki kişilere yöneliktir. Kullanıcı, en az 18 yaşında olduğunu ve bu Koşulları kabul edip Uygulamayı kullanmak için yeterli yasal kapasiteye sahip olduğunu beyan ve garanti eder.<br><br>Kullanıcı, Uygulamayı bu Koşullara, yürürlükteki mevzuata ve App Store politikalarına uygun olarak özenli, doğru ve yasal bir şekilde kullanmayı taahhüt eder.<br><br><strong>Önemli Sağlık Uyarısı:</strong><br>Uygulama düzenlenmiş bir tıbbi cihaz değildir ve tıbbi ürün olarak sertifikalandırılmamıştır. Gösterilen bilgiler eksik, hatalı veya güncel olmayabilir ve hastalıkları teşhis etmek, tedavi etmek veya önlemek için kullanılmamalıdır.<br><br>İlaçlarınız, semptomlarınız, sonuçlarınız veya sağlığınızı etkileyebilecek herhangi bir karar hakkında herhangi bir şüphe durumunda her zaman bir doktor, eczacı veya başka bir nitelikli sağlık profesyoneline danışın.<br><br>Acil tıbbi durumda kullanıcı hemen ülkesinin acil servisleriyle iletişime geçmeli ve acil yardım talep etmek veya almak için Uygulamaya güvenmemelidir."
+          "title": "4. İzin Verilen Kullanım",
+          "content": "Uygulama 18 yaş üstü kişiler içindir."
         },
         "healthkit": {
-          "title": "5. Apple Health / HealthKit Entegrasyonu",
-          "content": "Uygulama, kullanıcı tarafından yetkilendirilen belirli sağlık verilerini okumak için Apple Health/HealthKit ile entegre olabilir; bu sayede grafikler, metrikler ve sağlık özetleri zenginleştirilir.<br><br>Bu sürümde entegrasyon yalnızca salt okuma modunda gerçekleştirilir; Uygulama Apple Health/HealthKit'e veri yazmaz.<br><br>Kullanıcı şunları yapabilir:<br>• iOS'un standart izin panelleri aracılığıyla Uygulamayla hangi veri kategorilerini paylaşacağına karar verebilir.<br>• Bu izinleri istediği zaman iOS ayarlarından ve Sağlık uygulamasından iptal edebilir.<br><br>Uygulama:<br>• Yalnızca sunulan işlevler için ve kullanıcı tarafından yetkilendirilen sağlık verilerine erişir.<br>• Apple Health/HealthKit verilerini kullanıcının açık rızası olmadan pazarlama amaçları için kullanmaz ve geçerli bir hukuki temel olmadan asla üçüncü taraflarla paylaşmaz.<br>• Apple Health/HealthKit'teki verileri değiştirmez, manipüle etmez veya sahte veri girmez."
+          "title": "5. Apple Health Entegrasyonu",
+          "content": "Uygulama sadece verileri okur, bir şeyi değiştirmez."
         },
         "data": {
-          "title": "6. Kişisel ve Sağlık Verilerinin İşlenmesi",
-          "content": "Uygulamanın kullanımı, sağlık verileri de dahil olmak üzere kişisel verilerin işlenmesini içerir; bu veriler 2016/679 sayılı AB Tüzüğüne (GDPR) ve 3/2018 sayılı Organik Yasaya göre özel kategoriler olarak kabul edilir.<br><br>İşleme ayrıntıları (amaçlar, hukuki temeller, veri kategorileri, alıcılar, uluslararası transferler, saklama süreleri ve hakların nasıl kullanılacağı) bu Koşulların ayrılmaz bir parçası olan Gizlilik Politikasında açıklanmıştır.<br><br>Özellikle:<br>• Sağlık verilerinin işlenmesinin temel hukuki dayanağı kullanıcının açık rızasıdır.<br>• Verilerin gizliliği, bütünlüğü ve kullanılabilirliğini korumak için uygun teknik ve organizasyonel önlemler (şifreleme, erişim kontrolleri ve yedeklemeler gibi) uygulanacaktır.<br>• Amaçlar yerine getirildikten sonra veriler yasal zamanaşımı süreleri boyunca bloke edilmiş olarak tutulabilir."
+          "title": "6. Veri İşleme",
+          "content": "Tüm veriler cihazda yerel olarak kalır."
         },
         "accounts": {
-          "title": "7. Kullanıcı Hesapları, Profiller ve Güvenlik",
-          "content": "Uygulama, tek bir cihazda ve/veya hesapta birden fazla profil oluşturulmasına ve yönetilmesine izin verebilir (örneğin aile üyeleri için).<br><br>Kullanıcı, üçüncü şahısların verilerini, özellikle sağlık verileri olduğunda, girmesi ve yönetmesi için gerekli yetki ve onaylara sahip olduğunu beyan eder.<br><br>Kullanıcı şunlardan sorumludur:<br>• Kullanılan herhangi bir kod, şifre veya erişim yönteminin gizliliğini korumak.<br>• Cihazının güvenliğini uygun şekilde yapılandırmak (kilitleme, Face ID/Touch ID vb.).<br>• Yetkisiz erişimi veya tespit ettiği herhangi bir güvenlik olayını sahibine gecikmeden bildirmek.<br><br>Sahibi, dolandırıcılık kullanımı, bu Koşulların ihlali veya yasadışı faaliyetlerden makul şüphe durumunda Uygulamaya erişimi askıya alabilir veya iptal edebilir."
+          "title": "7. Profiller",
+          "content": "Bir cihazda birden fazla profil."
         },
         "business": {
-          "title": "8. İş Modeli, Planlar ve Abonelikler",
-          "content": "VitalsPath, ücretsiz ve ücretli gelişmiş özellikleri birleştiren bir freemium modeli kullanır, bu özellikler VitalsPath Premium modu altında sunulur.<br><br><strong>8.1. Ücretsiz Sürüm</strong><br>Ücretsiz sürüm, Uygulamanın temel işlevlerine sınırlı erişim sağlar.<br><br><strong>8.2. VitalsPath Premium</strong><br>VitalsPath Premium planı ek işlevlerin kilidini açar; bunlar şunları içerebilir: sınırsız profil, klinik ve eczane favorileri, gelişmiş planlama, stok takibi, tam veri dışa aktarımı, gelişmiş analizler, yedeklemeler ve daha fazlası.<br><br><strong>8.3. Satın Alma Türleri</strong><br>VitalsPath Premium aylık abonelik, yıllık abonelik veya ömür boyu tek satın alma yoluyla sunulabilir.<br><br>Satın almalar App Store üzerinden yönetilir; Apple tarafından belirlenen ödeme, faturalandırma, iadeler ve iptal koşulları uygulanır."
-        },
-        "export": {
-          "title": "9. Veri Dışa Aktarımı ve Rapor Oluşturma",
-          "content": "Uygulama, yerel işlevler ve/veya VitalsPath Premium aracılığıyla kullanıcı tarafından yönetilen verileri PDF ve CSV gibi formatlarda dışa aktarmayı sağlar.<br><br>Kullanıcı:<br>• Bilgileri üçüncü taraflarla paylaşmadan önce raporların içeriğini gözden geçirmekten sorumludur.<br>• Bu raporların özellikle korunan sağlık verileri içerebileceğini kabul eder ve bunları uygun şekilde korumalıdır.<br>• Dışa aktarımın Uygulamada saklanan tüm verileri içermeyebileceğini anlar."
+          "title": "8. İş Modeli",
+          "content": "Freemium: ücretsiz + premium."
         },
         "ip": {
-          "title": "10. Fikri ve Sınai Mülkiyet",
-          "content": "Uygulamanın ve kod kaynağının, tasarımının, arayüzlerinin, simgelerinin, logolarının, ticari adlarının, metinlerinin, grafiklerinin, animasyonlarının, seslerinin ve diğer unsurlarının tüm fikri ve sınai mülkiyet hakları Lester Romero Bernardo'ya aittir.<br><br>Önceden yazılı izin olmadan Uygulamanın ve içeriklerinin kopyalanması, dağıtılması, değiştirilmesi, tersine mühendislik yapılması, derlenmesi, kamuya iletilmesi veya yeniden kullanılması yasaktır.<br><br>Kullanıcı, Uygulamayı yüklemek ve kullanmak için sınırlı, kişisel, iptal edilebilir, devredilemez ve münhasır olmayan bir kullanım lisansı alır."
-        },
-        "liability": {
-          "title": "11. Sorumluluk ve Garantiler",
-          "content": "Uygulama 'olduğu gibi' sağlanır; işleyişi, kesintisiz kullanılabilirliği, tam hata içermemesi veya belirli bir amaca uygunluğu konusunda herhangi bir açık veya zımni garanti verilmez.<br><br>Özellikle ve tüketici mevzuatına halel getirmeksizin:<br>• Sahibi gösterilen verilerin doğruluğu, bütünlüğü veya güncelliğini garanti etmez.<br>• Sahibi kullanıcının Uygulamadaki bilgilere dayanarak aldığı tıbbi kararlardan sorumlu değildir.<br>• Sahibi Uygulamanın kullanımından kaynaklanan dolaylı, arızi, kâr kaybı, veri kaybı veya üçüncü şahıs taleplerinden sorumlu olmaz.<br><br>Hükümlerin hiçbiri yasanın izin vermediği durumlarda sorumluluğu hariç tutamaz veya sınırlayamaz."
-        },
-        "appstore": {
-          "title": "12. App Store Yönergelerine Uygunluk",
-          "content": "Uygulama, özellikle gizlilik, güvenlik, sağlık verileri ve HealthKit kullanımı ile ilgili olanlar da dahil olmak üzere App Store inceleme yönergelerine uygun olarak tasarlanmıştır.<br><br>Diğer yönlerin yanı sıra:<br>• İşlevler tıbbi teşhise eşdeğer olarak sunulmaz.<br>• Sağlık verilerine erişimden önce kullanıcının açık rızası istenir.<br>• Hassas verilerle ilgili yükümlülüklere uyulur.<br><br>Apple'ın politikalarındaki değişiklikler nedeniyle Uygulamanın çekilmesi, reddedilmesi veya değiştirilmesi tek başına tazminat hakkı doğurmaz."
-        },
-        "thirdparty": {
-          "title": "13. Üçüncü Taraf Hizmetleri ve İçerikleri",
-          "content": "Uygulama, üçüncü taraf hizmetlerine bağlantılar veya entegrasyonlar içerebilir (örneğin Apple Health/HealthKit, depolama hizmetleri, klinik veya eczane web siteleri veya diğer sağlık uygulamaları).<br><br>Bu üçüncü taraflar kendi kullanım koşulları ve gizlilik politikalarından sorumludur; kullanıcı bunları ayrı olarak incelemeli ve kabul etmelidir.<br><br>Sahibi üçüncü taraf hizmetlerinin içeriğinden, kullanılabilirliğinden, güvenliğinden, doğruluğundan veya işleyişinden sorumlu değildir."
-        },
-        "modifications": {
-          "title": "14. Uygulama ve Koşullarda Değişiklikler",
-          "content": "Sahibi şunları yapma hakkını saklı tutar:<br>• Yeni işlevlerin eklenmesi veya diğerlerinin kaldırılması da dahil olmak üzere Uygulamayı güncellemek, iyileştirmek, değiştirmek veya durdurmak (kısmen veya tamamen).<br>• Bu Koşulları ve Gizlilik Politikasını değiştirmek. Bu durumda kullanıcı Uygulamanın kendisi, web sitesi veya diğer makul araçlar yoluyla bilgilendirilecek; yürürlük tarihi belirtilecektir.<br><br>Koşulların yürürlüğe girmesinden sonra Uygulamanın kullanılmaya devam edilmesi bunların kabul edildiğini ima eder. Kullanıcı katılmıyorsa Uygulamayı kullanmayı bırakmalıdır."
-        },
-        "termination": {
-          "title": "15. Fesih ve Askıya Alma",
-          "content": "Sahibi aşağıdaki durumlarda kullanıcının Uygulamaya erişimini kısmen veya tamamen askıya alabilir veya sonlandırabilir:<br>• Bu Koşulların ciddi veya tekrarlanan ihlali tespit edilirse.<br>• Güvenlik, dolandırıcılık veya kötüye kullanım konusunda makul nedenler varsa.<br>• Yasaya, mahkeme kararlarına veya yetkili mercilerin taleplerine uyum sağlamak gerekirse.<br><br>Kullanıcı istediği zaman Uygulamayı kullanmayı bırakabilir ve cihazlarından kaldırabilir. Kullanımın sonlandırılması kullanıcıyı önceden edinilmiş yükümlülüklerini yerine getirmekten muaf tutmaz."
-        },
-        "law": {
-          "title": "16. Uygulanacak Hukuk ve Yargı Yetkisi",
-          "content": "Tüketici mevzuatı aksi öngörmediği sürece bu Koşullar İspanyol hukukuna göre yönetilir ve yorumlanır.<br><br>Uygulamanın kullanımından veya bu Koşulların yorumlanmasından kaynaklanabilecek herhangi bir anlaşmazlıkta taraflar, tüketici kullanıcı lehine uygulanan zorunlu yetki kurallarına halel getirmeksizin, İspanya Valencia'daki yetkili mahkemelere tabi olacaktır."
-        },
-        "contact": {
-          "title": "17. İletişim ve Destek",
-          "content": "Uygulama, bu Koşullar veya Gizlilik Politikası ile ilgili herhangi bir soru için kullanıcı şunlarla iletişime geçebilir:<br><br>Veri Sahibi ve Sorumlusu: Lester Romero Bernardo.<br>Destek e-posta adresi: vitalspath@gmail.com<br><br>Sorulara makul bir şekilde en fazla 72 iş saati içinde yanıt verilmeye çalışılacak; bu hemen yanıt verme yükümlülüğü veya çözüm garantisi anlamına gelmez."
+          "title": "10. Fikri Mülkiyet",
+          "content": "Tüm haklar Lester Romero Bernardo'ya aittir."
         }
       }
     },
     "privacy": {
-      "title": "VitalsPath Gizlilik Politikası",
-      "subtitle": "Sağlık ve İlaç Takipçisi",
-      "lastUpdated": "Son güncelleme: 18 Şubat 2026",
+      "title": "Gizlilik Politikası",
+      "lastUpdated": "Güncellendi: 18 Şubat 2026",
       "sections": {
         "intro": {
           "title": "Giriş",
-          "content": "Lester Romero Bernardo, Valencia, İspanya adresinde mukim (bundan böyle 'Sahip', 'biz' veya 'bizim'), veri sorumlusu sıfatıyla, mobil uygulama VitalsPath'i kullanırken kişisel verilerinizi nasıl topladığımız, kullandığımız, paylaştığımız ve koruduğumuz hakkında bilgi vermek istiyoruz.<br><br>Bu Gizlilik Politikası, Uygulamanın Kullanım Koşullarının ayrılmaz bir parçasıdır ve bunlarla birlikte okunmalıdır. Uygulamayı kurarak, erişerek veya kullanarak, verilerinizin bu Politikaya uygun olarak işlenmesini açıkça kabul edersiniz."
-        },
-        "controller": {
-          "title": "1. Veri Sorumlusu Verileri",
-          "content": "Lester Romero Bernardo<br>Bilgisayar Bilimleri Mühendisi<br>Adres: Valencia, İspanya<br>E-posta: vitalspath@gmail.com<br>Web sitesi: (App Store'da ve Uygulamada yakında mevcut)"
+          "content": "Verilerinizi harici sunucularda saklamıyoruz."
         },
         "info": {
-          "title": "2. Topladığımız Bilgiler",
-          "content": "Uygulama iki ana türde veri toplar:<br><br><strong>2.1. Kullanıcı tarafından sağlanan kişisel veriler:</strong><br>• Kimlik verileri: Profil adı, yaklaşık yaş (aralık), isteğe bağlı fotoğraf/avatar.<br>• Sağlık ve refah verileri: İlaçlar (isimler, dozlar, zamanlar, envanter), semptomlar ve şiddetleri, tıbbi durumlar, tedaviler, tıbbi randevular, ruh hali, ilaç uyumu, sağlık görevleri, favori yerler.<br>• Kullanım verileri: Bildirim ayarları, tema/UI tercihleri, widget ayarları.<br>• Teknik veriler: Cihaz tanımlayıcısı (IDFV), iOS sürümü, cihaz modeli, sistem dili, saat dilimi.<br><br><strong>2.2. Apple Health/HealthKit'ten alınan sağlık verileri (yalnızca okuma):</strong><br>Açık rızanızla, fiziksel aktivite, uyku verileri, kilo, kalp atış hızı, kan basıncı ve yetkilendirdiğiniz diğer uyumlu veriler gibi verilere erişebiliriz.<br><br><strong>2.3. Otomatik olarak oluşturulan veriler:</strong><br>• Kullanım kayıtları (oluşturma/değiştirme zaman damgaları).<br>• Hata tanılaması için teknik kayıtlar (kişisel olarak tanımlanabilir veriler olmadan).<br>• Dahili analiz için toplu ve anonimleştirilmiş kullanım metrikleri.<br><br>Önemli: Tüm hassas sağlık verileri doğrudan sizin tarafınızdan girilir veya açık yetkinizle HealthKit'ten gelir."
-        },
-        "usage": {
-          "title": "3. Verilerinizi Nasıl Kullanıyoruz",
-          "content": "Uygulama hizmetini sunmak ve iyileştirmek için verilerinizi işliyoruz:<br><br><strong>Ana amaçlar:</strong><br>• Profil ve kayıt yönetimi (ilaçlar, semptomlar, randevular vb.) - Hukuki dayanak: GDPR rızası.<br>• Yerel hatırlatıcılar ve bildirimler - Hukuki dayanak: Rıza (iOS izinleri).<br>• Metrik hesaplaması (refah puanı, uyum, seriler) - Hukuki dayanak: Rıza.<br>• Dışa aktarma için PDF/CSV raporları oluşturma - Hukuki dayanak: Rıza.<br>• HealthKit entegrasyonu (okuma) - Hukuki dayanak: Açık rıza.<br>• Yerel/iCloud yedeklemeleri (Premium) - Hukuki dayanak: Rıza + Meşru menfaat.<br><br><strong>İkincil amaçlar:</strong><br>• Kullanım analizi ve hizmet iyileştirme - Hukuki dayanak: Meşru menfaat (anonim veriler).<br>• Teknik hata tanılama - Hukuki dayanak: Meşru menfaat (teknik kayıtlar).<br>• Yasal uyum ve talepler - Hukuki dayanak: Yasal zorunluluk GDPR."
+          "title": "Toplanan Bilgiler",
+          "content": "Profiller, ilaçlar, semptomlar - her şey yerel."
         },
         "storage": {
-          "title": "4. Verileriniz Nasıl Saklanıyor",
-          "content": "<strong>4.1. Yerel depolama:</strong><br>• Ana: Tüm veriler SwiftData (şifreli veritabanı) kullanılarak cihazda yerel olarak saklanır.<br>• Şifreleme: Hassas veriler iOS güvenlik API'leri kullanılarak şifrelenir.<br>• Yedeklemeler: Ücretsiz (dışa aktarılabilir şifreli JSON yerel yedeği) / Premium (Apple tarafından uçtan uca şifreli iCloud Yedeği).<br><br><strong>4.2. Uzak sunucu YOK:</strong><br>VitalsPath verilerinizi harici sunuculara GÖNDERMEZ. Tüm işlemler cihazınızda yerel olarak yapılır.<br><br><strong>4.3. Üçüncü taraf hizmetleri (yalnızca yetkilendirdiğinizde):</strong><br>• Apple HealthKit: Sağlık verileri okuma - Sizin tarafınızdan yetkilendirilen veriler - Hukuki dayanak: Rıza.<br>• iCloud (Premium): Şifreli yedekleme - Tüm veriler (şifreli) - Hukuki dayanak: Rıza.<br>• Share Sheet (dışa aktarma): PDF/CSV paylaşımı - Yalnızca dışa aktarılan veriler - Hukuki dayanak: Rıza."
-        },
-        "recipients": {
-          "title": "5. Verileriniz Kimlere Gidiyor",
-          "content": "Verilerinizi pazarlama veya reklamcılık için üçüncü taraflara satmıyor, kiralamıyor veya paylaşmıyoruz.<br><br>Alıcılar:<br>• Üçüncü taraf yok: Transfer yok.<br>• Apple Inc.: HealthKit / iCloud (ABD - Standart Sözleşme Maddeleri).<br>• Kullanıcının kişileri: Manuel PDF/CSV dışa aktarımı (yerel).<br><br>Tüm uluslararası transferler GDPR'ın gerektirdiği garantilerle yapılır."
-        },
-        "retention": {
-          "title": "6. Verilerin Saklanması",
-          "content": "• Hizmet sunumu: Uygulamayı kullandığınız sürece + kaldırdıktan sonra 30 gün.<br>• Yedeklemeler: Kullanıcı tarafından manuel olarak silinene kadar.<br>• Yasal talepler: Son etkileşimden itibaren 5 yıl.<br>• Teknik kayıtlar: Maksimum 30 gün.<br><br>Belirtilen sürelerin sonunda veriler otomatik olarak silinir veya anonimleştirilir."
-        },
-        "rights": {
-          "title": "7. GDPR Haklarınız",
-          "content": "AB/EEA'daki kullanıcı olarak aşağıdaki haklarınızı kullanabilirsiniz:<br><br>• Erişim: Hangi verileri işlediğimizi öğrenme.<br>• Düzeltme: Hatalı verileri düzeltme (doğrudan uygulamada düzenleyin).<br>• Silme ('Unutulma hakkı'): Ayarlar → Tüm verileri sil.<br>• Kısıtlama: İşlemeyi geçici olarak durdurma.<br>• Taşınabilirlik: Verileri yapılandırılmış formatta alma (JSON/PDF dışa aktar).<br>• İtiraz: meşru menfaate dayalı işlemlere itiraz.<br>• Rızayı geri çekme: Ayarlar → Gizlilik → Rıza sıfırla.<br><br>Yanıt süresi: Maksimum 1 ay, karmaşıklık nedeniyle 3 aya uzatılabilir.<br><br>Haklarınızı kullanmak için iletişime geçin: vitalspath@gmail.com"
-        },
-        "security": {
-          "title": "8. Veri Güvenliği",
-          "content": "Riske uygun teknik ve organizasyonel önlemler uyguluyoruz:<br><br>• Hassas veriler için AES-256 şifreleme.<br>• Kimlik bilgileri için Keychain.<br>• Face ID/Touch ID/PIN ile erişim kontrolü.<br>• Yalnızca yerel depolama.<br>• Uçtan uca şifreli yedeklemeler.<br>• Dönen kayıtlar (maksimum 30 gün).<br><br>Sophistikasyonlu saldırılara karşı mutlak güvenliği garanti edemeyiz veya verilerinizi güvensiz kanallar üzerinden paylaşırsanız."
-        },
-        "minors": {
-          "title": "9. Reşit Olmayanlar",
-          "content": "Uygulama 18 yaşın üzerindeki kişilere yöneliktir. Bilinçli olarak reşit olmayanlardan veri toplamayız. Ebeveyn veya vasiniz ve bir reşit olmayandan veri topladığımızı düşünüyorsanız, hemen vitalspath@gmail.com adresinden bizimle iletişime geçin."
-        },
-        "changes": {
-          "title": "10. Gizlilik Politikasındaki Değişiklikler",
-          "content": "Yasal değişiklikleri, yeni işlevleri veya güvenlik iyileştirmelerini yansıtmak için bu Politikayı değiştirebiliriz. Önemli değişiklikleri uygulama içi açılır pencere veya e-posta yoluyla size bildireceğiz. Kullanıma devam etmeniz kabul anlamına gelir.<br><br>Yürürlük tarihi: 18 Şubat 2026"
-        },
-        "contact": {
-          "title": "11. İletişim",
-          "content": "Lester Romero Bernardo<br>E-posta: vitalspath@gmail.com<br>Maksimum yanıt süresi: 72 iş saati<br><br>Denetim makamı: İspanyol Veri Koruma Ajansı'na (AEPD) şikayette bulunabilirsiniz: www.aepd.es"
+          "title": "Veri Depolama",
+          "content": "Cihaz ve iCloud'da şifreli."
         }
       }
     },
     "disclaimer": {
-      "title": "Tıbbi Sorumluluk Reddi",
+      "title": "Tıbbi Feragatname",
       "notice": {
         "title": "Önemli Uyarı",
-        "content": "VitalsPath bir tıbbi cihaz değildir ve profesyonel tıbbi tavsiye, tanı veya tedavi yerine geçmez."
+        "content": "Bu bir organizasyon aracıdır, tıbbi cihaz değildir."
       },
       "sections": {
-        "notMedical": {
-          "title": "1. Tıbbi Cihaz Değildir",
-          "content": "VitalsPath yalnızca sağlık bilgilerinizi organize etmenize yardımcı olan bir araçtır. Herhangi bir tıbbi teşhis koymaz veya tavsiye vermez."
-        },
-        "professional": {
-          "title": "2. Profesyonel Tavsiye",
-          "content": "Her zaman nitelikli sağlık hizmeti sağlayıcılarına danışın. VitalsPath'teki bilgiler yalnızca bilgilendirme amaçlıdır ve profesyonel tıbbi görüşün yerini tutamaz."
-        },
         "emergency": {
-          "title": "3. Acil Durumlar",
-          "content": "Acil durumlarda hemen 112'yi arayın veya en yakın acil servise gidin. VitalsPath acil tıbbi durumlar için tasarlanmamıştır.",
-          "callToAction": "Acil durumda 112"
-        },
-        "accuracy": {
-          "title": "4. Bilgi Doğruluğu",
-          "content": "VitalsPath'teki tüm bilgilerin doğruluğu için çaba göstersek de, tüm bilgilerin eksiksiz veya hatasız olduğunu garanti edemeyiz."
-        },
-        "medication": {
-          "title": "5. İlaç Hatırlatmaları",
-          "content": "İlaç hatırlatıcıları yardımcıdır ancak garanti değildir. Her zaman doktorunuzun talimatlarını takip edin ve şüphe durumunda ona danışın."
-        },
-        "responsibility": {
-          "title": "6. Kullanıcı Sorumluluğu",
-          "content": "Sağlık kararlarından ve uygulamayı kullanımınızdan siz sorumlusunuz. VitalsPath ve geliştiricileri hiçbir zarardan sorumlu değildir."
-        },
-        "contact": {
-          "title": "İletişim",
-          "content": "Sorularınız için support@vitalspath.app adresinden bize ulaşın."
+          "title": "Acil Durumlar",
+          "content": "Acil durumlarda doğrudan 112'yi veya yerel acil numarayı arayın.",
+          "callToAction": "Acili Ara"
         }
       }
     },
     "subscription": {
-      "title": "VitalsPath Abonelik Şartları",
-      "lastUpdated": "Son güncelleme: 18 Şubat 2026",
-      "intro": "VitalsPath, ücretsiz ve premium özellikleri birleştiren bir freemium modeli sunar. Bu sayfa aboneliklerin, ödemelerin ve iptallerin nasıl çalıştığını açıklar.",
+      "title": "Abonelik Şartları",
+      "intro": "VitalsPath aylık, yıllık ve ömür boyu planlar sunar.",
       "sections": {
-        "whatIs": {
-          "title": "1. VitalsPath Premium nedir?",
-          "content": "VitalsPath Premium, aile sağlığı yönetimi için gelişmiş özelliklerin kilidini açan ücretli bir plandır.<br><br><strong>Dahil edilen özellikler:</strong><br>• Sınırsız aile profilleri<br>• Favori klinikler ve eczaneler<br>• Gelişmiş ilaç planlaması<br>• İlaç stok takibi<br>• Tam veri dışa aktarımı (PDF/CSV)<br>• Gelişmiş analizler ve istatistikler<br>• iCloud yedeklemeleri (uçtan uca şifreleme)<br>• Öncelikli e-posta desteği<br><br><strong>Ücretsiz sürüm:</strong><br>Ücretsiz sürüm en fazla 2 profil, temel ilaçlar, yerel hatırlatıcılar ve sınırlı dışa aktarma içerir."
-        },
-        "plans": {
-          "title": "2. Mevcut abonelik planları",
-          "content": "<strong>Aylık:</strong> Aylık ödeme, istediğiniz zaman iptal edebilirsiniz.<br><br><strong>Yıllık:</strong> Aylık plana göre indirimli yıllık ödeme. Her 12 ayda bir otomatik yenileme.<br><br><strong>Ömür boyu (Lifetime):</strong> Tek seferlik ödeme. Mevcut ve gelecekteki tüm Premium özelliklere kalıcı erişim, yinelenen ödeme yok.<br><br>Fiyatlar ülkenize göre değişebilir ve yerel vergileri içerebilir. Fiyatlar onaylamadan önce satın alma ekranında gösterilir."
-        },
-        "howItWorks": {
-          "title": "3. Satın almalar nasıl çalışır",
-          "content": "<strong>Apple üzerinden yönetim:</strong><br>Tüm satın almalar ve abonelikler Apple hesabınız (App Store) üzerinden yönetilir.<br><br><strong>Otomatik yenileme:</strong><br>Aylık ve yıllık abonelikler, önceden iptal etmediğiniz sürece dönem sonunda otomatik olarak yenilenir.<br><br><strong>Onay:</strong><br>Satın almayı onayladığınızda, ödeme iTunes/Apple ID hesabınızdan tahsil edilir.<br><br><strong>Ücretsiz deneme:</strong><br>Ücretsiz deneme süresi sunarsak, sona ermeden iptal etmediğiniz sürece otomatik olarak ücretli aboneliğe dönüşür."
-        },
         "management": {
-          "title": "4. Aboneliğinizi yönetme",
-          "content": "Aboneliğinizi iOS cihazınızdan yönetebilirsiniz:<br><br>1. <strong>Ayarlar</strong> uygulamasını açın<br>2. Üstteki <strong>adınız/Apple ID'nize</strong> dokunun<br>3. <strong>Abonelikler</strong>'i seçin<br>4. <strong>VitalsPath</strong>'i bulun ve seçin<br>5. Buradan planı değiştirebilir veya iptal edebilirsiniz<br><br>Profil fotoğrafınıza dokunarak → Abonelikler'den App Store üzerinden de abonelikleri yönetebilirsiniz."
-        },
-        "cancellation": {
-          "title": "5. İptal ederseniz ne olur?",
-          "content": "<strong>Dönem sonuna kadar erişim:</strong><br>Aylık veya yıllık bir aboneliği iptal ederseniz, mevcut faturalandırma dönemi sonuna kadar Premium özelliklere erişmeye devam edersiniz.<br><br><strong>Kısmi iade yok:</strong><br>Aktif aboneliklerin kullanılmayan dönemleri için iade sunulmaz.<br><br><strong>Veriler saklanır:</strong><br>Verileriniz saklanır. Yeniden abone olursanız, tüm ayarlarınıza ve geçmişinize erişimi geri kazanırsınız.<br><br><strong>Ömür boyu plan:</strong><br>Lifetime planında yinelenen abonelik yoktur, bu nedenle iptal edilecek bir şey yoktur. Kalıcı erişiminiz olacak."
-        },
-        "issues": {
-          "title": "6. Teknik sorunlar ve destek",
-          "content": "<strong>Satın almaları geri yükle:</strong><br>Premium satın aldıysanız ama etkinleşmediyse, Ayarlar → Premium → Satın Almaları Geri Yükle'ye gidin.<br><br><strong>Cihaz değişikliği:</strong><br>Satın alımlarınız Apple ID'nize bağlıdır. Yeni cihazınıza VitalsPath'ı yükleyin ve satın alımları geri yükleyin.<br><br><strong>Destekle iletişime geçin:</strong><br>Ödeme veya abonelik sorunları için: vitalspath@gmail.com<br><br><strong>İadeler:</strong><br>Apple tüm iadeleri yönetir. reportaproblem.apple.com'dan talep edebilirsiniz"
-        },
-        "changes": {
-          "title": "7. Premium'daki değişiklikler",
-          "content": "<strong>Yeni özellikler:</strong><br>Mevcut abonelere ek ücret ödemeden yeni Premium özellikler ekleyebiliriz.<br><br><strong>Fiyat değişiklikleri:</strong><br>Aktif bir aboneliğin fiyatını artırırsak, önceden bilgilendireceğiz. Yeni fiyatı kabul edebilir veya iptal edebilirsiniz.<br><br><strong>Özellik kaldırma:</strong><br>Nadiren özellik kaldırırız. Kaldırırsak, eşdeğer alternatifler ararız.<br><br><strong>Ömür boyu plan:</strong><br>Ömür boyu erişim, ek ücret ödemeden tüm gelecek güncellemeleri içerir."
-        },
-        "law": {
-          "title": "8. Uygulanacak hukuk",
-          "content": "Bu şartlar İspanyol hukukuna tabidir.<br><br>Herhangi bir anlaşmazlık için taraflar Valencia (İspanya) mahkemelerine tabidir, zorunlu yargı yetkileri saklı kalmak kaydıyla.<br><br><strong>İletişim:</strong><br>vitalspath@gmail.com"
+          "title": "Yönetim",
+          "content": "İptal işlemi Apple ID ayarlarından yapılabilir."
         }
       }
     }
@@ -506,41 +427,178 @@
     "title": "Geri Bildirim",
     "subtitle": "VitalsPath'i iyileştirmemize yardımcı olun",
     "types": {
-      "feature": "Yeni Özellik İsteği",
-      "bug": "Hata Bildirimi",
-      "improvement": "İyileştirme Önerisi",
+      "feature": "Öneriler",
+      "bug": "Hata",
+      "improvement": "İyileştirme",
       "question": "Soru",
       "other": "Diğer"
     },
     "form": {
-      "type": "Geri Bildirim Türü",
-      "name": "Adınız",
-      "email": "E-posta Adresiniz",
+      "type": "Tür",
+      "name": "Ad",
+      "email": "E-posta",
       "subject": "Konu",
-      "message": "Mesajınız",
-      "namePlaceholder": "Adınızı girin",
+      "message": "Mesaj",
+      "namePlaceholder": "Adınız",
       "emailPlaceholder": "eposta@adresiniz.com",
-      "subjectPlaceholder": "Kısa bir konu girin",
-      "messagePlaceholder": "Geri bildiriminizi buraya yazın...",
-      "submit": "Geri Bildirim Gönder"
+      "submit": "Gönder"
     },
     "success": {
       "title": "Teşekkürler!",
-      "message": "Geri bildiriminiz başarıyla alındı. Değerli katkınız için teşekkür ederiz.",
-      "backHome": "Ana Sayfaya Dön"
+      "message": "Mesajınız alındı."
     }
   },
   "pricing": {
+    "badge": "Erken Kayıt Teklifi",
+    "title": "Planınızı seçin",
+    "subtitle": "Basit ve şeffaf fiyatlandırma. Gizli ücret yok.",
+    "monthly": {
+      "title": "Aylık",
+      "price": "₺149",
+      "period": "/ay",
+      "originalPrice": "₺229",
+      "discount": "%35 Tasarruf Edin"
+    },
     "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "Aile sağlığı yönetiminin tüm potansiyelini açın.",
+      "features_title": "Ücretsiz sürümdeki her şey ve ayrıca:",
       "privacy_title": "%100 Cihaz İçi Gizlilik",
-      "privacy_desc": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. VitalsPath, sizi korumak için iCloud Anahtar Zinciri'ni ve şifrelenmiş yerel veritabanlarını kullanır."
+      "privacy_desc": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. Şifrelenmiş veritabanları kullanıyoruz.",
+      "badge_discount": "Lansman İndirimi: -%25"
     },
     "free": {
-      "functional_badge": "%100 İŞLEVSEL",
-      "forever_badge": "SONSUZA DEK"
+      "title": "Ücretsiz",
+      "price": "₺0",
+      "period": "/daima",
+      "description": "Profil sınırı olmaksızın sonsuza dek ücretsiz tam özellikli uygulama.",
+      "functional_badge": "%100 İşlevsel",
+      "forever_badge": "Sonsuza dek"
+    },
+    "annual": {
+      "title": "Yıllık",
+      "badge": "En İyi Değer",
+      "price": "₺1190",
+      "period": "/yıl",
+      "originalPrice": "₺1590"
+    },
+    "lifetime": {
+      "title": "Ömür Boyu",
+      "price": "₺4490",
+      "period": "Tek Seferlik",
+      "description": "Bir kez ödeyin ve sonsuza dek kullanın."
+    },
+    "features": {
+      "unlimited_profiles": "Sınırsız Profil",
+      "unlimited_diseases": "Sınırsız Hastalık",
+      "unlimited_medications": "Sınırsız İlaç",
+      "stock_inventory": "Stok Yönetimi",
+      "export_pdf_csv": "PDF/CSV Dışa Aktar",
+      "advanced_analytics": "Gelişmiş Analitik",
+      "health_reports": "Doktor Raporları",
+      "ocr_scanner": "OCR İlaç Tarayıcı",
+      "healthkit": "HealthKit Senkronizasyonu",
+      "icloud_backup": "iCloud Yedeği",
+      "all_themes": "Tüm Temalar",
+      "smart_scheduler_ia": "AI Planlama",
+      "gamification": "Oyunlaştırma"
+    },
+    "cta": "Yakında",
+    "cta_alt": "Kaydol"
+  },
+  "smartScheduling": {
+    "badge": "Akıllı Algoritma",
+    "title": "Akıllı Planlama",
+    "subtitle": "Algoritmamız, ilaç etkileşimlerini ve yaşam tarzınızı dikkate alarak en güvenli programı oluşturur.",
+    "steps": {
+      "1": {
+        "title": "Girdi",
+        "desc": "İlaçlar"
+      },
+      "2": {
+        "title": "Slotlar",
+        "desc": "Saatler"
+      },
+      "3": {
+        "title": "Analiz",
+        "desc": "Güvenlik"
+      },
+      "4": {
+        "title": "Kontrol",
+        "desc": "Çatışma"
+      },
+      "5": {
+        "title": "Optimal",
+        "desc": "Şema"
+      }
     }
   },
   "notificationModes": {
-    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
+    "badge": "Uyarlanabilir Uyarılar",
+    "title": "Sizin için tasarlanan bildirimler",
+    "subtitle": "Toplantı salonundan yatak başına kadar her bağlam için tasarlanmış farklı etkileşim seviyeleri.",
+    "modes": {
+      "normal": {
+        "title": "Normal",
+        "desc": "Ses ve titreşim."
+      },
+      "quiet": {
+        "title": "Sessiz",
+        "desc": "Sadece görsel."
+      },
+      "discrete": {
+        "title": "Ayrık",
+        "desc": "Hafif titreşim."
+      },
+      "off": {
+        "title": "Kapalı",
+        "desc": "Kesintisiz."
+      }
+    },
+    "simulator": {
+      "now": "Şimdi",
+      "doseTitle": "İbuprofen Saati",
+      "ready": "Hazır"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Yerel Deneyim",
+    "title": "Widget'lar ve Canlı Etkinlikler.",
+    "titleHighlight": "Bir bakışta bilgi.",
+    "subtitle": "Doğrudan kilit ekranınızdan önemli bilgilere hızlıca göz atın.",
+    "items": {
+      "widgets": {
+        "title": "10+ Widget",
+        "desc": "Bir bakışta sağlık durumu."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Gerçek zamanlı güncellemer."
+      },
+      "live": {
+        "title": "Canlı Etkinlikler",
+        "desc": "Güncel dozu takip edin."
+      }
+    }
+  },
+  "languages": {
+    "title": "Dilinizi konuşuyoruz",
+    "subtitle": "İlk günden itibaren küresel",
+    "description": "VitalsPath, ailenizin kendini evinde hissetmesi için 15 dile çevrilmiştir."
+  },
+  "footerStats": {
+    "activeUsers": "Aktif Kullanıcılar",
+    "regions": "Bölgeler",
+    "plansCreated": "Oluşturulan Planlar"
+  },
+  "survey": {
+    "badge": "Hızlı Anket",
+    "question": "Bu uygulamanın aileniz için yararlı olacağını düşünüyor musunuz?",
+    "options": {
+      "yes": "Evet",
+      "no": "Hayır",
+      "maybe": "Belki"
+    },
+    "thanks": "Katıldığınız için teşekkürler!"
   }
 }

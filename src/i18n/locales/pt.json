@@ -25,6 +25,11 @@
       "profiles": "Perfis multifamiliares",
       "privacy": "100% no seu dispositivo",
       "languages": "15 idiomas"
+    },
+    "labels": {
+      "wellness": "Bem-estar",
+      "vitamind3": "Vitamina D3",
+      "familyProfiles": "Perfis Familiares"
     }
   },
   "problems": {
@@ -35,7 +40,7 @@
     "items": {
       "medication": {
         "title": "\"Tomei meu remédio ou não?\"",
-        "description": "Lembretes de notas não são suficientes."
+        "description": "Lembretes simples não são suficientes."
       },
       "profiles": {
         "title": "Um app para cada membro da família",
@@ -64,6 +69,7 @@
     "badge": "Um Hub, Todas as Soluções",
     "title": "Tudo que você precisa.",
     "titleHighlight": "Nada que você não vai usar.",
+    "subtitle": "Tudo o que você precisa para gerenciar a saúde da sua família, simplificado em um painel inteligente e poderoso.",
     "items": {
       "profiles": {
         "title": "Um perfil para cada membro da família",
@@ -95,7 +101,7 @@
       },
       "notifications": {
         "title": "Notificações Inteligentes",
-        "description": "Modo discreto e insistente."
+        "description": "Modo discreto e lembretes insistentes."
       },
       "symptoms": {
         "title": "Acompanhamento de Sintomas",
@@ -103,20 +109,35 @@
       },
       "treatments": {
         "title": "Gestão de Tratamentos",
-        "description": "Organize doenças e os medicamentos associados."
+        "description": "Organize condições e medicamentos associados."
+      },
+      "dashboards": {
+        "title": "Dashboards Pro",
+        "description": "Visão consolidada de toda a saúde familiar em um só lugar."
       },
       "metrics": {
         "title": "Métricas de Saúde",
         "description": "Acompanhamento avançado de adesão, humor e bem-estar familiar."
       },
+      "exportImport": {
+        "title": "Exportação & Importação",
+        "description": "Seus dados sempre com você. Exporte e importe em formatos PDF, CSV ou JSON."
+      },
       "reports": {
         "title": "Relatórios Médicos",
         "description": "Gere relatórios detalhados e profissionais para seus especialistas."
+      },
+      "encryption": {
+        "title": "Criptografia Sensível",
+        "description": "Seus dados mais sensíveis protegidos por criptografia AES-256 de nível militar."
       },
       "widgets": {
         "title": "Widgets e Live Activities",
         "description": "Dashboard na tela inicial."
       }
+    },
+    "cta": {
+      "primary": "Entrar na Lista de Espera"
     }
   },
   "deepFeatures": {
@@ -228,25 +249,47 @@
       "liveActivity": "Live Activity",
       "spanish": "Espanhol",
       "english": "Inglês",
-      "moreLanguages": "+ Idiomas"
+      "moreLanguages": "+ Idiomas",
+      "italian": "Italiano"
     },
     "note": "Capturas reais do app",
-    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "subtitle": "O VitalsPath foi construído do zero para ser um cidadão de primeira classe no ecossistema Apple, respeitando sua privacidade e integrando-se com as ferramentas que você já usa.",
+    "native": "NATIVO.",
+    "synced": "SINCRONIZADO.",
+    "secure": "SEGURO.",
+    "integrations": {
+      "icloud": {
+        "label": "Eco iCloud",
+        "desc": "Criptografia End-to-End"
+      },
+      "calendar": {
+        "label": "Apple Calendar",
+        "desc": "Eventos Automáticos"
+      },
+      "maps": {
+        "label": "Apple Maps",
+        "desc": "Busca de Farmácias"
+      },
+      "haptics": {
+        "label": "Háptica Nativa",
+        "desc": "Taptic Engine 3"
+      }
+    },
     "privacy": {
-      "title": "Secure by Design",
-      "desc": "Health data is encrypted on-device and never shared without your permission."
+      "title": "Seguro por Design",
+      "desc": "Os dados de saúde são criptografados no dispositivo e nunca compartilhados sem sua permissão."
     },
     "sync": {
-      "title": "iCloud Encrypted",
-      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+      "title": "iCloud Criptografado",
+      "desc": "Mantenha todos os perfis da sua família sincronizados com segurança no seu iPhone, iPad e Mac."
     },
     "profiles": {
-      "title": "Family First",
-      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+      "title": "Família Primeiro",
+      "desc": "Gerencie múltiplos perfis com históricos, alergias e informações de emergência separados."
     },
     "metrics": {
-      "title": "Health Insights",
-      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+      "title": "Insights de Saúde",
+      "desc": "Visualizando tendências de longo prazo em adesão, sintomas e bem-estar familiar geral."
     }
   },
   "waitlist": {
@@ -289,9 +332,9 @@
     "feedback": "Enviar Feedback",
     "terms": "Termos e Condições",
     "disclaimer": "Aviso Legal",
+    "subscription": "Assinatura",
     "copyright": "2026 VitalsPath · Feito com",
-    "developer": "por RomeroDev",
-    "subscription": "Assinatura"
+    "developer": "por RomeroDev"
   },
   "legal": {
     "terms": {
@@ -384,7 +427,7 @@
         },
         "info": {
           "title": "2. Informações que coletamos",
-          "content": "O Aplicativo coleta dois tipos principais de dados:<br><br><strong>2.1. Dados pessoais fornecidos pelo usuário:</strong><br>• Dados identificativos: Nome do perfil, idade aproximada (faixa), foto/avatar opcional.<br>• Dados de saúde e bem-estar: Medicação (nomes, doses, horários, estoque), sintomas e sua gravidade, condições médicas, tratamentos, consultas médicas, estado de humor, adesão à medicação, tarefas de saúde, locais favoritos.<br>• Dados de uso: Configuração de notificações, preferências de temas/UI, ajustes de widgets.<br>• Dados técnicos: Identificador do dispositivo (IDFV), versão do iOS, modelo do dispositivo, idioma do sistema, fuso horário.<br><br><strong>2.2. Dados de saúde obtidos do Apple Health/HealthKit (apenas leitura):</strong><br>Com seu consentimento explícito, podemos acessar dados como atividade física, dados de sono, peso, frequência cardíaca, pressão arterial e outros dados compatíveis que você autorizar.<br><br><strong>2.3. Dados gerados automaticamente:</strong><br>• Registros de uso (timestamps de criação/modificação).<br>• Logs técnicos para diagnóstico de erros (sem dados pessoais identificáveis).<br>• Métricas agregadas e anonimizadas de uso para análise interna.<br><br>Importante: Todos os dados sensíveis de saúde são inseridos diretamente por você ou procedem do HealthKit com sua autorização expressa."
+          "content": "O Aplicativo coleta dois tipos principais de dados:<br><br><strong>2.1. Dados pessoais fornecidos pelo usuário:</strong><br>• Dados identificativos: Nome do perfil, idade aproximada (faixa), foto/avatar opcional.<br>• Dados de saúde e bem-estar: Medicação (nomes, doses, horários, estoque), sintomas e sua gravidade, condições médicas, tratamentos, consultas médicas, estado de humor, adesão à medicação, tarefas de saúde, locais favoritos.<br>• Dados de uso: Configuração de notificações, preferências de temas/UI, ajustes de widgets.<br>• Dados técnicos: Identificador do dispositivo (IDFV), versão do iOS, modelo do dispositivo, idioma do sistema, fuso horário.<br><br><strong>2.2. Dados de saúde obtidos do Apple Health/HealthKit (apenas leitura):</strong><br>Com seu consentimento explícito, podemos acessar dados como atividade física, dados de sono, peso, frequência cardíaca, pressão arterial e outros dados compatíveis que você autorizar.<br><br><strong>2.3. Dados gerados automaticamente:</strong><br>• Registros de uso (timestamps de criação/modificação).<br>• Logs técnicos para diagnóstico de erros (sem dados pessoais identificáveis).<br>• Métricas agregadas e anonimizadas de uso para análise interna.<br><br>Importante: Todos os dados sensíveis de saúde são inseridos directamente por você ou procedem do HealthKit com sua autorização expressa."
         },
         "usage": {
           "title": "3. Como utilizamos seus dados",
@@ -437,7 +480,7 @@
         },
         "professional": {
           "title": "Consulte Profissionais de Saúde",
-          "content": "Sempre consulte médicos, farmacêuticos ou outros profissionais de saúde qualificados para questões médicas, incluindo mas não limitado a: diagnósticos, tratamentos, medicações, interações medicamentosas, condições de saúde e emergências médicas."
+          "content": "Sempre consulte médicos, farmacêuticos ou outros profissionais de saúde qualificado para questões médicas, incluindo mas não limitado a: diagnósticos, tratamentos, medicações, interações medicamentosas, condições de saúde e emergências médicas."
         },
         "emergency": {
           "title": "Emergências Médicas",
@@ -489,125 +532,21 @@
         },
         "issues": {
           "title": "6. Problemas técnicos e suporte",
-          "content": "<strong>Restaurar compras:</strong><br>Se você comprou Premium mas não foi ativado, vá em Ajustes → Premium → Restaurar Compras.<br><br><strong>Troca de dispositivo:</strong><br>Suas compras estão vinculadas ao seu Apple ID. Instale VitalsPath no novo dispositivo e restaure as compras.<br><br><strong>Contatar suporte:</strong><br>Para problemas de pagamento ou assinatura, escreva para: vitalspath@gmail.com<br><br><strong>Reembolsos:</strong><br>Apple gerencia todos os reembolsos. Você pode solicitá-los em reportaproblem.apple.com"
+          "content": "<strong>Restaurar compras:</strong><br>Se você comprou Premium mas não foi ativado, vá em Ajustes → Premium → Restaurar Compras.<br><br><strong>Troca de dispositivo:</strong><br>Suas compras estão vinculadas ao seu Apple ID. Instale VitalsPath no novo dispositivo e restaure as compras.<br><br><strong>Contatar suporte:</strong><br>Para problemas de pagamento ou assinatura, escreva para: vitalspath@gmail.com<br><br><strong>Remboursamentos:</strong><br>Apple gerencia todos os reembolsos. Você pode solicitá-los em reportaproblem.apple.com"
         },
         "changes": {
           "title": "7. Mudanças no Premium",
           "content": "<strong>Novos recursos:</strong><br>Podemos adicionar novos recursos Premium sem custo adicional para assinantes existentes.<br><br><strong>Alterações de preço:</strong><br>Se aumentarmos o preço de uma assinatura ativa, informaremos com antecedência. Você pode aceitar o novo preço ou cancelar.<br><br><strong>Remoção de recursos:</strong><br>Raramente removemos recursos. Se o fizermos, buscaremos alternativas equivalentes.<br><br><strong>Plano vitalício:</strong><br>O acesso vitalício inclui todas as atualizações futuras sem custo adicional."
-        },
-        "law": {
-          "title": "8. Lei aplicável",
-          "content": "Estes termos são regidos pela lei espanhola.<br><br>Para qualquer disputa, as partes se submetem aos tribunais de Valência (Espanha), sem prejuízo das jurisdições imperativas aplicáveis.<br><br><strong>Contato:</strong><br>vitalspath@gmail.com"
         }
       }
     }
   },
-  "pricing": {
-    "badge": "Oferta de Lançamento",
-    "title": "Escolha seu plano",
-    "subtitle": "Preços simples e transparentes. Sem taxas escondidas.",
-    "monthly": {
-      "title": "Mensal",
-      "price": "€3.74",
-      "period": "/mês",
-      "description": "Faturamento mensal, cancele quando quiser",
-      "discount": "Economize 35%",
-      "originalPrice": "€4.99"
-    },
-    "premium": {
-      "title": "VitalsPath Premium",
-      "subtitle": "Desbloqueie todo o potencial da gestão de saúde familiar.",
-      "features_title": "Tudo no Gratuito, mais:",
-      "feature_desc": "Registros ilimitados em todos os serviços.",
-      "privacy_title": "Privacidade 100% On-Device",
-      "privacy_desc": "Os seus dados de saúde nunca saem do seu iPhone. O VitalsPath utiliza o iCloud Keychain e bases de dados locais encriptadas para o proteger."
-    },
-    "free": {
-      "title": "Gratuito",
-      "price": "€0",
-      "period": "/para sempre",
-      "description": "App 100% funcional para sempre, con limites de perfis e registros. Ideal para uso individual.",
-      "discount": "Sempre Gratuito",
-      "functional_badge": "100% FUNCIONAL",
-      "forever_badge": "PARA SEMPRE"
-    },
-    "annual": {
-      "title": "Anual",
-      "badge": "MELHOR VALOR",
-      "price": "€29.99",
-      "period": "/ano",
-      "description": "Faturamento anual, economize 33%",
-      "discount": "Economize 35%",
-      "originalPrice": "€39.99"
-    },
-    "lifetime": {
-      "title": "Vitalício",
-      "price": "€112.49",
-      "period": "pagamento único",
-      "description": "Pagamento único, para sempre",
-      "discount": "Economize 15%",
-      "originalPrice": "€149.99"
-    },
-    "features": {
-      "unlimited_profiles": "Perfis ilimitados",
-      "unlimited_profiles_desc": "Gerencie toda a sua família sem limites.",
-      "unlimited_diseases": "Doenças ilimitadas",
-      "unlimited_medications": "Medicamentos ilimitados",
-      "unlimited_treatments": "Tratamentos ilimitados",
-      "extended_pause": "Pausa estendida",
-      "extend_medication": "Estender medicação",
-      "full_schedule": "Cronogramas completos",
-      "quiet_schedule": "Cronograma silencioso",
-      "stock_inventory": "Estoque e Inventário",
-      "export_pdf_csv": "Exportar para PDF/CSV",
-      "export_pdf_csv_desc": "Seus dados sempre com você em vários formatos.",
-      "advanced_analytics": "Análises avançadas",
-      "advanced_analytics_desc": "Gráficos detalhati do seu progresso de saúde.",
-      "health_reports": "Relatórios de saúde",
-      "health_reports_desc": "Exporte relatórios detalhados para o seu médico.",
-      "ocr_scanner": "Scanner OCR de medicamentos",
-      "healthkit": "Integração HealthKit",
-      "complex_symptoms": "Rastreamento de sintomas complexos",
-      "icloud_backup": "Backup iCloud",
-      "icloud_backup_desc": "Protocolo Apple. Também pode ser feito localmente.",
-      "all_themes": "Todos os temas",
-      "all_themes_desc": "Personalização completa com temas dinâmicos.",
-      "advanced_notifications": "Notificazioni avançadas",
-      "advanced_notifications_desc": "Alertas críticos e lembretes inteligentes.",
-      "haptic_feedback": "Resposta háptica",
-      "haptic_feedback_desc": "Navegação tátil imersiva.",
-      "widget_styles": "Estilos de widget",
-      "widget_styles_desc": "Vários tamanhos e layouts para sua tela inicial.",
-      "basic_profiles": "1 Perfil (Ilimitados no Premium)",
-      "basic_medications": "3 Medicamentos por perfil",
-      "local_reminders": "Lembretes básicos",
-      "wellness_score": "Índice de Bem-Estar",
-      "wellness_details": "Detalhamento de fatores avançados",
-      "smart_scheduler": "Verificador de conflitos",
-      "smart_scheduler_ia": "Otimização automática por IA",
-      "smart_scheduler_ia_desc": "Otimização inteligente de doses e lembretes.",
-      "appointments_limit": "3 Consultas por mês",
-      "unlimited_appointments": "Consultas ilimitadas",
-      "locations_limit": "2 Locais favoritos",
-      "unlimited_locations": "Locais ilimitados",
-      "insurance_limit": "1 Seguro saúde",
-      "symptoms_basic": "Sintomas básicos",
-      "symptoms_complex": "Sintomas complexos",
-      "inventory_basic": "Estoque básico e Validade",
-      "health_status": "Análise da Situação de Saúde",
-      "health_status_desc": "Visão holística e recomendações personalizadas baseadas nos seus dados.",
-      "gamification": "Gamificação e Motivação",
-      "gamification_desc": "Objetivos, conquistas e recompensas para cuidar da sua saúde de forma divertida."
-    },
-    "cta": "Em breve",
-    "cta_alt": "Inscreva-me"
-  },
   "feedback": {
-    "title": "Envie seu Feedback",
-    "subtitle": "Sua opinião nos ajuda a melhorar o VitalsPath para você e sua família.",
+    "title": "Sua Opinião Conta",
+    "subtitle": "Ajude-nos a melhorar o VitalsPath compartilhando suas ideias, relatando erros ou sugerindo novos recursos.",
     "types": {
-      "feature": "Nova Funcionalidade",
-      "bug": "Reportar Bug",
+      "feature": "Novo Recurso",
+      "bug": "Relatar Erro",
       "improvement": "Sugestão de Melhoria",
       "question": "Dúvida",
       "other": "Outro"
@@ -620,17 +559,208 @@
       "message": "Mensagem",
       "namePlaceholder": "Seu nome",
       "emailPlaceholder": "seu@email.com",
-      "subjectPlaceholder": "Resumo do feedback",
-      "messagePlaceholder": "Descreva seu feedback em detalhes...",
+      "subjectPlaceholder": "Breve resumo",
+      "messagePlaceholder": "Conte-nos mais detalhes...",
       "submit": "Enviar Feedback"
     },
     "success": {
-      "title": "Obrigado!",
-      "message": "Seu feedback foi enviado com sucesso. Agradecemos por nos ajudar a melhorar o VitalsPath.",
+      "title": "Obrigado pelo seu feedback!",
+      "message": "Recebemos sua mensagem. Vamos analisá-la e entraremos em contato se necessário.",
       "backHome": "Voltar para Início"
     }
   },
+  "pricing": {
+    "badge": "Oferta Early Adopter",
+    "title": "Escolha seu plano",
+    "subtitle": "Preços simples e transparentes. Sem taxas ocultas.",
+    "monthly": {
+      "title": "Mensal",
+      "price": "€3,74",
+      "period": "/mês",
+      "description": "Faturamento mensal, cancele quando quiser",
+      "discount": "Economize 35%",
+      "originalPrice": "€4,99"
+    },
+    "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "Desbloqueie todo o potencial da gestão de saúde familiar.",
+      "features_title": "Tudo o que é Gratuito, e mais:",
+      "feature_desc": "Registros ilimitados em todos os serviços.",
+      "privacy_title": "Privacidade 100% On-Device",
+      "privacy_desc": "Os seus dados de saúde nunca saem do seu iPhone. O VitalsPath utiliza o iCloud Keychain e bases de dados locais encriptadas para o proteger.",
+      "badge_discount": "Oferta de lançamento: -25%"
+    },
+    "free": {
+      "title": "Gratuito",
+      "price": "0 €",
+      "period": "/sempre",
+      "description": "App 100% funcional para sempre, com limites de perfis e registros. Ideal para uso individual.",
+      "discount": "Sempre Gratuito",
+      "functional_badge": "100% FUNCIONAL",
+      "forever_badge": "PARA SEMPRE"
+    },
+    "annual": {
+      "title": "Anual",
+      "badge": "MELHOR VALOR",
+      "price": "€29,99",
+      "period": "/ano",
+      "description": "Faturamento anual, economize 33%",
+      "discount": "Economize 35%",
+      "originalPrice": "€39,99"
+    },
+    "lifetime": {
+      "title": "Vitalício",
+      "price": "€112,49",
+      "period": "pagamento único",
+      "description": "Pagamento único, acesso vitalício",
+      "discount": "Economize 15%",
+      "originalPrice": "€149,99"
+    },
+    "features": {
+      "unlimited_profiles": "Perfis Ilimitados",
+      "unlimited_diseases": "Doenças Ilimitadas",
+      "unlimited_medications": "Medicamentos Ilimitados",
+      "unlimited_treatments": "Tratamentos Ilimitados",
+      "extended_pause": "Pausa Estendida",
+      "extend_medication": "Estender Medicação",
+      "full_schedule": "Agendamento Completo",
+      "quiet_schedule": "Agendamento Silencioso",
+      "stock_inventory": "Estoque e Inventário",
+      "export_pdf_csv": "Exportar para PDF/CSV",
+      "advanced_analytics": "Análises Avançadas (30, 90 dias, Histórico)",
+      "health_reports": "Relatórios de Saúde",
+      "health_reports_desc": "Exporte relatórios detalhados para o seu médico.",
+      "ocr_scanner": "Scanner OCR de Medicamentos",
+      "healthkit": "Integração HealthKit",
+      "complex_symptoms": "Monitoramento de Sintomas Complexos",
+      "icloud_backup": "Backup iCloud",
+      "icloud_backup_desc": "Protocolo Apple. Também pode ser feito localmente e exportado.",
+      "all_themes": "Todos os Temas",
+      "all_themes_desc": "Personalização completa com temas dinâmicos.",
+      "advanced_notifications": "Notificações Avançadas",
+      "advanced_notifications_desc": "Alertas críticos e lembretes inteligentes.",
+      "haptic_feedback": "Resposta Háptica",
+      "haptic_feedback_desc": "Navegação tátil imersiva.",
+      "widget_styles": "Estilos de Widgets",
+      "widget_styles_desc": "Vários tamanhos e layouts para sua tela inicial.",
+      "basic_profiles": "1 Perfil (Ilimitados no Premium)",
+      "basic_medications": "3 Medicamentos por perfil",
+      "local_reminders": "Lembretes Básicos",
+      "wellness_score": "Índice de Bem-Estar (Anéis diários)",
+      "wellness_details": "Detalhamento avançado de fatores",
+      "smart_scheduler": "Conflict Checker (Correção manual)",
+      "smart_scheduler_ia": "Otimização Automática por IA",
+      "smart_scheduler_ia_desc": "Otimização inteligente de doses e lembretes.",
+      "appointments_limit": "3 Consultas por mês",
+      "unlimited_appointments": "Consultas Ilimitadas",
+      "locations_limit": "2 Locais Favoritos",
+      "insurance_limit": "1 Seguro Saúde",
+      "symptoms_basic": "Sintomas Básicos",
+      "symptoms_complex": "Sintomas Complexos (Peito, Abdominal, Ansiedade)",
+      "inventory_basic": "Estoque Básico e Validade",
+      "health_status": "Análise da Situação de Saúde",
+      "health_status_desc": "Visão holística e recomendações personalizadas baseadas nos seus dados.",
+      "gamification": "Gamificação e Motivação",
+      "gamification_desc": "Objetivos, conquistas e recompensas para cuidar da sua saúde de forma divertida."
+    },
+    "cta": "Em breve",
+    "cta_alt": "Inscreva-me"
+  },
+  "smartScheduling": {
+    "badge": "Algoritmo Inteligente",
+    "title": "Agendamento Inteligente",
+    "subtitle": "O nosso algoritmo avançado optimiza a sua rotina de medicação tendo em conta interacções, margens de segurança e o seu estilo de vida.",
+    "steps": {
+      "1": {
+        "title": "Entrada",
+        "desc": "Medicamentos e Horas"
+      },
+      "2": {
+        "title": "Horários",
+        "desc": "Slots Reservados"
+      },
+      "3": {
+        "title": "Análise",
+        "desc": "Margens de Segurança"
+      },
+      "4": {
+        "title": "Verificação",
+        "desc": "Sobreposições"
+      },
+      "5": {
+        "title": "Otimização",
+        "desc": "Horário Perfeito"
+      }
+    }
+  },
   "notificationModes": {
-    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
+    "badge": "Alertas Adaptáveis",
+    "title": "Notificações que se adaptam a você",
+    "subtitle": "Experimente diferentes níveis de interação projetados para cada contexto, da sala de reuniões à beira do leito.",
+    "hapticTip": "Disponibilidade de modos ajustada às capacidades hápticas do seu iPhone (Taptic Engine Gen 3+ recomendado).",
+    "modes": {
+      "normal": {
+        "title": "Normal",
+        "desc": "Alertas padrão com som e vibração."
+      },
+      "quiet": {
+        "title": "Silencioso",
+        "desc": "Apenas visual, perfeito para trabalho ou reuniões."
+      },
+      "discrete": {
+        "title": "Discreto",
+        "desc": "Háptica sutil, conteúdo focado em privacidade."
+      },
+      "off": {
+        "title": "Desligado",
+        "desc": "Sem interrupções, apenas badges."
+      }
+    },
+    "simulator": {
+      "now": "AGORA",
+      "doseTitle": "Dose de Ibuprofeno",
+      "ready": "PRONTO"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Experiência Nativa",
+    "title": "Widgets e",
+    "titleHighlight": "Live Activities.",
+    "subtitle": "Informações num relance, directamente do seu ecrã inicial ou bloqueado.",
+    "description": "Mantenha o controle sem abrir o app. Com mais de 10 widgets personalizados, Live Activities para rastreamento em tempo real e suporte total à Dynamic Island para consultas e medicamentos.",
+    "items": {
+      "widgets": {
+        "title": "+10 Widgets",
+        "desc": "De lembretes de medicação a resumos de saúde familiar."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Atualizações em tempo real para as suas consultas médicas em curso."
+      },
+      "live": {
+        "title": "Live Activities",
+        "desc": "Acompanhe o seu tratamento de dose ativa diretamente no ecrã de bloqueio."
+      }
+    }
+  },
+  "languages": {
+    "title": "Falamos sua língua",
+    "subtitle": "Global desde o primeiro dia",
+    "description": "O VitalsPath é traduzido nativamente para 15 idiomas para que toda a sua família se sinta em casa."
+  },
+  "footerStats": {
+    "activeUsers": "Usuários Ativos",
+    "regions": "Regiões",
+    "plansCreated": "Planos Criados"
+  },
+  "survey": {
+    "badge": "Pesquisa Rápida",
+    "question": "Você acha que este app pode ser útil para sua família?",
+    "options": {
+      "yes": "Sim",
+      "no": "Não",
+      "maybe": "Talvez"
+    },
+    "thanks": "Obrigado por participar!"
   }
 }

@@ -1,226 +1,247 @@
 {
   "meta": {
-    "title": "VitalsPath - 가족 건강 허브",
-    "description": "VitalsPath - 가족 건강 허브. 하나의 스마트한 iOS 앱으로 온 가족의 약물, 진료 예약, 증상, 웰니스를 관리하세요."
+    "title": "VitalsPath - 당신의 가족 건강 허브",
+    "description": "VitalsPath - 당신의 가족 건강 허브. 온 가족의 투약, 예약, 증상 및 웰니스를 하나의 스마트한 iOS 앱에서 관리하세요."
   },
   "nav": {
-    "features": "기능",
+    "features": "주요 기능",
     "scheduler": "스케줄러",
     "ecosystem": "에코시스템",
     "benefits": "장점",
     "pricing": "요금제",
-    "waitlist": "대기자 등록",
+    "waitlist": "대기 명단",
     "gallery": "갤러리"
   },
   "hero": {
-    "badge": "가족 건강 허브 · iOS 18+",
-    "title": "가족의 모든 건강을,",
+    "badge": "가족 건강 허브 · iOS 18+ 지원",
+    "title": "우리 가족의 모든 건강 데이터를,",
     "titleHighlight": "하나의 앱으로.",
-    "subtitle": "<strong>VitalsPath</strong>는 약물, 진료 예약, 증상, 기분, 할 일, 웰니스 지표를 통합 관리합니다.",
+    "subtitle": "<strong>VitalsPath</strong>는 의약품, 예약, 증상, 기분, 작업 및 건강 지표를 통합 관리합니다.",
     "cta": {
-      "primary": "대기자 등록하기",
-      "secondary": "VitalsPath 알아보기"
+      "primary": "대기 명단 가입",
+      "secondary": "자세히 알아보기"
     },
     "features": {
       "profiles": "다중 가족 프로필",
-      "privacy": "100% 기기 내 저장",
-      "languages": "15개 언어"
+      "privacy": "100% 온디바이스 처리",
+      "languages": "15개 언어 지원"
+    },
+    "labels": {
+      "wellness": "웰니스",
+      "vitamind3": "비타민 D3",
+      "familyProfiles": "가족 프로필"
     }
   },
   "problems": {
-    "badge": "현실적인 문제",
-    "title": "가족 건강 관리는",
-    "titleLine2": "생각보다 더 어렵습니다.",
-    "subtitle": "여러 앱, 실패하는 알림, 흩어진 정보.",
+    "badge": "현실적인 고민",
+    "title": "가족의 건강 관리,",
+    "titleLine2": "더 간단해져야 합니다.",
+    "subtitle": "너무 많은 앱, 놓치기 쉬운 알림, 흩어져 있는 정보들.",
     "items": {
       "medication": {
-        "title": "\"약을 먹었나, 안 먹었나?\"",
-        "description": "메모 알림만으로는 부족합니다."
+        "title": "\"약을 먹었는지 안 먹었는지 헷갈려요\"",
+        "description": "단순한 메모장 알림으로는 부족합니다."
       },
       "profiles": {
-        "title": "가족 구성원별로 다른 앱",
-        "description": "중앙에서 관리할 곳이 필요합니다."
+        "title": "가족마다 따로 쓰는 앱",
+        "description": "중앙 집중식 허브가 필요합니다."
       },
       "appointments": {
-        "title": "흩어진 의료 예약",
-        "description": "누가, 어디서, 언제?"
+        "title": "여기저기 흩어진 병원 예약",
+        "description": "누가, 언제, 어디로 가야 하나요?"
       },
       "symptoms": {
-        "title": "\"어떤 증상이 있었지?\"",
-        "description": "중요한 세부 사항이 기억나지 않습니다."
+        "title": "\"그때 증상이 정확히 어땠더라?\"",
+        "description": "시간이 지나면 중요한 세부 사항을 잊게 됩니다."
       },
       "interactions": {
-        "title": "이 약들을 같이 먹어도 될까?",
-        "description": "약물 상호작용은 위험합니다."
+        "title": "이 약들을 같이 먹어도 될까요?",
+        "description": "약물 상호작용은 때때로 치명적일 수 있습니다."
       },
       "tasks": {
-        "title": "잊혀진 후속 할 일",
-        "description": "검사 예약, 처방전 갱신..."
+        "title": "잊기 쉬운 사후 관리 작업",
+        "description": "검사 예약, 처방전 갱신 등."
       }
     },
-    "cta": "VitalsPath가 이 모든 것을 해결합니다..."
+    "cta": "VitalsPath가 이 모든 것을 해결해 드립니다..."
   },
   "features": {
-    "badge": "하나의 허브, 모든 솔루션",
-    "title": "필요한 모든 것.",
-    "titleHighlight": "불필요한 것은 없습니다.",
+    "badge": "원스톱 솔루션",
+    "title": "필요한 모든 기능이 여기에.",
+    "titleHighlight": "불필요한 기능은 뺐습니다.",
+    "subtitle": "스마트하고 강력한 대시보드로 가족 건강 관리를 단순화하세요.",
     "items": {
       "profiles": {
-        "title": "가족 구성원별 프로필",
-        "description": "성인, 아동, 노인. 각자의 데이터, 병력, 알레르기, 비상 연락처를 관리하세요."
+        "title": "가족 개별 프로필",
+        "description": "성인, 어린이, 노인. 각각의 데이터, 기록, 알레르기 및 비상 연락처를 관리할 수 있습니다."
       },
       "scheduler": {
         "title": "스마트 스케줄러",
-        "description": "복용 시간이 겹치지 않도록 분배합니다."
+        "description": "복용 시간이 겹치지 않도록 지능적으로 배분합니다."
       },
       "privacy": {
-        "title": "100% 프라이버시",
-        "description": "데이터는 기기 밖으로 나가지 않습니다."
+        "title": "100% 개인정보 보호",
+        "description": "데이터가 기기 외부로 절대 공유되지 않습니다."
       },
       "medication": {
-        "title": "복용 중심 약물 관리",
-        "description": "각 복용량별 상태와 추적 가능."
+        "title": "복용량 중심 관리",
+        "description": "모든 복용 기록을 상태별로 추적합니다."
       },
       "wellness": {
         "title": "웰니스 점수",
-        "description": "다중 지표 웰니스 측정."
+        "description": "다각적인 건강 상태 지표."
       },
       "calendar": {
         "title": "무한 캘린더",
-        "description": "모든 일정을 볼 수 있는 월간 보기."
+        "description": "월간 보기로 모든 이벤트를 한눈에."
       },
       "tasks": {
-        "title": "후속 할 일",
-        "description": "검사 예약, 처방전 갱신."
+        "title": "사후 관리 작업",
+        "description": "검사, 처방전, 약 구매 등을 관리하세요."
       },
       "notifications": {
         "title": "스마트 알림",
-        "description": "조용한 모드와 반복 알림."
+        "description": "매너 모드부터 강력한 리마인더까지."
       },
       "symptoms": {
-        "title": "증상 추적",
-        "description": "심각도 및 회복 단계가 포함된 상세 로그."
+        "title": "증상 트래킹",
+        "description": "심각도와 회복 단계가 포함된 상세 로그."
       },
       "treatments": {
         "title": "치료 관리",
-        "description": "질환 및 관련 약물을 정리합니다."
+        "description": "질환과 관련된 약물 계획을 효율적으로 정리하세요."
+      },
+      "dashboards": {
+        "title": "전문가용 대시보드",
+        "description": "온 가족의 건강 상태를 한 인터페이스에서 요약해 보여줍니다."
       },
       "metrics": {
         "title": "건강 지표",
-        "description": "복용 이행률, 기분 및 가족 웰니스의 고급 추적."
+        "description": "복용 준수율, 기분, 웰니스를 정밀하게 추적합니다."
+      },
+      "exportImport": {
+        "title": "내보내기 및 가져오기",
+        "description": "데이터의 주인은 당신입니다. PDF, CSV, JSON 지원."
       },
       "reports": {
         "title": "의료 보고서",
-        "description": "전문의를 위한 상세하고 전문적인 보고서를 생성합니다."
+        "description": "전문의를 위한 상세하고 전문적인 리포트를 생성하세요."
+      },
+      "encryption": {
+        "title": "강력한 보안",
+        "description": "AES-256 암호화로 개인정보를 철저히 보호합니다."
       },
       "widgets": {
-        "title": "위젯 & 라이브 액티비티",
-        "description": "홈 화면 대시보드."
+        "title": "위젯 및 라이브 액티비티",
+        "description": "홈 화면에서 실시간으로 대시보드를 확인하세요."
       }
+    },
+    "cta": {
+      "primary": "대기 명단에 가입하기"
     }
   },
   "deepFeatures": {
-    "badge": "심층 기능",
-    "title": "실생활을 위해",
-    "titleHighlight": "설계된 기능.",
+    "badge": "상세 기능",
+    "title": "실제 라이프스타일을",
+    "titleHighlight": "고려한 설계.",
     "medication": {
-      "badge": "약물",
+      "badge": "투약 관리",
       "title": "복용 중심 아키텍처",
-      "description": "각 복용량은 상태, 예정 시간, 완전한 추적성을 가진 독립적인 항목입니다.",
+      "description": "모든 복용 일정은 상태, 시간, 기록을 가진 독립적인 개체로 관리됩니다.",
       "features": [
-        "각 복용량별 상태, 시간, 코멘트",
-        "완전한 변경 이력",
-        "소급 적용 치료 연장"
+        "각 복용마다 상태, 시간, 메모 기록",
+        "모든 변경 사항 추적 기록",
+        "소급 적용 가능한 치료 기간 연장"
       ]
     },
     "calendar": {
       "badge": "캘린더",
-      "title": "하나의 캘린더, 모든 일정",
-      "description": "복용량, 치료, 진료 예약, 후속 할 일에 최적화된 월간 보기.",
+      "title": "모든 일정을 하나의 캘린더에",
+      "description": "복용, 치료, 예약, 작업을 최적화된 월간 보기로 확인하세요.",
       "features": [
-        "반복되는 의료 예약",
-        "연관된 후속 할 일",
+        "반복 기능이 포함된 병원 예약",
+        "연관된 사후 관리 작업",
         "재사용 가능한 템플릿"
       ]
     },
     "symptoms": {
-      "badge": "증상",
-      "title": "건강 감사",
-      "description": "중증도가 포함된 증상 기록. 단계별 의료 상태 모듈.",
+      "badge": "증상 관리",
+      "title": "건강 상태 감시",
+      "description": "심각도를 지정하여 증상을 기록. 질환의 진행 단계를 체계적으로 관리.",
       "features": [
-        "100개 이상의 중증도 척도 증상",
-        "단계: 초기, 만성, 회복기",
-        "간트 차트 스타일 그래프"
+        "100가지 이상의 증상과 심각도 척도",
+        "발병, 만성, 회복 등 단계별 관리",
+        "간트 차트 스타일의 추이 그래프"
       ]
     }
   },
   "benefits": {
     "badge": "왜 VitalsPath인가요?",
-    "title": "진정으로 완벽한",
+    "title": "진정으로 포괄적인",
     "titleHighlight": "건강 관리 도구.",
     "items": {
       "medications": {
-        "title": "약물 및 복용량",
-        "description": "복용, 알림 및 재고에 대한 완전한 제어."
+        "title": "의약품 및 복용량",
+        "description": "투약, 알림, 재고의 완벽한 컨드롤."
       },
       "treatments": {
         "title": "치료 관리",
-        "description": "질환 및 관련 약물을 정리합니다."
+        "description": "질환과 관련 약물을 체계적으로 정리하세요."
       },
       "appointments": {
-        "title": "의료 예약",
-        "description": "진료, 전문의 및 클리닉을 관리합니다."
+        "title": "병원 예약",
+        "description": "방문 일정, 전문의, 병원 정보를 관리하세요."
       },
       "profiles_unlimited": {
         "title": "가족 프로필",
-        "description": "한 곳에서 온 가족을 관리하세요."
+        "description": "하나의 앱으로 온 가족을 케어하세요."
       },
       "diseases": {
         "title": "질환 및 상태",
-        "description": "상세한 병력 추적."
+        "description": "상세한 과거 병력 트래킹."
       },
       "symptoms_plus": {
-        "title": "+100가지 증상",
-        "description": "심각도 및 회복 단계가 포함된 상세 로그."
+        "title": "100개 이상의 증상",
+        "description": "심각도와 회복기를 포함한 상세 로그."
       }
     },
     "stats": {
-      "languages": "언어",
-      "symptoms": "증상",
-      "profiles": "프로필",
-      "private": "프라이빗"
+      "languages": "지원 언어",
+      "symptoms": "증상 데이터",
+      "profiles": "프로필 수",
+      "private": "개인정보 보호"
     },
     "disclaimer": {
       "title": "VitalsPath는 의사를 대체하지 않습니다.",
-      "description": "조직 관리 도구입니다. 항상 전문의와 상담하세요."
+      "description": "본 앱은 관리 도구입니다. 건강 관련 결정은 항상 전문가와 상담하세요."
     }
   },
   "gallery": {
     "badge": "iOS 인터페이스",
-    "title": "iOS처럼 느껴지도록",
-    "titleHighlight": "설계되었습니다.",
+    "title": "iOS 플랫폼에 최적화된",
+    "titleHighlight": "사용자 경험.",
     "sections": {
       "main": "메인",
       "detail": "상세",
-      "modes": "라이트 / 다크 모드",
+      "modes": "다크/라이트 테마",
       "widgets": "위젯",
-      "languages": "언어"
+      "languages": "다국어"
     },
     "labels": {
       "dashboard": "대시보드",
       "profiles": "프로필",
-      "medications": "약물",
+      "medications": "의약품",
       "symptoms": "증상",
       "conditions": "상태",
-      "wellness": "웰니스",
+      "wellness": "건강",
       "profileDetail": "프로필 상세",
-      "medicationDetail": "약물 상세",
-      "doseLog": "복용 기록",
+      "medicationDetail": "의약품 상세",
+      "doseLog": "복용 로그",
       "symptomGraph": "증상 그래프",
       "tasks": "할 일",
       "notifications": "알림",
       "conditionDetail": "상태 상세",
-      "emergency": "응급",
+      "emergency": "비상",
       "lightMode": "라이트 모드",
       "darkMode": "다크 모드",
       "widgets": "위젯",
@@ -228,288 +249,188 @@
       "liveActivity": "라이브 액티비티",
       "spanish": "스페인어",
       "english": "영어",
-      "moreLanguages": "+ 언어"
+      "moreLanguages": "+ 더보기",
+      "italian": "이탈리아어"
     },
-    "note": "앱 실제 스크린샷",
-    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "note": "실제 앱 스크린샷",
+    "subtitle": "VitalsPath는 Apple 에코시스템의 퍼스트 클래스 앱으로 설계되었으며, 사용자의 프라이버시를 존중하고 기존 도구들과 완벽하게 통합됩니다.",
+    "native": "네이티브 설계.",
+    "synced": "완벽 동기화.",
+    "secure": "강력한 보안.",
+    "integrations": {
+      "icloud": {
+        "label": "iCloud 동기화",
+        "desc": "E2E 암호화"
+      },
+      "calendar": {
+        "label": "Apple 캘린더",
+        "desc": "일정 자동 반영"
+      },
+      "maps": {
+        "label": "Apple 지도",
+        "desc": "주변 약국 검색"
+      },
+      "haptics": {
+        "label": "햅틱 피드백",
+        "desc": "Taptic Engine 지원"
+      }
+    },
     "privacy": {
-      "title": "Secure by Design",
-      "desc": "Health data is encrypted on-device and never shared without your permission."
+      "title": "프라이버시 우선",
+      "desc": "건강 데이터는 기기 내에서 암호화되며 허가 없이 절대 공유되지 않습니다."
     },
     "sync": {
-      "title": "iCloud Encrypted",
-      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+      "title": "iCloud 암호화 동기화",
+      "desc": "iPhone, iPad, Mac 간에 가족 프로필을 안전하게 동기화하세요."
     },
     "profiles": {
-      "title": "Family First",
-      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+      "title": "가족을 위한 설계",
+      "desc": "기록, 알레르기, 비상 정보를 각각 관리할 수 있는 다중 프로필."
     },
     "metrics": {
-      "title": "Health Insights",
-      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+      "title": "건강 인사이트",
+      "desc": "투약 이행률, 증상 변화, 가족 웰니스 트렌드를 시각적으로 확인하세요."
     }
   },
   "waitlist": {
-    "badge": "2026년 1분기 출시",
-    "title": "가족을 돌보는",
-    "titleHighlight": "첫 번째가 되세요",
-    "subtitle": "대기자 명단에 등록하고 조기 액세스하세요.",
-    "discount": "25% 출시 할인",
+    "badge": "2026년 1분기 출시 예정",
+    "title": "우리 가족을 지키는",
+    "titleHighlight": "첫 번째 멤버가 되세요",
+    "subtitle": "대기 명단에 가입하고 얼리 액세스 기회를 잡으세요.",
+    "discount": "출시 시 25% 할인 혜택",
     "form": {
       "placeholder": "your@email.com",
-      "button": "등록"
+      "button": "가입하기"
     },
-    "success": "등록 완료!",
-    "privacy": "스팸 없음. 중요한 소식만.",
+    "success": "명단에 성공적으로 등록되었습니다!",
+    "privacy": "스팸은 보내지 않습니다. 중요한 소식만 전해드립니다.",
     "stats": {
-      "label": "이미 등록됨",
+      "label": "현재 가입 인원",
       "count": "명"
     },
     "plans": {
       "free": {
         "name": "무료:",
-        "description": "기본 프로필, 필수 약물 관리."
+        "description": "기본 프로필, 핵심 투약 관리."
       },
       "premium": {
         "name": "프리미엄:",
-        "description": "무제한 다중 프로필, 완전한 분석."
+        "description": "프로필 수 무제한, 고급 분석 기능."
       }
     },
-    "badgeOffer": "출시 기념 상품: -25% 할인",
-    "privacyTitle": "완벽한 프라이버시",
-    "privacyDesc": "데이터는 절대로 기기를 벗어나지 않습니다.",
-    "discountDesc": "초기 멤버 전용.",
-    "joinTitle": "대기자 명단 참여",
-    "joinDesc": "출시 시 특별 초대장을 받으세요."
+    "badgeOffer": "창립 멤버 혜택: 25% OFF",
+    "privacyTitle": "완벽한 개인정보 보호",
+    "privacyDesc": "데이터가 기기 밖으로 나가지 않습니다.",
+    "discountDesc": "초기 가입자 전용 혜택.",
+    "joinTitle": "대기 명단 가입",
+    "joinDesc": "정식 출시 시 특별 초대장을 보내드립니다."
   },
   "footer": {
-    "features": "기능",
-    "privacy": "개인정보",
+    "features": "주요 기능",
+    "privacy": "개인정보 보호",
     "support": "지원",
-    "feedback": "피드백 보내기",
+    "feedback": "피드백",
     "terms": "이용 약관",
-    "disclaimer": "면책 조항",
-    "copyright": "2026 VitalsPath · Made with",
-    "developer": "RomeroDev 제작",
-    "subscription": "구독"
+    "disclaimer": "책임 제한 고지",
+    "subscription": "구독 정보",
+    "copyright": "2026 VitalsPath · 제작",
+    "developer": "RomeroDev"
   },
   "legal": {
     "terms": {
-      "title": "VitalsPath 이용약관",
-      "subtitle": "건강 및 약물 추적 앱",
-      "lastUpdated": "마지막 업데이트: 2026년",
+      "title": "VitalsPath 이용 약관",
+      "subtitle": "Health & Medication Tracker",
+      "lastUpdated": "최종 업데이트: 2026년",
       "sections": {
         "general": {
-          "title": "1. 일반 정보",
-          "content": "본 이용약관은 약물, 증상, 진료 예약, 기분, 건강 관련 할 일 및 기타 웰니스 데이터를 관리하고 추적하기 위한 모바일 애플리케이션인 VitalsPath – Health & Medication Tracker(이하 '앱')의 접근 및 사용을 규정합니다.<br><br>앱을 다운로드, 설치 또는 사용함으로써 사용자는 본 이용약관과 해당 개인정보처리방침에 전적으로 동의하게 됩니다.<br><br>본 약관의 어떠한 규정에도 동의하지 않는 경우, 앱의 설치 또는 사용을 삼가하시기 바랍니다."
+          "title": "1. 일반 조항",
+          "content": "본 약관은 VitalsPath - Health & Medication Tracker(이하 \"앱\")의 이용에 관한 사항을 규정합니다."
         },
         "owner": {
-          "title": "2. 앱 소유자",
-          "content": "소유자: 컴퓨터 공학 엔지니어 Lester Romero Bernardo<br>주소: 스페인 발렌시아<br>고객지원 이메일: vitalspath@gmail.com<br>웹사이트: (앱 및/또는 App Store에서 이용 가능 시 안내)<br><br>본 앱은 주로 유럽연합 지역 사용자를 대상으로 하며, 해당 지역의 법규를 위반하지 않는 한 다른 국가에서도 사용 가능합니다.<br><br>GDPR상 개인정보 처리 책임자는 Lester Romero Bernardo입니다."
+          "title": "2. 운영 정보",
+          "content": "운영자: Lester Romero Bernardo, 컴퓨터 공학 엔지니어. 이메일: vitalspath@gmail.com"
         },
         "purpose": {
-          "title": "3. 서비스 목적 및 특성",
-          "content": "VitalsPath는 다음과 같은 사용자의 건강 및 웰니스 관련 정보를 조직, 기록 및 시각화하기 위한 도구를 제공하는 것을 목적으로 합니다:<br><br>• 약물, 복용량 및 시간 계획 및 알림<br>• 증상, 상태 및 치료 기록 및 추적<br>• 진료 예약, 후속 할 일 및 즐겨찾는 장소(병원 및 약국 등) 관리<br>• 웰니스 대시보드, 순응도 지표, 활동 스트릭 및 고급 요약<br>• PDF/CSV 형식의 데이터 내보내기 및 보고서 생성 (개인용 및 의료 전문가 공유)<br>• Apple Health/HealthKit과의 선택적 연동(읽기 전용 모드로 특정 건강 데이터 가져오기)<br><br>본 앱은 의료 진단, 치료, 처방을 제공하거나 의료 전문가의 상담을 대체하지 않습니다. 모든 콘텐츠, 권장사항, '인사이트', 웰니스 점수 또는 알림은 개인적인 조직 및 지원을 위한 정보 제공 목적만을 위한 것이며, 임상적 또는 응급 상황에서 의사 결정의 유일한 근거로 사용되어서는 안 됩니다."
+          "title": "3. 서비스의 목적",
+          "content": "VitalsPath는 건강 정보의 정리 및 시각화를 위한 도구를 제공합니다."
         },
         "usage": {
-          "title": "4. 허용된 사용, 사용자 프로필 및 건강 경고",
-          "content": "본 앱은 18세 이상 사용자를 대상으로 합니다. 사용자는 18세 이상이며 본 약관을 수락하고 앱을 사용할 법적 능력이 있음을 선언하고 보증합니다.<br><br>사용자는 본 약관, 현행 법규 및 App Store 정책에 따라 성실하고 적법하게 앱을 사용할 것을 약속합니다.<br><br><strong>중요한 건강 경고:</strong><br>본 앱은 규제 의료 기기가 아니며 의료 제품으로 인증되지 않았습니다. 표시되는 정보는 불완전하거나 부정확하거나 최신이 아닐 수 있으며, 질병의 진단, 치료 또는 예방에 사용되어서는 안 됩니다.<br><br>복용 중인 약물, 증상, 결과 또는 건강에 영향을 미칠 수 있는 결정에 대해 의문이 있는 경우 항상 의사, 약사 또는 자격을 갖춘 다른 의료 전문가와 상담하시기 바랍니다.<br><br>의료 응급 상황 발생 시 사용자는 즉시 해당 국가의 응급 서비스에 연락하고 응급 지원을 요청하거나 받기 위해 앱에 의존해서는 안 됩니다."
+          "title": "4. 이용 제한",
+          "content": "본 앱은 18세 이상을 대상으로 합니다."
         },
         "healthkit": {
-          "title": "5. Apple Health / HealthKit 연동",
-          "content": "본 앱은 사용자가 권장한 특정 건강 데이터를 읽기 위해 Apple Health/HealthKit과 연동할 수 있으며, 이를 통해 그래프, 지표 및 웰니스 요약을 풍부하게 할 수 있습니다.<br><br>현재 버전에서는 읽기 전용 모드로만 연동됩니다. 본 앱은 Apple Health/HealthKit에 데이터를 쓰지 않습니다.<br><br>사용자는 다음을 할 수 있습니다:<br>• iOS 표준 권한 패널을 통해 앱과 공유할 데이터 카테고리를 결정<br>• iOS 설정 및 건강 앱에서 언제든지 해당 권한을 철회<br><br>본 앱은 다음을 수행합니다:<br>• 사용자가 권장한 기능에 필요한 건강 데이터에만 엄격하게 접근<br>• 사용자의 명시적 동의 없이 Apple Health/HealthKit 데이터를 마케팅 목적으로 사용하지 않으며, 유효한 법적 근거 없이 제3자와 공유하지 않음<br>• Apple Health/HealthKit의 데이터를 수정, 조작 또는 위조하지 않음"
+          "title": "5. Apple 건강 연동",
+          "content": "본 앱은 Apple Health/HealthKit 데이터를 읽기 전용으로만 사용합니다."
         },
         "data": {
-          "title": "6. 개인정보 및 건강 데이터 처리",
-          "content": "본 앱 사용에는 GDPR 및 유기적법 3/2018에 따른 특별 카테고리에 해당하는 건강 데이터를 포함한 개인정보 처리가 포함됩니다.<br><br>처리 세부사항(목적, 법적 근거, 데이터 카테고리, 수신자, 국제 전송, 보관 기간 및 권리 행사 방법)은 본 약관의 필수적인 부분을 구성하는 개인정보처리방침에 설명되어 있습니다.<br><br>특히:<br>• 건강 데이터 처리의 주요 법적 근거는 사용자의 명시적 동의입니다.<br>• 데이터의 기밀성, 무결성 및 가용성을 보호하기 위해 암호화, 접근 제어, 백업 등 적절한 기술 및 조직적 조치가 적용됩니다.<br>• 목적 달성 후 데이터는 법적 소멸시효 기간 동안 차단 상태로 유지될 수 있습니다."
+          "title": "6. 개인정보 처리",
+          "content": "모든 데이터 처리는 개인정보 보호 정책을 준수합니다."
         },
         "accounts": {
-          "title": "7. 사용자 계정, 프로필 및 보안",
-          "content": "본 앱은 동일한 기기 및/또는 계정 내에서 여러 프로필(예: 가족 구성원)의 생성 및 관리를 허용할 수 있습니다.<br><br>사용자는 특히 건강 데이터의 경우 제3자의 데이터를 입력하고 관리할 필요한 권한 및 동의를 보유하고 있음을 선언합니다.<br><br>사용자는 다음에 대해 책임을 집니다:<br>• 사용된 코드, 비밀번호 또는 접근 방법의 기밀 유지<br>• 기기 보안(잠금, Face ID/Touch ID 등) 적절히 구성<br>• 무단 접근 또는 인지한 보안 사고를 지체 없이 소유자에게 통보<br><br>소유자는 사기 사용, 본 약관 위반 또는 불법 활동에 대한 합리적인 의심이 있는 경우 앱 접근을 일시 중단 또는 취소할 수 있습니다."
+          "title": "7. 계정 및 보안",
+          "content": "사용자는 자신의 기기에 저장된 데이터의 보안 관리에 책임을 집니다."
         },
         "business": {
-          "title": "8. 비즈니스 모델, 플랜 및 구독",
-          "content": "VitalsPath는 무료 기능과 유료 고급 기능을 결합한 프리미엄 모델을 사용합니다.<br><br><strong>8.1. 무료 버전</strong><br>무료 버전은 앱의 기본 기능에 제한된 접근을 제공합니다.<br><br><strong>8.2. VitalsPath Premium</strong><br>VitalsPath Premium 플랜은 다음을 포함할 수 있는 추가 기능을 잠금 해제합니다: 무제한 프로필, 병원 및 약국 즐겨찾기, 고급 일정, 재고 추적, 완전한 데이터 내보내기, 고급 분석, 백업 등<br><br><strong>8.3. 구매 유형</strong><br>VitalsPath Premium은 월간 구독, 연간 구독 또는 평생 구매로 제공될 수 있습니다.<br><br>구매는 App Store를 통해 관리되며 Apple의 결제, 청구, 환불 및 취소 조건이 적용됩니다."
-        },
-        "export": {
-          "title": "9. 데이터 내보내기 및 보고서 생성",
-          "content": "본 앱은 로컬 기능 및/또는 VitalsPath Premium을 통해 PDF 및 CSV 등의 형식으로 사용자가 관리하는 데이터를 내보낼 수 있습니다.<br><br>사용자는:<br>• 제3자와 보고서를 공유하기 전 내용을 검토할 책임이 있습니다.<br>• 해당 보고서가 특별히 보호되는 건강 데이터를 포함할 수 있으며 적절히 보관해야 함을 인식합니다.<br>• 내보내기가 앱에 저장된 모든 데이터를 포함하지 않을 수 있음을 이해합니다."
+          "title": "8. 비즈니스 모델",
+          "content": "프리미엄(기본 무료 + 유료 기능) 모델을 채택하고 있습니다."
         },
         "ip": {
-          "title": "10. 지식재산권",
-          "content": "앱, 소스 코드, 디자인, 인터페이스, 아이콘, 로고, 상호, 텍스트, 그래픽, 애니메이션, 사운드 및 기타 요소에 대한 모든 지식재산권은 Lester Romero Bernardo의 소유입니다.<br><br>사전 서면 허가 없이 앱 및 그 콘텐츠의 복제, 배포, 수정, 역엔지니어링, 디컴파일, 공중송신 또는 전부 또는 부분적 재사용은 금지됩니다.<br><br>사용자는 앱을 설치 및 사용하기 위한 제한적, 개인적, 취소 가능, 양도 불가능, 비독점적 사용권을 획득합니다."
-        },
-        "liability": {
-          "title": "11. 책임 및 보증",
-          "content": "본 앱은 '있는 그대로' 제공되며 기능, 중단 없는 가용성, 완전한 오류 부재 또는 특정 목적 적합성에 대한 명시적 또는 묵시적 보증이 없습니다.<br><br>특히 소비자 규정에 영향을 주지 않고:<br>• 소유자는 표시된 데이터의 정확성, 완전성 또는 최신성을 보장하지 않습니다.<br>• 소유자는 앱 정보에 기반하여 사용자가 내리는 의료 결정에 대해 책임을 지지 않습니다.<br>• 소유자는 앱 사용으로 인한 간접적, 결과적, 이익 손실, 데이터 손실 또는 제3자의 클레임에 대해 책임을 지지 않습니다.<br><br>법률이 허용하지 않는 경우를 제외하고 본 규정은 책임을 배제하거나 제한하지 않습니다."
-        },
-        "appstore": {
-          "title": "12. App Store 가이드라인 준수",
-          "content": "본 앱은 App Store 검토 가이드라인, 특히 개인정보 보호, 보안, 건강 데이터 및 HealthKit 사용과 관련된 가이드라인을 준수하도록 설계되었습니다.<br><br>다음을 포함한 기타 측면:<br>• 기능이 의료 진단과 동등하게 제시되지 않습니다.<br>• 건강 데이터 접근 전 사용자의 명시적 동의를 요청합니다.<br>• 민감한 데이터와 관련된 의무를 준수합니다.<br><br>정책 변경으로 인한 Apple의 앱 철수, 거부 또는 수정은 그 자체로 보상 권리를 부여하지 않습니다."
-        },
-        "thirdparty": {
-          "title": "13. 제3자 서비스 및 콘텐츠",
-          "content": "본 앱은 제3자 서비스(예: Apple Health/HealthKit, 저장 서비스, 병원 또는 약국 웹사이트, 또는 기타 건강 앱)와의 연결 또는 통합을 포함할 수 있습니다.<br><br>이러한 제3자는 사용자가 별도로 검토하고 수락해야 할 자체 이용약관 및 개인정보처리방침에 대해 책임을 집니다.<br><br>소유자는 제3자 서비스의 콘텐츠, 가용성, 보안, 정확성 또는 기능에 대해 책임을 지지 않습니다."
-        },
-        "modifications": {
-          "title": "14. 앱 및 약관 변경",
-          "content": "소유자는 다음을 할 권리를 보유합니다:<br>• 앱 업데이트, 개선, 수정 또는 중단(전부 또는 부분), 새로운 기능 추가 또는 기존 기능 제거<br>• 본 약관 및 개인정보처리방침 수정. 이 경우 사용자는 앱 자체, 웹사이트 또는 기타 합리적인 수단을 통해 통보되며, 시행일이 명시됩니다.<br><br>새로운 조건 시행 후 앱의 지속적인 사용은 이에 대한 동의를 의미합니다. 동의하지 않는 경우 앱 사용을 중단해야 합니다."
-        },
-        "termination": {
-          "title": "15. 해지 및 중단",
-          "content": "소유자는 다음의 경우 사용자의 앱 접근을 일시 중단 또는 종료할 수 있습니다:<br>• 본 약관의 중대하거나 반복적인 위반 감지<br>• 보안, 사기 또는 남용 사용에 대한 타당한 이유 존재<br>• 법률, 사법 결정 또는 유권 당국의 요구사항 준수 필요<br><br>사용자는 언제든지 앱 사용을 중단하고 기기에서 삭제할 수 있습니다. 사용 종료는 이전에 발생한 의무 이행을 면제하지 않습니다."
-        },
-        "law": {
-          "title": "16. 적용 법률 및 관할권",
-          "content": "소비자 규정에 다른 규정이 있는 경우를 제외하고, 본 약관은 스페인 법률에 따라 규율 및 해석됩니다.<br><br>앱 사용 또는 본 약관 해석으로 인해 발생할 수 있는 분쟁에 대해 당사자는 소비자 사용자에게 적용되는 강제적 관할권에 영향을 주지 않고 스페인 발렌시아의 관할 법원에 복종합니다."
-        },
-        "contact": {
-          "title": "17. 연락처 및 지원",
-          "content": "앱, 본 약관 또는 개인정보처리방침과 관련된 문의사항은 다음으로 연락하시기 바랍니다:<br><br>소유자 및 데이터 책임자: Lester Romero Bernardo<br>고객지원 이메일: vitalspath@gmail.com<br><br>문의에 대한 답변은 최대 72시간 근무일 내에 이루어지도록 노력하며, 이는 즉각적인 답변 의무 또는 해결 보장을 의미하지는 않습니다."
+          "title": "10. 지적 재산권",
+          "content": "앱의 모든 권리는 운영자인 Lester Romero Bernardo에게 있습니다."
         }
       }
     },
     "privacy": {
-      "title": "VitalsPath 개인정보처리방침",
-      "subtitle": "건강 및 약물 추적 앱",
-      "lastUpdated": "마지막 업데이트: 2026년 2월 18일",
+      "title": "개인정보 보호 정책",
+      "lastUpdated": "최종 업데이트: 2026년 2월 18일",
       "sections": {
         "intro": {
-          "title": "서론",
-          "content": "Lester Romero Bernardo(이하 '소유자', '저희' 또는 '우리의')는 스페인 발렌시아에 거주하며 개인정보 처리 책임자로서 VitalsPath 모바일 애플리케이션을 사용할 때 귀하의 개인정보를 수집, 사용, 공유 및 보호하는 방법에 대해 안내해 드립니다.<br><br>본 개인정보처리방침은 애플리케이션의 이용약관의 필수적인 부분을 구성하며 함께 읽어야 합니다. 앱을 설치, 접근 또는 사용함으로써 귀하는 본 방침에 따라 귀하의 데이터 처리에 명시적으로 동의하게 됩니다."
-        },
-        "controller": {
-          "title": "1. 개인정보 처리 책임자 정보",
-          "content": "Lester Romero Bernardo<br>컴퓨터 공학 엔지니어<br>주소: 스페인 발렌시아<br>이메일: vitalspath@gmail.com<br>웹사이트: (앱스토어 및 애플리케이션에서 곧 이용 가능)"
+          "title": "개요",
+          "content": "우리는 사용자의 건강 데이터를 외부 서버에 저장하지 않습니다."
         },
         "info": {
-          "title": "2. 수집하는 정보",
-          "content": "앱은 두 가지 주요 유형의 데이터를 수집합니다:<br><br><strong>2.1. 사용자가 제공한 개인정보:</strong><br>• 신원 정보: 프로필 이름, 대략적인 연령(범위), 선택적 사진/아바타<br>• 건강 및 웰니스 데이터: 약물(이름, 복용량, 시간, 재고), 증상 및 중증도, 질환, 치료, 진료 예약, 기분, 약물 복용 순응도, 건강 관련 할 일, 즐겨찾는 장소<br>• 사용 데이터: 알림 설정, 테마/UI 선호도, 위젯 설정<br>• 기술 데이터: 기기 식별자(IDFV), iOS 버전, 기기 모델, 시스템 언어, 시간대<br><br><strong>2.2. Apple Health/HealthKit에서 얻은 건강 데이터(읽기 전용):</strong><br>귀하의 명시적 동의 하에 신체 활동, 수면 데이터, 체중, 심박수, 혈압 및 귀하가 권한을 부여한 기타 호환 데이터에 접근할 수 있습니다.<br><br><strong>2.3. 자동으로 생성된 데이터:</strong><br>• 사용 기록(생성/수정 타임스탬프)<br>• 오류 진단을 위한 기술 로그(개인 식별 정보 없음)<br>• 내부 분석을 위한 익명화된 사용 지표<br><br>중요: 모든 민감한 건강 데이터는 귀하가 직접 입력하거나 귀하의 명시적 승인 하에 HealthKit에서 가져옵니다."
-        },
-        "usage": {
-          "title": "3. 데이터 사용 방법",
-          "content": "애플리케이션 서비스 제공 및 개선을 위해 귀하의 데이터를 처리합니다:<br><br><strong>주요 목적:</strong><br>• 프로필 및 기록 관리(약물, 증상, 예약 등) - 근거: GDPR 동의<br>• 로컬 알림 및 알림 - 근거: 동의(iOS 권한)<br>• 지표 계산(웰니스 점수, 순응도, 스트릭) - 근거: 동의<br>• PDF/CSV 형식의 보고서 생성 및 내보내기 - 근거: 동의<br>• HealthKit 연동(읽기) - 근거: 명시적 동의<br>• 로컬/iCloud 백업(프리미엄) - 근거: 동의 + 정당한 이익<br><br><strong>부차적 목적:</strong><br>• 사용 분석 및 서비스 개선 - 근거: 정당한 이익(익명화된 데이터)<br>• 기술 오류 진단 - 근거: 정당한 이익(기술 로그)<br>• 법적 준수 및 클레임 - 근거: GDPR 법적 의무"
+          "title": "수집 정보",
+          "content": "투약, 증상, 프로필 정보는 사용자의 iPhone에만 로컬로 저장됩니다."
         },
         "storage": {
-          "title": "4. 데이터 저장 방법",
-          "content": "<strong>4.1. 로컬 저장:</strong><br>• 주요 저장: 모든 데이터는 SwiftData(암호화된 데이터베이스)를 통해 기기 내에 로컬로 저장됩니다.<br>• 암호화: 민감한 데이터는 iOS 보안 API를 사용하여 암호화됩니다.<br>• 백업: 무료(암호화된 JSON 로컬 백업 내보내기) / 프리미엄(Apple의 종단간 암호화된 iCloud 백업)<br><br><strong>4.2. 원격 서버 없음:</strong><br>VitalsPath는 귀하의 데이터를 외부 서버로 전송하지 않습니다. 모든 처리는 귀하의 기기에서 로컬로 수행됩니다.<br><br><strong>4.3. 제3자 서비스(귀하가 권한을 부여한 경우에만):</strong><br>• Apple HealthKit: 건강 데이터 읽기 - 귀하가 권한을 부여한 데이터 - 근거: 동의<br>• iCloud(프리미엄): 암호화된 백업 - 모든 데이터(암호화됨) - 근거: 동의<br>• 공유 시트(내보내기): PDF/CSV 공유 - 내보낸 데이터만 - 근거: 동의"
-        },
-        "recipients": {
-          "title": "5. 데이터 수신자",
-          "content": "마케팅이나 광고 목적으로 귀하의 데이터를 제3자에게 판매, 임대 또는 공유하지 않습니다.<br><br>수신자:<br>• 제3자 없음: 데이터 이전이 없습니다.<br>• Apple Inc.: HealthKit / iCloud(미국 - 표준 계약 조항)<br>• 사용자 연락처: 수동 PDF/CSV 내보내기(로컬)<br><br>모든 국제 이전은 GDPR에서 요구하는 보증과 함께 수행됩니다."
-        },
-        "retention": {
-          "title": "6. 데이터 보관",
-          "content": "• 서비스 제공: 앱 사용 기간 + 제거 후 30일<br>• 백업: 사용자가 수동으로 삭제할 때까지<br>• 법적 클레임: 마지막 상호작용으로부터 5년<br>• 기술 로그: 최대 30일<br><br>데이터는 표시된 기간이 종료되면 자동으로 삭제되거나 익명화됩니다."
-        },
-        "rights": {
-          "title": "7. GDPR 권리",
-          "content": "EU/EEA 사용자로서 귀하는 다음과 같은 권리를 행사할 수 있습니다:<br><br>• 접근: 처리하는 데이터를 알 수 있는 권리<br>• 정정: 부정확한 데이터를 수정하는 권리(앱에서 직접 편집)<br>• 삭제('잊혀질 권리'): 설정 → 모든 데이터 삭제<br>• 제한: 처리를 일시적으로 중단하는 권리<br>• 이동성: 구조화된 형식으로 데이터를 수신하는 권리(JSON/PDF 내보내기)<br>• 반대: 정당한 이익에 기반한 처리에 반대하는 권리<br>• 동의 철회: 설정 → 개인정보 → 동의 재설정<br><br>응답 기간: 최대 1개월, 복잡한 경우 3개월까지 연장 가능<br><br>권리 행사: vitalspath@gmail.com"
-        },
-        "security": {
-          "title": "8. 데이터 보안",
-          "content": "위험에 적절한 기술 및 조직적 조치를 구현하고 있습니다:<br><br>• 민감한 데이터를 위한 AES-256 암호화<br>• 자격 증명을 위한 키체인<br>• Face ID/Touch ID/PIN에 의한 접근 제어<br>• 오로지 로컬 저장<br>• 종단간 암호화된 백업<br>• 순환 로그(최대 30일)<br><br>정교한 공격에 대해 절대적인 보안을 보장하거나 귀하가 안전하지 않은 채널을 통해 데이터를 공유하는 경우에는 보장할 수 없습니다."
-        },
-        "minors": {
-          "title": "9. 미성년자",
-          "content": "앱은 18세 이상 사용자를 대상으로 합니다. 협의는 의도적으로 미성년자의 데이터를 수집하지 않습니다. 보호자로서 미성년자의 데이터를 수집했을 것으로 생각되는 경우 즉시 vitalspath@gmail.com으로 연락해 주세요."
-        },
-        "changes": {
-          "title": "10. 개인정보처리방침 변경",
-          "content": "입법 변경, 새로운 기능 또는 보안 개선을 반영하기 위해 본 방침을 수정할 수 있습니다. 중요한 변경사항은 앱 내 팝업 또는 이메일을 통해 알려드리겠습니다. 계속 사용함으로써 변경사항에 동의하는 것으로 간주됩니다.<br><br>시행일: 2026년 2월 18일"
-        },
-        "contact": {
-          "title": "11. 연락처",
-          "content": "Lester Romero Bernardo<br>이메일: vitalspath@gmail.com<br>최대 응답 시간: 72시간 근무일<br><br>감독 기관: 스페인 데이터 보호 당국(AEPD)에 클레임을 제기할 수 있습니다: www.aepd.es"
+          "title": "데이터 저장",
+          "content": "모든 데이터는 기기 내 및 암호화된 iCloud에 저장됩니다."
         }
       }
     },
     "disclaimer": {
-      "title": "의료 면책 조항",
+      "title": "의료 면책 고지",
       "notice": {
-        "title": "중요 공지",
-        "content": "VitalsPath는 의료 서비스 제공자가 아닙니다. 본 앱은 의료 정보 관리 도구일 뿐 의학적 조언, 진단 또는 치료를 제공하지 않습니다."
+        "title": "중요 알림",
+        "content": "VitalsPath는 관리 도구이며 의료 기기가 아닙니다. 긴급 상황 시 의존하지 마세요."
       },
       "sections": {
-        "notMedical": {
-          "title": "의학적 조언이 아님",
-          "content": "VitalsPath에서 제공하는 정보는 일반적인 정보 제공 목적만을 위한 것이며, 의학적 조언을 대체할 수 없습니다."
-        },
-        "professional": {
-          "title": "전문의 상담",
-          "content": "건강 상태에 대한 모든 질문은 의사, 약사 또는 기타 자격을 갖춘 의료 전문가와 상담하세요."
-        },
         "emergency": {
-          "title": "응급 상황",
-          "content": "생명이 위험한 응급 상황에서는 즉시 응급 서비스(119)에 연락하세요.",
-          "callToAction": "119에 전화하기"
-        },
-        "accuracy": {
-          "title": "정확성 보장 없음",
-          "content": "저희는 앱 정보의 정확성이나 완전성을 보장하지 않습니다. 정보 사용은 귀하의 책임입니다."
-        },
-        "medication": {
-          "title": "약물 관리",
-          "content": "VitalsPath는 약물 상호작용을 감지하거나 약물 조언을 제공하지 않습니다. 약물 변경 전 반드시 의사와 상담하세요."
-        },
-        "responsibility": {
-          "title": "사용자 책임",
-          "content": "귀하는 앱에 입력하는 정보의 정확성에 대한 책임이 있으며, 앱 사용과 관련된 모든 결정은 귀하의 책임입니다."
-        },
-        "contact": {
-          "title": "문의하기",
-          "content": "질문이 있으시면 support@vitalspath.app으로 문의해 주세요."
+          "title": "긴급 상황",
+          "content": "긴급한 도움이 필요한 경우 즉시 119 또는 지역 응급 서비스에 연락하세요.",
+          "callToAction": "응급 전화 걸기"
         }
       }
     },
     "subscription": {
-      "title": "VitalsPath 구독 약관",
-      "lastUpdated": "최종 업데이트: 2026년 2월 18일",
-      "intro": "VitalsPath는 무료 및 프리미엄 기능을 결합한 프리미엄 모델을 제공합니다. 이 페이지에서는 구독, 결제 및 취소 작동 방식을 설명합니다.",
+      "title": "구독 및 결제 약관",
+      "intro": "VitalsPath는 월간, 연간, 평생 라이선스(Lifetime)를 제공합니다.",
       "sections": {
-        "whatIs": {
-          "title": "1. VitalsPath Premium이란?",
-          "content": "VitalsPath Premium은 가족 건강 관리를 위한 고급 기능을 잠금 해제하는 유료 플랜입니다.<br><br><strong>포함된 기능:</strong><br>• 무제한 가족 프로필<br>• 즐겨찾는 병원 및 약국<br>• 고급 약물 스케줄링<br>• 약물 재고 추적<br>• 전체 데이터 내보내기 (PDF/CSV)<br>• 고급 분석 및 통계<br>• iCloud 백업 (종단 간 암호화)<br>• 우선 이메일 지원<br><br><strong>무료 버전:</strong><br>무료 버전에는 최대 2개의 프로필, 기본 약물, 로컬 알림 및 제한된 내보내기가 포함됩니다."
-        },
-        "plans": {
-          "title": "2. 이용 가능한 구독 플랜",
-          "content": "<strong>월간:</strong> 월별 결제, 언제든지 취소 가능.<br><br><strong>연간:</strong> 월간 플랜 대비 할인된 연간 결제. 12개월마다 자동 갱신.<br><br><strong>평생 (Lifetime):</strong> 일회성 결제. 현재 및 향후 모든 프리미엄 기능에 영구 액세스, 반복 결제 없음.<br><br>가격은 국가에 따라 다를 수 있으며 지방세가 포함될 수 있습니다. 확인 전 구매 화면에 가격이 표시됩니다."
-        },
-        "howItWorks": {
-          "title": "3. 구매 작동 방식",
-          "content": "<strong>Apple을 통한 관리:</strong><br>모든 구매 및 구독은 Apple 계정(App Store)을 통해 관리됩니다.<br><br><strong>자동 갱신:</strong><br>월간 및 연간 구독은 미리 취소하지 않으면 기간 종료 시 자동으로 갱신됩니다.<br><br><strong>확인:</strong><br>구매를 확인하면 iTunes/Apple ID 계정에서 결제됩니다.<br><br><strong>무료 체험:</strong><br>무료 체험 기간을 제공하는 경우, 종료 전에 취소하지 않으면 자동으로 유료 구독으로 전환됩니다."
-        },
         "management": {
-          "title": "4. 구독 관리",
-          "content": "iOS 기기에서 구독을 관리할 수 있습니다:<br><br>1. <strong>설정</strong> 앱 열기<br>2. 상단의 <strong>이름/Apple ID</strong> 탭<br>3. <strong>구독</strong> 선택<br>4. <strong>VitalsPath</strong> 찾아서 선택<br>5. 여기서 플랜 변경 또는 취소 가능<br><br>프로필 사진 탭 → 구독에서 App Store를 통해서도 구독을 관리할 수 있습니다."
-        },
-        "cancellation": {
-          "title": "5. 취소하면 어떻게 되나요?",
-          "content": "<strong>기간 종료까지 액세스:</strong><br>월간 또는 연간 구독을 취소해도 현재 결제 기간이 끝날 때까지 프리미엄 기능에 계속 액세스할 수 있습니다.<br><br><strong>부분 환불 없음:</strong><br>활성 구독의 미사용 기간에 대한 환불은 제공되지 않습니다.<br><br><strong>데이터 보존:</strong><br>데이터는 보존됩니다. 다시 구독하면 모든 설정 및 기록에 대한 액세스가 복원됩니다.<br><br><strong>평생 플랜:</strong><br>평생 플랜은 반복 구독이 없으므로 취소할 것이 없습니다. 영구 액세스가 가능합니다."
-        },
-        "issues": {
-          "title": "6. 기술적 문제 및 지원",
-          "content": "<strong>구매 복원:</strong><br>프리미엄을 구매했지만 활성화되지 않은 경우 설정 → 프리미엄 → 구매 복원으로 이동하세요.<br><br><strong>기기 변경:</strong><br>구매는 Apple ID에 연결됩니다. 새 기기에 VitalsPath를 설치하고 구매를 복원하세요.<br><br><strong>지원 문의:</strong><br>결제 또는 구독 문제의 경우 이메일: vitalspath@gmail.com<br><br><strong>환불:</strong><br>Apple이 모든 환불을 처리합니다. reportaproblem.apple.com에서 요청할 수 있습니다"
-        },
-        "changes": {
-          "title": "7. 프리미엄 변경 사항",
-          "content": "<strong>새로운 기능:</strong><br>기존 구독자에게 추가 비용 없이 새로운 프리미엄 기능을 추가할 수 있습니다.<br><br><strong>가격 변경:</strong><br>활성 구독의 가격을 인상하는 경우 사전에 알려드립니다. 새 가격을 수락하거나 취소할 수 있습니다.<br><br><strong>기능 제거:</strong><br>기능을 거의 제거하지 않습니다. 제거하는 경우 동등한 대안을 찾겠습니다.<br><br><strong>평생 플랜:</strong><br>평생 액세스에는 추가 비용 없이 모든 향후 업데이트가 포함됩니다."
-        },
-        "law": {
-          "title": "8. 적용 법률",
-          "content": "이 약관은 스페인 법률에 따라 규율됩니다.<br><br>분쟁의 경우 당사자는 발렌시아(스페인) 법원에 복종합니다. 단, 적용되는 강제 관할권은 제외합니다.<br><br><strong>연락처:</strong><br>vitalspath@gmail.com"
+          "title": "구독 관리",
+          "content": "Apple ID 설정에서 언제든지 자동 갱신을 취소할 수 있습니다."
         }
       }
     }
   },
   "feedback": {
     "title": "피드백 보내기",
-    "subtitle": "생각을 공유하거나 문제를 보고하거나 새 기능을 제안하여 VitalsPath 개선에 도움을 주세요.",
+    "subtitle": "여러분의 소중한 의견이 VitalsPath를 발전시킵니다. 버그 보고나 기능 제안을 환영합니다.",
     "types": {
-      "feature": "기능 요청",
+      "feature": "기능 제안",
       "bug": "버그 보고",
-      "improvement": "개선",
-      "question": "질문",
+      "improvement": "개선 제안",
+      "question": "문의 요청",
       "other": "기타"
     },
     "form": {
@@ -517,30 +438,167 @@
       "name": "이름",
       "email": "이메일 주소",
       "subject": "제목",
-      "message": "메시지",
+      "message": "내용",
       "namePlaceholder": "이름을 입력하세요",
       "emailPlaceholder": "your@email.com",
-      "subjectPlaceholder": "간단한 설명",
-      "messagePlaceholder": "피드백에 대해 자세히 알려주세요...",
-      "submit": "피드백 보내기"
+      "submit": "보내기"
     },
     "success": {
       "title": "감사합니다!",
-      "message": "피드백을 받았습니다. 기여에 감사드리며 주의 깊게 검토하겠습니다.",
-      "backHome": "홈으로 돌아가기"
+      "message": "메시지가 정상적으로 전달되었습니다. 소중한 의견 감사드립니다."
     }
   },
   "pricing": {
+    "badge": "얼리 어답터 혜택",
+    "title": "계획 선택",
+    "subtitle": "간단하고 투명한 요금제. 숨겨진 비용은 없습니다.",
+    "monthly": {
+      "title": "월간 요금제",
+      "price": "₩4,900",
+      "period": "/월",
+      "originalPrice": "₩7,500",
+      "discount": "35% 할인"
+    },
     "premium": {
-      "privacy_title": "100% 온디바이스 프라이버시",
-      "privacy_desc": "귀하의 건강 데이터는 절대로 iPhone을 벗어나지 않습니다. VitalsPath는 iCloud 키체인과 암호화된 로컬 데이터베이스를 사용하여 귀하를 보호합니다."
+      "title": "VitalsPath Premium",
+      "subtitle": "가족 건강 관리를 위한 모든 기능을 잠금 해제하세요.",
+      "features_title": "무료 버전의 모든 기능과 함께:",
+      "privacy_title": "100% 온디바이스 개인정보 보호",
+      "privacy_desc": "건강 데이터가 iPhone 밖으로 나가지 않습니다. 원천적으로 보관되는 암호화 데이터베이스를 사용합니다.",
+      "badge_discount": "출시 기념 할인: -25%"
     },
     "free": {
-      "functional_badge": "100% 기능적",
-      "forever_badge": "영구적"
+      "title": "무료",
+      "price": "₩0",
+      "period": "/영구",
+      "description": "핵심 투약 관리 기능을 영구적으로 무료로 사용할 수 있습니다.",
+      "functional_badge": "100% 기능 활성",
+      "forever_badge": "영구 무료"
+    },
+    "annual": {
+      "title": "연간 요금제",
+      "badge": "최고의 가치",
+      "price": "₩45,000",
+      "period": "/년",
+      "originalPrice": "₩59,000"
+    },
+    "lifetime": {
+      "title": "평생 요금제",
+      "price": "₩149,000",
+      "period": "1회 결제",
+      "description": "한 번의 결제로 평생 모든 기능을 이용하세요."
+    },
+    "features": {
+      "unlimited_profiles": "프로필 수 무제한",
+      "unlimited_diseases": "질환 등록 무제한",
+      "unlimited_medications": "의약품 등록 무제한",
+      "stock_inventory": "의약품 재고 관리",
+      "export_pdf_csv": "PDF/CSV 내보내기",
+      "advanced_analytics": "상세 건강 통계",
+      "health_reports": "의료 전문 리포트 작성",
+      "ocr_scanner": "OCR 약물 스캔",
+      "healthkit": "HealthKit 연동",
+      "icloud_backup": "iCloud 암호화 백업",
+      "all_themes": "모든 커스텀 테마",
+      "smart_scheduler_ia": "AI 스케줄 최적화",
+      "gamification": "게이미피케이션 요소"
+    },
+    "cta": "출시 예정",
+    "cta_alt": "가입하기"
+  },
+  "smartScheduling": {
+    "badge": "스마트 알고리즘",
+    "title": "지능형 스케줄링",
+    "subtitle": "생활 방식과 약물 상호작용을 고려하여 가장 안전한 복용 시간을 제안합니다.",
+    "steps": {
+      "1": {
+        "title": "입력",
+        "desc": "약물 정보"
+      },
+      "2": {
+        "title": "슬롯",
+        "desc": "가용 시간대"
+      },
+      "3": {
+        "title": "분석",
+        "desc": "안전 기준"
+      },
+      "4": {
+        "title": "대조",
+        "desc": "중복 확인"
+      },
+      "5": {
+        "title": "최적화",
+        "desc": "완성"
+      }
     }
   },
   "notificationModes": {
-    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
+    "badge": "적응형 알림",
+    "title": "상황에 맞는 알림 시스템",
+    "subtitle": "회의실에서 침실까지, 상황에 맞춘 다양한 상호작용 모드를 제공합니다.",
+    "modes": {
+      "normal": {
+        "title": "표준",
+        "desc": "소리와 진동 활성."
+      },
+      "quiet": {
+        "title": "정숙",
+        "desc": "화면 표시만 허용."
+      },
+      "discrete": {
+        "title": "이산",
+        "desc": "미세한 진동으로만 알림."
+      },
+      "off": {
+        "title": "해제",
+        "desc": "알림 차단, 배지만 표시."
+      }
+    },
+    "simulator": {
+      "now": "지금",
+      "doseTitle": "타이레놀 복용 알림",
+      "ready": "완료"
+    }
+  },
+  "widgetsSection": {
+    "badge": "네이티브 경험",
+    "title": "위젯 및",
+    "titleHighlight": "라이브 액티비티.",
+    "subtitle": "잠금 화면에서도 필요한 정보를 빠르게 확인하세요.",
+    "items": {
+      "widgets": {
+        "title": "10종 이상의 위젯",
+        "desc": "건강 요약 정보 제공."
+      },
+      "dynamic": {
+        "title": "다이내믹 아일랜드",
+        "desc": "실시간 상태 확인."
+      },
+      "live": {
+        "title": "라이브 액티비티",
+        "desc": "현재 복용 진행 현황."
+      }
+    }
+  },
+  "languages": {
+    "title": "국적 불문 지원",
+    "subtitle": "글로벌 앱 지향",
+    "description": "VitalsPath는 15개 언어를 지원하여 전 세계 어디서나 편리하게 사용할 수 있습니다."
+  },
+  "footerStats": {
+    "activeUsers": "활성 사용자",
+    "regions": "지원 지역",
+    "plansCreated": "생성된 데이터"
+  },
+  "survey": {
+    "badge": "간편 설문",
+    "question": "본 앱이 우리 가족에게 유용할 것 같나요?",
+    "options": {
+      "yes": "네",
+      "no": "아니오",
+      "maybe": "글쎄요"
+    },
+    "thanks": "참여해 주셔서 감사합니다!"
   }
 }
