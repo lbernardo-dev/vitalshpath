@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Recursos",
+    "scheduler": "Planejador",
+    "ecosystem": "Ecossistema",
     "benefits": "Benefícios",
-    "gallery": "Galeria",
-    "waitlist": "Entrar na Lista"
+    "pricing": "Planos",
+    "waitlist": "Entrar na Lista",
+    "gallery": "Galeria"
   },
   "hero": {
     "badge": "Hub de Saúde Familiar · iOS 18+",

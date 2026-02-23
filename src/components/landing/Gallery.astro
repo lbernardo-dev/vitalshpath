@@ -33,26 +33,26 @@ const t = useTranslations(lang);
 const ecosystemIntegrations = [
     {
         icon: Cloud,
-        label: "iCloud Sync",
-        desc: "End-to-end Encrypted",
+        label: t("gallery.integrations.icloud.label"),
+        desc: t("gallery.integrations.icloud.desc"),
         color: "blue",
     },
     {
         icon: Calendar,
-        label: "Apple Calendar",
-        desc: "Automatic Events",
+        label: t("gallery.integrations.calendar.label"),
+        desc: t("gallery.integrations.calendar.desc"),
         color: "purple",
     },
     {
         icon: MapPin,
-        label: "Apple Maps",
-        desc: "Pharmacy Finder",
+        label: t("gallery.integrations.maps.label"),
+        desc: t("gallery.integrations.maps.desc"),
         color: "green",
     },
     {
         icon: BellRing,
-        label: "Native Haptics",
-        desc: "Taptic Engine 3",
+        label: t("gallery.integrations.haptics.label"),
+        desc: t("gallery.integrations.haptics.desc"),
         color: "pink",
     },
 ];
@@ -187,14 +187,14 @@ const ecosystemIntegrations = [
                     iOS 26 Liquid Experience
                 </div>
                 <h2
-                    class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 tracking-tighter italic leading-[0.9]"
+                    class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 tracking-tight italic leading-[0.9] pb-2"
                 >
-                    NATIVO.<br />
+                    {t("gallery.native")}<br />
                     <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"
-                        >SINCRONIZADO.</span
+                        >{t("gallery.synced")}</span
                     ><br />
-                    SEGURO.
+                    {t("gallery.secure")}
                 </h2>
 
                 <p

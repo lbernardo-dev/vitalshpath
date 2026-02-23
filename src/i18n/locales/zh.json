@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "功能",
+    "scheduler": "调度器",
+    "ecosystem": "生态系统",
     "benefits": "优势",
-    "gallery": "图库",
-    "waitlist": "加入候补名单"
+    "pricing": "方案",
+    "waitlist": "加入候补名单",
+    "gallery": "图库"
   },
   "hero": {
     "badge": "家庭健康中心 · iOS 18+",

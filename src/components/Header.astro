@@ -44,48 +44,66 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         <>
                             <a
                                 href="#features"
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.features")}
                             </a>
                             <a
+                                href="#smart-scheduler"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            >
+                                {t("nav.scheduler")}
+                            </a>
+                            <a
+                                href="#gallery"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            >
+                                {t("nav.ecosystem")}
+                            </a>
+                            <a
                                 href="#benefits"
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.benefits")}
                             </a>
                             <a
-                                href="#gallery"
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                            >
-                                {t("nav.gallery")}
-                            </a>
-                            <a
                                 href="#pricing"
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
-                                {t("pricing.title")}
+                                {t("nav.pricing")}
                             </a>
                         </>
                     ) : (
                         <>
                             <a
                                 href={`${baseUrl}/${lang}/#features`}
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.features")}
                             </a>
                             <a
+                                href={`${baseUrl}/${lang}/#smart-scheduler`}
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            >
+                                {t("nav.scheduler")}
+                            </a>
+                            <a
+                                href={`${baseUrl}/${lang}/#gallery`}
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                            >
+                                {t("nav.ecosystem")}
+                            </a>
+                            <a
                                 href={`${baseUrl}/${lang}/#benefits`}
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
                                 {t("nav.benefits")}
                             </a>
                             <a
-                                href={`${baseUrl}/${lang}/#gallery`}
-                                class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                                href={`${baseUrl}/${lang}/#pricing`}
+                                class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                             >
-                                {t("nav.gallery")}
+                                {t("nav.pricing")}
                             </a>
                         </>
                     )

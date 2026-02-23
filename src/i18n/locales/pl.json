@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Funkcje",
+    "scheduler": "Planer",
+    "ecosystem": "Ekosystem",
     "benefits": "Korzyści",
-    "gallery": "Galeria",
-    "waitlist": "Dołącz do listy"
+    "pricing": "Plany",
+    "waitlist": "Dołącz do listy",
+    "gallery": "Galeria"
   },
   "hero": {
     "badge": "Centrum Zdrowia Rodziny · iOS 18+",

@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "機能",
+    "scheduler": "スケジューラ",
+    "ecosystem": "エコシステム",
     "benefits": "メリット",
-    "gallery": "ギャラリー",
-    "waitlist": "ウェイトリストに参加"
+    "pricing": "プラン",
+    "waitlist": "ウェイトリストに参加",
+    "gallery": "ギャラリー"
   },
   "hero": {
     "badge": "ファミリーヘルスハブ · iOS 18+",

@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Functies",
+    "scheduler": "Planner",
+    "ecosystem": "Ecosysteem",
     "benefits": "Voordelen",
-    "gallery": "Gallerij",
-    "waitlist": "Aanmelden"
+    "pricing": "Plannen",
+    "waitlist": "Aanmelden",
+    "gallery": "Gallerij"
   },
   "hero": {
     "badge": "Gezondheidscentrum voor het Gezin · iOS 18+",

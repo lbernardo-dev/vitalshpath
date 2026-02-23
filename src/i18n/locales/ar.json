@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "المميزات",
+    "scheduler": "المجدول",
+    "ecosystem": "النظام البيئي",
     "benefits": "الفوائد",
-    "gallery": "المعرض",
-    "waitlist": "انضم للقائمة"
+    "pricing": "الخطط",
+    "waitlist": "انضم للقائمة",
+    "gallery": "المعرض"
   },
   "hero": {
     "badge": "مركز صحة العائلة · iOS 18+",

@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Özellikler",
+    "scheduler": "Planlayıcı",
+    "ecosystem": "Ekosistem",
     "benefits": "Avantajlar",
-    "gallery": "Galeri",
-    "waitlist": "Bekleme Listesine Katıl"
+    "pricing": "Planlar",
+    "waitlist": "Bekleme Listesine Katıl",
+    "gallery": "Galeri"
   },
   "hero": {
     "badge": "Aile Sağlık Merkezi · iOS 18+",

@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Características",
+    "scheduler": "Planificador",
+    "ecosystem": "Ecosistema",
     "benefits": "Beneficios",
-    "gallery": "Galería",
-    "waitlist": "Lista de Espera"
+    "pricing": "Planes",
+    "waitlist": "Lista de Espera",
+    "gallery": "Galería"
   },
   "hero": {
     "badge": "Hub de Salud Familiar · iOS 18+",
@@ -250,6 +253,27 @@
     },
     "note": "Capturas reales de la app",
     "subtitle": "VitalsPath ha sido diseñado desde cero para ser un ciudadano de primera clase en el ecosistema Apple, respetando tu privacidad e integrándose con las herramientas que ya usas.",
+    "native": "NATIVO.",
+    "synced": "SINCRONIZADO.",
+    "secure": "SEGURO.",
+    "integrations": {
+      "icloud": {
+        "label": "Sincronización iCloud",
+        "desc": "Cifrado de Extremo a Extremo"
+      },
+      "calendar": {
+        "label": "Apple Calendar",
+        "desc": "Eventos Automáticos"
+      },
+      "maps": {
+        "label": "Apple Maps",
+        "desc": "Buscador de Farmacias"
+      },
+      "haptics": {
+        "label": "Háptica Nativa",
+        "desc": "Taptic Engine 3"
+      }
+    },
     "privacy": {
       "title": "Privacidad Nativa",
       "desc": "Tus datos de salud están cifrados en el dispositivo y nunca salen de tu iPhone sin tu permiso."

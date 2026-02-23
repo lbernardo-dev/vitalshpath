@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Features",
+    "scheduler": "Scheduler",
+    "ecosystem": "Ecosystem",
     "benefits": "Benefits",
-    "gallery": "Gallery",
-    "waitlist": "Join Waitlist"
+    "pricing": "Plans",
+    "waitlist": "Join Waitlist",
+    "gallery": "Gallery"
   },
   "hero": {
     "badge": "Family Health Hub · iOS 18+",
@@ -218,6 +221,27 @@
     "title": "Designed to",
     "titleHighlight": "feel like iOS.",
     "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "native": "NATIVE.",
+    "synced": "SYNCED.",
+    "secure": "SECURE.",
+    "integrations": {
+      "icloud": {
+        "label": "iCloud Sync",
+        "desc": "End-to-end Encrypted"
+      },
+      "calendar": {
+        "label": "Apple Calendar",
+        "desc": "Automatic Events"
+      },
+      "maps": {
+        "label": "Apple Maps",
+        "desc": "Pharmacy Finder"
+      },
+      "haptics": {
+        "label": "Native Haptics",
+        "desc": "Taptic Engine 3"
+      }
+    },
     "privacy": {
       "title": "Secure by Design",
       "desc": "Health data is encrypted on-device and never shared without your permission."

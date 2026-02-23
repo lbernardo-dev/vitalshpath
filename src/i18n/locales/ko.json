@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "기능",
+    "scheduler": "스케줄러",
+    "ecosystem": "에코시스템",
     "benefits": "장점",
-    "gallery": "갤러리",
-    "waitlist": "대기자 등록"
+    "pricing": "요금제",
+    "waitlist": "대기자 등록",
+    "gallery": "갤러리"
   },
   "hero": {
     "badge": "가족 건강 허브 · iOS 18+",

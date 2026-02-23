@@ -5,9 +5,12 @@
   },
   "nav": {
     "features": "Fonctionnalités",
+    "scheduler": "Planificateur",
+    "ecosystem": "Écosystème",
     "benefits": "Avantages",
-    "gallery": "Galerie",
-    "waitlist": "Rejoindre la liste"
+    "pricing": "Plans",
+    "waitlist": "Rejoindre la liste",
+    "gallery": "Galerie"
   },
   "hero": {
     "badge": "Hub Santé Familial · iOS 18+",
@@ -240,22 +243,43 @@
       "moreLanguages": "+ Langues"
     },
     "note": "Captures réelles de l'app",
-    "subtitle": "VitalsPath is built from the ground up to be a first-class citizen in the Apple ecosystem, respecting your privacy and integrating with the tools you already use.",
+    "subtitle": "VitalsPath est conçu dès le départ pour être un citoyen de première classe dans l'écosystème Apple, respectant votre vie privée et s'intégrant aux outils que vous utilisez déjà.",
+    "native": "NATIF.",
+    "synced": "SYNCHRONISÉ.",
+    "secure": "SÉCURISÉ.",
+    "integrations": {
+      "icloud": {
+        "label": "Synchronisation iCloud",
+        "desc": "Chiffrement de bout en bout"
+      },
+      "calendar": {
+        "label": "Apple Calendar",
+        "desc": "Événements Automatiques"
+      },
+      "maps": {
+        "label": "Apple Maps",
+        "desc": "Recherche de Pharmacie"
+      },
+      "haptics": {
+        "label": "Haptique Native",
+        "desc": "Taptic Engine 3"
+      }
+    },
     "privacy": {
-      "title": "Secure by Design",
-      "desc": "Health data is encrypted on-device and never shared without your permission."
+      "title": "Sécurisé par Conception",
+      "desc": "Les données de santé sont cryptées sur l'appareil et ne sont jamais partagées sans votre permission."
     },
     "sync": {
-      "title": "iCloud Encrypted",
-      "desc": "Keep all your family profiles in sync across your iPhone, iPad, and Mac securely."
+      "title": "Chiffré sur iCloud",
+      "desc": "Gardez tous les profils de votre famille synchronisés en toute sécurité sur votre iPhone, iPad et Mac."
     },
     "profiles": {
-      "title": "Family First",
-      "desc": "Manage multiple profiles with separate histories, allergies, and emergency info."
+      "title": "La Famille d'Abord",
+      "desc": "Gérez plusieurs profils avec des historiques, des allergies et des informations d'urgence séparés."
     },
     "metrics": {
-      "title": "Health Insights",
-      "desc": "Visualizing long-term trends in adherence, symptoms, and overall family wellness."
+      "title": "Analyses Santé",
+      "desc": "Visualisation des tendances à long terme de l'observance, des symptômes et du bien-être global de la famille."
     }
   },
   "waitlist": {
@@ -284,12 +308,22 @@
         "description": "multi-profil illimité, analyses complètes."
       }
     },
-    "badgeOffer": "Offre de Lancement : -25% de réduction",
+    "badgeOffer": "Offre de Lancement : -25%",
     "privacyTitle": "Confidentialité Totale",
     "privacyDesc": "Vos données ne quittent jamais votre appareil.",
     "discountDesc": "Exclusif pour les premiers membres.",
     "joinTitle": "Rejoignez la liste d'attente",
     "joinDesc": "Recevez une invitation exclusive lors du lancement."
+  },
+  "survey": {
+    "badge": "Sondage Rapide",
+    "question": "Pensez-vous que cette application puisse être utile pour votre famille ?",
+    "options": {
+      "yes": "Oui",
+      "no": "Non",
+      "maybe": "Peut-être"
+    },
+    "thanks": "Merci de votre participation !"
   },
   "footer": {
     "features": "Fonctionnalités",
@@ -638,6 +672,55 @@
     "cta": "Prochainement",
     "cta_alt": "Inscrivez-moi"
   },
+  "appleEcosystem": {
+    "note": "Captures réelles de l'app",
+    "subtitle": "VitalsPath est conçu dès le départ pour être un citoyen de première classe dans l'écosystème Apple, respectant votre vie privée et s'intégrant aux outils que vous utilisez déjà.",
+    "native": "NATIF.",
+    "synced": "SYNCHRONISÉ.",
+    "secure": "SÉCURISÉ.",
+    "integrations": {
+      "icloud": {
+        "label": "Synchronisation iCloud",
+        "desc": "Chiffrement de bout en bout"
+      },
+      "calendar": {
+        "label": "Apple Calendar",
+        "desc": "Événements Automatiques"
+      },
+      "maps": {
+        "label": "Apple Maps",
+        "desc": "Recherche de Pharmacie"
+      },
+      "haptics": {
+        "label": "Haptique Native",
+        "desc": "Taptic Engine 3"
+      }
+    },
+    "privacy": {
+      "title": "SÉCURISÉ PAR CONCEPTION",
+      "desc": "Les données de santé sont cryptées sur l'appareil et ne sont jamais partagées sans votre permission."
+    },
+    "sync": {
+      "title": "CHIFFRÉ ICLOUD",
+      "desc": "Gardez tous les profils de votre famille synchronisés en toute sécurité sur votre iPhone, iPad et Mac."
+    },
+    "profiles": {
+      "title": "LA FAMILLE D'ABORD",
+      "desc": "Gérez plusieurs profils avec des historiques, des allergies et des informations d'urgence séparés."
+    },
+    "metrics": {
+      "title": "APERÇUS SANTÉ",
+      "desc": "Visualisation des tendances à long terme de l'observance, des symptômes et du bien-être global de la famille."
+    }
+  },
+  "waitlist": {
+    "title": "Rejoignez la liste d'attente",
+    "subtitle": "Soyez le premier à être informé du lancement de VitalsPath et des offres exclusives.",
+    "emailPlaceholder": "Votre adresse e-mail",
+    "submitButton": "Rejoindre",
+    "successMessage": "Merci de vous être inscrit ! Nous vous tiendrons informé.",
+    "errorMessage": "Une erreur est survenue. Veuillez réessayer."
+  },
   "smartScheduling": {
     "badge": "Algorithme Intelligent",
     "title": "Planification Intelligente",
@@ -668,6 +751,8 @@
   "notificationModes": {
     "badge": "Alertes Adaptatives",
     "title": "Des notifications qui s'adaptent à vous",
+    "subtitle": "Découvrez différents niveaux d'interaction conçus pour chaque contexte, de la salle de réunion au chevet du patient.",
+    "hapticTip": "Disponibilité des modes adaptée aux capacités haptiques de votre iPhone (Taptic Engine Gen 3+ recommandé).",
     "modes": {
       "normal": {
         "title": "Normal",
@@ -686,7 +771,32 @@
         "desc": "Sans interruptions, uniquement des badges."
       }
     },
-    "subtitle": "Experience different interaction levels designed for every context, from boardroom to bedside."
+    "simulator": {
+      "now": "MAINTENANT",
+      "doseTitle": "Dose d'Ibuprofène",
+      "ready": "PRÊT"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Expérience Native",
+    "title": "Widgets et",
+    "titleHighlight": "Activités en Direct.",
+    "subtitle": "Informations d'un coup d'œil, direct depuis votre écran d'accueil ou de verrouillage.",
+    "description": "Gardez le contrôle sans ouvrir l'application. Avec plus de 10 widgets personnalisés, des activités en direct pour un suivi en temps réel et un support complet de la Dynamic Island pour les rendez-vous et les médicaments.",
+    "items": {
+      "widgets": {
+        "title": "Plus de 10 Widgets",
+        "desc": "Des rappels de médicaments aux résumés de santé familiale."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Mises à jour en temps réel pour vos rendez-vous médicaux en cours."
+      },
+      "live": {
+        "title": "Activités en Direct",
+        "desc": "Suivez votre traitement de dose active directement sur l'écran de verrouillage."
+      }
+    }
   },
   "languages": {
     "title": "Nous parlons votre langue",
@@ -694,6 +804,18 @@
     "description": "VitalsPath est traduit nativement en 15 langues pour que toute votre famille se sente à l'aise."
   },
   "footerStats": {
-    "activeUsers": "Utilisateurs Actifs"
+    "activeUsers": "Utilisateurs Actifs",
+    "regions": "Régions",
+    "plansCreated": "Plans Créés"
+  },
+  "survey": {
+    "badge": "Sondage Rapide",
+    "question": "Pensez-vous que cette application puisse être utile pour votre famille ?",
+    "options": {
+      "yes": "Oui",
+      "no": "Non",
+      "maybe": "Peut-être"
+    },
+    "thanks": "Merci de votre participation !"
   }
 }
