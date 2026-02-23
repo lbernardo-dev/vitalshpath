@@ -74,6 +74,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     rel="noopener noreferrer"
                     class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all hover:scale-110 shadow-sm"
                     title="Threads"
+                    aria-label="Threads"
                 >
                     <svg
                         viewBox="0 0 24 24"
@@ -91,6 +92,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     rel="noopener noreferrer"
                     class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-pink-500 transition-all hover:scale-110 shadow-sm"
                     title="Instagram"
+                    aria-label="Instagram"
                 >
                     <svg
                         viewBox="0 0 24 24"
@@ -106,6 +108,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     href="mailto:vitalspath@gmail.com"
                     class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-blue-500 transition-all hover:scale-110 shadow-sm"
                     title="Email"
+                    aria-label="Email"
                 >
                     <Mail className="w-5 h-5" />
                 </a>
@@ -113,7 +116,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         </div>
 
         <div
-            class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-500"
+            class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400"
         >
             <p>
                 &copy; {t("footer.copyright")}
