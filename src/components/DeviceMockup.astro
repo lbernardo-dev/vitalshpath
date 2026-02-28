@@ -1,72 +1,94 @@
 ---
 interface Props {
-    color?: "black" | "silver" | "titanium";
-    model?: "iphone17" | "iphone15";
+    type?: "iphone" | "ipad" | "watch-ultra" | "watch-se";
+    orientation?: "portrait" | "landscape";
+    color?: string;
     showIsland?: boolean;
+    className?: string;
 }
 
-const { color = "black", model = "iphone17", showIsland = true } = Astro.props;
+const {
+    type = "iphone",
+    orientation = "portrait",
+    color = "black",
+    showIsland = true,
+    className = "",
+} = Astro.props;
 
-const isIP17 = model === "iphone17";
+// Configuration mapping
+const configs = {
+    iphone: {
+        container:
+            "relative border-[8px] border-zinc-900 bg-zinc-900 rounded-[3.5rem] shadow-2xl overflow-hidden aspect-[9/19.5]",
+        screen: "w-full h-full rounded-[2.8rem] overflow-hidden bg-black relative",
+        inner: "w-full h-full object-cover",
+        island: "absolute top-3 left-1/2 -translate-x-1/2 w-[30%] h-6 bg-black rounded-full z-50 flex items-center justify-center gap-1.5",
+    },
+    ipad: {
+        container:
+            "relative border-[12px] border-zinc-800 bg-zinc-800 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-[4/3]",
+        screen: "w-full h-full rounded-[1.5rem] overflow-hidden bg-black relative",
+        inner: "w-full h-full object-cover",
+    },
+    "watch-ultra": {
+        container:
+            "relative border-[4px] border-zinc-700 bg-zinc-800 rounded-[2.8rem] shadow-2xl overflow-hidden aspect-[1/1.2] ring-4 ring-zinc-400/20",
+        screen: "w-full h-full rounded-[2.4rem] overflow-hidden bg-black relative border-[1px] border-white/5",
+        inner: "w-full h-full object-cover",
+        bezel: "absolute -inset-1 border-[6px] border-zinc-600/30 rounded-[3rem] pointer-events-none",
+        orange_btn:
+            "absolute -left-[6px] top-1/3 w-1.5 h-10 bg-orange-500 rounded-r-sm shadow-sm z-10",
+        crown: "absolute -right-[6px] top-1/4 w-3 h-12 bg-zinc-600 rounded-l-md shadow-sm border-y border-l border-zinc-500 z-10",
+    },
+    "watch-se": {
+        container:
+            "relative border-[2px] border-zinc-900 bg-black rounded-[2.2rem] shadow-2xl overflow-hidden aspect-[1/1.2] ring-1 ring-white/10",
+        screen: "w-full h-full rounded-[2rem] overflow-hidden bg-black relative",
+        inner: "w-full h-full object-cover",
+        crown: "absolute -right-[3px] top-1/4 w-1.5 h-8 bg-zinc-800 rounded-l-sm shadow-sm z-10",
+    },
+};
 
-// Adjusting to a true 19.5:9 aspect ratio (approx 2.167)
-// Width 310px -> Height should be ~672px
-const frameClass = isIP17
-    ? "border-[4px] rounded-[3.2rem] h-[672px] w-[310px] ring-1 ring-gray-900/5 dark:ring-white/10"
-    : "border-[6px] rounded-[3.5rem] h-[672px] w-[310px] ring-1 ring-gray-900/10 dark:ring-white/10";
-
-const containerClass = isIP17
-    ? "w-full h-full rounded-[3rem]"
-    : "w-full h-full rounded-[3.3rem]";
-
-const islandClass = isIP17
-    ? "w-[84px] h-[26px] top-[14px]" // Modern dynamic island size
-    : "w-[84px] h-[26px] top-[14px]"; // Standard Dynamic Island for IP15
+const config = configs[type];
 ---
 
-<div
-    class={`relative mx-auto border-gray-950 dark:border-black bg-gray-950 dark:bg-black shadow-2xl transition-all duration-500 overflow-hidden ${frameClass}`}
->
-    <!-- Dynamic Island -->
+<div class={`${config.container} ${className}`}>
+    <!-- Device Specific Details -->
     {
-        showIsland && (
-            <div
-                class={`absolute left-1/2 -translate-x-1/2 bg-black rounded-full z-20 flex items-center justify-center gap-2 ${islandClass}`}
-            >
-                <div class="w-2.5 h-2.5 rounded-full bg-gray-800/80 ring-1 ring-white/5 opacity-80 backdrop-blur-md" />
-                <div class="w-3.5 h-3.5 rounded-full bg-slate-900/90 ring-2 ring-white/10 opacity-60 backdrop-blur-lg" />
+        type === "iphone" && showIsland && (
+            <div class={config.island}>
+                <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 ring-1 ring-white/5" />
+                <div class="w-2 h-2 rounded-full bg-zinc-900 ring-1 ring-white/10" />
             </div>
         )
     }
 
-    <!-- Buttons -->
-    <!-- Action Button (Left) -->
-    <div
-        class="h-[25px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-28 rounded-s-md"
-    >
-    </div>
-    <!-- Volume Up (Left) -->
-    <div
-        class="h-[45px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-40 rounded-s-md"
-    >
-    </div>
-    <!-- Volume Down (Left) -->
-    <div
-        class="h-[45px] w-[2px] bg-slate-600/50 absolute -start-[4px] top-56 rounded-s-md"
-    >
-    </div>
-    <!-- Power Button (Right) -->
-    <div
-        class="h-[60px] w-[2px] bg-slate-600/50 absolute -end-[4px] top-44 rounded-e-md"
-    >
-    </div>
+    {
+        type === "watch-ultra" && (
+            <>
+                <div class={config.bezel} />
+                <div class={config.orange_btn} />
+                <div class={config.crown} />
+            </>
+        )
+    }
 
-    <!-- Screen -->
-    <div
-        class={`overflow-hidden bg-white dark:bg-gray-950 relative z-10 w-full h-full mx-auto ${containerClass}`}
-    >
-        <div class="w-full h-full relative overflow-hidden">
+    {type === "watch-se" && <div class={config.crown} />}
+
+    <!-- Screen Content -->
+    <div class={config.screen}>
+        <div class="w-full h-full">
             <slot />
         </div>
     </div>
 </div>
+
+<style>
+    /* Ensure any image passed to slot fills the screen perfectly */
+    :global(.mockup-image) {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+</style>
