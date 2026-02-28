@@ -296,7 +296,6 @@
     "title": "Be among the first to",
     "titleHighlight": "care for your family",
     "subtitle": "Join the waitlist and get early access.",
-    "discount": "25% launch discount",
     "form": {
       "placeholder": "your@email.com",
       "button": "Join"
@@ -310,17 +309,15 @@
     "plans": {
       "free": {
         "name": "Free:",
-        "description": "basic profiles, essential medication."
+        "description": "100% functional app. Forever."
       },
       "premium": {
         "name": "Premium:",
         "description": "unlimited multi-profile, complete analytics."
       }
     },
-    "badgeOffer": "Launch Offer: -25% OFF",
     "privacyTitle": "Total Privacy",
     "privacyDesc": "Your data never leaves your device.",
-    "discountDesc": "Exclusive for early members.",
     "joinTitle": "Join the waitlist",
     "joinDesc": "Get an exclusive invite when we launch."
   },
@@ -573,16 +570,12 @@
     }
   },
   "pricing": {
-    "badge": "Early Adopter Sale",
+    "badge": "New Model",
     "title": "Choose your plan",
-    "subtitle": "Simple, transparent pricing. No hidden fees.",
+    "subtitle": "One app for everyone. Free forever or Premium to go further.",
     "monthly": {
       "title": "Monthly",
-      "price": "€3.74",
-      "period": "/month",
-      "description": "Monthly billing, cancel anytime",
-      "discount": "Save 35%",
-      "originalPrice": "€4.99"
+      "description": "Monthly billing, cancel anytime"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -590,34 +583,21 @@
       "features_title": "Everything in Free, plus:",
       "feature_desc": "Unlimited registrations in all services.",
       "privacy_title": "100% On-Device Privacy",
-      "privacy_desc": "Your health data never leaves your iPhone. VitalsPath uses iCloud Keychain and encrypted local databases to protect you.",
-      "badge_discount": "Launch Offer: -25%"
+      "privacy_desc": "Your health data never leaves your iPhone. VitalsPath uses iCloud Keychain and encrypted local databases to protect you."
     },
     "free": {
       "title": "Free",
-      "price": "€0",
-      "period": "/forever",
       "description": "100% functional app forever, with limits on profiles and records. Ideal for individual use.",
-      "discount": "Always Free",
       "functional_badge": "100% FUNCTIONAL",
       "forever_badge": "FOREVER"
     },
     "annual": {
       "title": "Annual",
-      "badge": "BEST VALUE",
-      "price": "€29.99",
-      "period": "/year",
-      "description": "Annual billing, save 33%",
-      "discount": "Save 35%",
-      "originalPrice": "€39.99"
+      "description": "Full plan with annual payment"
     },
     "lifetime": {
       "title": "Lifetime",
-      "price": "€112.49",
-      "period": "one-time",
-      "description": "One-time payment, forever",
-      "discount": "Save 15%",
-      "originalPrice": "€149.99"
+      "description": "One-time payment, forever"
     },
     "features": {
       "unlimited_profiles": "Unlimited Profiles",

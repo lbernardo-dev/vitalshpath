@@ -297,7 +297,6 @@
     "title": "成为首批受邀者，",
     "titleHighlight": "关爱家人健康",
     "subtitle": "立即加入等候名单，获取早期预览权限。",
-    "discount": "发布时可享 25% 优惠",
     "form": {
       "placeholder": "您的电子邮箱",
       "button": "立即加入"
@@ -318,10 +317,8 @@
         "description": "无限成员档案，深度分析功能。"
       }
     },
-    "badgeOffer": "创始会员福利: -25%",
     "privacyTitle": "极致隐私",
     "privacyDesc": "您的数据永不离开设备。",
-    "discountDesc": "早期支持者专属。",
     "joinTitle": "加入等候名单",
     "joinDesc": "发布时将为您发送专属邀请。"
   },
@@ -521,39 +518,26 @@
     "title": "选择您的方案",
     "subtitle": "清晰透明的定价。无隐藏费用。",
     "monthly": {
-      "title": "月度方案",
-      "price": "¥38",
-      "period": "/月",
-      "originalPrice": "¥58",
-      "discount": "立省 35%"
+      "title": "月度方案"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "全面解锁家庭健康管理的各项潜能。",
       "features_title": "包含免费版所有功能，外加：",
       "privacy_title": "100% 本地隐私",
-      "privacy_desc": "您的健康数据绝不离开 iPhone。数据存储于原生加密数据库中。",
-      "badge_discount": "首发优惠: -25%"
+      "privacy_desc": "您的健康数据绝不离开 iPhone。数据存储于原生加密数据库中。"
     },
     "free": {
       "title": "免费版",
-      "price": "¥0",
-      "period": "/永久",
       "description": "功能完整且永久免费，支持基础的个人健康管理。",
       "functional_badge": "100% 功能完整",
       "forever_badge": "永久免费"
     },
     "annual": {
-      "title": "年度方案",
-      "badge": "最具价值",
-      "price": "¥248",
-      "period": "/年",
-      "originalPrice": "¥328"
+      "title": "年度方案"
     },
     "lifetime": {
       "title": "终身方案",
-      "price": "¥888",
-      "period": "一次性买断",
       "description": "一次购买，终身享有所有新特性。"
     },
     "features": {

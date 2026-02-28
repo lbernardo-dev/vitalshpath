@@ -288,7 +288,6 @@
     "title": "Sii tra i primi a",
     "titleHighlight": "prenderti cura della tua famiglia",
     "subtitle": "Unisciti alla lista d'attesa e ottieni l'accesso anticipato.",
-    "discount": "25% di sconto al lancio",
     "form": {
       "placeholder": "tuo@email.com",
       "button": "Unisciti"
@@ -309,10 +308,8 @@
         "description": "multi-profilo illimitato, analisi complete."
       }
     },
-    "badgeOffer": "Offerta di Lancio: -25%",
     "privacyTitle": "Privacy Totale",
     "privacyDesc": "I tuoi dati non lasciano mai il dispositivo.",
-    "discountDesc": "Esclusivo per i primi membri.",
     "joinTitle": "Unisciti alla lista d'attesa",
     "joinDesc": "Ricevi un invito esclusivo al momento del lancio."
   },
@@ -570,11 +567,7 @@
     "subtitle": "Semplice e trasparente. Nessun costo nascosto.",
     "monthly": {
       "title": "Mensile",
-      "price": "€3,74",
-      "period": "/mese",
-      "description": "Fatturazione mensile, annulla quando vuoi",
-      "discount": "Risparmia il 35%",
-      "originalPrice": "€4,99"
+      "description": "Fatturazione mensile, annulla quando vuoi"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -586,29 +579,17 @@
     },
     "free": {
       "title": "Gratis",
-      "price": "€0",
-      "period": "/per sempre",
       "description": "App 100% funzionale per sempre, con limiti su profili e registri. Ideale per uso individuale.",
-      "discount": "Sempre Gratis",
       "functional_badge": "100% FUNZIONALE",
       "forever_badge": "PER SEMPRE"
     },
     "annual": {
       "title": "Annuale",
-      "badge": "MIGLIOR PREZZO",
-      "price": "€29,99",
-      "period": "/anno",
-      "description": "Fatturazione annuale, risparmia il 33%",
-      "discount": "Risparmia il 35%",
-      "originalPrice": "€39,99"
+      "description": "Fatturazione annuale, risparmia il 33%"
     },
     "lifetime": {
       "title": "A vita",
-      "price": "€112,49",
-      "period": "pagamento unico",
-      "description": "Pagamento unico, accesso per sempre",
-      "discount": "Risparmia il 15%",
-      "originalPrice": "€149,99"
+      "description": "Pagamento unico, accesso per sempre"
     },
     "features": {
       "unlimited_profiles": "Profili Illimitati",

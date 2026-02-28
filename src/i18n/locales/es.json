@@ -296,7 +296,6 @@
     "title": "Sé de los primeros en",
     "titleHighlight": "cuidar a tu familia",
     "subtitle": "Únete a la lista de espera y recibe acceso anticipado.",
-    "discount": "25% de descuento de lanzamiento",
     "form": {
       "placeholder": "tu@email.com",
       "button": "Unirme"
@@ -309,18 +308,16 @@
     },
     "plans": {
       "free": {
-        "name": "Free:",
-        "description": "perfiles básicos, medicación esencial."
+        "name": "Gratis:",
+        "description": "App 100% funcional. Para siempre."
       },
       "premium": {
         "name": "Premium:",
         "description": "multi-perfil ilimitado, analíticas completas."
       }
     },
-    "badgeOffer": "Oferta Lanzamiento: -25% OFF",
     "privacyTitle": "Privacidad Total",
     "privacyDesc": "Tus datos nunca salen de tu dispositivo.",
-    "discountDesc": "Exclusivo para los primeros miembros.",
     "joinTitle": "Únete a la lista",
     "joinDesc": "Recibe una invitación exclusiva cuando lancemos."
   },
@@ -573,16 +570,12 @@
     }
   },
   "pricing": {
-    "badge": "Oferta Early Adopter",
+    "badge": "Nuevo Modelo",
     "title": "Elige tu plan",
-    "subtitle": "Precios simples y transparentes. Sin costes ocultos.",
+    "subtitle": "Una app para todos. Gratis para siempre o Premium para ir más allá.",
     "monthly": {
       "title": "Mensual",
-      "price": "€3.74",
-      "period": "/mes",
-      "description": "Facturación mensual, cancela cuando quieras",
-      "discount": "Ahorra 35%",
-      "originalPrice": "€4.99"
+      "description": "Acceso total mes a mes"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -590,34 +583,21 @@
       "features_title": "Todo lo de Gratis, y además:",
       "feature_desc": "Registros ilimitados en todos los servicios.",
       "privacy_title": "Privacidad 100% On-Device",
-      "privacy_desc": "Tus datos de salud nunca salen de tu iPhone. VitalsPath utiliza el iCloud Keychain y bases de datos locales cifradas para protegerte.",
-      "badge_discount": "Oferta Lanzamiento: -25%"
+      "privacy_desc": "Tus datos de salud nunca salen de tu iPhone. VitalsPath utiliza el iCloud Keychain y bases de datos locales cifradas para protegerte."
     },
     "free": {
       "title": "Gratis",
-      "price": "€0",
-      "period": "/siempre",
       "description": "App 100% funcional para siempre, con límites de perfiles y registros. Ideal para uso individual.",
-      "discount": "Siempre Gratis",
       "functional_badge": "100% FUNCIONAL",
       "forever_badge": "PARA SIEMPRE"
     },
     "annual": {
       "title": "Anual",
-      "badge": "MEJOR PRECIO",
-      "price": "€29.99",
-      "period": "/año",
-      "description": "Facturación anual, ahorra 33%",
-      "discount": "Ahorra 35%",
-      "originalPrice": "€39.99"
+      "description": "Plan completo con pago anual"
     },
     "lifetime": {
       "title": "De por vida",
-      "price": "€112.49",
-      "period": "pago único",
-      "description": "Pago único, acceso para siempre",
-      "discount": "Ahorra 15%",
-      "originalPrice": "€149.99"
+      "description": "Pago único, acceso para siempre"
     },
     "features": {
       "unlimited_profiles": "Perfiles Ilimitados",

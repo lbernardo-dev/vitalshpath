@@ -297,7 +297,6 @@
     "title": "Bądź jedną z pierwszych osób,",
     "titleHighlight": "które dbają o rodzinę",
     "subtitle": "Zapisz się na listę i otrzymaj wczesny dostęp.",
-    "discount": "25% zniżki na start",
     "form": {
       "placeholder": "twoj@email.com",
       "button": "Dołącz"
@@ -318,10 +317,8 @@
         "description": "Nielimitowane profile, pełna analityka."
       }
     },
-    "badgeOffer": "Oferta na start: -25%",
     "privacyTitle": "Pełna Prywatność",
     "privacyDesc": "Dane nigdy nie opuszczają Twojego urządzenia.",
-    "discountDesc": "Wyłącznie dla pierwszych użytkowników.",
     "joinTitle": "Lista Oczekujących",
     "joinDesc": "Otrzymaj ekskluzywne zaproszenie w dniu premiery."
   },
@@ -453,39 +450,26 @@
     "title": "Wybierz swój plan",
     "subtitle": "Jasne ceny. Brak ukrytych opłat.",
     "monthly": {
-      "title": "Miesięczny",
-      "price": "19,99 zł",
-      "period": "/mies.",
-      "originalPrice": "29,99 zł",
-      "discount": "Oszczędź 35%"
+      "title": "Miesięczny"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Odblokuj pełny potencjał zarządzania zdrowiem rodziny.",
       "features_title": "Wszystko w darmowym, plus:",
       "privacy_title": "100% Prywatności na Urządzeniu",
-      "privacy_desc": "Twoje dane nigdy nie opuszczają Twojego iPhone'a. Używamy zaszyfrowanych baz danych.",
-      "badge_discount": "Zniżka na start: -25%"
+      "privacy_desc": "Twoje dane nigdy nie opuszczają Twojego iPhone'a. Używamy zaszyfrowanych baz danych."
     },
     "free": {
       "title": "Darmowy",
-      "price": "0 zł",
-      "period": "/na zawsze",
       "description": "W pełni funkcjonalna aplikacja darmowa na zawsze, z limitami profili.",
       "functional_badge": "100% Funkcjonalna",
       "forever_badge": "Na zawsze"
     },
     "annual": {
-      "title": "Roczny",
-      "badge": "Najlepsza Oferta",
-      "price": "169,99 zł",
-      "period": "/rok",
-      "originalPrice": "229,99 zł"
+      "title": "Roczny"
     },
     "lifetime": {
       "title": "Dożywotni",
-      "price": "599,99 zł",
-      "period": "Jednorazowo",
       "description": "Zapłać raz, używaj na zawsze."
     },
     "features": {

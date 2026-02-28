@@ -297,7 +297,6 @@
     "title": "家族を想う、",
     "titleHighlight": "最初のメンバーになりましょう",
     "subtitle": "ウェイティングリストに参加して、早期アクセス権を手に入れましょう。",
-    "discount": "先行リリース時に25%オフ",
     "form": {
       "placeholder": "your@email.com",
       "button": "参加する"
@@ -318,10 +317,8 @@
         "description": "プロフィール数無制限、高度な分析機能。"
       }
     },
-    "badgeOffer": "先行リリース特典: 25%オフ",
     "privacyTitle": "完全なプライバシー",
     "privacyDesc": "データがデバイスの外に出ることはありません。",
-    "discountDesc": "初回登録メンバー限定。",
     "joinTitle": "リストに参加",
     "joinDesc": "リリース時に限定の招待状をお送りします。"
   },
@@ -453,39 +450,26 @@
     "title": "プランを選択",
     "subtitle": "シンプルで透明な価格設定。隠れた費用はありません。",
     "monthly": {
-      "title": "月間プラン",
-      "price": "¥500",
-      "period": "/月",
-      "originalPrice": "¥800",
-      "discount": "35% お得"
+      "title": "月間プラン"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "ご家族の健康管理を最大限にサポートします。",
       "features_title": "無料版の全機能に加え：",
       "privacy_title": "100% デバイス内プライバシー",
-      "privacy_desc": "健康データがiPhoneから出ることはありません。Appleのセキュリティ基盤を使用して、あなたの情報を保護します。",
-      "badge_discount": "先行リリース割引: -25%"
+      "privacy_desc": "健康データがiPhoneから出ることはありません。Appleのセキュリティ基盤を使用して、あなたの情報を保護します。"
     },
     "free": {
       "title": "無料版",
-      "price": "¥0",
-      "period": "/ずっと",
       "description": "基本的な服薬管理が可能。ずっと無料で使い続けることができます。",
       "functional_badge": "100% の機能性",
       "forever_badge": "永久無料"
     },
     "annual": {
-      "title": "年間プラン",
-      "badge": "ベストバリュー",
-      "price": "¥4,500",
-      "period": "/年",
-      "originalPrice": "¥6,000"
+      "title": "年間プラン"
     },
     "lifetime": {
       "title": "買い切りプラン",
-      "price": "¥15,000",
-      "period": "1回のお支払い",
       "description": "一度の支払いで、永久にすべての機能を利用できます。"
     },
     "features": {

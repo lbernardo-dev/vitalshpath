@@ -297,7 +297,6 @@
     "title": "Ailesine değer veren",
     "titleHighlight": "ilk kişilerden olun",
     "subtitle": "Listeye katılın ve erken erişim kazanın.",
-    "discount": "Açılışta %25 indirim",
     "form": {
       "placeholder": "eposta@adresiniz.com",
       "button": "Katıl"
@@ -318,10 +317,8 @@
         "description": "Sınırsız profil, tam analiz."
       }
     },
-    "badgeOffer": "Açılış Teklifi: %25 İndirim",
     "privacyTitle": "Tam Gizlilik",
     "privacyDesc": "Veriler asla cihazınızdan çıkmaz.",
-    "discountDesc": "Sadece ilk üyeler için.",
     "joinTitle": "Listeye Katıl",
     "joinDesc": "Lansmanda özel davetiye alın."
   },
@@ -453,39 +450,26 @@
     "title": "Planınızı seçin",
     "subtitle": "Basit ve şeffaf fiyatlandırma. Gizli ücret yok.",
     "monthly": {
-      "title": "Aylık",
-      "price": "₺149",
-      "period": "/ay",
-      "originalPrice": "₺229",
-      "discount": "%35 Tasarruf Edin"
+      "title": "Aylık"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Aile sağlığı yönetiminin tüm potansiyelini açın.",
       "features_title": "Ücretsiz sürümdeki her şey ve ayrıca:",
       "privacy_title": "%100 Cihaz İçi Gizlilik",
-      "privacy_desc": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. Şifrelenmiş veritabanları kullanıyoruz.",
-      "badge_discount": "Lansman İndirimi: -%25"
+      "privacy_desc": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. Şifrelenmiş veritabanları kullanıyoruz."
     },
     "free": {
       "title": "Ücretsiz",
-      "price": "₺0",
-      "period": "/daima",
       "description": "Profil sınırı olmaksızın sonsuza dek ücretsiz tam özellikli uygulama.",
       "functional_badge": "%100 İşlevsel",
       "forever_badge": "Sonsuza dek"
     },
     "annual": {
-      "title": "Yıllık",
-      "badge": "En İyi Değer",
-      "price": "₺1190",
-      "period": "/yıl",
-      "originalPrice": "₺1590"
+      "title": "Yıllık"
     },
     "lifetime": {
       "title": "Ömür Boyu",
-      "price": "₺4490",
-      "period": "Tek Seferlik",
       "description": "Bir kez ödeyin ve sonsuza dek kullanın."
     },
     "features": {

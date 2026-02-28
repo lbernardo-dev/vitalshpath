@@ -41,235 +41,131 @@ const premiumFeatures = [
 
 <section
     id="pricing"
-    class="py-16 md:py-24 relative overflow-hidden bg-white dark:bg-black"
+    class="py-16 md:py-32 relative overflow-hidden bg-white dark:bg-black"
 >
     <!-- Ambient background -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
         <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-500/5 blur-[150px] rounded-full"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[150px] rounded-full"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full"
         >
         </div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-20 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24 reveal">
             <h2
-                class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight"
+                class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 tracking-tight italic"
             >
                 {t("pricing.title")}
             </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400">
+            <p class="text-xl text-gray-600 dark:text-gray-400 font-medium">
                 {t("pricing.subtitle")}
             </p>
         </div>
 
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 max-w-7xl mx-auto items-start"
-        >
-            <!-- Free Plan -->
-            <div class="lg:col-span-4 reveal reveal-left">
+        <div class="max-w-5xl mx-auto reveal">
+            <!-- Single Pricing Box -->
+            <div
+                class="relative p-[1px] rounded-[40px] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 shadow-2xl"
+            >
                 <div
-                    class="h-full bg-gray-50 dark:bg-zinc-900/50 border border-gray-100 dark:border-white/10 p-10 rounded-[40px] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col backdrop-blur-sm"
+                    class="bg-white/80 dark:bg-zinc-900/90 rounded-[39px] backdrop-blur-3xl overflow-hidden border border-white/10"
                 >
-                    <div class="mb-10">
-                        <span
-                            class="text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400 block mb-2"
-                            >{t("pricing.free.title")}</span
-                        >
-                        <div class="flex items-baseline gap-2">
-                            <span
-                                class="text-5xl font-black text-gray-900 dark:text-white"
-                                >€0</span
-                            >
-                            <span
-                                class="text-blue-500 dark:text-blue-400 text-sm font-black uppercase"
-                                >{t("pricing.free.forever_badge")}</span
-                            >
-                        </div>
-                    </div>
-
-                    <p
-                        class="text-gray-600 dark:text-gray-400 mb-10 flex-1 leading-relaxed font-medium"
-                    >
-                        {t("pricing.free.description")}
-                    </p>
-
-                    <a
-                        href="#waitlist"
-                        class="w-full py-5 px-6 bg-gray-200 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-transparent dark:border-white/10 font-bold rounded-2xl transition-all text-center hover:bg-gray-300 dark:hover:bg-white/10"
-                    >
-                        {t("pricing.cta_alt")}
-                    </a>
-                </div>
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="lg:col-span-8 reveal reveal-right stagger-1">
-                <div
-                    class="p-1 rounded-[40px] bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 shadow-[0_32px_64px_-16px_rgba(59,130,246,0.2)] dark:shadow-2xl"
-                >
-                    <div
-                        class="bg-white dark:bg-gray-900 rounded-[39px] p-8 md:p-12 overflow-hidden relative transition-colors"
-                    >
-                        <!-- Decorative glow -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+                        <!-- Left: Free Highlight -->
                         <div
-                            class="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"
+                            class="lg:col-span-5 p-8 md:p-12 bg-gradient-to-br from-blue-500/5 to-transparent relative"
                         >
-                        </div>
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-500 text-[11px] font-black uppercase tracking-widest mb-8"
+                            >
+                                <Zap className="w-3.5 h-3.5 fill-current" />
+                                {t("pricing.free.functional_badge")}
+                            </div>
 
-                        <div
-                            class="flex flex-col lg:flex-row gap-12 relative z-10"
-                        >
-                            <!-- Left: Selection -->
-                            <div class="lg:w-2/5 flex flex-col">
+                            <h3
+                                class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 italic"
+                            >
+                                {t("pricing.free.title")}
+                            </h3>
+
+                            <p
+                                class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium mb-10"
+                            >
+                                {t("pricing.free.description")}
+                            </p>
+
+                            <div
+                                class="p-6 rounded-3xl bg-blue-500/10 border border-blue-500/20 relative overflow-hidden group hover:bg-blue-500/20 transition-colors"
+                            >
                                 <div
-                                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[11px] font-black uppercase tracking-wider mb-6 w-fit"
+                                    class="absolute -right-8 -bottom-8 w-24 h-24 bg-blue-500/10 blur-2xl rounded-full"
                                 >
-                                    <Star
-                                        className="w-3.5 h-3.5 fill-current"
-                                    />
-                                    {t("pricing.annual.badge")}
                                 </div>
-                                <h3
-                                    class="text-3xl font-black text-gray-900 dark:text-white mb-8 italic tracking-tight"
+                                <span
+                                    class="text-xs font-black text-blue-500 uppercase tracking-[0.2em] block mb-2"
                                 >
-                                    VitalsPath Premium
-                                </h3>
+                                    {t("pricing.free.forever_badge")}
+                                </span>
+                                <p
+                                    class="text-sm text-gray-700 dark:text-gray-300 font-bold"
+                                >
+                                    Ideal para uso individual y gestión básica
+                                    familiar sin suscripción.
+                                </p>
+                            </div>
+                        </div>
 
-                                <div class="space-y-3 mb-10">
+                        <!-- Right: Premium Info -->
+                        <div
+                            class="lg:col-span-7 p-8 md:p-12 lg:border-l border-gray-100 dark:border-white/5"
+                        >
+                            <div class="mb-10">
+                                <h4
+                                    class="text-xs font-black uppercase tracking-widest text-gray-400 mb-6"
+                                >
+                                    Próximas modalidades Premium:
+                                </h4>
+                                <div class="flex flex-wrap gap-3">
                                     {
                                         ["monthly", "annual", "lifetime"].map(
-                                            (planKey) => (
-                                                <button
-                                                    class={`plan-toggle w-full p-4 rounded-3xl border-2 transition-all text-left flex justify-between items-center group ${
-                                                        planKey === "annual"
-                                                            ? "border-blue-500 bg-blue-50/50 dark:bg-blue-500/10 shadow-lg"
-                                                            : "border-gray-100 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10"
-                                                    }`}
-                                                    data-plan={planKey}
-                                                    data-price={t(
-                                                        `pricing.${planKey}.price`
-                                                    )}
-                                                    data-original-price={t(
-                                                        `pricing.${planKey}.originalPrice`
-                                                    )}
-                                                    data-period={t(
-                                                        `pricing.${planKey}.period`
-                                                    )}
-                                                    data-active={
-                                                        planKey === "annual"
-                                                            ? "true"
-                                                            : "false"
-                                                    }
-                                                >
-                                                    <div class="flex flex-col">
-                                                        <p class="font-bold text-gray-900 dark:text-white">
-                                                            {t(
-                                                                `pricing.${planKey}.title`
-                                                            )}
-                                                        </p>
-                                                        <p class="text-[10px] text-gray-500 dark:text-gray-500 uppercase tracking-wide font-black">
-                                                            {t(
-                                                                `pricing.${planKey}.description`
-                                                            )}
-                                                        </p>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        {t(
-                                                            `pricing.${planKey}.originalPrice`
-                                                        ) && (
-                                                            <p class="text-[10px] text-red-500 line-through font-bold leading-none mb-1">
-                                                                {t(
-                                                                    `pricing.${planKey}.originalPrice`
-                                                                )}
-                                                            </p>
-                                                        )}
-                                                        <p class="font-black text-gray-900 dark:text-white leading-none">
-                                                            {t(
-                                                                `pricing.${planKey}.price`
-                                                            )}
-                                                        </p>
-                                                        {planKey ===
-                                                            "annual" && (
-                                                            <span class="inline-block mt-1 text-[9px] bg-green-500 text-white px-1.5 py-0.5 rounded-md font-bold">
-                                                                -25%
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                </button>
+                                            (p) => (
+                                                <div class="px-5 py-2.5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 text-gray-700 dark:text-gray-300 text-xs font-black uppercase tracking-wider hover:border-blue-500/30 transition-all cursor-default">
+                                                    {t(`pricing.${p}.title`)}
+                                                </div>
                                             )
                                         )
                                     }
                                 </div>
-
-                                <div
-                                    class="mt-auto p-6 bg-gray-50 dark:bg-white/5 rounded-3xl border border-gray-100 dark:border-white/10"
-                                >
-                                    <div class="flex flex-col mb-1">
-                                        <span
-                                            id="premium-original-price-display"
-                                            class="text-sm text-red-500 line-through font-bold"
-                                        >
-                                            {t("pricing.annual.originalPrice")}
-                                        </span>
-                                        <span
-                                            id="premium-discount-badge"
-                                            class="text-[10px] bg-cyan-500 text-white px-2 py-0.5 rounded-full font-black uppercase tracking-wider w-fit mb-2"
-                                        >
-                                            {
-                                                t(
-                                                    "pricing.premium.badge_discount"
-                                                )
-                                            }
-                                        </span>
-                                    </div>
-                                    <div class="flex items-baseline gap-2">
-                                        <span
-                                            id="premium-price-display"
-                                            class="text-5xl font-black text-gray-900 dark:text-white tracking-tight"
-                                        >
-                                            {t("pricing.annual.price")}
-                                        </span>
-                                        <span
-                                            id="premium-period-display"
-                                            class="text-gray-600 dark:text-gray-400 font-medium"
-                                            >{t("pricing.annual.period")}</span
-                                        >
-                                    </div>
-                                    <a
-                                        href="#waitlist"
-                                        class="w-full mt-6 py-5 px-6 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-black rounded-2xl hover:scale-[1.02] transition-all shadow-xl shadow-blue-500/20 text-center block"
-                                    >
-                                        {t("pricing.cta_alt")}
-                                    </a>
-                                </div>
                             </div>
 
-                            <!-- Right: Features -->
-                            <div
-                                class="lg:w-3/5 lg:border-l lg:border-gray-100 lg:dark:border-gray-800 lg:pl-12"
-                            >
+                            <div class="space-y-8">
                                 <h4
-                                    class="text-xs font-black uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-8"
+                                    class="text-xs font-black uppercase tracking-widest text-gray-400"
                                 >
                                     {t("pricing.premium.features_title")}
                                 </h4>
+
                                 <div
-                                    class="grid sm:grid-cols-2 gap-x-8 gap-y-8"
+                                    class="grid grid-cols-1 sm:grid-cols-2 gap-6"
                                 >
                                     {
                                         premiumFeatures.map((f) => (
-                                            <div class="flex items-start gap-4 group">
-                                                <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center text-blue-500 shrink-0 group-hover:scale-110 transition-transform">
-                                                    <f.icon className="w-5 h-5" />
+                                            <div class="flex items-start gap-3 group">
+                                                <div class="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 shrink-0 group-hover:scale-110 transition-transform">
+                                                    <f.icon className="w-4 h-4" />
                                                 </div>
                                                 <div>
-                                                    <p class="text-sm font-bold text-gray-900 dark:text-white mb-1.5 leading-tight">
+                                                    <p class="text-xs font-black text-gray-900 dark:text-white mb-1 uppercase tracking-tight">
                                                         {t(
                                                             `pricing.features.${f.key}`
                                                         )}
                                                     </p>
-                                                    <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                                                    <p class="text-[10px] text-gray-500 dark:text-gray-500 leading-normal font-medium">
                                                         {(() => {
                                                             const specificDesc =
                                                                 t(
@@ -289,31 +185,25 @@ const premiumFeatures = [
                                         ))
                                     }
                                 </div>
-
-                                <div
-                                    class="mt-12 p-6 rounded-[2rem] bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-900 border border-gray-200 dark:border-gray-800 border-dashed"
-                                >
-                                    <div
-                                        class="flex items-center gap-3 text-blue-500 mb-2"
-                                    >
-                                        <Shield className="w-5 h-5" />
-                                        <span
-                                            class="text-sm font-black uppercase tracking-tight"
-                                            >{
-                                                t(
-                                                    "pricing.premium.privacy_title"
-                                                )
-                                            }</span
-                                        >
-                                    </div>
-                                    <p
-                                        class="text-xs text-gray-600 dark:text-gray-400 leading-relaxed"
-                                    >
-                                        {t("pricing.premium.privacy_desc")}
-                                    </p>
-                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Single CTA Footer -->
+                    <div
+                        class="p-8 md:p-12 border-t border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-black/20 text-center"
+                    >
+                        <a
+                            href="#waitlist"
+                            class="inline-block py-5 px-16 bg-gray-900 dark:bg-white text-white dark:text-gray-950 font-black rounded-3xl hover:scale-105 transition-all shadow-xl shadow-blue-500/10 dark:shadow-white/10 text-lg uppercase tracking-widest"
+                        >
+                            {t("pricing.cta_alt")}
+                        </a>
+                        <p
+                            class="mt-6 text-xs text-gray-500 dark:text-gray-500 font-bold uppercase tracking-widest"
+                        >
+                            Sin compromisos · 100% Privado · Lanzamiento 2026
+                        </p>
                     </div>
                 </div>
             </div>
@@ -322,146 +212,16 @@ const premiumFeatures = [
 </section>
 
 <script>
-    import { getSupabase } from "../../lib/supabase";
-    const supabase = getSupabase();
-
-    const toggles = document.querySelectorAll(".plan-toggle");
-    const priceDisplay = document.getElementById("premium-price-display");
-    const originalPriceDisplay = document.getElementById(
-        "premium-original-price-display"
+    // Handle Pricing CTA
+    const pricingCta = document.querySelector(
+        'section#pricing a[href="#waitlist"]'
     );
-    const periodDisplay = document.getElementById("premium-period-display");
-    const discountBadge = document.getElementById("premium-discount-badge");
-
-    async function syncPricing() {
-        if (!supabase) return;
-        const { data } = await supabase.from("pricing_plans").select("*");
-        if (!data) return;
-
-        const plans = {
-            monthly: data.find((p) => p.id === "premium_monthly"),
-            annual: data.find((p) => p.id === "premium_annual"),
-            lifetime: data.find((p) => p.id === "premium_lifetime"),
-        };
-
-        toggles.forEach((t) => {
-            const planKey = t.getAttribute("data-plan");
-            const planData = plans[planKey as keyof typeof plans];
-
-            if (planData) {
-                const currency = planData.currency || "€";
-                const base = planData.base_price;
-                const discount = planData.discount_percentage;
-                const finalPrice = base * (1 - discount / 100);
-
-                const priceStr = `${currency}${finalPrice.toFixed(2)}`;
-                const origStr = `${currency}${base.toFixed(2)}`;
-
-                t.setAttribute("data-price", priceStr);
-                t.setAttribute("data-original-price", origStr);
-                t.setAttribute("data-discount", discount.toString());
-
-                // Update text inside toggle
-                const pEl = t.querySelector(".text-right p:last-of-type");
-                const oEl = t.querySelector(".text-right p:first-of-type");
-                const bEl = t.querySelector(".text-right span");
-
-                if (pEl) pEl.textContent = priceStr;
-                if (oEl) oEl.textContent = origStr;
-                if (bEl && discount > 0) {
-                    bEl.textContent = `-${discount}%`;
-                    bEl.classList.remove("hidden");
-                }
-            }
-        });
-
-        const activeToggle = Array.from(toggles).find(
-            (t) => t.getAttribute("data-active") === "true"
-        ) as HTMLElement;
-        if (activeToggle) activeToggle.click();
-    }
-
-    toggles.forEach((toggle) => {
-        toggle.addEventListener("click", () => {
-            const planKey = toggle.getAttribute("data-plan");
-            // Save selected plan for waitlist
+    if (pricingCta) {
+        pricingCta.addEventListener("click", () => {
             localStorage.setItem(
                 "vitalspath_interested_plan",
-                planKey || "annual"
+                "general_waitlist"
             );
-
-            toggles.forEach((t) => {
-                t.classList.remove(
-                    "border-blue-500",
-                    "bg-blue-50/50",
-                    "dark:bg-blue-900/10",
-                    "shadow-lg"
-                );
-                t.classList.add("border-gray-100", "dark:border-gray-800");
-                t.setAttribute("data-active", "false");
-            });
-
-            toggle.classList.remove("border-gray-100", "dark:border-gray-800");
-            toggle.classList.add(
-                "border-blue-500",
-                "bg-blue-50/50",
-                "dark:bg-blue-900/10",
-                "shadow-lg"
-            );
-            toggle.setAttribute("data-active", "true");
-
-            if (priceDisplay && periodDisplay) {
-                const price = toggle.getAttribute("data-price");
-                const originalPrice = toggle.getAttribute(
-                    "data-original-price"
-                );
-                const period = toggle.getAttribute("data-period");
-                const discount = toggle.getAttribute("data-discount");
-
-                priceDisplay.textContent = price;
-                periodDisplay.textContent = period;
-                if (originalPriceDisplay)
-                    originalPriceDisplay.textContent = originalPrice;
-                if (discountBadge && discount) {
-                    discountBadge.textContent = `Launch -${discount}%`;
-                    discountBadge.classList.toggle(
-                        "hidden",
-                        parseInt(discount) <= 0
-                    );
-                }
-
-                priceDisplay.classList.add("animate-pulse", "text-blue-500");
-                setTimeout(
-                    () =>
-                        priceDisplay.classList.remove(
-                            "animate-pulse",
-                            "text-blue-500"
-                        ),
-                    300
-                );
-            }
-        });
-    });
-
-    // Handle Free Plan CTA
-    const freeCta = document.querySelector('a[href="#waitlist"]');
-    if (freeCta && freeCta.closest(".lg:col-span-4")) {
-        freeCta.addEventListener("click", () => {
-            localStorage.setItem("vitalspath_interested_plan", "free");
         });
     }
-
-    // Handle Premium CTA (main button)
-    const premiumCta = document.querySelector('.lg:w-2/5 a[href="#waitlist"]');
-    if (premiumCta) {
-        premiumCta.addEventListener("click", () => {
-            const activeToggle = Array.from(toggles).find(
-                (t) => t.getAttribute("data-active") === "true"
-            );
-            const planKey = activeToggle?.getAttribute("data-plan") || "annual";
-            localStorage.setItem("vitalspath_interested_plan", planKey);
-        });
-    }
-
-    syncPricing();
 </script>

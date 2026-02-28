@@ -297,7 +297,6 @@
     "title": "Seja um dos primeiros a",
     "titleHighlight": "cuidar da sua família",
     "subtitle": "Entre na lista de espera e tenha acesso antecipado.",
-    "discount": "25% de desconto no lançamento",
     "form": {
       "placeholder": "seu@email.com",
       "button": "Entrar"
@@ -318,10 +317,8 @@
         "description": "multiperfil ilimitado, análise completa."
       }
     },
-    "badgeOffer": "Oferta de Lançamento: -25% OFF",
     "privacyTitle": "Privacidade Total",
     "privacyDesc": "Seus dados nunca saem do seu dispositivo.",
-    "discountDesc": "Exclusivo para os primeiros membros.",
     "joinTitle": "Junte-se à lista",
     "joinDesc": "Receba um convite exclusivo no lançamento."
   },
@@ -575,11 +572,7 @@
     "subtitle": "Preços simples e transparentes. Sem taxas ocultas.",
     "monthly": {
       "title": "Mensal",
-      "price": "€3,74",
-      "period": "/mês",
-      "description": "Faturamento mensal, cancele quando quiser",
-      "discount": "Economize 35%",
-      "originalPrice": "€4,99"
+      "description": "Faturamento mensal, cancele quando quiser"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -587,34 +580,21 @@
       "features_title": "Tudo o que é Gratuito, e mais:",
       "feature_desc": "Registros ilimitados em todos os serviços.",
       "privacy_title": "Privacidade 100% On-Device",
-      "privacy_desc": "Os seus dados de saúde nunca saem do seu iPhone. O VitalsPath utiliza o iCloud Keychain e bases de dados locais encriptadas para o proteger.",
-      "badge_discount": "Oferta de lançamento: -25%"
+      "privacy_desc": "Os seus dados de saúde nunca saem do seu iPhone. O VitalsPath utiliza o iCloud Keychain e bases de dados locais encriptadas para o proteger."
     },
     "free": {
       "title": "Gratuito",
-      "price": "0 €",
-      "period": "/sempre",
       "description": "App 100% funcional para sempre, com limites de perfis e registros. Ideal para uso individual.",
-      "discount": "Sempre Gratuito",
       "functional_badge": "100% FUNCIONAL",
       "forever_badge": "PARA SEMPRE"
     },
     "annual": {
       "title": "Anual",
-      "badge": "MELHOR VALOR",
-      "price": "€29,99",
-      "period": "/ano",
-      "description": "Faturamento anual, economize 33%",
-      "discount": "Economize 35%",
-      "originalPrice": "€39,99"
+      "description": "Faturamento anual, economize 33%"
     },
     "lifetime": {
       "title": "Vitalício",
-      "price": "€112,49",
-      "period": "pagamento único",
-      "description": "Pagamento único, acesso vitalício",
-      "discount": "Economize 15%",
-      "originalPrice": "€149,99"
+      "description": "Pagamento único, acesso vitalício"
     },
     "features": {
       "unlimited_profiles": "Perfis Ilimitados",

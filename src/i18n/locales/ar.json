@@ -297,7 +297,6 @@
     "title": "كن من أوائل من",
     "titleHighlight": "يهتمون بعائلاتهم",
     "subtitle": "انضم للقائمة واحصل على وصول مبكر.",
-    "discount": "خصم ٢٥٪ عند الإطلاق",
     "form": {
       "placeholder": "بريدك@الإلكتروني.com",
       "button": "انضم"
@@ -318,10 +317,8 @@
         "description": "ملفات متعددة غير محدودة، تحليلات كاملة."
       }
     },
-    "badgeOffer": "عرض الإطلاق: خصم ٢٥٪",
     "privacyTitle": "خصوصية تامة",
     "privacyDesc": "بياناتك لا تغادر جهازك أبداً.",
-    "discountDesc": "حصري للأعضاء الأوائل.",
     "joinTitle": "انضم للقائمة",
     "joinDesc": "احصل على دعوة حصرية عند الإطلاق."
   },
@@ -453,39 +450,26 @@
     "title": "اختر خطتك",
     "subtitle": "أسعار بسيطة وشفافة. لا توجد رسوم خفية.",
     "monthly": {
-      "title": "شهري",
-      "price": "€٣.٧٤",
-      "period": "/شهر",
-      "originalPrice": "€٤.٩٩",
-      "discount": "وفر ٣٥٪"
+      "title": "شهري"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "افتح الإمكانات الكاملة لإدارة صحة العائلة.",
       "features_title": "كل ما في المجاني، بالإضافة إلى:",
       "privacy_title": "خصوصية بنسبة ١٠٠٪ على الجهاز",
-      "privacy_desc": "بياناتك الصحية لا تغادر جهاز iPhone الخاص بك أبداً. يستخدم VitalsPath سلسلة مفاتيح iCloud وقواعد بيانات محلية مشفرة لحمايتك.",
-      "badge_discount": "خصم الإطلاق: -٢٥٪"
+      "privacy_desc": "بياناتك الصحية لا تغادر جهاز iPhone الخاص بك أبداً. يستخدم VitalsPath سلسلة مفاتيح iCloud وقواعد بيانات محلية مشفرة لحمايتك."
     },
     "free": {
       "title": "مجاني",
-      "price": "€٠",
-      "period": "/دائماً",
       "description": "تطبيق فعال بنسبة ١٠٠٪ للأبد، مع حدود للملفات الشخصية.",
       "functional_badge": "فعال بنسبة ١٠٠٪",
       "forever_badge": "للأبد"
     },
     "annual": {
-      "title": "سنوي",
-      "badge": "أفضل سعر",
-      "price": "€٢٩.٩٩",
-      "period": "/سنة",
-      "originalPrice": "€٣٩.٩٩"
+      "title": "سنوي"
     },
     "lifetime": {
       "title": "مدى الحياة",
-      "price": "€١١٢.٤٩",
-      "period": "دفع لمرة واحدة",
       "description": "ادفع مرة واحدة، متاح للأبد."
     },
     "features": {

@@ -297,7 +297,6 @@
     "title": "Wees de eerste die",
     "titleHighlight": "voor hun gezin zorgt",
     "subtitle": "Schrijf je in en krijg vroege toegang.",
-    "discount": "25% korting bij lancering",
     "form": {
       "placeholder": "je@email.com",
       "button": "Doe mee"
@@ -318,10 +317,8 @@
         "description": "Onbeperkte profielen, volledige analyse."
       }
     },
-    "badgeOffer": "Lanceringaanbieding: -25%",
     "privacyTitle": "Volledige Privacy",
     "privacyDesc": "Gegevens verlaten nooit je apparaat.",
-    "discountDesc": "Exclusief voor vroege vogels.",
     "joinTitle": "Wachtlijst",
     "joinDesc": "Ontvang een exclusieve uitnodiging bij de lancering."
   },
@@ -453,39 +450,26 @@
     "title": "Kies uw plan",
     "subtitle": "Eenvoudige prijzen. Geen verborgen kosten.",
     "monthly": {
-      "title": "Maandelijks",
-      "price": "€4,99",
-      "period": "/maand",
-      "originalPrice": "€6,99",
-      "discount": "Bespaar 35%"
+      "title": "Maandelijks"
     },
     "premium": {
       "title": "VitalsPath Premium",
       "subtitle": "Ontgrendel het volledige potentieel.",
       "features_title": "Alles in Gratis, plus:",
       "privacy_title": "100% On-device Privacy",
-      "privacy_desc": "Uw gezondheidsgegevens verlaten nooit uw iPhone. We gebruiken versleutelde databases.",
-      "badge_discount": "Lanceringkorting: -25%"
+      "privacy_desc": "Uw gezondheidsgegevens verlaten nooit uw iPhone. We gebruiken versleutelde databases."
     },
     "free": {
       "title": "Gratis",
-      "price": "€0",
-      "period": "/altijd",
       "description": "Volledig functionele app voor altijd gratis, met profielbeperkingen.",
       "functional_badge": "100% Functioneel",
       "forever_badge": "Voor altijd"
     },
     "annual": {
-      "title": "Jaarlijks",
-      "badge": "Beste Waarde",
-      "price": "€39,99",
-      "period": "/jaar",
-      "originalPrice": "€49,99"
+      "title": "Jaarlijks"
     },
     "lifetime": {
       "title": "Lifetime",
-      "price": "€149,99",
-      "period": "Eenmalig",
       "description": "Betaal één keer en gebruik het voor altijd."
     },
     "features": {

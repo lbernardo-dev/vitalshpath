@@ -297,7 +297,6 @@
     "title": "Soyez parmi les premiers à",
     "titleHighlight": "prendre soin de votre famille",
     "subtitle": "Rejoignez la liste d'attente et obtenez un accès anticipé.",
-    "discount": "25% de réduction au lancement",
     "form": {
       "placeholder": "votre@email.com",
       "button": "Rejoindre"
@@ -318,10 +317,8 @@
         "description": "multi-profil illimité, analyses complètes."
       }
     },
-    "badgeOffer": "Offre de Lancement : -25%",
     "privacyTitle": "Confidentialité Totale",
     "privacyDesc": "Vos données ne quittent jamais votre appareil.",
-    "discountDesc": "Exclusif pour les premiers membres.",
     "joinTitle": "Rejoignez la liste d'attente",
     "joinDesc": "Recevez une invitation exclusive lors du lancement."
   },
@@ -575,11 +572,7 @@
     "subtitle": "Des tarifs simples et transparents. Aucun frais caché.",
     "monthly": {
       "title": "Mensuel",
-      "price": "€3,74",
-      "period": "/mois",
-      "description": "Facturation mensuelle, annulez quand vous voulez",
-      "discount": "Économisez 35 %",
-      "originalPrice": "€4,99"
+      "description": "Facturation mensuelle, annulez quand vous voulez"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -587,34 +580,21 @@
       "features_title": "Tout ce qui est Gratuit, et plus encore :",
       "feature_desc": "Enregistrements illimités dans tous les services.",
       "privacy_title": "Confidentialité 100 % sur l'appareil",
-      "privacy_desc": "Vos données de santé ne quittent jamais votre iPhone. VitalsPath utilise le trousseau iCloud et des bases de données locales cryptées pour vous protéger.",
-      "badge_discount": "Offre de lancement : -25%"
+      "privacy_desc": "Vos données de santé ne quittent jamais votre iPhone. VitalsPath utilise le trousseau iCloud et des bases de données locales cryptées pour vous protéger."
     },
     "free": {
       "title": "Gratuit",
-      "price": "0 €",
-      "period": "/toujours",
       "description": "Application 100 % fonctionnelle pour toujours, avec des limites sur les profils et les enregistrements. Idéal pour un usage individuel.",
-      "discount": "Toujours Gratuit",
       "functional_badge": "100 % FONCTIONNEL",
       "forever_badge": "POUR TOUJOURS"
     },
     "annual": {
       "title": "Annuel",
-      "badge": "MEILLEUR PRIX",
-      "price": "€29,99",
-      "period": "/an",
-      "description": "Facturation annuelle, économisez 33 %",
-      "discount": "Économisez 35 %",
-      "originalPrice": "€39,99"
+      "description": "Facturation annuelle, économisez 33 %"
     },
     "lifetime": {
       "title": "À vie",
-      "price": "€112,49",
-      "period": "paiement unique",
-      "description": "Paiement unique, accès à vie",
-      "discount": "Économisez 15 %",
-      "originalPrice": "€149,99"
+      "description": "Paiement unique, accès à vie"
     },
     "features": {
       "unlimited_profiles": "Profils Illimités",
