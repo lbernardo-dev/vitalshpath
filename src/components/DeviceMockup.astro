@@ -1,90 +1,87 @@
 ---
 interface Props {
     type?: "iphone" | "ipad" | "watch-ultra" | "watch-se";
-    orientation?: "portrait" | "landscape";
-    color?: string;
-    showIsland?: boolean;
     className?: string;
 }
 
-const {
-    type = "iphone",
-    orientation = "portrait",
-    color = "black",
-    showIsland = true,
-    className = "",
-} = Astro.props;
+const { type = "iphone", className = "" } = Astro.props;
 
-// Configuration mapping
+// Realistic Apple Device Proportions
 const configs = {
     iphone: {
-        container:
-            "relative border-[8px] border-zinc-900 bg-zinc-900 rounded-[3.5rem] shadow-2xl overflow-hidden aspect-[9/19.5]",
-        screen: "w-full h-full rounded-[2.8rem] overflow-hidden bg-black relative",
-        inner: "w-full h-full object-cover",
-        island: "absolute top-3 left-1/2 -translate-x-1/2 w-[30%] h-6 bg-black rounded-full z-50 flex items-center justify-center gap-1.5",
+        wrapper:
+            "relative rounded-[3.5rem] bg-zinc-900 p-[6px] shadow-2xl overflow-hidden aspect-[9/19.5] border-[1px] border-white/10",
+        screen: "w-full h-full rounded-[3rem] overflow-hidden bg-black relative",
     },
     ipad: {
-        container:
-            "relative border-[12px] border-zinc-800 bg-zinc-800 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-[4/3]",
-        screen: "w-full h-full rounded-[1.5rem] overflow-hidden bg-black relative",
-        inner: "w-full h-full object-cover",
+        wrapper:
+            "relative rounded-[2.5rem] bg-zinc-800 p-[12px] shadow-2xl overflow-hidden aspect-[4/3] border-[1px] border-white/5",
+        screen: "w-full h-full rounded-[1.8rem] overflow-hidden bg-black relative",
     },
     "watch-ultra": {
-        container:
-            "relative border-[4px] border-zinc-700 bg-zinc-800 rounded-[2.8rem] shadow-2xl overflow-hidden aspect-[1/1.2] ring-4 ring-zinc-400/20",
-        screen: "w-full h-full rounded-[2.4rem] overflow-hidden bg-black relative border-[1px] border-white/5",
-        inner: "w-full h-full object-cover",
-        bezel: "absolute -inset-1 border-[6px] border-zinc-600/30 rounded-[3rem] pointer-events-none",
-        orange_btn:
-            "absolute -left-[6px] top-1/3 w-1.5 h-10 bg-orange-500 rounded-r-sm shadow-sm z-10",
-        crown: "absolute -right-[6px] top-1/4 w-3 h-12 bg-zinc-600 rounded-l-md shadow-sm border-y border-l border-zinc-500 z-10",
+        wrapper:
+            "relative rounded-[2.8rem] bg-[#d1d1d6] p-[4px] shadow-2xl overflow-hidden aspect-[1/1.2] border-[1px] border-zinc-400 ring-2 ring-zinc-300",
+        screen: "w-full h-full rounded-[2.4rem] overflow-hidden bg-black relative",
+        bezel: "absolute inset-0 border-[6px] border-zinc-800/20 rounded-[2.8rem] pointer-events-none z-20",
+        button: "absolute -left-1 top-1/3 w-2 h-12 bg-orange-600 rounded-r-md z-10 shadow-sm",
+        crown: "absolute -right-2 top-1/4 w-4 h-14 bg-zinc-400 rounded-l-lg z-10 border-y border-l border-zinc-500 shadow-inner",
     },
     "watch-se": {
-        container:
-            "relative border-[2px] border-zinc-900 bg-black rounded-[2.2rem] shadow-2xl overflow-hidden aspect-[1/1.2] ring-1 ring-white/10",
+        wrapper:
+            "relative rounded-[2.2rem] bg-zinc-900 p-[3px] shadow-2xl overflow-hidden aspect-[1/1.2] border-[1px] border-white/10",
         screen: "w-full h-full rounded-[2rem] overflow-hidden bg-black relative",
-        inner: "w-full h-full object-cover",
-        crown: "absolute -right-[3px] top-1/4 w-1.5 h-8 bg-zinc-800 rounded-l-sm shadow-sm z-10",
+        crown: "absolute -right-1.5 top-1/4 w-3 h-10 bg-zinc-800 rounded-l-md z-10 shadow-sm",
     },
 };
 
 const config = configs[type];
 ---
 
-<div class={`${config.container} ${className}`}>
-    <!-- Device Specific Details -->
-    {
-        type === "iphone" && showIsland && (
-            <div class={config.island}>
-                <div class="w-1.5 h-1.5 rounded-full bg-zinc-800 ring-1 ring-white/5" />
-                <div class="w-2 h-2 rounded-full bg-zinc-900 ring-1 ring-white/10" />
-            </div>
-        )
-    }
-
+<div class={`${config.wrapper} ${className}`}>
+    <!-- Watch Ultra Hardware Details -->
     {
         type === "watch-ultra" && (
             <>
                 <div class={config.bezel} />
-                <div class={config.orange_btn} />
+                <div class={config.button} />
                 <div class={config.crown} />
             </>
         )
     }
 
+    <!-- Watch SE Hardware Details -->
     {type === "watch-se" && <div class={config.crown} />}
+
+    <!-- iPhone Sensors (Hidden to avoid overlap with existing status bars in screenshots) -->
+    {
+        type === "iphone" && (
+            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-[35%] h-[28px] bg-black rounded-full z-40 hidden md:block opacity-90 blur-[1px]" />
+        )
+    }
 
     <!-- Screen Content -->
     <div class={config.screen}>
-        <div class="w-full h-full">
-            <slot />
-        </div>
+        <slot />
     </div>
 </div>
 
 <style>
-    /* Ensure any image passed to slot fills the screen perfectly */
+    /* Premium Specular Shine Layer */
+    .iphone-shine::after,
+    .ipad-shine::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.05) 100%
+        );
+        pointer-events: none;
+        z-index: 30;
+    }
+
     :global(.mockup-image) {
         width: 100% !important;
         height: 100% !important;
