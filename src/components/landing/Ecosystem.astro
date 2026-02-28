@@ -45,7 +45,7 @@ const t = useTranslations(lang);
 
     <div class="container mx-auto px-6 relative z-10">
         <!-- Section Header -->
-        <div class="max-w-4xl mx-auto text-center mb-24 md:mb-32 reveal">
+        <div class="max-w-4xl mx-auto text-center mb-24 md:mb-32">
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 mb-8"
             >
@@ -73,7 +73,7 @@ const t = useTranslations(lang);
             class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-7xl mx-auto"
         >
             <!-- Left: iPad Showcase (The biggest) -->
-            <div class="lg:col-span-12 xl:col-span-8 reveal reveal-left">
+            <div class="lg:col-span-12 xl:col-span-8">
                 <div class="relative group">
                     <!-- Glass Container -->
                     <div
@@ -123,7 +123,7 @@ const t = useTranslations(lang);
 
             <!-- Right: iPhone & Watch Duo -->
             <div
-                class="lg:col-span-12 xl:col-span-4 flex flex-col gap-12 sm:flex-row xl:flex-col items-center justify-center reveal reveal-right"
+                class="lg:col-span-12 xl:col-span-4 flex flex-col gap-12 sm:flex-row xl:flex-col items-center justify-center"
             >
                 <!-- iPhone Mockup (Real App Screenshot) -->
                 <div class="relative group w-full max-w-[320px]">
@@ -202,7 +202,7 @@ const t = useTranslations(lang);
         </div>
 
         <!-- Sync Info Banner -->
-        <div class="mt-24 md:mt-40 max-w-4xl mx-auto reveal stagger-1">
+        <div class="mt-24 md:mt-40 max-w-4xl mx-auto stagger-1">
             <div
                 class="p-8 md:p-12 rounded-[3rem] bg-gradient-to-br from-blue-500/5 to-purple-500/5 border border-blue-500/10 dark:border-white/5 relative overflow-hidden text-center backdrop-blur-3xl"
             >
@@ -243,22 +243,16 @@ const t = useTranslations(lang);
 </section>
 
 <style>
-    .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    .animate-bounce-subtle {
+        animation: bounce-subtle 4s ease-in-out infinite;
     }
-    .reveal-left {
-        transform: translateX(-30px);
-    }
-    .reveal-right {
-        transform: translateX(30px);
-    }
-    .reveal.active {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-    .stagger-1 {
-        transition-delay: 0.2s;
+    @keyframes bounce-subtle {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
     }
 </style>
