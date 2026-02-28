@@ -296,6 +296,9 @@
     "title": "Sé de los primeros en",
     "titleHighlight": "cuidar a tu familia",
     "subtitle": "Únete a la lista de espera y recibe acceso anticipado.",
+    "badgeOffer": "Ofertas Early Bird",
+    "discount": "Descuento Especial",
+    "discountDesc": "Ofertas exclusivas para los primeros usuarios.",
     "form": {
       "placeholder": "tu@email.com",
       "button": "Unirme"

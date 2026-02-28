@@ -296,6 +296,9 @@
     "title": "Be among the first to",
     "titleHighlight": "care for your family",
     "subtitle": "Join the waitlist and get early access.",
+    "badgeOffer": "Early Bird Offers",
+    "discount": "Special Discount",
+    "discountDesc": "Exclusive offers for the first users.",
     "form": {
       "placeholder": "your@email.com",
       "button": "Join"
