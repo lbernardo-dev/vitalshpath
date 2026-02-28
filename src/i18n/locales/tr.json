@@ -587,5 +587,23 @@
       "maybe": "Belki"
     },
     "thanks": "Katıldığınız için teşekkürler!"
+  },
+  "ecosystem": {
+    "badge": "Apple Ecosystem",
+    "title": "On all your devices",
+    "subtitle": "VitalsPath is designed exclusively for the Apple ecosystem, with native integration so your health is always present.",
+    "iphone": {
+      "name": "iPhone",
+      "os": "iOS 18+"
+    },
+    "ipad": {
+      "name": "iPad",
+      "os": "iPadOS 18+"
+    },
+    "watch": {
+      "name": "Apple Watch",
+      "os": "watchOS 11+"
+    },
+    "description": "Instant sync via iCloud and full compatibility with widgets, critical alerts, and Health App integration."
   }
 }
