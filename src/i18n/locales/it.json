@@ -311,7 +311,10 @@
     "privacyTitle": "Privacy Totale",
     "privacyDesc": "I tuoi dati non lasciano mai il dispositivo.",
     "joinTitle": "Unisciti alla lista d'attesa",
-    "joinDesc": "Ricevi un invito esclusivo al momento del lancio."
+    "joinDesc": "Ricevi un invito esclusivo al momento del lancio.",
+    "badgeOffer": "Offerte Early Bird",
+    "discount": "Sconto speciale",
+    "discountDesc": "Offerte esclusive per i primi utenti."
   },
   "footer": {
     "features": "Caratteristiche",

@@ -320,7 +320,10 @@
     "privacyTitle": "Pełna Prywatność",
     "privacyDesc": "Dane nigdy nie opuszczają Twojego urządzenia.",
     "joinTitle": "Lista Oczekujących",
-    "joinDesc": "Otrzymaj ekskluzywne zaproszenie w dniu premiery."
+    "joinDesc": "Otrzymaj ekskluzywne zaproszenie w dniu premiery.",
+    "badgeOffer": "Oferty Early Bird",
+    "discount": "Specjalna zniżka",
+    "discountDesc": "Ekskluzywne oferty dla pierwszych użytkowników."
   },
   "footer": {
     "features": "Funkcje",

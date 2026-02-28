@@ -320,7 +320,10 @@
     "privacyTitle": "Confidentialité Totale",
     "privacyDesc": "Vos données ne quittent jamais votre appareil.",
     "joinTitle": "Rejoignez la liste d'attente",
-    "joinDesc": "Recevez une invitation exclusive lors du lancement."
+    "joinDesc": "Recevez une invitation exclusive lors du lancement.",
+    "badgeOffer": "Offres Early Bird",
+    "discount": "Remise spéciale",
+    "discountDesc": "Offres exclusives pour les premiers utilisateurs."
   },
   "footer": {
     "features": "Fonctionnalités",

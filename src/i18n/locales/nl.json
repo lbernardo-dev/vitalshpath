@@ -320,7 +320,10 @@
     "privacyTitle": "Volledige Privacy",
     "privacyDesc": "Gegevens verlaten nooit je apparaat.",
     "joinTitle": "Wachtlijst",
-    "joinDesc": "Ontvang een exclusieve uitnodiging bij de lancering."
+    "joinDesc": "Ontvang een exclusieve uitnodiging bij de lancering.",
+    "badgeOffer": "Early Bird Aanbiedingen",
+    "discount": "Speciale Korting",
+    "discountDesc": "Exclusieve aanbiedingen voor de eerste gebruikers."
   },
   "footer": {
     "features": "Functies",

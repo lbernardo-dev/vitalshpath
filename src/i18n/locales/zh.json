@@ -320,7 +320,10 @@
     "privacyTitle": "极致隐私",
     "privacyDesc": "您的数据永不离开设备。",
     "joinTitle": "加入等候名单",
-    "joinDesc": "发布时将为您发送专属邀请。"
+    "joinDesc": "发布时将为您发送专属邀请。",
+    "badgeOffer": "早鸟优惠",
+    "discount": "特别折扣",
+    "discountDesc": "首批用户的专属优惠。"
   },
   "footer": {
     "features": "核心功能",

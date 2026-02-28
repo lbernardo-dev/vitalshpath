@@ -320,7 +320,10 @@
     "privacyTitle": "Volle Privatsphäre",
     "privacyDesc": "Deine Daten verlassen niemals dein Gerät.",
     "joinTitle": "Trag dich in die Warteliste ein",
-    "joinDesc": "Erhalte eine exklusive Einladung zum Launch."
+    "joinDesc": "Erhalte eine exklusive Einladung zum Launch.",
+    "badgeOffer": "Early Bird Angebote",
+    "discount": "Spezialrabatt",
+    "discountDesc": "Exklusive Angebote für die ersten Nutzer."
   },
   "footer": {
     "features": "Funktionen",

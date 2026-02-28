@@ -320,7 +320,10 @@
     "privacyTitle": "Tam Gizlilik",
     "privacyDesc": "Veriler asla cihazınızdan çıkmaz.",
     "joinTitle": "Listeye Katıl",
-    "joinDesc": "Lansmanda özel davetiye alın."
+    "joinDesc": "Lansmanda özel davetiye alın.",
+    "badgeOffer": "Erken Kayıt Teklifleri",
+    "discount": "Özel İndirim",
+    "discountDesc": "İlk kullanıcılara özel teklifler."
   },
   "footer": {
     "features": "Özellikler",

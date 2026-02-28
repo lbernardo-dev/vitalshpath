@@ -320,7 +320,10 @@
     "privacyTitle": "完全なプライバシー",
     "privacyDesc": "データがデバイスの外に出ることはありません。",
     "joinTitle": "リストに参加",
-    "joinDesc": "リリース時に限定の招待状をお送りします。"
+    "joinDesc": "リリース時に限定の招待状をお送りします。",
+    "badgeOffer": "アーリーバード特典",
+    "discount": "特別割引",
+    "discountDesc": "初期ユーザー向けの限定特典。"
   },
   "footer": {
     "features": "機能",

@@ -320,7 +320,10 @@
     "privacyTitle": "Privacidade Total",
     "privacyDesc": "Seus dados nunca saem do seu dispositivo.",
     "joinTitle": "Junte-se à lista",
-    "joinDesc": "Receba um convite exclusivo no lançamento."
+    "joinDesc": "Receba um convite exclusivo no lançamento.",
+    "badgeOffer": "Ofertas Early Bird",
+    "discount": "Desconto Especial",
+    "discountDesc": "Ofertas exclusivas para os primeiros usuários."
   },
   "footer": {
     "features": "Recursos",
