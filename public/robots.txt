@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /vitalshpath/admin/
 
 Sitemap: https://lbernardo-dev.github.io/vitalshpath/sitemap-index.xml

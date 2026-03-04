@@ -45,7 +45,10 @@ const t = useTranslations(lang);
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
             >
-                <Sparkles className="w-4 h-4 text-blue-500" />
+                <Sparkles
+                    className="w-4 h-4 text-blue-500"
+                    aria-hidden="true"
+                />
                 <span
                     class="text-sm font-medium text-blue-600 dark:text-blue-400"
                     >{t("features.badge")}</span
@@ -126,11 +129,11 @@ const t = useTranslations(lang);
                     >
                         <Stethoscope className="w-6 h-6 text-white" />
                     </div>
-                    <h4
+                    <h3
                         class="text-xl font-bold text-gray-900 dark:text-white mb-2"
                     >
                         {t("features.items.treatments.title")}
-                    </h4>
+                    </h3>
                     <p
                         class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                     >
@@ -149,11 +152,11 @@ const t = useTranslations(lang);
                     >
                         <Syringe className="w-6 h-6 text-white" />
                     </div>
-                    <h4
+                    <h3
                         class="text-xl font-bold text-gray-900 dark:text-white mb-2"
                     >
                         {t("features.items.medication.title")}
-                    </h4>
+                    </h3>
                     <p
                         class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                     >
@@ -173,11 +176,11 @@ const t = useTranslations(lang);
                         <FileText className="w-10 h-10 text-white" />
                     </div>
                     <div>
-                        <h4
+                        <h3
                             class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
                         >
                             {t("features.items.reports.title")}
-                        </h4>
+                        </h3>
                         <p class="text-gray-600 dark:text-gray-400">
                             {t("features.items.reports.description")}
                         </p>
@@ -192,10 +195,11 @@ const t = useTranslations(lang);
                 >
                     <Thermometer
                         className="w-8 h-8 text-green-500 mb-4 group-hover:scale-110 transition-transform"
+                        aria-hidden="true"
                     />
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white mb-1">
                         {t("features.items.symptoms.title")}
-                    </h5>
+                    </h3>
                     <p class="text-xs text-gray-600 dark:text-gray-400">
                         {t("features.items.symptoms.description")}
                     </p>
@@ -207,10 +211,11 @@ const t = useTranslations(lang);
                 >
                     <Activity
                         className="w-8 h-8 text-blue-500 mb-4 group-hover:scale-110 transition-transform"
+                        aria-hidden="true"
                     />
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white mb-1">
                         {t("features.items.wellness.title")}
-                    </h5>
+                    </h3>
                     <p class="text-xs text-gray-500">
                         {t("features.items.wellness.description")}
                     </p>
@@ -222,10 +227,11 @@ const t = useTranslations(lang);
                 >
                     <Calendar
                         className="w-8 h-8 text-purple-500 mb-4 group-hover:scale-110 transition-transform"
+                        aria-hidden="true"
                     />
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white mb-1">
                         {t("features.items.calendar.title")}
-                    </h5>
+                    </h3>
                     <p class="text-xs text-gray-500">
                         {t("features.items.calendar.description")}
                     </p>
@@ -238,10 +244,11 @@ const t = useTranslations(lang);
                 >
                     <Activity
                         className="w-8 h-8 text-orange-500 mb-4 group-hover:scale-110 transition-transform"
+                        aria-hidden="true"
                     />
-                    <h5 class="font-bold text-gray-900 dark:text-white mb-1">
+                    <h3 class="font-bold text-gray-900 dark:text-white mb-1">
                         {t("features.items.metrics.title")}
-                    </h5>
+                    </h3>
                     <p class="text-xs text-gray-600 dark:text-gray-400">
                         {t("features.items.metrics.description")}
                     </p>

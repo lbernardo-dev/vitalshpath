@@ -83,7 +83,10 @@ const premiumFeatures = [
                             <div
                                 class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-500 text-[11px] font-black uppercase tracking-widest mb-8"
                             >
-                                <Zap className="w-3.5 h-3.5 fill-current" />
+                                <Zap
+                                    className="w-3.5 h-3.5 fill-current"
+                                    aria-hidden="true"
+                                />
                                 {t("pricing.free.functional_badge")}
                             </div>
 
@@ -157,7 +160,10 @@ const premiumFeatures = [
                                         premiumFeatures.map((f) => (
                                             <div class="flex items-start gap-3 group">
                                                 <div class="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 shrink-0 group-hover:scale-110 transition-transform">
-                                                    <f.icon className="w-4 h-4" />
+                                                    <f.icon
+                                                        className="w-4 h-4"
+                                                        aria-hidden="true"
+                                                    />
                                                 </div>
                                                 <div>
                                                     <p class="text-xs font-black text-gray-900 dark:text-white mb-1 uppercase tracking-tight">

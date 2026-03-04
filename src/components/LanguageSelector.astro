@@ -16,7 +16,9 @@ const { lang: currentLang } = Astro.props;
         aria-expanded="false"
         aria-haspopup="true"
     >
-        <span class="text-base">{languages[currentLang].flag}</span>
+        <span class="text-base" aria-hidden="true"
+            >{languages[currentLang].flag}</span
+        >
         <span
             class="hidden sm:inline text-gray-700 dark:text-gray-300 font-medium"
             >{languages[currentLang].name}</span
@@ -26,6 +28,7 @@ const { lang: currentLang } = Astro.props;
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            aria-hidden="true"
         >
             <path
                 stroke-linecap="round"
@@ -50,13 +53,16 @@ const { lang: currentLang } = Astro.props;
                                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                         }`}
                     >
-                        <span class="text-base">{languages[lang].flag}</span>
+                        <span class="text-base" aria-hidden="true">
+                            {languages[lang].flag}
+                        </span>
                         <span>{languages[lang].name}</span>
                         {lang === currentLang && (
                             <svg
                                 class="w-4 h-4 ml-auto text-blue-500"
                                 fill="currentColor"
                                 viewBox="0 0 20 20"
+                                aria-hidden="true"
                             >
                                 <path
                                     fill-rule="evenodd"

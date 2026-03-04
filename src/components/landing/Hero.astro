@@ -39,9 +39,7 @@ const t = useTranslations(lang);
     <div class="container mx-auto px-6 relative z-10">
         <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <!-- Left content -->
-            <div
-                class="flex-1 text-center lg:text-left max-w-2xl reveal reveal-left"
-            >
+            <div class="flex-1 text-center lg:text-left max-w-2xl">
                 <div
                     class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 dark:border-blue-400/20 mb-8 backdrop-blur-sm"
                 >
@@ -124,9 +122,7 @@ const t = useTranslations(lang);
             </div>
 
             <!-- Right: 3D Phone Mockup -->
-            <div
-                class="flex-1 relative lg:max-w-xl reveal reveal-right stagger-2"
-            >
+            <div class="flex-1 relative lg:max-w-xl">
                 <div
                     id="hero-scene"
                     class="relative mx-auto"
@@ -160,9 +156,10 @@ const t = useTranslations(lang);
                                     >
                                         <Image
                                             src={dashboardScreen}
-                                            alt="VitalsPath Dashboard"
+                                            alt="VitalsPath Intelligent Dashboard showing family health summaries and medication alerts"
                                             class="w-full h-full object-cover object-top"
                                             loading="eager"
+                                            fetchpriority="high"
                                             width={600}
                                         />
                                         <!-- Dynamic Island -->
@@ -349,24 +346,41 @@ const t = useTranslations(lang);
     const scene = document.getElementById("hero-scene");
     const phone = document.getElementById("hero-phone");
     const items = document.querySelectorAll(".parallax-item");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    if (scene && phone) {
+    if (scene && phone && !motionQuery.matches) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let ticking = false;
+
         window.addEventListener("mousemove", (e) => {
-            const x = (window.innerWidth / 2 - e.pageX) / 25;
-            const y = (window.innerHeight / 2 - e.pageY) / 25;
+            mouseX = e.pageX;
+            mouseY = e.pageY;
 
-            phone.style.transform = `rotateY(${x - 5}deg) rotateX(${y + 5}deg)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const x = (window.innerWidth / 2 - mouseX) / 25;
+                    const y = (window.innerHeight / 2 - mouseY) / 25;
 
-            items.forEach((item) => {
-                const speed = parseFloat(
-                    (item as HTMLElement).dataset.speed || "0.05"
-                );
-                const ix = (window.innerWidth / 2 - e.pageX) * speed;
-                const iy = (window.innerHeight / 2 - e.pageY) * speed;
-                (
-                    item as HTMLElement
-                ).style.transform = `translate(${ix}px, ${iy}px)`;
-            });
+                    if (phone)
+                        phone.style.transform = `rotateY(${x - 5}deg) rotateX(${
+                            y + 5
+                        }deg)`;
+
+                    items.forEach((item) => {
+                        const speed = parseFloat(
+                            (item as HTMLElement).dataset.speed || "0.05"
+                        );
+                        const ix = (window.innerWidth / 2 - mouseX) * speed;
+                        const iy = (window.innerHeight / 2 - mouseY) * speed;
+                        (
+                            item as HTMLElement
+                        ).style.transform = `translate(${ix}px, ${iy}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     }
 
