@@ -42,6 +42,26 @@ export const trackPageView = async (page: string, lang: string): Promise<void> =
     }
 };
 
+/**
+ * Track a custom event
+ */
+export const trackEvent = async (eventName: string, metadata: any = {}): Promise<void> => {
+    const supabase = getSupabase();
+    if (!supabase) return;
+
+    const visitorId = getVisitorId();
+
+    try {
+        await (supabase as any).from('events').insert({
+            visitor_id: visitorId,
+            event_name: eventName,
+            metadata: metadata || {},
+        });
+    } catch (error) {
+        console.error(`Error tracking event ${eventName}:`, error);
+    }
+};
+
 // Update heartbeat (keep session alive)
 export const updateHeartbeat = async (): Promise<void> => {
     const supabase = getSupabase();
@@ -133,7 +153,7 @@ export const getStats = async (): Promise<Stats | null> => {
             .gt('created_at', today);
 
         if (visitorsData) {
-            const uniqueVisitors = new Set(visitorsData.map(v => v.visitor_id));
+            const uniqueVisitors = new Set((visitorsData as any[]).map(v => v.visitor_id));
             stats.today_visitors = uniqueVisitors.size;
         }
 

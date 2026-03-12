@@ -70,7 +70,7 @@ const t = useTranslations(lang);
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Family Profiles - Large Card -->
+            <!-- Medication (Pills) - Large Card -->
             <div class="lg:col-span-2 lg:row-span-2 reveal reveal-left">
                 <div
                     class="h-full liquid-glass p-10 group hover:scale-[1.01] transition-all duration-500"
@@ -78,48 +78,40 @@ const t = useTranslations(lang);
                     <div
                         class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-8 shadow-lg shadow-blue-500/20 group-hover:scale-110 group-hover:rotate-3 transition-transform"
                     >
-                        <Users className="w-8 h-8 text-white" />
+                        <Syringe className="w-8 h-8 text-white" />
                     </div>
                     <h3
                         class="text-3xl font-bold text-gray-900 dark:text-white mb-4"
                     >
-                        {t("features.items.profiles.title")}
+                        {t("features.items.pills.title")}
                     </h3>
                     <p
                         class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md"
                     >
-                        {t("features.items.profiles.description")}
+                        {t("features.items.pills.description")}
                     </p>
 
-                    <!-- Interactive profile preview -->
+                    <!-- Interactive dose preview -->
                     <div
                         class="flex items-center gap-4 p-6 rounded-3xl bg-white/50 dark:bg-white/5 border border-white dark:border-white/10 shadow-xl shadow-black/5"
                     >
-                        <div class="flex -space-x-3">
-                            {
-                                ["pink", "blue", "green", "purple"].map(
-                                    (color, i) => (
-                                        <div
-                                            class={`w-12 h-12 rounded-full bg-gradient-to-br from-${color}-400 to-${color}-600 border-2 border-white dark:border-gray-900 flex items-center justify-center text-white font-bold text-sm shadow-lg`}
-                                        >
-                                            {["M", "P", "H", "A"][i]}
-                                        </div>
-                                    )
-                                )
-                            }
-                        </div>
-                        <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-2">
-                        </div>
-                        <p
-                            class="text-sm font-medium text-gray-500 dark:text-gray-400"
+                        <div
+                            class="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center shadow-lg"
                         >
-                            {t("hero.labels.familyProfiles")}
-                        </p>
+                            <Bell className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-gray-900 dark:text-white">Vitamin D3</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Next dose: 08:00 AM</p>
+                        </div>
+                        <div class="ml-auto">
+                           <div class="px-3 py-1 bg-green-500/10 text-green-500 text-[10px] font-bold rounded-full border border-green-500/20">REFILL READY</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Treatments (replacing Scheduler) -->
+            <!-- Symptom Journal -->
             <div class="reveal stagger-1">
                 <div
                     class="h-full liquid-glass p-8 group hover:scale-[1.02] transition-all duration-300"
@@ -127,22 +119,22 @@ const t = useTranslations(lang);
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20 group-hover:scale-110 transition-transform"
                     >
-                        <Stethoscope className="w-6 h-6 text-white" />
+                        <ClipboardList className="w-6 h-6 text-white" />
                     </div>
                     <h3
                         class="text-xl font-bold text-gray-900 dark:text-white mb-2"
                     >
-                        {t("features.items.treatments.title")}
+                        {t("features.items.journal.title")}
                     </h3>
                     <p
                         class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                     >
-                        {t("features.items.treatments.description")}
+                        {t("features.items.journal.description")}
                     </p>
                 </div>
             </div>
 
-            <!-- Medication -->
+            <!-- Doctor Calendar -->
             <div class="reveal stagger-2">
                 <div
                     class="h-full liquid-glass p-8 group hover:scale-[1.02] transition-all duration-300"
@@ -150,22 +142,22 @@ const t = useTranslations(lang);
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center mb-6 shadow-lg shadow-red-500/20 group-hover:scale-110 transition-transform"
                     >
-                        <Syringe className="w-6 h-6 text-white" />
+                        <Calendar className="w-6 h-6 text-white" />
                     </div>
                     <h3
                         class="text-xl font-bold text-gray-900 dark:text-white mb-2"
                     >
-                        {t("features.items.medication.title")}
+                        {t("features.items.calendar.title")}
                     </h3>
                     <p
                         class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
                     >
-                        {t("features.items.medication.description")}
+                        {t("features.items.calendar.description")}
                     </p>
                 </div>
             </div>
 
-            <!-- Reports - Medium Card -->
+            <!-- Refill Alerts - Medium Card -->
             <div class="lg:col-span-2 reveal stagger-1">
                 <div
                     class="h-full liquid-glass p-8 group hover:scale-[1.01] transition-all duration-500 flex gap-6 items-center"
@@ -173,38 +165,39 @@ const t = useTranslations(lang);
                     <div
                         class="hidden sm:flex w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-400 to-cyan-500 items-center justify-center shadow-lg shadow-teal-500/20 group-hover:rotate-3 transition-transform flex-shrink-0"
                     >
-                        <FileText className="w-10 h-10 text-white" />
+                        <Bell className="w-10 h-10 text-white" />
                     </div>
                     <div>
                         <h3
                             class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
                         >
-                            {t("features.items.reports.title")}
+                            {t("features.items.refills.title")}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400">
-                            {t("features.items.reports.description")}
+                            {t("features.items.refills.description")}
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Symptoms (replacing Privacy) -->
+            <!-- Medical OCR -->
             <div class="reveal stagger-2">
                 <div
                     class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Thermometer
+                    <FileText
                         className="w-8 h-8 text-green-500 mb-4 group-hover:scale-110 transition-transform"
                         aria-hidden="true"
                     />
                     <h3 class="font-bold text-gray-900 dark:text-white mb-1">
-                        {t("features.items.symptoms.title")}
+                        {t("features.items.ocr.title")}
                     </h3>
                     <p class="text-xs text-gray-600 dark:text-gray-400">
-                        {t("features.items.symptoms.description")}
+                        {t("features.items.ocr.description")}
                     </p>
                 </div>
             </div>
+            <!-- Live Activities -->
             <div class="reveal stagger-3">
                 <div
                     class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
@@ -214,26 +207,27 @@ const t = useTranslations(lang);
                         aria-hidden="true"
                     />
                     <h3 class="font-bold text-gray-900 dark:text-white mb-1">
-                        {t("features.items.wellness.title")}
+                        {t("features.items.live.title")}
                     </h3>
-                    <p class="text-xs text-gray-500">
-                        {t("features.items.wellness.description")}
+                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                        {t("features.items.live.description")}
                     </p>
                 </div>
             </div>
+            <!-- All-in-one -->
             <div class="reveal stagger-4">
                 <div
                     class="h-full liquid-glass p-6 group hover:scale-[1.02] transition-all"
                 >
-                    <Calendar
+                    <Sparkles
                         className="w-8 h-8 text-purple-500 mb-4 group-hover:scale-110 transition-transform"
                         aria-hidden="true"
                     />
                     <h3 class="font-bold text-gray-900 dark:text-white mb-1">
-                        {t("features.items.calendar.title")}
+                        Ultimate Companion
                     </h3>
-                    <p class="text-xs text-gray-500">
-                        {t("features.items.calendar.description")}
+                    <p class="text-xs text-gray-600 dark:text-gray-400">
+                        Smart alerts for medicine, vitals, prescriptions & doctor visits.
                     </p>
                 </div>
             </div>
@@ -259,10 +253,12 @@ const t = useTranslations(lang);
         <!-- Footer CTA in section -->
         <div class="mt-24 text-center reveal reveal-scale">
             <a
-                href="#waitlist"
-                class="inline-flex items-center gap-3 px-10 py-5 rounded-[32px] bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-bold text-lg hover:scale-105 transition-all shadow-2xl shadow-blue-500/20"
+                href="https://testflight.apple.com/join/92qmBYvJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 px-10 py-5 rounded-[32px] bg-blue-600 text-white font-bold text-lg hover:scale-105 transition-all shadow-2xl shadow-blue-500/20"
             >
-                {t("features.cta.primary")}
+                {t("testflight.cta.button")}
                 <ArrowRight className="w-6 h-6" />
             </a>
         </div>

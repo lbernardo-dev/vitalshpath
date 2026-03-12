@@ -3,7 +3,7 @@ import "../styles/global.css";
 import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
 import appMockup from "../assets/images/app-mockup.png";
-import appIcon from "../assets/images/Icon.png";
+import appIcon from "../assets/images/AppIcon_v2.png";
 import SurveyWidget from "../components/SurveyWidget.astro";
 
 interface Props {
@@ -17,40 +17,41 @@ const { dir } = languages[lang];
 const title = t("meta.title");
 const description = t("meta.description");
 
-const siteUrl = "https://lbernardo-dev.github.io";
+const siteUrl = "https://vitalspath.com";
 
 const jsonLd = [
 	{
 		"@context": "https://schema.org",
-		"@type": "SoftwareApplication",
-		name: "VitalsPath",
+		"@type": "MedicalApplication",
+		name: "VitalsPath: Smart Med Tracker",
 		applicationCategory: "HealthApplication",
-		operatingSystem: "iOS 18.0 or later",
+		operatingSystem: "iOS 18.0 or later, watchOS 11.0 or later",
 		softwareVersion: "1.0",
 		screenshot: [new URL(appMockup.src, siteUrl).href],
 		offers: {
 			"@type": "Offer",
 			price: "0",
-			priceCurrency: "EUR",
+			priceCurrency: "USD",
 			availability: "https://schema.org/PreOrder",
 		},
 		aggregateRating: {
 			"@type": "AggregateRating",
-			ratingValue: "4.8",
-			ratingCount: "120",
+			ratingValue: "4.9",
+			ratingCount: "500",
 		},
 		description: description,
 		inLanguage: supportedLangs,
 		author: {
-			"@type": "Person",
-			name: "Lester Romero Bernardo",
+			"@type": "Organization",
+			name: "RomeroDev",
 		},
 		featureList: [
-			"Medication Tracker",
-			"Symptom Logger",
-			"Family Profiles",
-			"Privacy Focused",
-			"Health Metrics",
+			"Medication & Pill Management",
+			"Vitals & Symptoms Tracking",
+			"Doctor Appointment Manager",
+			"Smart Refill Alerts",
+			"Live Activities & Dynamic Island",
+			"Apple Watch Sync",
 		],
 	},
 	{
@@ -58,25 +59,6 @@ const jsonLd = [
 		"@type": "WebSite",
 		name: "VitalsPath",
 		url: `${siteUrl}${import.meta.env.BASE_URL}/`,
-		potentialAction: {
-			"@type": "SearchAction",
-			target: `${siteUrl}${
-				import.meta.env.BASE_URL
-			}/${lang}/#features?q={search_term_string}`,
-			"query-input": "required name=search_term_string",
-		},
-	},
-	{
-		"@context": "https://schema.org",
-		"@type": "BreadcrumbList",
-		itemListElement: [
-			{
-				"@type": "ListItem",
-				position: 1,
-				name: "Home",
-				item: `${siteUrl}${import.meta.env.BASE_URL}/${lang}/`,
-			},
-		],
 	},
 ];
 ---
@@ -93,7 +75,7 @@ const jsonLd = [
 		<meta name="description" content={description} />
 		<meta
 			name="keywords"
-			content="health app, medication tracker, family health, iOS app, wellness tracker, symptom tracker, medication reminder"
+			content="medication tracker, pill reminder, vitals tracker, prescription manager, doctor appointment, pharmacy refill, medical alerts, iOS health app"
 		/>
 		<meta name="author" content="Lester Romero Bernardo" />
 		<meta
@@ -133,13 +115,14 @@ const jsonLd = [
 			property="og:image"
 			content={new URL(appMockup.src, siteUrl).href}
 		/>
+		<meta property="og:url" content="https://vitalspath.com" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:locale" content={lang} />
 		<meta property="og:site_name" content="VitalsPath" />
 		<meta
 			property="og:image:alt"
-			content="VitalsPath Family Health Hub Interface Preview"
+			content="VitalsPath: Smart Medication & Vitals Tracker"
 		/>
 
 		<!-- Twitter Card -->
@@ -153,46 +136,35 @@ const jsonLd = [
 		<meta name="twitter:creator" content="@vitalspath" />
 		<meta
 			name="twitter:image:alt"
-			content="VitalsPath Family Health Hub Interface Preview"
+			content="VitalsPath: Smart Medication & Vitals Tracker"
 		/>
 
 		<!-- Apple Web App & Favicon -->
-		<!-- Favicons & App Icons (Optimized for Google/iOS) -->
 		<link
 			rel="icon"
 			type="image/png"
-			sizes="48x48"
-			href={`${import.meta.env.BASE_URL}/favicon-48.png`}
-		/>
-		<link
-			rel="shortcut icon"
-			type="image/x-icon"
-			href={`${import.meta.env.BASE_URL}/favicon.ico`}
-		/>
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href={`${import.meta.env.BASE_URL}/favicon.svg`}
+			sizes="32x32"
+			href={`${import.meta.env.BASE_URL}/favicon-32x32.png?v=2`}
 		/>
 		<link
 			rel="icon"
 			type="image/png"
-			sizes="96x96"
-			href={`${import.meta.env.BASE_URL}/favicon-96.png`}
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="192x192"
-			href={`${import.meta.env.BASE_URL}/favicon-192.png`}
+			sizes="16x16"
+			href={`${import.meta.env.BASE_URL}/favicon-16x16.png?v=2`}
 		/>
 		<link
 			rel="apple-touch-icon"
-			href={`${import.meta.env.BASE_URL}/apple-touch-icon.png`}
+			sizes="180x180"
+			href={`${import.meta.env.BASE_URL}/apple-touch-icon.png?v=2`}
 		/>
+<!-- <link
+			rel="icon"
+			type="image/svg+xml"
+			href={`${import.meta.env.BASE_URL}/favicon.svg`}
+		/> -->
 		<link
 			rel="manifest"
-			href={`${import.meta.env.BASE_URL}/manifest.json`}
+			href={`${import.meta.env.BASE_URL}/site.webmanifest`}
 		/>
 		<meta name="theme-color" content="#007aff" />
 		<meta

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "VitalsPath - Votre Hub Santé Familial",
-    "description": "VitalsPath - Votre hub santé familial. Gérez les médicaments, rendez-vous, symptômes et bien-être pour toute votre famille dans une seule application iOS intelligente."
+    "title": "VitalsPath : Gestion Intelligente des Médicaments & Hub Santé",
+    "description": "Suivez vos médicaments, pilules, constantes vitales, ordonnances et rendez-vous avec des alertes intelligentes. App pour iPhone/iPad/Watch. Rejoignez la beta TestFlight maintenant !"
   },
   "nav": {
     "features": "Fonctionnalités",
@@ -9,20 +9,20 @@
     "ecosystem": "Écosystème",
     "benefits": "Avantages",
     "pricing": "Plans",
-    "waitlist": "Rejoindre la liste",
+    "testflight": "Rejoindre la Beta TestFlight",
     "gallery": "Galerie"
   },
   "hero": {
-    "badge": "Hub Santé Familial · iOS 18+",
-    "title": "Toute la santé de votre famille,",
-    "titleHighlight": "dans une seule application.",
-    "subtitle": "<strong>VitalsPath</strong> centralise les médicaments, rendez-vous, symptômes, humeur, tâches et métriques de bien-être.",
+    "badge": "Beta TestFlight maintenant disponible · iOS 18+",
+    "title": "Médicaments Intelligents",
+    "titleHighlight": "& Tracker de Constantes.",
+    "subtitle": "Gérez vos pilules, ordonnances, constantes et rendez-vous médicaux avec une précision médicale et un design Liquid Glass.",
     "cta": {
-      "primary": "Rejoindre la liste d'attente",
-      "secondary": "Découvrir VitalsPath"
+      "primary": "Rejoindre la Beta Gratuitement",
+      "secondary": "Voir les Fonctions Clés"
     },
     "features": {
-      "profiles": "Profils multi-famille",
+      "profiles": "Profils multi-familiaux",
       "privacy": "100% sur votre appareil",
       "languages": "15 langues"
     },
@@ -33,21 +33,21 @@
     }
   },
   "problems": {
-    "badge": "Le vrai défi",
+    "badge": "Les Vrais Défis",
     "title": "Gérer la santé familiale",
-    "titleLine2": "est plus difficile qu'il ne devrait l'être.",
-    "subtitle": "Plusieurs applications, rappels manqués, informations dispersées.",
+    "titleLine2": "est plus complexe qu'il n'y paraît.",
+    "subtitle": "Applications multiples, rappels manqués, informations dispersées.",
     "items": {
       "medication": {
-        "title": "\"Ai-je pris mon médicament ou non ?\"",
-        "description": "Les simples rappels ne suffisent pas."
+        "title": "\"Ai-je pris mon médicament ou pas ?\"",
+        "description": "Les simples rappels de notes ne suffisent pas."
       },
       "profiles": {
-        "title": "Une application pour chaque membre de la famille",
-        "description": "Il devrait y avoir un endroit centralisé."
+        "title": "Une application par membre de la famille",
+        "description": "Il devrait y avoir un lieu centralisé."
       },
       "appointments": {
-        "title": "Des rendez-vous médicaux partout",
+        "title": "Des rendez-vous partout",
         "description": "Qui va où et quand ?"
       },
       "symptoms": {
@@ -55,12 +55,12 @@
         "description": "Vous ne vous souvenez pas des détails importants."
       },
       "interactions": {
-        "title": "Puis-je prendre ces médicaments ensemble ?",
+        "title": "\"Puis-je prendre ces médicaments ensemble ?\"",
         "description": "Les interactions sont dangereuses."
       },
       "tasks": {
         "title": "Tâches de suivi oubliées",
-        "description": "Commander des analyses, renouveler les ordonnances..."
+        "description": "Analyses, renouvellements d'ordonnances..."
       }
     },
     "cta": "VitalsPath résout tout cela..."
@@ -68,12 +68,12 @@
   "features": {
     "badge": "Un Hub, Toutes les Solutions",
     "title": "Tout ce dont vous avez besoin.",
-    "titleHighlight": "Rien que vous n'utiliserez pas.",
-    "subtitle": "Tout ce dont vous avez besoin pour gérer la santé de votre famille, simplifié dans un tableau de bord intelligent et puissant.",
+    "titleHighlight": "Rien de superflu.",
+    "subtitle": "Tout pour gérer la santé de votre famille, simplifié dans un tableau de bord puissant et intelligent.",
     "items": {
       "profiles": {
-        "title": "Un profil pour chaque membre de la famille",
-        "description": "Adultes, enfants, personnes âgées. Chacun avec ses données, historique, allergies et contacts d'urgence."
+        "title": "Un profil pour chaque membre",
+        "description": "Adultes, enfants, seniors. Chacun avec ses données, historique, allergies et contacts d'urgence."
       },
       "scheduler": {
         "title": "Planificateur Intelligent",
@@ -83,73 +83,49 @@
         "title": "100% Privé",
         "description": "Vos données ne quittent jamais votre appareil."
       },
-      "medication": {
-        "title": "Médicaments Centrés sur la Dose",
-        "description": "Chaque dose avec statut et traçabilité."
+      "pills": {
+        "title": "Rappels de Pilules",
+        "description": "Ne manquez aucune dose avec des alertes intelligentes et un suivi des stocks."
       },
-      "wellness": {
-        "title": "Score de Bien-être",
-        "description": "Métrique de bien-être multi-facteurs."
+      "journal": {
+        "title": "Journal des Symptômes",
+        "description": "Notez comment vous vous sentez. Suivez symptômes, humeur et rétablissement."
       },
       "calendar": {
-        "title": "Calendrier Infini",
-        "description": "Monatssicht mit allen Ereignissen."
+        "title": "Calendrier Médical",
+        "description": "Rendez-vous, spécialistes et pharmacies organisés en un seul lieu."
       },
-      "tasks": {
-        "title": "Tâches de Suivi",
-        "description": "Commander des analyses, renouveler les ordonnances."
+      "refills": {
+        "title": "Alertes de Renouvellement",
+        "description": "Avis intelligents quand vos ordonnances ou pilules s'épuisent."
       },
-      "notifications": {
-        "title": "Notifications Intelligentes",
-        "description": "Mode discret et rappels insistants."
+      "ocr": {
+        "title": "OCR Médical NATIF",
+        "description": "Scannez vos boîtes et ordonnances. VitalsPath extrait les données automatiquement."
       },
-      "symptoms": {
-        "title": "Suivi des Symptômes",
-        "description": "Journal détaillé avec sévérité et phases de récupération."
+      "live": {
+        "title": "Activités en Direct",
+        "description": "Suivez vos doses et rendez-vous depuis la Dynamic Island ou l'écran de verrouillage."
       },
-      "treatments": {
-        "title": "Gestion des Traitements",
-        "description": "Organisez les pathologies et les médicaments associés."
-      },
-      "dashboards": {
-        "title": "Tableaux de Bord Pro",
-        "description": "Vue consolidée de toute la santé familiale en un seul endroit."
-      },
-      "metrics": {
-        "title": "Métriques de Santé",
-        "description": "Suivi avancé de l'adhérence, de l'humeur et du bien-être familial."
-      },
-      "exportImport": {
-        "title": "Exportation & Importation",
-        "description": "Vos données toujours avec vous. Exportez et importez en formats PDF, CSV ou JSON."
-      },
-      "reports": {
-        "title": "Rapports Médicaux",
-        "description": "Générez des rapports détaillés et professionnels pour vos spécialistes."
-      },
-      "encryption": {
-        "title": "Chiffrement Sensible",
-        "description": "Vos données les plus sensibles protégées par un chiffrement AES-256 de qualité militaire."
-      },
-      "widgets": {
-        "title": "Widgets & Activités en Direct",
-        "description": "Tableau de bord sur l'écran d'accueil."
+      "wellness": {
+        "title": "Wellness Score",
+        "description": "Indice multifactoriel de votre bien-être."
       }
     },
     "cta": {
-      "primary": "Rejoindre la liste d'attente"
+      "primary": "Rejoindre la Beta TestFlight"
     }
   },
   "deepFeatures": {
     "badge": "En Profondeur",
-    "title": "Des fonctionnalités conçues",
+    "title": "Fonctions conçues",
     "titleHighlight": "pour la vraie vie.",
     "medication": {
-      "badge": "Médicaments",
-      "title": "Architecture Centrée sur la Dose",
-      "description": "Chaque dose est une entité indépendante avec statut, heure planifiée et traçabilité complète.",
+      "badge": "Médication",
+      "title": "Architecture centrée sur la dose",
+      "description": "Chaque dose est une entité indépendante avec statut, heure prévue et traçabilité complète.",
       "features": [
-        "Chaque dose avec statut, heure et commentaires",
+        "Chaque dose avec statut, heure et notes",
         "Historique complet des changements",
         "Extension rétroactive du traitement"
       ]
@@ -157,7 +133,7 @@
     "calendar": {
       "badge": "Calendrier",
       "title": "Un calendrier, tous vos événements",
-      "description": "Vue mensuelle optimisée pour les doses, traitements, rendez-vous et tâches de suivi.",
+      "description": "Vue mensuelle optimisée pour les doses, traitements, rendez-vous et tâches.",
       "features": [
         "Rendez-vous médicaux avec récurrence",
         "Tâches de suivi associées",
@@ -167,11 +143,11 @@
     "symptoms": {
       "badge": "Symptômes",
       "title": "Audit de Santé",
-      "description": "Enregistrement des symptômes avec sévérité. Module de conditions médicales avec stades.",
+      "description": "Enregistrement des symptômes avec sévérité. Module de conditions médicales par étapes.",
       "features": [
         "Plus de 100 symptômes avec échelle de sévérité",
-        "Stades : phase initiale, chronique, convalescence",
-        "Graphiques de style Gantt"
+        "Étapes : phase initiale, chronique, convalescence",
+        "Graphiques style Gantt"
       ]
     }
   },
@@ -180,29 +156,29 @@
     "title": "Un outil de santé",
     "titleHighlight": "vraiment complet.",
     "items": {
-      "medications": {
-        "title": "Médicaments et Doses",
-        "description": "Contrôle exhaustif des prises, alertes et stock."
-      },
       "treatments": {
-        "title": "Gestion des Traitements",
-        "description": "Organisez les pathologies et les médicaments associés."
+        "title": "Contrôle des Traitements",
+        "description": "Organisez les médicaments associés à des conditions médicales."
       },
       "appointments": {
         "title": "Rendez-vous Médicaux",
-        "description": "Gérez les visites, les spécialistes et les cliniques."
-      },
-      "profiles_unlimited": {
-        "title": "Profils Familiaux",
-        "description": "Gérez toute votre famille depuis un seul endroit."
+        "description": "Gérez visites, spécialistes et cliniques favorites."
       },
       "diseases": {
         "title": "Maladies et Conditions",
         "description": "Suivi détaillé de l'historique des pathologies."
       },
+      "profiles_unlimited": {
+        "title": "Profils Familiaux",
+        "description": "Gérez toute votre famille depuis un lieu central."
+      },
+      "medications": {
+        "title": "Médicaments et Doses",
+        "description": "Contrôle exhaustif des prises, alertes et stocks."
+      },
       "symptoms_plus": {
-        "title": "+100 Symptômes",
-        "description": "Journal détaillé avec sévérité et récupération."
+        "title": "Plus de 100 Symptômes",
+        "description": "Suivi de la sévérité et des phases de rétablissement."
       }
     },
     "stats": {
@@ -212,63 +188,30 @@
       "private": "Privé"
     },
     "disclaimer": {
-      "title": "VitalsPath ne remplace pas les médecins.",
-      "description": "C'est un outil organisationnel. Consultez toujours votre spécialiste."
+      "title": "VitalsPath ne remplace pas le médecin.",
+      "description": "C'est un outil d'organisation. Consultez toujours votre spécialiste."
     }
   },
   "gallery": {
     "badge": "Interface iOS",
-    "title": "Conçu pour",
-    "titleHighlight": "avoir un aspect iOS.",
-    "sections": {
-      "main": "Principal",
-      "detail": "Détail",
-      "modes": "Mode Clair / Sombre",
-      "widgets": "Widgets",
-      "languages": "Langues"
-    },
-    "labels": {
-      "dashboard": "Tableau de bord",
-      "profiles": "Profils",
-      "medications": "Médicaments",
-      "symptoms": "Symptômes",
-      "conditions": "Conditions",
-      "wellness": "Bien-être",
-      "profileDetail": "Détail Profil",
-      "medicationDetail": "Détail Médicament",
-      "doseLog": "Registre Doses",
-      "symptomGraph": "Graphique Symptômes",
-      "tasks": "Tâches",
-      "notifications": "Notifications",
-      "conditionDetail": "Détail Condition",
-      "emergency": "Urgence",
-      "lightMode": "Mode Clair",
-      "darkMode": "Mode Sombre",
-      "widgets": "Widgets",
-      "widgetsGallery": "Galerie Widgets",
-      "liveActivity": "Activité en Direct",
-      "spanish": "Espagnol",
-      "english": "Anglais",
-      "moreLanguages": "+ Langues",
-      "italian": "Italien"
-    },
-    "note": "Captures réelles de l'app",
-    "subtitle": "VitalsPath est conçu dès le départ pour être un citoyen de première classe dans l'écosystème Apple, respectant votre vie privée et s'intégrant aux outils que vous utilisez déjà.",
+    "title": "Conçu pour se",
+    "titleHighlight": "sentir comme iOS.",
+    "subtitle": "VitalsPath est construit de zéro pour être un citoyen de première classe dans l'écosystème Apple, respectant votre vie privée.",
     "native": "NATIF.",
     "synced": "SYNCHRONISÉ.",
     "secure": "SÉCURISÉ.",
     "integrations": {
       "icloud": {
-        "label": "Synchronisation iCloud",
+        "label": "Synchro iCloud",
         "desc": "Chiffrement de bout en bout"
       },
       "calendar": {
-        "label": "Apple Calendar",
-        "desc": "Événements Automatiques"
+        "label": "Calendrier Apple",
+        "desc": "Événements automatiques"
       },
       "maps": {
         "label": "Apple Maps",
-        "desc": "Recherche de Pharmacie"
+        "desc": "Chercheur de pharmacies"
       },
       "haptics": {
         "label": "Haptique Native",
@@ -276,411 +219,439 @@
       }
     },
     "privacy": {
-      "title": "Sécurisé par Conception",
-      "desc": "Les données de santé sont cryptées sur l'appareil et ne sont jamais partagées sans votre permission."
+      "title": "Sûr par Design",
+      "desc": "Les données de santé sont chiffrées sur l'appareil et jamais partagées sans permission."
     },
     "sync": {
-      "title": "Chiffré sur iCloud",
-      "desc": "Gardez tous les profils de votre famille synchronisés en toute sécurité sur votre iPhone, iPad et Mac."
+      "title": "iCloud Chiffré",
+      "desc": "Gardez vos profils familiaux synchronisés sur iPhone, iPad et Mac en toute sécurité."
     },
     "profiles": {
       "title": "La Famille d'Abord",
-      "desc": "Gérez plusieurs profils avec des historiques, des allergies et des informations d'urgence séparés."
+      "desc": "Gérez plusieurs profils avec historiques, allergies et infos d'urgence séparés."
     },
     "metrics": {
-      "title": "Analyses Santé",
-      "desc": "Visualisation des tendances à long terme de l'observance, des symptômes et du bien-être global de la famille."
-    }
+      "title": "Données de Santé",
+      "desc": "Visualisation des tendances à long terme sur l'adhésion, les symptômes et le bien-être."
+    },
+    "sections": {
+      "main": "Principale",
+      "detail": "Détails",
+      "modes": "Mode Clair / Sombre",
+      "widgets": "Widgets",
+      "languages": "Langues"
+    },
+    "labels": {
+      "dashboard": "Tableau de Bord",
+      "profiles": "Profils",
+      "medications": "Médicaments",
+      "symptoms": "Symptômes",
+      "conditions": "Maladies",
+      "wellness": "Bien-être",
+      "profileDetail": "Détail Profil",
+      "medicationDetail": "Détail Médicament",
+      "doseLog": "Journal Doses",
+      "symptomGraph": "Graphique Symptômes",
+      "tasks": "Tâches",
+      "notifications": "Notifications",
+      "conditionDetail": "Détail Maladie",
+      "emergency": "Urgence",
+      "lightMode": "Mode Clair",
+      "darkMode": "Mode Sombre",
+      "widgets": "Widgets",
+      "widgetsGallery": "Galerie de Widgets",
+      "liveActivity": "Activité en Direct",
+      "spanish": "Espagnol",
+      "english": "Anglais",
+      "moreLanguages": "+ de Langues"
+    },
+    "note": "Vraies captures d'écran de l'app"
   },
-  "waitlist": {
-    "badge": "Lancement Q1 2026",
-    "title": "Soyez parmi les premiers à",
-    "titleHighlight": "prendre soin de votre famille",
-    "subtitle": "Rejoignez la liste d'attente et obtenez un accès anticipé.",
-    "form": {
-      "placeholder": "votre@email.com",
-      "button": "Rejoindre"
+  "testflight": {
+    "badge": "Beta TestFlight disponible",
+    "title": "Aidez-nous à façonner",
+    "titleHighlight": "le futur de la santé",
+    "subtitle": "Notre bêta publique exclusive est ouverte sur TestFlight. Rejoignez 8 000 testeurs et ayez une voix directe sur nos fonctions.",
+    "offer": "Offre Spéciale de Lancement",
+    "premium_free": "Les 100 premiers testeurs reçoivent 3 mois de PREMIUM GRATUITS",
+    "slots": "0/8 000 places utilisées",
+    "cta": {
+      "button": "Rejoindre la Beta GRATUITEMENT",
+      "description": "Accès instantané via Apple TestFlight"
     },
-    "success": "Vous êtes sur la liste !",
-    "privacy": "Pas de spam. Seulement les nouvelles importantes.",
-    "stats": {
-      "label": "Déjà inscrits",
-      "count": "personnes"
-    },
-    "plans": {
-      "free": {
-        "name": "Gratuit :",
-        "description": "profils basiques, médicaments essentiels."
-      },
-      "premium": {
-        "name": "Premium :",
-        "description": "multi-profil illimité, analyses complètes."
-      }
-    },
-    "privacyTitle": "Confidentialité Totale",
-    "privacyDesc": "Vos données ne quittent jamais votre appareil.",
-    "joinTitle": "Rejoignez la liste d'attente",
-    "joinDesc": "Recevez une invitation exclusive lors du lancement.",
-    "badgeOffer": "Offres Early Bird",
-    "discount": "Remise spéciale",
-    "discountDesc": "Offres exclusives pour les premiers utilisateurs."
+    "benefits": {
+      "lead": "Pourquoi rejoindre la Beta ?",
+      "items": [
+        "Accès anticipé aux nouvelles fonctions",
+        "Façonnez activement le futur du produit",
+        "Badge exclusif Beta Testeur",
+        "Support direct prioritaire"
+      ]
+    }
   },
   "footer": {
     "features": "Fonctionnalités",
     "privacy": "Confidentialité",
     "support": "Support",
-    "feedback": "Envoyer un commentaire",
-    "terms": "Conditions générales",
-    "disclaimer": "Avertissement",
-    "subscription": "Abonnement",
     "copyright": "2026 VitalsPath · Fait avec",
-    "developer": "par RomeroDev"
+    "developer": "par RomeroDev",
+    "feedback": "Envoyer un avis",
+    "terms": "Conditions Générales",
+    "disclaimer": "Mentions Légales",
+    "subscription": "Plans"
   },
   "legal": {
     "terms": {
       "title": "Conditions Générales de VitalsPath",
       "subtitle": "Health & Medication Tracker",
-      "lastUpdated": "Dernière mise à jour : 2026",
+      "lastUpdated": "Mise à jour : 2026",
       "sections": {
         "general": {
-          "title": "1. Informations générales",
-          "content": "Les présentes Conditions Générales régissent l'accès et l'utilisation de l'application mobile VitalsPath – Health & Medication Tracker (ci-après, l'« Application »), destinée à la gestion et au suivi des médicaments, symptômes, rendez-vous médicaux, humeur, tâches de santé et autres données liées au bien-être de l'utilisateur.<br><br>En téléchargeant, installant ou utilisant l'Application, l'utilisateur accepte intégralement ces Conditions Générales et la Politique de Confidentialité correspondante.<br><br>Si l'utilisateur n'est pas d'accord avec l'une des dispositions ci-incluses, il doit s'abstenir d'installer ou d'utiliser l'Application."
+          "title": "1. Informations Générales",
+          "content": "Ces Conditions régulent l'accès et l'utilisation de l'application VitalsPath – Health & Medication Tracker (ci-après, l' 'Application'), destinée à la gestion des médicaments et du bien-être.<br><br>En téléchargeant ou utilisant l'Application, vous acceptez pleinement ces Conditions et la Politique de Confidentialité.<br><br>Si vous n'êtes pas d'accord, veuillez ne pas installer l'Application."
         },
         "owner": {
           "title": "2. Titulaire de l'Application",
-          "content": "Titulaire : Lester Romero Bernardo, Ingénieur en Sciences Informatiques.<br>Adresse : Valence, Espagne.<br>Email de contact et support : vitalspath@gmail.com<br>Site web : (sera indiqué dans l'Application et/ou sur l'App Store dès que disponible).<br><br>L'Application est principalement destinée aux utilisateurs situés dans l'Union Européenne, sans préjudice de son utilisation depuis d'autres pays tant que cela ne contrevient pas à la législation locale applicable.<br><br>Le responsable du traitement des données personnelles aux fins du RGPD est Lester Romero Bernardo."
+          "content": "Titulaire : Lester Romero Bernardo, Ingénieur Logiciel.<br>Domicile : Valence, Espagne.<br>Email support : vitalspath@gmail.com<br><br>L'Application s'adresse principalement aux utilisateurs de l'Union Européenne."
         },
         "purpose": {
-          "title": "3. Objet et nature du service",
-          "content": "La finalité de VitalsPath est d'offrir des outils d'organisation, d'enregistrement et de visualisation d'informations liées à la santé et au bien-être, incluant, entre autres :<br><br>• Planification et rappel des médicaments, doses et horaires.<br>• Enregistrement et suivi des symptômes, conditions et traitements.<br>• Gestion des rendez-vous médicaux, tâches de suivi et lieux favoris (comme cliniques et pharmacies).<br>• Tableaux de bien-être, métriques d'adhérence, séries d'activité et résumés avancés.<br>• Exportation des données et génération de rapports aux formats PDF/CSV pour usage personnel et pour partager avec des professionnels de santé.<br>• Intégration optionnelle avec Apple Health/HealthKit, en mode lecture, pour importer certaines données de santé compatibles.<br><br>L'Application ne fournit pas de diagnostic médical, de traitement, d'ordonnance, ni ne remplace la consultation avec des professionnels de santé. Tout contenu, recommandation, « insight », score de bien-être ou rappel a un caractère purement informatif et d'appui à l'organisation personnelle, et ne doit pas être utilisé comme base unique pour prendre des décisions cliniques ou d'urgence."
+          "title": "3. Objet du service",
+          "content": "VitalsPath offre des outils d'organisation pour la santé : rappels de pilules, symptômes et rendez-vous.<br><br>L'Application ne fournit pas de diagnostic médical, de traitement ou de prescription et ne remplace pas une consultation médicale."
         },
         "usage": {
-          "title": "4. Usage permis, profil utilisateur et avertissements sanitaires",
-          "content": "L'Application est destinée aux personnes de plus de 18 ans. L'utilisateur déclare et garantit qu'il a au moins 18 ans et la capacité juridique suffisante pour accepter ces Conditions et utiliser l'Application.<br><br>L'utilisateur s'engage à utiliser l'Application de manière diligente, correcte et licite, conformément à ces Conditions, à la législation en vigueur et aux politiques de l'App Store.<br><br><strong>Avertissement important de santé :</strong><br>L'Application n'est pas un dispositif médical régulé ni n'a été certifiée comme produit sanitaire. Les informations affichées peuvent être incomplètes, inexactes ou non actualisées et ne doivent pas être utilisées pour diagnostiquer, traiter ou prévenir des maladies.<br><br>En cas de doute sur vos médicaments, symptômes, résultats ou toute décision pouvant affecter votre santé, vous devez toujours consulter un médecin, pharmacien ou autre professionnel de santé qualifié.<br><br>En cas d'urgence médicale, l'utilisateur doit contacter immédiatement les services d'urgence de son pays et ne pas se baser sur l'Application pour demander ou recevoir une assistance urgente."
+          "title": "4. Usage permis et avertissements sanitaires",
+          "content": "L'Application est destinée aux personnes de 18 ans et plus.<br><br><strong>Avertissement important :</strong><br>L'Application n'est pas un dispositif médical certifié. En cas d'urgence, contactez immédiatement les services de secours (15 ou 112)."
         },
         "healthkit": {
-          "title": "5. Intégration avec Apple Health / HealthKit",
-          "content": "L'Application peut s'intégrer avec Apple Health/HealthKit pour lire certaines données de santé autorisées par l'utilisateur, afin d'enrichir les graphiques, métriques et résumés de bien-être.<br><br>Dans cette version, l'intégration s'effectue exclusivement en mode lecture ; l'Application n'écrit pas de données dans Apple Health/HealthKit.<br><br>L'utilisateur peut :<br>• Décider quelles catégories de données autoriser à partager avec l'Application via les panneaux de permissions standard d'iOS.<br>• Révoquer à tout moment ces permissions depuis les réglages d'iOS et l'app Santé.<br><br>L'Application :<br>• N'accédera qu'aux données de santé strictement nécessaires aux fonctionnalités offertes et autorisées par l'utilisateur.<br>• N'utilisera pas les données d'Apple Health/HealthKit à des fins de marketing sans le consentement explicite de l'utilisateur, et ne les partagera jamais avec des tiers sans base juridique valable.<br>• Ne modifiera, manipulera ni n'introduira de données fausses dans Apple Health/HealthKit."
+          "title": "5. Intégration Apple Health / HealthKit",
+          "content": "L'Application peut s'intégrer à Apple Health pour lire des données de santé autorisées par l'utilisateur.<br><br>L'intégration est en mode lecture seule. Vous pouvez révoquer les permissions à tout moment dans les réglages iOS."
         },
         "data": {
-          "title": "6. Traitement des données personnelles et de santé",
-          "content": "L'utilisation de l'Application implique le traitement de données personnelles, y compris des données de santé, considérées comme catégories spéciales selon le Règlement (UE) 2016/679 (RGPD) et la Loi Organique 3/2018.<br><br>Les détails du traitement (finalités, bases juridiques, catégories de données, destinataires, transferts internationaux, délais de conservation et modalité d'exercice des droits) sont décrits dans la Politique de Confidentialité, qui forme partie intégrante de ces Conditions.<br><br>En particulier :<br>• La base juridique principale pour le traitement des données de santé est le consentement explicite de l'utilisateur.<br>• Des mesures techniques et organisationnelles appropriées (comme le chiffrement, les contrôles d'accès et les sauvegardes) seront appliquées pour protéger la confidentialité, l'intégrité et la disponibilité des données.<br>• Une fois les finalités remplies, les données pourront être conservées bloquées pendant les délais de prescription légale."
+          "title": "6. Traitement des données personnelles",
+          "content": "L'usage de l'Application implique le traitement de données personnelles et de santé selon le RGPD (UE) 2016/679.<br><br>Les détails sont décrits dans la Politique de Confidentialité. La base juridique est le consentement explicite."
         },
         "accounts": {
-          "title": "7. Comptes utilisateur, profils et sécurité",
-          "content": "L'Application peut permettre la création et la gestion de plusieurs profils (par exemple, pour des membres de la famille) au sein d'un même appareil et/ou compte.<br><br>L'utilisateur déclare disposer des autorisations et consentements nécessaires pour introduire et gérer des données de tiers, particulièrement lorsqu'il s'agit de données de santé.<br><br>L'utilisateur est responsable de :<br>• Maintenir la confidentialité de tout code, mot de passe ou méthode d'accès utilisé.<br>• Configurer adéquatement la sécurité de son appareil (verrouillage, Face ID/Touch ID, etc.).<br>• Notifier sans délai au titulaire tout accès non autorisé ou incident de sécurité détecté.<br><br>Le titulaire pourra suspendre ou annuler l'accès à l'Application en cas d'utilisation frauduleuse, de non-respect de ces Conditions ou de suspicion raisonnable d'activités illicites."
+          "title": "7. Comptes et Sécurité",
+          "content": "L'Application permet la gestion de plusieurs profils. L'utilisateur est responsable de la sécurité de son appareil (Face ID/Touch ID/PIN)."
         },
         "business": {
-          "title": "8. Modèle d'affaires, plans et abonnements",
-          "content": "VitalsPath utilise un modèle freemium, qui combine des fonctionnalités gratuites et d'autres avancées payantes sous la modalité VitalsPath Premium.<br><br><strong>8.1. Version gratuite</strong><br>La version gratuite offre un accès limité aux fonctions de base de l'Application.<br><br><strong>8.2. VitalsPath Premium</strong><br>Le plan VitalsPath Premium débloque des fonctionnalités additionnelles, qui peuvent inclure : profils illimités, favoris de cliniques et pharmacies, programmation avancée, suivi de stock, exportation complète des données, analyses avancées, sauvegardes et plus encore.<br><br><strong>8.3. Types d'achat</strong><br>VitalsPath Premium peut être proposé via : abonnement mensuel, abonnement annuel, ou achat unique à vie (lifetime).<br><br>Les achats sont gérés via l'App Store, s'appliant les conditions de paiement, facturation, remboursements et annulation établies par Apple."
+          "title": "8. Modèle Freemium et Abonnements",
+          "content": "VitalsPath utilise un modèle freemium avec des fonctions gratuites et une version Premium payante.<br><br>Les achats sont gérés par l'App Store selon les conditions d'Apple."
         },
         "export": {
-          "title": "9. Exportation des données et génération de rapports",
-          "content": "L'Application permet d'exporter les données gérées par l'utilisateur aux formats PDF et CSV, via des fonctions locales et/ou de VitalsPath Premium.<br><br>L'utilisateur :<br>• Est responsable de réviser le contenu des rapports avant de les partager avec des tiers.<br>• Reconnaît que ces rapports peuvent contenir des données de santé spécialement protégées et doit les conserver adéquatement.<br>• Comprend que l'exportation peut ne pas inclure toutes les données stockées dans l'Application."
+          "title": "9. Exportation de données",
+          "content": "L'Application permet d'exporter des données en PDF et CSV. L'utilisateur est responsable de la garde de ces rapports sensibles."
         },
         "ip": {
-          "title": "10. Propriété intellectuelle et industrielle",
-          "content": "Tous les droits de propriété intellectuelle et industrielle sur l'Application, son code source, design, interfaces, icônes, logos, noms commerciaux, textes, graphiques, animations, sons et autres éléments sont la propriété de Lester Romero Bernardo.<br><br>Il est interdit, sauf autorisation préalable et écrite, toute reproduction, distribution, modification, ingénierie inverse, décompilation, communication publique ou réutilisation totale ou partielle de l'Application et de ses contenus.<br><br>L'utilisateur obtient une licence d'utilisation limitée, personnelle, révocable, intransférable et non exclusive pour installer et utiliser l'Application."
+          "title": "10. Propriété Intellectuelle",
+          "content": "Tous les droits sur l'Application appartiennent à Lester Romero Bernardo. Toute reproduction sans autorisation est interdite."
         },
         "liability": {
-          "title": "11. Responsabilité et garanties",
-          "content": "L'Application est fournie « telle quelle » (« as is »), sans garanties expresses ou implicites d'aucune sorte quant à son fonctionnement, disponibilité ininterrompue, absence totale d'erreurs ou adéquation à un usage spécifique.<br><br>En particulier, et sans préjudice de la réglementation des consommateurs :<br>• Le titulaire ne garantit pas l'exactitude, l'intégrité ou l'actualité des données affichées.<br>• Le titulaire n'est pas responsable des décisions médicales que l'utilisateur adopte en se basant sur les informations de l'Application.<br>• Le titulaire ne sera pas responsable des dommages indirects, consécutifs, perte de bénéfices, perte de données ou réclamations de tiers découlant de l'utilisation de l'Application.<br><br>Rien de ce qui est disposé n'exclut ou limite la responsabilité dans les cas où la loi ne le permet pas."
+          "title": "11. Responsabilité",
+          "content": "L'Application est fournie 'telle quelle'. Le titulaire n'est pas responsable des décisions médicales prises par l'utilisateur."
         },
         "appstore": {
-          "title": "12. Conformité aux directives de l'App Store",
-          "content": "L'Application a été conçue pour respecter les directives de révision de l'App Store, particulièrement celles relatives à la confidentialité, sécurité, données de santé et utilisation de HealthKit.<br><br>Entre autres aspects :<br>• Les fonctionnalités ne sont pas présentées comme équivalentes à un diagnostic médical.<br>• Le consentement explicite de l'utilisateur est demandé avant d'accéder aux données de santé.<br>• Les obligations relatives aux données sensibles sont respectées.<br><br>L'éventuel retrait, refus ou modification de l'Application par Apple suite à des changements dans ses politiques ne donnera pas droit, à lui seul, à une indemnisation."
+          "title": "12. Directives App Store",
+          "content": "L'Application respecte les directives d'Apple concernant la confidentialité et les données de santé."
         },
         "thirdparty": {
-          "title": "13. Services et contenus de tiers",
-          "content": "L'Application peut inclure des liens ou intégrations avec des services de tiers (par exemple, Apple Health/HealthKit, services de stockage, sites web de cliniques ou pharmacies, ou autres applications de santé).<br><br>Ces tiers sont responsables de leurs propres conditions d'utilisation et politiques de confidentialité, que l'utilisateur devra réviser et accepter, le cas échéant, séparément.<br><br>Le titulaire n'est pas responsable du contenu, disponibilité, sécurité, exactitude ou fonctionnement des services de tiers."
+          "title": "13. Services tiers",
+          "content": "L'Application peut s'intégrer à des services tiers (Apple Health, iCloud). Ces tiers sont responsables de leurs propres conditions."
         },
         "modifications": {
-          "title": "14. Modifications de l'Application et des Conditions",
-          "content": "Le titulaire se réserve le droit de :<br>• Mettre à jour, améliorer, modifier ou discontinuer l'Application (totalement ou partiellement), incluant l'incorporation de nouvelles fonctionnalités ou la suppression d'autres.<br>• Modifier ces Conditions et la Politique de Confidentialité. Dans ce cas, l'utilisateur sera informé via l'Application elle-même, du site web ou par d'autres moyens raisonnables, indiquant la date d'entrée en vigueur.<br><br>L'utilisation continue de l'Application après l'entrée en vigueur des nouvelles conditions impliquera l'acceptation de celles-ci. Si l'utilisateur n'est pas d'accord, il devra cesser d'utiliser l'Application."
+          "title": "14. Modifications",
+          "content": "Le titulaire se réserve le droit de modifier l'Application ou ces Conditions en informant l'utilisateur."
         },
         "termination": {
-          "title": "15. Résiliation et suspension",
-          "content": "Le titulaire pourra suspendre ou résilier, en tout ou en partie, l'accès de l'utilisateur à l'Application lorsque :<br>• Un manquement grave ou répété de ces Conditions est détecté.<br>• Il existe des raisons fondées de sécurité, fraude ou usage abusif.<br>• Cela est nécessaire pour se conformer à la loi, décisions judiciaires ou exigences d'autorités compétentes.<br><br>L'utilisateur peut cesser d'utiliser l'Application à tout moment et la désinstaller de ses appareils. La résiliation de l'utilisation n'exempte pas l'utilisateur du respect des obligations contractées antérieurement."
+          "title": "15. Résiliation",
+          "content": "L'accès peut être suspendu en cas de non-respect des Conditions ou pour des raisons de sécurité."
         },
         "law": {
-          "title": "16. Loi applicable et juridiction",
-          "content": "Sauf si la réglementation des consommateurs dispose autrement, ces Conditions seront régies et interprétées conformément au droit espagnol.<br><br>Pour toute controverse pouvant découler de l'utilisation de l'Application ou de l'interprétation de ces Conditions, les parties se soumettront aux juridictions compétentes de Valence (Espagne), sans préjudice des forts impératifs qui résultent applicables en faveur de l'utilisateur consommateur."
+          "title": "16. Droit applicable",
+          "content": "Ces Conditions sont régies par le droit espagnol. Les tribunaux de Valence sont compétents."
         },
         "contact": {
-          "title": "17. Contact et support",
-          "content": "Pour toute consultation relative à l'Application, ces Conditions ou la Politique de Confidentialité, l'utilisateur peut contacter :<br><br>Titulaire et responsable des données : Lester Romero Bernardo.<br>Email de support : vitalspath@gmail.com<br><br>On tentera de répondre aux consultations dans un délai maximum indicatif de 72 heures ouvrables, sans que cela ne suppose obligation de réponse immédiate ni garantie de résolution."
+          "title": "17. Contact",
+          "content": "Pour toute question : vitalspath@gmail.com"
         }
       }
     },
     "privacy": {
       "title": "Politique de Confidentialité de VitalsPath",
       "subtitle": "Health & Medication Tracker",
-      "lastUpdated": "Dernière mise à jour : 18 février 2026",
+      "lastUpdated": "Mise à jour : 18 février 2026",
       "sections": {
         "intro": {
           "title": "Introduction",
-          "content": "Lester Romero Bernardo, domicilié à Valence, Espagne (ci-après, le « Titulaire », « nous » ou « nos »), en qualité de responsable du traitement, vous informe sur la manière dont nous collectons, utilisons, partageons et protégeons vos données personnelles lors de l'utilisation de l'application mobile VitalsPath.<br><br>Cette Politique de Confidentialité fait partie intégrante des Conditions Générales de l'Application et doit être lue conjointement avec celles-ci. En installant, accédant ou utilisant l'Application, vous acceptez expressément le traitement de vos données conformément à cette Politique."
+          "content": "Lester Romero Bernardo vous informe sur la manière dont nous protégeons vos données dans l'application VitalsPath.<br><br>En utilisant l'Application, vous acceptez ce traitement conforme à cette Politique."
         },
         "controller": {
-          "title": "1. Données du Responsable du Traitement",
-          "content": "Lester Romero Bernardo<br>Ingénieur en Sciences Informatiques<br>Adresse : Valence, Espagne<br>Email : vitalspath@gmail.com<br>Site web : (Bientôt disponible sur l'App Store et dans l'Application)"
+          "title": "1. Responsable du Traitement",
+          "content": "Lester Romero Bernardo<br>Domicile : Valence, Espagne<br>Email : vitalspath@gmail.com"
         },
         "info": {
-          "title": "2. Informations que nous collectons",
-          "content": "L'Application collecte deux types principaux de données :<br><br><strong>2.1. Données personnelles fournies par l'utilisateur :</strong><br>• Données d'identification : Nom du profil, âge approximatif (plage), photo/avatar optionnel.<br>• Données de santé et bien-être : Médicaments (noms, doses, horaires, stock), symptômes et leur sévérité, conditions médicales, traitements, rendez-vous médicaux, humeur, adherence aux médicaments, tâches de santé, lieux favoris.<br>• Données d'utilisation : Configuration des notifications, préférences de thèmes/interface, paramètres des widgets.<br>• Données techniques : Identifiant de l'appareil (IDFV), version d'iOS, modèle de l'appareil, langue du système, fuseau horaire.<br><br><strong>2.2. Données de santé obtenues d'Apple Health/HealthKit (lecture uniquement) :</strong><br>Avec votre consentement explicite, nous pouvons accéder à des données comme l'activité physique, les données de sommeil, le poids, la fréquence cardiaque, la pression artérielle et autres données compatibles que vous autorisez.<br><br><strong>2.3. Données générées automatiquement :</strong><br>• Journaux d'utilisation (horodatages de création/modification).<br>• Journaux techniques pour le diagnostic des erreurs (sans données personnelles identifiables).<br>• Métriques agrégées et anonymisées d'utilisation pour l'analyse interne.<br><br>Important : Toutes les données sensibles de santé sont introduites directement par vous ou proviennent de HealthKit avec votre autorisation expresse."
+          "title": "2. Informations collectées",
+          "content": "<strong>2.1. Données fournies :</strong> Profils, médicaments, symptômes, ordonnances, rendez-vous.<br><strong>2.2. Données HealthKit :</strong> Lecture seule (si autorisé).<br><strong>2.3. Données techniques :</strong> Version iOS, modèle pour diagnostic."
         },
         "usage": {
-          "title": "3. Comment nous utilisons vos données",
-          "content": "Nous traitons vos données pour fournir et améliorer le service de l'Application :<br><br><strong>Finalités principales :</strong><br>• Gestion des profils et enregistrements (médicaments, symptômes, rendez-vous, etc.) - Base : Consentement RGPD.<br>• Rappels et notifications locales - Base : Consentement (permissions iOS).<br>• Calcul des métriques (score bien-être, adherence, séries) - Base : Consentement.<br>• Génération de rapports PDF/CSV pour exportation - Base : Consentement.<br>• Intégration avec HealthKit (lecture) - Base : Consentement explicite.<br>• Sauvegardes locales/iCloud (Premium) - Base : Consentement + Intérêt légitime.<br><br><strong>Finalités secondaires :</strong><br>• Analyse d'utilisation et amélioration du service - Base : Intérêt légitime (données anonymisées).<br>• Diagnostic des erreurs techniques - Base : Intérêt légitime (journaux techniques).<br>• Conformité légale et réclamations - Base : Obligation légale RGPD."
+          "title": "3. Utilisation des données",
+          "content": "Gestion des profils, rappels locaux, calcul de l'adhésion et rapports de santé. Base : Consentement."
         },
         "storage": {
-          "title": "4. Comment vos données sont stockées",
-          "content": "<strong>4.1. Stockage local :</strong><br>• Principal : Toutes les données sont stockées localement sur l'appareil via SwiftData (base de données chiffrée).<br>• Chiffrement : Les données sensibles sont chiffrées en utilisant les API de sécurité d'iOS.<br>• Sauvegardes : Gratuite (backup local JSON chiffré exportable) / Premium (iCloud Backup chiffré end-to-end par Apple).<br><br><strong>4.2. PAS de serveurs distants :</strong><br>VitalsPath N'ENVOIE PAS vos données à des serveurs externes. Tous les traitements sont effectués localement on votre appareil.<br><br><strong>4.3. Services tiers (uniquement lorsque vous les autorisez) :</strong><br>• Apple HealthKit : Lecture des données de santé - Données autorisées par vous - Base : Consentement.<br>• iCloud (Premium) : Backup chiffré - Toutes les données (chiffrées) - Base : Consentement.<br>• Share Sheet (exportation) : Partage PDF/CSV - Uniquement les données exportées - Base : Consentement."
+          "title": "4. Stockage",
+          "content": "<strong>4.1. Local :</strong> Données stockées localement via SwiftData.<br><strong>4.2. Pas de serveurs :</strong> Nous n'envoyons pas vos données à des serveurs externes.<br><strong>4.3. iCloud Backup :</strong> Chiffré de bout en bout (si activé)."
         },
         "recipients": {
-          "title": "5. Qui reçoit vos données",
-          "content": "Nous ne vendons, ne louons ni ne partageons vos données avec des tiers à des fins de marketing ou de publicité.<br><br>Destinataires :<br>• Aucun tiers : Il n'y a pas de transferts.<br>• Apple Inc. : HealthKit / iCloud (États-Unis - Clauses Contractuelles Types).<br>• Contacts de l'utilisateur : Exportation manuelle PDF/CSV (local).<br><br>Tous les transferts internationaux sont effectués avec les garanties exigées par le RGPD."
+          "title": "5. Destinataires",
+          "content": "Pas de vente de données. Seuls transferts vers Apple (iCloud/HealthKit) si autorisés."
         },
         "retention": {
-          "title": "6. Conservation des données",
-          "content": "• Fourniture du service : Tant que vous utilisez l'app + 30 jours après désinstallation.<br>• Sauvegardes : Jusqu'à leur suppression manuelle par l'utilisateur.<br>• Réclamations légales : 5 ans depuis la dernière interaction.<br>• Journaux techniques : 30 jours maximum.<br><br>Les données sont supprimées ou anonymisées automatiquement à la fin des délais indiqués."
+          "title": "6. Conservation",
+          "content": "Données conservées tant que vous utilisez l'Application ou jusqu'à leur suppression."
         },
         "rights": {
-          "title": "7. Vos droits RGPD",
-          "content": "En tant qu'utilisateur dans l'UE/EEE, vous pouvez exercer les droits suivants :<br><br>• Accès : Connaître les données que nous traitons.<br>• Rectification : Corriger les données inexactes (modifier directement dans l'app).<br>• Suppression (« Droit à l'oubli ») : Paramètres → Supprimer toutes les données.<br>• Limitation : Suspendre temporairement le traitement.<br>• Portabilité : Recevoir les données dans un format structuré (exporter JSON/PDF).<br>• Opposition : Vous opposer aux traitements basés on l'intérêt légitime.<br>• Retirer le consentement : Paramètres → Confidentialité → Réinitialiser les consentements.<br><br>Délai de réponse : Maximum 1 mois, prorogeable à 3 mois en cas de complexité.<br><br>Pour exercer vos droits, contactez : vitalspath@gmail.com"
+          "title": "7. Vos Droits",
+          "content": "Vous pouvez accéder, rectifier ou supprimer vos données dans l'Application. Contact : vitalspath@gmail.com"
         },
         "security": {
-          "title": "8. Sécurité des données",
-          "content": "Nous mettons en œuvre des mesures techniques et organisationnelles adaptées au risque :<br><br>• Chiffrement AES-256 pour les données sensibles.<br>• Keychain pour les identifiants.<br>• Contrôle d'accès par Face ID/Touch ID/PIN.<br>• Stockage exclusivement local.<br>• Sauvegardes chiffrées end-to-end.<br>• Journaux rotatifs (30 jours maximum).<br><br>Nous ne pouvons pas garantir une sécurité absolue contre des attaques sophistiquées ou si vous partagez vos données via des canaux non sécurisés."
+          "title": "8. Sécurité",
+          "content": "Chiffrement AES-256 et utilisation des API de sécurité natives d'iOS."
         },
         "minors": {
           "title": "9. Mineurs",
-          "content": "L'Application est destinée aux personnes de plus de 18 ans. Nous ne collectons pas sciemment de données de mineurs. Si vous êtes parent/tuteur et pensez que nous avons collecté des données d'un mineur, contactez immédiatement vitalspath@gmail.com."
+          "content": "Application pour les 18+ ans. Pas de collecte consciente de données de mineurs."
         },
         "changes": {
-          "title": "10. Modifications de la Politique de Confidentialité",
-          "content": "Nous pouvons modifier cette Politique pour refléter les changements législatifs, les nouvelles fonctionnalités ou les améliorations de sécurité. Nous vous informerons des changements significatifs via une popup dans l'app ou par email. L'utilisation continue implique l'acceptation.<br><br>Date d'entrée en vigueur : 18 février 2026"
+          "title": "10. Changements",
+          "content": "Modifications notifiées via l'Application."
         },
         "contact": {
           "title": "11. Contact",
-          "content": "Lester Romero Bernardo<br>Email : vitalspath@gmail.com<br>Délai de réponse maximum : 72 heures ouvrables<br><br>Autorité de contrôle : Vous pouvez déposer des réclamations auprès de l'Agence Espagnole de Protection des Données (AEPD) : www.aepd.es"
+          "content": "vitalspath@gmail.com<br>Autorité : AEPD (Espagne)."
         }
       }
     },
     "disclaimer": {
-      "title": "Avertissement Médical",
+      "title": "Avis Médical",
       "notice": {
-        "title": "Avis important",
-        "content": "VitalsPath est un outil organisationnel conçu pour vous aider à gérer les informations de santé de votre famille. Ce n'est PAS un dispositif médical et ne remplace en aucun cas les conseils médicaux professionnels."
+        "title": "Avis Important",
+        "content": "Veuillez lire ceci attentivement avant d'utiliser VitalsPath."
       },
       "sections": {
         "notMedical": {
-          "title": "Pas un dispositif médical",
-          "content": "VitalsPath n'est pas approuvé comme dispositif médical par la FDA, l'EMA ou aucune autre agence de réglementation sanitaire. L'application n'est pas destinée à diagnostiquer, traiter, guérir ou prévenir quelque maladie que ce soit."
+          "title": "Pas un Service Médical",
+          "content": "VitalsPath est un outil d'organisation. Ce n'est PAS un dispositif médical ou de diagnostic. Pas de conseils médicaux."
         },
         "professional": {
-          "title": "Consultez toujours un professionnel",
-          "content": "Toujours consulter un professionnel de santé qualifié pour des conseils médicaux, des diagnostics ou des traitements. Ne jamais ignorer les conseils médicaux professionnels ni retarder la recherche de conseils médicaux à cause de quelque information contenue dans cette application."
+          "title": "Consultez des Professionnels",
+          "content": "Consultez toujours un médecin pour toute condition de santé."
         },
         "emergency": {
-          "title": "Situations d'urgence",
-          "content": "En cas d'urgence médicale, appelez immédiatement les services d'urgence de votre pays. VitalsPath n'est pas conçu pour gérer les urgences médicales.",
-          "callToAction": "En cas d'urgence, appelez le 15 (SAMU) ou le 112 (numéro d'urgence européen)"
+          "title": "Situations d'Urgence",
+          "content": "En cas d'urgence, appelez le 15 ou le 112 immédiatement. Ne comptez pas sur l'App pour les urgences.",
+          "callToAction": "En cas d'urgence, appelez les secours immédiatement"
         },
         "accuracy": {
-          "title": "Exactitude des données",
-          "content": "Bien que nous nous efforcions de fournir une application fiable, vous êtes seul responsable de l'exactitude des informations que vous saisissez dans VitalsPath. Vérifiez toujours vos informations médicales avec votre professionnel de santé."
+          "title": "Précision des Données",
+          "content": "Vous êtes responsable de l'exactitude des informations saisies."
         },
         "medication": {
-          "title": "Informations sur les médicaments",
-          "content": "Les informations sur les médicaments dans VitalsPath sont fournies à titre informatif uniquement. Elles ne remplacent pas les informations fournies par votre pharmacien ou professionnel de santé. Toujours lire les notices des médicaments et suivre les instructions de votre médecin."
+          "title": "Gestion du Traitement",
+          "content": "Les rappels sont à but organisationnel. L'App ne vérifie pas les interactions ou dosages."
         },
         "responsibility": {
-          "title": "Responsabilité de l'utilisateur",
-          "content": "Vous êtes seul responsable des décisions que vous prenez sur la base des informations stockées dans VitalsPath. Les développeurs de VitalsPath déclinent toute responsabilité pour les décisions ou actions prises à l'aide de cette application."
+          "title": "Responsabilité de l'Utilisateur",
+          "content": "Vous reconnaissez que les développeurs ne sont pas responsables des décisions prises suite à l'usage de l'App."
         },
         "contact": {
-          "title": "Questions ?",
-          "content": "Si vous avez des questions concernant cet avertissement, veuillez nous contacter à vitalspath@gmail.com"
+          "title": "Questions",
+          "content": "support@vitalspath.app"
         }
       }
     },
     "subscription": {
-      "title": "Conditions d'abonnement VitalsPath",
-      "lastUpdated": "Dernière mise à jour : 18 février 2026",
-      "intro": "VitalsPath offre un modèle freemium avec des fonctionnalités gratuites et premium. Cette page explique le fonctionnement des abonnements, des paiements et des annulations.",
+      "title": "Conditions d'Abonnement de VitalsPath",
+      "lastUpdated": "Mise à jour : 18 février 2026",
+      "intro": "VitalsPath propose un modèle freemium avec fonctions gratuites et Premium.",
       "sections": {
         "whatIs": {
           "title": "1. Qu'est-ce que VitalsPath Premium ?",
-          "content": "VitalsPath Premium est un plan payant qui débloque des fonctionnalités avancées pour gérer la santé familiale.<br><br><strong>Fonctionnalités incluses :</strong><br>• Profils familiaux illimités<br>• Cliniques et pharmacies favorites<br>• Planification avancée des médicaments<br>• Suivi de l'inventaire des médicaments<br>• Export complet des données (PDF/CSV)<br>• Analyses et statistiques avancées<br>• Sauvegardes iCloud (chiffrage de bout en bout)<br>• Support prioritaire par email<br><br><strong>Version gratuite :</strong><br>La version gratuite inclut jusqu'à 2 profils, médicaments de base, rappels locaux et export limité."
+          "content": "Un plan payant débloquant des fonctions avancées : profils illimités, export complet, backup iCloud et support prioritaire."
         },
         "plans": {
-          "title": "2. Plans d'abonnement disponibles",
-          "content": "<strong>Mensuel :</strong> Paiement mois par mois, vous pouvez annuler à tout moment.<br><br><strong>Annuel :</strong> Paiement annuel avec une réduction par rapport au plan mensuel. Renouvellement automatique tous les 12 mois.<br><br><strong>À vie (Lifetime) :</strong> Paiement unique. Accès permanent à toutes les fonctionnalités Premium actuelles et futures, sans paiements récurrents.<br><br>Les prix peuvent varier selon votre pays et peuvent inclure les taxes locales. Les prix sont affichés sur l'écran d'achat avant confirmation."
+          "title": "2. Plans Disponibles",
+          "content": "Mensuel, Annuel et Vie (Lifetime). Prix affichés sur l'App Store."
         },
         "howItWorks": {
-          "title": "3. Comment fonctionnent les achats",
-          "content": "<strong>Gestion via Apple :</strong><br>Tous les achats et abonnements sont gérés via votre compte Apple (App Store).<br><br><strong>Renouvellement automatique :</strong><br>Les abonnements mensuels et annuels se renouvellent automatiquement à la fin de la période, sauf si vous les annulez avant.<br><br><strong>Confirmation :</strong><br>En confirmant l'achat, le paiement sera débité de votre compte iTunes/Apple ID.<br><br><strong>Essai gratuit :</strong><br>Si nous proposons un essai gratuit, il se convertira automatiquement en abonnement payant sauf si vous annulez avant la fin."
+          "title": "3. Fonctionnement",
+          "content": "Les abonnements se renouvellent via votre compte Apple sauf annulation."
         },
         "management": {
-          "title": "4. Gestion de votre abonnement",
-          "content": "Vous pouvez gérer votre abonnement depuis votre appareil iOS :<br><br>1. Ouvrez l'app <strong>Réglages</strong><br>2. Appuyez sur votre <strong>nom/Apple ID</strong> en haut<br>3. Sélectionnez <strong>Abonnements</strong><br>4. Trouvez <strong>VitalsPath</strong> et sélectionnez-le<br>5. Ici, vous pouvez changer de plan ou annuler<br><br>Vous pouvez également gérer les abonnements depuis l'App Store en appuyant sur votre photo de profil → Abonnements."
+          "title": "4. Gestion",
+          "content": "Gérez l'abonnement via Réglages iOS → Identifiant Apple → Abonnements."
         },
         "cancellation": {
-          "title": "5. Que se passe-t-il si vous annulez ?",
-          "content": "<strong>Accès jusqu'à la fin de la période :</strong><br>Si vous annulez un abonnement mensuel ou annuel, vous continuerez à avoir accès aux fonctionnalités Premium jusqu'à la fin de la période de facturation actuelle.<br><br><strong>Pas de remboursements partiels :</strong><br>Aucun remboursement n'est offert pour les périodes non utilisées des abonnements actifs.<br><br><strong>Données conservées :</strong><br>Vos données sont préservées. Si vous vous réabonnez, vous retrouverez l'accès à tous vos paramètres et historique.<br><br><strong>Plan à vie :</strong><br>Le plan Lifetime n'a pas d'abonnement récurrent, il n'y a donc rien à annuler. Vous aurez un accès permanent."
+          "title": "5. Annulation",
+          "content": "Accès maintenu aux fonctions Premium jusqu'à la fin de la période payée."
         },
         "issues": {
-          "title": "6. Problèmes techniques et support",
-          "content": "<strong>Restaurer les achats :</strong><br>Si vous avez acheté Premium mais qu'il ne s'est pas activé, allez dans Réglages → Premium → Restaurer les achats.<br><br><strong>Changement d'appareil :</strong><br>Vos achats sont liés à votre Apple ID. Installez VitalsPath on votre nouvel appareil et restaurez les achats.<br><br><strong>Contacter le support :</strong><br>Pour les problèmes de paiement ou d'abonnement, écrivez à : vitalspath@gmail.com<br><br><strong>Remboursements :</strong><br>Apple gère tous les remboursements. Vous pouvez les demander depuis reportaproblem.apple.com"
+          "title": "6. Problèmes et Support",
+          "content": "Restaurez vos achats dans l'App. Pour les remboursements, contactez Apple."
         },
         "changes": {
-          "title": "7. Modifications de Premium",
-          "content": "<strong>Nouvelles fonctionnalités :</strong><br>Nous pouvons ajouter de nouvelles fonctionnalités Premium sans coût supplémentaire pour les abonnés existants.<br><br><strong>Changements de prix :</strong><br>Si nous augmentons le prix d'un abonnement actif, nous vous informerons à l'avance. Vous pouvez accepter le nouveau prix ou annuler.<br><br><strong>Suppression de fonctionnalités :</strong><br>Nous supprimons rarement des fonctionnalités. Si nous le faisons, nous chercherons des alternatives équivalentes.<br><br><strong>Plan à vie :</strong><br>L'accès à vie inclut toutes les mises à jour futures sans coût supplémentaire."
+          "title": "7. Changements",
+          "content": "Les changements de prix seront notifiés à l'avance."
+        },
+        "law": {
+          "title": "8. Droit applicable",
+          "content": "Régis par le droit espagnol. vitalspath@gmail.com"
         }
       }
     }
   },
   "feedback": {
-    "title": "Votre avis compte",
-    "subtitle": "Aidez-nous à améliorer VitalsPath en partageant vos idées, en signalant des erreurs ou en suggérant de nouvelles fonctionnalités.",
+    "title": "Donner un avis",
+    "subtitle": "Aidez-nous à améliorer VitalsPath en partageant vos idées.",
     "types": {
-      "feature": "Nouvelle fonctionnalité",
-      "bug": "Signaler une erreur",
+      "feature": "Suggérer une fonction",
+      "bug": "Signaler un bug",
       "improvement": "Amélioration",
       "question": "Question",
       "other": "Autre"
     },
     "form": {
-      "type": "Type de feedback",
+      "type": "Type",
       "name": "Nom",
-      "email": "E-mail",
+      "email": "Email",
       "subject": "Sujet",
       "message": "Message",
       "namePlaceholder": "Votre nom",
       "emailPlaceholder": "votre@email.com",
-      "subjectPlaceholder": "Bref résumé",
+      "subjectPlaceholder": "Brève description",
       "messagePlaceholder": "Dites-nous en plus...",
-      "submit": "Envoyer le feedback"
+      "submit": "Envoyer l'avis"
     },
     "success": {
-      "title": "Merci pour votre feedback !",
-      "message": "Nous avons bien reçu votre message. Nous le traiterons et vous contacterons si nécessaire.",
+      "title": "Merci !",
+      "message": "Nous avons bien reçu votre avis.",
       "backHome": "Retour à l'accueil"
     }
   },
   "pricing": {
-    "badge": "Offre Early Adopter",
+    "badge": "Offre de Lancement",
     "title": "Choisissez votre plan",
-    "subtitle": "Des tarifs simples et transparents. Aucun frais caché.",
+    "subtitle": "Gratuit pour toujours ou Premium pour aller plus loin.",
     "monthly": {
       "title": "Mensuel",
-      "description": "Facturation mensuelle, annulez quand vous voulez"
+      "description": "Facturé mensuellement, annulez quand vous voulez"
     },
     "premium": {
       "title": "VitalsPath Premium",
-      "subtitle": "Débloquez tout le potentiel de la gestion de la santé familiale.",
-      "features_title": "Tout ce qui est Gratuit, et plus encore :",
-      "feature_desc": "Enregistrements illimités dans tous les services.",
-      "privacy_title": "Confidentialité 100 % sur l'appareil",
-      "privacy_desc": "Vos données de santé ne quittent jamais votre iPhone. VitalsPath utilise le trousseau iCloud et des bases de données locales cryptées pour vous protéger."
+      "subtitle": "Débloquez tout le potentiel pour votre famille.",
+      "features_title": "En plus du plan Gratuit :",
+      "feature_desc": "Registres illimités pour tous les services.",
+      "privacy_title": "Confidentialité 100% Locale",
+      "privacy_desc": "Les données de santé ne quittent jamais votre iPhone."
     },
     "free": {
       "title": "Gratuit",
-      "description": "Application 100 % fonctionnelle pour toujours, avec des limites sur les profils et les enregistrements. Idéal pour un usage individuel.",
-      "functional_badge": "100 % FONCTIONNEL",
+      "description": "100% fonctionnel pour toujours, avec limites de profils. Idéal pour un usage individuel.",
+      "functional_badge": "100% FONCTIONNEL",
       "forever_badge": "POUR TOUJOURS"
     },
     "annual": {
       "title": "Annuel",
-      "description": "Facturation annuelle, économisez 33 %"
+      "description": "Économisez avec le plan annuel"
     },
     "lifetime": {
-      "title": "À vie",
-      "description": "Paiement unique, accès à vie"
+      "title": "À Vie",
+      "description": "Paiement unique, pour toujours"
     },
     "features": {
       "unlimited_profiles": "Profils Illimités",
       "unlimited_diseases": "Maladies Illimitées",
       "unlimited_medications": "Médicaments Illimités",
       "unlimited_treatments": "Traitements Illimités",
-      "extended_pause": "Pause Prolongée",
-      "extend_medication": "Prolonger le Médicament",
-      "full_schedule": "Calendrier Complet",
-      "quiet_schedule": "Calendrier Silencieux",
-      "stock_inventory": "Stock et Inventaire",
-      "export_pdf_csv": "Exporter en PDF/CSV",
-      "advanced_analytics": "Analyses Avancées (30, 90 jours, Historique)",
-      "health_reports": "Rapports de Santé",
+      "extended_pause": "Pause Étendue",
+      "extend_medication": "Étendre Médicament",
+      "full_schedule": "Planning Complet",
+      "quiet_schedule": "Heures Silencieuses",
+      "stock_inventory": "Stocks et Inventaire",
+      "export_pdf_csv": "Export PDF/CSV",
+      "advanced_analytics": "Analyses Avancées (Historique)",
+      "health_reports": "Rapports Santé",
       "health_reports_desc": "Exportez des rapports détaillés pour votre médecin.",
-      "ocr_scanner": "Scanner OCR de Médicaments",
+      "ocr_scanner": "Scanner OCR Médicaments",
       "healthkit": "Intégration HealthKit",
-      "complex_symptoms": "Suivi des Symptômes Complexes",
+      "complex_symptoms": "Symptômes Complexes",
       "icloud_backup": "Sauvegarde iCloud",
-      "icloud_backup_desc": "Protocole Apple. Peut également être fait localement et exporté.",
+      "icloud_backup_desc": "Synchro sécurisée entre appareils.",
       "all_themes": "Tous les Thèmes",
-      "all_themes_desc": "Personnalisation complète avec des thèmes dynamiques.",
+      "all_themes_desc": "Personnalisation complète avec thèmes dynamiques.",
       "advanced_notifications": "Notifications Avancées",
       "advanced_notifications_desc": "Alertes critiques et rappels intelligents.",
       "haptic_feedback": "Retour Haptique",
       "haptic_feedback_desc": "Navigation tactile immersive.",
       "widget_styles": "Styles de Widgets",
-      "widget_styles_desc": "Plusieurs tailles et designs pour votre écran d'accueil.",
+      "widget_styles_desc": "Plusieurs formats pour votre écran d'accueil.",
+      "unlimited_profiles_desc": "Gérez toute votre famille sans limites.",
+      "smart_scheduler_ia_desc": "Optimisation intelligente des prises.",
+      "advanced_analytics_desc": "Graphiques précis sur vos progrès santé.",
+      "export_pdf_csv_desc": "Vos données en plusieurs formats portables.",
       "basic_profiles": "1 Profil (Illimités en Premium)",
       "basic_medications": "3 Médicaments par profil",
       "local_reminders": "Rappels de Base",
-      "wellness_score": "Score de Bien-être (Anneaux quotidiens)",
-      "wellness_details": "Répartition avancée des facteurs",
-      "smart_scheduler": "Conflict Checker (Correction manuelle)",
-      "smart_scheduler_ia": "Optimisation Automatique par IA",
-      "smart_scheduler_ia_desc": "Optimisation intelligente des prises et des rappels.",
+      "wellness_score": "Wellness Score (Anneaux journaliers)",
+      "wellness_details": "Analyse avancée du bien-être",
+      "smart_scheduler": "Vérificateur de Conflits",
+      "smart_scheduler_ia": "Optimisation avec IA",
       "appointments_limit": "3 Rendez-vous par mois",
       "unlimited_appointments": "Rendez-vous Illimités",
       "locations_limit": "2 Lieux Favoris",
       "insurance_limit": "1 Assurance Santé",
       "symptoms_basic": "Symptômes de Base",
-      "symptoms_complex": "Symptômes Complexes (Poitrine, Abdominal, Anxiété)",
-      "inventory_basic": "Stock et Inventaire de Base",
-      "health_status": "Analyse de l'état de santé",
-      "health_status_desc": "Vue holistique et recommandations personnalisées basées on vos données.",
-      "gamification": "Gamification et Motivation",
-      "gamification_desc": "Objectifs, réalisations et récompenses pour prendre soin de votre santé de manière ludique."
+      "symptoms_complex": "Symptômes Complexes (Anxiété, Poitrine, etc.)",
+      "inventory_basic": "Inventaire de Base",
+      "health_status": "Analyse d'État de Santé",
+      "health_status_desc": "Vision holistique basée sur vos données.",
+      "gamification": "Motivation & Objectifs",
+      "gamification_desc": "Défis pour prendre soin de vous en vous amusant."
     },
     "cta": "Prochainement",
-    "cta_alt": "Inscrivez-moi"
+    "cta_alt": "M'inscrire"
   },
   "smartScheduling": {
     "badge": "Algorithme Intelligent",
-    "title": "Planification Intelligente",
-    "subtitle": "Notre algorithme avancé optimise votre routine de médication en tenant compte des interactions, des marges de sécurité et de votre mode de vie.",
+    "title": "Planning Smart",
+    "subtitle": "Notre algorithme optimise votre routine en considérant les interactions et votre style de vie.",
     "steps": {
       "1": {
         "title": "Entrée",
-        "desc": "Médicaments et Heures"
+        "desc": "Médicaments & Heures"
       },
       "2": {
-        "title": "Horaires",
-        "desc": "Créneaux Réservés"
+        "title": "Slots",
+        "desc": "Heures Réservées"
       },
       "3": {
         "title": "Analyse",
         "desc": "Marges de Sécurité"
       },
       "4": {
-        "title": "Vérification",
+        "title": "Vérif",
         "desc": "Chevauchements"
       },
       "5": {
-        "title": "Optimisation",
-        "desc": "Horaire Parfait"
+        "title": "Optimise",
+        "desc": "Planning Idéal"
       }
     }
   },
   "notificationModes": {
-    "badge": "Alertes Adaptatives",
-    "title": "Des notifications qui s'adaptent à vous",
-    "subtitle": "Découvrez différents niveaux d'interaction conçus pour chaque contexte, de la salle de réunion au chevet du patient.",
-    "hapticTip": "Disponibilité des modes adaptée aux capacités haptiques de votre iPhone (Taptic Engine Gen 3+ recommandé).",
+    "badge": "Alertes Intuitives",
+    "title": "Modes qui s'adaptent à vous",
+    "subtitle": "Choisissez le style parfait pour chaque moment.",
+    "hapticTip": "La disponibilité des modes dépend des capacités haptiques de votre iPhone (Taptic Engine Gen 3+ recommandé).",
     "modes": {
       "normal": {
         "title": "Normal",
@@ -688,20 +659,20 @@
       },
       "quiet": {
         "title": "Silencieux",
-        "desc": "Uniquement visuel, parfait pour le travail ou les réunions."
+        "desc": "Uniquement visuel, idéal en réunion."
       },
       "discrete": {
         "title": "Discret",
-        "desc": "Haptique subtile, contenu axé on la confidentialité."
+        "desc": "Haptique subtil, priorité confidentialité."
       },
       "off": {
-        "title": "Éteint",
-        "desc": "Sans interruptions, uniquement des badges."
+        "title": "Off",
+        "desc": "Pas d'interruptions."
       }
     },
     "simulator": {
       "now": "MAINTENANT",
-      "doseTitle": "Dose d'Ibuprofène",
+      "doseTitle": "Dose Ibuprofène",
       "ready": "PRÊT"
     }
   },
@@ -709,27 +680,27 @@
     "badge": "Expérience Native",
     "title": "Widgets et",
     "titleHighlight": "Activités en Direct.",
-    "subtitle": "Informations d'un coup d'œil, direct depuis votre écran d'accueil ou de verrouillage.",
-    "description": "Gardez le contrôle sans ouvrir l'application. Avec plus de 10 widgets personnalisés, des activités en direct pour un suivi en temps réel et un support complet de la Dynamic Island pour les rendez-vous et les médicaments.",
+    "subtitle": "Infos d'un coup d'œil directement sur votre écran.",
+    "description": "Contrôlez tout sans ouvrir l'App. 10+ widgets, Activités en Direct et support Dynamic Island.",
     "items": {
       "widgets": {
-        "title": "Plus de 10 Widgets",
-        "desc": "Des rappels de médicaments aux résumés de santé familiale."
+        "title": "10+ Widgets",
+        "desc": "Des rappels aux résumés familiaux."
       },
       "dynamic": {
         "title": "Dynamic Island",
-        "desc": "Mises à jour en temps réel pour vos rendez-vous médicaux en cours."
+        "desc": "Mises à jour en direct pour vos rendez-vous."
       },
       "live": {
         "title": "Activités en Direct",
-        "desc": "Suivez votre traitement de dose active directement on l'écran de verrouillage."
+        "desc": "Suivez la dose active sur l'écran verrouillé."
       }
     }
   },
   "languages": {
-    "title": "Nous parlons votre langue",
+    "title": "Nous parlons Français",
     "subtitle": "Global dès le premier jour",
-    "description": "VitalsPath est traduit nativement en 15 langues pour que toute votre famille se sente à l'aise."
+    "description": "VitalsPath est traduit nativement en 15 langues pour toute la famille."
   },
   "footerStats": {
     "activeUsers": "Utilisateurs Actifs",
@@ -738,7 +709,7 @@
   },
   "survey": {
     "badge": "Sondage Rapide",
-    "question": "Pensez-vous que cette application puisse être utile pour votre famille ?",
+    "question": "Pensez-vous que cette app sera utile pour votre famille ?",
     "options": {
       "yes": "Oui",
       "no": "Non",
@@ -747,9 +718,9 @@
     "thanks": "Merci de votre participation !"
   },
   "ecosystem": {
-    "badge": "Apple Ecosystem",
-    "title": "On all your devices",
-    "subtitle": "VitalsPath is designed exclusively for the Apple ecosystem, with native integration so your health is always present.",
+    "badge": "Écosystème Apple",
+    "title": "Sur tous vos appareils",
+    "subtitle": "VitalsPath est exclusif à Apple, avec une intégration native pour votre santé.",
     "iphone": {
       "name": "iPhone",
       "os": "iOS 18+"
@@ -762,6 +733,6 @@
       "name": "Apple Watch",
       "os": "watchOS 11+"
     },
-    "description": "Instant sync via iCloud and full compatibility with widgets, critical alerts, and Health App integration."
+    "description": "Synchro iCloud instantanée et compatibilité totale avec Apple Santé."
   }
 }

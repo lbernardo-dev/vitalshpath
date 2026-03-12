@@ -33,20 +33,20 @@ const translations: Record<Lang, typeof en> = {
     pl,
 };
 
-function getTranslation(lang: Lang, key: string): string {
+function getTranslation(lang: Lang, key: string): any {
     const keys = key.split('.');
-    let value: unknown = translations[lang];
+    let value: any = translations[lang];
     
     for (const k of keys) {
         if (value && typeof value === 'object' && k in value) {
-            value = (value as Record<string, unknown>)[k];
+            value = value[k];
         } else {
             value = undefined;
             break;
         }
     }
     
-    if (typeof value === 'string') {
+    if (value !== undefined) {
         return value;
     }
     
@@ -58,7 +58,7 @@ function getTranslation(lang: Lang, key: string): string {
 }
 
 export function useTranslations(lang: Lang) {
-    return function t(key: string): string {
+    return function t(key: string): any {
         return getTranslation(lang, key);
     };
 }

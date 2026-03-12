@@ -1,448 +1,381 @@
 {
   "meta": {
-    "title": "VitalsPath - 您家庭的健康中心",
-    "description": "VitalsPath - 您家庭的健康中心。在智能 iOS 应用程序中管理全家的药物、预约、症状和健康指标。"
+    "title": "VitalsPath: 智能服药管理与健康追踪",
+    "description": "通过智能提醒管理药物、剂量、健康指标、处方和预约。支持 iPhone/iPad/Watch。立即在 TestFlight 加入 Beta 公测！"
   },
   "nav": {
-    "features": "核心功能",
-    "scheduler": "智能调度",
+    "features": "功能",
+    "scheduler": "计划表",
     "ecosystem": "生态系统",
-    "benefits": "选择理由",
-    "pricing": "价格方案",
-    "waitlist": "加入等候",
+    "benefits": "优势",
+    "pricing": "价格",
+    "testflight": "Beta TestFlight",
     "gallery": "界面展示"
   },
   "hero": {
-    "badge": "家庭健康中心 · 支持 iOS 18+",
-    "title": "家人的健康数据，",
-    "titleHighlight": "一个应用足矣。",
-    "subtitle": "<strong>VitalsPath</strong> 集中管理药物、预约、症状、心情、任务和各项健康指标。",
+    "badge": "TestFlight Beta 公测开启 · 支持 iOS 18+",
+    "title": "智能药物管理",
+    "titleHighlight": "& 健康追踪。",
+    "subtitle": "以医疗级的精度和高级的 Liquid Glass 设计，追踪药物、预约、健康指标和处方。",
     "cta": {
-      "primary": "加入等候名单",
-      "secondary": "了解更多"
+      "primary": "通过 TestFlight 加入 Beta 公测",
+      "secondary": "探索核心功能"
     },
     "features": {
-      "profiles": "支持家庭成员多配置",
-      "privacy": "100% 本地运行",
+      "profiles": "支持多个家庭档案",
+      "privacy": "100% 本地隐私保护",
       "languages": "支持 15 种语言"
     },
     "labels": {
       "wellness": "健康指标",
       "vitamind3": "维生素 D3",
-      "familyProfiles": "家庭成员"
+      "familyProfiles": "家庭档案"
     }
   },
   "problems": {
-    "badge": "现实挑战",
+    "badge": "真实挑战",
     "title": "家庭健康管理",
-    "titleLine2": "本应更简单。",
-    "subtitle": "应用繁杂、提醒遗漏、信息零零碎碎。",
+    "titleLine2": "比看起来更复杂。",
+    "subtitle": "应用繁杂、提醒遗漏和信息孤岛，阻碍了对全家健康的全面掌控。",
     "items": {
       "medication": {
-        "title": "“我吃过药了吗？”",
-        "description": "简单的备忘录提醒已经不够用了。"
+        "title": "“我到底吃过药了吗？”",
+        "description": "简单的日历提醒不足以应对关键剂量的管理需求。"
       },
       "profiles": {
         "title": "每个人都在用不同的应用",
-        "description": "需要一个集中的管理中心。"
+        "description": "您需要一个统一的中心来管理所有家庭成员。"
       },
       "appointments": {
-        "title": "就诊记录散落各处",
-        "description": "谁、什么时候、去哪家医院？"
+        "title": "预约信息分散",
+        "description": "谁该在什么时候去哪里看哪位专家？"
       },
       "symptoms": {
-        "title": "“当时是什么症状来着？”",
-        "description": "过了几天，重要的细节就记不清了。"
+        "title": "“当时是什么症状？”",
+        "description": "面对医生时，我们往往会忘记重要的健康细节。"
       },
       "interactions": {
-        "title": "这些药能一起吃吗？",
-        "description": "药物相互作用可能带来风险。"
+        "title": "药物之间兼容吗？",
+        "description": "如果没有精确的追踪，药物相互作用可能带来风险。"
       },
       "tasks": {
         "title": "被遗忘的随访任务",
-        "description": "化验、复查、续方等。"
+        "description": "化验、续方和复查计划经常被忽略。"
       }
     },
-    "cta": "VitalsPath 为您解决这一切..."
+    "cta": "VitalsPath 解决所有这些问题..."
   },
   "features": {
-    "badge": "一站式解决方案",
-    "title": "您需要的功能，一应俱全。",
-    "titleHighlight": "拒绝臃肿。",
-    "subtitle": "强大而智能的仪表盘，简化您全家的健康管理。",
+    "badge": "全能中心",
+    "title": "您所需的一切功能，",
+    "titleHighlight": "完美的组织形式。",
+    "subtitle": "我们将家庭健康管理的方方面面简化为一个智能且强大的仪表盘。",
     "items": {
       "profiles": {
-        "title": "每个成员的独立档案",
-        "description": "成人、儿童、老人。每个人都有自己的数据、历史、过敏史和紧急联系人。"
+        "title": "家庭档案",
+        "description": "管理成人、儿童和老人的健康。追踪病史、过敏和紧急信息。"
       },
       "scheduler": {
-        "title": "智能调度程序",
-        "description": "合理分配剂量，避免冲突。"
+        "title": "智能计划表",
+        "description": "我们的精准算法通过分析药物相互作用，科学安排服用时间。"
       },
       "privacy": {
-        "title": "100% 隐私保护",
-        "description": "您的健康数据绝不离开您的设备。"
+        "title": "100% 隐私",
+        "description": "您的健康数据绝不离开设备。没有采集服务器，没有追踪。"
       },
-      "medication": {
-        "title": "以剂量为核心的药物管理",
-        "description": "记录每一次服用状态，全程可追溯。"
+      "pills": {
+        "title": "服药提醒",
+        "description": "智能提醒与库存追踪，确保永远不会漏掉任何剂量。"
+      },
+      "journal": {
+        "title": "症状日志",
+        "description": "记录身体感受。深度图表追踪症状、心情与康复进度。"
+      },
+      "calendar": {
+        "title": "医疗日历",
+        "description": "完美组织就诊预约、专家面诊与药房信息。"
+      },
+      "refills": {
+        "title": "补药预警",
+        "description": "当处方或药片快用完时，触发智能提示。"
+      },
+      "ocr": {
+        "title": "原生医疗 OCR",
+        "description": "扫描药盒或处方。我们将自动为您提取关键信息。"
+      },
+      "live": {
+        "title": "实时活动",
+        "description": "通过灵动岛直接追踪当前的服用计划和预约信息。"
       },
       "wellness": {
         "title": "健康评分",
-        "description": "多维度的健康趋势评分。"
-      },
-      "calendar": {
-        "title": "无限日历",
-        "description": "月视图呈现所有健康相关事件。"
-      },
-      "tasks": {
-        "title": "随访任务",
-        "description": "管理检查、配药等任务。"
-      },
-      "notifications": {
-        "title": "智能通知",
-        "description": "从静默模式到强力提醒。"
-      },
-      "symptoms": {
-        "title": "症状追踪",
-        "description": "包含严重程度和恢复阶段的详细日志。"
-      },
-      "treatments": {
-        "title": "治疗方案管理",
-        "description": "整理疾病及相关的药物方案。"
-      },
-      "dashboards": {
-        "title": "专业仪表盘",
-        "description": "在一个界面鸟瞰全家健康状况。"
-      },
-      "metrics": {
-        "title": "健康指标",
-        "description": "深度追踪服药依从性、心情和状态。"
-      },
-      "exportImport": {
-        "title": "导出与导入",
-        "description": "数据主权归您。支持 PDF、CSV 和 JSON。"
-      },
-      "reports": {
-        "title": "医疗报告",
-        "description": "为医生生成详尽的专业报告。"
-      },
-      "encryption": {
-        "title": "强力加密",
-        "description": "AES-256 级别加密保护隐私。"
-      },
-      "widgets": {
-        "title": "小组件和实时活动",
-        "description": "在主屏幕上实时显示关键数据。"
+        "description": "基于多维数据评估您每日整体幸福感的综合指标。"
       }
     },
     "cta": {
-      "primary": "立即加入等候名单"
+      "primary": "通过 TestFlight 加入 Beta 公测"
     }
   },
   "deepFeatures": {
-    "badge": "深度解析",
-    "title": "为现实生活而生的",
+    "badge": "深度体验",
+    "title": "为真实生活而生的",
     "titleHighlight": "功能设计。",
     "medication": {
       "badge": "药物管理",
-      "title": "以剂量为单元的架构",
-      "description": "每一次服药都是一个独立的实体，拥有自己的状态、时间和完整历史。",
+      "title": "以剂量为核心的架构",
+      "description": "每一次服药都是一个独立的数据点，拥有状态、时间和上下文，实现完整追溯。",
       "features": [
-        "每剂药物包含状态、时间和备注",
-        "完整的历史修改记录",
-        "追溯性延长治疗周期"
+        "记录每个独立剂量的状态、时间和备注",
+        "完整的修改历史记录",
+        "追溯性延长现有治疗方案"
       ]
     },
     "calendar": {
       "badge": "日历",
-      "title": "一历全览",
-      "description": "优化的月视图，整合剂量、治疗、预约和随访任务。",
+      "title": "一历全览所有事件",
+      "description": "优化的月视图，整合剂量、疗程、预约和待办任务。",
       "features": [
-        "支持重复机制的就诊预约",
-        "关联随访任务",
-        "可重用的模板"
+        "支持强大重复机制的就诊预约系统",
+        "关联的后续随访任务",
+        "可快速输入的重复使用模板"
       ]
     },
     "symptoms": {
       "badge": "症状管理",
-      "title": "健康审计",
-      "description": "记录症状及其严重程度。病程分阶段管理。",
+      "title": "精确的健康审计",
+      "description": "通过严重程度分级追踪每种症状，并监控不同阶段的病情。",
       "features": [
-        "100+ 症状及严重程度量表",
-        "分阶段管理：发作、慢性、恢复",
-        "甘特图式病程展示"
+        "100+ 症状及精细严重程度量表",
+        "病程管理：发作、慢性、危机、康复",
+        "甘特图风格的持续时间可视化展示"
       ]
     }
   },
   "benefits": {
     "badge": "为什么选择 VitalsPath？",
-    "title": "真正全能的",
+    "title": "真全能的",
     "titleHighlight": "健康工具。",
     "items": {
-      "medications": {
-        "title": "药物与剂量",
-        "description": "全程控制服用、提醒及库存管理。"
-      },
       "treatments": {
-        "title": "治疗管理",
-        "description": "科学梳理疾病与对应药物。"
+        "title": "治疗方案管理",
+        "description": "根据病症科学梳理对应的药物组。"
       },
       "appointments": {
         "title": "医疗预约",
-        "description": "管理就诊、专家信息和诊所。"
-      },
-      "profiles_unlimited": {
-        "title": "家庭档案",
-        "description": "一站式关爱全家人的健康。"
+        "description": "管理门诊、专家、诊所及常用地点。"
       },
       "diseases": {
         "title": "疾病与状态",
-        "description": "详尽的既往病史追踪。"
+        "description": "保持详细的病史和状态追踪。"
+      },
+      "profiles_unlimited": {
+        "title": "家庭档案",
+        "description": "在一个中心枢纽中关爱全家。"
+      },
+      "medications": {
+        "title": "药物与剂量",
+        "description": "服用进度、提醒和库存的高级控制。"
       },
       "symptoms_plus": {
         "title": "100+ 症状",
-        "description": "详尽记录症状变化与恢复周期。"
+        "description": "包含严重程度、阶段和监测的详细日志。"
       }
     },
     "stats": {
-      "languages": "语言支持",
-      "symptoms": "症状库",
-      "profiles": "成员档案",
-      "private": "隐私安全"
+      "languages": "多语言",
+      "symptoms": "种症状",
+      "profiles": "个档案",
+      "private": "隐私保护"
     },
     "disclaimer": {
-      "title": "VitalsPath 不能替代专业医生。",
-      "description": "这是一个管理工具。作医疗决定前请务必咨询医生。"
+      "title": "VitalsPath 不能替代医生。",
+      "description": "这是一个管理工具。作医疗决策前请务必咨询专业人员。"
     }
   },
   "gallery": {
-    "badge": "iOS 风格界面",
-    "title": "原生质感，",
-    "titleHighlight": "流畅体验。",
+    "badge": "iOS 界面",
+    "title": "生而为",
+    "titleHighlight": "iOS 的一部分。",
+    "subtitle": "VitalsPath 专为 Apple 生态系统设计，尊重您的隐私并与您喜爱的工具深度集成。",
+    "native": "原生体验。",
+    "synced": "云端同步。",
+    "secure": "极致安全。",
+    "integrations": {
+      "icloud": {
+        "label": "iCloud 同步",
+        "desc": "端到端加密技术"
+      },
+      "calendar": {
+        "label": "Apple 日历",
+        "desc": "自动同步事件"
+      },
+      "maps": {
+        "label": "Apple 地图",
+        "desc": "查找附近药房"
+      },
+      "haptics": {
+        "label": "原生触感",
+        "desc": "Taptic Engine 3"
+      }
+    },
+    "privacy": {
+      "title": "隐私保护架构",
+      "desc": "健康数据在本地加密，未经您的明确许可绝不共享。"
+    },
+    "sync": {
+      "title": "iCloud 深度加密",
+      "desc": "在 iPhone、iPad 和 Mac 之间安全同步您的全家档案。"
+    },
+    "profiles": {
+      "title": "家庭至上",
+      "desc": "管理多个档案，每个档案都有独立的病史、过敏和急救信息。"
+    },
+    "metrics": {
+      "title": "健康洞察",
+      "desc": "通过可视化图表观察服药顺从性、症状和家庭健康的长期趋势。"
+    },
     "sections": {
-      "main": "主界面",
-      "detail": "详情页",
-      "modes": "外观主题",
+      "main": "主页",
+      "detail": "详情",
+      "modes": "浅色 / 深色",
       "widgets": "小组件",
-      "languages": "多语言"
+      "languages": "语言"
     },
     "labels": {
-      "dashboard": "仪表盘",
-      "profiles": "档案",
-      "medications": "药物",
-      "symptoms": "症状",
-      "conditions": "病况",
-      "wellness": "健康",
+      "dashboard": "控制面板",
+      "profiles": "家庭档案",
+      "medications": "药物管理",
+      "symptoms": "症状追踪",
+      "conditions": "病症管理",
+      "wellness": "健康指标",
       "profileDetail": "档案详情",
       "medicationDetail": "药物详情",
-      "doseLog": "服药记录",
+      "doseLog": "服用日志",
       "symptomGraph": "症状图表",
-      "tasks": "任务",
-      "notifications": "通知",
-      "conditionDetail": "病况详情",
-      "emergency": "紧急",
+      "tasks": "任务管理",
+      "notifications": "通知提醒",
+      "conditionDetail": "病情详情",
+      "emergency": "紧急信息",
       "lightMode": "浅色模式",
       "darkMode": "深色模式",
-      "widgets": "桌面组件",
+      "widgets": "小组件展示",
       "widgetsGallery": "组件库",
       "liveActivity": "实时活动",
       "spanish": "西班牙语",
       "english": "英语",
-      "moreLanguages": "+ 更多语言",
-      "italian": "意大利语"
+      "moreLanguages": "+ 更多语言"
     },
-    "note": "实机截图演示",
-    "subtitle": "VitalsPath 从底层开始构建，旨在成为 Apple 生态中的一等公民，在尊重隐私的同时，与您已有的工具深度整合。",
-    "native": "原生原生。",
-    "synced": "实时同步。",
-    "secure": "隐私安全。",
-    "integrations": {
-      "icloud": {
-        "label": "iCloud 同步",
-        "desc": "端到端加密"
-      },
-      "calendar": {
-        "label": "日历集成",
-        "desc": "自动同步事件"
-      },
-      "maps": {
-        "label": "原生地图",
-        "desc": "查找最近药房"
-      },
-      "haptics": {
-        "label": "触感反馈",
-        "desc": "Taptic 引擎支持"
-      }
-    },
-    "privacy": {
-      "title": "硬核隐私保护",
-      "desc": "健康数据在本地加密，未经您的许可绝不分享。"
-    },
-    "sync": {
-      "title": "iCloud 加密同步",
-      "desc": "在 iPhone、iPad 和 Mac 之间安全同步全家成员的数据。"
-    },
-    "profiles": {
-      "title": "家庭为先",
-      "desc": "管理多个独立档案，包含各自的病史、过敏史和紧急信息。"
-    },
-    "metrics": {
-      "title": "健康洞察",
-      "desc": "可视化依从性、症状变化和全家健康趋势的长线数据。"
-    }
+    "note": "真实应用截图展示"
   },
-  "waitlist": {
-    "badge": "2026年Q1 发布",
-    "title": "成为首批受邀者，",
-    "titleHighlight": "关爱家人健康",
-    "subtitle": "立即加入等候名单，获取早期预览权限。",
-    "form": {
-      "placeholder": "您的电子邮箱",
-      "button": "立即加入"
+  "testflight": {
+    "badge": "TestFlight 现已上线",
+    "title": "定义家庭健康",
+    "titleHighlight": "的新未来",
+    "subtitle": "我们专属的公开 Beta 版现已在 TestFlight 开启。加入 8,000 名测试者行列，协助我们打造最终形态的健康中心。",
+    "offer": "Beta 限量专属优惠",
+    "premium_free": "前 100 名活跃测试者将在正式版上线时免费获赠 3 个月高级订阅 (Premium)。",
+    "slots": "目前 0/8,000 名额已满（名额开放中）",
+    "cta": {
+      "button": "免费加入 Beta 版",
+      "description": "通过 Apple TestFlight 立即访问"
     },
-    "success": "已成功加入等候名单！",
-    "privacy": "拒绝垃圾邮件。只发送重要进度。",
-    "stats": {
-      "label": "已有加入者",
-      "count": "位"
-    },
-    "plans": {
-      "free": {
-        "name": "免费版:",
-        "description": "基础档案，核心药物管理。"
-      },
-      "premium": {
-        "name": "高级版:",
-        "description": "无限成员档案，深度分析功能。"
-      }
-    },
-    "privacyTitle": "极致隐私",
-    "privacyDesc": "您的数据永不离开设备。",
-    "joinTitle": "加入等候名单",
-    "joinDesc": "发布时将为您发送专属邀请。",
-    "badgeOffer": "早鸟优惠",
-    "discount": "特别折扣",
-    "discountDesc": "首批用户的专属优惠。"
+    "benefits": {
+      "lead": "为什么要参与 Beta 测试？",
+      "items": [
+        "抢先体验全新功能",
+        "直接影响开发进程",
+        "专属 Beta 测试者勋章",
+        "优先的一对一技术支持"
+      ]
+    }
   },
   "footer": {
     "features": "核心功能",
-    "privacy": "隐私政策",
-    "support": "技术支持",
+    "privacy": "隐私保护",
+    "support": "客户支持",
+    "copyright": "2026 VitalsPath · 匠心出品",
+    "developer": "RomeroDev 作品",
     "feedback": "意见反馈",
     "terms": "服务条款",
     "disclaimer": "免责声明",
-    "subscription": "购买方案",
-    "copyright": "2026 VitalsPath · 匠心打造",
-    "developer": "RomeroDev 作品"
+    "subscription": "订阅方案"
   },
   "legal": {
     "terms": {
       "title": "VitalsPath 服务条款",
-      "subtitle": "健康与服药追踪器",
-      "lastUpdated": "更新日期: 2026年",
+      "subtitle": "健康与服药管理追踪器",
+      "lastUpdated": "最后更新：2026年",
       "sections": {
         "general": {
-          "title": "1. 一般条款",
-          "content": "本条款规定了 VitalsPath - 健康与服药追踪器（以下简称“本应用”）的使用规范。"
+          "title": "1. 一般信息",
+          "content": "本条款规范您对 VitalsPath 应用（“应用”）的使用。<br><br>通过使用本应用，即表示您接受这些条款和我们的隐私政策。<br><br>如果您不同意，请停止使用本应用。"
         },
         "owner": {
-          "title": "2. 运营者信息",
-          "content": "运营者: Lester Romero Bernardo, 计算机工程师。联系邮箱: vitalspath@gmail.com"
+          "title": "2. 所有者信息",
+          "content": "所有者：Lester Romero Bernardo，软件工程师。<br>西班牙瓦伦西亚。<br>联系方式：vitalspath@gmail.com<br><br>Lester Romero Bernardo 是数据处理的责任人。"
         },
         "purpose": {
-          "title": "3. 服务性质",
-          "content": "VitalsPath 提供用于整理、记录和可视化健康信息的工具。"
+          "title": "3. 服务内容",
+          "content": "VitalsPath 提供用于组织、记录和可视化健康信息的工具。<br><br>• 服药计划与提醒。<br>• 症状、疾病和治疗记录。<br>• 医疗预约管理。<br>• 数据导出与仪表盘。<br>• 与 Apple 健康 (HealthKit) 的集成。<br><br>应用不提供诊断或医疗建议。"
         },
         "usage": {
-          "title": "4. 使用限制",
-          "content": "本应用仅限 18 岁以上人士使用。"
+          "title": "4. 使用限制与医疗警告",
+          "content": "仅限 18 岁以上用户使用。<br><br><strong>重要声明：</strong><br>VitalsPath 不是医疗器械。所提供信息不应作为自我诊断或治疗的依据。<br><br>作医疗决定前务必咨询医生。紧急情况下请拨打 120/110 或当地急救电话。"
         },
         "healthkit": {
-          "title": "5. Apple 健康集成",
-          "content": "本应用仅以只读模式访问 Apple Health/HealthKit 数据。"
+          "title": "5. Apple 健康 (HealthKit)",
+          "content": "经您授权，我们可以读取 Apple 健康数据。<br><br>• 您可以随时在 iOS 设置中撤销该权限。<br>• 数据绝不用于营销，也不会出售给第三方。"
         },
         "data": {
-          "title": "6. 数据处理",
-          "content": "所有个人数据处理均遵循隐私政策。"
+          "title": "6. 隐私与数据处理",
+          "content": "我们根据 GDPR 处理您的健康数据。<br><br>• 法律依据是您的明确同意。<br>• 我们通过加密和备份技术保护您的数据。"
         },
         "accounts": {
-          "title": "7. 账户与安全",
-          "content": "用户负责维护设备及应用访问的安全性。"
+          "title": "7. 用户账户",
+          "content": "您对设备的安全和对数据的访问权限负全部责任。"
         },
         "business": {
           "title": "8. 商业模式",
-          "content": "采用免费增值模式（免费版 + 高级版）。"
+          "content": "VitalsPath 采用免费增值模式，通过 App Store 提供 Premium 高级订阅功能。"
+        },
+        "export": {
+          "title": "9. 数据导出",
+          "content": "您可以将数据导出为 PDF 或 CSV。您对导出文件的安全性负责。"
         },
         "ip": {
           "title": "10. 知识产权",
-          "content": "本应用的所有相关权利均归 Lester Romero Bernardo 所有。"
-        },
-        "termination": {
-          "title": "15. 终止与停用",
-          "content": "如果检测到严重违规或出于法律原因，我们可以终止您的访问权限。"
-        },
-        "law": {
-          "title": "16. 适用法律",
-          "content": "本条款受西班牙法律管辖，争议由巴伦西亚法院裁决。"
-        },
-        "contact": {
-          "title": "17. 联系与支持",
-          "content": "如有任何疑问，请通过 vitalspath@gmail.com 联系 Lester Romero Bernardo。"
+          "content": "代码、设计、Logo 及文本内容的所有权归 Lester Romero Bernardo 所有。"
         }
       }
     },
     "privacy": {
-      "title": "隐私政策",
-      "lastUpdated": "更新日期: 2026年2月18日",
+      "title": "VitalsPath 隐私政策",
+      "subtitle": "您的私人健康中心",
+      "lastUpdated": "最后更新：2026年2月18日",
       "sections": {
         "intro": {
           "title": "简介",
-          "content": "我们绝不将您的健康数据上传到我们的服务器。您的隐私是我们的首要任务。"
-        },
-        "controller": {
-          "title": "1. 数据控制者",
-          "content": "Lester Romero Bernardo, 邮箱: vitalspath@gmail.com"
+          "content": "Lester Romero Bernardo（“所有者”）保护用户的隐私。本政策解释了我们如何管理您的数据。"
         },
         "info": {
-          "title": "2. 信息收集",
-          "content": "药物、症状、档案信息均本地存储于您的 iPhone 且受到加密保护。"
+          "title": "1. 信息收集",
+          "content": "• 直接输入：药物、症状、档案资料。<br>• 授权数据：Apple 健康 (HealthKit)。<br>• 技术日志：设备型号与系统版本。"
+        },
+        "storage": {
+          "title": "2. 数据存储",
+          "content": "<strong>2.1 本地存储：</strong> 敏感健康数据仅保存在您的 iPhone 上。<br><strong>2.2 无外部服务器：</strong> 我们不会将您的敏感数据发送到我们的服务器。<br><strong>2.3 iCloud 备份：</strong> 用户可选择使用 Apple 加密备份同步功能。"
         },
         "usage": {
           "title": "3. 数据用途",
-          "content": "数据仅用于提供提醒、生成报告和本地分析功能。"
-        },
-        "storage": {
-          "title": "4. 数据存储",
-          "content": "所有数据存储于本地、及端到端加密的 iCloud 中。"
-        },
-        "recipients": {
-          "title": "5. 数据共享",
-          "content": "我们不会将您的数据出售或出租给任何第三方。"
-        },
-        "retention": {
-          "title": "6. 数据保留",
-          "content": "数据在应用安装期间保留，卸载后数据将被清除。"
+          "content": "数据仅用于提供提醒、健康评估 (Wellness Score) 和生成统计洞察等应用功能。"
         },
         "rights": {
-          "title": "7. 您的权利",
-          "content": "您可以随时查看、导出或删除您的个人数据。"
-        },
-        "security": {
-          "title": "8. 安全保障",
-          "content": "我们采用 AES-256 加密技术确保存储在设备上的数据安全。"
-        },
-        "minors": {
-          "title": "9. 未成年人隐私",
-          "content": "本应用不面向 18 岁以下未成年人。"
-        },
-        "changes": {
-          "title": "10. 政策变更",
-          "content": "我们可能会更新此政策，重大变更将通过应用内通知。"
+          "title": "4. 您的权利",
+          "content": "您有权随时查看、更正或删除您的个人信息。"
         },
         "contact": {
-          "title": "11. 联系方式",
-          "content": "如有隐私相关疑问，请通过 vitalspath@gmail.com 联系我们。"
+          "title": "5. 联系方式",
+          "content": "如有隐私疑问：vitalspath@gmail.com"
         }
       }
     },
@@ -450,148 +383,187 @@
       "title": "医疗免责声明",
       "notice": {
         "title": "重要声明",
-        "content": "VitalsPath 是管理工具而非医疗器械。不可用于急救场景。"
+        "content": "使用 VitalsPath 前请仔细阅读。"
       },
       "sections": {
         "notMedical": {
-          "title": "非医疗服务",
-          "content": "本应用不提供任何医疗诊断、建议或治疗方案。"
+          "title": "非医疗建议",
+          "content": "VitalsPath 是管理辅助工具，并不提供医疗诊断或治疗决策。"
         },
         "professional": {
-          "title": "咨询专业人士",
-          "content": "作医疗决定前请务必咨询医生。本应用信息不能替代专业见解。"
+          "title": "咨询专业人员",
+          "content": "请务必寻求专业医生的意见，不要仅依赖应用中的信息。"
         },
         "emergency": {
           "title": "紧急情况",
-          "content": "遇紧急情况请立即拨打 120/110 或当地急救电话。",
-          "callToAction": "拨打急救电话"
-        },
-        "accuracy": {
-          "title": "数据准确性",
-          "content": "用户应对输入数据的准确性负责。"
-        },
-        "medication": {
-          "title": "药物管理",
-          "content": "应用仅辅助记忆，不审核药物相互作用。"
-        },
-        "responsibility": {
-          "title": "用户责任",
-          "content": "用户承担使用本应用及基于其中数据作决定的全部风险。"
+          "content": "发生医疗紧急情况时，请立即拨打当地急救电话。VitalsPath 并非急救辅助工具。",
+          "callToAction": "紧急医疗情况下请立即拨打 120 / 110。"
         }
       }
     },
     "subscription": {
-      "title": "订阅与购买条款",
-      "intro": "VitalsPath 提供月度、年度和终身许可方案。",
+      "title": "订阅条款",
+      "lastUpdated": "更新日期：2026年2月18日",
+      "intro": "关于 VitalsPath Premium 支付及其条款的说明。",
       "sections": {
+        "whatIs": {
+          "title": "1. 什么是 Premium？",
+          "content": "这是一项付费计划，可解锁无限家庭档案及高级智能计划功能。"
+        },
+        "plans": {
+          "title": "2. 方案类别",
+          "content": "提供月度、年度和终身授权（一次性付费）选项。"
+        },
         "management": {
-          "title": "订阅管理",
-          "content": "用户可随时通过 Apple ID 设置取消自动续费。"
+          "title": "3. 订阅管理",
+          "content": "您可以通过系统的 Apple ID 设置管理或取消订阅。"
         }
       }
     }
   },
   "feedback": {
-    "title": "意见反馈",
-    "subtitle": "您的反馈是我们不断进步的动力。欢迎报告 Bug 或提交功能建议。",
+    "title": "反馈与支持",
+    "subtitle": "通过您的建议改善 VitalsPath，或向我们反馈使用中的问题。",
     "types": {
-      "feature": "功能建议",
+      "feature": "新功能建议",
       "bug": "问题反馈",
-      "improvement": "改进想法",
-      "question": "咨询求助",
+      "improvement": "改进意见",
+      "question": "常规咨询",
       "other": "其他"
     },
     "form": {
       "type": "反馈类型",
-      "name": "您的姓名",
-      "email": "电子邮箱",
+      "name": "如何称呼您",
+      "email": "电子邮箱地址",
       "subject": "主题",
-      "message": "正文内容",
+      "message": "内容详情",
       "namePlaceholder": "请输入姓名",
-      "emailPlaceholder": "your@email.com",
-      "submit": "提交反馈"
+      "emailPlaceholder": "name@example.com",
+      "subjectPlaceholder": "主题概要",
+      "messagePlaceholder": "请描述您的想法或遇到的问题...",
+      "submit": "发送反馈"
     },
     "success": {
       "title": "感谢您的反馈！",
-      "message": "我们已收到您的信息，并会认真审阅。"
+      "message": "我们已收到您的信息，并会认真审阅。",
+      "backHome": "返回主页"
     }
   },
   "pricing": {
-    "badge": "早期采用者优惠",
-    "title": "选择您的方案",
-    "subtitle": "清晰透明的定价。无隐藏费用。",
+    "badge": "发布季专属优惠",
+    "title": "简单定价",
+    "subtitle": "无隐藏费用。为您的家庭选择理想的方案。",
     "monthly": {
-      "title": "月度方案"
+      "title": "月度",
+      "description": "按月扣费，可随时取消"
     },
     "premium": {
       "title": "VitalsPath Premium",
-      "subtitle": "全面解锁家庭健康管理的各项潜能。",
+      "subtitle": "家庭健康管理的终极伴侣。",
       "features_title": "包含免费版所有功能，外加：",
-      "privacy_title": "100% 本地隐私",
-      "privacy_desc": "您的健康数据绝不离开 iPhone。数据存储于原生加密数据库中。"
+      "feature_desc": "无限制访问所有专业工具。",
+      "privacy_title": "100% 本地隐私控制",
+      "privacy_desc": "健康数据绝不离开您的手机。本地加密技术确保存储安全性。"
     },
     "free": {
       "title": "免费版",
-      "description": "功能完整且永久免费，支持基础的个人健康管理。",
-      "functional_badge": "100% 功能完整",
+      "description": "基础核心功能永久免费，足以应对基本的个人健康管理。",
+      "functional_badge": "100% 功能完备",
       "forever_badge": "永久免费"
     },
     "annual": {
-      "title": "年度方案"
+      "title": "年度",
+      "description": "最受欢迎的超值方案"
     },
     "lifetime": {
-      "title": "终身方案",
-      "description": "一次购买，终身享有所有新特性。"
+      "title": "终身授权",
+      "description": "一次支付，永久享受所有更新"
     },
     "features": {
-      "unlimited_profiles": "无限成员档案",
-      "unlimited_diseases": "无限病症记录",
+      "unlimited_profiles": "无限量家庭档案",
+      "unlimited_diseases": "无限病历记录",
       "unlimited_medications": "无限药物项目",
-      "stock_inventory": "库存盘点管理",
-      "export_pdf_csv": "导出 PDF/CSV 报告",
-      "advanced_analytics": "深度趋势统计",
-      "health_reports": "生成专业就诊报告",
-      "ocr_scanner": "OCR 药物扫码识图",
-      "healthkit": "HealthKit 深度整合",
-      "icloud_backup": "iCloud 加密备份",
+      "unlimited_treatments": "无限治疗方案",
+      "extended_pause": "高级暂停功能",
+      "extend_medication": "延长疗程周期",
+      "full_schedule": "完整排期管理",
+      "quiet_schedule": "静默排期模式",
+      "stock_inventory": "库存与药量清点",
+      "export_pdf_csv": "导出 PDF/CSV 数据",
+      "advanced_analytics": "详细趋势统计",
+      "health_reports": "专业就诊报告",
+      "health_reports_desc": "专为诊所面谈设计的 PDF 报告。",
+      "ocr_scanner": "医疗 OCR 扫描仪",
+      "healthkit": "HealthKit 生态集成",
+      "complex_symptoms": "深度症状追踪",
+      "icloud_backup": "iCloud 加密同步",
+      "icloud_backup_desc": "通过 Apple 安全通道备份。",
       "all_themes": "全套外观主题",
-      "smart_scheduler_ia": "AI 回路调度优化",
-      "gamification": "健康游戏化激励"
+      "all_themes_desc": "完全自定义界面色彩。",
+      "advanced_notifications": "高级通知系统",
+      "advanced_notifications_desc": "包含关键预警与智能提醒。",
+      "haptic_feedback": "精品触觉反馈",
+      "haptic_feedback_desc": "一流的操作交互感。",
+      "widget_styles": "所有组件样式",
+      "widget_styles_desc": "多样化的主屏幕布局方案。",
+      "unlimited_profiles_desc": "无限制管理全家健康数据。",
+      "smart_scheduler_ia_desc": "智能剂量分配与排期优化。",
+      "advanced_analytics_desc": "深度解析健康态势。",
+      "export_pdf_csv_desc": "多格式持ち出し，掌握主动权。",
+      "basic_profiles": "1 个活跃档案",
+      "basic_medications": "每档案最多 3 种药",
+      "local_reminders": "标准的推送通知",
+      "wellness_score": "基础健康指标",
+      "wellness_details": "详细健康影响因子",
+      "smart_scheduler": "冲突检查 (手动)",
+      "smart_scheduler_ia": "AI 自动化智能排期",
+      "appointments_limit": "每月 3 次预约记录",
+      "unlimited_appointments": "不限次数预约管理",
+      "locations_limit": "2 个偏好地点",
+      "insurance_limit": "1 份保险凭证",
+      "symptoms_basic": "基础症状日志",
+      "symptoms_complex": "复杂细节记录 (器官、情绪等)",
+      "inventory_basic": "基础库存与效期提醒",
+      "health_status": "健康指数分析",
+      "health_status_desc": "基于数据趋势的合理化建议。",
+      "gamification": "激励与勋章系统",
+      "gamification_desc": "助力养成健康习惯。"
     },
-    "cta": "即将推出",
+    "cta": "敬请期待",
     "cta_alt": "立即加入"
   },
   "smartScheduling": {
-    "badge": "闭环算法",
-    "title": "智能调度引擎",
-    "subtitle": "深度优化服药周期，兼顾药物交互作用与个人生活作息。",
+    "badge": "智能算法",
+    "title": "智能化排期",
+    "subtitle": "我们的算法通过分析药物相互作用、安全余量和生活习惯，为您生成最佳服用周期。",
     "steps": {
       "1": {
         "title": "输入",
-        "desc": "药物与频率"
+        "desc": "药物与时间"
       },
       "2": {
-        "title": "时隙",
+        "title": "位隙",
         "desc": "可用窗口"
       },
       "3": {
         "title": "分析",
-        "desc": "安全阈值"
+        "desc": "安全性检测"
       },
       "4": {
         "title": "校验",
-        "desc": "重合冲突"
+        "desc": "发现冲突"
       },
       "5": {
-        "title": "优化",
-        "desc": "最佳方案"
+        "title": "输出",
+        "desc": "理想方案"
       }
     }
   },
   "notificationModes": {
-    "badge": "自适应提醒",
-    "title": "顺应场景的通知系统",
-    "subtitle": "支持多种交互层级，无论是会议室还是卧室都能游刃有余。",
+    "badge": "场景化提醒",
+    "title": "按需定制通知",
+    "subtitle": "从完全静止到关键预警，自由选择适合您当前环境的提醒风格。",
+    "hapticTip": "触觉反馈效果视 iPhone 型号而定。",
     "modes": {
       "normal": {
         "title": "标准",
@@ -599,67 +571,68 @@
       },
       "quiet": {
         "title": "静默",
-        "desc": "仅横幅显示，无干扰。"
+        "desc": "仅视觉横幅，会议场景理想之选。"
       },
       "discrete": {
         "title": "隐蔽",
-        "desc": "仅通过线性马达微震。"
+        "desc": "轻微触碰提醒，确保您的隐私。"
       },
       "off": {
         "title": "关闭",
-        "desc": "不干扰，仅桌面角标。"
+        "desc": "零打扰模式，仅更新桌面角标。"
       }
     },
     "simulator": {
-      "now": "现在",
+      "now": "刚才",
       "doseTitle": "布洛芬服用提醒",
-      "ready": "完成"
+      "ready": "已处理"
     }
   },
   "widgetsSection": {
-    "badge": "原生体验",
-    "title": "小组件与",
-    "titleHighlight": "实时活动 (Live Activities)。",
-    "subtitle": "无需解锁，在锁定屏幕上一眼掌握关键进度。",
+    "badge": "原生原生集成",
+    "title": "小组件",
+    "titleHighlight": "及实时活动。",
+    "subtitle": "锁定屏幕，一眼掌握全家核心健康动态。",
+    "description": "无需解锁应用。提供 10 种以上定制小组件、实时活动追踪，并支持灵动岛预览。",
     "items": {
       "widgets": {
         "title": "10+ 专业组件",
-        "desc": "追踪成员健康状态。"
+        "desc": "从服药到家庭动态，尽在掌握。"
       },
       "dynamic": {
-        "title": "灵动岛支持",
-        "desc": "动态实时状态预览。"
+        "title": "支持灵动岛",
+        "desc": "常驻关键动态更新。"
       },
       "live": {
         "title": "实时活动",
-        "desc": "当前服药进度一览。"
+        "desc": "锁定屏幕，时刻清晰进度。"
       }
     }
   },
   "languages": {
-    "title": "沟通无界",
+    "title": "沟通无障碍",
     "subtitle": "生而全球化",
-    "description": "VitalsPath 原生支持 15 种语言，让每一位家庭成员都能倍感亲切。"
+    "description": "VitalsPath 内置多国语言支持，让来自不同地区的每一位家庭成员都能倍感亲切。"
   },
   "footerStats": {
     "activeUsers": "活跃用户量",
-    "regions": "覆盖地区",
-    "plansCreated": "已生成的计划"
+    "regions": "覆盖国家/地区",
+    "plansCreated": "已生成的计划数"
   },
   "survey": {
     "badge": "快速调研",
-    "question": "您认为这款应用对您的家庭有帮助吗？",
+    "question": "您认为这款应用对您或您的家庭有实质帮助吗？",
     "options": {
       "yes": "很有帮助",
-      "no": "没有帮助",
-      "maybe": "可能有吧"
+      "no": "目前不需要",
+      "maybe": "可能会有"
     },
     "thanks": "感谢参与调研！"
   },
   "ecosystem": {
-    "badge": "Apple Ecosystem",
-    "title": "On all your devices",
-    "subtitle": "VitalsPath is designed exclusively for the Apple ecosystem, with native integration so your health is always present.",
+    "badge": "Apple 生态系统",
+    "title": "适配您的全系设备",
+    "subtitle": "VitalsPath 专为 Apple 平台深度定制，让健康管控触手可及。",
     "iphone": {
       "name": "iPhone",
       "os": "iOS 18+"
@@ -672,6 +645,6 @@
       "name": "Apple Watch",
       "os": "watchOS 11+"
     },
-    "description": "Instant sync via iCloud and full compatibility with widgets, critical alerts, and Health App integration."
+    "description": "iCloud 毫秒级同步，完全支持主屏组件、关键提醒及 Apple 健康集成。"
   }
 }

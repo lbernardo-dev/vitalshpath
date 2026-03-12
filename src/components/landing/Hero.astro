@@ -6,6 +6,7 @@ import {
     Sparkles,
     Users,
     Check,
+    QrCode,
 } from "lucide-react";
 import { Image } from "astro:assets";
 import dashboardScreen from "../../assets/images/screens/screen-01-dashboard.PNG";
@@ -102,11 +103,13 @@ const t = useTranslations(lang);
                     class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 stagger-4"
                 >
                     <a
-                        href="#waitlist"
-                        class="group relative inline-flex items-center justify-center px-8 py-4 rounded-[28px] bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all overflow-hidden hover:bg-cyan-500 dark:hover:bg-cyan-400"
+                        href="https://testflight.apple.com/join/92qmBYvJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group relative inline-flex items-center justify-center px-8 py-4 rounded-[28px] bg-blue-600 text-white font-bold shadow-xl shadow-blue-500/20 hover:shadow-2xl hover:scale-105 transition-all overflow-hidden"
                     >
                         <span class="relative flex items-center gap-2">
-                            {t("hero.cta.primary")}
+                            {t("testflight.cta.button")}
                             <ArrowRight
                                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                             />
@@ -118,6 +121,18 @@ const t = useTranslations(lang);
                     >
                         {t("hero.cta.secondary")}
                     </a>
+                </div>
+
+                <!-- TestFlight Stats -->
+                <div class="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 stagger-5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span>{t("testflight.slots")}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <QrCode className="w-4 h-4" />
+                        <span>Scan to join on iPhone</span>
+                    </div>
                 </div>
             </div>
 
@@ -387,7 +402,7 @@ const t = useTranslations(lang);
     // Specular shine reaction
     const cards = document.querySelectorAll(".liquid-glass");
     cards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
+        card.addEventListener("mousemove", (e: any) => {
             const rect = (card as HTMLElement).getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;

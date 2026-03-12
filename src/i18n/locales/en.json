@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "VitalsPath - Your Family Health Hub",
-    "description": "VitalsPath - Your family health hub. Manage medications, appointments, symptoms, and wellness for your entire family in one intelligent iOS app."
+    "title": "VitalsPath: Smart Med Tracker & Pill Reminder",
+    "description": "Track medicine, pills, vitals, prescriptions & doctor appointments with smart alerts. iPhone/iPad/Watch app. Join TestFlight beta now!"
   },
   "nav": {
     "features": "Features",
@@ -9,17 +9,17 @@
     "ecosystem": "Ecosystem",
     "benefits": "Benefits",
     "pricing": "Plans",
-    "waitlist": "Join Waitlist",
+    "testflight": "Join TestFlight Beta",
     "gallery": "Gallery"
   },
   "hero": {
-    "badge": "Family Health Hub · iOS 18+",
-    "title": "All your family's health,",
-    "titleHighlight": "in one single app.",
-    "subtitle": "<strong>VitalsPath</strong> centralizes medication, appointments, symptoms, mood, tasks and wellness metrics.",
+    "badge": "TestFlight Beta Now Live · iOS 18+",
+    "title": "Smart Medication",
+    "titleHighlight": "& Vitals Tracker.",
+    "subtitle": "Track pills, prescriptions, vitals, and doctor appointments with medical-grade precision and Liquid Glass design.",
     "cta": {
-      "primary": "Join the Waitlist",
-      "secondary": "Discover VitalsPath"
+      "primary": "Join TestFlight Beta FREE",
+      "secondary": "View Core Features"
     },
     "features": {
       "profiles": "Multi-family profiles",
@@ -83,61 +83,37 @@
         "title": "100% Private",
         "description": "Your data never leaves your device."
       },
-      "medication": {
-        "title": "Dose-Centric Medication",
-        "description": "Each dose with status and traceability."
+      "pills": {
+        "title": "Pill Reminders",
+        "description": "Never miss a dose with smart alerts and medication stock tracking."
+      },
+      "journal": {
+        "title": "Symptom Journal",
+        "description": "Log how you feel. Track symptoms, mood, and recoveries with detailed charts."
+      },
+      "calendar": {
+        "title": "Medical Calendar",
+        "description": "Keep your medical appointments, specialist visits, and pharmacies organized in one place."
+      },
+      "refills": {
+        "title": "Refill Alerts",
+        "description": "Smart notices when you run out of prescriptions or pills. Don't run out of treatment."
+      },
+      "ocr": {
+        "title": "NATIVE Medical OCR",
+        "description": "Scan your medication boxes and prescriptions. VitalsPath extracts data automatically."
+      },
+      "live": {
+        "title": "Live Activities",
+        "description": "Follow your active doses and upcoming appointments directly from Dynamic Island or Lock Screen."
       },
       "wellness": {
         "title": "Wellness Score",
-        "description": "Multi-factor wellness metric."
-      },
-      "calendar": {
-        "title": "Infinite Calendar",
-        "description": "Monthly view with all events."
-      },
-      "tasks": {
-        "title": "Follow-up Tasks",
-        "description": "Order tests, renew prescriptions."
-      },
-      "notifications": {
-        "title": "Smart Notifications",
-        "description": "Discrete mode and nagging."
-      },
-      "symptoms": {
-        "title": "Symptom Tracking",
-        "description": "Detailed log with severity and recovery phases."
-      },
-      "treatments": {
-        "title": "Treatment Management",
-        "description": "Organize conditions and their associated medications."
-      },
-      "dashboards": {
-        "title": "Pro Dashboards",
-        "description": "Consolidated view of your entire family's health in one place."
-      },
-      "metrics": {
-        "title": "Health Metrics",
-        "description": "Advanced tracking of adherence, mood, and family wellness."
-      },
-      "exportImport": {
-        "title": "Export & Import",
-        "description": "Your data always with you. Export and import in PDF, CSV, or JSON formats."
-      },
-      "reports": {
-        "title": "Medical Reports",
-        "description": "Generate detailed and professional reports for your specialists."
-      },
-      "encryption": {
-        "title": "Sensitive Encryption",
-        "description": "Your most sensitive data protected with military-grade AES-256 encryption."
-      },
-      "widgets": {
-        "title": "Widgets & Live Activities",
-        "description": "Home screen dashboard."
+        "description": "Multi-factor metric of your well-being."
       }
     },
     "cta": {
-      "primary": "Join the Waitlist"
+      "primary": "Join the TestFlight Beta"
     }
   },
   "deepFeatures": {
@@ -291,38 +267,27 @@
     },
     "note": "Real app screenshots"
   },
-  "waitlist": {
-    "badge": "Launch Q1 2026",
-    "title": "Be among the first to",
-    "titleHighlight": "care for your family",
-    "subtitle": "Join the waitlist and get early access.",
-    "badgeOffer": "Early Bird Offers",
-    "discount": "Special Discount",
-    "discountDesc": "Exclusive offers for the first users.",
-    "form": {
-      "placeholder": "your@email.com",
-      "button": "Join"
+  "testflight": {
+    "badge": "TestFlight Beta Now Live",
+    "title": "Help us shape the future",
+    "titleHighlight": "of family health",
+    "subtitle": "Our exclusive public beta is now open on TestFlight. Join 8,000 testers and have a direct voice in the features we build.",
+    "offer": "Special Launch Offer",
+    "premium_free": "The first 100 testers receive 3 months of PREMIUM for FREE",
+    "slots": "0/8,000 slots used",
+    "cta": {
+      "button": "Join the Beta for FREE",
+      "description": "Instant access via Apple TestFlight"
     },
-    "success": "You're on the list!",
-    "privacy": "No spam. Only important news.",
-    "stats": {
-      "label": "Already signed up",
-      "count": "people"
-    },
-    "plans": {
-      "free": {
-        "name": "Free:",
-        "description": "100% functional app. Forever."
-      },
-      "premium": {
-        "name": "Premium:",
-        "description": "unlimited multi-profile, complete analytics."
-      }
-    },
-    "privacyTitle": "Total Privacy",
-    "privacyDesc": "Your data never leaves your device.",
-    "joinTitle": "Join the waitlist",
-    "joinDesc": "Get an exclusive invite when we launch."
+    "benefits": {
+      "lead": "Why Join the Beta?",
+      "items": [
+        "Early access to new features",
+        "Actively shape the product's future",
+        "Exclusive beta tester badge",
+        "Priority direct support"
+      ]
+    }
   },
   "footer": {
     "features": "Features",
