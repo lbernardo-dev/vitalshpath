@@ -253,6 +253,7 @@ const t = useTranslations(lang);
         <!-- Footer CTA in section -->
         <div class="mt-24 text-center reveal reveal-scale">
             <a
+                id="features-testflight-btn"
                 href="https://testflight.apple.com/join/92qmBYvJ"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -261,6 +262,13 @@ const t = useTranslations(lang);
                 {t("testflight.cta.button")}
                 <ArrowRight className="w-6 h-6" />
             </a>
+            <script>
+                import { trackEvent } from "../../lib/supabase/tracking";
+                const btn = document.getElementById("features-testflight-btn");
+                btn?.addEventListener("click", () => {
+                    trackEvent("testflight_click", { source: "features_section" });
+                });
+            </script>
         </div>
     </div>
 </section>

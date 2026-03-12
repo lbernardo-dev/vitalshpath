@@ -2,6 +2,7 @@
 export { getSupabase, type WaitlistEntry, type Stats } from './client';
 export { 
     trackPageView, 
+    trackEvent,
     updateHeartbeat, 
     subscribeToWaitlist, 
     getStats, 

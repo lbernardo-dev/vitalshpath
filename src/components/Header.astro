@@ -117,6 +117,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     <LanguageSelector lang={lang} />
                     <ThemeToggle />
                     <a
+                        id="header-testflight-btn"
                         href="https://testflight.apple.com/join/92qmBYvJ"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -144,6 +145,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         <span class="hidden sm:inline">{t("nav.testflight")}</span
                         >
                     </a>
+                    <script>
+                        import { trackEvent } from "../lib/supabase/tracking";
+                        const btn = document.getElementById("header-testflight-btn");
+                        btn?.addEventListener("click", () => {
+                            trackEvent("testflight_click", { source: "header_nav" });
+                        });
+                    </script>
                 </div>
             </div>
         </div>

@@ -103,6 +103,7 @@ const t = useTranslations(lang);
                     class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 stagger-4"
                 >
                     <a
+                        id="hero-testflight-btn"
                         href="https://testflight.apple.com/join/92qmBYvJ"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -115,6 +116,13 @@ const t = useTranslations(lang);
                             />
                         </span>
                     </a>
+                    <script>
+                        import { trackEvent } from "../../lib/supabase/tracking";
+                        const btn = document.getElementById("hero-testflight-btn");
+                        btn?.addEventListener("click", () => {
+                            trackEvent("testflight_click", { source: "hero_section" });
+                        });
+                    </script>
                     <a
                         href="#features"
                         class="px-8 py-4 rounded-[28px] font-bold liquid-glass text-gray-900 dark:text-white hover:scale-105 transition-all"
