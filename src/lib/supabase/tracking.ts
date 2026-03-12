@@ -128,7 +128,10 @@ export const getStats = async (): Promise<Stats | null> => {
             today_signups: 0,
             today_visitors: 0,
             online_now: 0,
-            total_visitors: 0
+            total_visitors: 0,
+            testflight_clicks_total: 0,
+            testflight_clicks_tracked: 0,
+            testflight_clicks_manual: 0
         };
 
         // 1. Total Signups
@@ -172,7 +175,10 @@ export const getStats = async (): Promise<Stats | null> => {
             today_signups: 0,
             today_visitors: 1, // You are here
             online_now: 1,     // You are here
-            total_visitors: 0
+            total_visitors: 0,
+            testflight_clicks_total: 0,
+            testflight_clicks_tracked: 0,
+            testflight_clicks_manual: 0
         };
     }
 };

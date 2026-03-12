@@ -29,7 +29,7 @@ const t = useTranslations(lang);
         </div>
         
         <div class="bg-gray-900/5 dark:bg-white/5 backdrop-blur-xl px-6 py-4 rounded-3xl border border-black/5 dark:border-white/10 text-center">
-            <p class="text-2xl font-black text-gray-900 dark:text-white mb-1">{(t("testflight.slots") as string).split(' ')[0]}</p>
+            <p id="tf-slots-count" class="text-2xl font-black text-gray-900 dark:text-white mb-1">{(t("testflight.slots") as string).split(' ')[0]}</p>
             <p class="text-[10px] text-gray-500 dark:text-gray-400 uppercase font-black tracking-widest">{(t("testflight.slots") as string).split(' ').slice(1).join(' ')}</p>
         </div>
     </div>
@@ -60,9 +60,11 @@ const t = useTranslations(lang);
         </a>
         
         <script>
-            import { trackEvent } from "../../lib/supabase/tracking";
+            import { trackEvent, getStats } from "../../lib/supabase/tracking";
             
             const btn = document.getElementById("join-testflight-btn");
+            const slotsEl = document.getElementById("tf-slots-count");
+
             if (btn) {
                 btn.addEventListener("click", () => {
                     trackEvent("testflight_click", {
@@ -71,6 +73,21 @@ const t = useTranslations(lang);
                     });
                 });
             }
+
+            // Update slots count dynamically
+            async function updateSlots() {
+                if (!slotsEl) return;
+                const stats = await getStats();
+                if (stats && stats.testflight_clicks_total !== undefined) {
+                    const totalSlots = 8000;
+                    const used = stats.testflight_clicks_total;
+                    // Format as "used/total" or just "used"
+                    slotsEl.textContent = `${used}/${totalSlots}`;
+                }
+            }
+
+            updateSlots();
+            setInterval(updateSlots, 60000); // Update every minute
         </script>
         
         <p class="text-xs text-gray-500 dark:text-gray-400 font-medium flex items-center gap-2">

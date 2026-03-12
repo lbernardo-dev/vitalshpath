@@ -94,6 +94,68 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
+-- 5. Events table (custom tracking)
+CREATE TABLE IF NOT EXISTS events (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    event_name TEXT NOT NULL,
+    metadata JSONB DEFAULT '{}'::jsonb,
+    visitor_id TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 6. Site settings (configurable values)
+CREATE TABLE IF NOT EXISTS site_settings (
+    key TEXT PRIMARY KEY,
+    value JSONB NOT NULL,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Add site_settings policies
+ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can read site_settings" ON site_settings FOR SELECT USING (true);
+CREATE POLICY "Anyone can update site_settings" ON site_settings FOR UPDATE USING (true);
+CREATE POLICY "Anyone can insert site_settings" ON site_settings FOR INSERT WITH CHECK (true);
+
+-- Add events policies
+ALTER TABLE events ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Anyone can insert events" ON events FOR INSERT WITH CHECK (true);
+CREATE POLICY "Anyone can select events" ON events FOR SELECT USING (true);
+
+-- Function to get current stats (Updated for TestFlight)
+CREATE OR REPLACE FUNCTION get_stats()
+RETURNS JSON AS $$
+DECLARE
+    result JSON;
+    tf_manual INTEGER;
+    tf_tracked INTEGER;
+BEGIN
+    -- Get manual count from settings
+    SELECT (value->>0)::INTEGER INTO tf_manual 
+    FROM site_settings 
+    WHERE key = 'testflight_manual_count';
+    
+    IF tf_manual IS NULL THEN tf_manual := 0; END IF;
+
+    -- Get tracked clicks
+    SELECT COUNT(*) INTO tf_tracked 
+    FROM events 
+    WHERE event_name = 'testflight_click';
+
+    SELECT json_build_object(
+        'total_signups', (SELECT COUNT(*) FROM waitlist),
+        'today_signups', (SELECT COUNT(*) FROM waitlist WHERE created_at >= CURRENT_DATE),
+        'today_visitors', (SELECT COUNT(DISTINCT visitor_id) FROM page_views WHERE created_at >= CURRENT_DATE),
+        'online_now', (SELECT COUNT(*) FROM active_sessions WHERE last_activity > NOW() - INTERVAL '5 minutes'),
+        'total_visitors', (SELECT COUNT(DISTINCT visitor_id) FROM page_views),
+        'testflight_clicks_total', tf_manual + tf_tracked,
+        'testflight_clicks_tracked', tf_tracked,
+        'testflight_clicks_manual', tf_manual
+    ) INTO result;
+    
+    RETURN result;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
 -- Function to cleanup old sessions
 CREATE OR REPLACE FUNCTION cleanup_old_sessions()
 RETURNS void AS $$
@@ -102,6 +164,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- Create a cron job to cleanup sessions (requires pg_cron extension)
--- Run this if pg_cron is enabled:
--- SELECT cron.schedule('cleanup-sessions', '*/5 * * * *', 'SELECT cleanup_old_sessions()');
+-- Initial settings
+INSERT INTO site_settings (key, value) VALUES ('testflight_manual_count', '0')
+ON CONFLICT (key) DO NOTHING;

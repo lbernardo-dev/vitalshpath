@@ -141,7 +141,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
             <main class="max-w-7xl mx-auto px-4 py-8">
                 <div
-                    class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8"
+                    class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-6 mb-8"
                 >
                     <div class="bg-white rounded-xl shadow-sm border p-6">
                         <span class="text-sm text-gray-500">Total Lista</span>
@@ -197,6 +197,18 @@ const baseUrl = import.meta.env.BASE_URL;
                             0s
                         </p>
                     </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <span class="text-sm text-gray-500">TestFlight Clicks</span>
+                        <p
+                            id="stat-tf-clicks"
+                            class="text-2xl font-bold text-gray-900 mt-1"
+                        >
+                            0
+                        </p>
+                        <div class="mt-2 text-[10px] text-gray-400 font-medium">
+                            <span id="stat-tf-tracked">0</span> tracked + <span id="stat-tf-manual">0</span> manual
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Tabs Navigation -->
@@ -220,6 +232,11 @@ const baseUrl = import.meta.env.BASE_URL;
                         id="tab-surveys"
                         class="px-4 py-2 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 transition-all"
                         >Encuestas</button
+                    >
+                    <button
+                        id="tab-settings"
+                        class="px-4 py-2 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 transition-all"
+                        >Ajustes</button
                     >
                 </div>
 
@@ -405,6 +422,31 @@ const baseUrl = import.meta.env.BASE_URL;
                         </div>
                     </div>
                 </div>
+
+                <!-- Section: Settings -->
+                <div id="section-settings" class="hidden space-y-8">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Configuración de TestFlight</h3>
+                        <div class="space-y-4 max-w-lg">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Cifra Manual (Apple Connect)</label>
+                                <p class="text-xs text-gray-500 mb-2">Este número se sumará a los clics trackeados automáticamente.</p>
+                                <div class="flex gap-2">
+                                    <input
+                                        type="number"
+                                        id="tf-manual-input"
+                                        class="flex-1 px-4 py-2 border rounded-lg"
+                                        placeholder="Ej: 500"
+                                    />
+                                    <button
+                                        id="save-tf-manual-btn"
+                                        class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                                    >Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
 
@@ -453,6 +495,13 @@ const baseUrl = import.meta.env.BASE_URL;
                         ).textContent = data.total_visitors || 0;
                         document.getElementById("stat-online").textContent =
                             data.online_now || 0;
+
+                        // TestFlight Clicks
+                        if (data.testflight_clicks_total !== undefined) {
+                            document.getElementById("stat-tf-clicks").textContent = data.testflight_clicks_total;
+                            document.getElementById("stat-tf-tracked").textContent = data.testflight_clicks_tracked;
+                            document.getElementById("stat-tf-manual").textContent = data.testflight_clicks_manual;
+                        }
 
                         if (data.avg_duration_seconds !== undefined) {
                             const secs = Math.round(data.avg_duration_seconds);
@@ -839,7 +888,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
             // Tab switching logic
             function setupTabs() {
-                const tabs = ["waitlist", "analytics", "pricing", "surveys"];
+                const tabs = ["waitlist", "analytics", "pricing", "surveys", "settings"];
                 tabs.forEach((tab) => {
                     document
                         .getElementById(`tab-${tab}`)
@@ -917,6 +966,39 @@ const baseUrl = import.meta.env.BASE_URL;
                 });
             }
 
+            // Settings Management
+            function setupSettings() {
+                document.getElementById("save-tf-manual-btn")?.addEventListener("click", async () => {
+                    const value = parseInt(document.getElementById("tf-manual-input").value);
+                    if (isNaN(value)) {
+                        alert("Por favor introduce un número válido");
+                        return;
+                    }
+
+                    const btn = document.getElementById("save-tf-manual-btn");
+                    btn.textContent = "Guardando...";
+                    btn.disabled = true;
+
+                    const { error } = await supabase
+                        .from("site_settings")
+                        .upsert({ 
+                            key: "testflight_manual_count",
+                            value: value,
+                            updated_at: new Date().toISOString()
+                        });
+
+                    if (error) alert("Error: " + error.message);
+                    else {
+                        btn.textContent = "¡Guardado!";
+                        setTimeout(() => {
+                            btn.textContent = "Guardar";
+                            btn.disabled = false;
+                        }, 2000);
+                        loadDashboard();
+                    }
+                });
+            }
+
             // Survey Management
             async function setupSurveys() {
                 document
@@ -979,6 +1061,7 @@ const baseUrl = import.meta.env.BASE_URL;
             setupTabs();
             setupPricing();
             setupSurveys();
+            setupSettings();
             init();
         </script>
     </body>
