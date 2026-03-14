@@ -17,17 +17,19 @@ const { dir } = languages[lang];
 const title = t("meta.title");
 const description = t("meta.description");
 
-const siteUrl = "https://lbernardo-dev.github.io/vitalshpath";
+const siteOrigin = "https://lbernardo-dev.github.io";
+const basePath = "/vitalshpath";
+const siteUrl = `${siteOrigin}${basePath}`;
 
 const jsonLd = [
 	{
 		"@context": "https://schema.org",
-		"@type": "MedicalApplication",
+		"@type": ["SoftwareApplication", "MedicalApplication"],
 		name: "VitalsPath: Smart Med Tracker",
 		applicationCategory: "HealthApplication",
 		operatingSystem: "iOS 18.0 or later, watchOS 11.0 or later",
 		softwareVersion: "1.0",
-		screenshot: [new URL(appMockup.src, siteUrl).href],
+		screenshot: [`${siteUrl}${appMockup.src}`],
 		offers: {
 			"@type": "Offer",
 			price: "0",
@@ -60,7 +62,7 @@ const jsonLd = [
 		"@context": "https://schema.org",
 		"@type": "WebSite",
 		name: "VitalsPath",
-		url: `${siteUrl}${import.meta.env.BASE_URL}/`,
+		url: `${siteUrl}/`,
 	},
 ];
 ---
@@ -115,7 +117,7 @@ const jsonLd = [
 		<meta property="og:description" content={description} />
 		<meta
 			property="og:image"
-			content={new URL(appMockup.src, siteUrl).href}
+			content={`${siteUrl}${appMockup.src}`}
 		/>
 		<meta property="og:url" content={siteUrl} />
 		<meta property="og:image:width" content="1200" />
@@ -133,7 +135,7 @@ const jsonLd = [
 		<meta name="twitter:description" content={description} />
 		<meta
 			name="twitter:image"
-			content={new URL(appMockup.src, siteUrl).href}
+			content={`${siteUrl}${appMockup.src}`}
 		/>
 		<meta name="twitter:creator" content="@vitalspath" />
 		<meta
@@ -145,23 +147,23 @@ const jsonLd = [
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon-32x32.png`}
+			href={`${siteUrl}/favicon-32x32.png`}
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon-16x16.png`}
+			href={`${siteUrl}/favicon-16x16.png`}
 		/>
 		<link
 			rel="icon"
 			type="image/x-icon"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/favicon.ico`}
+			href={`${siteUrl}/favicon.ico`}
 		/>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/apple-touch-icon.png`}
+			href={`${siteUrl}/apple-touch-icon.png`}
 		/>
 <!-- <link
 			rel="icon"
@@ -170,7 +172,7 @@ const jsonLd = [
 		/> -->
 		<link
 			rel="manifest"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/site.webmanifest`}
+			href={`${siteUrl}/site.webmanifest`}
 		/>
 		<meta name="theme-color" content="#007aff" />
 		<meta
@@ -184,23 +186,23 @@ const jsonLd = [
 		<!-- Canonical and Hreflang -->
 		<link
 			rel="sitemap"
-			href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/sitemap-index.xml`}
+			href={`${siteUrl}/sitemap-index.xml`}
 		/>
 		<link
 			rel="canonical"
-			href={`${siteUrl}${import.meta.env.BASE_URL}/${lang}/`}
+			href={`${siteUrl}/${lang}/`}
 		/>
 		<link
 			rel="alternate"
 			hreflang="x-default"
-			href={`${siteUrl}${import.meta.env.BASE_URL}/en/`}
+			href={`${siteUrl}/en/`}
 		/>
 		{
 			supportedLangs.map((l) => (
 				<link
 					rel="alternate"
 					hreflang={l}
-					href={`${siteUrl}${import.meta.env.BASE_URL}/${l}/`}
+					href={`${siteUrl}/${l}/`}
 				/>
 			))
 		}
