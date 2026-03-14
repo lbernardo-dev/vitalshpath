@@ -8,10 +8,10 @@ interface Props {
 const { lang: currentLang } = Astro.props;
 ---
 
-<div class="relative" id="language-selector">
+<div class="relative language-selector">
     <button
         type="button"
-        class="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm"
+        class="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm language-button"
         aria-label="Select language"
         aria-expanded="false"
         aria-haspopup="true"
@@ -39,8 +39,7 @@ const { lang: currentLang } = Astro.props;
     </button>
 
     <div
-        class="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50"
-        id="language-dropdown"
+        class="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg opacity-0 invisible transform -translate-y-2 transition-all duration-200 z-50 language-dropdown"
     >
         <div class="py-2 max-h-64 overflow-y-auto">
             {
@@ -79,53 +78,59 @@ const { lang: currentLang } = Astro.props;
 </div>
 
 <script>
-    const selector = document.getElementById("language-selector");
-    const button = selector?.querySelector("button");
-    const dropdown = document.getElementById("language-dropdown");
+    function setupLanguageSelectors() {
+        const selectors = document.querySelectorAll(".language-selector");
+        
+        selectors.forEach(selector => {
+            const button = selector.querySelector(".language-button");
+            const dropdown = selector.querySelector(".language-dropdown");
 
-    button?.addEventListener("click", () => {
-        const isOpen = dropdown?.classList.contains("opacity-100");
+            if (!button || !dropdown) return;
 
-        if (isOpen) {
-            dropdown?.classList.remove(
-                "opacity-100",
-                "visible",
-                "translate-y-0"
-            );
-            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
-            button.setAttribute("aria-expanded", "false");
-        } else {
-            dropdown?.classList.remove(
-                "opacity-0",
-                "invisible",
-                "-translate-y-2"
-            );
-            dropdown?.classList.add("opacity-100", "visible", "translate-y-0");
-            button.setAttribute("aria-expanded", "true");
-        }
-    });
+            // Remove existing listener if any (for SPA transitions if applicable)
+            const newButton = button.cloneNode(true);
+            button.parentNode?.replaceChild(newButton, button);
 
-    document.addEventListener("click", (e) => {
-        if (!selector?.contains(e.target as Node)) {
-            dropdown?.classList.remove(
-                "opacity-100",
-                "visible",
-                "translate-y-0"
-            );
-            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
-            button?.setAttribute("aria-expanded", "false");
-        }
-    });
+            newButton.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const isOpen = dropdown.classList.contains("opacity-100");
 
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            dropdown?.classList.remove(
-                "opacity-100",
-                "visible",
-                "translate-y-0"
-            );
-            dropdown?.classList.add("opacity-0", "invisible", "-translate-y-2");
-            button?.setAttribute("aria-expanded", "false");
-        }
-    });
+                // Close all other dropdowns
+                document.querySelectorAll(".language-dropdown").forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove("opacity-100", "visible", "translate-y-0");
+                        d.classList.add("opacity-0", "invisible", "-translate-y-2");
+                        d.previousElementSibling?.setAttribute("aria-expanded", "false");
+                    }
+                });
+
+                if (isOpen) {
+                    dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+                    dropdown.classList.add("opacity-0", "invisible", "-translate-y-2");
+                    (newButton as HTMLElement).setAttribute("aria-expanded", "false");
+                } else {
+                    dropdown.classList.remove("opacity-0", "invisible", "-translate-y-2");
+                    dropdown.classList.add("opacity-100", "visible", "translate-y-0");
+                    (newButton as HTMLElement).setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!(e.target as HTMLElement).closest(".language-selector")) {
+                document.querySelectorAll(".language-dropdown").forEach(dropdown => {
+                    dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+                    dropdown.classList.add("opacity-0", "invisible", "-translate-y-2");
+                    dropdown.previousElementSibling?.setAttribute("aria-expanded", "false");
+                });
+            }
+        });
+    }
+
+    // Initial setup
+    setupLanguageSelectors();
+
+    // Re-setup on Astro page load (for view transitions)
+    document.addEventListener("astro:page-load", setupLanguageSelectors);
 </script>
