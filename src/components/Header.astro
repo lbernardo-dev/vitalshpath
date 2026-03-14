@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Menu, X, Rocket } from "lucide-react";
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSelector from "./LanguageSelector.astro";
 import appIcon from "../assets/images/AppIcon_v2.png";
@@ -114,8 +115,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                 </div>
 
                 <div class="flex items-center gap-2 md:gap-3">
-                    <LanguageSelector lang={lang} />
-                    <ThemeToggle />
+                    <div class="hidden sm:flex items-center gap-2 md:gap-3">
+                        <LanguageSelector lang={lang} />
+                        <ThemeToggle />
+                    </div>
+                    
                     <a
                         id="header-testflight-btn"
                         href="https://testflight.apple.com/join/92qmBYvJ"
@@ -125,33 +129,111 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         aria-label={t("nav.testflight")}
                     >
                         <span class="sm:hidden">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="lucide lucide-rocket"
-                            >
-                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.71.71-2.5.71-2.5s-1.79 0-2.71-.5z"></path>
-                                <path d="M8 12.5c0 4 2.5 6 2.5 6l3.5-2c1.5-3 3.5-1.5 3.5-1.5s4.5-3.5 1-13c-9.5-3.5-13 1-13 1s-1.5 2 1.5 3.5l-2 3.5-3 1.5c-4 0-6 2.5-6 2.5l2 3.5"></path>
-                                <path d="M12 10.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
-                            </svg>
+                            <Rocket className="w-5 h-5" />
                         </span>
                         <span class="hidden sm:inline">{t("nav.testflight")}</span
                         >
                     </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button
+                        id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-xl bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        <Menu id="menu-icon" className="w-6 h-6" />
+                        <X id="close-icon" className="w-6 h-6 hidden" />
+                    </button>
+
                     <script>
                         import { trackEvent } from "../lib/supabase/tracking";
                         const btn = document.getElementById("header-testflight-btn");
                         btn?.addEventListener("click", () => {
                             trackEvent("testflight_click", { source: "header_nav" });
                         });
+
+                        // Mobile menu logic
+                        const mobileBtn = document.getElementById("mobile-menu-btn");
+                        const mobileMenu = document.getElementById("mobile-menu");
+                        const menuIcon = document.getElementById("menu-icon");
+                        const closeIcon = document.getElementById("close-icon");
+
+                        mobileBtn?.addEventListener("click", () => {
+                            const isOpen = !mobileMenu?.classList.contains("hidden");
+                            if (isOpen) {
+                                mobileMenu?.classList.add("hidden");
+                                menuIcon?.classList.remove("hidden");
+                                closeIcon?.classList.add("hidden");
+                                document.body.style.overflow = "";
+                            } else {
+                                mobileMenu?.classList.remove("hidden");
+                                menuIcon?.classList.add("hidden");
+                                closeIcon?.classList.remove("hidden");
+                                document.body.style.overflow = "hidden";
+                            }
+                        });
+
+                        // Close menu on link click
+                        const mobileLinks = mobileMenu?.querySelectorAll("a");
+                        mobileLinks?.forEach(link => {
+                            link.addEventListener("click", () => {
+                                mobileMenu?.classList.add("hidden");
+                                menuIcon?.classList.remove("hidden");
+                                closeIcon?.classList.add("hidden");
+                                document.body.style.overflow = "";
+                            });
+                        });
                     </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[60px] z-40">
+            <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl p-6 flex flex-col gap-8 overflow-y-auto">
+                <nav class="flex flex-col gap-6">
+                    {
+                        isLanding ? (
+                            <>
+                                <a href="#features" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.features")}</a>
+                                <a href="#smart-scheduler" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.scheduler")}</a>
+                                <a href="#gallery" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.ecosystem")}</a>
+                                <a href="#benefits" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.benefits")}</a>
+                                <a href="#pricing" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.pricing")}</a>
+                            </>
+                        ) : (
+                            <>
+                                <a href={`${baseUrl}/${lang}/#features`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.features")}</a>
+                                <a href={`${baseUrl}/${lang}/#smart-scheduler`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.scheduler")}</a>
+                                <a href={`${baseUrl}/${lang}/#gallery`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.ecosystem")}</a>
+                                <a href={`${baseUrl}/${lang}/#benefits`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.benefits")}</a>
+                                <a href={`${baseUrl}/${lang}/#pricing`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.pricing")}</a>
+                            </>
+                        )
+                    }
+                </nav>
+                
+                <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-6">
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-gray-900 dark:text-white">Idioma</span>
+                        <LanguageSelector lang={lang} />
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-gray-900 dark:text-white">Tema</span>
+                        <ThemeToggle />
+                    </div>
+                </div>
+
+                <div class="mt-auto pt-8">
+                    <a
+                        href="https://testflight.apple.com/join/92qmBYvJ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-full py-4 bg-blue-600 text-white font-black rounded-2xl shadow-lg flex items-center justify-center gap-3"
+                    >
+                        <Rocket className="w-5 h-5" />
+                        {t("nav.testflight")}
+                    </a>
                 </div>
             </div>
         </div>

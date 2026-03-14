@@ -88,30 +88,11 @@ const t = useTranslations(lang);
                 </div>
             </div>
 
-            <div class="flex items-center gap-1.5">
-                <svg
-                    class="w-3.5 h-3.5 text-orange-500/70"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    ></path>
-                </svg>
+            <div class="flex items-center gap-1.5 pl-4 border-l border-gray-200 dark:border-gray-700">
+                <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
                 <div class="flex items-center gap-1">
-                    <span
-                        class="text-[11px] text-gray-500 dark:text-gray-400 font-medium"
-                        >Visitas:</span
-                    >
-                    <span
-                        id="stat-total-visitors"
-                        class="text-xs font-bold text-gray-900 dark:text-white"
-                        >0</span
-                    >
+                    <span class="text-[11px] text-gray-500 dark:text-gray-400 font-medium">Plazas:</span>
+                    <span id="stat-slots" class="text-xs font-bold text-gray-900 dark:text-white">0/8,000</span>
                 </div>
             </div>
         </div>
@@ -119,126 +100,24 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-    const SUPABASE_URL = "https://mvrsoaefuqrslzpbkvnf.supabase.co";
-    const SUPABASE_KEY =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12cnNvYWVmdXFyc2x6cGJrdm5mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0NTY2MjEsImV4cCI6MjA4NDAzMjYyMX0.Ds6MfNoKyMUgcX5iL3YPbF1Htmy18XI1TebKZoElKRI";
-
-    function getVisitorId() {
-        const key = "vitalspath_visitor_id";
-        let id = localStorage.getItem(key);
-        if (!id) {
-            id = "vp_" + crypto.randomUUID();
-            localStorage.setItem(key, id);
-        }
-        return id;
-    }
-
-    async function trackPageView() {
-        const visitorId = getVisitorId();
-        const page = window.location.pathname;
-        const lang = document.documentElement.lang || "es";
-
-        try {
-            await fetch(`${SUPABASE_URL}/rest/v1/page_views`, {
-                method: "POST",
-                headers: {
-                    apikey: SUPABASE_KEY,
-                    Authorization: `Bearer ${SUPABASE_KEY}`,
-                    "Content-Type": "application/json",
-                    Prefer: "return=minimal",
-                },
-                body: JSON.stringify({
-                    visitor_id: visitorId,
-                    page: page,
-                    lang: lang,
-                    referrer: document.referrer || null,
-                    user_agent: navigator.userAgent,
-                }),
-            });
-
-            await fetch(`${SUPABASE_URL}/rest/v1/active_sessions`, {
-                method: "POST",
-                headers: {
-                    apikey: SUPABASE_KEY,
-                    Authorization: `Bearer ${SUPABASE_KEY}`,
-                    "Content-Type": "application/json",
-                    Prefer: "resolution=merge-duplicates",
-                },
-                body: JSON.stringify({
-                    visitor_id: visitorId,
-                    page: page,
-                    lang: lang,
-                    last_activity: new Date().toISOString(),
-                }),
-            });
-        } catch (e) {
-            console.error("Tracking error:", e);
-        }
-    }
-
-    async function updateHeartbeat() {
-        const visitorId = getVisitorId();
-        try {
-            await fetch(
-                `${SUPABASE_URL}/rest/v1/active_sessions?visitor_id=eq.${visitorId}`,
-                {
-                    method: "PATCH",
-                    headers: {
-                        apikey: SUPABASE_KEY,
-                        Authorization: `Bearer ${SUPABASE_KEY}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        last_activity: new Date().toISOString(),
-                    }),
-                }
-            );
-        } catch (e) {}
-    }
+    import { getStats, trackPageView, updateHeartbeat } from "../lib/supabase/tracking";
 
     async function updateStats() {
         try {
-            const response = await fetch(
-                `${SUPABASE_URL}/rest/v1/rpc/get_stats`,
-                {
-                    method: "POST",
-                    headers: {
-                        apikey: SUPABASE_KEY,
-                        Authorization: `Bearer ${SUPABASE_KEY}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: "{}",
-                }
-            );
-
-            const stats = await response.json();
+            const stats = await getStats();
 
             if (stats) {
                 const onlineEl = document.getElementById("stat-online");
                 const todayEl = document.getElementById("stat-today");
-                const signupsEl = document.getElementById("stat-signups");
-                const totalVisitorsEl = document.getElementById(
-                    "stat-total-visitors"
-                );
-                const durationEl = document.getElementById("stat-duration");
+                const totalVisitorsEl = document.getElementById("stat-total-visitors");
+                const slotsEl = document.getElementById("stat-slots");
                 const widget = document.getElementById("stats-widget");
 
-                if (onlineEl) onlineEl.textContent = stats.online_now || 0;
-                if (todayEl) todayEl.textContent = stats.today_visitors || 0;
-                if (signupsEl) signupsEl.textContent = stats.total_signups || 0;
-                if (totalVisitorsEl)
-                    totalVisitorsEl.textContent = stats.total_visitors || 0;
-
-                if (durationEl && stats.avg_duration_seconds !== undefined) {
-                    const secs = Math.round(stats.avg_duration_seconds);
-                    if (secs < 60) {
-                        durationEl.textContent = `${secs}s`;
-                    } else {
-                        const mins = Math.floor(secs / 60);
-                        const remSecs = secs % 60;
-                        durationEl.textContent =
-                            remSecs > 0 ? `${mins}m ${remSecs}s` : `${mins}m`;
-                    }
+                if (onlineEl) onlineEl.textContent = (stats.online_now || 0).toString();
+                if (todayEl) todayEl.textContent = (stats.today_visitors || 0).toString();
+                if (totalVisitorsEl) totalVisitorsEl.textContent = (stats.total_visitors || 0).toString();
+                if (slotsEl && stats.testflight_clicks_total !== undefined) {
+                    slotsEl.textContent = `${stats.testflight_clicks_total}/8,000`;
                 }
 
                 if (widget) widget.classList.remove("opacity-0");
@@ -250,8 +129,13 @@ const t = useTranslations(lang);
         }
     }
 
-    trackPageView();
+    // Initialize tracking and stats
+    const page = window.location.pathname;
+    const lang = document.documentElement.lang || "es";
+    trackPageView(page, lang);
     updateStats();
-    setInterval(updateHeartbeat, 30000);
+    
+    // Set intervals
+    setInterval(() => updateHeartbeat(), 30000);
     setInterval(updateStats, 30000);
 </script>

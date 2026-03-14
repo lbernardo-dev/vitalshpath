@@ -12,6 +12,8 @@ import { Image } from "astro:assets";
 import dashboardScreen from "../../assets/images/screens/screen-01-dashboard.PNG";
 import { type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
+import QRPopup from "../QRPopup.astro";
+import CountdownTimer from "../CountdownTimer.astro";
 
 interface Props {
     lang: Lang;
@@ -131,17 +133,27 @@ const t = useTranslations(lang);
                     </a>
                 </div>
 
-                <!-- TestFlight Stats -->
-                <div class="mt-6 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 stagger-5">
-                    <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                        <span>{t("testflight.slots")}</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <QrCode className="w-4 h-4" />
-                        <span>Scan to join on iPhone</span>
-                    </div>
+                <!-- Beta Countdown -->
+                <div class="mt-8 flex justify-center lg:justify-start stagger-5">
+                    <CountdownTimer lang={lang} endDate="2026-03-31T23:59:59Z" />
                 </div>
+
+                <!-- TestFlight Stats & QR -->
+                <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 stagger-5">
+                    <div class="flex items-center gap-2 bg-gray-50 dark:bg-white/5 px-4 py-2 rounded-2xl border border-gray-100 dark:border-white/10 shadow-sm">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span id="hero-slots-count" class="font-bold text-gray-900 dark:text-white">{t("testflight.slots")}</span>
+                    </div>
+                    <button 
+                        id="open-qr-btn"
+                        class="flex items-center gap-2 px-4 py-2 rounded-2xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all font-bold border border-blue-100 dark:border-blue-900/30 active:scale-95"
+                    >
+                        <QrCode className="w-4 h-4" />
+                        <span>Visualizar QR</span>
+                    </button>
+                </div>
+
+                <QRPopup lang={lang} />
             </div>
 
             <!-- Right: 3D Phone Mockup -->
@@ -370,6 +382,44 @@ const t = useTranslations(lang);
     const phone = document.getElementById("hero-phone");
     const items = document.querySelectorAll(".parallax-item");
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    // Unified Slots Counter Logic
+    import { getStats } from "../../lib/supabase/tracking";
+    
+    const slotsEl = document.getElementById("hero-slots-count");
+    
+    async function updateSlots() {
+        if (!slotsEl) return;
+        try {
+            const stats = await getStats();
+            if (stats && stats.testflight_clicks_total !== undefined) {
+                const totalSlots = 8000;
+                const used = stats.testflight_clicks_total;
+                // Get the translation part "plazas usadas" or similar if needed, 
+                // but let's just use the number if we want to be clean or keep the format.
+                const fullText = slotsEl.textContent || "";
+                if (fullText.includes("/")) {
+                    const suffix = fullText.split(" ").slice(1).join(" ");
+                    slotsEl.textContent = `${used}/8,000 ${suffix}`;
+                } else {
+                    // Fallback if translation structure changed
+                    slotsEl.textContent = `${used}/8,000 plazas usadas`;
+                }
+            }
+        } catch (e) {
+            console.error("Error updating hero slots:", e);
+        }
+    }
+
+    updateSlots();
+    setInterval(updateSlots, 60000);
+
+    const openQrBtn = document.getElementById("open-qr-btn");
+    openQrBtn?.addEventListener("click", () => {
+        if ((window as any).openQRPopup) {
+            (window as any).openQRPopup();
+        }
+    });
 
     if (scene && phone && !motionQuery.matches) {
         let mouseX = 0;
