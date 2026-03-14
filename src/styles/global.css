@@ -169,6 +169,26 @@
     .stagger-5 {
         transition-delay: 0.5s;
     }
+
+    /* Safe Area Utilities */
+    .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+    }
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .px-safe {
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+    }
+
+    /* Active touch state for mobile buttons */
+    @media (hover: none) {
+        button:active, a:active {
+            transform: scale(0.96);
+            transition: transform 0.1s;
+        }
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

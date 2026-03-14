@@ -17,13 +17,13 @@ const t = useTranslations(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<header role="banner" class="fixed top-0 left-0 right-0 z-50">
+<header role="banner" class="fixed top-0 left-0 right-0 z-50 pt-safe transition-all duration-300">
     <nav
         class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800"
         aria-label="Main navigation"
     >
-        <div class="container mx-auto px-4 md:px-6 py-3 md:py-4">
-            <div class="flex items-center justify-between">
+        <div class="container mx-auto px-4 md:px-6 py-2.5 md:py-4">
+            <div class="flex items-center justify-between h-11 md:h-12">
                 <a
                     href={`${baseUrl}/${lang}/`}
                     class="flex items-center gap-2 flex-shrink-0"
@@ -31,13 +31,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                     <Image
                         src={appIcon}
                         alt=""
-                        class="w-8 h-8 rounded-xl"
+                        class="w-7 h-7 md:w-8 md:h-8 rounded-xl shadow-sm"
                         width={32}
                         height={32}
                         aria-hidden="true"
                     />
                     <span
-                        class="text-lg font-bold text-gray-900 dark:text-white hidden sm:block"
+                        class="text-base md:text-lg font-bold text-gray-900 dark:text-white hidden sm:block"
                         >VitalsPath</span
                     >
                 </a>
@@ -125,11 +125,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         href="https://testflight.apple.com/join/92qmBYvJ"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="px-3 py-2 md:px-5 md:py-2.5 bg-blue-600 text-white text-sm font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center shadow-lg shadow-blue-500/20"
+                        class="px-2.5 py-2 md:px-5 md:py-2.5 bg-blue-600 text-white text-xs md:text-sm font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center shadow-lg shadow-blue-500/20"
                         aria-label={t("nav.testflight")}
                     >
-                        <span class="sm:hidden">
-                            <Rocket className="w-5 h-5" />
+                        <span class="sm:hidden flex items-center gap-1.5">
+                            <Rocket className="w-4 h-4" />
+                            <span class="sr-only">Join</span>
                         </span>
                         <span class="hidden sm:inline">{t("nav.testflight")}</span
                         >
@@ -141,8 +142,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
                         class="md:hidden p-2 rounded-xl bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                         aria-label="Toggle menu"
                     >
-                        <Menu id="menu-icon" className="w-6 h-6" />
-                        <X id="close-icon" className="w-6 h-6 hidden" />
+                        <Menu id="menu-icon" className="w-5 h-5" />
+                        <X id="close-icon" className="w-5 h-5 hidden" />
                     </button>
 
                     <script>
@@ -189,8 +190,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[60px] z-40">
-            <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl p-6 flex flex-col gap-8 overflow-y-auto">
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[60px] top-[calc(60px+env(safe-area-inset-top))] z-40">
+            <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl p-6 flex flex-col gap-6 overflow-y-auto pb-safe">
                 <nav class="flex flex-col gap-6">
                     {
                         isLanding ? (
