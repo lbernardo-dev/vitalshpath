@@ -605,5 +605,13 @@
       "os": "watchOS 11+"
     },
     "description": "Sinkronizacija putem iClouda i savršena integracija s Apple Healthom."
+  },
+  "maintenance": {
+    "status": "Priprema lansiranja",
+    "title": "Pripremamo javno izdanje",
+    "subtitle": "VitalsPath je privremeno u načinu održavanja dok završavamo lansiranje i provjere App Storea.",
+    "defaultMessage": "Javno slijetanje je privremeno ograničeno. Pravne stranice, stranice o privatnosti, pretplati i povratnim informacijama ostaju dostupne kako bi svaka poveznica podijeljena iz aplikacije nastavila raditi.",
+    "legalAccess": "Poveznice koje koristi aplikacija ostaju na mreži tijekom održavanja kako bi se osigurao kontinuitet kroz tijekove uključivanja, podrške i pravne tijekove.",
+    "backToHome": "Pokušajte ponovno kasnije"
   }
 }

@@ -24,6 +24,7 @@ type SiteCopy = {
         emailLabel: string;
     };
     home: {
+        heroBadge: string;
         heroTitle: string;
         heroSubtitle: string;
         primaryCta: string;
@@ -32,6 +33,17 @@ type SiteCopy = {
         featureListTitle: string;
         featureListItems: string[];
         footnote: string;
+        ecosystemLabel: string;
+        ecosystemTitle: string;
+        ecosystemBody: string;
+        ecosystemItems: { title: string; description: string }[];
+        ctaBadge: string;
+        ctaTitle: string;
+        ctaPrivacyDetail: string;
+        ctaPremiumTitle: string;
+        ctaPremiumDetail: string;
+        ctaCommunityTitle: string;
+        ctaCommunityDetail: string;
     };
     privacy: {
         title: string;
@@ -97,6 +109,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
+            heroBadge: "PROTECTING WHAT MATTERS",
             heroTitle:
                 "Keep medication, symptoms, vitals and appointments in one private place.",
             heroSubtitle:
@@ -130,6 +143,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             footnote:
                 "Some features may depend on your device, permissions, or plan. Premium availability is shown clearly inside the app where applicable.",
+            ecosystemLabel: "Ecosystem",
+            ecosystemTitle: "Integrated experience",
+            ecosystemBody: "VitalsPath is designed to work seamlessly across your devices. Use widgets for instant updates, Live Activities to track active doses, and Apple Watch for quick logging on the go.",
+            ecosystemItems: [
+                { title: "Smart Widgets", description: "Vitals and meds directly on your home screen." },
+                { title: "Apple Watch", description: "Fast logging and alerts right on your wrist." },
+                { title: "Live Activities", description: "Real-time tracking of active doses." }
+            ],
+            ctaBadge: "START TODAY",
+            ctaTitle: "Your health, in your hands and private",
+            ctaPrivacyDetail: "Absolute privacy with end-to-end encryption.",
+            ctaPremiumTitle: "PREMIUM CARE",
+            ctaPremiumDetail: "Designed for chronic patients and caregivers.",
+            ctaCommunityTitle: "COMMUNITY",
+            ctaCommunityDetail: "active users trusting us",
         },
         privacy: {
             title: "Privacy Policy",
@@ -248,39 +276,52 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Correo",
         },
         home: {
-            heroTitle:
-                "Mantén medicación, síntomas, constantes y citas en un único lugar privado.",
-            heroSubtitle:
-                "VitalsPath te ayuda a organizar tratamientos, dosis, síntomas, mediciones, citas y tareas de seguimiento con una vista diaria clara, widgets, Live Activities y soporte para Apple Watch.",
-            primaryCta: "Descargar en App Store",
-            secondaryCta: "Ver funciones de lanzamiento",
+            heroBadge: "PROTEGE LO QUE IMPORTA",
+            heroTitle: "Sigue tus medicaciones, síntomas, constantes y citas en un solo cronograma privado.",
+            heroSubtitle: "VitalsPath te ayuda a organizar tratamientos, dosis, síntomas, medidas, citas y tareas de seguimiento con una vista diaria clara, widgets, Live Activities y soporte para Apple Watch.",
+            primaryCta: "Descargar en el App Store",
+            secondaryCta: "Ver novedades",
             sections: [
                 {
-                    title: "Todo lo que necesitas para el seguimiento diario",
-                    body: "Planifica tratamientos y dosis, márcalos como tomados, omitidos o pospuestos, revisa tu stock y mantén controlados los recordatorios de reposición. Registra síntomas, estado de ánimo, constantes, fotos y notas de voz en una única línea de tiempo personal.",
+                    title: "Todo lo que necesitas para tu seguimiento diario",
+                    body: "Planifica tratamientos y dosis, márcalos como tomados, omitidos o pospuestos, revisa tu stock y mantén los recordatorios de recarga bajo control. Sigue síntomas, estado de ánimo, constantes, fotos y notas de voz en una sola línea de tiempo personal.",
                 },
                 {
-                    title: "Pensada para rutinas reales",
-                    body: "Usa widgets para ver lo importante de un vistazo, Live Activities para los momentos activos de medicación y Apple Watch para acciones más rápidas durante el día. Mantén citas, condiciones y tareas de seguimiento organizadas sin perder contexto.",
+                    title: "Diseñado para rutinas reales",
+                    body: "Usa widgets para visibilidad rápida, Live Activities para momentos de medicación activa y Apple Watch para acciones más rápidas durante el día. Mantén citas, condiciones y tareas de seguimiento organizadas sin perder el contexto.",
                 },
                 {
-                    title: "Privada por diseño",
-                    body: "Tu información de salud debe seguir siendo clara, personal y estar bajo tu control. VitalsPath está pensada para apoyar la organización personal, no para sustituir a profesionales sanitarios.",
+                    title: "Privado por diseño",
+                    body: "Tu información de salud debe permanecer clara, personal y bajo tu control. VitalsPath está diseñado para apoyar la organización personal, no para reemplazar a los profesionales de la salud.",
                 },
             ],
             featureListTitle: "Áreas principales",
             featureListItems: [
                 "Seguimiento de medicación y dosis",
                 "Dosis tomadas, omitidas y pospuestas",
-                "Stock y recordatorios de reposición",
-                "Registro de síntomas y estado de ánimo",
-                "Constantes y mediciones",
+                "Control de stock y recordatorios",
+                "Registro de síntomas y ánimo",
+                "Constantes y medidas",
                 "Fotos y notas de voz",
                 "Citas y tareas de seguimiento",
                 "Widgets, Live Activities y Apple Watch",
             ],
-            footnote:
-                "Algunas funciones pueden depender de tu dispositivo, de los permisos o de tu plan. La disponibilidad de Premium se muestra con claridad dentro de la app cuando aplica.",
+            footnote: "Algunas funciones pueden depender de tu dispositivo, permisos o plan. La disponibilidad Premium se muestra claramente dentro de la aplicación donde corresponda.",
+            ecosystemLabel: "Ecosistema",
+            ecosystemTitle: "Experiencia integrada",
+            ecosystemBody: "VitalsPath está diseñada para funcionar a la perfección en todos tus dispositivos. Usa widgets para actualizaciones instantáneas, Actividades en vivo para seguir tomas activas y el Apple Watch para registros rápidos desde tu muñeca.",
+            ecosystemItems: [
+                { title: "Widgets", description: "Informacion util rapida." },
+                { title: "Apple Watch", description: "Registros rápidos y alertas desde tu muñeca." },
+                { title: "Live Activities", description: "Seguimiento en tiempo real de tomas activas." }
+            ],
+            ctaBadge: "COMIENZA HOY",
+            ctaTitle: "Tu salud, en tus manos y en privado",
+            ctaPrivacyDetail: "Privacidad absoluta con cifrado de extremo a extremo.",
+            ctaPremiumTitle: "CUIDADO PREMIUM",
+            ctaPremiumDetail: "Diseñado para pacientes crónicos y cuidadores.",
+            ctaCommunityTitle: "COMUNIDAD",
+            ctaCommunityDetail: "usuarios activos confiando en nosotros",
         },
         privacy: {
             title: "Política de Privacidad",
@@ -391,18 +432,55 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-mail",
         },
         home: {
-            heroTitle: "Gardez médicaments, symptômes, constantes et rendez-vous dans un espace privé unique.",
-            heroSubtitle: "VitalsPath vous aide à organiser traitements, doses, symptômes, mesures, rendez-vous et tâches de suivi avec une vue quotidienne claire, des widgets, des Live Activities et la prise en charge de l'Apple Watch.",
-            primaryCta: "Télécharger sur l’App Store",
+            heroBadge: "PROTÉGER CE QUI COMPTE",
+            heroTitle:
+                "Gardez vos médicaments, symptômes, constantes et rendez-vous dans un lieu privé unique.",
+            heroSubtitle:
+                "VitalsPath vous aide à organiser vos traitements, doses, symptômes, mesures, rendez-vous et tâches de suivi avec une vue quotidienne claire, des widgets, Live Activities et le support Apple Watch.",
+            primaryCta: "Télécharger sur l'App Store",
             secondaryCta: "Voir les fonctions de lancement",
             sections: [
-                { title: "Tout le nécessaire pour le suivi quotidien", body: "Planifiez traitements et doses, marquez-les comme prises, ignorées ou reportées, vérifiez votre stock et gardez les rappels de renouvellement sous contrôle. Suivez symptômes, humeur, constantes, photos et notes vocales dans une seule chronologie personnelle." },
-                { title: "Pensée pour les routines réelles", body: "Utilisez les widgets pour voir l'essentiel rapidement, les Live Activities pendant les moments actifs de médication et l’Apple Watch pour agir plus vite au cours de la journée. Gardez rendez-vous, pathologies et tâches de suivi organisés sans perdre le contexte." },
-                { title: "Privée par conception", body: "Vos informations de santé doivent rester claires, personnelles et sous votre contrôle. VitalsPath est conçue pour l'organisation personnelle, pas pour remplacer les professionnels de santé." },
+                {
+                    title: "Tout ce dont vous avez besoin pour le suivi quotidien",
+                    body: "Planifiez les traitements et les doses, marquez-les comme pris, omis ou reportés, vérifiez votre stock et gardez le contrôle sur les rappels de réapprovisionnement. Enregistrez les symptômes, l'humeur, les constantes, les photos et les notes vocales dans une chronologie personnelle unique.",
+                },
+                {
+                    title: "Conçu pour les routines réelles",
+                    body: "Utilisez les widgets pour une visibilité rapide, les Live Activities pour les moments de médication actifs et l'Apple Watch pour des actions plus rapides pendant la journée. Gardez les rendez-vous, les conditions et les tâches de suivi organisés sans perdre le contexte.",
+                },
+                {
+                    title: "Privé par design",
+                    body: "Vos informations de santé doivent rester claires, personnelles et sous votre contrôle. VitalsPath est conçu pour soutenir l'organisation personnelle, pas pour remplacer les professionnels de santé.",
+                },
             ],
             featureListTitle: "Domaines clés",
-            featureListItems: ["Suivi des médicaments et des doses", "Doses prises, ignorées et reportées", "Stock et rappels de renouvellement", "Suivi des symptômes et de l’humeur", "Constantes et mesures", "Photos et notes vocales", "Rendez-vous et tâches de suivi", "Widgets, Live Activities et Apple Watch"],
-            footnote: "Certaines fonctions peuvent dépendre de votre appareil, de vos autorisations ou de votre formule. La disponibilité Premium est indiquée clairement dans l’app lorsque c’est pertinent.",
+            featureListItems: [
+                "Suivi des médicaments et des doses",
+                "Doses prises, omises et reportées",
+                "Stock et rappels de réapprovisionnement",
+                "Enregistrement des symptômes et de l'humeur",
+                "Constantes et mesures",
+                "Photos et notes vocales",
+                "Rendez-vous et tâches de suivi",
+                "Widgets, Live Activities et Apple Watch",
+            ],
+            footnote:
+                "Certaines fonctions peuvent dépendre de votre appareil, des autorisations ou de votre forfait. La disponibilité Premium est clairement indiquée dans l'application le cas échéant.",
+            ecosystemLabel: "Écosystème",
+            ecosystemTitle: "Expérience intégrée",
+            ecosystemBody: "VitalsPath est conçu pour fonctionner parfaitement sur tous vos appareils. Utilisez des widgets pour des mises à jour instantanées, Live Activities pour suivre les doses actives et l'Apple Watch pour des enregistrements rapides.",
+            ecosystemItems: [
+                { title: "Widgets Intelligents", description: "Constantes et médicaments directement sur votre écran d'accueil." },
+                { title: "Apple Watch", description: "Enregistrements rapides et alertes directement sur votre poignet." },
+                { title: "Live Activities", description: "Suivi en temps réel des doses actives." }
+            ],
+            ctaBadge: "COMMENCER AUJOURD'HUI",
+            ctaTitle: "Votre santé, entre vos mains et en privé",
+            ctaPrivacyDetail: "Confidentialité absolue avec chiffrement de bout en bout.",
+            ctaPremiumTitle: "SOINS PREMIUM",
+            ctaPremiumDetail: "Conçu pour les patients chroniques et les aidants.",
+            ctaCommunityTitle: "COMMUNAUTÉ",
+            ctaCommunityDetail: "utilisateurs actifs nous font confiance",
         },
         privacy: {
             title: "Politique de confidentialité",
@@ -461,18 +539,55 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-Mail",
         },
         home: {
-            heroTitle: "Behalten Sie Medikamente, Symptome, Werte und Termine an einem privaten Ort.",
-            heroSubtitle: "VitalsPath hilft Ihnen, Behandlungen, Dosen, Symptome, Messwerte, Termine und Nachverfolgungsaufgaben mit einer klaren Tagesansicht, Widgets, Live Activities und Apple-Watch-Unterstützung zu organisieren.",
-            primaryCta: "Im App Store laden",
+            heroBadge: "SCHÜTZEN, WAS WICHTIG IST",
+            heroTitle:
+                "Behalten Sie Medikamente, Symptome, Vitalwerte und Termine an einem privaten Ort.",
+            heroSubtitle:
+                "VitalsPath hilft Ihnen, Behandlungen, Dosen, Symptome, Messungen, Termine und Follow-up-Aufgaben mit einer klaren Tagesansicht, Widgets, Live Activities und Apple Watch-Unterstützung zu organisieren.",
+            primaryCta: "Im App Store herunterladen",
             secondaryCta: "Release-Funktionen ansehen",
             sections: [
-                { title: "Alles für die tägliche Nachverfolgung", body: "Planen Sie Behandlungen und Dosen, markieren Sie sie als eingenommen, ausgelassen oder verschoben, prüfen Sie Ihren Bestand und behalten Sie Nachfüll-Erinnerungen im Blick. Erfassen Sie Symptome, Stimmung, Werte, Fotos und Sprachnotizen in einer einzigen persönlichen Chronik." },
-                { title: "Für echte Routinen entwickelt", body: "Nutzen Sie Widgets für schnellen Überblick, Live Activities für aktive Medikamentenmomente und die Apple Watch für schnellere Aktionen im Alltag. Behalten Sie Termine, Zustände und Nachverfolgungsaufgaben organisiert, ohne den Kontext zu verlieren." },
-                { title: "Datenschutz von Anfang an", body: "Ihre Gesundheitsdaten sollten klar, persönlich und unter Ihrer Kontrolle bleiben. VitalsPath unterstützt persönliche Organisation und ersetzt keine Gesundheitsfachkräfte." },
+                {
+                    title: "Alles, was Sie für die tägliche Nachsorge benötigen",
+                    body: "Planen Sie Behandlungen und Dosen, markieren Sie diese als eingenommen, ausgelassen oder verschoben, überprüfen Sie Ihren Bestand und behalten Sie Nachfüll-Erinnerungen unter Kontrolle. Verfolgen Sie Symptome, Stimmung, Vitalwerte, Fotos und Sprachnotizen in einer einzigen persönlichen Timeline.",
+                },
+                {
+                    title: "Für echte Alltagsroutinen gebaut",
+                    body: "Nutzen Sie Widgets für schnelle Sichtbarkeit, Live Activities für aktive Medikamentenmomente und die Apple Watch für schnellere Aktionen im Laufe des Tages. Halten Sie Termine, Bedingungen und Follow-up-Aufgaben organisiert, ohne den Kontext zu verlieren.",
+                },
+                {
+                    title: "Privat durch Design",
+                    body: "Ihre Gesundheitsinformationen sollten klar, persönlich und unter Ihrer Kontrolle bleiben. VitalsPath wurde entwickelt, um die persönliche Organisation zu unterstützen, nicht um medizinisches Fachpersonal zu ersetzen.",
+                },
             ],
             featureListTitle: "Kernbereiche",
-            featureListItems: ["Medikamenten- und Dosiserfassung", "Eingenommene, ausgelassene und verschobene Dosen", "Bestand und Nachfüll-Erinnerungen", "Symptom- und Stimmungserfassung", "Vitalwerte und Messungen", "Fotos und Sprachnotizen", "Termine und Nachverfolgungsaufgaben", "Widgets, Live Activities und Apple Watch"],
-            footnote: "Einige Funktionen hängen von Gerät, Berechtigungen oder Ihrem Plan ab. Premium-Verfügbarkeit wird in der App klar angezeigt, wenn sie relevant ist.",
+            featureListItems: [
+                "Medikamenten- und Dosierungsverfolgung",
+                "Eingenommene, ausgelassene und verschobene Dosen",
+                "Bestands- und Nachfüll-Erinnerungen",
+                "Symptom- und Stimmungsprotokollierung",
+                "Vitalwerte und Messungen",
+                "Fotos und Sprachnotizen",
+                "Termine und Follow-up-Aufgaben",
+                "Widgets, Live Activities und Apple Watch",
+            ],
+            footnote:
+                "Einige Funktionen können von Ihrem Gerät, Ihren Berechtigungen oder Ihrem Plan abhängen. Die Premium-Verfügbarkeit wird in der App deutlich angezeigt, wo dies zutrifft.",
+            ecosystemLabel: "Ökosystem",
+            ecosystemTitle: "Integrierte Erfahrung",
+            ecosystemBody: "VitalsPath ist so konzipiert, dass es nahtlos auf all Ihren Geräten funktioniert. Nutzen Sie Widgets für sofortige Updates, Live Activities zur Verfolgung aktiver Dosen und die Apple Watch für schnelle Protokollierungen unterwegs.",
+            ecosystemItems: [
+                { title: "Smarte Widgets", description: "Vitalwerte und Medikamente direkt auf Ihrem Home-Bildschirm." },
+                { title: "Apple Watch", description: "Schnelle Protokollierung und Alarme direkt am Handgelenk." },
+                { title: "Live Activities", description: "Echtzeit-Verfolgung aktiver Dosen." }
+            ],
+            ctaBadge: "HEUTE STARTEN",
+            ctaTitle: "Ihre Gesundheit, in Ihren Händen und privat",
+            ctaPrivacyDetail: "Absolute Privatsphäre mit Ende-zu-Ende-Verschlüsselung.",
+            ctaPremiumTitle: "PREMIUM-PFLEGE",
+            ctaPremiumDetail: "Entwickelt für chronische Patienten und Betreuer.",
+            ctaCommunityTitle: "COMMUNITY",
+            ctaCommunityDetail: "aktive Nutzer vertrauen uns",
         },
         privacy: {
             title: "Datenschutzrichtlinie",
@@ -531,6 +646,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
+            heroBadge: "PROTEGGERE CIÒ CHE CONTA",
             heroTitle: "Tieni farmaci, sintomi, parametri e appuntamenti in un unico spazio privato.",
             heroSubtitle: "VitalsPath ti aiuta a organizzare trattamenti, dosi, sintomi, misurazioni, appuntamenti e attività di follow-up con una vista giornaliera chiara, widget, Live Activities e supporto Apple Watch.",
             primaryCta: "Scarica su App Store",
@@ -543,6 +659,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "Aree principali",
             featureListItems: ["Tracciamento di farmaci e dosi", "Dosi assunte, saltate e posticipate", "Scorte e promemoria di ricarica", "Registro di sintomi e umore", "Parametri e misurazioni", "Foto e note vocali", "Appuntamenti e attività di follow-up", "Widget, Live Activities e Apple Watch"],
             footnote: "Alcune funzioni possono dipendere dal dispositivo, dai permessi o dal piano. La disponibilità di Premium è mostrata chiaramente nell'app quando applicabile.",
+            ecosystemLabel: "Ecosistema",
+            ecosystemTitle: "Esperienza integrata",
+            ecosystemBody: "VitalsPath è progettato per funzionare perfettamente su tutti i tuoi dispositivi. Usa i widget per aggiornamenti istantanei, Live Activities per monitorare le dosi attive e l'Apple Watch per registrazioni rapide.",
+            ecosystemItems: [
+                { title: "Widget Intelligenti", description: "Parametri vitali e farmaci direttamente sulla schermata home." },
+                { title: "Apple Watch", description: "Registrazioni rapide e avvisi direttamente sul polso." },
+                { title: "Live Activities", description: "Monitoraggio in tempo reale delle dosi attive." }
+            ],
+            ctaBadge: "INIZIA OGGI",
+            ctaTitle: "La tua salute, nelle tue mani e in privato",
+            ctaPrivacyDetail: "Privacy assoluta con crittografia end-to-end.",
+            ctaPremiumTitle: "CURA PREMIUM",
+            ctaPremiumDetail: "Progettato per pazienti cronici e caregiver.",
+            ctaCommunityTitle: "COMMUNITY",
+            ctaCommunityDetail: "utenti attivi si fidano di noi",
         },
         privacy: {
             title: "Informativa sulla privacy",
@@ -586,13 +717,10 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Direzione del prodotto",
             directionBody: "Nel breve periodo il focus è rendere il follow-up quotidiano più chiaro, rapido e affidabile tra farmaci, sintomi, parametri e appuntamenti, migliorando la coerenza tra iPhone, widget e Apple Watch.",
         },
-        footer: { privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", terms: "Termini", disclaimer: "Avvertenza medica", subscription: "Abbonamento", legalNote: "VitalsPath è destinata solo all'organizzazione personale della salute e non sostituisce consulenza medica, diagnosi, trattamento o assistenza d'emergenza." },
+        footer: { privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", terms: "Termini", disclaimer: "Avvertenza medica", subscription: "Abbonamento", legalNote: "VitalsPath è progettata per l'organizzazione sanitaria personale e il follow-up. Non sostituisce pareri medici, diagnosi, trattamenti o assistenza medica d'emergenza." },
     },
     pt: {
-        meta: {
-            title: "VitalsPath | Acompanhamento privado de medicação, sintomas, sinais vitais e consultas",
-            description: "Acompanhamento privado de medicação, sintomas, sinais vitais e consultas numa linha temporal de saúde clara.",
-        },
+        meta: { title: "VitalsPath - A sua saúde, organizada em privado", description: "Acompanhe a medicação, sintomas, sinais vitais e consultas num espaço pessoal e seguro." },
         nav: { home: "Início", privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap" },
         common: {
             medicalDisclaimer: "VitalsPath foi concebida para organização pessoal de saúde e acompanhamento. Não substitui aconselhamento médico, diagnóstico, tratamento ou cuidados de emergência.",
@@ -601,6 +729,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
+            heroBadge: "PROTEGENDO O QUE IMPORTA",
             heroTitle: "Mantenha medicação, sintomas, sinais vitais e consultas num único espaço privado.",
             heroSubtitle: "VitalsPath ajuda a organizar tratamentos, doses, sintomas, medições, consultas e tarefas de acompanhamento com uma vista diária clara, widgets, Live Activities e suporte para Apple Watch.",
             primaryCta: "Descarregar na App Store",
@@ -613,7 +742,23 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "Áreas principais",
             featureListItems: ["Seguimento de medicação e doses", "Doses tomadas, ignoradas e adiadas", "Stock e lembretes de reposição", "Registo de sintomas e humor", "Sinais vitais e medições", "Fotos e notas de voz", "Consultas e tarefas de acompanhamento", "Widgets, Live Activities e Apple Watch"],
             footnote: "Algumas funcionalidades podem depender do seu dispositivo, permissões ou plano. A disponibilidade Premium é mostrada claramente dentro da app quando aplicável.",
+            ecosystemLabel: "Ecossistema",
+            ecosystemTitle: "Experiência integrada",
+            ecosystemBody: "VitalsPath foi projetado para funcionar perfeitamente em todos os seus dispositivos. Use widgets para atualizações instantâneas, Live Activities para acompanhar doses ativas e Apple Watch para registros rápidos.",
+            ecosystemItems: [
+                { title: "Widgets Inteligentes", description: "Sinais vitais e medicamentos diretamente no seu ecrã inicial." },
+                { title: "Apple Watch", description: "Registos rápidos e alertas diretamente no seu pulso." },
+                { title: "Live Activities", description: "Acompanhamento em tempo real de doses ativas." }
+            ],
+            ctaBadge: "COMECE HOJE",
+            ctaTitle: "A sua saúde, nas suas mãos e em privado",
+            ctaPrivacyDetail: "Privacidade absoluta com encriptação de ponta a ponta.",
+            ctaPremiumTitle: "CUIDADO PREMIUM",
+            ctaPremiumDetail: "Concebido para doentes crónicos e cuidadores.",
+            ctaCommunityTitle: "COMUNIDADE",
+            ctaCommunityDetail: "utilizadores ativos confiam em nós",
         },
+
         privacy: {
             title: "Política de Privacidade",
             intro: "Esta política explica que informação a VitalsPath pode tratar, como é utilizada dentro da app e como os utilizadores podem contactar-nos com questões de privacidade.",
@@ -671,18 +816,34 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "メール",
         },
         home: {
-            heroTitle: "薬、症状、バイタル、予定をひとつのプライベートな場所にまとめましょう。",
-            heroSubtitle: "VitalsPath は、治療、服用、症状、測定値、予定、フォローアップ項目を、見やすい日次表示、ウィジェット、Live Activities、Apple Watch 対応とともに整理できるようにします。",
-            primaryCta: "App Store で入手",
+            heroBadge: "大切なものを守る",
+            heroTitle: "薬、症状、バイタル、予定を1つのプライベートな場所に。",
+            heroSubtitle: "VitalsPathは、視認性の高いデイリービュー、ウィジェット、ライブアクティビティ、Apple Watch対応により、治療、用量、症状、測定値、予定、フォローアップタスクの整理をサポートします。",
+            primaryCta: "App Storeでダウンロード",
             secondaryCta: "リリース機能を見る",
             sections: [
-                { title: "毎日のフォローアップに必要な機能", body: "治療と服用を計画し、服用済み・スキップ・延期として記録し、在庫を確認し、補充リマインダーを管理できます。症状、気分、バイタル、写真、音声メモをひとつの個人タイムラインにまとめて記録できます。" },
-                { title: "実際の毎日に合わせた設計", body: "すばやく確認するためのウィジェット、服薬中の場面で役立つ Live Activities、日中の操作を素早くする Apple Watch を活用できます。予定、状態、フォローアップ項目を文脈を保ったまま整理できます。" },
-                { title: "プライバシーを前提に設計", body: "健康情報は、わかりやすく、個人的で、あなたの管理下にあるべきです。VitalsPath は個人の整理を支えるためのものであり、医療従事者の代わりではありません。" },
+                { title: "日々のフォローアップに必要なすべてを", body: "治療法と用量を計画し、服用済み、スキップ、延期としてマークし、在庫を確認し、補充リマインダーで準備を整えます。症状、気分、バイタル、写真、音声メモを1つの個人的なタイムラインで追跡します。" },
+                { title: "実際の日常ルーチンのために構築", body: "ウィジェットで素早く確認し、ライブアクティビティでアクティブな服薬時間を把握し、Apple Watchで日中のアクションをより迅速に行えます。文脈を失うことなく、予定、体調、フォローアップタスクを整理した状態に保ちます。" },
+                { title: "プライバシーを優先した設計", body: "あなたの健康情報は、明確で個人的なものであり、あなたの管理下にあるべきです。VitalsPathは個人の健康管理をサポートするために構築されており、医療専門家に代わるものではありません。" },
             ],
-            featureListTitle: "主な領域",
-            featureListItems: ["服薬と用量の記録", "服用済み・スキップ・延期した用量", "在庫と補充リマインダー", "症状と気分の記録", "バイタルと測定値", "写真と音声メモ", "予定とフォローアップ項目", "ウィジェット、Live Activities、Apple Watch"],
-            footnote: "一部の機能は、デバイス、権限、またはプランに依存する場合があります。Premium の利用可否は、該当する場合にアプリ内で明確に表示されます。",
+            featureListTitle: "主な機能領域",
+            featureListItems: ["服薬と用量の追跡", "服用済み、スキップ、延期された用量", "在庫と補充リマインダー", "症状と気分の記録", "バイタルと測定値", "写真と音声メモ", "予定とフォローアップタスク", "ウィジェット、ライブアクティビティ、Apple Watch"],
+            footnote: "一部の機能は、デバイス、権限、またはプランによって異なる場合があります。プレミアム機能の利用可能性は、該当する場合、アプリ内で明確に表示されます。",
+            ecosystemLabel: "エコシステム",
+            ecosystemTitle: "統合された体験",
+            ecosystemBody: "VitalsPathは、すべてのデバイスでシームレスに動作するように設計されています。ウィジェットで即座に更新を確認し、ライブアクティビティでアクティブな用量を追跡し、Apple Watchで外出先から素早く記録できます。",
+            ecosystemItems: [
+                { title: "スマートウィジェット", description: "ホーム画面でバイタルと服薬を直接確認。" },
+                { title: "Apple Watch", description: "手首から素早く記録し、アラートを受信。" },
+                { title: "ライブアクティビティ", description: "アクティブな用量をリアルタイムで追跡。" }
+            ],
+            ctaBadge: "今日から始める",
+            ctaTitle: "あなたの健康を、あなたの手でプライベートに",
+            ctaPrivacyDetail: "エンドツーエンド暗号化による絶対的なプライバシー。",
+            ctaPremiumTitle: "プレミアムケア",
+            ctaPremiumDetail: "慢性疾患患者とその介護者のために設計。",
+            ctaCommunityTitle: "コミュニティ",
+            ctaCommunityDetail: "のアクティブユーザーが私たちを信頼しています",
         },
         privacy: {
             title: "プライバシーポリシー",
@@ -741,6 +902,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "邮箱",
         },
         home: {
+            heroBadge: "守护重要之事",
             heroTitle: "把用药、症状、生命体征和预约都放在一个私密的地方。",
             heroSubtitle: "VitalsPath 帮助你用清晰的每日视图来整理治疗、剂量、症状、测量、预约和跟进行动，并支持小组件、Live Activities 与 Apple Watch。",
             primaryCta: "在 App Store 下载",
@@ -753,6 +915,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "核心领域",
             featureListItems: ["药物与剂量记录", "已服用、已跳过和已延期的剂量", "库存与补货提醒", "症状与情绪记录", "生命体征与测量", "照片与语音备注", "预约与跟进任务", "小组件、Live Activities 与 Apple Watch"],
             footnote: "某些功能可能取决于你的设备、权限或订阅方案。涉及 Premium 时，应用内会清楚显示可用情况。",
+            ecosystemLabel: "生态系统",
+            ecosystemTitle: "深度集成的健身体验",
+            ecosystemBody: "VitalsPath 旨在跨设备无缝工作。利用小组件获取即时更新，通过实时活动追踪当前剂量，并使用 Apple Watch 随时随地快捷记录。",
+            ecosystemItems: [
+                { title: "智能小组件", description: "在主屏幕直接查看各项指标和药物。" },
+                { title: "Apple Watch", description: "快速记录并在腕间接收提醒。" },
+                { title: "实时活动", description: "实时追踪当前剂量进度。" }
+            ],
+            ctaBadge: "立即开始",
+            ctaTitle: "您的健康，尽在掌握且隐私安全",
+            ctaPrivacyDetail: "端到端加密，确保绝对私密。",
+            ctaPremiumTitle: "高级护理",
+            ctaPremiumDetail: "专为慢性病患者及护理人员设计。",
+            ctaCommunityTitle: "社区",
+            ctaCommunityDetail: "位活跃用户正在信任我们",
         },
         privacy: {
             title: "隐私政策",
@@ -795,7 +972,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["更清晰的治疗摘要与依从性洞察", "更完善的预约与跟进流程", "扩展小组件与 Apple Watch 操作", "提升同步、备份与恢复的可靠性", "改进本地化与无障碍体验"],
             directionTitle: "产品方向",
             directionBody: "短期内，重点是让药物、症状、生命体征和预约的日常跟进更加清晰、快速且可靠，同时提升 iPhone、小组件和 Apple Watch 之间的一致性。",
-            safetyNote: "不要在首页把未来功能写成已经可用的功能。",
         },
         footer: { privacy: "隐私政策", support: "支持", releaseFeatures: "首发功能", roadmap: "路线图", terms: "条款", disclaimer: "医疗免责声明", subscription: "订阅", legalNote: "VitalsPath 仅用于个人健康整理，不替代医疗建议、诊断、治疗或紧急救助。" },
     },
@@ -812,6 +988,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "이메일",
         },
         home: {
+            heroBadge: "중요한 것을 보호하십시오",
             heroTitle: "약물, 증상, 활력징후, 일정을 하나의 비공개 공간에 보관하세요.",
             heroSubtitle: "VitalsPath는 명확한 일일 보기, 위젯, Live Activities, Apple Watch 지원을 통해 치료, 복용량, 증상, 측정값, 일정, 후속 작업을 정리할 수 있도록 도와줍니다.",
             primaryCta: "App Store에서 다운로드",
@@ -824,6 +1001,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "핵심 영역",
             featureListItems: ["약물 및 복용량 추적", "복용함, 건너뜀, 연기된 복용량", "재고 및 리필 알림", "증상 및 기분 기록", "활력징후 및 측정값", "사진 및 음성 메모", "일정 및 후속 작업", "위젯, Live Activities, Apple Watch"],
             footnote: "일부 기능은 기기, 권한 또는 요금제에 따라 달라질 수 있습니다. Premium 제공 여부는 해당 시 앱 안에서 명확하게 표시됩니다.",
+            ecosystemLabel: "생태계",
+            ecosystemTitle: "통합된 건강 경험",
+            ecosystemBody: "VitalsPath는 사용자의 기기 간에 원활하게 작동하도록 설계되었습니다. 위젯으로 즉각적인 업데이트를 확인하고, 실시간 활동(Live Activities)으로 복용 정보를 추적하며, Apple Watch로 이동 중에도 빠르게 기록하세요.",
+            ecosystemItems: [
+                { title: "스마트 위젯", description: "홈 화면에서 지표와 약 정보를 직접 확인하세요." },
+                { title: "Apple Watch", description: "손목에서 빠른 기록과 알림을 받아보세요." },
+                { title: "실시간 활동", description: "현재 복용량 정보를 실시간으로 추적합니다." }
+            ],
+            ctaBadge: "오늘 시작하세요",
+            ctaTitle: "내 손안의 건강 정보, 그리고 철저한 프라이버시",
+            ctaPrivacyDetail: "종단간 암호화로 보장되는 절대적인 개인정보 보호.",
+            ctaPremiumTitle: "프리미엄 케어",
+            ctaPremiumDetail: "만성 질환 환자와 간병인을 위한 설계.",
+            ctaCommunityTitle: "커뮤니티",
+            ctaCommunityDetail: "명의 활성 사용자가 신뢰하고 있습니다",
         },
         privacy: {
             title: "개인정보 처리방침",
@@ -882,6 +1074,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
+            heroBadge: "ЗАЩИТА ВАЖНОГО",
             heroTitle: "Храните лекарства, симптомы, показатели и визиты в одном приватном месте.",
             heroSubtitle: "VitalsPath помогает организовать лечение, дозы, симптомы, измерения, визиты и задачи наблюдения с понятным дневным обзором, виджетами, Live Activities и поддержкой Apple Watch.",
             primaryCta: "Скачать в App Store",
@@ -894,6 +1087,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "Основные области",
             featureListItems: ["Учет лекарств и доз", "Принятые, пропущенные и отложенные дозы", "Запас и напоминания о пополнении", "Запись симптомов и настроения", "Показатели и измерения", "Фото и голосовые заметки", "Визиты и задачи наблюдения", "Виджеты, Live Activities и Apple Watch"],
             footnote: "Некоторые функции могут зависеть от устройства, разрешений или плана. Доступность Premium при необходимости ясно показывается внутри приложения.",
+            ecosystemLabel: "Экосистема",
+            ecosystemTitle: "Интегрированный опыт",
+            ecosystemBody: "VitalsPath разработан для бесшовной работы на всех ваших устройствах. Используйте виджеты для мгновенных обновлений, Live Activities для отслеживания текущих доз и Apple Watch для быстрой записи на ходу.",
+            ecosystemItems: [
+                { title: "Умные виджеты", description: "показатели и лекарства прямо на главном экране." },
+                { title: "Apple Watch", description: "быстрая запись и уведомления прямо на запястье." },
+                { title: "Live Activities", description: "отслеживание текущих доз в реальном времени." }
+            ],
+            ctaBadge: "НАЧАТЬ СЕГОДНЯ",
+            ctaTitle: "Ваше здоровье в ваших руках и под защитой",
+            ctaPrivacyDetail: "Абсолютная приватность со сквозным шифрованием.",
+            ctaPremiumTitle: "ПРЕМИУМ-УХОД",
+            ctaPremiumDetail: "Разработано для хронических пациентов и опекунов.",
+            ctaCommunityTitle: "СООБЩЕСТВО",
+            ctaCommunityDetail: "активных пользователей доверяют нам",
         },
         privacy: {
             title: "Политика конфиденциальности",
@@ -952,6 +1160,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "البريد الإلكتروني",
         },
         home: {
+            heroBadge: "حماية ما يهم",
             heroTitle: "احتفظ بالأدوية والأعراض والمؤشرات الحيوية والمواعيد في مكان خاص واحد.",
             heroSubtitle: "تساعدك VitalsPath على تنظيم العلاجات والجرعات والأعراض والقياسات والمواعيد ومهام المتابعة من خلال عرض يومي واضح، مع الأدوات وLive Activities ودعم Apple Watch.",
             primaryCta: "التنزيل من App Store",
@@ -964,6 +1173,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "المجالات الأساسية",
             featureListItems: ["تتبع الأدوية والجرعات", "الجرعات المأخوذة والمتجاوزة والمؤجلة", "المخزون وتذكيرات إعادة التعبئة", "تسجيل الأعراض والمزاج", "المؤشرات الحيوية والقياسات", "الصور والملاحظات الصوتية", "المواعيد ومهام المتابعة", "الأدوات وLive Activities وApple Watch"],
             footnote: "قد تعتمد بعض الميزات على جهازك أو الأذونات أو الخطة. يتم توضيح توفر Premium داخل التطبيق بوضوح عند الحاجة.",
+            ecosystemLabel: "النظام المتكامل",
+            ecosystemTitle: "تجربة متكاملة",
+            ecosystemBody: "تم تصميم VitalsPath ليعمل بسلاسة عبر أجهزتك. استخدم الأدوات (Widgets) للتحديثات الفورية، والأنشطة الحية (Live Activities) لتتبع الجرعات النشطة، وApple Watch للتسجيل السريع أثناء التنقل.",
+            ecosystemItems: [
+                { title: "أدوات ذكية", description: "المؤشرات والأدوية مباشرة على شاشتك الرئيسية." },
+                { title: "Apple Watch", description: "تسجيل سريع وتنبيهات مباشرة على معصمك." },
+                { title: "الأنشطة الحية", description: "تتبع الجرعات النشطة في الوقت الفعلي." }
+            ],
+            ctaBadge: "ابدأ اليوم",
+            ctaTitle: "صحتك بين يديك وبخصوصية تامة",
+            ctaPrivacyDetail: "خصوصية مطلقة مع تشفير من طرف إلى طرف.",
+            ctaPremiumTitle: "عناية بريميوم",
+            ctaPremiumDetail: "مصمم للمرضى المزمنين ومقدمي الرعاية.",
+            ctaCommunityTitle: "المجتمع",
+            ctaCommunityDetail: "مستخدم نشط يثقون بنا",
         },
         privacy: {
             title: "سياسة الخصوصية",
@@ -1022,6 +1246,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "ईमेल",
         },
         home: {
+            heroBadge: "जो महत्वपूर्ण है उसकी सुरक्षा",
             heroTitle: "दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स को एक निजी जगह में रखें।",
             heroSubtitle: "VitalsPath आपको ट्रीटमेंट, डोज़, लक्षण, माप, अपॉइंटमेंट्स और फॉलो-अप टास्क को एक स्पष्ट दैनिक दृश्य, विजेट्स, Live Activities और Apple Watch सपोर्ट के साथ व्यवस्थित करने में मदद करती है।",
             primaryCta: "App Store पर डाउनलोड करें",
@@ -1034,6 +1259,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "मुख्य क्षेत्र",
             featureListItems: ["दवा और डोज़ ट्रैकिंग", "ली गई, छोड़ी गई और टाली गई डोज़", "स्टॉक और रीफिल रिमाइंडर्स", "लक्षण और मूड लॉगिंग", "वाइटल्स और माप", "फोटो और वॉइस नोट्स", "अपॉइंटमेंट्स और फॉलो-अप टास्क", "विजेट्स, Live Activities और Apple Watch"],
             footnote: "कुछ फीचर्स आपके डिवाइस, परमिशन्स या प्लान पर निर्भर हो सकते हैं। जहाँ लागू हो, Premium की उपलब्धता ऐप के अंदर स्पष्ट रूप से दिखाई जाती है।",
+            ecosystemLabel: "इकोसिस्टम",
+            ecosystemTitle: "एकीकृत अनुभव",
+            ecosystemBody: "VitalsPath आपके सभी डिवाइस पर आसानी से काम करने के लिए डिज़ाइन किया गया है। तुरंत अपडेट के लिए विजेट्स, एक्टिव डोज़ को ट्रैक करने के लिए लाइव एक्टिविटीज़ और चलते-फिरते तुरंत लॉगिंग के लिए Apple Watch का उपयोग करें।",
+            ecosystemItems: [
+                { title: "स्मार्ट विजेट्स", description: "स्वास्थ्य संकेतक और दवाएं सीधे आपकी होम स्क्रीन पर।" },
+                { title: "Apple Watch", description: "आपकी कलाई से तेज़ लॉगिंग और अलर्ट।" },
+                { title: "लाइव एक्टिविटीज़", description: "एक्टिव डोज़ की रियल-टाइम ट्रैकिंग।" }
+            ],
+            ctaBadge: "आज ही शुरू करें",
+            ctaTitle: "आपका स्वास्थ्य, आपके हाथों में और निजी",
+            ctaPrivacyDetail: "एंड-टू-एंड एन्क्रिप्शन के साथ पूर्ण गोपनीयता।",
+            ctaPremiumTitle: "प्रीमियम देखभाल",
+            ctaPremiumDetail: "पुरानी बीमारियों वाले मरीजों और देखभाल करने वालों के लिए डिज़ाइन किया गया।",
+            ctaCommunityTitle: "कम्युनिटी",
+            ctaCommunityDetail: "सक्रिय उपयोगकर्ता हम पर भरोसा करते हैं",
         },
         privacy: {
             title: "प्राइवेसी पॉलिसी",
@@ -1076,7 +1316,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["अधिक स्पष्ट ट्रीटमेंट समरी और adherence insights", "अपॉइंटमेंट और फॉलो-अप वर्कफ़्लो का बेहतर परिष्कार", "विजेट्स और Apple Watch में अधिक एक्शन", "सिंक, बैकअप और रिस्टोर की विश्वसनीयता में सुधार", "लोकलाइज़ेशन और एक्सेसिबिलिटी में सुधार"],
             directionTitle: "प्रोडक्ट दिशा",
             directionBody: "कम अवधि का ध्यान दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स के दैनिक फॉलो-अप को अधिक स्पष्ट, तेज़ और विश्वसनीय बनाना है, साथ ही iPhone, विजेट्स और Apple Watch के बीच एकरूपता सुधारना है।",
-            safetyNote: "भविष्य के फीचर्स को होम पेज पर ऐसे सूचीबद्ध न करें जैसे वे पहले से उपलब्ध हों।",
         },
         footer: { privacy: "प्राइवेसी पॉलिसी", support: "सपोर्ट", releaseFeatures: "रिलीज़ फीचर्स", roadmap: "रोडमैप", terms: "शर्तें", disclaimer: "मेडिकल डिस्क्लेमर", subscription: "सब्सक्रिप्शन", legalNote: "VitalsPath केवल व्यक्तिगत हेल्थ ऑर्गनाइज़ेशन के लिए है और मेडिकल सलाह, निदान, इलाज या इमरजेंसी केयर का विकल्प नहीं है।" },
     },
@@ -1093,6 +1332,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-posta",
         },
         home: {
+            heroBadge: "ÖNEMLİ OLANI KORUMAK",
             heroTitle: "İlaçları, semptomları, vital ölçümleri ve randevuları tek bir özel yerde tutun.",
             heroSubtitle: "VitalsPath; tedavileri, dozları, semptomları, ölçümleri, randevuları ve takip görevlerini net bir günlük görünüm, widget'lar, Live Activities ve Apple Watch desteğiyle düzenlemenize yardımcı olur.",
             primaryCta: "App Store’dan indir",
@@ -1105,6 +1345,21 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             featureListTitle: "Temel alanlar",
             featureListItems: ["İlaç ve doz takibi", "Alınan, atlanan ve ertelenen dozlar", "Stok ve yeniden doldurma hatırlatmaları", "Semptom ve ruh hali kaydı", "Vital ölçümler ve diğer ölçümler", "Fotoğraflar ve sesli notlar", "Randevular ve takip görevleri", "Widget'lar, Live Activities ve Apple Watch"],
             footnote: "Bazı özellikler cihazınıza, izinlere veya planınıza bağlı olabilir. Premium uygunluğu gerektiğinde uygulama içinde açıkça gösterilir.",
+            ecosystemLabel: "Ekosistem",
+            ecosystemTitle: "Entegre deneyim",
+            ecosystemBody: "VitalsPath, cihazlarınız arasında sorunsuz çalışacak şekilde tasarlanmıştır. Anlık güncellemeler için araç takımlarını, aktif dozları takip etmek için Canlı Etkinlikleri ve hareket halindeyken hızlı kayıt için Apple Watch'u kullanın.",
+            ecosystemItems: [
+                { title: "Akıllı Araç Takımları", description: "Veriler ve ilaçlar doğrudan ana ekranınızda." },
+                { title: "Apple Watch", description: "Bileğinizden hızlı kayıt ve uyarılar." },
+                { title: "Canlı Etkinlikler", description: "Aktif dozların gerçek zamanlı takibi." }
+            ],
+            ctaBadge: "BUGÜN BAŞLAYIN",
+            ctaTitle: "Sağlığınız elinizde ve özel kalsın",
+            ctaPrivacyDetail: "Uçtan uca şifreleme ile mutlak gizlilik.",
+            ctaPremiumTitle: "PREMIUM BAKIM",
+            ctaPremiumDetail: "Kronik hastalar ve refakatçiler için tasarlandı.",
+            ctaCommunityTitle: "TOPLULUK",
+            ctaCommunityDetail: "aktif kullanıcı bize güveniyor",
         },
         privacy: {
             title: "Gizlilik Politikası",
@@ -1163,18 +1418,55 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-mail",
         },
         home: {
-            heroTitle: "Bewaar medicatie, symptomen, waarden en afspraken op één privéplek.",
-            heroSubtitle: "VitalsPath helpt je behandelingen, doses, symptomen, metingen, afspraken en opvolgtaken te organiseren met een duidelijke dagweergave, widgets, Live Activities en Apple Watch-ondersteuning.",
-            primaryCta: "Download in de App Store",
+            heroBadge: "BESCHERMEN WAT ERTOE DOET",
+            heroTitle:
+                "Houd medicatie, symptomen, vitale functies en afspraken op één privéplek.",
+            heroSubtitle:
+                "VitalsPath helpt u behandelingen, doses, symptomen, metingen, afspraken en vervolgtaken te organiseren met een helder dagelijks overzicht, widgets, Live Activities en Apple Watch-ondersteuning.",
+            primaryCta: "Downloaden in de App Store",
             secondaryCta: "Bekijk releasefuncties",
             sections: [
-                { title: "Alles wat je nodig hebt voor dagelijkse opvolging", body: "Plan behandelingen en doses, markeer ze als genomen, overgeslagen of uitgesteld, bekijk je voorraad en houd herinneringen voor aanvullen onder controle. Registreer symptomen, stemming, waarden, foto's en spraaknotities in één persoonlijke tijdlijn." },
-                { title: "Gebouwd voor echte dagelijkse routines", body: "Gebruik widgets voor snelle zichtbaarheid, Live Activities voor actieve medicatiemomenten en Apple Watch voor snellere acties gedurende de dag. Houd afspraken, aandoeningen en opvolgtaken georganiseerd zonder context te verliezen." },
-                { title: "Privacy by design", body: "Je gezondheidsinformatie moet duidelijk, persoonlijk en onder jouw controle blijven. VitalsPath is gebouwd voor persoonlijke organisatie en niet om zorgprofessionals te vervangen." },
+                {
+                    title: "Alles wat u nodig heeft voor dagelijkse opvolging",
+                    body: "Plan behandelingen and doses, markeer ze als ingenomen, overgeslagen of uitgesteld, controleer uw voorraad en houd herinneringen voor bijvullen onder controle. Volg symptomen, stemming, vitale functies, foto's en spraaknotities in één persoonlijke tijdlijn.",
+                },
+                {
+                    title: "Gebouwd voor echte dagelijkse routines",
+                    body: "Gebruik widgets voor snelle zichtbaarheid, Live Activities voor actieve medicatiemomenten en Apple Watch for snellere acties gedurende de dag. Houd afspraken, aandoeningen en vervolgtaken georganiseerd zonder context te verliezen.",
+                },
+                {
+                    title: "Privé door ontwerp",
+                    body: "Uw gezondheidsinformatie moet duidelijk, persoonlijk en onder uw controle blijven. VitalsPath is gebouwd om persoonlijke organisatie te ondersteunen, niet om zorgverleners te vervangen.",
+                },
             ],
             featureListTitle: "Kerngebieden",
-            featureListItems: ["Medicatie- en dosistracking", "Genomen, overgeslagen en uitgestelde doses", "Voorraad en herinneringen voor aanvullen", "Symptomen- en stemmingsregistratie", "Waarden en metingen", "Foto's en spraaknotities", "Afspraken en opvolgtaken", "Widgets, Live Activities en Apple Watch"],
-            footnote: "Sommige functies kunnen afhangen van je apparaat, permissies of plan. Premium-beschikbaarheid wordt duidelijk in de app getoond waar van toepassing.",
+            featureListItems: [
+                "Medicatie en dosisregistratie",
+                "Ingenomen, overgeslagen and uitgestelde doses",
+                "Voorraad en bijvulherinneringen",
+                "Symptoom- en stemmingsregistratie",
+                "Vitale functies en metingen",
+                "Foto's en spraaknotities",
+                "Afspraken en vervolgtaken",
+                "Widgets, Live Activities en Apple Watch",
+            ],
+            footnote:
+                "Sommige functies kunnen afhankelijk zijn van uw apparaat, machtigingen of abonnement. Premium-beschikbaarheid wordt duidelijk in de app weergegeven waar van toepassing.",
+            ecosystemLabel: "Ecosysteem",
+            ecosystemTitle: "Geïntegreerde ervaring",
+            ecosystemBody: "VitalsPath is ontworpen om naadloos samen te werken op al je apparaten. Gebruik widgets voor directe updates, Live Activities om actieve doses te volgen en Apple Watch voor snelle registraties onderweg.",
+            ecosystemItems: [
+                { title: "Slimme Widgets", description: "Vitaliteitsgegevens en medicijnen direct op je startscherm." },
+                { title: "Apple Watch", description: "Snel loggen en waarschuwingen direct op je pols." },
+                { title: "Live Activities", description: "Realtime volgen van actieve doses." }
+            ],
+            ctaBadge: "START VANDAAG",
+            ctaTitle: "Jouw gezondheid, in jouw handen en privé",
+            ctaPrivacyDetail: "Absolute privacy met end-to-end encryptie.",
+            ctaPremiumTitle: "PREMIUM ZORG",
+            ctaPremiumDetail: "Ontworpen voor chronische patiënten en mantelzorgers.",
+            ctaCommunityTitle: "COMMUNITY",
+            ctaCommunityDetail: "actieve gebruikers vertrouwen ons",
         },
         privacy: {
             title: "Privacybeleid",
@@ -1233,18 +1525,55 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroTitle: "Trzymaj leki, objawy, parametry i wizyty w jednym prywatnym miejscu.",
-            heroSubtitle: "VitalsPath pomaga organizować leczenie, dawki, objawy, pomiary, wizyty i zadania kontrolne dzięki czytelnemu widokowi dnia, widżetom, Live Activities i wsparciu Apple Watch.",
-            primaryCta: "Pobierz z App Store",
+            heroBadge: "CHRONIMY TO, CO WAŻNE",
+            heroTitle:
+                "Przechowuj leki, objawy, parametry życiowe i wizyty w jednym prywatnym miejscu.",
+            heroSubtitle:
+                "VitalsPath pomaga organizować leczenie, dawki, objawy, pomiary, wizyty i zadania kontrolne dzięki przejrzystemu widokowi dnia, widżetom, Live Activities i obsłudze Apple Watch.",
+            primaryCta: "Pobierz w App Store",
             secondaryCta: "Zobacz funkcje wydania",
             sections: [
-                { title: "Wszystko, czego potrzebujesz do codziennego śledzenia", body: "Planuj leczenie i dawki, oznaczaj je jako przyjęte, pominięte lub odłożone, sprawdzaj zapasy i kontroluj przypomnienia o uzupełnieniu. Zapisuj objawy, nastrój, parametry, zdjęcia i notatki głosowe na jednej osobistej osi czasu." },
-                { title: "Stworzona do prawdziwej codzienności", body: "Korzystaj z widżetów dla szybkiego podglądu, z Live Activities podczas aktywnych momentów związanych z lekami oraz z Apple Watch do szybszych działań w ciągu dnia. Utrzymuj wizyty, stany zdrowia i zadania kontrolne w porządku bez utraty kontekstu." },
-                { title: "Prywatność od podstaw", body: "Twoje informacje o zdrowiu powinny być jasne, osobiste i pod Twoją kontrolą. VitalsPath wspiera organizację osobistą, a nie zastępuje specjalistów medycznych." },
+                {
+                    title: "Wszystko, czego potrzebujesz do codziennej kontroli",
+                    body: "Planuj leczenie i dawki, oznaczaj je jako przyjęte, pominięte lub odroczone, sprawdzaj zapasy i kontroluj przypomnienia o uzupełnieniu. Śledź objawy, nastrój, parametry życiowe, zdjęcia i notatki głosowe na jednej osobistej osi czasu.",
+                },
+                {
+                    title: "Zbudowany dla prawdziwych codziennych rutyn",
+                    body: "Używaj widżetów dla szybkiego podglądu, Live Activities dla aktywnych momentów przyjmowania leków i Apple Watch dla szybszych działań w ciągu dnia. Trzymaj wizyty, schorzenia i zadania kontrolne w porządku, nie tracąc kontekstu.",
+                },
+                {
+                    title: "Prywatność z założenia",
+                    body: "Twoje informacje o zdrowiu powinny pozostać jasne, osobiste i pod Twoją kontrolą. VitalsPath został stworzony, aby wspierać osobistą organizację, a nie zastępować pracowników służby zdrowia.",
+                },
             ],
             featureListTitle: "Główne obszary",
-            featureListItems: ["Śledzenie leków i dawek", "Dawki przyjęte, pominięte i odłożone", "Zapasy i przypomnienia o uzupełnieniu", "Rejestrowanie objawów i nastroju", "Parametry i pomiary", "Zdjęcia i notatki głosowe", "Wizyty i zadania kontrolne", "Widżety, Live Activities i Apple Watch"],
-            footnote: "Niektóre funkcje mogą zależeć od urządzenia, uprawnień lub planu. Dostępność Premium jest wyraźnie pokazywana w aplikacji tam, gdzie ma to znaczenie.",
+            featureListItems: [
+                "Śledzenie leków i dawek",
+                "Dawki przyjęte, pominięte i odroczone",
+                "Zapasy i przypomnienia o uzupełnieniu",
+                "Rejestrowanie objawów i nastroju",
+                "Parametry życiowe i pomiary",
+                "Zdjęcia i notatki głosowe",
+                "Wizyty i zadania kontrolne",
+                "Widżety, Live Activities i Apple Watch",
+            ],
+            footnote:
+                "Niektóre funkcje mogą zależeć od urządzenia, uprawnień lub planu. Dostępność Premium jest wyraźnie pokazana w aplikacji tam, gdzie ma to zastosowanie.",
+            ecosystemLabel: "Ekosystem",
+            ecosystemTitle: "Zintegrowane doświadczenie",
+            ecosystemBody: "VitalsPath zostało zaprojektowane tak, aby płynnie działać na wszystkich Twoich urządzeniach. Korzystaj z widżetów do natychmiastowych aktualizacji, Live Activities do śledzenia aktywnych dawek i Apple Watch do szybkiego logowania w podróży.",
+            ecosystemItems: [
+                { title: "Inteligentne widżety", description: "Parametry życiowe i leki bezpośrednio na ekranie głównym." },
+                { title: "Apple Watch", description: "Szybkie logowanie i alerty bezpośrednio na nadgarstku." },
+                { title: "Live Activities", description: "Śledzenie aktywnych dawek w czasie rzeczywistym." }
+            ],
+            ctaBadge: "ZACZNIJ DZISIAJ",
+            ctaTitle: "Twoje zdrowie, w Twoich rękach i prywatnie",
+            ctaPrivacyDetail: "Absolutna prywatność dzięki szyfrowaniu end-to-end.",
+            ctaPremiumTitle: "PIELĘGNACJA PREMIUM",
+            ctaPremiumDetail: "Zaprojektowane dla pacjentów przewlekłych i opiekunów.",
+            ctaCommunityTitle: "SPOŁECZNOŚĆ",
+            ctaCommunityDetail: "aktywnych użytkowników nam ufa",
         },
         privacy: {
             title: "Polityka prywatności",

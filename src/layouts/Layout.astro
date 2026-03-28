@@ -102,7 +102,7 @@ const jsonLd = [
 ---
 
 <!DOCTYPE html>
-<html lang={lang} dir={dir}>
+<html lang={lang} dir={dir} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -121,91 +121,90 @@ const jsonLd = [
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="VitalsPath" />
 
-			<link rel="sitemap" href={`${siteUrl}/sitemap-index.xml`} />
-			<link rel="canonical" href={currentUrl} />
-			{
-				supportedLangs.map((l) => (
-					<link
-						rel="alternate"
-						hreflang={localeTags[l]}
-						href={new URL(localizedPathForLang(l), siteOrigin).toString()}
-					/>
-				))
-			}
-			<link rel="alternate" hreflang="x-default" href={defaultLocaleUrl} />
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 
-			<!-- Open Graph -->
-			<meta property="og:type" content="website" />
-			<meta property="og:title" content={title} />
-			<meta property="og:description" content={description} />
-			<meta property="og:image" content={socialImageUrl} />
-			<meta property="og:url" content={currentUrl} />
-			<meta property="og:image:width" content="1200" />
-			<meta property="og:image:height" content="630" />
-			<meta property="og:locale" content={localeTags[lang].replace("-", "_")} />
-			<meta property="og:site_name" content="VitalsPath" />
-			<meta
-				property="og:image:alt"
-				content="VitalsPath health timeline interface"
-			/>
+		<link rel="sitemap" href={`${siteUrl}/sitemap-index.xml`} />
+		<link rel="canonical" href={currentUrl} />
+		{
+			supportedLangs.map((l) => (
+				<link
+					rel="alternate"
+					hreflang={localeTags[l]}
+					href={new URL(localizedPathForLang(l), siteOrigin).toString()}
+				/>
+			))
+		}
+		<link rel="alternate" hreflang="x-default" href={defaultLocaleUrl} />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImageUrl} />
+		<meta property="og:url" content={currentUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content={localeTags[lang].replace("-", "_")} />
+		<meta property="og:site_name" content="VitalsPath" />
+		<meta
+			property="og:image:alt"
+			content="VitalsPath health timeline interface"
+		/>
 
 		<!-- Twitter Card -->
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:title" content={title} />
-			<meta name="twitter:description" content={description} />
-			<meta name="twitter:image" content={socialImageUrl} />
-			<meta
-				name="twitter:image:alt"
-				content="VitalsPath health timeline interface"
-			/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageUrl} />
+		<meta
+			name="twitter:image:alt"
+			content="VitalsPath health timeline interface"
+		/>
 
-			<link
-				rel="icon"
-				type="image/png"
-				sizes="32x32"
-				href={`${baseHref}favicon-32x32.png`}
-			/>
-			<link
-				rel="icon"
-				type="image/png"
-				sizes="16x16"
-				href={`${baseHref}favicon-16x16.png`}
-			/>
-			<link
-				rel="icon"
-				type="image/x-icon"
-				href={`${baseHref}favicon.ico`}
-			/>
-			<link
-				rel="apple-touch-icon"
-				sizes="180x180"
-				href={`${baseHref}apple-touch-icon.png`}
-			/>
-			<!-- <link
-				rel="icon"
-				type="image/svg+xml"
-				href={`${import.meta.env.BASE_URL}/favicon.svg`}
-			/> -->
-			<link rel="manifest" href={`${baseHref}site.webmanifest`} />
-			<meta name="theme-color" content="#007aff" />
-			<meta
-				name="apple-mobile-web-app-status-bar-style"
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href={`${baseHref}favicon-32x32.png`}
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href={`${baseHref}favicon-16x16.png`}
+		/>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href={`${baseHref}favicon.ico`}
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href={`${baseHref}apple-touch-icon.png`}
+		/>
+		<link rel="manifest" href={`${baseHref}site.webmanifest`} />
+		<meta name="theme-color" content="#FDFCFB" />
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
 			content="black-translucent"
 		/>
 
-			<meta name="generator" content={Astro.generator} />
-			<title>{title}</title>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
 
-			<!-- JSON-LD Structured Data -->
-			<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}
-		></script>
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
 
 		<!-- Theme initialization -->
 		<script is:inline>
 			(function () {
 				try {
 					var saved = localStorage.getItem("theme");
-					var isDark = saved === "dark";
+					var isDark = saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches);
 					document.documentElement.classList.toggle("dark", isDark);
 				} catch (e) {}
 			})();
@@ -215,29 +214,23 @@ const jsonLd = [
 		data-site-lang={lang}
 		data-base-path={basePath}
 		data-maintenance-safe-segments={maintenanceSafeSegments.join(",")}
-		class="bg-white dark:bg-black text-gray-900 dark:text-white min-h-screen transition-colors"
+		class="bg-mesh min-h-screen selection:bg-teal-primary/20 selection:text-teal-primary"
 	>
 		<!-- Skip to main content for accessibility -->
 		<a
 			href="#main-content"
-			class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:shadow-xl"
+			class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-teal-primary focus:text-white focus:rounded-[1rem] focus:shadow-xl"
 		>
 			Skip to main content
 		</a>
-		<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-			<div
-				class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%] animate-float"
-			>
-			</div>
-			<div
-				class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%] animate-float"
-				style="animation-delay: -4s;"
-			>
-			</div>
-		</div>
-		<slot />
+
+		<main id="main-content" class="relative z-10 w-full overflow-x-hidden">
+			<slot />
+		</main>
+
+		<!-- Enhanced client script -->
 		<script>
-			import { initScrollReveal } from "../lib/scrollReveal";
+			import { setupRevealObserver } from "../lib/reveal-observer";
 			import { hydrateAppStoreLinks } from "../lib/app-store-links";
 			import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
 			import { trackEvent } from "../lib/supabase/tracking";
@@ -251,6 +244,23 @@ const jsonLd = [
 						.split(",")
 						.filter(Boolean),
 				};
+			}
+
+			// Enhanced Header behavior
+			function setupHeader() {
+				const header = document.querySelector(".glass-header");
+				if (!header) return;
+
+				const handleScroll = () => {
+					if (window.scrollY > 20) {
+						header.classList.add("scrolled");
+					} else {
+						header.classList.remove("scrolled");
+					}
+				};
+
+				window.addEventListener("scroll", handleScroll, { passive: true });
+				handleScroll(); // Initial check
 			}
 
 			async function syncMaintenanceState() {
@@ -290,7 +300,7 @@ const jsonLd = [
 			}
 
 			function bindAppStoreTracking() {
-				if (window.__vitalsPathAppStoreTrackingBound) return;
+				if ((window as any).__vitalsPathAppStoreTrackingBound) return;
 
 				document.addEventListener("click", (event) => {
 					const target = event.target instanceof Element ? event.target : null;
@@ -310,12 +320,13 @@ const jsonLd = [
 					);
 				});
 
-				window.__vitalsPathAppStoreTrackingBound = true;
+				(window as any).__vitalsPathAppStoreTrackingBound = true;
 			}
 
 			async function initClientPage() {
 				const { lang } = getLayoutConfig();
-				initScrollReveal();
+				setupHeader();
+				setupRevealObserver();
 				bindAppStoreTracking();
 				await hydrateAppStoreLinks(lang);
 				await syncMaintenanceState();
@@ -326,3 +337,4 @@ const jsonLd = [
 		</script>
 	</body>
 </html>
+

@@ -616,5 +616,13 @@
       "os": "watchOS 11+"
     },
     "description": "通过 iCloud 实现数据同步，并与 Apple Health 深度集成。"
+  },
+  "maintenance": {
+    "status": "发布准备",
+    "title": "我们正在准备公开发布",
+    "subtitle": "VitalsPath 暂时处于维护模式，我们正完成发布和 App Store 审核检查。",
+    "defaultMessage": "公开登陆页面暂时受限。法律、隐私、订阅和反馈页面仍然可用，以便从应用程序共享的每个链接都能继续工作。",
+    "legalAccess": "应用程序使用的链接在维护期间保持在线，以保持入职、支持和法律流程的连续性。",
+    "backToHome": "稍后再试"
   }
 }

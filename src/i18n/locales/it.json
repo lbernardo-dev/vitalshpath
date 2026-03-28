@@ -616,5 +616,13 @@
       "os": "watchOS 11+"
     },
     "description": "Sincronizzazione via iCloud e perfetta integrazione con Apple Health (Salute)."
+  },
+  "maintenance": {
+    "status": "Preparazione al Lancio",
+    "title": "Stiamo preparando il rilascio pubblico",
+    "subtitle": "VitalsPath è temporaneamente in modalità manutenzione mentre completiamo il lancio e i controlli di revisione dell'App Store.",
+    "defaultMessage": "La pagina di destinazione pubblica è temporaneamente limitata. Le pagine legali, sulla privacy, sugli abbonamenti e sui feedback rimangono disponibili in modo che ogni collegamento condiviso dall'app continui a funzionare.",
+    "legalAccess": "I collegamenti utilizzati dall'app rimangono online durante la manutenzione per preservare la continuità tra i flussi di onboarding, supporto e legali.",
+    "backToHome": "Riprova più tardi"
   }
 }

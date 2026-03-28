@@ -616,5 +616,13 @@
       "os": "watchOS 11+"
     },
     "description": "iCloud üzerinden senkronizasyon ve Apple Health (Sağlık) ile tam entegrasyon."
+  },
+  "maintenance": {
+    "status": "Lansman Hazırlığı",
+    "title": "Genel sürümü hazırlıyoruz",
+    "subtitle": "Lansman ve App Store inceleme kontrollerini bitirirken VitalsPath geçici olarak bakım modundadır.",
+    "defaultMessage": "Genel iniş geçici olarak sınırlıdır. Uygulamadan paylaşılan her bağlantının çalışmaya devam etmesi için yasal, gizlilik, abonelik ve geri bildirim sayfaları kullanılabilir kalır.",
+    "legalAccess": "Uygulama tarafından kullanılan bağlantılar, ilk katılım, destek ve yasal akışlarda sürekliliği sağlamak için bakım sırasında çevrimiçi kalır.",
+    "backToHome": "Daha sonra tekrar deneyin"
   }
 }

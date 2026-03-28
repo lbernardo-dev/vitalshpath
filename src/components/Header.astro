@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSelector from "./LanguageSelector.astro";
 import appIcon from "../assets/images/AppIcon_v2.png";
@@ -33,47 +33,47 @@ const navItems = [
 ---
 
 <header id="main-header" class="glass-header">
-    <nav class="pt-safe" aria-label="Main navigation">
-        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+    <nav class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-3">
+        <div class="flex items-center justify-between gap-4 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-4 lg:px-6 py-2 rounded-full border border-white/80 dark:border-white/10 shadow-sm transition-all">
+            <!-- Logo Section -->
             <a
                 href={`${baseUrl}/${lang}/`}
-                class="flex items-center gap-3 group transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                class="flex items-center gap-3 group transition-all duration-500"
             >
                 <div class="relative">
                     <Image
                         src={appIcon}
                         alt="VitalsPath Icon"
-                        width={42}
-                        height={42}
-                        class="h-10 w-10 sm:h-11 sm:w-11 rounded-[1.125rem] shadow-sm relative z-10"
+                        width={32}
+                        height={32}
+                        class="h-8 w-8 rounded-[0.8rem] shadow-sm relative z-10 transition-transform group-hover:scale-110"
                     />
-                    <div class="absolute inset-0 bg-teal-primary/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
-                <div class="hidden sm:block">
-                   <span class="text-[11px] font-black tracking-[0.4em] text-teal-primary uppercase">
-                        VITALSPATH
-                   </span>
-                </div>
+                <span class="hidden sm:block text-[11px] font-black tracking-[0.2em] text-slate-text uppercase">
+                    VITALSPATH
+                </span>
             </a>
 
-            <div class="hidden items-center gap-10 lg:flex">
-                {
-                    navItems.map((item) => (
-                        <a
-                            href={item.href}
-                            class="text-[13px] font-bold tracking-tight text-slate-muted transition-all hover:text-teal-primary dark:hover:text-teal-400 relative group"
-                        >
-                            {item.label}
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-primary/40 transition-all group-hover:w-full"></span>
-                        </a>
-                    ))
-                }
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center">
+                <div class="flex items-center gap-6">
+                    {
+                        navItems.map((item) => (
+                            <a
+                                href={item.href}
+                                class="text-[11px] font-bold uppercase tracking-widest text-slate-text/70 transition-all hover:text-teal-primary dark:hover:text-teal-400"
+                            >
+                                {item.label}
+                            </a>
+                        ))
+                    }
+                </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <div class="hidden sm:flex items-center gap-4">
+            <!-- Actions Section -->
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center gap-2">
                     <LanguageSelector lang={lang} />
-                    <div class="w-px h-4 bg-slate-200 dark:bg-white/10 mx-1"></div>
                     <ThemeToggle />
                 </div>
                 
@@ -82,7 +82,7 @@ const navItems = [
                     data-app-store-link
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="hidden rounded-2xl bg-teal-primary px-6 py-3 text-[13px] font-bold text-white shadow-lg shadow-teal-primary/15 transition-all hover:bg-teal-primary/90 hover:scale-[1.02] active:scale-[0.98] sm:inline-flex"
+                    class="hidden sm:flex items-center justify-center rounded-full bg-slate-text dark:bg-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white dark:text-black transition-all hover:scale-[1.05]"
                 >
                     {copy.home.primaryCta}
                 </a>
@@ -90,38 +90,34 @@ const navItems = [
                 <button
                     id="mobile-menu-button"
                     type="button"
-                    class="inline-flex rounded-xl bg-slate-100/50 p-2.5 text-slate-700 backdrop-blur-md dark:bg-white/5 dark:text-slate-200 lg:hidden hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
+                    class="lg:hidden flex items-center justify-center p-2 text-slate-text"
                     aria-label="Toggle navigation"
-                    aria-expanded="false"
                 >
                     <Menu className="h-5 w-5" />
                 </button>
             </div>
         </div>
 
+        <!-- Mobile Menu -->
         <div
             id="mobile-menu"
-            class="hidden border-t border-white/20 bg-white/80 backdrop-blur-[32px] px-4 py-8 dark:border-white/5 dark:bg-slate-900/90 lg:hidden animate-in fade-in slide-in-from-top-4 duration-300 overflow-y-auto max-h-[80vh]"
+            class="hidden absolute top-full left-4 right-4 mt-2 glass-panel p-6 animate-in fade-in slide-in-from-top-4 duration-500 z-50 lg:hidden"
         >
-            <div class="flex flex-col gap-5 px-4">
+            <div class="flex flex-col gap-6">
                 {
                     navItems.map((item) => (
                         <a
                             href={item.href}
-                            class="rounded-xl px-4 py-3 text-lg font-bold text-slate-text transition-all hover:bg-teal-primary/5 hover:text-teal-primary dark:hover:text-teal-400"
+                            class="text-sm font-black uppercase tracking-widest text-slate-text p-2 hover:text-teal-primary border-b border-slate-100 dark:border-white/5 pb-4"
                         >
                             {item.label}
                         </a>
                     ))
                 }
                 
-                <div class="grid grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-200/50 dark:border-white/10">
-                    <div class="flex items-center justify-center p-2 rounded-xl bg-slate-100 dark:bg-white/5">
-                        <LanguageSelector lang={lang} />
-                    </div>
-                    <div class="flex items-center justify-center p-2 rounded-xl bg-slate-100 dark:bg-white/5">
-                        <ThemeToggle />
-                    </div>
+                <div class="flex items-center justify-between mt-2 px-2">
+                    <LanguageSelector lang={lang} />
+                    <ThemeToggle />
                 </div>
 
                 <a
@@ -129,7 +125,7 @@ const navItems = [
                     data-app-store-link
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="mt-4 inline-flex items-center justify-center rounded-2xl bg-teal-primary px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-teal-primary/20 transition-all hover:bg-teal-primary/90"
+                    class="btn-primary w-full flex justify-center py-4"
                 >
                     {copy.home.primaryCta}
                 </a>
@@ -139,68 +135,33 @@ const navItems = [
 </header>
 
 <script>
-    function setupHeader() {
-        const header = document.getElementById("main-header");
+    function setupMobileMenu() {
         const button = document.getElementById("mobile-menu-button");
         const menu = document.getElementById("mobile-menu");
 
-        if (!header || !button || !menu) return;
-
-        // Scroll logic
-        const updateHeader = () => {
-            if (window.scrollY > 20) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        };
-
-        window.addEventListener("scroll", updateHeader);
-        updateHeader();
-
-        const closeMenu = () => {
-            menu.classList.add("hidden");
-            button.setAttribute("aria-expanded", "false");
-            const icon = button.querySelector("svg");
-            if (icon) {
-                icon.remove();
-            }
-            const replacement = document.createElement("span");
-            replacement.innerHTML =
-                '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>';
-            const firstChild = replacement.firstChild;
-            if (firstChild) {
-                button.appendChild(firstChild);
-            }
-        };
-
-        const openMenu = () => {
-            menu.classList.remove("hidden");
-            button.setAttribute("aria-expanded", "true");
-            const icon = button.querySelector("svg");
-            if (icon) {
-                icon.remove();
-            }
-            const replacement = document.createElement("span");
-            replacement.innerHTML =
-                '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>';
-            const firstChild = replacement.firstChild;
-            if (firstChild) {
-                button.appendChild(firstChild);
-            }
-        };
+        if (!button || !menu) return;
 
         button.onclick = () => {
             const isHidden = menu.classList.contains("hidden");
-            if (isHidden) openMenu();
-            else closeMenu();
+            if (isHidden) {
+                menu.classList.remove("hidden");
+                button.setAttribute("aria-expanded", "true");
+            } else {
+                menu.classList.add("hidden");
+                button.setAttribute("aria-expanded", "false");
+            }
         };
 
-        menu.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", closeMenu);
+        // Close on escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
-    setupHeader();
-    document.addEventListener("astro:page-load", setupHeader);
+    setupMobileMenu();
+    document.addEventListener("astro:page-load", setupMobileMenu);
 </script>
+

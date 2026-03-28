@@ -616,5 +616,13 @@
       "os": "watchOS 11+"
     },
     "description": "Sync via iCloud en volledige Health App ondersteuning."
+  },
+  "maintenance": {
+    "status": "Lanceervoorbereiding",
+    "title": "We bereiden de openbare release voor",
+    "subtitle": "VitalsPath is tijdelijk in onderhoudsmodus terwijl we de lancering en App Store-reviewcontroles afronden.",
+    "defaultMessage": "De openbare landing is tijdelijk beperkt. Juridische, privacy-, abonnements- en feedbackpagina's blijven beschikbaar, zodat elke link die vanuit de app wordt gedeeld, blijft werken.",
+    "legalAccess": "Links die door de app worden gebruikt, blijven online tijdens het onderhoud om de continuïteit te behouden tijdens onboarding, ondersteuning en juridische stromen.",
+    "backToHome": "Probeer het later opnieuw"
   }
 }

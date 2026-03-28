@@ -46,7 +46,7 @@ export async function getRuntimeAppStoreLinks(): Promise<AppStoreLinks> {
         .eq("key", "app_store_links")
         .maybeSingle();
 
-    const value = data?.value;
+    const value = (data as any)?.value;
     if (!value || typeof value !== "object") return defaultLinks;
 
     const storefronts =

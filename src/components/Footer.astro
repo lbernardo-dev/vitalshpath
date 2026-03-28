@@ -9,6 +9,7 @@ import {
 } from "../lib/app-store-links";
 import { appStoreLabels } from "../lib/app-store-labels";
 import { supportEmail } from "../lib/site-config";
+import { ArrowRight } from "lucide-react";
 
 interface Props {
     lang: Lang;
@@ -21,59 +22,60 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 ---
 
-<footer class="border-t border-slate-200/50 bg-cream-light dark:border-white/5 dark:bg-slate-950/80 mt-20 reveal">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+<footer class="border-t border-slate-200/40 bg-transparent dark:border-white/5 mt-32 reveal transition-colors duration-[1.2s] relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream-light/30 dark:to-slate-950/50 -z-10 pointer-events-none"></div>
+    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
         <div class="grid gap-16 lg:grid-cols-[1.5fr,1fr,1fr]">
             <div class="space-y-8">
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-5">
                     <Image
                         src={appIcon}
                         alt="VitalsPath"
-                        width={48}
-                        height={48}
-                        class="h-12 w-12 rounded-[1.25rem] shadow-sm"
+                        width={56}
+                        height={56}
+                        class="h-14 w-14 rounded-[1.2rem] shadow-premium"
                     />
                     <div class="space-y-1">
                         <p class="text-[11px] font-black tracking-[0.4em] text-teal-primary uppercase">
                             VITALSPATH
                         </p>
-                        <p class="text-sm font-bold text-slate-muted">
+                        <p class="text-[13px] font-bold text-slate-muted">
                             {copy.meta.description}
                         </p>
                     </div>
                 </div>
 
-                <p class="max-w-xl text-[13px] leading-relaxed text-slate-muted">
+                <p class="max-w-xl text-sm font-medium leading-relaxed text-slate-400">
                     {copy.footer.legalNote}
                 </p>
 
-                <div class="flex flex-wrap gap-4 pt-4">
+                <div class="flex flex-col sm:flex-row gap-4 pt-6">
                     <a
                         href={appStoreHref}
                         data-app-store-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl bg-teal-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-teal-primary/90 hover:scale-[1.03] active:scale-[0.97] shadow-xl shadow-teal-primary/20"
+                        class="btn-liquid-glass sm:w-auto"
                     >
-                        {copy.home.primaryCta}
+                        <span>{copy.home.primaryCta}</span>
                     </a>
                     <a
                         href={reviewHref}
                         data-app-store-review-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3.5 text-sm font-bold text-slate-700 dark:text-slate-200 transition-all hover:border-teal-primary/30 hover:bg-white dark:hover:bg-white/10 hover:scale-[1.03] active:scale-[0.97]"
+                        class="btn-secondary sm:w-auto hover:bg-white/40 dark:hover:bg-white/10"
                     >
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
             </div>
 
-            <div class="space-y-8">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+            <div class="space-y-8 lg:pl-8">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300 dark:text-slate-600">
                     SITEMAP
                 </h2>
-                <div class="flex flex-col gap-4 text-[13px] font-bold text-slate-600 dark:text-slate-400">
+                <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
                     <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.privacy}</a>
                     <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.support}</a>
                     <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
@@ -84,10 +86,10 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
             </div>
 
             <div class="space-y-8">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300 dark:text-slate-600">
                     LEGAL & CONTACT
                 </h2>
-                <div class="flex flex-col gap-4 text-[13px] font-bold text-slate-600 dark:text-slate-400">
+                <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
                     <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.terms}</a>
                     <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
                         {copy.footer.disclaimer}
@@ -102,13 +104,10 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
             </div>
         </div>
         
-        <div class="mt-20 pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[12px] font-bold text-slate-400">
-                &copy; {new Date().getFullYear()} VitalsPath. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+        <div class="mt-24 pt-8 border-t border-slate-200/40 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[11px] font-black tracking-widest text-[#8b919d]">
+                &copy; {new Date().getFullYear()} VITALSPATH. {lang === 'es' ? 'TODOS LOS DERECHOS RESERVADOS.' : 'ALL RIGHTS RESERVED.'}
             </p>
-            <div class="flex gap-6">
-                <!-- Social links could go here if needed -->
-            </div>
         </div>
     </div>
 </footer>

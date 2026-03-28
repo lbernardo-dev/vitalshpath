@@ -2,10 +2,11 @@
 import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
-import widgetScreen from "../../assets/images/screens/screen-20-widgets-home.PNG";
-import watchListScreen from "../../assets/images/eco-watch-list.png";
-import liveActivityScreen from "../../assets/images/screens/screen-27-live-activity2.PNG";
 import { Smartphone, Watch, Zap } from "lucide-react";
+
+// New device mockups
+import watchVitals from "../../assets/images/devices/watch_vitals.png";
+import watchHome from "../../assets/images/devices/watch_home.png";
 
 interface Props {
     lang: Lang;
@@ -14,54 +15,50 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 
-// Localized items for ecosystem
-const localizedItems: Record<string, any[]> = {
+// Generic localized items - fallback to EN if not found
+const ecosystemItems: Record<string, { title: string; description: string; icon: any }[]> = {
     en: [
-        { title: "Widgets", description: "Check medications and vitals directly from your home screen.", icon: Smartphone },
-        { title: "Apple Watch", description: "Fast actions and quick logging right on your wrist.", icon: Watch },
-        { title: "Live Activities", description: "Stay updated on active doses in real-time.", icon: Zap }
+        { title: "Smart Widgets", description: "Vitals and meds directly on your home screen.", icon: Smartphone },
+        { title: "Apple Watch", description: "Fast logging and alerts right on your wrist.", icon: Watch },
+        { title: "Live Activities", description: "Real-time tracking of active doses.", icon: Zap }
     ],
     es: [
-        { title: "Widgets", description: "Consulta medicación y constantes desde tu pantalla de inicio.", icon: Smartphone },
-        { title: "Apple Watch", description: "Acciones rápidas y registros directos desde tu muñeca.", icon: Watch },
-        { title: "Live Activities", description: "Mantente al día de tus tomas activas en tiempo real.", icon: Zap }
-    ],
-    fr: [
-        { title: "Widgets", description: "Consultez vos médicaments et constantes depuis l'écran d'accueil.", icon: Smartphone },
-        { title: "Apple Watch", description: "Actions rapides et enregistrements directs à votre poignet.", icon: Watch },
-        { title: "Live Activities", description: "Restez à jour sur vos doses actives en temps réel.", icon: Zap }
+        { title: "Widgets Inteligentes", description: "Constantes y tomas en tu pantalla de inicio.", icon: Smartphone },
+        { title: "Apple Watch", description: "Registros rápidos y alertas desde tu muñeca.", icon: Watch },
+        { title: "Live Activities", description: "Seguimiento en tiempo real de tomas activas.", icon: Zap }
     ]
 };
 
-const items = localizedItems[lang as string] || localizedItems.en;
+const items = ecosystemItems[lang as string] || ecosystemItems.en;
 ---
 
-<section id="ecosystem" class="py-24 sm:py-32 overflow-hidden bg-transparent">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<section id="ecosystem" class="py-32 sm:py-40 overflow-hidden bg-transparent relative z-10 transition-colors duration-[1.2s]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         
-        <div class="lg:grid lg:grid-cols-2 gap-20 items-center">
+        <div class="lg:grid lg:grid-cols-2 gap-24 items-center">
+            
             <div class="reveal">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.3em] text-teal-primary mb-4">
+                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-teal-primary mb-6">
                     Ecosystem
                 </h2>
-                <h3 class="font-serif text-4xl sm:text-6xl font-black text-slate-text leading-[1.1] mb-8">
-                    {copy.home.sections[1].title}
+                <h3 class="text-4xl sm:text-6xl md:text-7xl font-black text-slate-text leading-[1.05] tracking-tighter mb-8">
+                    {copy.home.sections[2].title}
                 </h3>
-                <p class="text-xl text-slate-muted leading-relaxed mb-12 max-w-xl">
-                    {copy.home.sections[1].body}
+                <p class="text-xl text-slate-muted leading-relaxed font-medium mb-12">
+                    {copy.home.sections[2].body}
                 </p>
                 
                 <div class="space-y-4">
                     {items.map((item, index) => (
-                        <div class={`reveal stagger-${index + 1} flex items-center gap-6 p-6 premium-card hover:bg-white/70 dark:hover:bg-white/10 group`}>
-                            <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary shrink-0 group-hover:scale-110 transition-transform duration-500">
+                        <div class={`reveal stagger-${index + 1} flex items-center gap-6 p-6 sm:p-8 premium-card group`}>
+                            <div class="w-14 h-14 rounded-[1.2rem] bg-teal-primary/10 border border-teal-primary/20 flex items-center justify-center text-teal-primary shrink-0 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 shadow-sm">
                                 <item.icon className="w-6 h-6" />
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-slate-text mb-0.5">
+                                <h4 class="text-lg font-bold text-slate-text mb-1 tracking-tight">
                                     {item.title}
                                 </h4>
-                                <p class="text-slate-muted text-sm group-hover:text-slate-text transition-colors">
+                                <p class="text-slate-muted text-sm font-medium transition-colors">
                                     {item.description}
                                 </p>
                             </div>
@@ -70,29 +67,35 @@ const items = localizedItems[lang as string] || localizedItems.en;
                 </div>
             </div>
 
-            <div class="mt-20 lg:mt-0 relative reveal reveal-scale stagger-2">
-                <!-- Decorative background elements -->
-                <div class="absolute -inset-10 bg-teal-primary blur-[150px] opacity-10 dark:opacity-20 animate-pulse"></div>
+            <div class="mt-24 lg:mt-0 relative reveal reveal-scale stagger-2 flex justify-center lg:justify-end">
+                <!-- Background Glow -->
+                <div class="absolute inset-0 bg-teal-primary/20 blur-[120px] rounded-full animate-float -z-10"></div>
                 
-                <div class="relative glass-panel p-4 sm:p-8 rounded-[3.5rem] border-white/40 dark:border-white/5">
-                    <div class="grid grid-cols-2 gap-4 sm:gap-6">
-                        <div class="space-y-4 sm:space-y-6">
-                            <div class="rounded-[2rem] overflow-hidden border border-white/40 shadow-2xl rotate-[-3deg] hover:rotate-0 transition-all duration-1000 group">
-                                <Image src={widgetScreen} alt="VitalsPath Widgets" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
-                            </div>
-                            <div class="rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl rotate-[2deg] hover:rotate-0 transition-all duration-1000 group">
-                                <Image src={watchListScreen} alt="VitalsPath Apple Watch" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
-                            </div>
+                <div class="relative flex justify-center items-center">
+                    <!-- Overlapping Watches -->
+                    <div class="relative z-10 animate-float" style="animation-delay: -1s">
+                        <div class="rounded-[40px] p-3 bg-white/30 dark:bg-black/30 backdrop-blur-3xl border border-white/60 dark:border-white/10 shadow-premium">
+                             <Image 
+                                src={watchVitals} 
+                                alt="VitalsPath Apple Watch" 
+                                class="w-full max-w-[260px] sm:max-w-[300px] h-auto rounded-[32px]" 
+                            />
                         </div>
-                        <div class="flex items-center">
-                            <div class="rounded-[2rem] overflow-hidden border border-white/40 shadow-2xl rotate-[4deg] hover:rotate-0 transition-all duration-1000 group">
-                                <Image src={liveActivityScreen} alt="VitalsPath Live Activities" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
-                            </div>
-                        </div>
+                    </div>
+                    
+                    <!-- Secondary Watch in background -->
+                    <div class="absolute -right-8 sm:-right-16 -top-12 z-0 animate-float opacity-60 scale-90" style="animation-delay: -4s">
+                         <div class="rounded-[40px] p-3 bg-white/20 dark:bg-black/20 backdrop-blur-3xl border border-white/40 dark:border-white/10 shadow-premium">
+                             <Image 
+                                src={watchHome} 
+                                alt="VitalsPath Watch Home" 
+                                class="w-full max-w-[200px] sm:max-w-[240px] h-auto rounded-[32px] grayscale-[0.2]" 
+                            />
+                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
-
     </div>
 </section>

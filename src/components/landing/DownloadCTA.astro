@@ -16,27 +16,30 @@ const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 ---
 
-<section class="py-24 sm:py-32 relative overflow-hidden">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<section class="py-32 sm:py-48 relative overflow-hidden bg-transparent transition-colors duration-[1.2s]">
+    <!-- Ambient Background Decorations -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-primary/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-orange-accent/5 blur-[140px] rounded-full translate-x-1/2 translate-y-1/2"></div>
+
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <div class="reveal reveal-scale glass-panel p-8 sm:p-16 lg:p-24 overflow-hidden relative">
-            <!-- Background effects -->
-            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[40rem] h-[40rem] bg-teal-primary/10 blur-[120px]"></div>
-            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[30rem] h-[30rem] bg-orange-accent/10 blur-[100px]"></div>
+        <div class="reveal reveal-scale premium-card p-12 sm:p-20 lg:p-32 overflow-hidden relative shadow-premium rounded-[3.5rem]">
+            <!-- Inner Glowing Orb -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-primary/10 blur-[80px] rounded-full animate-float -z-10"></div>
             
             <div class="relative z-10 text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 mb-10 px-4 py-2 rounded-full border border-teal-primary/10 bg-teal-primary/5 backdrop-blur-sm">
-                    <Heart className="w-4 h-4 text-orange-accent fill-orange-accent" />
-                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-teal-primary">
-                        VitalsPath
+                <div class="inline-flex items-center gap-2 mb-12 px-5 py-2 rounded-full border border-teal-primary/10 bg-white/50 dark:bg-black/20 backdrop-blur-3xl shadow-sm">
+                    <Heart className="w-4 h-4 text-orange-accent fill-orange-accent animate-pulse" />
+                    <span class="text-[11px] font-black uppercase tracking-[0.4em] text-teal-primary">
+                        {lang === 'es' ? 'COMIENZA HOY' : 'START TODAY'}
                     </span>
                 </div>
                 
-                <h3 class="text-4xl sm:text-6xl font-serif text-slate-text leading-tight mb-8">
-                    {lang === 'es' ? 'Tu salud, perfectamente organizada y privada' : 'Your health, perfectly organized and private'}
+                <h3 class="text-5xl sm:text-7xl lg:text-8xl font-black text-slate-text leading-[1.05] mb-10 tracking-tighter">
+                    {lang === 'es' ? 'Tu salud, en tus manos y en privado' : 'Your health, in your hands and private'}
                 </h3>
                 
-                <p class="text-lg sm:text-xl font-medium text-slate-muted mb-12 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-xl sm:text-2xl font-medium text-slate-muted mb-16 leading-relaxed max-w-2xl mx-auto">
                     {copy.home.footnote}
                 </p>
                 
@@ -44,45 +47,53 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
                     <a
                         href={appStoreHref}
                         data-app-store-link
-                        class="btn-primary flex items-center justify-center gap-3 w-full sm:w-auto"
+                        class="btn-liquid-glass w-full sm:w-auto min-w-[280px] shadow-xl group"
                     >
-                        {copy.home.primaryCta}
-                        <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                        <span>{copy.home.primaryCta}</span>
+                        <ArrowRight className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-2" />
+                    </a>
+                    
+                    <a
+                        href={`/${lang}/release-features`}
+                        class="btn-secondary w-full sm:w-auto min-w-[240px] hover:bg-white/40 dark:hover:bg-white/10 transition-colors"
+                    >
+                        {copy.home.secondaryCta}
                     </a>
                 </div>
                 
-                <div class="mt-20 pt-12 border-t border-slate-200 dark:border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 items-center">
-                    <div class="flex items-center justify-center sm:justify-start gap-4">
-                        <div class="w-14 h-14 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary border border-teal-primary/5">
-                            <ShieldCheck className="w-7 h-7" />
+                <div class="mt-24 pt-16 border-t border-slate-200/60 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="flex flex-col items-center md:items-start gap-5">
+                        <div class="w-14 h-14 rounded-[1.2rem] bg-teal-primary/10 flex items-center justify-center text-teal-primary border border-teal-primary/20 shadow-sm">
+                            <ShieldCheck className="w-6 h-6" />
                         </div>
-                        <div class="text-left">
-                            <h4 class="text-slate-text font-black text-sm uppercase tracking-wider">{copy.home.sections[2].title}</h4>
-                            <p class="text-[13px] font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Privacidad absoluta con cifrado de extremo a extremo.' : 'Absolute privacy with end-to-end encryption.'}</p>
+                        <div class="text-center md:text-left">
+                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">{copy.home.sections[2].title}</h4>
+                            <p class="text-sm font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Privacidad absoluta con cifrado de extremo a extremo.' : 'Absolute privacy with end-to-end encryption.'}</p>
                         </div>
                     </div>
                     
-                    <div class="flex items-center justify-center sm:justify-start gap-4">
-                        <div class="w-14 h-14 rounded-2xl bg-orange-accent/10 flex items-center justify-center text-orange-accent border border-orange-accent/5">
-                            <Heart className="w-7 h-7" />
+                    <div class="flex flex-col items-center md:items-start gap-5">
+                        <div class="w-14 h-14 rounded-[1.2rem] bg-orange-accent/10 flex items-center justify-center text-orange-accent border border-orange-accent/20 shadow-sm">
+                            <Heart className="w-6 h-6" />
                         </div>
-                        <div class="text-left">
-                            <h4 class="text-slate-text font-black text-sm uppercase tracking-wider">PREMIUM CARE</h4>
-                            <p class="text-[13px] font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Diseñado para pacientes crónicos y cuidadores.' : 'Designed for chronic patients and caregivers.'}</p>
+                        <div class="text-center md:text-left">
+                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">PREMIUM CARE</h4>
+                            <p class="text-sm font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Diseñado para pacientes crónicos y cuidadores.' : 'Designed for chronic patients and caregivers.'}</p>
                         </div>
                     </div>
 
-                    <div class="hidden lg:flex items-center justify-center sm:justify-start gap-4">
-                         <div class="flex -space-x-3 overflow-hidden">
+                    <div class="flex flex-col items-center md:items-start gap-5">
+                         <div class="flex -space-x-3 overflow-hidden mb-1">
                             {[1, 2, 3, 4].map((i) => (
-                                <div class="inline-block h-10 w-10 rounded-full ring-2 ring-cream dark:ring-slate-900 bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[10px] font-bold text-slate-400">
+                                <div class="inline-flex h-12 w-12 rounded-full ring-4 ring-white/50 dark:ring-black/20 bg-slate-200 dark:bg-slate-800 items-center justify-center text-xs font-bold text-slate-400 border border-white/20 shadow-sm backdrop-blur-md">
                                     {String.fromCharCode(64 + i)}
                                 </div>
                             ))}
                         </div>
-                        <div class="text-left">
-                            <p class="text-[13px] font-medium text-slate-muted leading-snug">
-                                <span class="font-bold text-teal-primary">+20k</span> {lang === 'es' ? 'usuarios activos' : 'active users'}
+                        <div class="text-center md:text-left mt-1">
+                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">COMMUNITY</h4>
+                            <p class="text-sm font-medium text-slate-muted leading-snug">
+                                <span class="font-bold text-teal-primary">+20k</span> {lang === 'es' ? 'usuarios activos confiando en nosotros' : 'active users trusting us'}
                             </p>
                         </div>
                     </div>
