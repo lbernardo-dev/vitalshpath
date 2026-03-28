@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import { type Lang } from "../../i18n/ui-locales";
+import { getSiteCopy } from "../../content/site-copy";
+import widgetScreen from "../../assets/images/screens/screen-20-widgets-home.PNG";
+import watchListScreen from "../../assets/images/eco-watch-list.png";
+import liveActivityScreen from "../../assets/images/screens/screen-27-live-activity2.PNG";
+import { Smartphone, Watch, Zap } from "lucide-react";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = getSiteCopy(lang);
+
+const ecosystemItems = [
+    {
+        title: "Widgets",
+        description: "Check your medications and vitals directly from your home screen.",
+        icon: Smartphone,
+        image: widgetScreen,
+        color: "from-blue-500/20 to-teal-500/20"
+    },
+    {
+        title: "Apple Watch",
+        description: "Fast actions and quick logging on your wrist.",
+        icon: Watch,
+        image: watchListScreen,
+        color: "from-purple-500/20 to-blue-500/20"
+    },
+    {
+        title: "Live Activities",
+        description: "Stay updated on your active doses in real-time.",
+        icon: Zap,
+        image: liveActivityScreen,
+        color: "from-teal-500/20 to-emerald-500/20"
+    }
+];
+---
+
+<section class="py-24 sm:py-32 overflow-hidden bg-cream dark:bg-slate-950 transition-colors duration-500">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="lg:grid lg:grid-cols-2 gap-16 items-center mb-24">
+            <div class="reveal">
+                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-teal-primary mb-4">
+                    Ecosystem
+                </h2>
+                <h3 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-8">
+                    {copy.home.sections[1].title}
+                </h3>
+                <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
+                    {copy.home.sections[1].body}
+                </p>
+                
+                <div class="space-y-6">
+                    {ecosystemItems.map((item, index) => (
+                        <div class={`reveal stagger-${index + 1} flex items-start gap-5 p-6 rounded-3xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 transition-all hover:bg-white dark:hover:bg-white/10`}>
+                            <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary shrink-0">
+                                <item.icon className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-black text-slate-900 dark:text-white mb-1">
+                                    {item.title}
+                                </h4>
+                                <p class="text-slate-600 dark:text-slate-400">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="mt-16 lg:mt-0 relative reveal reveal-scale">
+                <div class="absolute -inset-4 bg-teal-primary blur-[120px] opacity-10 dark:opacity-20 animate-pulse"></div>
+                <div class="relative grid grid-cols-2 gap-4 sm:gap-6">
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[-2deg] transition-transform hover:rotate-0 duration-700">
+                            <Image src={widgetScreen} alt="VitalsPath Widgets" class="w-full h-auto" />
+                        </div>
+                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[1deg] transition-transform hover:rotate-0 duration-700">
+                            <Image src={watchListScreen} alt="VitalsPath Apple Watch" class="w-full h-auto" />
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[3deg] transition-transform hover:rotate-0 duration-700">
+                            <Image src={liveActivityScreen} alt="VitalsPath Live Activities" class="w-full h-auto" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

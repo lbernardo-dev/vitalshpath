@@ -21,7 +21,7 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 ---
 
-<footer class="border-t border-slate-200/80 bg-white dark:border-white/10 dark:bg-slate-950">
+<footer class="border-t border-slate-200/50 bg-cream/50 dark:border-white/5 dark:bg-slate-950/80 reveal">
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div class="grid gap-10 lg:grid-cols-[1.3fr,1fr,1fr]">
             <div class="space-y-5">
@@ -33,11 +33,11 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         height={40}
                         class="h-10 w-10 rounded-2xl"
                     />
-                    <div>
-                        <p class="text-sm font-black tracking-[0.22em] text-sky-600">
+                    <div class="space-y-1">
+                        <p class="text-sm font-black tracking-[0.25em] text-teal-primary uppercase">
                             VITALSPATH
                         </p>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
                             {copy.meta.description}
                         </p>
                     </div>
@@ -53,7 +53,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         data-app-store-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl bg-sky-600 px-4 py-2.5 text-sm font-black text-white transition-colors hover:bg-sky-700"
+                        class="inline-flex items-center rounded-2xl bg-teal-primary px-5 py-3 text-sm font-black text-white transition-all hover:bg-teal-600 hover:scale-105 active:scale-95 shadow-lg shadow-teal-primary/20"
                     >
                         {copy.home.primaryCta}
                     </a>
@@ -62,40 +62,39 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         data-app-store-review-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
+                        class="inline-flex items-center rounded-2xl border border-slate-200/50 bg-white/50 px-5 py-3 text-sm font-bold text-slate-700 transition-all hover:border-slate-300 hover:text-teal-primary dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
                     >
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
             </div>
 
-            <div class="space-y-4">
-                <h2 class="text-sm font-black uppercase tracking-[0.22em] text-slate-400">
-                    VitalsPath
+                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400 mb-6">
+                    Links
                 </h2>
-                <div class="flex flex-col gap-3 text-sm font-medium text-slate-600 dark:text-slate-300">
-                    <a href={`${baseUrl}/${lang}/privacy/`}>{copy.footer.privacy}</a>
-                    <a href={`${baseUrl}/${lang}/feedback/`}>{copy.footer.support}</a>
-                    <a href={`${baseUrl}/${lang}/release-features/`}>
+                <div class="flex flex-col gap-4 text-sm font-bold text-slate-600 dark:text-slate-300">
+                    <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-primary transition-colors">{copy.footer.privacy}</a>
+                    <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-primary transition-colors">{copy.footer.support}</a>
+                    <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-primary transition-colors">
                         {copy.footer.releaseFeatures}
                     </a>
-                    <a href={`${baseUrl}/${lang}/roadmap/`}>{copy.footer.roadmap}</a>
+                    <a href={`${baseUrl}/${lang}/roadmap/`} class="hover:text-teal-primary transition-colors">{copy.footer.roadmap}</a>
                 </div>
             </div>
 
-            <div class="space-y-4">
-                <h2 class="text-sm font-black uppercase tracking-[0.22em] text-slate-400">
+            <div class="space-y-6">
+                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400">
                     Legal
                 </h2>
-                <div class="flex flex-col gap-3 text-sm font-medium text-slate-600 dark:text-slate-300">
-                    <a href={`${baseUrl}/${lang}/terms/`}>{copy.footer.terms}</a>
-                    <a href={`${baseUrl}/${lang}/disclaimer/`}>
+                <div class="flex flex-col gap-4 text-sm font-bold text-slate-600 dark:text-slate-300">
+                    <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-primary transition-colors">{copy.footer.terms}</a>
+                    <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-primary transition-colors">
                         {copy.footer.disclaimer}
                     </a>
-                    <a href={`${baseUrl}/${lang}/subscription/`}>
+                    <a href={`${baseUrl}/${lang}/subscription/`} class="hover:text-teal-primary transition-colors">
                         {copy.footer.subscription}
                     </a>
-                    <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
+                    <a href={`mailto:${supportEmail}`} class="hover:text-teal-primary transition-colors">{supportEmail}</a>
                 </div>
             </div>
         </div>

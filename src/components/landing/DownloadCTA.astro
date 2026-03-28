@@ -1,0 +1,68 @@
+---
+import { type Lang } from "../../i18n/ui-locales";
+import { getSiteCopy } from "../../content/site-copy";
+import { 
+    getAppStoreUrlForLang, 
+    getDefaultAppStoreLinks 
+} from "../../lib/app-store-links";
+import { ArrowRight, ShieldCheck, Heart } from "lucide-react";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = getSiteCopy(lang);
+const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+---
+
+<section class="py-24 sm:py-32 bg-white dark:bg-slate-900 transition-colors duration-500">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="reveal reveal-scale rounded-[3rem] bg-slate-900 dark:bg-teal-primary/5 p-8 sm:p-16 lg:p-24 overflow-hidden relative border border-white/5">
+            <!-- Background effects -->
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-teal-primary blur-[160px] opacity-20"></div>
+            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-orange-accent blur-[120px] opacity-10"></div>
+            
+            <div class="relative z-10 text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur shadow-2xl">
+                    <Heart className="w-4 h-4 text-orange-accent fill-orange-accent" />
+                    <span class="text-xs font-black uppercase tracking-[0.25em] text-white">
+                        VitalsPath
+                    </span>
+                </div>
+                
+                <h3 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-8">
+                    Your health journey, <br class="hidden sm:block" /> fully organized and private.
+                </h3>
+                
+                <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+                    {copy.home.footnote}
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                        href={appStoreHref}
+                        class="px-8 py-5 rounded-3xl bg-teal-primary text-white text-lg font-black transition-all hover:bg-teal-600 hover:scale-105 active:scale-95 shadow-2xl shadow-teal-primary/20 flex items-center justify-center gap-3"
+                    >
+                        {copy.home.primaryCta}
+                        <ArrowRight className="w-5 h-5" />
+                    </a>
+                </div>
+                
+                <div class="mt-16 pt-16 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+                    <div class="flex items-center justify-center sm:justify-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-teal-primary border border-white/5">
+                            <ShieldCheck className="w-6 h-6" />
+                        </div>
+                        <div class="text-left">
+                            <h4 class="text-white font-black">{copy.home.sections[2].title}</h4>
+                            <p class="text-sm text-slate-400">{copy.home.sections[2].body.substring(0, 80)}...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

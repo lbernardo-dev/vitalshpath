@@ -1,0 +1,134 @@
+---
+import { type Lang } from "../../i18n/ui-locales";
+import { getSiteCopy } from "../../content/site-copy";
+import { 
+    Activity, 
+    Pill, 
+    Calendar, 
+    Clock, 
+    ShieldCheck, 
+    Smartphone, 
+    Bell, 
+    Mic, 
+    Camera,
+    Stethoscope
+} from "lucide-react";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = getSiteCopy(lang);
+
+const iconMap = {
+    "Medication and dose tracking": Pill,
+    "Seguimiento de medicación y dosis": Pill,
+    "Suivi des médicaments et des doses": Pill,
+    "Medikamenten- und Dosiserfassung": Pill,
+    "Tracciamento di farmaci e dosi": Pill,
+    "Seguimento de medicação e doses": Pill,
+    "服薬と用量の記録": Pill,
+    "药物与剂量记录": Pill,
+
+    "Vitals and measurements": Activity,
+    "Constantes y mediciones": Activity,
+    "Constantes et mesures": Activity,
+    "Vitalwerte und Messungen": Activity,
+    "Parametri e misurazioni": Activity,
+    "Sinais vitais e medições": Activity,
+    "バイタルと測定値": Activity,
+    "生命体征与测量": Activity,
+
+    "Appointments and follow-up tasks": Calendar,
+    "Citas y tareas de seguimiento": Calendar,
+    "Rendez-vous et tâches de suivi": Calendar,
+    "Termine und Nachverfolgungsaufgaben": Calendar,
+    "Appuntamenti e attività di follow-up": Calendar,
+    "Consultas e tarefas de acompanhamento": Calendar,
+    "予定とフォローアップ項目": Calendar,
+    "预约与跟进任务": Calendar,
+
+    "Widgets, Live Activities and Apple Watch": Smartphone,
+    "Widgets, Live Activities y Apple Watch": Smartphone,
+    "Widgets, Live Activities et Apple Watch": Smartphone,
+    "Widgets, Live Activities und Apple Watch": Smartphone,
+    "Widget, Live Activities e Apple Watch": Smartphone,
+    "Widgets, Live Activities e Apple Watch": Smartphone,
+    "ウィジェット、Live Activities、Apple Watch": Smartphone,
+    "小组件、Live Activities 与 Apple Watch": Smartphone,
+};
+
+const getIcon = (title: string) => {
+    return iconMap[title] || ShieldCheck;
+};
+
+// Colors for the icon backgrounds to match JourneyBot vibrant style
+const iconColors = [
+    "bg-teal-500",
+    "bg-orange-500",
+    "bg-purple-500",
+    "bg-green-500",
+    "bg-blue-500",
+    "bg-rose-500",
+    "bg-emerald-500",
+    "bg-indigo-500"
+];
+---
+
+<section id="features" class="py-24 sm:py-32 bg-white dark:bg-slate-900 transition-colors duration-500">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-20">
+            <h2 class="text-xs font-black uppercase tracking-[0.25em] text-teal-primary mb-4 reveal reveal-scale">
+                Features
+            </h2>
+            <h3 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight reveal stagger-1">
+                {copy.home.featureListTitle}
+            </h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 cursor-default">
+            {
+                copy.home.featureListItems.map((feature, index) => {
+                    const Icon = getIcon(feature);
+                    const colorClass = iconColors[index % iconColors.length];
+                    
+                    return (
+                        <div class="reveal reveal-scale stagger-{index + 1} group p-8 rounded-[2rem] bg-cream dark:bg-slate-800/50 border border-slate-200/50 dark:border-white/5 transition-all duration-500 hover:shadow-2xl hover:shadow-teal-primary/5 hover:-translate-y-2">
+                            <div class={`w-14 h-14 ${colorClass} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-current/20 group-hover:scale-110 transition-transform`}>
+                                <Icon className="w-7 h-7" />
+                            </div>
+                            <h4 class="text-xl font-black text-slate-900 dark:text-white mb-2 leading-snug">
+                                {feature}
+                            </h4>
+                        </div>
+                    );
+                })
+            }
+        </div>
+        
+        <!-- Large visual card - JourneyBot style -->
+        <div class="mt-16 reveal stagger-5">
+            <div class="rounded-[2.5rem] bg-teal-primary/5 dark:bg-teal-primary/10 p-8 sm:p-12 lg:p-16 border border-teal-primary/10 overflow-hidden relative">
+                <div class="lg:grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h4 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-6">
+                            {copy.home.sections[0].title}
+                        </h4>
+                        <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
+                            {copy.home.sections[0].body}
+                        </p>
+                    </div>
+                    <div class="mt-8 lg:mt-0 flex justify-center">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-teal-primary blur-[80px] opacity-20"></div>
+                            <Stethoscope className="w-32 h-32 sm:w-48 sm:h-48 text-teal-primary relative z-10 opacity-80" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

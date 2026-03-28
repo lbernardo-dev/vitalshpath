@@ -3,14 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+    html, body {
+        background-color: #FDF8F1;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
         -webkit-font-smoothing: antialiased;
         scroll-behavior: smooth;
+        color: #1a1a1a;
+    }
+
+    .dark html, .dark body {
+        background-color: #0c0c0e;
+        color: #fdf8f1;
     }
 
     ::selection {
-        background-color: rgba(0, 122, 255, 0.25);
+        background-color: rgba(0, 128, 160, 0.2);
+        color: #0080A0;
     }
 }
 
