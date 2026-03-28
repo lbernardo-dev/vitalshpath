@@ -13,12 +13,13 @@ const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 
-// Split the title for the two-tone effect (JourneyBot style)
-// Example: "Keep medication, symptoms... in one private place."
-// Let's make the last part "one private place" accentuated.
-const titleParts = copy.home.heroTitle.split("in one private place.");
-const mainTitle = titleParts[0];
-const accentTitle = "one private place.";
+// Split title logic: Find the last few words to accentuate
+const fullTitle = copy.home.heroTitle;
+// Default to last words if the separator isn't found
+const SEPARATOR = lang === 'es' ? 'en un lugar privado.' : (lang === 'fr' ? 'en un lieu privé.' : 'in one private place.');
+const parts = fullTitle.split(SEPARATOR);
+const mainTitle = parts[0] || fullTitle;
+const accentTitle = parts.length > 1 ? SEPARATOR : "";
 ---
 
 <section class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-32 bg-cream dark:bg-slate-950 transition-colors duration-500">
@@ -34,14 +35,14 @@ const accentTitle = "one private place.";
                     <span class="mr-2">✦</span> Private & Secure
                 </div>
                 
-                <h1 class="text-5xl sm:text-6xl xl:text-7xl font-black text-slate-950 dark:text-white leading-[1.1] tracking-tight mb-8 reveal stagger-1">
+                <h1 class="text-[2.5rem] sm:text-6xl xl:text-7xl font-black text-slate-950 dark:text-white leading-[1.1] tracking-tight mb-8 reveal stagger-1">
                     {mainTitle}
-                    <span class="text-teal-primary dark:text-teal-400 block sm:inline">
+                    <span class="text-teal-primary dark:text-teal-400 block lg:inline-block">
                       {accentTitle}
                     </span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 reveal stagger-2">
+                <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-10 reveal stagger-2">
                     {copy.home.heroSubtitle}
                 </p>
                 
@@ -71,7 +72,7 @@ const accentTitle = "one private place.";
                 <div class="relative w-full max-w-[320px] sm:max-w-[420px]">
                     <!-- Main App Mockup -->
                     <div class="relative z-10 animate-float">
-                        <div class="rounded-[2.5rem] p-3 bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-2xl">
+                        <div class="rounded-[2.5rem] p-2 sm:p-3 bg-white/40 dark:bg-white/5 backdrop-blur-[32px] border border-white/50 dark:border-white/10 shadow-2xl">
                             <Image
                                 src={appMockup}
                                 alt="VitalsPath Dashboard Experience"
