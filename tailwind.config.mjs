@@ -6,16 +6,16 @@ export default {
         extend: {
             colors: {
                 cream: {
-                    base: '#FDFCFB',
-                    accent: '#F9F5F1',
-                    light: '#FFFFFF',
-                    dark: '#F2EBE3',
+                    base: 'rgb(var(--cream-rgb) / <alpha-value>)',
+                    light: 'rgb(var(--cream-light-rgb) / <alpha-value>)',
+                    dark: 'rgb(var(--cream-dark-rgb) / <alpha-value>)',
                 },
                 'teal-primary': '#0080A0',
                 'teal-light': '#4FB3C3',
                 'orange-accent': '#E65100',
-                'slate-text': '#1A1C1E',
-                'slate-muted': '#64748B',
+                // Dynamic: changes in dark mode via CSS custom properties
+                'slate-text': 'rgb(var(--slate-text-rgb) / <alpha-value>)',
+                'slate-muted': 'rgb(var(--slate-muted-rgb) / <alpha-value>)',
                 glass: {
                     border: 'rgba(255, 255, 255, 0.12)',
                     glow: 'rgba(255, 255, 255, 0.4)',

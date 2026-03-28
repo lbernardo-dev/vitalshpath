@@ -22,6 +22,13 @@
     --glass-border: rgba(0, 0, 0, 0.04); /* Ritualist soft border */
     --shadow-premium: 0 40px 100px -20px rgba(0, 0, 0, 0.05); /* Softer shadow */
     --shadow-glow: 0 0 40px rgba(0, 128, 160, 0.15);
+
+    /* RGB triplets for Tailwind alpha-value support (e.g. text-slate-text/50) */
+    --cream-light-rgb: 253, 251, 247;
+    --cream-rgb: 248, 245, 239;
+    --cream-dark-rgb: 240, 232, 221;
+    --slate-text-rgb: 25, 25, 25;
+    --slate-muted-rgb: 102, 102, 102;
   }
 
   .dark {
@@ -34,6 +41,13 @@
     --glass-border: rgba(255, 255, 255, 0.08);
     --shadow-premium: 0 50px 120px -30px rgba(0, 0, 0, 0.9);
     --shadow-glow: 0 0 60px rgba(0, 128, 160, 0.25);
+
+    /* Override RGB triplets for dark mode */
+    --cream-light-rgb: 11, 11, 12;
+    --cream-rgb: 18, 19, 20;
+    --cream-dark-rgb: 25, 27, 29;
+    --slate-text-rgb: 253, 251, 247;
+    --slate-muted-rgb: 161, 161, 170;
   }
 
   html {
@@ -43,8 +57,11 @@
   }
 
   body {
-    @apply bg-cream-light text-slate-text transition-colors duration-1000;
+    @apply bg-mesh transition-colors duration-1000;
     font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    /* Use CSS variables directly so dark mode color switch works properly */
+    color: var(--slate-text);
+    background-color: var(--cream-light);
   }
 
   h1, h2, h3, .font-serif {
