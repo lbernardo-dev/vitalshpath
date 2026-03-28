@@ -116,30 +116,32 @@
     /* Reveal Animations */
     .reveal {
         opacity: 0;
-        transform: translateY(60px);
-        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        pointer-events: none;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-visible {
         opacity: 1;
         transform: translateY(0);
-        pointer-events: auto;
     }
 
     .reveal-scale {
-        @apply scale-[0.9] opacity-0;
-        transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0;
+        transform: scale(0.95);
+        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-scale.reveal-visible {
-        @apply scale-100 opacity-100;
+        opacity: 1;
+        transform: scale(1);
     }
 
-    .stagger-1 { transition-delay: 150ms; }
-    .stagger-2 { transition-delay: 300ms; }
-    .stagger-3 { transition-delay: 450ms; }
-    .stagger-4 { transition-delay: 600ms; }
+    .stagger-1 { transition-delay: 80ms; }
+    .stagger-2 { transition-delay: 160ms; }
+    .stagger-3 { transition-delay: 240ms; }
+    .stagger-4 { transition-delay: 320ms; }
 }
 
 @layer utilities {
@@ -182,8 +184,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal, .reveal-scale, .animate-float {
-        @apply opacity-100 transform-none transition-none !important;
+    .reveal,
+    .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .animate-float {
         animation: none !important;
     }
+}
+
+/* Fallback if JS fails to load - reveal everything */
+.js-reveal-failed .reveal,
+.js-reveal-failed .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
 }
