@@ -62,7 +62,6 @@ type SiteCopy = {
         nextReleaseItems: string[];
         directionTitle: string;
         directionBody: string;
-        safetyNote: string;
     };
     footer: {
         privacy: string;
@@ -215,7 +214,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             directionTitle: "Product direction",
             directionBody: "The short-term focus is to make everyday follow-up clearer, faster and more reliable across medication, symptoms, vitals and appointments, while improving consistency across iPhone, widgets and Apple Watch.",
-            safetyNote: "Do not list future features on the home page as if they were already available.",
         },
         footer: {
             privacy: "Privacy Policy",
@@ -367,7 +365,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             directionTitle: "Dirección de producto",
             directionBody: "El foco a corto plazo es hacer el seguimiento diario más claro, rápido y fiable en medicación, síntomas, constantes y citas, mejorando al mismo tiempo la consistencia entre iPhone, widgets y Apple Watch.",
-            safetyNote: "No muestres funciones futuras en la home como si ya estuvieran disponibles.",
         },
         footer: {
             privacy: "Política de Privacidad",
@@ -448,7 +445,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Résumés de traitement plus clairs et meilleure lecture de l’adhérence", "Flux de rendez-vous et de suivi plus soignés", "Plus d’actions sur widgets et Apple Watch", "Améliorations de fiabilité pour la synchronisation, la sauvegarde et la restauration", "Améliorations de localisation et d’accessibilité"],
             directionTitle: "Orientation produit",
             directionBody: "À court terme, l’objectif est de rendre le suivi quotidien plus clair, plus rapide et plus fiable pour les médicaments, symptômes, constantes et rendez-vous, tout en améliorant la cohérence entre iPhone, widgets et Apple Watch.",
-            safetyNote: "N’affichez pas les fonctions futures sur la page d’accueil comme si elles étaient déjà disponibles.",
         },
         footer: { privacy: "Confidentialité", support: "Support", releaseFeatures: "Fonctions de lancement", roadmap: "Feuille de route", terms: "Conditions", disclaimer: "Avertissement médical", subscription: "Abonnement", legalNote: "VitalsPath est destinée à l’organisation personnelle de santé uniquement et ne remplace pas un avis médical, un diagnostic, un traitement ni une urgence médicale." },
     },
@@ -519,7 +515,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Klarere Behandlungsübersichten und Adhärenz-Einblicke", "Ausgereiftere Termin- und Nachverfolgungsabläufe", "Mehr Aktionen in Widgets und auf der Apple Watch", "Zuverlässigkeitsverbesserungen für Sync, Backup und Wiederherstellung", "Verfeinerungen bei Lokalisierung und Barrierefreiheit"],
             directionTitle: "Produktfokus",
             directionBody: "Kurzfristig liegt der Fokus darauf, die tägliche Nachverfolgung von Medikamenten, Symptomen, Vitalwerten und Terminen klarer, schneller und zuverlässiger zu machen und die Konsistenz zwischen iPhone, Widgets und Apple Watch zu verbessern.",
-            safetyNote: "Zukünftige Funktionen dürfen nicht auf der Startseite erscheinen, als wären sie bereits verfügbar.",
         },
         footer: { privacy: "Datenschutz", support: "Support", releaseFeatures: "Release-Funktionen", roadmap: "Roadmap", terms: "Bedingungen", disclaimer: "Medizinischer Hinweis", subscription: "Abonnement", legalNote: "VitalsPath dient ausschließlich der persönlichen Gesundheitsorganisation und ersetzt keine medizinische Beratung, Diagnose, Behandlung oder Notfallversorgung." },
     },
@@ -590,7 +585,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Riepiloghi dei trattamenti più chiari e insight sull'aderenza", "Flussi di appuntamenti e follow-up più rifiniti", "Più azioni su widget e Apple Watch", "Miglioramenti di affidabilità per sync, backup e ripristino", "Affinamenti di localizzazione e accessibilità"],
             directionTitle: "Direzione del prodotto",
             directionBody: "Nel breve periodo il focus è rendere il follow-up quotidiano più chiaro, rapido e affidabile tra farmaci, sintomi, parametri e appuntamenti, migliorando la coerenza tra iPhone, widget e Apple Watch.",
-            safetyNote: "Non elencare nella home funzioni future come se fossero già disponibili.",
         },
         footer: { privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", terms: "Termini", disclaimer: "Avvertenza medica", subscription: "Abbonamento", legalNote: "VitalsPath è destinata solo all'organizzazione personale della salute e non sostituisce consulenza medica, diagnosi, trattamento o assistenza d'emergenza." },
     },
@@ -661,7 +655,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Resumos de tratamento mais claros e insights de adesão", "Fluxos de consultas e acompanhamento mais polidos", "Mais ações em widgets e Apple Watch", "Melhorias de fiabilidade em sincronização, cópia e restauro", "Melhorias de localização e acessibilidade"],
             directionTitle: "Direção do produto",
             directionBody: "No curto prazo, o foco é tornar o acompanhamento diário mais claro, rápido e fiável em medicação, sintomas, sinais vitais e consultas, melhorando a consistência entre iPhone, widgets e Apple Watch.",
-            safetyNote: "Não liste na página inicial funcionalidades futuras como se já estivessem disponíveis.",
         },
         footer: { privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap", terms: "Termos", disclaimer: "Aviso médico", subscription: "Subscrição", legalNote: "A VitalsPath destina-se apenas à organização pessoal de saúde e não substitui aconselhamento médico, diagnóstico, tratamento ou cuidados de emergência." },
     },
@@ -732,7 +725,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["よりわかりやすい治療サマリーと服薬継続の見通し", "より洗練された予定とフォローアップの流れ", "ウィジェットと Apple Watch の操作拡張", "同期、バックアップ、復元の信頼性向上", "ローカライズとアクセシビリティの改善"],
             directionTitle: "製品の方向性",
             directionBody: "短期的には、薬、症状、バイタル、予定にまたがる日々のフォローアップを、よりわかりやすく、速く、信頼できるものにしながら、iPhone、ウィジェット、Apple Watch 間の一貫性を高めることに注力します。",
-            safetyNote: "将来の機能を、すでに利用可能であるかのようにホームページへ掲載しないでください。",
         },
         footer: { privacy: "プライバシー", support: "サポート", releaseFeatures: "リリース機能", roadmap: "ロードマップ", terms: "利用規約", disclaimer: "医療に関する注意", subscription: "サブスクリプション", legalNote: "VitalsPath は個人の健康管理専用であり、医療アドバイス、診断、治療、緊急対応の代わりにはなりません。" },
     },
@@ -874,7 +866,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["더 명확한 치료 요약 및 복약 순응도 인사이트", "더 다듬어진 일정 및 후속 작업 흐름", "확장된 위젯 및 Apple Watch 동작", "동기화, 백업, 복원 안정성 향상", "현지화 및 접근성 개선"],
             directionTitle: "제품 방향",
             directionBody: "단기적으로는 약물, 증상, 활력징후, 일정 전반의 일상 추적을 더 명확하고 빠르며 안정적으로 만들고, iPhone, 위젯, Apple Watch 간 일관성을 높이는 데 집중합니다.",
-            safetyNote: "향후 기능을 이미 제공되는 기능처럼 홈 페이지에 표시하지 마세요.",
         },
         footer: { privacy: "개인정보", support: "지원", releaseFeatures: "출시 기능", roadmap: "로드맵", terms: "이용약관", disclaimer: "의료 안내", subscription: "구독", legalNote: "VitalsPath는 개인 건강 정리를 위한 용도이며 의료 조언, 진단, 치료 또는 응급 대응을 대체하지 않습니다." },
     },
@@ -945,7 +936,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Более понятные сводки лечения и инсайты по соблюдению режима", "Более проработанные сценарии визитов и задач наблюдения", "Расширенные действия в виджетах и на Apple Watch", "Повышение надежности синхронизации, резервного копирования и восстановления", "Улучшения локализации и доступности"],
             directionTitle: "Направление продукта",
             directionBody: "Краткосрочная цель — сделать ежедневное наблюдение за лекарствами, симптомами, показателями и визитами более понятным, быстрым и надежным, одновременно улучшая согласованность между iPhone, виджетами и Apple Watch.",
-            safetyNote: "Не перечисляйте будущие функции на главной странице так, будто они уже доступны.",
         },
         footer: { privacy: "Конфиденциальность", support: "Поддержка", releaseFeatures: "Функции релиза", roadmap: "Дорожная карта", terms: "Условия", disclaimer: "Медицинское предупреждение", subscription: "Подписка", legalNote: "VitalsPath предназначена только для личной организации здоровья и не заменяет медицинские рекомендации, диагностику, лечение или экстренную помощь." },
     },
@@ -1016,7 +1006,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["ملخصات علاج أوضح ورؤى أفضل للالتزام", "تدفقات أكثر صقلاً للمواعيد والمتابعة", "توسيع الإجراءات في الأدوات وApple Watch", "تحسينات موثوقية للمزامنة والنسخ الاحتياطي والاستعادة", "تحسينات في الترجمة وإمكانية الوصول"],
             directionTitle: "اتجاه المنتج",
             directionBody: "التركيز على المدى القصير هو جعل المتابعة اليومية للأدوية والأعراض والمؤشرات الحيوية والمواعيد أوضح وأسرع وأكثر موثوقية، مع تحسين الاتساق بين iPhone والأدوات وApple Watch.",
-            safetyNote: "لا تعرض الميزات المستقبلية في الصفحة الرئيسية كما لو كانت متاحة بالفعل.",
         },
         footer: { privacy: "الخصوصية", support: "الدعم", releaseFeatures: "ميزات الإطلاق", roadmap: "خارطة الطريق", terms: "الشروط", disclaimer: "إخلاء طبي", subscription: "الاشتراك", legalNote: "VitalsPath مخصصة لتنظيم الصحة الشخصي فقط ولا تحل محل المشورة الطبية أو التشخيص أو العلاج أو رعاية الطوارئ." },
     },
@@ -1158,7 +1147,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Daha net tedavi özetleri ve uyum içgörüleri", "Daha rafine randevu ve takip akışları", "Widget'lar ve Apple Watch için daha fazla işlem", "Senkronizasyon, yedekleme ve geri yükleme güvenilirliği iyileştirmeleri", "Yerelleştirme ve erişilebilirlik geliştirmeleri"],
             directionTitle: "Ürün yönü",
             directionBody: "Kısa vadeli odak; ilaç, semptom, vital ölçümler ve randevular arasında günlük takibi daha net, hızlı ve güvenilir hâle getirmek ve iPhone, widget'lar ile Apple Watch arasındaki tutarlılığı artırmaktır.",
-            safetyNote: "Gelecek özellikleri, ana sayfada sanki zaten mevcutmuş gibi listelemeyin.",
         },
         footer: { privacy: "Gizlilik", support: "Destek", releaseFeatures: "Çıkış özellikleri", roadmap: "Yol Haritası", terms: "Şartlar", disclaimer: "Tıbbi uyarı", subscription: "Abonelik", legalNote: "VitalsPath yalnızca kişisel sağlık organizasyonu içindir ve tıbbi tavsiye, teşhis, tedavi veya acil yardımın yerine geçmez." },
     },
@@ -1229,7 +1217,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Duidelijkere behandelsamenvattingen en inzichten in therapietrouw", "Meer uitgewerkte workflows voor afspraken en opvolging", "Uitgebreidere widget- en Apple Watch-acties", "Betrouwbaarheidsverbeteringen voor sync, back-up en herstel", "Verfijningen in lokalisatie en toegankelijkheid"],
             directionTitle: "Productrichting",
             directionBody: "De focus op korte termijn is om dagelijkse opvolging rond medicatie, symptomen, waarden en afspraken duidelijker, sneller en betrouwbaarder te maken, terwijl de consistentie tussen iPhone, widgets en Apple Watch verbetert.",
-            safetyNote: "Zet toekomstige functies niet op de homepagina alsof ze al beschikbaar zijn.",
         },
         footer: { privacy: "Privacybeleid", support: "Support", releaseFeatures: "Releasefuncties", roadmap: "Roadmap", terms: "Voorwaarden", disclaimer: "Medische disclaimer", subscription: "Abonnement", legalNote: "VitalsPath is alleen bedoeld voor persoonlijke gezondheidsorganisatie en vervangt geen medisch advies, diagnose, behandeling of spoedzorg." },
     },
@@ -1300,7 +1287,6 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             nextReleaseItems: ["Czytelniejsze podsumowania leczenia i wgląd w regularność", "Bardziej dopracowane przepływy wizyt i zadań kontrolnych", "Rozszerzone działania w widżetach i na Apple Watch", "Poprawa niezawodności synchronizacji, kopii zapasowych i przywracania", "Ulepszenia lokalizacji i dostępności"],
             directionTitle: "Kierunek produktu",
             directionBody: "W krótkim terminie celem jest uczynienie codziennego śledzenia leków, objawów, parametrów i wizyt bardziej przejrzystym, szybszym i bardziej niezawodnym przy jednoczesnej poprawie spójności między iPhone'em, widżetami i Apple Watch.",
-            safetyNote: "Nie pokazuj na stronie głównej przyszłych funkcji tak, jakby były już dostępne.",
         },
         footer: { privacy: "Polityka prywatności", support: "Wsparcie", releaseFeatures: "Funkcje wydania", roadmap: "Mapa drogowa", terms: "Warunki", disclaimer: "Zastrzeżenie medyczne", subscription: "Subskrypcja", legalNote: "VitalsPath służy wyłącznie do osobistej organizacji zdrowia i nie zastępuje porady medycznej, diagnozy, leczenia ani pomocy w nagłych przypadkach." },
     },

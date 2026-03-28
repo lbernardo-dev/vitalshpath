@@ -21,39 +21,39 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 ---
 
-<footer class="border-t border-slate-200/50 bg-cream/50 dark:border-white/5 dark:bg-slate-950/80 reveal">
-    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-        <div class="grid gap-10 lg:grid-cols-[1.3fr,1fr,1fr]">
-            <div class="space-y-5">
-                <div class="flex items-center gap-3">
+<footer class="border-t border-slate-200/50 bg-cream-light dark:border-white/5 dark:bg-slate-950/80 mt-20 reveal">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6">
+        <div class="grid gap-16 lg:grid-cols-[1.5fr,1fr,1fr]">
+            <div class="space-y-8">
+                <div class="flex items-center gap-4">
                     <Image
                         src={appIcon}
                         alt="VitalsPath"
-                        width={40}
-                        height={40}
-                        class="h-10 w-10 rounded-2xl"
+                        width={48}
+                        height={48}
+                        class="h-12 w-12 rounded-[1.25rem] shadow-sm"
                     />
                     <div class="space-y-1">
-                        <p class="text-sm font-black tracking-[0.25em] text-teal-primary uppercase">
+                        <p class="text-[11px] font-black tracking-[0.4em] text-teal-primary uppercase">
                             VITALSPATH
                         </p>
-                        <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                        <p class="text-sm font-bold text-slate-muted">
                             {copy.meta.description}
                         </p>
                     </div>
                 </div>
 
-                <p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+                <p class="max-w-xl text-[13px] leading-relaxed text-slate-muted">
                     {copy.footer.legalNote}
                 </p>
 
-                <div class="flex flex-wrap gap-3">
+                <div class="flex flex-wrap gap-4 pt-4">
                     <a
                         href={appStoreHref}
                         data-app-store-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl bg-teal-primary px-5 py-3 text-sm font-black text-white transition-all hover:bg-teal-600 hover:scale-105 active:scale-95 shadow-lg shadow-teal-primary/20"
+                        class="inline-flex items-center rounded-2xl bg-teal-primary px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-teal-primary/90 hover:scale-[1.03] active:scale-[0.97] shadow-xl shadow-teal-primary/20"
                     >
                         {copy.home.primaryCta}
                     </a>
@@ -62,40 +62,52 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         data-app-store-review-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center rounded-2xl border border-slate-200/50 bg-white/50 px-5 py-3 text-sm font-bold text-slate-700 transition-all hover:border-slate-300 hover:text-teal-primary dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
+                        class="inline-flex items-center rounded-2xl border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-white/5 px-6 py-3.5 text-sm font-bold text-slate-700 dark:text-slate-200 transition-all hover:border-teal-primary/30 hover:bg-white dark:hover:bg-white/10 hover:scale-[1.03] active:scale-[0.97]"
                     >
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
             </div>
 
-                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400 mb-6">
-                    Links
+            <div class="space-y-8">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+                    SITEMAP
                 </h2>
-                <div class="flex flex-col gap-4 text-sm font-bold text-slate-600 dark:text-slate-300">
-                    <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-primary transition-colors">{copy.footer.privacy}</a>
-                    <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-primary transition-colors">{copy.footer.support}</a>
-                    <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-primary transition-colors">
+                <div class="flex flex-col gap-4 text-[13px] font-bold text-slate-600 dark:text-slate-400">
+                    <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.privacy}</a>
+                    <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.support}</a>
+                    <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
                         {copy.footer.releaseFeatures}
                     </a>
-                    <a href={`${baseUrl}/${lang}/roadmap/`} class="hover:text-teal-primary transition-colors">{copy.footer.roadmap}</a>
+                    <a href={`${baseUrl}/${lang}/roadmap/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.roadmap}</a>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-slate-400">
-                    Legal
+            <div class="space-y-8">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
+                    LEGAL & CONTACT
                 </h2>
-                <div class="flex flex-col gap-4 text-sm font-bold text-slate-600 dark:text-slate-300">
-                    <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-primary transition-colors">{copy.footer.terms}</a>
-                    <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-primary transition-colors">
+                <div class="flex flex-col gap-4 text-[13px] font-bold text-slate-600 dark:text-slate-400">
+                    <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.terms}</a>
+                    <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
                         {copy.footer.disclaimer}
                     </a>
-                    <a href={`${baseUrl}/${lang}/subscription/`} class="hover:text-teal-primary transition-colors">
+                    <a href={`${baseUrl}/${lang}/subscription/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
                         {copy.footer.subscription}
                     </a>
-                    <a href={`mailto:${supportEmail}`} class="hover:text-teal-primary transition-colors">{supportEmail}</a>
+                    <a href={`mailto:${supportEmail}`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
+                        {supportEmail}
+                    </a>
                 </div>
+            </div>
+        </div>
+        
+        <div class="mt-20 pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[12px] font-bold text-slate-400">
+                &copy; {new Date().getFullYear()} VitalsPath. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+            </p>
+            <div class="flex gap-6">
+                <!-- Social links could go here if needed -->
             </div>
         </div>
     </div>

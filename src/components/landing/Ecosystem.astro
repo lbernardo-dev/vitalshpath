@@ -14,57 +14,54 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 
-const ecosystemItems = [
-    {
-        title: "Widgets",
-        description: "Check your medications and vitals directly from your home screen.",
-        icon: Smartphone,
-        image: widgetScreen,
-        color: "from-blue-500/20 to-teal-500/20"
-    },
-    {
-        title: "Apple Watch",
-        description: "Fast actions and quick logging on your wrist.",
-        icon: Watch,
-        image: watchListScreen,
-        color: "from-purple-500/20 to-blue-500/20"
-    },
-    {
-        title: "Live Activities",
-        description: "Stay updated on your active doses in real-time.",
-        icon: Zap,
-        image: liveActivityScreen,
-        color: "from-teal-500/20 to-emerald-500/20"
-    }
-];
+// Localized items for ecosystem
+const localizedItems: Record<string, any[]> = {
+    en: [
+        { title: "Widgets", description: "Check medications and vitals directly from your home screen.", icon: Smartphone },
+        { title: "Apple Watch", description: "Fast actions and quick logging right on your wrist.", icon: Watch },
+        { title: "Live Activities", description: "Stay updated on active doses in real-time.", icon: Zap }
+    ],
+    es: [
+        { title: "Widgets", description: "Consulta medicación y constantes desde tu pantalla de inicio.", icon: Smartphone },
+        { title: "Apple Watch", description: "Acciones rápidas y registros directos desde tu muñeca.", icon: Watch },
+        { title: "Live Activities", description: "Mantente al día de tus tomas activas en tiempo real.", icon: Zap }
+    ],
+    fr: [
+        { title: "Widgets", description: "Consultez vos médicaments et constantes depuis l'écran d'accueil.", icon: Smartphone },
+        { title: "Apple Watch", description: "Actions rapides et enregistrements directs à votre poignet.", icon: Watch },
+        { title: "Live Activities", description: "Restez à jour sur vos doses actives en temps réel.", icon: Zap }
+    ]
+};
+
+const items = localizedItems[lang as string] || localizedItems.en;
 ---
 
-<section class="py-24 sm:py-32 overflow-hidden bg-transparent">
+<section id="ecosystem" class="py-24 sm:py-32 overflow-hidden bg-transparent">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        <div class="lg:grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="lg:grid lg:grid-cols-2 gap-20 items-center">
             <div class="reveal">
-                <h2 class="text-xs font-black uppercase tracking-[0.25em] text-teal-primary mb-4">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.3em] text-teal-primary mb-4">
                     Ecosystem
                 </h2>
-                <h3 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-8">
+                <h3 class="font-serif text-4xl sm:text-6xl font-black text-slate-text leading-[1.1] mb-8">
                     {copy.home.sections[1].title}
                 </h3>
-                <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-10">
+                <p class="text-xl text-slate-muted leading-relaxed mb-12 max-w-xl">
                     {copy.home.sections[1].body}
                 </p>
                 
-                <div class="space-y-6">
-                    {ecosystemItems.map((item, index) => (
-                        <div class={`reveal stagger-${index + 1} flex items-start gap-5 p-6 rounded-3xl bg-white/50 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 transition-all hover:bg-white dark:hover:bg-white/10`}>
-                            <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary shrink-0">
+                <div class="space-y-4">
+                    {items.map((item, index) => (
+                        <div class={`reveal stagger-${index + 1} flex items-center gap-6 p-6 premium-card hover:bg-white/70 dark:hover:bg-white/10 group`}>
+                            <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary shrink-0 group-hover:scale-110 transition-transform duration-500">
                                 <item.icon className="w-6 h-6" />
                             </div>
                             <div>
-                                <h4 class="text-lg font-black text-slate-900 dark:text-white mb-1">
+                                <h4 class="text-lg font-bold text-slate-text mb-0.5">
                                     {item.title}
                                 </h4>
-                                <p class="text-slate-600 dark:text-slate-400">
+                                <p class="text-slate-muted text-sm group-hover:text-slate-text transition-colors">
                                     {item.description}
                                 </p>
                             </div>
@@ -73,20 +70,24 @@ const ecosystemItems = [
                 </div>
             </div>
 
-            <div class="mt-16 lg:mt-0 relative reveal reveal-scale">
-                <div class="absolute -inset-4 bg-teal-primary blur-[120px] opacity-10 dark:opacity-20 animate-pulse"></div>
-                <div class="relative grid grid-cols-2 gap-4 sm:gap-6">
-                    <div class="space-y-4 sm:space-y-6">
-                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[-2deg] transition-transform hover:rotate-0 duration-700">
-                            <Image src={widgetScreen} alt="VitalsPath Widgets" class="w-full h-auto" />
+            <div class="mt-20 lg:mt-0 relative reveal reveal-scale stagger-2">
+                <!-- Decorative background elements -->
+                <div class="absolute -inset-10 bg-teal-primary blur-[150px] opacity-10 dark:opacity-20 animate-pulse"></div>
+                
+                <div class="relative glass-panel p-4 sm:p-8 rounded-[3.5rem] border-white/40 dark:border-white/5">
+                    <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="rounded-[2rem] overflow-hidden border border-white/40 shadow-2xl rotate-[-3deg] hover:rotate-0 transition-all duration-1000 group">
+                                <Image src={widgetScreen} alt="VitalsPath Widgets" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
+                            </div>
+                            <div class="rounded-[2.5rem] overflow-hidden border border-white/40 shadow-2xl rotate-[2deg] hover:rotate-0 transition-all duration-1000 group">
+                                <Image src={watchListScreen} alt="VitalsPath Apple Watch" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
+                            </div>
                         </div>
-                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[1deg] transition-transform hover:rotate-0 duration-700">
-                            <Image src={watchListScreen} alt="VitalsPath Apple Watch" class="w-full h-auto" />
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="rounded-3xl overflow-hidden border border-white/20 shadow-2xl rotate-[3deg] transition-transform hover:rotate-0 duration-700">
-                            <Image src={liveActivityScreen} alt="VitalsPath Live Activities" class="w-full h-auto" />
+                        <div class="flex items-center">
+                            <div class="rounded-[2rem] overflow-hidden border border-white/40 shadow-2xl rotate-[4deg] hover:rotate-0 transition-all duration-1000 group">
+                                <Image src={liveActivityScreen} alt="VitalsPath Live Activities" class="w-full h-auto group-hover:scale-105 transition-transform duration-1000" />
+                            </div>
                         </div>
                     </div>
                 </div>
