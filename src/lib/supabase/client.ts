@@ -31,7 +31,7 @@ export interface Stats {
     today_visitors: number;
     online_now: number;
     total_visitors: number;
-    testflight_clicks_total: number;
-    testflight_clicks_tracked: number;
-    testflight_clicks_manual: number;
+    app_store_clicks_total: number;
+    app_store_clicks_tracked: number;
+    app_store_clicks_manual: number;
 }

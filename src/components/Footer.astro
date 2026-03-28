@@ -1,130 +1,103 @@
 ---
-import { Heart, Mail, Share2 as Threads } from "lucide-react";
 import { Image } from "astro:assets";
-import { type Lang } from "../i18n/ui-locales";
-import { useTranslations } from "../i18n";
 import appIcon from "../assets/images/AppIcon_v2.png";
-import StatsWidget from "./StatsWidget.astro";
+import { type Lang } from "../i18n/ui-locales";
+import { getSiteCopy } from "../content/site-copy";
+import {
+    getDefaultAppStoreLinks,
+    getAppStoreUrlForLang,
+} from "../lib/app-store-links";
+import { appStoreLabels } from "../lib/app-store-labels";
+import { supportEmail } from "../lib/site-config";
 
 interface Props {
     lang: Lang;
 }
 
 const { lang } = Astro.props;
-const t = useTranslations(lang);
+const copy = getSiteCopy(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 ---
 
-<footer class="py-10 border-t border-gray-200 dark:border-gray-800">
-    <div class="container mx-auto px-6">
-        <div
-            class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8"
-        >
-            <div class="flex flex-col gap-4">
-                <div class="flex items-center gap-2">
+<footer class="border-t border-slate-200/80 bg-white dark:border-white/10 dark:bg-slate-950">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+        <div class="grid gap-10 lg:grid-cols-[1.3fr,1fr,1fr]">
+            <div class="space-y-5">
+                <div class="flex items-center gap-3">
                     <Image
                         src={appIcon}
-                        alt="VitalsPath Logo"
-                        class="w-8 h-8 rounded-lg"
-                        width={32}
-                        height={32}
+                        alt="VitalsPath"
+                        width={40}
+                        height={40}
+                        class="h-10 w-10 rounded-2xl"
                     />
-                    <span
-                        class="text-base font-bold text-gray-900 dark:text-white"
-                        >VitalsPath</span
-                    >
+                    <div>
+                        <p class="text-sm font-black tracking-[0.22em] text-sky-600">
+                            VITALSPATH
+                        </p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">
+                            {copy.meta.description}
+                        </p>
+                    </div>
                 </div>
-                <StatsWidget lang={lang} />
-            </div>
 
-            <div
-                class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400"
-            >
-                <a
-                    href={`${baseUrl}/${lang}/feedback/`}
-                    class="hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >{t("footer.feedback")}</a
-                >
-                <a
-                    href={`${baseUrl}/${lang}/subscription/`}
-                    class="hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >{t("footer.subscription")}</a
-                >
-                <a
-                    href={`${baseUrl}/${lang}/terms/`}
-                    class="hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >{t("footer.terms")}</a
-                >
-                <a
-                    href={`${baseUrl}/${lang}/privacy/`}
-                    class="hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >{t("footer.privacy")}</a
-                >
-                <a
-                    href={`${baseUrl}/${lang}/disclaimer/`}
-                    class="hover:text-gray-900 dark:hover:text-white transition-colors"
-                    >{t("footer.disclaimer")}</a
-                >
-            </div>
+                <p class="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {copy.footer.legalNote}
+                </p>
 
-            <div class="flex gap-4">
-                <a
-                    href="https://www.threads.net/@lbernardo.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all hover:scale-110 shadow-sm"
-                    title="Threads"
-                    aria-label="Threads"
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        class="w-5 h-5 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
+                <div class="flex flex-wrap gap-3">
+                    <a
+                        href={appStoreHref}
+                        data-app-store-link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center rounded-2xl bg-sky-600 px-4 py-2.5 text-sm font-black text-white transition-colors hover:bg-sky-700"
                     >
-                        <path
-                            d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"
-                        ></path>
-                    </svg>
-                </a>
-                <a
-                    href="https://www.instagram.com/lbernardo.dev"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-pink-500 transition-all hover:scale-110 shadow-sm"
-                    title="Instagram"
-                    aria-label="Instagram"
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        class="w-5 h-5 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
+                        {copy.home.primaryCta}
+                    </a>
+                    <a
+                        href={reviewHref}
+                        data-app-store-review-link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center rounded-2xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
                     >
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.209-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                        ></path>
-                    </svg>
-                </a>
-                <a
-                    href="mailto:vitalspath@gmail.com"
-                    class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-blue-500 transition-all hover:scale-110 shadow-sm"
-                    title="Email"
-                    aria-label="Email"
-                >
-                    <Mail className="w-5 h-5" />
-                </a>
+                        {appStoreLabels[lang].rate}
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div
-            class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 dark:text-gray-400"
-        >
-            <p>
-                &copy; {t("footer.copyright")}
-                <Heart
-                    className="w-3 h-3 text-red-500 inline fill-current animate-pulse ml-1"
-                />
-                <span class="ml-1">{t("footer.developer")}</span>
-            </p>
+            <div class="space-y-4">
+                <h2 class="text-sm font-black uppercase tracking-[0.22em] text-slate-400">
+                    VitalsPath
+                </h2>
+                <div class="flex flex-col gap-3 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <a href={`${baseUrl}/${lang}/privacy/`}>{copy.footer.privacy}</a>
+                    <a href={`${baseUrl}/${lang}/feedback/`}>{copy.footer.support}</a>
+                    <a href={`${baseUrl}/${lang}/release-features/`}>
+                        {copy.footer.releaseFeatures}
+                    </a>
+                    <a href={`${baseUrl}/${lang}/roadmap/`}>{copy.footer.roadmap}</a>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="text-sm font-black uppercase tracking-[0.22em] text-slate-400">
+                    Legal
+                </h2>
+                <div class="flex flex-col gap-3 text-sm font-medium text-slate-600 dark:text-slate-300">
+                    <a href={`${baseUrl}/${lang}/terms/`}>{copy.footer.terms}</a>
+                    <a href={`${baseUrl}/${lang}/disclaimer/`}>
+                        {copy.footer.disclaimer}
+                    </a>
+                    <a href={`${baseUrl}/${lang}/subscription/`}>
+                        {copy.footer.subscription}
+                    </a>
+                    <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

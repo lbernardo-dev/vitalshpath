@@ -1,291 +1,295 @@
 {
   "meta": {
-    "title": "VitalsPath: スマートな服薬管理＆お薬リマインダー",
-    "description": "スマートなリマインダーで、薬、用量、健康指標、処方箋、通院予約を管理。iPhone/iPad/Watch対応。TestFlightでベータ版に参加しましょう！"
+    "title": "VitalsPath: スマート服薬管理＆家族の健康ハブ",
+    "description": "スマートなリマインダーで薬、用量、バイタル、予定を管理。iPhone/iPad/Watch向けプレミアムアプリ。TestFlightベータに参加！"
   },
   "nav": {
-    "features": "機能",
+    "features": "主な機能",
     "scheduler": "スケジューラー",
     "ecosystem": "エコシステム",
     "benefits": "メリット",
-    "pricing": "料金",
-    "testflight": "Beta TestFlight",
+    "pricing": "料金プラン",
+    "testflight": "ベータ TestFlight",
     "gallery": "ギャラリー"
   },
   "hero": {
-    "badge": "TestFlight ベータ公開中 · iOS 18+ 対応",
-    "title": "インテリジェントな服薬管理",
-    "titleHighlight": "＆健康トラッカー。",
-    "subtitle": "医療レベルの精度とプレミアムな Liquid Glass デザインで、薬、予約、健康指標、処方箋を追跡します。",
+    "badge": "TestFlightベータ公開中 · iOS 18+ サポート",
+    "title": "スマート服薬管理",
+    "titleHighlight": "＆健康ハブ。",
+    "subtitle": "医療グレードの精度とプレミアムなLiquid Glassデザインで、服薬、通院、バイタル、処方箋を一括管理。",
     "cta": {
-      "primary": "TestFlight ベータに参加する",
-      "secondary": "基本機能をチェック"
+      "primary": "無料でベータに参加",
+      "secondary": "機能を見る"
     },
     "features": {
-      "profiles": "マルチ家族プロフィール",
-      "privacy": "100% デバイス内処理",
-      "languages": "15言語に対応"
+      "profiles": "複数の家族プロファイル",
+      "privacy": "100% デバイス内プライバシー",
+      "languages": "15か国語以上の言語をサポート"
     },
     "labels": {
-      "wellness": "ウェルネス",
+      "wellness": "ウェルネススコア",
       "vitamind3": "ビタミンD3",
-      "familyProfiles": "家族プロフィール"
+      "familyProfiles": "家族プロファイル"
     }
   },
   "problems": {
-    "badge": "現実的な課題",
+    "badge": "真の課題",
     "title": "家族の健康管理は、",
     "titleLine2": "想像以上に複雑です。",
-    "subtitle": "複数のアプリ、忘れてしまうリマインダー、バラバラな情報が、完全な管理を妨げています。",
+    "subtitle": "バラバラのアプリ、飲み忘れ、情報の欠落が、家族の健康を危険にさらしています。",
     "items": {
       "medication": {
-        "title": "「薬を飲んだかどうか忘れた」",
-        "description": "単純なカレンダーのリマインダーでは、重要な薬の管理には不十分です。"
+        "title": "「薬、もう飲んだっけ？」",
+        "description": "単純なカレンダーのリマインダーだけでは、重要な服薬の管理は不十分です。"
       },
       "profiles": {
-        "title": "家族それぞれのアプリ",
-        "description": "家族全員の情報を一元管理できるハブが必要です。"
+        "title": "家族ごとに異なるアプリ",
+        "description": "中心となるハブがなければ、重要な健康情報はいとも簡単に失われます。"
       },
       "appointments": {
-        "title": "バラバラな通院予約",
-        "description": "誰が、いつ、どこへ行くのか、どの専門医なのか？"
+        "title": "通院予定が散在している",
+        "description": "誰がいつどこに行くべきかを把握するのは、真のロジスティクスの課題です。"
       },
       "symptoms": {
-        "title": "「どんな症状だったかな？」",
-        "description": "診察の時に重要な詳細を忘れてしまいがちです。"
+        "title": "「あの時の症状は正確にどうだった？」",
+        "description": "医師の診察時に、細かな症状や最近の健康履歴を忘れてしまうことがよくあります。"
       },
       "interactions": {
-        "title": "飲み合わせは大丈夫？",
-        "description": "適切な管理なしに、薬の相互作用は時として危険です。"
+        "title": "飲み合わせは安全ですか？",
+        "description": "正確なモニタリングがなければ、薬の相互作用は深刻なリスクとなり得ます。"
       },
       "tasks": {
-        "title": "忘れがちなフォローアップタスク",
-        "description": "検査、処方箋の更新、再診の予定が無視されがちです。"
+        "title": "忘れがちなアフターケア",
+        "description": "検査、処方箋の更新、定期健診などは、しばしば見落とされがちです。"
       }
     },
-    "cta": "VitalsPath はこれらすべてを解決します..."
+    "cta": "VitalsPathがこれらすべてを解決します..."
   },
   "features": {
-    "badge": "オールインワン",
-    "title": "必要なすべての機能を、",
-    "titleHighlight": "完璧な整理整頓で。",
-    "subtitle": "家族の健康管理のあらゆる側面を、一つのスマートなダッシュボードに集約しました。",
+    "badge": "一つのハブ、すべての解決策",
+    "title": "必要なすべてのものを、",
+    "titleHighlight": "完璧に整理。",
+    "subtitle": "家族の健康管理におけるあらゆる側面を、一つのスマートなダッシュボードに集約しました。",
     "items": {
       "profiles": {
-        "title": "家族プロフィール",
-        "description": "大人、子供、高齢者の健康を管理。履歴、アレルギー、緊急連絡先を追跡。"
+        "title": "家族プロファイル",
+        "description": "大人、子供、シニアを分けて管理。履歴、アレルギー、診断名を記録します。"
       },
       "scheduler": {
         "title": "スマートスケジューラー",
-        "description": "独自のアルゴリズムが、飲み合わせを考慮して最適な服用時間を提案。"
+        "description": "医療的な相互作用に基づいて、服用時間を最適に配置するアルゴリズムです。"
       },
       "privacy": {
-        "title": "100% のプライバシー",
-        "description": "健康データがデバイスの外に出ることはありません。サーバーや追跡は一切なし。"
+        "title": "100% プライバシー",
+        "description": "健康データがデバイスの外に出ることはありません。サーバーなし、追跡なし。"
       },
       "pills": {
         "title": "服薬リマインダー",
-        "description": "スマートなアラートと在庫管理で、飲み忘れをゼロにします。"
+        "description": "スマート通知と在庫管理により、一回も飲み忘れることなく服薬できます。"
       },
       "journal": {
         "title": "症状ログ",
-        "description": "体調の変化を記録。症状、気分、回復状況をグラフで可視化。"
+        "description": "体調を記録しましょう。トレンド、気分、回復状況をグラフで確認できます。"
       },
       "calendar": {
-        "title": "医療カレンダー",
-        "description": "診察予約、専門医、薬局の情報を完璧に整理。"
+        "title": "メディカルカレンダー",
+        "description": "すべての予定、専門医、薬局の情報を一箇所で完璧に整理します。"
       },
       "refills": {
-        "title": "残薬通知",
-        "description": "処方箋や在庫が少なくなるとスマートにお知らせします。"
+        "title": "在庫切れアラート",
+        "description": "処方箋が切れる前や薬がなくなる前に、スマート通知を受け取れます。"
       },
       "ocr": {
         "title": "ネイティブ医療OCR",
-        "description": "薬の箱や処方箋をスキャン。データを自動で抽出します。"
+        "description": "薬の箱や処方箋をスキャン。重要なデータを自動で抽出します。"
       },
       "live": {
         "title": "ライブアクティビティ",
-        "description": "進行中の服用や予約を、Dynamic Island から直接確認。"
+        "description": "ロック画面から直接、薬の服用状況をリアルタイムで確認できます。"
       },
       "wellness": {
         "title": "ウェルネススコア",
-        "description": "日常の全体的な幸福度を評価する多角的な指標です。"
+        "description": "日々のデータに基づいた、あなたの幸福度の包括的なインデックスです。"
+      },
+      "metrics": {
+        "title": "健康指標",
+        "description": "あなたの健康の旅に関する詳細なインサイトと包括的な分析。"
       }
     },
     "cta": {
-      "primary": "TestFlight ベータに参加"
+      "primary": "TestFlightベータに参加"
     }
   },
   "deepFeatures": {
-    "badge": "詳細機能",
-    "title": "現実の生活を",
-    "titleHighlight": "考慮した設計。",
+    "badge": "深層分析",
+    "title": "現実の生活のために",
+    "titleHighlight": "設計された機能。",
     "medication": {
       "badge": "服薬管理",
-      "title": "用量中心のアーキテクチャ",
-      "description": "各服用予定は、ステータス、時間、コンテキストを持つ独立したデータとして管理されます。",
+      "title": "服量中心のアーキテクチャ",
+      "description": "各服用量は、ステータス、時間、コンテキストを持つ独立したデータポイントです。",
       "features": [
-        "すべての服用にステータス、時間、メモを記録",
-        "完全な変更履歴の追跡",
-        "過去に遡った治療期間の更新"
+        "各服用量のステータス、時間、メモを追跡",
+        "治療のすべての変更に関する完全な履歴ログ",
+        "既存の治療コースを遡って延長可能"
       ]
     },
     "calendar": {
       "badge": "カレンダー",
-      "title": "すべてを一つのカレンダーに",
-      "description": "服用、治療、予約、タスクを統合した最適化された月間表示。",
+      "title": "一つのカレンダー、すべてのイベント",
+      "description": "服用、治療、予定、タスクを組み合わせた最適化された月別ビュー。",
       "features": [
-        "繰り返し機能付きの高度な通院予約システム",
-        "予定に関連付けられたフォローアップタスク",
-        "素早い入力のための再利用可能なテンプレート"
+        "強力な繰り返し機能を備えた予定システム",
+        "関連するアフターケアの健康タスク",
+        "クイック入力のためのテンプレート"
       ]
     },
     "symptoms": {
       "badge": "症状管理",
-      "title": "緻密な健康監査",
-      "description": "重症度を指定して症状を記録し、状態を段階別に管理します。",
+      "title": "精密健康監査",
+      "description": "あらゆる症状を重症度別に記録し、病気の経過を追跡します。",
       "features": [
-        "100以上の症状と緻密な重症度スケール",
-        "段階管理：発症、慢性、危機、回復",
-        "期間を可視化するガントチャート形式の推移表示"
+        "正確な重症度スケールを備えた100以上の症状",
+        "フェーズ管理：開始、慢性、危機、回復",
+        "症状の持続期間のガントチャート表示"
       ]
     }
   },
   "benefits": {
-    "badge": "なぜ VitalsPath なのか？",
-    "title": "真に包括的な",
-    "titleHighlight": "ヘルスツール。",
+    "badge": "なぜVitalsPath？",
+    "title": "真に完全な",
+    "titleHighlight": "健康ツール。",
     "items": {
       "treatments": {
-        "title": "治療管理",
-        "description": "疾患ごとに薬を整理して管理。"
+        "title": "治療コース管理",
+        "description": "特定の疾患に関連する薬のグループを整理します。"
       },
       "appointments": {
-        "title": "通院・予約",
-        "description": "診察、専門医、クリニック、お気に入りの場所を管理。"
+        "title": "医師の予定",
+        "description": "医師、クリニック、お気に入りの場所を管理します。"
       },
       "diseases": {
-        "title": "病気と体の状態",
-        "description": "詳細な既往歴とステータスのトラッキング。"
+        "title": "疾患と状態",
+        "description": "家族一人ひとりの詳細な医療履歴を保持します。"
       },
       "profiles_unlimited": {
-        "title": "家族プロフィール",
-        "description": "一つの中心ハブで家族全員をケア。"
+        "title": "家族プロファイル",
+        "description": "一つのハブから家族全員の健康を守ることができます。"
       },
       "medications": {
         "title": "薬と用量",
-        "description": "服用、リマインダー、在庫の高度な管理。"
+        "description": "服用、アラーム、在庫に対する高度なコントロール機能。"
       },
       "symptoms_plus": {
         "title": "100以上の症状",
-        "description": "重症度、段階、モニタリングを含む詳細ログ。"
+        "description": "重症度、フェーズ、グラフ推移を含む詳細な日誌。"
       }
     },
     "stats": {
-      "languages": "言語",
-      "symptoms": "症状",
-      "profiles": "プロフィール",
+      "languages": "対応言語",
+      "symptoms": "症状項目",
+      "profiles": "プロファイル",
       "private": "プライバシー"
     },
     "disclaimer": {
-      "title": "VitalsPath は医師に代わるものではありません。",
-      "description": "管理ツールの位置づけです。医療に関する決定は常に専門医に相談してください。"
+      "title": "VitalsPathは医師の代わりではありません。",
+      "description": "これは整理ツールです。医学的な決定については常に専門家に相談してください。"
     }
   },
   "gallery": {
     "badge": "iOS インターフェース",
-    "title": "iOS の一部として",
-    "titleHighlight": "設計されました。",
-    "subtitle": "VitalsPath は、Apple エコシステムの第一級市民として構築されており、プライバシーを尊重し、お気に入りのツールと統合されます。",
-    "native": "ネイティブ。",
-    "synced": "同期。",
+    "title": "iOSシステムの一部",
+    "titleHighlight": "としてデザイン。",
+    "subtitle": "VitalsPathはプライバシーを最大限に尊重し、Appleエコシステムのために開発されました。",
+    "native": "ネイティブな体験。",
+    "synced": "iCloud同期。",
     "secure": "セキュア。",
     "integrations": {
       "icloud": {
-        "label": "iCloud 同期",
+        "label": "iCloud同期",
         "desc": "エンドツーエンドの暗号化"
       },
       "calendar": {
-        "label": "Apple カレンダー",
-        "desc": "自動イベント登録"
+        "label": "iOSカレンダー",
+        "desc": "自動イベント連携"
       },
       "maps": {
-        "label": "Apple マップ",
-        "desc": "近くの薬局を検索"
+        "label": "iOSマップ",
+        "desc": "近所の薬局を探す"
       },
       "haptics": {
-        "label": "ネイティブ Haptics",
-        "desc": "Taptic Engine 3 搭載"
+        "label": "ネイティブ触覚",
+        "desc": "Taptic Engine 3"
       }
     },
     "privacy": {
-      "title": "設計レベルの安全性",
-      "desc": "あなたの健康データはデバイス内で暗号化され、許可なしに共有されることはありません。"
+      "title": "プライバシー優先の設計",
+      "desc": "健康データはデバイス内で暗号化され、同意なしに共有されることはありません。"
     },
     "sync": {
       "title": "iCloud 暗号化",
-      "desc": "iPhone、iPad、Mac 間で、家族のプロフィールを安全に同期させます。"
+      "desc": "iPhone、iPad、Mac間で家族のプロファイルを安全に同期します。"
     },
     "profiles": {
-      "title": "家族を第一に",
-      "desc": "履歴、アレルギー、緊急連絡先の異なる複数のプロフィールを管理できます。"
+      "title": "家族第一主義",
+      "desc": "アレルギーや緊急時の情報の履歴を分けた、複数のプロファイルを管理可能。"
     },
     "metrics": {
-      "title": "健康のインサイト",
-      "desc": "服薬順守率、症状、家族のウェルネスの長期的なトレンドを可視化します。"
+      "title": "健康分析",
+      "desc": "家族全員の症状の傾向とウェルネスの状態を可視化。改善を実感しましょう。"
     },
     "sections": {
-      "main": "メイン",
+      "main": "概要",
       "detail": "詳細",
-      "modes": "ライト / ダーク",
-      "widgets": "ウィジェット",
-      "languages": "言語"
+      "modes": "ライト / ダークモード",
+      "widgets": "ウィジェト",
+      "languages": "対応言語"
     },
     "labels": {
       "dashboard": "ダッシュボード",
-      "profiles": "プロフィール",
-      "medications": "お薬",
-      "symptoms": "症状",
-      "conditions": "疾患",
+      "profiles": "プロファイル",
+      "medications": "服薬管理",
+      "symptoms": "症状記録",
+      "conditions": "疾患一覧",
       "wellness": "ウェルネス",
-      "profileDetail": "プロフィールの詳細",
+      "profileDetail": "プロファイル詳細",
       "medicationDetail": "薬の詳細",
-      "doseLog": "服用履歴",
+      "doseLog": "服用ログ",
       "symptomGraph": "症状グラフ",
       "tasks": "タスク",
-      "notifications": "通知",
-      "conditionDetail": "疾患の詳細",
-      "emergency": "緊急連絡先",
+      "notifications": "通知センター",
+      "conditionDetail": "疾患詳細",
+      "emergency": "緊急情報",
       "lightMode": "ライトモード",
       "darkMode": "ダークモード",
       "widgets": "ウィジェット",
-      "widgetsGallery": "ウィジェットギャラリー",
-      "liveActivity": "ライブアクティビティ",
+      "widgetsGallery": "ギャラリー",
+      "liveActivity": "ライブ・アクティビティ",
       "spanish": "スペイン語",
       "english": "英語",
-      "moreLanguages": "+ 複数の他言語"
+      "moreLanguages": "+ その他の言語"
     },
     "note": "実際のアプリのスクリーンショット"
   },
   "testflight": {
-    "badge": "TestFlight で公開中",
-    "title": "家族の健康の未来を",
-    "titleHighlight": "一緒に変えましょう",
-    "subtitle": "TestFlight にて限定公開ベータを実施中です。8,000名のテスターと共に、究極のヘルスハブを作り上げましょう。",
-    "offer": "ベータ版限定オファー",
-    "premium_free": "先着100名のテスターに「プレミアム3ヶ月分」を製品版リリース時に無料でプレゼントします。",
-    "slots": "限定 8,000 名（現在参加可能）",
+    "badge": "TestFlightで公開中",
+    "title": "家族の健康の",
+    "titleHighlight": "未来を創りましょう",
+    "subtitle": "TestFlightで独占公開ベータ版がオープンしました。8,000人のテスターと一緒に最高の健康ハブを作り上げましょう。",
+    "offer": "ベータ限定オファー",
+    "premium_free": "最初の100名の現役テスターには、正式リリース時に3ヶ月間のプレミアム無料権を進呈します。",
+    "slots": "0/8,000 スロット埋まり（参加可能）",
     "cta": {
-      "button": "無料でベータに参加する",
-      "description": "Apple TestFlight からすぐにアクセス可能"
+      "button": "無料でベータに参加",
+      "description": "Apple TestFlightからの直接アクセス"
     },
     "benefits": {
-      "lead": "ベータに参加するメリット",
+      "lead": "なぜベータに参加すべきか？",
       "items": [
-        "最新機能をいち早く体験",
-        "開発への直接的なフィードバック",
-        "限定のベータテスター・バッジ",
-        "1:1 の優先的なテクニカルサポート"
+        "新機能への優先アクセス",
+        "製品開発への直接的な声の反映",
+        "限定のベータテスターバッジ進呈",
+        "優先の 1:1 サポート"
       ]
     }
   },
@@ -293,142 +297,101 @@
     "features": "機能",
     "privacy": "プライバシー",
     "support": "サポート",
-    "copyright": "2026 VitalsPath · Created with",
+    "copyright": "2026 VitalsPath · 製作：",
     "developer": "RomeroDev",
     "feedback": "フィードバック",
     "terms": "利用規約",
     "disclaimer": "免責事項",
-    "subscription": "購読について"
+    "subscription": "サブスクリプション"
   },
   "legal": {
     "terms": {
       "title": "VitalsPath 利用規約",
       "subtitle": "健康＆服薬管理トラッカー",
-      "lastUpdated": "最終更新: 2026年",
+      "lastUpdated": "最終更新：2026年",
       "sections": {
         "general": {
-          "title": "1. 一般的な情報",
-          "content": "本規約は、VitalsPath アプリ（以下「本アプリ」）の利用を規定します。<br><br>本アプリを利用することにより、本規約およびプライバシーポリシーに同意したものとみなされます。<br><br>同意されない場合は、利用を中止してください。"
+          "title": "1. 一般情報",
+          "content": "本規約は、VitalsPathアプリのアクセスおよび使用を規定します。"
         },
         "owner": {
-          "title": "2. 運営者情報",
-          "content": "運営者: レスター・ロメロ・ベルナルド（Lester Romero Bernardo）、ソフトウェアエンジニア。<br>スペイン、バレンシア在住。<br>連絡先: vitalspath@gmail.com<br><br>データ処理責任者はレスター・ロメロ・ベルナルドです。"
+          "title": "2. アプリの所有者",
+          "content": "所有者：Lester Romero Bernardo, ITエンジニア。"
         },
         "purpose": {
-          "title": "3. サービス内容",
-          "content": "VitalsPath は健康情報の整理、記録、視覚化のためのツールを提供します。<br><br>• 服薬スケジュールとリマインダー。<br>• 症状、疾患、治療の記録。<br>• 医療機関の予約管理。<br>• データのエクスポートとダッシュボード。<br>• Apple ヘルスケア（HealthKit）との連携。<br><br>本アプリは診断や医療アドバイスを提供するものではありません。"
+          "title": "3. サービスの目的",
+          "content": "VitalsPathは、健康情報を整理するためのツールを提供します。"
         },
         "usage": {
-          "title": "4. 利用および医療に関する警告",
-          "content": "本アプリは18歳以上の方を対象としています。<br><br><strong>重要：</strong><br>VitalsPath は医療機器ではありません。提供される情報は自己診断や自己治療の根拠として使用しないでください。<br><br>医療上の決定を行う際は、必ず医師に相談してください。緊急の場合は直ちに 119 番通報をしてください。"
-        },
-        "healthkit": {
-          "title": "5. Apple ヘルスケア (HealthKit)",
-          "content": "利用者の許可を得た上で、Apple ヘルスケアからデータを読み取ります。<br><br>• iOS の設定からいつでも許可を取り消すことができます。<br>• データがマーケティングに使用されたり、第三者に販売されたりすることはありません。"
-        },
-        "data": {
-          "title": "6. プライバシーとデータ",
-          "content": "利用者の健康情報は GDPR に従って適切に取り扱われます。<br><br>• 法的根拠は利用者の明示的な同意です。<br>• データの保護のために暗号化とバックアップを使用します。"
-        },
-        "accounts": {
-          "title": "7. ユーザーアカウント",
-          "content": "利用者は自身のデバイスのセキュリティとデータへのアクセス管理に責任を負います。"
-        },
-        "business": {
-          "title": "8. ビジネスモデル",
-          "content": "フリーミアムモデルを採用しており、基本機能は無料、プレミアム機能は App Store を通じて提供されます。"
-        },
-        "export": {
-          "title": "9. データのエクスポート",
-          "content": "データを PDF または CSV 形式で出力できます。出力したファイルのセキュリティ管理は利用者の責任となります。"
-        },
-        "ip": {
-          "title": "10. 知的財産権",
-          "content": "コード、デザイン、ロゴ、テキストは Lester Romero Bernardo に帰属します。"
+          "title": "4. 医学的注意点",
+          "content": "本アプリは医療機器ではなく、専門的な医学的助言に代わるものではありません。"
         }
       }
     },
     "privacy": {
       "title": "VitalsPath プライバシーポリシー",
-      "subtitle": "あなたのプライベートな健康ハブ",
-      "lastUpdated": "最終更新: 2026年2月18日",
+      "subtitle": "あなたのパーソナル健康ハブ",
+      "lastUpdated": "最終更新：2026年2月18日",
       "sections": {
         "intro": {
           "title": "はじめに",
-          "content": "運営者 Lester Romero Bernardo は利用者のプライバシーを保護します。本ポリシーでは、データの管理方法について説明します。"
-        },
-        "info": {
-          "title": "1. 収集する情報",
-          "content": "• 直接入力：薬、症状、プロフィール。<br>• 連携データ：Apple ヘルスケア (HealthKit)。<br>• 技術的ログ：デバイスの種類、OS のバージョン。"
-        },
-        "storage": {
-          "title": "2. データの保存",
-          "content": "<strong>2.1 ローカル保存：</strong> 重要な健康データは利用者の iPhone 内にのみ保存されます。<br><strong>2.2 外部サーバーなし：</strong> 利用者のセンシティブなデータを収集を目的とした外部サーバーには送信されません。<br><strong>2.3 iCloud バックアップ：</strong> オプションで Apple の暗号化されたバックアップを利用可能です。"
-        },
-        "usage": {
-          "title": "3. 情報の利用",
-          "content": "データは、リマインダー、ウェルネススコア、分析などのアプリ機能のためにのみ使用されます。"
-        },
-        "rights": {
-          "title": "4. 利用者の権利",
-          "content": "利用者はいつでも自身のデータへのアクセス、訂正、削除を求める権利を有します。"
-        },
-        "contact": {
-          "title": "5. お問い合わせ",
-          "content": "プライバシーに関するお問い合わせ： vitalspath@gmail.com"
+          "content": "私たちはあなたのプライバシーを尊重し、データをサーバーにアップロードすることはありません。"
         }
       }
     },
     "disclaimer": {
-      "title": "医療に関する免責事項",
+      "title": "免責事項と医学的通知 (Disclaimer)",
       "notice": {
         "title": "重要な通知",
-        "content": "VitalsPath を利用する前に必ずお読みください。"
+        "content": "VitalsPathを使用する前に必ずお読みください。"
       },
       "sections": {
         "notMedical": {
-          "title": "医療アドバイスではありません",
-          "content": "VitalsPath は管理ツールです。診断や治療の決定を提供するものではありません。"
-        },
-        "professional": {
-          "title": "専門家への相談",
-          "content": "必ず資格を持つ医師に相談してください。アプリの情報のみに依存しないでください。"
+          "title": "医療サービスではありません",
+          "content": "VitalsPathは整理ツールであり、医療機器ではありません。"
         },
         "emergency": {
           "title": "緊急時",
-          "content": "緊急の場合は直ちに 119 番へ連絡してください。VitalsPath は緊急事態用ではありません。",
-          "callToAction": "医療上の緊急事態が発生した場合は、すぐに緊急通報をしてください。"
+          "content": "緊急の場合は、直ちに現地の救急番号（日本では119番）に連絡してください。",
+          "callToAction": "医療上の緊急事態が発生した場合は119番通報してください。"
+        },
+        "accuracy": {
+          "title": "データの正確性",
+          "content": "入力されたデータの正確性については、利用者が責任を負います。"
+        },
+        "medication": {
+          "title": "服薬管理",
+          "content": "本アプリは、薬物同士の医療的な相互作用を自動でチェックしません。"
+        },
+        "responsibility": {
+          "title": "責任",
+          "content": "本アプリを専門的な医療行為の代用として使用しないでください。"
+        },
+        "contact": {
+          "title": "お問い合わせ",
+          "content": "ご質問がある場合は vitalspath@gmail.com までメールをお送りください。"
         }
       }
     },
     "subscription": {
-      "title": "購読（サブスクリプション）規約",
-      "lastUpdated": "最終更新: 2026年2月18日",
-      "intro": "VitalsPath Premium の支払いと条件に関する情報です。",
+      "title": "サブスクリプション規約詳細",
+      "lastUpdated": "最終更新：2026年2月18日",
       "sections": {
         "whatIs": {
-          "title": "1. Premium とは？",
-          "content": "有料プランであり、プロフィールの無制限作成や高度なスマートスケジューリングを解放します。"
-        },
-        "plans": {
-          "title": "2. プラン内容",
-          "content": "月間、年間、および生涯プラン（買い切り）を提供しています。"
-        },
-        "management": {
-          "title": "3. 管理",
-          "content": "購読の管理は、デバイスの Apple ID 設定から行えます。"
+          "title": "1. VitalsPath Premiumとは？",
+          "content": "プレミアム版は、無制限のプロファイルとプロ向け機能を解放します。"
         }
       }
     }
   },
   "feedback": {
-    "title": "修正とサポート",
-    "subtitle": "あなたのアイデアで VitalsPath を改善したり、問題を報告したりしてください。",
+    "title": "フィードバックを送る",
+    "subtitle": "VitalsPathの改善にご協力ください。",
     "types": {
-      "feature": "新機能",
-      "bug": "バグの報告",
-      "improvement": "改善案",
-      "question": "一般的な質問",
+      "feature": "機能をリクエスト",
+      "bug": "バグを報告",
+      "improvement": "改善の提案",
+      "question": "ご質問",
       "other": "その他"
     },
     "form": {
@@ -436,203 +399,210 @@
       "name": "お名前",
       "email": "メールアドレス",
       "subject": "件名",
-      "message": "メッセージ",
-      "namePlaceholder": "お名前を入力",
-      "emailPlaceholder": "name@example.com",
-      "subjectPlaceholder": "件名を入力",
+      "message": "内容",
+      "namePlaceholder": "お名前を入力してください",
+      "emailPlaceholder": "your@email.com",
+      "subjectPlaceholder": "短い説明",
       "messagePlaceholder": "詳細を教えてください...",
-      "submit": "送信する"
+      "submit": "フィードバックを送信"
     },
     "success": {
       "title": "ありがとうございます！",
-      "message": "フィードバックを受け取りました。慎重に検討させていただきます。",
+      "message": "フィードバックを正常に受け取りました。",
       "backHome": "ホームに戻る"
     }
   },
   "pricing": {
-    "badge": "リリース記念オファー",
-    "title": "シンプルな料金プラン",
-    "subtitle": "隠れた費用はありません。家族に最適なプランを選びましょう。",
+    "badge": "新しいモデル",
+    "title": "プランを選択",
+    "subtitle": "すべての人のためのアプリ。永遠に無料か、より充実のプレミアムか。",
+    "launch": {
+      "activeBadge": "ローンチ限定オファー",
+      "bestValue": "ベストバリュー",
+      "firstMonth": "リリース後最初の1か月間はプロモーション価格が適用されます。",
+      "note": "これらの特別価格は、リリース後最初の1か月間に適用されます。その後はApp Storeの通常価格に戻ります。",
+      "legalNote": "購入前にApp Storeに最終価格が表示されます。国、通貨、適用税により異なる場合があります。"
+    },
     "monthly": {
-      "title": "月間",
-      "description": "月単位の支払い、いつでも解約可能"
+      "title": "月払い",
+      "description": "特別な月額価格で Premium をフル利用"
     },
     "premium": {
       "title": "VitalsPath Premium",
-      "subtitle": "家族の健康管理のための究極のツール。",
-      "features_title": "無料版のすべての機能に加え：",
-      "feature_desc": "すべてのツールへの無制限アクセス。",
+      "subtitle": "家族の健康の可能性を最大限に引き出しましょう。",
+      "features_title": "無料版の全機能に加え：",
+      "feature_desc": "アプリ内のすべてのサービスで登録数が無制限になります。",
       "privacy_title": "100% デバイス内プライバシー",
-      "privacy_desc": "健康データが iPhone から出ることはありません。ローカル暗号化により最大限の安全を保証します。"
+      "privacy_desc": "データがiPhoneの外に出ることはありません。"
     },
     "free": {
       "title": "無料版",
-      "description": "基本機能はずっと無料で使えます。個人での利用に最適です。",
-      "functional_badge": "100% の機能性",
+      "description": "使用制限はありますが、100%機能体験可能。",
+      "functional_badge": "100% 機能体験",
       "forever_badge": "ずっと無料"
     },
     "annual": {
-      "title": "年間",
-      "description": "最も人気のある割引プラン"
+      "title": "年払い",
+      "description": "年額請求で 16% お得"
     },
     "lifetime": {
-      "title": "生涯（買い切り）",
-      "description": "一度の支払いでずっと使えます"
+      "title": "買い切り",
+      "description": "割引付きで永久に無制限アクセス"
     },
     "features": {
-      "unlimited_profiles": "無制限のプロフィール",
-      "unlimited_diseases": "無制限の疾患登録",
-      "unlimited_medications": "無制限のお薬登録",
+      "unlimited_profiles": "無制限プロファイル",
+      "unlimited_diseases": "無制限の履歴保存",
+      "unlimited_medications": "無制限の薬登録",
       "unlimited_treatments": "無制限の治療管理",
-      "extended_pause": "高度な一時停止機能",
-      "extend_medication": "治療期間の延長",
-      "full_schedule": "完全なスケジュール管理",
-      "quiet_schedule": "サイレントスケジュール",
-      "stock_inventory": "在庫と管理",
-      "export_pdf_csv": "PDF/CSV データ出力",
-      "advanced_analytics": "詳細な統計情報",
-      "health_reports": "プロフェッショナルな報告書",
-      "health_reports_desc": "診察用の詳細な PDF レポート。",
-      "ocr_scanner": "医療用 OCR スキャナー",
-      "healthkit": "HealthKit との連携",
-      "complex_symptoms": "高度な症状追跡",
-      "icloud_backup": "暗号化された iCloud バックアップ",
-      "icloud_backup_desc": "Apple 経由で安全に同期。",
-      "all_themes": "すべての外観テーマ",
-      "all_themes_desc": "インターフェースをフルカスタマイズ。",
-      "advanced_notifications": "高度な通知機能",
-      "advanced_notifications_desc": "クリティカルアラートとスマートリマインダー。",
-      "haptic_feedback": "プレミアム Haptics",
-      "haptic_feedback_desc": "ブラウズ時の心地よい触覚フィードバック。",
-      "widget_styles": "すべてのウィジェットスタイル",
-      "widget_styles_desc": "ホーム画面用の多様なレイアウト。",
-      "unlimited_profiles_desc": "制限なく家族全員を管理。",
-      "smart_scheduler_ia_desc": "用量の知的な分配と最適化。",
-      "advanced_analytics_desc": "健康トレンドの深い分析。",
-      "export_pdf_csv_desc": "多様な形式でデータを持ち出し可能。",
-      "basic_profiles": "最大 1 アクティブプロフィール",
-      "basic_medications": "1プロフィールにつき3個まで",
-      "local_reminders": "標準的な通知",
-      "wellness_score": "基本ウェルネススコア",
-      "wellness_details": "詳細なウェルネス項目",
-      "smart_scheduler": "重複チェック (手動)",
-      "smart_scheduler_ia": "AIによる自動スケジュール作成",
-      "appointments_limit": "月3回までの予約",
-      "unlimited_appointments": "無制限の予約管理",
-      "locations_limit": "2つまでのお気に入り場所",
-      "insurance_limit": "1つの保険証登録",
-      "symptoms_basic": "基本的な症状ログ",
-      "symptoms_complex": "複雑な詳細記録 (器官, 不安等)",
-      "inventory_basic": "基本的な在庫と期限管理",
-      "health_status": "ヘルスインデックス分析",
-      "health_status_desc": "データとトレンドに基づくアドバイス。",
-      "gamification": "報酬とモチベーション向上",
-      "gamification_desc": "健康的な習慣のためのバッジと目標。"
+      "extended_pause": "長期の一時停止",
+      "extend_medication": "服薬期間の延長",
+      "full_schedule": "フル・アジェンダ",
+      "quiet_schedule": "自動サイレント・アジェンダ",
+      "stock_inventory": "在庫・保管管理",
+      "export_pdf_csv": "PDF/CSV書き出し",
+      "advanced_analytics": "高度な分析ダッシュボード",
+      "health_reports": "健康レポート作成",
+      "health_reports_desc": "主治医のための詳細レポート。",
+      "ocr_scanner": "医療用OCRスキャナー",
+      "healthkit": "Apple HealthKit連携",
+      "complex_symptoms": "深層症状分析",
+      "icloud_backup": "iCloudバックアップ",
+      "icloud_backup_desc": "Appleのセキュアなプロトコルを利用。",
+      "all_themes": "全テーマデザイン",
+      "all_themes_desc": "完全なパーソナライズ。",
+      "advanced_notifications": "知能型スマートアラート",
+      "advanced_notifications_desc": "クリティカルな警告。",
+      "haptic_feedback": "触覚フィードバック",
+      "haptic_feedback_desc": "物理的な操作感。",
+      "widget_styles": "豊富なウィジェット・スタイル",
+      "widget_styles_desc": "多彩なサイズと機能。",
+      "unlimited_profiles_desc": "家族全員を制限なく管理。",
+      "smart_scheduler_ia_desc": "AIによるスマート最適化。",
+      "advanced_analytics_desc": "詳細な分析グラフ。",
+      "export_pdf_csv_desc": "どこでもデータ活用。",
+      "basic_profiles": "1プロファイル（プレミアムは無制限）",
+      "basic_medications": "1プロファイルにつき3つの薬まで",
+      "local_reminders": "基本機能のリマインダー",
+      "wellness_score": "ウェルネススコア",
+      "wellness_details": "詳細な健康要因の表示",
+      "smart_scheduler": "重複チェック（手動）",
+      "smart_scheduler_ia": "AI自動最適化システム",
+      "appointments_limit": "月3回までの通院予定",
+      "unlimited_appointments": "無制限の通院予定",
+      "locations_limit": "お気に入り地点2箇所まで",
+      "insurance_limit": "健康保険情報の登録 1件",
+      "symptoms_basic": "基本的な症状の記録",
+      "symptoms_complex": "深層症状分析のサポート",
+      "inventory_basic": "基本的な在庫管理",
+      "health_status": "健康状態分析",
+      "health_status_desc": "総体的な健康視点。",
+      "gamification": "報酬とモチベーション",
+      "gamification_desc": "健康目標の達成報酬。"
     },
-    "cta": "近日公開",
-    "cta_alt": "登録する"
+    "pricing_cta": "近日公開",
+    "pricing_cta_alt": "事前登録する"
   },
   "smartScheduling": {
     "badge": "スマートアルゴリズム",
-    "title": "インテリジェント・プランニング",
-    "subtitle": "私たちのアルゴリズムが、薬の相互作用や生活習慣を分析し、最適な服用スケジュールを作成します。",
+    "title": "スマートスケジューラー",
+    "subtitle": "私たちのアルゴリズムがあなたのルーチンを最適化します。",
     "steps": {
       "1": {
-        "title": "入力",
-        "desc": "お薬と時間"
+        "title": "インプット",
+        "desc": "用量と時間"
       },
       "2": {
-        "title": "予約",
-        "desc": "時間の確保"
+        "title": "スロット",
+        "desc": "時間枠"
       },
       "3": {
         "title": "分析",
-        "desc": "安全性の確認"
+        "desc": "安全性チェック"
       },
       "4": {
-        "title": "確認",
-        "desc": "重複のチェック"
+        "title": "チェック",
+        "desc": "飲み合わせ衝突"
       },
       "5": {
-        "title": "最適",
-        "desc": "理想的なプラン"
+        "title": "理想的",
+        "desc": "最高な計画"
       }
     }
   },
   "notificationModes": {
-    "badge": "状況適応型アラート",
-    "title": "カスタマイズ可能な通知",
-    "subtitle": "完全な静音からクリティカルアラートまで、場面に合わせて最適な通知スタイルを選択できます。",
-    "hapticTip": "触覚フィードバックは iPhone のモデルにより異なります。",
+    "badge": "直感的なアラート",
+    "title": "通知モードの設定",
+    "subtitle": "あらゆる瞬間にぴったりの通知スタイルを。",
+    "hapticTip": "触覚フィードバックには最新のiPhoneハードウェアが必要です。",
     "modes": {
       "normal": {
-        "title": "標準",
-        "desc": "音と振動を伴う標準通知。"
+        "title": "通常",
+        "desc": "音と振動でお知らせ。"
       },
       "quiet": {
         "title": "静音",
-        "desc": "視覚通知のみ。会議等に最適。"
+        "desc": "視覚的アラートのみ。"
       },
       "discrete": {
-        "title": "控えめ",
-        "desc": "プライバシーを守る微弱な振動。"
+        "title": "アテンション",
+        "desc": "控えめな触覚。"
       },
       "off": {
         "title": "オフ",
-        "desc": "通知なし、アイコンのみ。中断なし。"
+        "desc": "中断なし。"
       }
     },
     "simulator": {
-      "now": "たった今",
-      "doseTitle": "イブプロフェンの服用時間です",
-      "ready": "完了"
+      "now": "今すぐ",
+      "doseTitle": "イブプロフェンの服用",
+      "ready": "準備完了"
     }
   },
   "widgetsSection": {
-    "badge": "ネイティブ体験",
-    "title": "ウィジェットと",
-    "titleHighlight": "ライブ更新。",
-    "subtitle": "ホーム画面やロック画面から、必要な情報を一瞬で確認。",
-    "description": "アプリを開かずにすべてをコントロール。10種類以上のカスタマイズ可能なウィジェット、リアルタイム追跡、Dynamic Island 対応。",
+    "badge": "ネイティブな体験",
+    "title": "ウィジェット＆",
+    "titleHighlight": "ライブ・アクティビティ。",
+    "subtitle": "瞬時に情報を把握。",
+    "description": "アプリを開かずに健康状態をコントロール。",
     "items": {
       "widgets": {
-        "title": "10種以上のウィジェット",
-        "desc": "薬のリマインダーから家族の状況まで。"
+        "title": "10種類以上のウィジェット",
+        "desc": "ホーム＆ロック画面対応。"
       },
       "dynamic": {
         "title": "Dynamic Island",
-        "desc": "服用スケジュールのライブ更新。"
+        "desc": "リアルタイム更新。"
       },
       "live": {
-        "title": "ライブアクティビティ",
-        "desc": "ロック画面で進行状況を把握。"
+        "title": "ライブ・アクティビティ",
+        "desc": "服用を追跡。"
       }
     }
   },
   "languages": {
-    "title": "あなたの言語で",
-    "subtitle": "初日からグローバル対応",
-    "description": "VitalsPath は15言語に翻訳されており、家族全員が母国語で安心して使えます。"
+    "title": "母国語でサポート",
+    "subtitle": "グローバルな展開",
+    "description": "VitalsPathは世界15言語に翻訳して提供されています。"
   },
   "footerStats": {
     "activeUsers": "アクティブユーザー",
     "regions": "対応地域",
-    "plansCreated": "作成されたプラン"
+    "plansCreated": "生成プラン平均"
   },
   "survey": {
-    "badge": "クイック調査",
-    "question": "このアプリをあなたやご家族にとって有用だと思いますか？",
+    "badge": "クイック質問",
+    "question": "このアプリを便利に感じますか？",
     "options": {
       "yes": "はい",
       "no": "いいえ",
-      "maybe": "わからない"
+      "maybe": "たぶん"
     },
-    "thanks": "アンケートへのご協力ありがとうございました！"
+    "thanks": "ご参加ありがとうございます！"
   },
   "ecosystem": {
     "badge": "Apple エコシステム",
-    "title": "すべてのデバイスで",
-    "subtitle": "VitalsPath は Apple デバイス専用に構築されており、場所を問わず健康を管理できます。",
+    "title": "すべてのデバイスで一緒に",
+    "subtitle": "Appleハードウェアとの完璧な調和。",
     "iphone": {
       "name": "iPhone",
       "os": "iOS 18+"
@@ -645,6 +615,6 @@
       "name": "Apple Watch",
       "os": "watchOS 11+"
     },
-    "description": "iCloud による同期、ウィジェット、クリティカルアラート、Apple ヘルスケアとの完全な連携。"
+    "description": "iCloudによる同期とApple Health(ヘルスケア)との完全な連携。"
   }
 }

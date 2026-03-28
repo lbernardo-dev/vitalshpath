@@ -1,291 +1,295 @@
 {
   "meta": {
     "title": "VitalsPath: Akıllı İlaç Takibi ve Sağlık Merkezi",
-    "description": "Akıllı hatırlatıcılarla ilaçları, dozları, sağlık verilerini ve randevuları yönetin. iPhone, iPad ve Apple Watch için premium takip. Beta TestFlight'a katılın!"
+    "description": "Akıllı hatırlatıcılar ile ilaçları, dozları, vitalleri ve randevuları yönetin. iPhone, iPad ve Watch için premium uygulama. TestFlight betasına katılın!"
   },
   "nav": {
     "features": "Özellikler",
-    "scheduler": "Zamanlayıcı",
+    "scheduler": "Planlayıcı",
     "ecosystem": "Ekosistem",
     "benefits": "Avantajlar",
-    "pricing": "Planlar",
+    "pricing": "Fiyatlandırma",
     "testflight": "Beta TestFlight",
-    "gallery": "Ekran Görüntüleri"
+    "gallery": "Galeri"
   },
   "hero": {
-    "badge": "TestFlight Beta Artık Yayında · iOS 18+ Desteği",
+    "badge": "TestFlight Beta Yayında · iOS 18+ Desteği",
     "title": "Akıllı İlaç Yönetimi",
-    "titleHighlight": "& Sağlık Takibi.",
-    "subtitle": "İlaçları, randevuları, sağlık metriklerini ve reçeteleri tıbbi düzeyde doğruluk ve premium Liquid Glass tasarımıyla takip edin.",
+    "titleHighlight": "& Sağlık Merkezi.",
+    "subtitle": "İlaçları, randevuları, vitalleri ve reçeteleri yönetmek için tıbbi düzeyde hassasiyet ve premium Liquid Glass tasarımı.",
     "cta": {
-      "primary": "TestFlight Beta'ya Katıl",
+      "primary": "Betaya Ücretsiz Katıl",
       "secondary": "Özellikleri Keşfet"
     },
     "features": {
-      "profiles": "Çoklu Aile Profili Desteği",
+      "profiles": "Çoklu Aile Profili",
       "privacy": "%100 Cihaz İçi Gizlilik",
       "languages": "15+ Dil Desteği"
     },
     "labels": {
-      "wellness": "Wellness Skoru",
+      "wellness": "Sağlık Puanı",
       "vitamind3": "Vitamin D3",
       "familyProfiles": "Aile Profilleri"
     }
   },
   "problems": {
-    "badge": "Gerçek Zorluklar",
-    "title": "Aile sağlığını yönetmek",
-    "titleLine2": "göründüğünden daha zordur.",
-    "subtitle": "Dağınık uygulamalar, unutulan dozlar ve eksik bilgiler ailenizin sağlığını riske atabilir.",
+    "badge": "Gerçek Zorluk",
+    "title": "Aile sağlığını yönetmek,",
+    "titleLine2": "göründüğünden daha karmaşıktır.",
+    "subtitle": "Dağınık uygulamalar, unutulan dozlar ve eksik bilgiler sevdiklerinizin sağlığını riske atıyor.",
     "items": {
       "medication": {
-        "title": "\"İlacımı aldım mı?\"",
-        "description": "Basit takvim hatırlatıcıları, kritik ilaç dozlarını yönetmek için yeterli değil."
+        "title": "\"İlacımı içmiş miydim?\"",
+        "description": "Sıradan takvim hatırlatıcıları, kritik ilaç yönetimi için yetersiz kalır."
       },
       "profiles": {
-        "title": "Herkes için farklı bir uygulama",
-        "description": "Merkezi bir yönetim birimi olmadan önemli sağlık detayları gözden kaçabilir."
+        "title": "Her aile üyesi için farklı uygulama",
+        "description": "Merkezi bir hub olmadan hayati sağlık bilgileri kolayca kaybolur."
       },
       "appointments": {
-        "title": "Randevular dağınık",
-        "description": "Kimin, ne zaman, hangi uzmanla görüşmesi gerektiğini takip etmek zordur."
+        "title": "Dağınık randevular",
+        "description": "Kimin ne zaman nereye gitmesi gerektiğini bilmek tam bir lojistik zorluktur."
       },
       "symptoms": {
-        "title": "\"O anki semptomlar neydi?\"",
-        "description": "Doktor randevularında kritik sağlık detaylarını ve geçmişi sıkça unutuyoruz."
+        "title": "\"O zamanki belirtiler tam olarak nasıldı?\"",
+        "description": "Doktor muayenesi sırasında belirtilerin detaylarını veya yakın geçmişi unutmak çok yaygındır."
       },
       "interactions": {
-        "title": "Bu ilaçlar birlikte alınabilir mi?",
-        "description": "Hassas bir takip olmadan, ilaç etkileşimleri ciddi riskler oluşturabilir."
+        "title": "Birlikte içmek güvenli mi?",
+        "description": "Hassas bir izleme olmadan ilaç etkileşimleri ciddi bir risk oluşturur."
       },
       "tasks": {
-        "title": "Unutulan takip görevleri",
-        "description": "Laboratuvar testleri, reçete yenilemeleri ve kontroller kolayca gözden kaçar."
+        "title": "Unutulan takipler",
+        "description": "Analizler, reçete yenilemeleri ve düzenli kontroller genellikle gözden kaçar."
       }
     },
-    "cta": "VitalsPath tüm bu sorunları çözer..."
+    "cta": "VitalsPath tüm bunları çözer..."
   },
   "features": {
-    "badge": "Hepsi Bir Arada",
+    "badge": "Tek Merkez, Tüm Çözümler",
     "title": "İhtiyacınız olan her şey,",
-    "titleHighlight": "kusursuz bir düzen içinde.",
-    "subtitle": "Aile sağlığı yönetiminin her yönünü akıllı ve güçlü bir panelde birleştirdik.",
+    "titleHighlight": "mükemmel şekilde organize edildi.",
+    "subtitle": "Aile sağlığı yönetiminin her yönünü tek bir akıllı panelde birleştirdik.",
     "items": {
       "profiles": {
         "title": "Aile Profilleri",
-        "description": "Çocuklar, yetişkinler ve yaşlılar için profiller oluşturun. Alerjileri ve geçmişi takip edin."
+        "description": "Yetişkinleri, çocukları ve yaşlıları ayrı yönetin. Geçmişi, alerjileri ve tanıları takip edin."
       },
       "scheduler": {
-        "title": "Akıllı Zamanlayıcı",
-        "description": "Algoritmamız, ilaç etkileşimlerini analiz ederek dozları mükemmel şekilde dağıtır."
+        "title": "Akıllı Planlayıcı",
+        "description": "Tıbbi etkileşimlere göre doz alma zamanlarını en uygun şekilde aralayan algoritma."
       },
       "privacy": {
         "title": "%100 Gizlilik",
-        "description": "Sağlık verileriniz iPhone'unuzdan asla ayrılmaz. Sunucu yok, takip yok."
+        "description": "Sağlık verileriniz cihazınızda kalır. Sunucu yok, takip yok."
       },
       "pills": {
-        "title": "İlaç Hatırlatıcıları",
-        "description": "Akıllı uyarılar ve stok takibi ile hiçbir dozu asla kaçırmamanızı sağlıyoruz."
+        "title": "İlaç Hatırlatıcı",
+        "description": "Hiçbir dozu kaçırmamanız için akıllı bildirimler ve stok yönetimi."
       },
       "journal": {
-        "title": "Semptom Günlüğü",
-        "description": "Nasıl hissettiğinizi kaydedin. Grafiklerle iyileşme trendlerini ve ruh halini takip edin."
+        "title": "Belirti Günlüğü",
+        "description": "Nasıl hissettiğinizi kaydedin. Trendleri, ruh halini ve iyileşmeyi grafiklerle izleyin."
       },
       "calendar": {
-        "title": "Sağlık Takvimi",
-        "description": "Randevularınızı, uzman ziyaretlerini ve eczane bilgilerini şık bir düzende saklayın."
+        "title": "Tıbbi Takvim",
+        "description": "Randevuları, uzmanları ve eczaneleri tek bir mükemmel yerde düzenleyin."
       },
       "refills": {
-        "title": "Stok Uyarıları",
-        "description": "İlaç stoklarınız veya reçeteleriniz bitmek üzereyken akıllı bildirimler alın."
+        "title": "Stok Azaldı Uyarısı",
+        "description": "Reçeteler bitmeden veya ilaçlar tükenmeden önce akıllı bildirimler alın."
       },
       "ocr": {
-        "title": "Yerel Tıbbi OCR",
-        "description": "İlaç kutularını veya reçeteleri tarayın. Önemli verileri sizin için otomatik olarak çıkaralım."
+        "title": "Yerli Tıbbi OCR",
+        "description": "İlaç kutularını veya reçeteleri tarayın. Önemli verileri otomatik olarak çıkarın."
       },
       "live": {
         "title": "Canlı Etkinlikler",
-        "description": "İlaç ilerlemesini ve randevuları doğrudan kilit ekranından takip edin."
+        "description": "Kilit ekranından ilaç alım sürecinizi anında takip edin."
       },
       "wellness": {
-        "title": "Wellness Skoru",
-        "description": "Günlük verilerinize dayanarak genel zindeliğinizi gösteren bütünsel bir gösterge."
+        "title": "Sağlık Puanı",
+        "description": "Günlük verilerinize dayalı bütünsel bir iyilik hali indeksi."
+      },
+      "metrics": {
+        "title": "Sağlık Metrikleri",
+        "description": "Sağlık yolculuğunuz hakkında detaylı bilgiler ve bütünsel analizler."
       }
     },
     "cta": {
-      "primary": "TestFlight Beta'ya Katıl"
+      "primary": "TestFlight Betaya Katıl"
     }
   },
   "deepFeatures": {
-    "badge": "Derinlemesine Bakış",
-    "title": "Gerçek hayat için",
+    "badge": "Derin Analiz",
+    "title": "Gerçek yaşam için",
     "titleHighlight": "tasarlanan özellikler.",
     "medication": {
       "badge": "İlaç Yönetimi",
       "title": "Doz Odaklı Mimari",
-      "description": "Her doz; durumu, zamanı ve bağlamı olan bağımsız bir veri noktasıdır ve tam izlenebilirlik sağlar.",
+      "description": "Her doz; durum, zaman ve bağlam içeren bağımsız bir veri noktasıdır.",
       "features": [
-        "Durum, zaman ve notlarla her dozu takip edin",
-        "Değişikliklerin tam geçmiş kaydı",
-        "Tedavileri geriye dönük olarak uzatma seçeneği"
+        "Her doz için durum, zaman ve not takibi",
+        "Tedavi değişiklikleri için tam geçmiş günlüğü",
+        "Mevcut tedavi kürlerini geriye dönük uzatabilme"
       ]
     },
     "calendar": {
       "badge": "Takvim",
       "title": "Tek Takvim, Tüm Etkinlikler",
-      "description": "Dozlar, tedaviler ve randevular için optimize edilmiş şık aylık görünüm.",
+      "description": "Dozları, tedavileri, randevuları ve görevleri birleştiren optimize edilmiş aylık görünüm.",
       "features": [
-        "Tekrarlı randevular için güçlü sistem",
-        "Bağlantılı takip görevleri",
-        "Hızlı giriş için şablonlar"
+        "Güçlü tekrarlama özellikli randevu sistemi",
+        "Bağlı takip sağlık görevleri",
+        "Hızlı giriş için şablon desteği"
       ]
     },
     "symptoms": {
-      "badge": "Semptom Yönetimi",
-      "title": "Hassas Sağlık Takibi",
-      "description": "Semptomları şiddet seviyelerine göre kaydedin ve iyileşme evrelerini izleyin.",
+      "badge": "Belirti Yönetimi",
+      "title": "Hassas Sağlık Denetimi",
+      "description": "Her belirtiyi şiddetine göre kaydedin ve hastalığın seyrini izleyin.",
       "features": [
-        "Şiddet ölçeği ile 100+ semptom",
-        "Evre yönetimi: Başlangıç, kronik, iyileşme",
-        "Gantt şeması tarzı süre görselleştirmeleri"
+        "Hassas şiddet ölçekli 100+ belirti",
+        "Evre yönetimi: Başlangıç, Kronik, Kriz, İyileşme",
+        "Belirti süreleri için Gantt şeması görselleştirmesi"
       ]
     }
   },
   "benefits": {
     "badge": "Neden VitalsPath?",
-    "title": "Gerçekten eksiksiz bir",
-    "titleHighlight": "sağlık aracı.",
+    "title": "Gerçekten eksiksiz",
+    "titleHighlight": "bir sağlık aracı.",
     "items": {
       "treatments": {
-        "title": "Tedavi Kontrolü",
-        "description": "Hastalıkları ve ilişkili ilaç gruplarını düzenleyin."
+        "title": "Tedavi Yönetimi",
+        "description": "Belirli hastalıklarla ilgili ilaç gruplarını organize edin."
       },
       "appointments": {
-        "title": "Tıbbi Randevular",
-        "description": "Uzmanları, klinikleri ve favori adresleri yönetin."
+        "title": "Doktor Randevuları",
+        "description": "Doktorlarınızı, kliniklerinizi ve favori mekanlarınızı yönetin."
       },
       "diseases": {
         "title": "Hastalıklar ve Durumlar",
-        "description": "Detaylı tıbbi geçmiş ve durum kayıtlarını tutun."
+        "description": "Her aile üyesi için detaylı bir tıbbi geçmiş tutun."
       },
       "profiles_unlimited": {
         "title": "Aile Profilleri",
-        "description": "Tüm ailenize tek bir merkezden özen gösterin."
+        "description": "Tüm ailenin sağlığını tek bir merkezden koruyabilirsiniz."
       },
       "medications": {
         "title": "İlaçlar ve Dozlar",
-        "description": "Alım, uyarılar ve stok üzerinde ileri düzey kontrol."
+        "description": "Alımlar, alarmlar ve stoklar üzerinde gelişmiş kontrol."
       },
       "symptoms_plus": {
-        "title": "100+ Semptom",
-        "description": "Şiddet, evreler ve izleme ile detaylı günlükler."
+        "title": "+100 Belirti",
+        "description": "Şiddet, evre ve grafiksel ilerleme içeren detaylı günlük."
       }
     },
     "stats": {
-      "languages": "Diller",
-      "symptoms": "Semptom",
+      "languages": "Desteklenen Dil",
+      "symptoms": "Belirti Kalemi",
       "profiles": "Profil",
-      "private": "Özel"
+      "private": "Gizlilik"
     },
     "disclaimer": {
-      "title": "VitalsPath bir doktorun yerini tutmaz.",
-      "description": "Bu bir organizasyon aracıdır. Tıbbi kararlar için her zaman doktorunuza danışın."
+      "title": "VitalsPath doktorunuzun yerini almaz.",
+      "description": "Bu bir organizasyon aracıdır. Tıbbi kararlar için daima bir uzmana danışın."
     }
   },
   "gallery": {
     "badge": "iOS Arayüzü",
-    "title": "iOS'un bir parçası",
-    "titleHighlight": "olmak için tasarlandı.",
-    "subtitle": "VitalsPath, Apple ekosistemi için sıfırdan oluşturuldu. Gizliliğinize saygı duyar ve sevdiğiniz Apple araçlarıyla entegre olur.",
+    "title": "iOS sisteminin bir parçası",
+    "titleHighlight": "olarak tasarlandı.",
+    "subtitle": "VitalsPath, en yüksek gizlilik önceliği ile Apple ekosistemi için tasarlanmıştır.",
     "native": "Yerel Deneyim.",
-    "synced": "Bulut Senkronizasyonu.",
-    "secure": "Tam Güvenlik.",
+    "synced": "iCloud Senkronizasyonu.",
+    "secure": "Önce Güvenlik.",
     "integrations": {
       "icloud": {
         "label": "iCloud Senkronizasyonu",
-        "desc": "Uçtan uca şifreli"
+        "desc": "Uçtan Uca Şifreleme"
       },
       "calendar": {
-        "label": "Apple Takvim",
-        "desc": "Otomatik etkinlikler"
+        "label": "iOS Takvimi",
+        "desc": "Otomatik Etkinlik Entegrasyonu"
       },
       "maps": {
-        "label": "Apple Haritalar",
-        "desc": "Eczane bul"
+        "label": "iOS Haritalar",
+        "desc": "Yakın Eczaneleri Bul"
       },
       "haptics": {
-        "label": "Yerel Haptikler",
-        "desc": "Taptic Engine 3"
+        "label": "Yerel Titreşimler",
+        "desc": "Taptic Engine 3 Desteği"
       }
     },
     "privacy": {
-      "title": "Gizlilik Odaklı Mimari",
-      "desc": "Verileriniz cihazınızda şifrelenir ve izniniz olmadan paylaşılmaz."
+      "title": "Gizlilik Öncelikli Mimari",
+      "desc": "Sağlık verileriniz cihazınızda şifrelenir ve onayınız olmadan asla paylaşılmaz."
     },
     "sync": {
       "title": "iCloud Şifreleme",
-      "desc": "Aile profillerinizi iPhone, iPad ve Mac arasında güvenle senkronize edin."
+      "desc": "Aile profillerini iPhone, iPad ve Mac arasında güvenle senkronize edin."
     },
     "profiles": {
       "title": "Önce Aile",
-      "desc": "Farklı alerji ve acil durum bilgileriyle birden fazla profili yönetin."
+      "desc": "Alerjiler ve acil durum bilgileri için ayrı kayıtlarla birden fazla profili yönetin."
     },
     "metrics": {
-      "title": "Sağlık Analizleri",
-      "desc": "Semptomları ve aile sağlığındaki uzun vadeli trendleri görselleştirin."
+      "title": "Sağlık Analitikleri",
+      "desc": "Belirti trendlerini ve tüm ailenin sağlık durumunu görselleştirin. Daha iyi hissedin."
     },
     "sections": {
-      "main": "Ana Sayfa",
+      "main": "Genel Bakış",
       "detail": "Detay",
-      "modes": "Açık / Koyu Mod",
+      "modes": "Işık / Karanlık Mod",
       "widgets": "Widget'lar",
-      "languages": "Diller"
+      "languages": "Desteklenen Diller"
     },
     "labels": {
       "dashboard": "Panel",
       "profiles": "Profiller",
       "medications": "İlaçlar",
-      "symptoms": "Semptomlar",
-      "conditions": "Hastalıklar",
-      "wellness": "Zindelik",
-      "profileDetail": "Profil Detayı",
+      "symptoms": "Belirtiler",
+      "conditions": "Hastalılar",
+      "wellness": "Sağlık",
+      "profileDetail": "Profil Detayları",
       "medicationDetail": "İlaç Detayı",
       "doseLog": "Doz Günlüğü",
-      "symptomGraph": "Semptom Grafiği",
+      "symptomGraph": "Belirti Grafiği",
       "tasks": "Görevler",
       "notifications": "Bildirimler",
       "conditionDetail": "Hastalık Detayı",
       "emergency": "Acil Durum",
-      "lightMode": "Açık Mod",
-      "darkMode": "Koyu Mod",
-      "widgets": "Widget'lar",
-      "widgetsGallery": "Galeri",
-      "liveActivity": "Canlı Etkinlikler",
+      "lightMode": "Işık Modu",
+      "darkMode": "Karanlık Mod",
+      "widgets": "Widget Ayarları",
+      "widgetsGallery": "Widget Galerisi",
+      "liveActivity": "Canlı Etkinlik",
       "spanish": "İspanyolca",
       "english": "İngilizce",
-      "moreLanguages": "+ Daha Fazlası"
+      "moreLanguages": "+ Diğer Diller"
     },
-    "note": "Gerçek uygulama ekran görüntüleri"
+    "note": "Gerçek Uygulama Ekran Görüntüleri"
   },
   "testflight": {
-    "badge": "TestFlight Beta Yayında",
-    "title": "Aile sağlığının",
-    "titleHighlight": "geleceğini tanımlayın",
-    "subtitle": "Özel genel betamız TestFlight'ta erişime açıldı. 8.000 test kullanıcısına katılın ve en iyi sağlık merkezini oluşturmamıza yardımcı olun.",
-    "offer": "Lansmana Özel Beta Teklifi",
-    "premium_free": "İlk 100 aktif test kullanıcısı, lansmanda 3 ay ÜCRETSİZ PREMIUM kazanacak.",
-    "slots": "Şu an 0/8.000 kontenjan dolu (erişim açık)",
+    "badge": "Şimdi TestFlight'ta",
+    "title": "Sağlığın geleceğini",
+    "titleHighlight": "birlikte inşa edelim",
+    "subtitle": "TestFlight'ta özel genel beta açıldı. Nihai sağlık merkezini mükemmelleştirmek için 8.000 test kullanıcısına katılın.",
+    "offer": "Beta Özel Teklifi",
+    "premium_free": "İlk 100 aktif test kullanıcısına, resmi lansmanda 3 ay ücretsiz Premium üyelik verilecektir.",
+    "slots": "0/8.000 Slot Dolu (Katılabilirsin)",
     "cta": {
-      "button": "Beta'ya Ücretsiz Katıl",
-      "description": "Apple TestFlight üzerinden anında erişim"
+      "button": "Betaya Ücretsiz Katıl",
+      "description": "Apple TestFlight üzerinden doğrudan erişim"
     },
     "benefits": {
-      "lead": "Neden Beta'ya Katılmalısınız?",
+      "lead": "Neden betaya katılmalısınız?",
       "items": [
-        "Yeni özellikleri ilk keşfeden olun",
-        "Geliştirme sürecini doğrudan etkileyin",
-        "Özel Beta Test Kullanıcısı rozeti",
-        "Doğrudan geliştirici desteği"
+        "Özelliklere erken erişim",
+        "Ürün gelişimine doğrudan etki",
+        "Özel 'Beta Test Cihazı' rozeti",
+        "Öncelikli 1:1 destek"
       ]
     }
   },
@@ -293,34 +297,34 @@
     "features": "Özellikler",
     "privacy": "Gizlilik",
     "support": "Destek",
-    "copyright": "2026 VitalsPath · Hazırlayan",
-    "developer": "RomeroDev Ürünü",
+    "copyright": "2026 VitalsPath · Hazırlayan:",
+    "developer": "RomeroDev",
     "feedback": "Geri Bildirim",
     "terms": "Şartlar",
     "disclaimer": "Feragatname",
-    "subscription": "Planlar"
+    "subscription": "Abonelik"
   },
   "legal": {
     "terms": {
-      "title": "VitalsPath Şartları ve Koşulları",
-      "subtitle": "Sağlık ve İlaç Takip Aracı",
+      "title": "VitalsPath Hizmet Şartları",
+      "subtitle": "Sağlık ve İlaç Takipçisi",
       "lastUpdated": "Son Güncelleme: 2026",
       "sections": {
         "general": {
           "title": "1. Genel Bilgiler",
-          "content": "Bu şartlar, VitalsPath uygulamasının kullanımını düzenler.<br><br>Uygulamayı kullanarak bu şartları ve gizlilik politikamızı kabul etmiş olursunuz."
+          "content": "Bu şartlar, VitalsPath uygulamasının erişimini ve kullanımını yönetir."
         },
         "owner": {
-          "title": "2. Sahibi",
-          "content": "Sahibi: Lester Romero Bernardo, Bilgisayar Mühendisi. vitalspath@gmail.com"
+          "title": "2. Uygulama Sahibi",
+          "content": "Sahibi: Lester Romero Bernardo, BT Mühendisi."
         },
         "purpose": {
-          "title": "3. Hizmet Amacı",
-          "content": "VitalsPath, sağlık bilgilerini düzenlemek için araçlar sunar (İlaç uyarıları, semptom takibi, randevular).<br><br>Uygulama tıbbi teşhis koymaz."
+          "title": "3. Hizmetin Amacı",
+          "content": "VitalsPath, sağlık bilgilerini organize etmek için araçlar sunar."
         },
         "usage": {
-          "title": "4. Sınırlamalar ve Uyarı",
-          "content": "Sadece 18 yaş üstü kullanıcılar içindir. Acil durumlarda 112'yi arayın."
+          "title": "4. Tıbbi Uyarılar",
+          "content": "Bu uygulama tıbbi bir cihaz değildir ve profesyonel tıbbi tavsiyenin yerini almaz."
         }
       }
     },
@@ -331,194 +335,274 @@
       "sections": {
         "intro": {
           "title": "Giriş",
-          "content": "Verilerinizi asla dış sunuculara yüklemiyoruz. Gizliliğiniz birinci önceliğimizdir."
-        },
-        "info": {
-          "title": "1. Toplanan Bilgiler",
-          "content": "İlaçlar, semptomlar ve profiller sadece cihazınızda saklanır."
-        },
-        "storage": {
-          "title": "2. Veri Saklama",
-          "content": "Veriler iPhone'unuzda ve şifreli iCloud üzerinde saklanır."
-        },
-        "contact": {
-          "title": "3. İletişim",
-          "content": "Gizlilik soruları için: vitalspath@gmail.com"
+          "content": "Gizliliğinize saygı duyuyoruz ve hiçbir veriyi sunucularımıza yüklemiyoruz."
         }
       }
     },
     "disclaimer": {
-      "title": "Tıbbi Feragatname",
+      "title": "Sorumluluk Reddi ve Tıbbi Bildirim",
       "notice": {
         "title": "Önemli Uyarı",
-        "content": "VitalsPath'i kullanmadan önce lütfen okuyun."
+        "content": "VitalsPath kullanmadan önce lütfen dikkatlice okuyun."
       },
       "sections": {
         "notMedical": {
-          "title": "Tıbbi Tavsiye Değildir",
-          "content": "VitalsPath bir organizasyon aracıdır, tıbbi cihaz değildir."
+          "title": "Tıbbi Bir Hizmet Değildir",
+          "content": "VitalsPath bir organizasyon aracıdır, tıbbi bir cihaz değildir."
         },
         "emergency": {
           "title": "Acil Durumlar",
-          "content": "Acil tıbbi yardım için lütfen yerel acil numarayı (112) arayın.",
-          "callToAction": "Acil durumlarda 112'yi arayın."
+          "content": "Acil bir durumda derhal yerel acil yardım birimleriyle (Türkiye için 112) iletişime geçin.",
+          "callToAction": "Tıbbi bir acil durumda 112'yi arayın."
+        },
+        "accuracy": {
+          "title": "Veri Doğruluğu",
+          "content": "Girilen verilerin doğruluğundan kullanıcı sorumludur."
+        },
+        "medication": {
+          "title": "İlaç Yönetimi",
+          "content": "Uygulama, ilaçlar arasındaki tıbbi etkileşimleri otomatik olarak kontrol etmez."
+        },
+        "responsibility": {
+          "title": "Sorumluluk",
+          "content": "Uygulamayı profesyonel tıbbi müdahalelerin yerine geçecek şekilde kullanmayın."
+        },
+        "contact": {
+          "title": "İletişim",
+          "content": "Sorularınız için vitalspath@gmail.com adresine yazın."
+        }
+      }
+    },
+    "subscription": {
+      "title": "Abonelik Şartları Detayları",
+      "lastUpdated": "Son Güncelleme: 18 Şubat 2026",
+      "sections": {
+        "whatIs": {
+          "title": "1. VitalsPath Premium Nedir?",
+          "content": "Premium sürüm sınırsız profil ve gelişmiş pro özelliklerin kilidini açar."
         }
       }
     }
   },
   "feedback": {
-    "title": "Geri Bildirim",
-    "subtitle": "VitalsPath'i birlikte geliştirelim.",
+    "title": "Geri Bildirim Gönder",
+    "subtitle": "Herkes için VitalsPath'i geliştirmemize yardımcı olun.",
+    "types": {
+      "feature": "Özellik İsteği",
+      "bug": "Hata Bildir",
+      "improvement": "İyileştirme Önerisi",
+      "question": "Soru",
+      "other": "Diğer"
+    },
     "form": {
-      "type": "Tür",
+      "type": "Geri Bildirim Türü",
       "name": "Adınız",
-      "email": "E-posta",
+      "email": "E-postanız",
       "subject": "Konu",
-      "message": "Mesaj",
-      "submit": "Gönder"
+      "message": "Mesajınız",
+      "namePlaceholder": "Adınız nedir?",
+      "emailPlaceholder": "eposta@adresiniz.com",
+      "subjectPlaceholder": "Kısa açıklama",
+      "messagePlaceholder": "Detayları bize anlatın...",
+      "submit": "Geri Bildirim Gönder"
+    },
+    "success": {
+      "title": "Teşekkür Ederiz!",
+      "message": "Geri bildiriminiz başarıyla alındı.",
+      "backHome": "Ana Sayfaya Dön"
     }
   },
   "pricing": {
-    "badge": "Lansmana Özel",
-    "title": "Basit Fiyatlandırma",
-    "subtitle": "Gizli ücret yok. Aileniz için ideal planı seçin.",
+    "badge": "Yeni Model",
+    "title": "Planınızı seçin",
+    "subtitle": "Herkes için bir uygulama. Sonsuza kadar ücretsiz veya güçlü Premium.",
+    "launch": {
+      "activeBadge": "Lansman teklifi",
+      "bestValue": "En iyi değer",
+      "firstMonth": "Promosyon fiyatı lansmandan sonraki ilk ay boyunca geçerlidir.",
+      "note": "Bu promosyon fiyatları lansmandan sonraki ilk ay boyunca geçerlidir. Sonrasında resmi App Store fiyatları geri döner.",
+      "legalNote": "App Store satın almadan önce nihai fiyatı gösterir. Ülkeye, para birimine ve geçerli vergilere göre değişebilir."
+    },
+    "monthly": {
+      "title": "Aylık Abonelik",
+      "description": "Özel aylık fiyatla tam Premium erişim"
+    },
     "premium": {
       "title": "VitalsPath Premium",
-      "subtitle": "Eksiksiz bir aile sağlığı deneyimi.",
-      "features_title": "Ücretsiz özelliklere ek olarak:",
-      "privacy_title": "%100 Yerel Koruma",
-      "privacy_desc": "Verileriniz asla telefonunuzdan ayrılmaz."
+      "subtitle": "Aile sağlığının tüm potansiyelini ortaya çıkarın.",
+      "features_title": "Ücretsiz plandaki her şeye ek olarak:",
+      "feature_desc": "Uygulamadaki tüm hizmetler için sınırsız kayıt.",
+      "privacy_title": "%100 Cihaz İçi Gizlilik",
+      "privacy_desc": "Verileriniz asla iPhone'unuzdan dışarı çıkmaz."
     },
     "free": {
-      "title": "Ücretsiz",
-      "description": "Temel özelliklerle sonsuza dek ücretsiz.",
+      "title": "Ücretsiz Deneyim",
+      "description": "Bazı kısıtlamalarla birlikte %100 işlevsel.",
       "functional_badge": "%100 İşlevsel",
       "forever_badge": "Sonsuza Dek Ücretsiz"
     },
     "annual": {
-      "title": "Yıllık",
-      "description": "En popüler değer"
+      "title": "Yıllık Abonelik",
+      "description": "Yıllık faturalandırma, %16 tasarruf"
     },
     "lifetime": {
       "title": "Ömür Boyu",
-      "description": "Tek ödeme, sınırsız erişim"
+      "description": "İndirimli fiyatla ömür boyu sınırsız erişim"
     },
     "features": {
-      "unlimited_profiles": "Sınırsız Aile Profili",
-      "unlimited_diseases": "Sınırsız Hastalık Kaydı",
-      "unlimited_medications": "Sınırsız İlaç Takibi",
+      "unlimited_profiles": "Sınırsız Profil",
+      "unlimited_diseases": "Sınırsız Geçmiş",
+      "unlimited_medications": "Sınırsız İlaç",
+      "unlimited_treatments": "Sınırsız Tedavi",
+      "extended_pause": "Uzatılmış Duraklatma",
+      "extend_medication": "İlaç Süresini Uzat",
+      "full_schedule": "Tam Ajanda",
+      "quiet_schedule": "Otomatik Sessiz Ajanda",
       "stock_inventory": "Stok ve Envanter",
-      "export_pdf_csv": "PDF/CSV Veri Aktarımı",
-      "advanced_analytics": "İleri Düzey Analizler",
-      "health_reports": "Doktor Raporları",
+      "export_pdf_csv": "PDF / CSV Dışa Aktar",
+      "advanced_analytics": "Gelişmiş Analiz Paneli",
+      "health_reports": "Sağlık Raporu Oluştur",
+      "health_reports_desc": "Doktorunuz için detaylı özetler.",
       "ocr_scanner": "Tıbbi OCR Tarayıcı",
-      "healthkit": "HealthKit Entegrasyonu",
-      "icloud_backup": "iCloud Güvenli Yedek",
-      "all_themes": "Premium Temalar",
-      "smart_scheduler_ia": "AI Akıllı Zamanlayıcı",
-      "gamification": "Motivasyon ve Ödüller"
+      "healthkit": "Apple HealthKit Entegrasyonu",
+      "complex_symptoms": "Derin Belirti Analizi",
+      "icloud_backup": "iCloud Yedeği",
+      "icloud_backup_desc": "Güvenli Apple protokolleri.",
+      "all_themes": "Tüm Temalar",
+      "all_themes_desc": "Tam kişiselleştirme.",
+      "advanced_notifications": "Zeki Akıllı Uyarılar",
+      "advanced_notifications_desc": "Kritik uyarılar.",
+      "haptic_feedback": "Haptik Geri Bildirim",
+      "haptic_feedback_desc": "Fiziksel dokunuş hissi.",
+      "widget_styles": "Çoklu Widget Stilleri",
+      "widget_styles_desc": "Çeşitli boyut ve işlevler.",
+      "unlimited_profiles_desc": "Tüm aileyi sınırsız yönetin.",
+      "smart_scheduler_ia_desc": "AI ile akıllı optimizasyon.",
+      "advanced_analytics_desc": "Derin analiz grafikleri.",
+      "export_pdf_csv_desc": "Verileriniz her yerde.",
+      "basic_profiles": "1 Profil (Premium'da sınırsız)",
+      "basic_medications": "Profil başına 3 ilaç",
+      "local_reminders": "Yerel temel hatırlatıcılar",
+      "wellness_score": "Sağlık Puanı",
+      "wellness_details": "Sağlık detaylarını görüntüle",
+      "smart_scheduler": "Çakışma Kontrolü (Manuel)",
+      "smart_scheduler_ia": "AI Otomatik Optimizasyon",
+      "appointments_limit": "Ayda 3 Randevu",
+      "unlimited_appointments": "Sınırsız Randevu",
+      "locations_limit": "2 Favori mekan",
+      "insurance_limit": "1 Sağlık sigortası",
+      "symptoms_basic": "Temel belirti kaydı",
+      "symptoms_complex": "Derin analiz desteği",
+      "inventory_basic": "Temel stok yönetimi",
+      "health_status": "Sağlık Durumu",
+      "health_status_desc": "Bütünsel bakış açısı.",
+      "gamification": "Ödül ve Motivasyon",
+      "gamification_desc": "Sağlık hedeflerine ulaşın."
     },
-    "cta": "Yakında",
-    "cta_alt": "Kaydol"
+    "pricing_cta": "Yakında",
+    "pricing_cta_alt": "Ön Kayıt Ol"
   },
   "smartScheduling": {
     "badge": "Akıllı Algoritma",
-    "title": "Akıllı Planlama",
-    "subtitle": "En güvenli saatleri belirlemek için ilaç etkileşimlerini analiz eder.",
+    "title": "Akıllı Planlayıcı",
+    "subtitle": "Algoritmamız rutininizi optimize eder.",
     "steps": {
       "1": {
         "title": "Giriş",
-        "desc": "İlaç ve Saat"
+        "desc": "Dozlar ve Saatler"
       },
       "2": {
-        "title": "Slotlar",
-        "desc": "Uygunluk"
+        "title": "Slot",
+        "desc": "Zaman Dilimleri"
       },
       "3": {
         "title": "Analiz",
-        "desc": "Güvenlik"
+        "desc": "Güvenlik Kontrolü"
       },
       "4": {
         "title": "Kontrol",
-        "desc": "Çatışma"
+        "desc": "Doz Çakışmaları"
       },
       "5": {
-        "title": "Optimal",
-        "desc": "En İyi Plan"
+        "title": "İdeal",
+        "desc": "Kusursuz Plan"
       }
     }
   },
   "notificationModes": {
-    "badge": "Esnek Uyarılar",
-    "title": "Duruma Özel Bildirimler",
-    "subtitle": "İçinde bulunduğunuz ortama göre bildirim stilinizi seçin.",
+    "badge": "Sezgisel Uyarılar",
+    "title": "Bildirim Modları",
+    "subtitle": "Her an için doğru stili seçin.",
+    "hapticTip": "Haptik geri bildirim için iPhone 16 veya üzeri gereklidir.",
     "modes": {
       "normal": {
         "title": "Normal",
-        "desc": "Ses ve titreşim aktif."
+        "desc": "Ses ve titreşim bir arada."
       },
       "quiet": {
         "title": "Sessiz",
-        "desc": "Sadece görsel bildirim."
+        "desc": "Sadece görsel uyarılar."
       },
       "discrete": {
-        "title": "Hassas",
-        "desc": "Gizlilik için hafif titreşim."
+        "title": "Dikkat",
+        "desc": "Hafif haptik dokunuşlar."
       },
       "off": {
         "title": "Kapalı",
-        "desc": "Rahatsız etmeyin."
+        "desc": "Rahatsız edilmeyin."
       }
     },
     "simulator": {
       "now": "Şimdi",
-      "doseTitle": "İlaç Saati",
-      "ready": "Tamam"
+      "doseTitle": "Ibuprofen Dozu",
+      "ready": "Hazır"
     }
   },
   "widgetsSection": {
     "badge": "Yerel Deneyim",
-    "title": "Widget'lar ve",
+    "title": "Widget'lar &",
     "titleHighlight": "Canlı Etkinlikler.",
-    "subtitle": "Kilit ekranından tek bakışta durum takibi.",
+    "subtitle": "Bir bakışta bilgi.",
+    "description": "Uygulamayı açmadan sağlığınızı kontrol edin.",
     "items": {
       "widgets": {
         "title": "10+ Widget",
-        "desc": "Giriş ekranından takip."
+        "desc": "Ana ve Kilit ekranı desteği."
       },
       "dynamic": {
         "title": "Dynamic Island",
-        "desc": "Gerçek zamanlı uyarılar."
+        "desc": "Anlık güncellemeler."
       },
       "live": {
-        "title": "Canlı Etkinlikler",
-        "desc": "Aktif doz takibi."
+        "title": "Canlı Etkinlik",
+        "desc": "Alımı takip et."
       }
     }
   },
   "languages": {
-    "title": "Türkçe Konuşuyoruz",
-    "subtitle": "Küresel Destek",
-    "description": "VitalsPath, ana dilinizde kusursuz bir deneyim için tamamen Türkçeye çevrildi."
+    "title": "Kendi Dilinizde",
+    "subtitle": "Küresel",
+    "description": "VitalsPath sizin için 15 dünya diline çevrildi."
   },
   "footerStats": {
     "activeUsers": "Aktif Kullanıcı",
-    "regions": "Bölge ve Ülke",
-    "plansCreated": "Oluşturulan Planlar"
+    "regions": "Bölgeler",
+    "plansCreated": "Oluşturulan Plan Ort."
   },
   "survey": {
-    "badge": "Hızlı Anket",
-    "question": "Sizce bu uygulama aileniz için yararlı olacak mı?",
+    "badge": "Hızlı Soru",
+    "question": "Bu uygulamayı hayatınız için yararlı buluyor musunuz ?",
     "options": {
-      "yes": "Evet, kesinlikle",
-      "no": "Henüz değil",
-      "maybe": "Olabilir"
-    }
+      "yes": "Evet",
+      "no": "Hayır",
+      "maybe": "Belki"
+    },
+    "thanks": "Katıldığınız için teşekkürler!"
   },
   "ecosystem": {
     "badge": "Apple Ekosistemi",
-    "title": "Tüm Apple Cihazlarınızda",
-    "subtitle": "VitalsPath, Apple ekosistemiyle tam entegre çalışır.",
+    "title": "Tüm cihazlarda bir arada",
+    "subtitle": "Apple donanımıyla mükemmel uyum.",
     "iphone": {
       "name": "iPhone",
       "os": "iOS 18+"
@@ -531,6 +615,6 @@
       "name": "Apple Watch",
       "os": "watchOS 11+"
     },
-    "description": "iCloud ile anında senkronizasyon ve Health App ile mükemmel uyum."
+    "description": "iCloud üzerinden senkronizasyon ve Apple Health (Sağlık) ile tam entegrasyon."
   }
 }

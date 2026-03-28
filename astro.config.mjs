@@ -4,10 +4,14 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
+const siteOrigin = 'https://lbernardo-dev.github.io';
+const basePath = '/vitalshpath';
+const siteRoot = `${siteOrigin}${basePath}`;
+
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://lbernardo-dev.github.io',
-    base: '/vitalshpath',
+    site: siteOrigin,
+    base: basePath,
     server: {
         port: 3000,
     },
@@ -35,7 +39,15 @@ export default defineConfig({
                     pl: 'pl-PL',
                 },
             },
-            filter: (page) => !page.includes('/404'),
+            filter: (page) => {
+                const normalized = page.replace(/\/$/, '');
+                return (
+                    !page.includes('/404') &&
+                    !page.includes('/admin') &&
+                    !page.includes('/maintenance') &&
+                    normalized !== siteRoot
+                );
+            },
             serialize(item) {
                 return item;
             },

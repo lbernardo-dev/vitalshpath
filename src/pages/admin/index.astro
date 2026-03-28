@@ -8,6 +8,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, nofollow" />
         <title>VitalsPath Admin</title>
     </head>
     <body class="bg-gray-50 min-h-screen">
@@ -198,15 +199,15 @@ const baseUrl = import.meta.env.BASE_URL;
                         </p>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm border p-6">
-                        <span class="text-sm text-gray-500">TestFlight Clicks</span>
+                        <span class="text-sm text-gray-500">Clics App Store</span>
                         <p
-                            id="stat-tf-clicks"
+                            id="stat-app-store-clicks"
                             class="text-2xl font-bold text-gray-900 mt-1"
                         >
                             0
                         </p>
                         <div class="mt-2 text-[10px] text-gray-400 font-medium">
-                            <span id="stat-tf-tracked">0</span> tracked + <span id="stat-tf-manual">0</span> manual
+                            <span id="stat-app-store-tracked">0</span> trackeados + <span id="stat-app-store-manual">0</span> manuales
                         </div>
                     </div>
                 </div>
@@ -426,23 +427,120 @@ const baseUrl = import.meta.env.BASE_URL;
                 <!-- Section: Settings -->
                 <div id="section-settings" class="hidden space-y-8">
                     <div class="bg-white rounded-xl shadow-sm border p-6">
-                        <h3 class="font-bold text-gray-900 mb-4">Configuración de TestFlight</h3>
+                        <h3 class="font-bold text-gray-900 mb-4">Configuración de adquisición App Store</h3>
                         <div class="space-y-4 max-w-lg">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Cifra Manual (Apple Connect)</label>
-                                <p class="text-xs text-gray-500 mb-2">Este número se sumará a los clics trackeados automáticamente.</p>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Cifra manual externa</label>
+                                <p class="text-xs text-gray-500 mb-2">Este número se sumará a los clics a App Store trackeados automáticamente desde la landing.</p>
                                 <div class="flex gap-2">
                                     <input
                                         type="number"
-                                        id="tf-manual-input"
+                                        id="app-store-manual-input"
                                         class="flex-1 px-4 py-2 border rounded-lg"
                                         placeholder="Ej: 500"
                                     />
                                     <button
-                                        id="save-tf-manual-btn"
+                                        id="save-app-store-manual-btn"
                                         class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                                     >Guardar</button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Enlaces públicos de App Store</h3>
+                        <div class="space-y-5 max-w-3xl">
+                            <p class="text-sm text-gray-600">
+                                Fuente única de verdad para CTAs públicos, footer, soporte y enlaces de reseña.
+                                Si dejas vacíos los storefronts, el sitio usará el enlace genérico.
+                            </p>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Enlace genérico</label>
+                                <input
+                                    type="url"
+                                    id="app-store-generic-url"
+                                    class="w-full px-4 py-2 border rounded-lg"
+                                    placeholder="https://apps.apple.com/app/id6760143192"
+                                />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Enlace de reseña</label>
+                                <input
+                                    type="url"
+                                    id="app-store-review-url"
+                                    class="w-full px-4 py-2 border rounded-lg"
+                                    placeholder="https://apps.apple.com/app/id6760143192?action=write-review"
+                                />
+                            </div>
+                            <div class="grid gap-4 md:grid-cols-2">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Storefront España</label>
+                                    <input
+                                        type="url"
+                                        id="app-store-es-url"
+                                        class="w-full px-4 py-2 border rounded-lg"
+                                        placeholder="https://apps.apple.com/es/app/id6760143192"
+                                    />
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Storefront Estados Unidos</label>
+                                    <input
+                                        type="url"
+                                        id="app-store-en-url"
+                                        class="w-full px-4 py-2 border rounded-lg"
+                                        placeholder="https://apps.apple.com/us/app/id6760143192"
+                                    />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button
+                                    id="save-app-store-btn"
+                                    class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                                >Guardar enlaces</button>
+                                <a
+                                    href="https://apps.apple.com/app/id6760143192"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-medium text-blue-600 hover:text-blue-700"
+                                >Abrir enlace actual</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Modo Mantenimiento</h3>
+                        <div class="space-y-4 max-w-2xl">
+                            <label class="flex items-start gap-3">
+                                <input
+                                    type="checkbox"
+                                    id="maintenance-enabled"
+                                    class="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                />
+                                <span class="text-sm text-gray-700">
+                                    Activar mantenimiento en las páginas públicas de marketing.
+                                    Las rutas legales enlazadas desde la app seguirán accesibles.
+                                </span>
+                            </label>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje personalizado</label>
+                                <p class="text-xs text-gray-500 mb-2">Opcional. Si lo dejas vacío, se mostrará el texto por defecto de la página de mantenimiento.</p>
+                                <textarea
+                                    id="maintenance-message"
+                                    rows="4"
+                                    class="w-full px-4 py-3 border rounded-lg"
+                                    placeholder="Estamos preparando el lanzamiento público..."
+                                ></textarea>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button
+                                    id="save-maintenance-btn"
+                                    class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                                >Guardar mantenimiento</button>
+                                <a
+                                    href={`${baseUrl}es/maintenance/`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm font-medium text-blue-600 hover:text-blue-700"
+                                >Ver página</a>
                             </div>
                         </div>
                     </div>
@@ -452,6 +550,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
         <script>
             import { getSupabase } from "../../lib/supabase";
+            import { getDefaultAppStoreLinks } from "../../lib/app-store-links";
 
             var ADMIN_EMAILS = [
                 "lbernardo.dev@gmail.com",
@@ -465,6 +564,7 @@ const baseUrl = import.meta.env.BASE_URL;
                     : import.meta.env.BASE_URL;
 
             const supabase = getSupabase();
+            const defaultAppStoreLinks = getDefaultAppStoreLinks();
 
             function show(id) {
                 const el = document.getElementById(id);
@@ -475,8 +575,8 @@ const baseUrl = import.meta.env.BASE_URL;
                 if (el) el.classList.add("hidden");
             }
 
-            function loadDashboard() {
-                if (!supabase) return;
+	            function loadDashboard() {
+	                if (!supabase) return;
 
                 // Core Stats
                 supabase.rpc("get_stats").then(function (result) {
@@ -496,11 +596,11 @@ const baseUrl = import.meta.env.BASE_URL;
                         document.getElementById("stat-online").textContent =
                             data.online_now || 0;
 
-                        // TestFlight Clicks
-                        if (data.testflight_clicks_total !== undefined) {
-                            document.getElementById("stat-tf-clicks").textContent = data.testflight_clicks_total;
-                            document.getElementById("stat-tf-tracked").textContent = data.testflight_clicks_tracked;
-                            document.getElementById("stat-tf-manual").textContent = data.testflight_clicks_manual;
+                        // App Store Clicks
+                        if (data.app_store_clicks_total !== undefined) {
+                            document.getElementById("stat-app-store-clicks").textContent = data.app_store_clicks_total;
+                            document.getElementById("stat-app-store-tracked").textContent = data.app_store_clicks_tracked;
+                            document.getElementById("stat-app-store-manual").textContent = data.app_store_clicks_manual;
                         }
 
                         if (data.avg_duration_seconds !== undefined) {
@@ -521,7 +621,7 @@ const baseUrl = import.meta.env.BASE_URL;
                 });
 
                 // Deep Analytics
-                supabase.rpc("get_admin_analytics").then(function (result) {
+	                supabase.rpc("get_admin_analytics").then(function (result) {
                     if (result.data) {
                         const data = result.data;
 
@@ -705,11 +805,83 @@ const baseUrl = import.meta.env.BASE_URL;
                         `;
                             })
                             .join("");
-                    }
-                });
+	                    }
+	                });
 
-                supabase
-                    .from("waitlist")
+	                supabase
+	                    .from("site_settings")
+	                    .select("key, value")
+	                    .in("key", ["app_store_manual_count", "testflight_manual_count", "maintenance_mode", "app_store_links"])
+	                    .then(function (result) {
+	                        if (!result.data) return;
+
+	                        const manualSetting = result.data.find(
+	                            (item) => item.key === "app_store_manual_count"
+	                        ) || result.data.find((item) => item.key === "testflight_manual_count");
+	                        const maintenanceSetting = result.data.find(
+	                            (item) => item.key === "maintenance_mode"
+	                        );
+                            const appStoreLinksSetting = result.data.find(
+                                (item) => item.key === "app_store_links"
+                            );
+
+	                        const manualInput = document.getElementById("app-store-manual-input");
+	                        if (manualInput && manualSetting) {
+	                            manualInput.value = String(manualSetting.value || 0);
+	                        }
+
+	                        const maintenanceEnabled = document.getElementById("maintenance-enabled");
+	                        const maintenanceMessage = document.getElementById("maintenance-message");
+	                        const maintenanceValue = maintenanceSetting?.value;
+	                        const enabled =
+	                            typeof maintenanceValue === "boolean"
+	                                ? maintenanceValue
+	                                : Boolean(maintenanceValue?.enabled);
+	                        const message =
+	                            typeof maintenanceValue === "object" &&
+	                            maintenanceValue !== null &&
+	                            typeof maintenanceValue.message === "string"
+	                                ? maintenanceValue.message
+	                                : "";
+
+	                        if (maintenanceEnabled) maintenanceEnabled.checked = enabled;
+	                        if (maintenanceMessage) maintenanceMessage.value = message;
+
+                            const appStoreLinksValue =
+                                typeof appStoreLinksSetting?.value === "object" &&
+                                appStoreLinksSetting?.value !== null
+                                    ? appStoreLinksSetting.value
+                                    : defaultAppStoreLinks;
+
+                            const appStoreGenericInput = document.getElementById("app-store-generic-url");
+                            const appStoreReviewInput = document.getElementById("app-store-review-url");
+                            const appStoreEsInput = document.getElementById("app-store-es-url");
+                            const appStoreEnInput = document.getElementById("app-store-en-url");
+
+                            if (appStoreGenericInput) {
+                                appStoreGenericInput.value =
+                                    appStoreLinksValue.genericUrl || defaultAppStoreLinks.genericUrl;
+                            }
+                            if (appStoreReviewInput) {
+                                appStoreReviewInput.value =
+                                    appStoreLinksValue.reviewUrl || defaultAppStoreLinks.reviewUrl;
+                            }
+                            if (appStoreEsInput) {
+                                appStoreEsInput.value =
+                                    appStoreLinksValue.storefronts?.es ||
+                                    defaultAppStoreLinks.storefronts.es ||
+                                    "";
+                            }
+                            if (appStoreEnInput) {
+                                appStoreEnInput.value =
+                                    appStoreLinksValue.storefronts?.en ||
+                                    defaultAppStoreLinks.storefronts.en ||
+                                    "";
+                            }
+	                    });
+
+	                supabase
+	                    .from("waitlist")
                     .select("*")
                     .order("created_at", { ascending: false })
                     .limit(50)
@@ -967,22 +1139,27 @@ const baseUrl = import.meta.env.BASE_URL;
             }
 
             // Settings Management
-            function setupSettings() {
-                document.getElementById("save-tf-manual-btn")?.addEventListener("click", async () => {
-                    const value = parseInt(document.getElementById("tf-manual-input").value);
+	            function setupSettings() {
+                    const isValidAppStoreUrl = (value) =>
+                        !value ||
+                        (typeof value === "string" &&
+                            value.startsWith("https://apps.apple.com/"));
+
+	                document.getElementById("save-app-store-manual-btn")?.addEventListener("click", async () => {
+                    const value = parseInt(document.getElementById("app-store-manual-input").value);
                     if (isNaN(value)) {
                         alert("Por favor introduce un número válido");
                         return;
                     }
 
-                    const btn = document.getElementById("save-tf-manual-btn");
+                    const btn = document.getElementById("save-app-store-manual-btn");
                     btn.textContent = "Guardando...";
                     btn.disabled = true;
 
                     const { error } = await supabase
                         .from("site_settings")
                         .upsert({ 
-                            key: "testflight_manual_count",
+                            key: "app_store_manual_count",
                             value: value,
                             updated_at: new Date().toISOString()
                         });
@@ -995,9 +1172,85 @@ const baseUrl = import.meta.env.BASE_URL;
                             btn.disabled = false;
                         }, 2000);
                         loadDashboard();
-                    }
-                });
-            }
+	                    }
+	                });
+
+	                document.getElementById("save-maintenance-btn")?.addEventListener("click", async () => {
+	                    const enabled = document.getElementById("maintenance-enabled")?.checked || false;
+	                    const message = document.getElementById("maintenance-message")?.value?.trim() || "";
+	                    const btn = document.getElementById("save-maintenance-btn");
+
+	                    btn.textContent = "Guardando...";
+	                    btn.disabled = true;
+
+	                    const { error } = await supabase
+	                        .from("site_settings")
+	                        .upsert({
+	                            key: "maintenance_mode",
+	                            value: {
+	                                enabled,
+	                                message,
+	                            },
+	                            updated_at: new Date().toISOString()
+	                        });
+
+	                    if (error) alert("Error: " + error.message);
+	                    else {
+	                        btn.textContent = "¡Guardado!";
+	                        setTimeout(() => {
+	                            btn.textContent = "Guardar mantenimiento";
+	                            btn.disabled = false;
+	                        }, 2000);
+	                    }
+	                });
+
+                    document.getElementById("save-app-store-btn")?.addEventListener("click", async () => {
+                        const genericUrl = document.getElementById("app-store-generic-url")?.value?.trim() || "";
+                        const reviewUrl = document.getElementById("app-store-review-url")?.value?.trim() || "";
+                        const esUrl = document.getElementById("app-store-es-url")?.value?.trim() || "";
+                        const enUrl = document.getElementById("app-store-en-url")?.value?.trim() || "";
+
+                        if (
+                            !isValidAppStoreUrl(genericUrl) ||
+                            !isValidAppStoreUrl(reviewUrl) ||
+                            !isValidAppStoreUrl(esUrl) ||
+                            !isValidAppStoreUrl(enUrl)
+                        ) {
+                            alert("Usa solo URLs públicas válidas de apps.apple.com");
+                            return;
+                        }
+
+                        const btn = document.getElementById("save-app-store-btn");
+                        btn.textContent = "Guardando...";
+                        btn.disabled = true;
+
+                        const value = {
+                            genericUrl: genericUrl || defaultAppStoreLinks.genericUrl,
+                            reviewUrl: reviewUrl || defaultAppStoreLinks.reviewUrl,
+                            storefronts: {},
+                        };
+
+                        if (esUrl) value.storefronts.es = esUrl;
+                        if (enUrl) value.storefronts.en = enUrl;
+
+                        const { error } = await supabase
+                            .from("site_settings")
+                            .upsert({
+                                key: "app_store_links",
+                                value,
+                                updated_at: new Date().toISOString()
+                            });
+
+                        if (error) alert("Error: " + error.message);
+                        else {
+                            btn.textContent = "¡Guardado!";
+                            setTimeout(() => {
+                                btn.textContent = "Guardar enlaces";
+                                btn.disabled = false;
+                            }, 2000);
+                        }
+                    });
+	            }
 
             // Survey Management
             async function setupSurveys() {

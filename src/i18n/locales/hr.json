@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "title": "VitalsPath: Inteligentni praćenje lijekova i zdravstveno središte",
+    "description": "Upravljajte lijekovima, dozama, vitalnim znakovima i pregledima uz inteligentne podsjetnike. Premium aplikacija za iPhone, iPad i Watch. Pridružite se beti na TestFlightu!"
+  },
+  "nav": {
+    "features": "Značajke",
+    "scheduler": "Planer",
+    "ecosystem": "Ekosustav",
+    "benefits": "Prednosti",
+    "pricing": "Cijene",
+    "testflight": "Beta TestFlight",
+    "gallery": "Galerija"
+  },
+  "hero": {
+    "badge": "Beta TestFlight dostupan · iOS 18+ podrška",
+    "title": "Pametno upravljanje lijekovima",
+    "titleHighlight": "& zdravstveno središte.",
+    "subtitle": "Medicinska preciznost i vrhunski Liquid Glass dizajn za upravljanje vašim lijekovima, pregledima, vitalnim znakovima i receptima.",
+    "cta": {
+      "primary": "Pridruži se besplatnoj beti",
+      "secondary": "Istraži funkcije"
+    },
+    "features": {
+      "profiles": "Više obiteljskih profila",
+      "privacy": "100% privatnost na uređaju",
+      "languages": "Podrška za više od 15 jezika"
+    },
+    "labels": {
+      "wellness": "Wellness rezultat",
+      "vitamind3": "Vitamin D3",
+      "familyProfiles": "Obiteljski profili"
+    }
+  },
+  "problems": {
+    "badge": "Pravi izazov",
+    "title": "Upravljanje obiteljskim zdravljem,",
+    "titleLine2": "složenije je nego što se čini.",
+    "subtitle": "Raspršene aplikacije, zaboravljene doze i nedostajuće informacije ugrožavaju dobrobit vaših najmilijih.",
+    "items": {
+      "medication": {
+        "title": "\"Jesam li ga već popio?\"",
+        "description": "Jednostavni podsjetnici u kalendaru nisu dovoljno dobri za kritično upravljanje lijekovima."
+      },
+      "profiles": {
+        "title": "Zasebna aplikacija za svakog člana obitelji",
+        "description": "Bez centralnog središta, važne medicinske informacije lako se gube."
+      },
+      "appointments": {
+        "title": "Raspršeni pregledi",
+        "description": "Znati tko, kamo i kada treba ići pravi je logistički izazov."
+      },
+      "symptoms": {
+        "title": "\"Kakvi su točno bili simptomi tada?\"",
+        "description": "Često zaboravljamo detalje simptoma ili nedavnu povijest bolesti tijekom liječničkih pregleda."
+      },
+      "interactions": {
+        "title": "Je li sigurno uzimati ih zajedno?",
+        "description": "Bez preciznog praćenja, interakcije lijekova predstavljaju stvaran rizik."
+      },
+      "tasks": {
+        "title": "Zaboravljeni kontrolni pregledi",
+        "description": "Analize, obnove recepata i redoviti pregledi često prođu nezapaženo."
+      }
+    },
+    "cta": "VitalsPath rješava sve to..."
+  },
+  "features": {
+    "badge": "Jedno središte, sva rješenja",
+    "title": "Sve što trebate,",
+    "titleHighlight": "savršeno organizirano.",
+    "subtitle": "Integrirali smo sve aspekte upravljanja obiteljskim zdravljem u jednu inteligentnu nadzornu ploču.",
+    "items": {
+      "profiles": {
+        "title": "Obiteljski profili",
+        "description": "Upravljajte odraslima, djecom i starijim osobama odvojeno. Pratite povijest, alergije i dijagnoze."
+      },
+      "scheduler": {
+        "title": "Pametni planer",
+        "description": "Algoritam koji optimalno raspoređuje doze na temelju medicinskih interakcija."
+      },
+      "privacy": {
+        "title": "100% privatnost",
+        "description": "Vaši zdravstveni podaci nikada ne napuštaju uređaj. Bez poslužitelja, bez praćenja."
+      },
+      "pills": {
+        "title": "Podsjetnik za lijekove",
+        "description": "Pametne obavijesti i upravljanje zalihama kako nikada ne biste propustili dozu."
+      },
+      "journal": {
+        "title": "Dnevnik simptoma",
+        "description": "Bilježite kako se osjećate. Pratite trendove, raspoloženje i oporavak uz grafikone."
+      },
+      "calendar": {
+        "title": "Medicinski kalendar",
+        "description": "Organizirajte preglede, specijaliste i ljekarne na jednom savršenom mjestu."
+      },
+      "refills": {
+        "title": "Upozorenja o zalihama",
+        "description": "Primajte pametne obavijesti prije isteka recepata ili ponestajanja lijekova."
+      },
+      "ocr": {
+        "title": "Izvorni medicinski OCR",
+        "description": "Skenirajte kutije lijekova ili recepte. Automatski izdvojite ključne podatke."
+      },
+      "live": {
+        "title": "Aktivnosti uživo",
+        "description": "Pratite napredak lijekova trenutno s zaključanog zaslona."
+      },
+      "wellness": {
+        "title": "Wellness rezultat",
+        "description": "Holistički indeks vašeg blagostanja temeljen na vašim dnevnim podacima."
+      }
+    },
+    "cta": {
+      "primary": "Pridruži se Beta TestFlightu"
+    }
+  },
+  "deepFeatures": {
+    "badge": "Dubinska analiza",
+    "title": "Dizajnirano za",
+    "titleHighlight": "pravi život.",
+    "medication": {
+      "badge": "Upravljanje lijekovima",
+      "title": "Arhitektura usmjerena na dozu",
+      "description": "Svaka doza je neovisna točka podataka sa statusom, vremenom i kontekstom.",
+      "features": [
+        "Pratite status, vrijeme i bilješke za svaku pojedinu dozu",
+        "Potpuni povijesni zapis za svaku promjenu liječenja",
+        "Retroaktivno produžite postojeće tečajeve liječenja"
+      ]
+    },
+    "calendar": {
+      "badge": "Kalendar",
+      "title": "Jedan kalendar, svi događaji",
+      "description": "Optimizirani mjesečni prikaz koji kombinira doze, liječenja, preglede i zadatke.",
+      "features": [
+        "Sustav termina s moćnim funkcijama ponavljanja",
+        "Povezani kontrolni zdravstveni zadaci",
+        "Predlošci za brzi unos podataka"
+      ]
+    },
+    "symptoms": {
+      "badge": "Upravljanje simptomima",
+      "title": "Precizna zdravstvena revizija",
+      "description": "Bilježite svaki simptom prema težini i pratite evoluciju bolesti.",
+      "features": [
+        "Više od 100 simptoma s preciznim skalama težine",
+        "Upravljanje fazama: Početak, Kronično, Kriza, Oporavak",
+        "Gantogram vizualizacija trajanja simptoma"
+      ]
+    }
+  },
+  "benefits": {
+    "badge": "Zašto VitalsPath?",
+    "title": "Uistinu potpun",
+    "titleHighlight": "zdravstveni alat.",
+    "items": {
+      "treatments": {
+        "title": "Upravljanje liječenjem",
+        "description": "Organizirajte grupe lijekova povezane s određenim stanjima."
+      },
+      "appointments": {
+        "title": "Liječnički pregledi",
+        "description": "Upravljajte svojim liječnicima, klinikama i omiljenim lokacijama."
+      },
+      "diseases": {
+        "title": "Bolesti i stanja",
+        "description": "Vodite detaljnu medicinsku povijest za svakog člana obitelji."
+      },
+      "profiles_unlimited": {
+        "title": "Obiteljski profili",
+        "description": "Brinite o cijeloj obitelji iz jednog centralnog središta."
+      },
+      "medications": {
+        "title": "Lijekovi i doze",
+        "description": "Napredna kontrola nad uzimanjem, alarmima i zalihama."
+      },
+      "symptoms_plus": {
+        "title": "+100 simptoma",
+        "description": "Detaljan dnevnik s težinom, fazama i grafičkim prikazom."
+      }
+    },
+    "stats": {
+      "languages": "Podržani jezici",
+      "symptoms": "Stavke simptoma",
+      "profiles": "Profili",
+      "private": "Privatnost"
+    },
+    "disclaimer": {
+      "title": "VitalsPath ne zamjenjuje vašeg liječnika.",
+      "description": "Ovo je organizacijski alat. Uvijek se posavjetujte s profesionalcem za medicinske odluke."
+    }
+  },
+  "gallery": {
+    "badge": "iOS sučelje",
+    "title": "Dizajnirano kao dio",
+    "titleHighlight": "iOS sustava.",
+    "subtitle": "VitalsPath je izgrađen za Apple ekosustav s privatnošću kao glavnim prioritetom.",
+    "native": "Izvorni doživljaj.",
+    "synced": "iCloud sinkr.",
+    "secure": "Sigurnost na prvom mjestu.",
+    "integrations": {
+      "icloud": {
+        "label": "iCloud sinkr.",
+        "desc": "End-to-end enkripcija"
+      },
+      "calendar": {
+        "label": "iOS kalendar",
+        "desc": "Automatska integracija događaja"
+      },
+      "maps": {
+        "label": "iOS karte",
+        "desc": "Pronađi obližnje ljekarne"
+      },
+      "haptics": {
+        "label": "Izvorni taktilni odziv",
+        "desc": "Podrška za Taptic Engine 3"
+      }
+    },
+    "privacy": {
+      "title": "Arhitektura usmjerenija na privatnost",
+      "desc": "Vaši zdravstveni podaci su kriptirani na uređaju i nikada se ne dijele bez pristanka."
+    },
+    "sync": {
+      "title": "iCloud enkripcija",
+      "desc": "Sigurno sinkronizirajte obiteljske profile između iPhonea, iPada i Maca."
+    },
+    "profiles": {
+      "title": "Obitelj na prvom mjestu",
+      "desc": "Upravljajte s više profila s odvojenim zapisima o alergijama i hitnim informacijama."
+    },
+    "metrics": {
+      "title": "Zdravstvena analitika",
+      "desc": "Vizualizirajte trendove simptoma i dobrobiti za cijelu obitelj. Osjećajte se bolje."
+    },
+    "sections": {
+      "main": "Pregled",
+      "detail": "Detalji",
+      "modes": "Svijetli / Tamni način",
+      "widgets": "Widgeti",
+      "languages": "Podržani jezici"
+    },
+    "labels": {
+      "dashboard": "Nadzorna ploča",
+      "profiles": "Profili",
+      "medications": "Lijekovi",
+      "symptoms": "Simptomi",
+      "conditions": "Stanja",
+      "wellness": "Wellness",
+      "profileDetail": "Detalji profila",
+      "medicationDetail": "Detalji lijeka",
+      "doseLog": "Dnevnik doza",
+      "symptomGraph": "Grafikon simptoma",
+      "tasks": "Zadatci",
+      "notifications": "Obavijesti",
+      "conditionDetail": "Detalji stanja",
+      "emergency": "Hitno",
+      "lightMode": "Svijetli način",
+      "darkMode": "Tamni način",
+      "widgets": "Konfig. widgeta",
+      "widgetsGallery": "Galerija widgeta",
+      "liveActivity": "Aktivnost uživo",
+      "spanish": "Španjolski",
+      "english": "Engleski",
+      "moreLanguages": "+ Ostali jezici"
+    },
+    "note": "Stvarne snimke zaslona aplikacije"
+  },
+  "testflight": {
+    "badge": "Sada na TestFlightu",
+    "title": "Gradimo budućnost",
+    "titleHighlight": "zdravlja zajedno",
+    "subtitle": "Ekskluzivna javna beta otvorena je na TestFlightu. Pridružite se 8.000 testera kako biste usavršili vrhunsko zdravstveno središte.",
+    "offer": "Specijalna beta ponuda",
+    "premium_free": "Prvih 100 aktivnih testera dobit će 3 mjeseca Premium verzije besplatno pri službenom lansiranju.",
+    "slots": "0/8.000 mjesta popunjeno (Dostupno)",
+    "cta": {
+      "button": "Pridruži se besplatnoj beti",
+      "description": "Izravan pristup putem Apple TestFlighta"
+    },
+    "benefits": {
+      "lead": "Zašto sudjelovati u beti?",
+      "items": [
+        "Rani pristup značajkama",
+        "Izravan utjecaj na razvoj",
+        "Ekskluzivna značka 'Beta Tester'",
+        "Prioritetna 1:1 podrška"
+      ]
+    }
+  },
+  "footer": {
+    "features": "Značajke",
+    "privacy": "Privatnost",
+    "support": "Podrška",
+    "copyright": "2026 VitalsPath · Izradio:",
+    "developer": "RomeroDev",
+    "feedback": "Povratne informacije",
+    "terms": "Uvjeti",
+    "disclaimer": "Odricanje",
+    "subscription": "Pretplata"
+  },
+  "legal": {
+    "terms": {
+      "title": "VitalsPath Uvjeti pružanja usluge",
+      "subtitle": "Praćenje zdravlja i lijekova",
+      "lastUpdated": "Zadnja obnova: 2026",
+      "sections": {
+        "general": {
+          "title": "1. Opće informacije",
+          "content": "Ovi uvjeti reguliraju pristup i korištenje aplikacije VitalsPath."
+        },
+        "owner": {
+          "title": "2. Vlasnik aplikacije",
+          "content": "Vlasnik: Lester Romero Bernardo, inženjer IT-a."
+        },
+        "purpose": {
+          "title": "3. Svrha usluge",
+          "content": "VitalsPath nudi alate za organizaciju zdravstvenih informacija."
+        },
+        "usage": {
+          "title": "4. Medicinska upozorenja",
+          "content": "Aplikacija nije medicinski uređaj i ne zamjenjuje stručni savjet."
+        }
+      }
+    },
+    "privacy": {
+      "title": "VitalsPath Pravila privatnosti",
+      "subtitle": "Vaše osobno zdravstveno središte",
+      "lastUpdated": "Zadnja obnova: 18. velj. 2026.",
+      "sections": {
+        "intro": {
+          "title": "Uvod",
+          "content": "Poštujemo vašu privatnost i ne učitavamo podatke na naše poslužitelje."
+        }
+      }
+    },
+    "disclaimer": {
+      "title": "Odricanje od odgovornosti i medicinska obavijest",
+      "notice": {
+        "title": "Važna obavijest",
+        "content": "Pažljivo pročitajte prije korištenja VitalsPatha."
+      },
+      "sections": {
+        "notMedical": {
+          "title": "Nije medicinska usluga",
+          "content": "VitalsPath je organizacijski alat, a ne medicinski uređaj."
+        },
+        "emergency": {
+          "title": "Hitni slučajevi",
+          "content": "U hitnim slučajevima odmah kontaktirajte lokalne službe (npr. 112).",
+          "callToAction": "Nazovite 112 u slučaju hitne medicinske pomoći."
+        },
+        "accuracy": {
+          "title": "Točnost podataka",
+          "content": "Korisnik je odgovoran za točnost unesenih podataka."
+        },
+        "medication": {
+          "title": "Upravljanje lijekovima",
+          "content": "Aplikacija ne provjerava automatski medicinske interakcije između lijekova."
+        },
+        "responsibility": {
+          "title": "Odgovornost",
+          "content": "Ne koristite aplikaciju kao zamjenu za profesionalne medicinske radnje."
+        },
+        "contact": {
+          "title": "Kontakt",
+          "content": "Za pitanja pišite na vitalspath@gmail.com"
+        }
+      }
+    },
+    "subscription": {
+      "title": "Pojedinosti uvjeta pretplate",
+      "lastUpdated": "Zadnja obnova: 18. velj. 2026.",
+      "sections": {
+        "whatIs": {
+          "title": "1. Što je VitalsPath Premium?",
+          "content": "Premium otključava neograničene profile i pro značajke."
+        }
+      }
+    }
+  },
+  "feedback": {
+    "title": "Pošalji povratne informacije",
+    "subtitle": "Pomozite nam poboljšati VitalsPath za sve.",
+    "types": {
+      "feature": "Zahtjev za značajkom",
+      "bug": "Prijavi bug",
+      "improvement": "Prijedlog poboljšanja",
+      "question": "Pitanje",
+      "other": "Ostalo"
+    },
+    "form": {
+      "type": "Vrsta povratne informacije",
+      "name": "Vaše ime",
+      "email": "Vaša e-pošta",
+      "subject": "Predmet",
+      "message": "Poruka",
+      "namePlaceholder": "Kako se zovete?",
+      "emailPlaceholder": "vaša@eposta.hr",
+      "subjectPlaceholder": "Kratki opis",
+      "messagePlaceholder": "Recite nam detalje...",
+      "submit": "Pošalji povratne informacije"
+    },
+    "success": {
+      "title": "Hvala vam!",
+      "message": "Vaša povratna informacija je uspješno primljena.",
+      "backHome": "Natrag na početnu"
+    }
+  },
+  "pricing": {
+    "badge": "Novi model",
+    "title": "Odaberite svoj plan",
+    "subtitle": "Aplikacija za sve. Zauvijek besplatno ili moćni Premium.",
+    "monthly": {
+      "title": "Mjesečna pretplata",
+      "description": "Fleksibilno, otkaži bilo kada"
+    },
+    "premium": {
+      "title": "VitalsPath Premium",
+      "subtitle": "Otključajte puni potencijal obiteljskog zdravlja.",
+      "features_title": "Sve iz besplatnog plana, plus:",
+      "feature_desc": "Neograničeni zapisi za sve usluge u aplikaciji.",
+      "privacy_title": "100% privatnost na uređaju",
+      "privacy_desc": "Podatci nikada ne napuštaju vaš iPhone."
+    },
+    "free": {
+      "title": "Besplatno iskustvo",
+      "description": "S nekim ograničenjima, ali 100% funkcionalno.",
+      "functional_badge": "100% funkcionalno",
+      "forever_badge": "Zauvijek besplatno"
+    },
+    "annual": {
+      "title": "Godišnja pretplata",
+      "description": "Uštedite uz godišnje plaćanje"
+    },
+    "lifetime": {
+      "title": "Jednokratna kupnja",
+      "description": "Plati jednom, pristupi zauvijek"
+    },
+    "features": {
+      "unlimited_profiles": "Neograničeni profili",
+      "unlimited_diseases": "Neograničena povijest",
+      "unlimited_medications": "Neograničeni lijekovi",
+      "unlimited_treatments": "Neograničena liječenja",
+      "extended_pause": "Proširena pauza",
+      "extend_medication": "Produži lijek",
+      "full_schedule": "Potpuna agenda",
+      "quiet_schedule": "Auto-tiha agenda",
+      "stock_inventory": "Zalihe i inventar",
+      "export_pdf_csv": "Izvoz PDF / CSV",
+      "advanced_analytics": "Napredna nadzorna ploča analitike",
+      "health_reports": "Zdravstvena izvješća",
+      "health_reports_desc": "Detaljni sažetci za liječnika.",
+      "ocr_scanner": "Medicinski OCR skener",
+      "healthkit": "Podrška za Apple HealthKit",
+      "complex_symptoms": "Dubinska analiza simptoma",
+      "icloud_backup": "iCloud sigurnosna kopija",
+      "icloud_backup_desc": "Sigurni Apple protokoli.",
+      "all_themes": "Sve teme dizajna",
+      "all_themes_desc": "Potpuna personalizacija.",
+      "advanced_notifications": "Inteligentni pametni alarmi",
+      "advanced_notifications_desc": "Kritična upozorenja.",
+      "haptic_feedback": "Taktilni odziv",
+      "haptic_feedback_desc": "Fizičko osjetilno sučelje.",
+      "widget_styles": "Više stilova widgeta",
+      "widget_styles_desc": "Različite veličine i funkcije.",
+      "unlimited_profiles_desc": "Upravljajte cijelom obitelji bez ograničenja.",
+      "smart_scheduler_ia_desc": "Pametna optimizacija uz AI.",
+      "advanced_analytics_desc": "Grafikoni dubinske analize.",
+      "export_pdf_csv_desc": "Vaši podatci bilo gdje.",
+      "basic_profiles": "1 profil (Neograničeno u Premiumu)",
+      "basic_medications": "3 lijeka po profilu",
+      "local_reminders": "Osnovni lokalni podsjetnici",
+      "wellness_score": "Wellness rezultat",
+      "wellness_details": "Vidi detalje wellnessa",
+      "smart_scheduler": "Provjera konflikata (ručno)",
+      "smart_scheduler_ia": "AI sustav samooptimizacije",
+      "appointments_limit": "3 pregleda mjesečno",
+      "unlimited_appointments": "Neograničeni pregledi",
+      "locations_limit": "2 omiljene lokacije",
+      "insurance_limit": "1 zdravstveno osiguranje",
+      "symptoms_basic": "Dnevnik osnovnih simptoma",
+      "symptoms_complex": "Podrška za dubinsku analizu",
+      "inventory_basic": "Osnovno upravljanje zalihama",
+      "health_status": "Zdravstveni status",
+      "health_status_desc": "Holistički pogled.",
+      "gamification": "Nagrade i motivacija",
+      "gamification_desc": "Postignite zdravstvene ciljeve."
+    },
+    "pricing_cta": "Dolazi uskoro",
+    "pricing_cta_alt": "Predbilježba"
+  },
+  "smartScheduling": {
+    "badge": "Pametni algoritam",
+    "title": "Smart planer",
+    "subtitle": "Naš algoritam optimizira vašu rutinu.",
+    "steps": {
+      "1": {
+        "title": "Unos",
+        "desc": "Doze i vremena"
+      },
+      "2": {
+        "title": "Slot",
+        "desc": "Vremenski slot"
+      },
+      "3": {
+        "title": "Analiza",
+        "desc": "Provjera sig."
+      },
+      "4": {
+        "title": "Provjera",
+        "desc": "Konflikt doza"
+      },
+      "5": {
+        "title": "Ideal",
+        "desc": "Savršen plan"
+      }
+    }
+  },
+  "notificationModes": {
+    "badge": "Intuitivna upozorenja",
+    "title": "Načini obavještavanja",
+    "subtitle": "Odaberite pravi stil za svaki trenutak.",
+    "hapticTip": "Taktilni odziv zahtijeva iPhone 16 ili noviji.",
+    "modes": {
+      "normal": {
+        "title": "Normalno",
+        "desc": "Zvuk i vibracija zajedno."
+      },
+      "quiet": {
+        "title": "Tiho",
+        "desc": "Samo vizualna upozorenja."
+      },
+      "discrete": {
+        "title": "Pažnja",
+        "desc": "Diskretni haptički signali."
+      },
+      "off": {
+        "title": "Isk.",
+        "desc": "Bez prekidanja."
+      }
+    },
+    "simulator": {
+      "now": "Sada",
+      "doseTitle": "Uzimanje Ibuprofena",
+      "ready": "Spreman"
+    }
+  },
+  "widgetsSection": {
+    "badge": "Izvorni doživljaj",
+    "title": "Widgeti i",
+    "titleHighlight": "Aktivnosti uživo.",
+    "subtitle": "Informacije na prvi pogled.",
+    "description": "Provjerite svoje zdravlje bez otvaranja aplikacije.",
+    "items": {
+      "widgets": {
+        "title": "Više od 10 widgeta",
+        "desc": "Početni i zaključani zaslon."
+      },
+      "dynamic": {
+        "title": "Dynamic Island",
+        "desc": "Ažuriranja uživo."
+      },
+      "live": {
+        "title": "Aktivnost uživo",
+        "desc": "Praćenje lijeka."
+      }
+    }
+  },
+  "languages": {
+    "title": "Na vašem jeziku",
+    "subtitle": "Globalno",
+    "description": "VitalsPath je za vas preveden na 15 svjetskih jezika."
+  },
+  "footerStats": {
+    "activeUsers": "Aktivni korisnici",
+    "regions": "Regije",
+    "plansCreated": "Ø Izrađeni planovi"
+  },
+  "survey": {
+    "badge": "Kratko pitanje",
+    "question": "Smatrate li ovu aplikaciju korisnom za svoj život ?",
+    "options": {
+      "yes": "Da",
+      "no": "Ne",
+      "maybe": "Možda"
+    },
+    "thanks": "Hvala na sudjelovanju !"
+  },
+  "ecosystem": {
+    "badge": "Apple ekosustav",
+    "title": "Zajedno na svakom uređaju",
+    "subtitle": "Savršen sklad s Apple hardverom.",
+    "iphone": {
+      "name": "iPhone",
+      "os": "iOS 18+"
+    },
+    "ipad": {
+      "name": "iPad",
+      "os": "iPadOS 18+"
+    },
+    "watch": {
+      "name": "Apple Watch",
+      "os": "watchOS 11+"
+    },
+    "description": "Sinkronizacija putem iClouda i savršena integracija s Apple Healthom."
+  }
+}

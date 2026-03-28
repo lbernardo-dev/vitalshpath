@@ -1,76 +1,132 @@
 ---
 import { supportedLangs } from "../i18n/ui-locales";
 
-// URL base para redirecciones
 const siteUrl = "https://lbernardo-dev.github.io/vitalshpath";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="google-site-verification"
-            content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk"
-        />
-        <title>VitalsPath - Smart Medication Tracker</title>
-        
-        <!-- SEO & Indexation -->
-        <link rel="sitemap" href={`${siteUrl}/sitemap-index.xml`} />
-        <link rel="canonical" href={`${siteUrl}/`} />
-        {
-            supportedLangs.map((lang) => (
-                <link
-                    rel="alternate"
-                    hreflang={lang}
-                    href={`${siteUrl}/${lang}/`}
-                />
-            ))
-        }
-        <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="google-site-verification"
+			content="b72boX-YTMPpT_1qmIYVjY3BpA7LIVuMVPtBqqJJBmk"
+		/>
+		<meta
+			name="robots"
+			content="noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+		<title>VitalsPath Language Gateway</title>
+		<link rel="sitemap" href={`${siteUrl}/sitemap-index.xml`} />
+		<link rel="canonical" href={`${siteUrl}/en/`} />
+		{
+			supportedLangs.map((lang) => (
+				<link
+					rel="alternate"
+					hreflang={lang}
+					href={`${siteUrl}/${lang}/`}
+				/>
+			))
+		}
+		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/en/`} />
+		<link rel="icon" type="image/png" sizes="32x32" href={`${siteUrl}/favicon-32x32.png`} />
+		<link rel="apple-touch-icon" href={`${siteUrl}/apple-touch-icon.png`} />
+		<style>
+			:root {
+				color-scheme: light dark;
+				font-family: Inter, system-ui, sans-serif;
+			}
 
-        <!-- Favicon para la raíz (Crucial para indexación de icono) -->
-        <link rel="icon" type="image/png" sizes="32x32" href={`${siteUrl}/favicon-32x32.png`} />
-        <link rel="apple-touch-icon" href={`${siteUrl}/apple-touch-icon.png`} />
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				background:
+					radial-gradient(circle at top, rgba(59, 130, 246, 0.16), transparent 40%),
+					radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.12), transparent 32%),
+					#0b1020;
+				color: white;
+				padding: 2rem;
+			}
 
-        <script is:inline define:vars={{ siteUrl, supportedLangs }}>
-            (function () {
-                var defaultLang = "en";
+			main {
+				max-width: 42rem;
+				text-align: center;
+			}
 
-                function getPreferredLanguage() {
-                    var saved = localStorage.getItem("vitalspath-lang");
-                    if (saved && supportedLangs.indexOf(saved) !== -1) {
-                        return saved;
-                    }
+			h1 {
+				font-size: clamp(2rem, 6vw, 3.5rem);
+				margin-bottom: 1rem;
+			}
 
-                    var navLang = navigator.language || navigator.userLanguage;
-                    if (navLang) {
-                        var langCode = navLang.toLowerCase().split("-")[0];
-                        if (supportedLangs.indexOf(langCode) !== -1) {
-                            return langCode;
-                        }
-                    }
+			p {
+				color: rgba(255, 255, 255, 0.8);
+				line-height: 1.6;
+				margin-bottom: 2rem;
+			}
 
-                    return defaultLang;
-                }
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+				justify-content: center;
+			}
 
-                var lang = getPreferredLanguage();
-                var newPath = siteUrl + "/" + lang + "/";
+			a {
+				color: inherit;
+				text-decoration: none;
+				padding: 0.8rem 1rem;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.08);
+				border: 1px solid rgba(255, 255, 255, 0.14);
+			}
+		</style>
+		<script is:inline define:vars={{ siteUrl, supportedLangs }}>
+			(function () {
+				var defaultLang = "en";
 
-                // Redirección inteligente
-                if (window.location.href !== newPath && !window.location.search.includes('no-redirect')) {
-                    window.location.replace(newPath);
-                }
-            })();
-        </script>
-        
-        <!-- Meta Refresh absoluto (Evita el "Redirect Error" de Search Console) -->
-        <meta http-equiv="refresh" content={`0;url=${siteUrl}/en/`} />
-    </head>
-    <body class="bg-white dark:bg-black">
-        <noscript>
-            <meta http-equiv="refresh" content={`0;url=${siteUrl}/en/`} />
-        </noscript>
-    </body>
+				function getPreferredLanguage() {
+					var saved = localStorage.getItem("vitalspath-lang");
+					if (saved && supportedLangs.indexOf(saved) !== -1) {
+						return saved;
+					}
+
+					var preferred = navigator.languages || [navigator.language];
+					for (var i = 0; i < preferred.length; i += 1) {
+						var langCode = (preferred[i] || "").toLowerCase().split("-")[0];
+						if (supportedLangs.indexOf(langCode) !== -1) {
+							return langCode;
+						}
+					}
+
+					return defaultLang;
+				}
+
+				var lang = getPreferredLanguage();
+				var newPath = siteUrl + "/" + lang + "/";
+
+				if (!window.location.search.includes("no-redirect")) {
+					window.location.replace(newPath);
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<main>
+			<h1>VitalsPath</h1>
+			<p>Select a language if the automatic redirect does not start.</p>
+			<ul>
+				{
+					supportedLangs.map((lang) => (
+						<li><a href={`${siteUrl}/${lang}/`}>{lang.toUpperCase()}</a></li>
+					))
+				}
+			</ul>
+		</main>
+	</body>
 </html>

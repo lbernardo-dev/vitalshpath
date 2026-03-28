@@ -1,269 +1,176 @@
 ---
 import { Image } from "astro:assets";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSelector from "./LanguageSelector.astro";
 import appIcon from "../assets/images/AppIcon_v2.png";
 import { type Lang } from "../i18n/ui-locales";
-import { useTranslations } from "../i18n";
+import { getSiteCopy } from "../content/site-copy";
+import {
+    getDefaultAppStoreLinks,
+    getAppStoreUrlForLang,
+} from "../lib/app-store-links";
 
 interface Props {
     lang: Lang;
-    isLanding?: boolean;
 }
 
-const { lang, isLanding = false } = Astro.props;
-const t = useTranslations(lang);
+const { lang } = Astro.props;
+const copy = getSiteCopy(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+
+const navItems = [
+    { href: `${baseUrl}/${lang}/`, label: copy.nav.home },
+    {
+        href: `${baseUrl}/${lang}/release-features/`,
+        label: copy.nav.releaseFeatures,
+    },
+    { href: `${baseUrl}/${lang}/roadmap/`, label: copy.nav.roadmap },
+    { href: `${baseUrl}/${lang}/privacy/`, label: copy.nav.privacy },
+    { href: `${baseUrl}/${lang}/feedback/`, label: copy.nav.support },
+];
 ---
 
-<header role="banner" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
-    <nav
-        class="pt-safe"
-        aria-label="Main navigation"
-    >
-        <div class="container mx-auto px-4 md:px-6 py-2.5 md:py-4">
-            <div class="flex items-center justify-between h-11 md:h-12">
-                <a
-                    href={`${baseUrl}/${lang}/`}
-                    class="flex items-center gap-2 flex-shrink-0"
-                >
-                    <Image
-                        src={appIcon}
-                        alt=""
-                        class="w-7 h-7 md:w-8 md:h-8 rounded-xl shadow-sm"
-                        width={32}
-                        height={32}
-                        aria-hidden="true"
-                    />
-                    <span
-                        class="text-base md:text-lg font-bold text-gray-900 dark:text-white hidden sm:block"
-                        >VitalsPath</span
-                    >
-                </a>
-
-                <div class="hidden md:flex items-center gap-8">
-                    {
-                        isLanding ? (
-                            <>
-                                <a
-                                    href="#features"
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.features")}
-                                </a>
-                                <a
-                                    href="#smart-scheduler"
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.scheduler")}
-                                </a>
-                                <a
-                                    href="#gallery"
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.ecosystem")}
-                                </a>
-                                <a
-                                    href="#benefits"
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.benefits")}
-                                </a>
-                                <a
-                                    href="#pricing"
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.pricing")}
-                                </a>
-                            </>
-                        ) : (
-                            <>
-                                <a
-                                    href={`${baseUrl}/${lang}/#features`}
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.features")}
-                                </a>
-                                <a
-                                    href={`${baseUrl}/${lang}/#smart-scheduler`}
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.scheduler")}
-                                </a>
-                                <a
-                                    href={`${baseUrl}/${lang}/#gallery`}
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.ecosystem")}
-                                </a>
-                                <a
-                                    href={`${baseUrl}/${lang}/#benefits`}
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.benefits")}
-                                </a>
-                                <a
-                                    href={`${baseUrl}/${lang}/#pricing`}
-                                    class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                                >
-                                    {t("nav.pricing")}
-                                </a>
-                            </>
-                        )
-                    }
+<header class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/88 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/88">
+    <nav class="pt-safe" aria-label="Main navigation">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+            <a
+                href={`${baseUrl}/${lang}/`}
+                class="flex items-center gap-3 text-slate-950 dark:text-white"
+            >
+                <Image
+                    src={appIcon}
+                    alt=""
+                    width={36}
+                    height={36}
+                    class="h-9 w-9 rounded-2xl shadow-sm"
+                    aria-hidden="true"
+                />
+                <div class="hidden sm:block">
+                    <p class="text-sm font-black tracking-[0.22em] text-sky-600">
+                        VITALSPATH
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        {copy.common.medicalDisclaimer}
+                    </p>
                 </div>
+            </a>
 
-                <div class="flex items-center gap-2 md:gap-3 flex-shrink-0">
-                    <div class="flex-shrink-0">
-                        <LanguageSelector lang={lang} />
-                    </div>
-                    <div class="hidden sm:flex flex-shrink-0">
-                        <ThemeToggle />
-                    </div>
-                    
-                    <a
-                        id="header-testflight-btn"
-                        href="https://testflight.apple.com/join/92qmBYvJ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="flex-shrink-0 px-2.5 py-2 md:px-5 md:py-2.5 bg-blue-600 text-white text-xs md:text-sm font-bold rounded-xl hover:opacity-90 transition-all flex items-center justify-center shadow-lg shadow-blue-500/20"
-                        aria-label={t("nav.testflight")}
-                    >
-                        <span class="sm:hidden flex items-center gap-1.5">
-                            <Rocket className="w-4 h-4" />
-                            <span class="sr-only">Join</span>
-                        </span>
-                        <span class="hidden sm:inline">{t("nav.testflight")}</span
+            <div class="hidden items-center gap-6 lg:flex">
+                {
+                    navItems.map((item) => (
+                        <a
+                            href={item.href}
+                            class="text-sm font-semibold text-slate-600 transition-colors hover:text-slate-950 dark:text-slate-300 dark:hover:text-white"
                         >
-                    </a>
+                            {item.label}
+                        </a>
+                    ))
+                }
+            </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button
-                        id="mobile-menu-btn"
-                        class="md:hidden flex-shrink-0 p-2 rounded-xl bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors relative"
-                        aria-label="Toggle menu"
-                    >
-                        <div id="menu-icon" class="block pointer-events-none"><Menu className="w-5 h-5" /></div>
-                        <div id="close-icon" class="hidden pointer-events-none"><X className="w-5 h-5" /></div>
-                    </button>
-
-                    <script>
-                        import { trackEvent } from "../lib/supabase/tracking";
-
-                        function setupMobileMenu() {
-                            const mobileBtn = document.getElementById("mobile-menu-btn");
-                            const mobileMenu = document.getElementById("mobile-menu");
-                            const menuIcon = document.getElementById("menu-icon");
-                            const closeIcon = document.getElementById("close-icon");
-                            const btn = document.getElementById("header-testflight-btn");
-
-                            // Track event listener
-                            btn?.addEventListener("click", () => {
-                                trackEvent("testflight_click", { source: "header_nav" });
-                            });
-
-                            if (!mobileBtn || !mobileMenu) return;
-
-                            const toggleMenu = (show: boolean) => {
-                                if (show) {
-                                    mobileMenu.classList.remove("hidden");
-                                    // Small delay for transition if needed
-                                    requestAnimationFrame(() => {
-                                        mobileMenu.classList.add("opacity-100");
-                                        menuIcon?.classList.add("hidden");
-                                        menuIcon?.classList.remove("block");
-                                        closeIcon?.classList.remove("hidden");
-                                        closeIcon?.classList.add("block");
-                                    });
-                                    document.body.style.overflow = "hidden";
-                                } else {
-                                    mobileMenu.classList.add("hidden");
-                                    mobileMenu.classList.remove("opacity-100");
-                                    menuIcon?.classList.remove("hidden");
-                                    menuIcon?.classList.add("block");
-                                    closeIcon?.classList.add("hidden");
-                                    closeIcon?.classList.remove("block");
-                                    document.body.style.overflow = "";
-                                }
-                            };
-
-                            mobileBtn.addEventListener("click", (e) => {
-                                e.stopPropagation();
-                                const isHidden = mobileMenu.classList.contains("hidden");
-                                toggleMenu(isHidden);
-                            });
-
-                            // Close menu on link click
-                            const mobileLinks = mobileMenu.querySelectorAll("a");
-                            mobileLinks.forEach(link => {
-                                link.addEventListener("click", () => toggleMenu(false));
-                            });
-
-                            // Close on escape
-                            document.addEventListener("keydown", (e) => {
-                                if (e.key === "Escape") toggleMenu(false);
-                            });
-                        }
-
-                        // Initial setup
-                        setupMobileMenu();
-
-                        // Re-setup on Astro page load
-                        document.addEventListener("astro:page-load", setupMobileMenu);
-                    </script>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <LanguageSelector lang={lang} />
+                <div class="hidden sm:flex">
+                    <ThemeToggle />
                 </div>
+                <a
+                    href={appStoreHref}
+                    data-app-store-link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden rounded-2xl bg-sky-600 px-4 py-2.5 text-sm font-black text-white shadow-[0_16px_40px_-18px_rgba(2,132,199,0.9)] transition-all hover:bg-sky-700 sm:inline-flex"
+                >
+                    {copy.home.primaryCta}
+                </a>
+                <button
+                    id="mobile-menu-button"
+                    type="button"
+                    class="inline-flex rounded-2xl bg-slate-100 p-2.5 text-slate-700 dark:bg-white/10 dark:text-slate-200 lg:hidden"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                >
+                    <Menu className="h-5 w-5" />
+                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[calc(60px+env(safe-area-inset-top))] transition-all duration-300 z-40">
-            <div class="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl p-6 flex flex-col gap-6 overflow-y-auto pb-safe">
-                <nav class="flex flex-col gap-6">
-                    {
-                        isLanding ? (
-                            <>
-                                <a href="#features" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.features")}</a>
-                                <a href="#smart-scheduler" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.scheduler")}</a>
-                                <a href="#gallery" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.ecosystem")}</a>
-                                <a href="#benefits" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.benefits")}</a>
-                                <a href="#pricing" class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.pricing")}</a>
-                            </>
-                        ) : (
-                            <>
-                                <a href={`${baseUrl}/${lang}/#features`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.features")}</a>
-                                <a href={`${baseUrl}/${lang}/#smart-scheduler`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.scheduler")}</a>
-                                <a href={`${baseUrl}/${lang}/#gallery`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.ecosystem")}</a>
-                                <a href={`${baseUrl}/${lang}/#benefits`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.benefits")}</a>
-                                <a href={`${baseUrl}/${lang}/#pricing`} class="text-xl font-bold text-gray-900 dark:text-white">{t("nav.pricing")}</a>
-                            </>
-                        )
-                    }
-                </nav>
-                
-                <div class="pt-8 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-6">
-                    <div class="flex items-center justify-between">
-                        <span class="font-bold text-gray-900 dark:text-white">Idioma</span>
-                        <LanguageSelector lang={lang} />
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <span class="font-bold text-gray-900 dark:text-white">Tema</span>
-                        <ThemeToggle />
-                    </div>
-                </div>
-
-                <div class="mt-auto pt-8">
-                    <a
-                        href="https://testflight.apple.com/join/92qmBYvJ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="w-full py-4 bg-blue-600 text-white font-black rounded-2xl shadow-lg flex items-center justify-center gap-3"
-                    >
-                        <Rocket className="w-5 h-5" />
-                        {t("nav.testflight")}
-                    </a>
-                </div>
+        <div
+            id="mobile-menu"
+            class="hidden border-t border-slate-200/80 bg-white/96 px-4 py-5 dark:border-white/10 dark:bg-slate-950/96 lg:hidden"
+        >
+            <div class="flex flex-col gap-4">
+                {
+                    navItems.map((item) => (
+                        <a
+                            href={item.href}
+                            class="rounded-2xl px-3 py-2 text-base font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950 dark:text-slate-200 dark:hover:bg-white/5 dark:hover:text-white"
+                        >
+                            {item.label}
+                        </a>
+                    ))
+                }
+                <a
+                    href={appStoreHref}
+                    data-app-store-link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-2 inline-flex items-center justify-center rounded-2xl bg-sky-600 px-4 py-3 text-center text-sm font-black text-white shadow-[0_16px_40px_-18px_rgba(2,132,199,0.9)] transition-all hover:bg-sky-700"
+                >
+                    {copy.home.primaryCta}
+                </a>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+    function setupHeader() {
+        const button = document.getElementById("mobile-menu-button");
+        const menu = document.getElementById("mobile-menu");
+
+        if (!button || !menu) return;
+
+        const closeMenu = () => {
+            menu.classList.add("hidden");
+            button.setAttribute("aria-expanded", "false");
+            const icon = button.querySelector("svg");
+            if (icon) {
+                icon.remove();
+            }
+            const replacement = document.createElement("span");
+            replacement.innerHTML =
+                '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>';
+            button.appendChild(replacement.firstChild);
+        };
+
+        const openMenu = () => {
+            menu.classList.remove("hidden");
+            button.setAttribute("aria-expanded", "true");
+            const icon = button.querySelector("svg");
+            if (icon) {
+                icon.remove();
+            }
+            const replacement = document.createElement("span");
+            replacement.innerHTML =
+                '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>';
+            button.appendChild(replacement.firstChild);
+        };
+
+        closeMenu();
+
+        button.onclick = () => {
+            const isHidden = menu.classList.contains("hidden");
+            if (isHidden) openMenu();
+            else closeMenu();
+        };
+
+        menu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+    }
+
+    setupHeader();
+    document.addEventListener("astro:page-load", setupHeader);
+</script>

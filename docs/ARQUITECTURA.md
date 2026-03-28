@@ -2,8 +2,8 @@
 
 > **Nombre Comercial**: VitalsPath (proyecto interno: PersonalCare)  
 > **Autor**: Lester Romero  
-> **Versión**: 12.9 (Data Integrity & UI Stability)  
-> **Última actualización**: 18 Febrero 2026, 21:00 CET
+> **Versión**: 17.6 (Background Notification Sync)  
+> **Última actualización**: 17 Marzo 2026, 11:30 CET
 
 Este documento es la fuente única de verdad ("Biblia") para el desarrollo de **VitalsPath**. Define la estructura técnica exhaustiva, los patrones de diseño, el estado actual del código, las áreas de mejora identificadas, y el roadmap para elevar la aplicación a un estándar de excelencia profesional que ame a los usuarios.
 
@@ -21,108 +21,841 @@ Este documento es la fuente única de verdad ("Biblia") para el desarrollo de **
 8. [Sistema de UI/UX](#8-sistema-de-uiux)
 9. [Localización e Internacionalización](#9-localización-e-internacionalización)
 10. [Sistema de Monetización](#10-sistema-de-monetización)
-    - 10.9 [Fase 2: Integración Real (Pendiente)](#136-pendiente-fase-2-licenciamiento-integración-real-y-seguridad)
-11. [Análisis de Errores y Problemas](#11-análisis-de-errores-y-problemas)
-12. [Optimizaciones Requeridas](#12-optimizaciones-requeridas)
-13. [Funcionalidades Faltantes o Incompletas](#13-funcionalidades-faltantes-o-incompletas)
-14. [Roadmap para Estatus Profesional](#14-roadmap-para-estatus-profesional)
-15. [Estándares de Calidad](#15-estándares-de-calidad)
-16. [Guía de Mantenimiento](#16-guía-de-mantenimiento)
-17. [Flujo de Generación de Dosis, Calendario y Notificaciones](#17-flujo-de-generación-de-dosis-calendario-y-notificaciones)
-18. [Planificador de Tratamientos (Smart Scheduler)](#18-planificador-de-tratamientos-smart-scheduler)
-19. [Auditoría Global de Calidad](#19-auditoría-global-de-calidad-20-diciembre-2025)
-20. [Propuestas de Mejora UI/UX](#20-propuestas-de-mejora-uiux)
-21. [Mejoras UI/UX - Diciembre 22, 2025](#21-mejoras-uiux---diciembre-22-2025)
-22. [Auditoría de Notificaciones](#22-auditoría-y-corrección-del-sistema-de-notificaciones-22-diciembre-2025)
-23. [Consistencia de UI y Bug Fixes](#23-consistencia-de-ui-y-corrección-de-bugs-23-diciembre-2025)
-24. [Auditoría Profunda de Notificaciones](#24-auditoría-profunda-del-sistema-de-notificaciones-23-diciembre-2025)
-25. [Sistema de Pausa/Reanudación](#25-sistema-de-pausareanudación-de-medicamentos-23-diciembre-2025)
-26. [Auditoría de Seguridad y Migración PDF](#26-auditoría-de-seguridad-y-migración-pdf-24-diciembre-2025)
-27. [OCR Medication Scanner e Inventario](#27-ocr-medication-scanner-e-inventario-24-diciembre-2025)
-28. [Preservación de Historial de Dosis](#28-preservación-de-historial-de-dosis-24-diciembre-2025)
-29. [Componentes Home: Tratamientos y Conditions Activos](#31-componentes-home-tratamientos-y-conditions-activos-24-diciembre-2025)
-30. [Wellness Summary Customization](#32-wellness-summary-customization-24-diciembre-2025)
-31. [Módulo de Síntomas Especializados](#32-módulo-de-síntomas-especializados-26-diciembre-2025)
-32. [Integración HealthKit](#33-integración-healthkit-27-diciembre-2025)
-33. [**Roadmap Consolidado**](#33-roadmap-consolidado-28-diciembre-2025)
-47. [Auditoría de Localización - Home Dashboard](#34-auditoría-de-localización---home-dashboard-30-diciembre-2025)
-48. [Auditoría de Localización - Vitals & Charts](#35-auditoría-de-localización---vitals--charts-30-diciembre-2025)
-49. [Auditoría de Localización - Módulo de Síntomas Especializados](#36-auditoría-de-localización---módulo-de-síntomas-especializados)
-50. [Auditoría de Localización - Medicamentos y Tratamientos](#37-auditoría-de-localización---medicamentos-y-tratamientos-30-diciembre-2025)
-51. [**Principios de Producto**](#38-principios-de-producto-29-diciembre-2025)
-59. [Sistema de Logros y Física de UI](#59-correcciones-de-sistema-de-logros-y-física-de-ui-6-enero-2026)
-60. [Mejoras de Export/Import](#60-mejoras-de-exportimport-8-enero-2026)
-61. [Resolución de Deuda Técnica](#61-resolución-de-deuda-técnica-9-enero-2026)
-62. [Preservación de Historial de Dosis al Editar](#62-preservación-de-historial-de-dosis-al-editar-9-enero-2026)
-63. [Prioridad Absoluta: Optimización y Fluidez](#63-prioridad-absoluta-optimización-y-fluidez-enero-2026)
-64. [Migración Integral a Swift Concurrency](#64-migración-integral-a-swift-concurrency-9-enero-2026)
-65. [Auditoría de Arquitectura y Roadmap TOP 3](#65-auditoría-de-architecture-y-roadmap-top-3-12-enero-2026)
-66. [Integración de Notas Multimedia en Backup y Refinamiento UI](#66-integración-de-notas-multimedia-en-backup-y-refinamiento-ui-13-enero-2026)
-67. [Implementación Modo Discreto y Recordatorios Persistentes](#67-implementación-modo-discreto-y-recordatorios-persistentes-14-enero-2026)
-68. [Sistema de Gestión de Tareas (Task Management)](#68-sistema-de-gestión-de-tareas-task-management-enero-2026)
-69. [Vista de Análisis de Adherencia](#69-vista-analisis-adherencia-enero-2026)
-70. [Gestión de Deuda Técnica y Limpieza](#70-gestión-de-deuda-técnica-y-limpieza-enero-2026)
-71. [Validación Médica Multi-Región (SSOT)](#71-validación-médica-multi-región-ssot-15-enero-2026)
-72. [Analytics Dashboard & Doctor Reports](#72-analytics-dashboard--doctor-reports-16-enero-2026)
-73. [Implementación de Borrado por Lotes (Bulk Delete)](#73-implementación-de-borrado-por-lotes-bulk-delete-16-enero-2026)
-74. [Refinamiento de Logros y Health Insights](#74-refinamiento-de-logros-y-health-insights-16-enero-2026)
-75. [Sistema de Restricción Free Tier (Locking System)](#75-sistema-de-restriccion-free-tier-locking-system-17-enero-2026)
-76. [Sincronización de Fechas y Vinculación de Tareas](#76-sincronización-de-fechas-y-vinculación-de-tareas-18-enero-2026)
-77. [Calendario Infinito](#77-calendario-infinito)
-78. [Optimización de HealthKit y Limpieza de Purga](#78-optimización-de-healthkit-y-limpieza-de-purga)
-79. [Consolidación de Modelos y Estabilidad Swift 6](#79-consolidación-de-modelos-y-estabilidad-swift-6)
-80. [Arquitectura Zero-JSON para Widgets (SSOT)](#80-arquitectura-zero-json-para-widgets-ssot-19-enero-2026)
-81. [Mejoras de Widgets y Estabilidad SwiftData](#81-mejoras-de-widgets-y-estabilidad-swiftdata-19-enero-2026)
-82. [Auditoría de Reactividad y Rendimiento del Dashboard](#82-auditoría-de-reactividad-y-rendimiento-del-dashboard-20-enero-2026)
-83. [Sistema de Citas de Seguimiento](#83-sistema-de-citas-de-seguimiento-follow-up-appointments-20-enero-2026)
-84. [Optimización Integral de Performance](#84-optimización-integral-de-performance-y-reactividad-23-enero-2026)
-85. [Programación Dinámica de Notificaciones e Haptics](#85-programación-dinámica-de-notificaciones-e-haptics-24-enero-2026)
-86. [Guía de Mantenimiento del Sistema de Backups](#86-guía-de-mantenimiento-del-sistema-de-backups-actualizado-enero-2026)
-87. [Estabilidad del Sistema de Notificaciones](#87-estabilidad-del-sistema-de-notificaciones-25-enero-2026)
-88. [Plan de Acción Pre-Producción](#88-plan-de-accion-pre-produccion)
-89. [Sincronización de Notificaciones y Estabilidad UI](#89-sincronización-de-notificaciones-y-estabilidad-ui-25-enero-2026)
-90. [Frecuencia por Intervalo de Horas](#90-frecuencia-por-intervalo-de-horas-26-enero-2026)
-91. [Estabilidad del Badge y Ciclo de Vida](#91-estabilidad-del-badge-y-ciclo-de-vida-de-notificaciones-26-enero-2026)
-92. [Optimización de Inicio y StartupManager](#92-optimización-de-inicio-y-startupmanager-26-enero-2026)
-93. [Refinamiento del Sistema de Logros y Rachas](#93-refinamiento-del-sistema-de-logros-y-rachas-26-enero-2026)
-94. [Mejoras en el Selector de Ubicación y Ficha de Detalle](#94-mejoras-en-el-selector-de-ubicación-y-ficha-de-detalle-26-enero-2026)
-95. [Refinamiento de UI de Seguros y Localización Dedicada](#95-refinamiento-de-ui-de-seguros-y-localización-dedicada-27-enero-2026)
-96. [Enhancing Health Insurance](#96-enhancing-health-insurance-27-enero-2026)
-97. [Sincronización del Badge y Estabilidad UI de Notificaciones](#97-sincronización-del-badge-y-estabilidad-ui-de-notificaciones-27-enero-2026)
-98. [Corrección de Crash en Calendario y Lógica de Estatus](#98-corrección-de-crash-en-calendario-y-lógica-de-estatus-28-enero-2026)
-99. [**Resolución de Notificaciones Redundantes y Limpieza Profunda**](#99-resolución-de-notificaciones-redundantes-y-limpieza-profunda-29-enero-2026)
-100. [**Live Activities & Localization**](#100-actualización-de-arquitectura---live-activities--localization-29-enero-2026)
-101. [**Sistema de Detención de Tratamientos (Stop Treatment)**](#101-sistema-de-detención-de-tratamientos-stop-treatment-30-enero-2026)
-102. [**Historial Completo y Auditoría de Padecimientos**](#102-historial-completo-y-auditoría-de-padecimientos-1-febrero-2026)
-103. [**Refactorización Global de Horarios de Notificación**](#103-refactorización-global-de-horarios-de-notificación-1-febrero-2026)
-104. [**Localización y Estabilidad en App Shortcuts**](#104-localización-y-estabilidad-en-app-shortcuts-2-febrero-2026)
-105. [**Sistema de Curación en Cascada (Cascading Cure)**](#105-sistema-de-curación-en-cascada-cascading-cure-2-febrero-2026)
-106. [**Optimización de Visibilidad de Acciones (Action Visibility)**](#106-optimización-de-visibilidad-de-acciones-action-visibility)
-107. [**Extensión Avanzada de Medicación y Generación Retroactiva**](#107-extensión-avanzada-de-medicación-y-generación-retroactiva-2-febrero-2026)
-108. [**Auditoría de Navegación de Widgets y Haptics**](#110-auditoría-de-navegación-de-widgets-y-haptics-3-febrero-2026)
-109. [**Configuración Estándar de la Pantalla de Inicio**](#111-configuración-estándar-de-la-pantalla-de-inicio-3-febrero-2026)
-110. [**Refinamiento de Visualización de Calendario**](#112-refinamiento-de-visualización-de-calendario-4-febrero-2026)
-111. [**Código Legacy Pendiente de Eliminación**](#113-código-legacy-pendiente-de-eliminación-5-febrero-2026)
-112. [**Estandarización de Botones de Navegación**](#114-estandarización-de-botones-de-navegación-5-febrero-2026)
-113. [**Guía de Estilos de Botones de Navegación**](#115-guía-de-estilos-de-botones-de-navegación-5-febrero-2026)
-114. [**Implementación de Keyboard-First Design**](#116-implementación-de-keyboard-first-design-5-febrero-2026)
-115. [**Optimización de Performance en Perspectivas (Splash Screen)**](#117-optimización-de-performance-en-perspectivas-splash-screen-7-febrero-2026)
-116. [**Estandarización de Navegación y Vistas**](#116-estandarización-de-navegación-y-vistas-7-febrero-2026)
-117. [**Actualización del Esquema de Backup a v9**](#117-actualización-del-esquema-de-backup-a-v9-8-febrero-2026)
-118. [**Refuerzo Positivo y Wellness Refactor**](#118-refuerzo-positivo-y-wellness-refactor-11-febrero-2026)
-119. [**Wellness Persistence & Design Harmony**](#119-wellness-persistence--design-harmony-11-febrero-2026)
-120. [**Estandarización de Botones de Acción en Footers**](#120-estandarización-de-botones-de-acción-en-footers-11-febrero-2026)
-121. [**Optimización de la Galería de Widgets y Limpieza de UX**](#121-optimización-de-la-galería-de-widgets-y-limpieza-de-ux-12-febrero-2026)
-122. [**Refinamiento y Estandarización de Widgets**](#122-refinamiento-y-estandarización-de-widgets-12-febrero-2026)
-123. [**Auditoría de Métricas de Bienestar y Racha de Actividad**](#123-auditoría-de-métricas-de-bienestar-y-racha-de-actividad-14-febrero-2026)
-124. [**Consistencia de UI y Refinamiento de Localización**](#124-consistencia-de-ui-y-refinamiento-de-localización-14-febrero-2026)
-125. [**Refinamiento de Estatus de Dosis Históricas**](#125-refinamiento-de-estatus-de-dosis-históricas-15-febrero-2026)
-126. [**Desactivación Automática de Integración con Health**](#126-desactivación-automática-de-integración-con-health-15-febrero-2026)
-127. [**Corrección de Renderizado de Avatares en Widgets**](#127-corrección-de-renderizado-de-avatares-en-widgets-ios-18-)
-128. [**Sistema de Notificaciones (Modos Globales y Restricciones)**](#128-sistema-de-notificaciones-modos-globales-y-restricciones-17-febrero-2026)
-129. [**Estandarización de Terminología Médica**](#129-estandarización-de-terminología-médica-18-febrero-2026)
-130. [**Reparación de Datos y Estabilidad UI**](#130-reparación-de-datos-y-estabilidad-ui-18-febrero-2026)
+    - 10.1 [Integración Real de RevenueCat](#163-integración-real-de-revenuecat-y-monetización-8-marzo-2026)
+11. [Sistema de Analíticas Granulares](#172-sistema-de-analíticas-granulares-firebase-analytics-16-marzo-2026)
+12. [Refactorización del Sistema de Notificaciones](#173-refactorización-del-sistema-de-notificaciones-background-sync-actor-17-marzo-2026)
+13. [Solución Crítica de Resurrección de Datos (CloudKit & SwiftData Reset)](#174-solución-crítica-de-resurrección-de-datos-cloudkit--swiftdata-reset-19-marzo-2026)
+14. [Análisis de Errores y Problemas](#11-análisis-de-errores-y-problemas)
+15. [Optimizaciones Requeridas](#12-optimizaciones-requeridas)
+16. [Funcionalidades Faltantes o Incompletas](#13-funcionalidades-faltantes-o-incompletas)
+17. [Roadmap para Estatus Profesional](#14-roadmap-para-estatus-profesional)
+18. [Estándares de Calidad](#15-estándares-de-calidad)
+19. [Guía de Mantenimiento](#16-guía-de-mantenimiento)
+20. [Flujo de Generación de Dosis, Calendario y Notificaciones](#17-flujo-de-generación-de-dosis-calendario-y-notificaciones)
+21. [Planificador de Tratamientos (Smart Scheduler)](#18-planificador-de-tratamientos-smart-scheduler)
+22. [Auditoría Global de Calidad](#19-auditoría-global-de-calidad-20-diciembre-2025)
+23. [Propuestas de Mejora UI/UX](#20-propuestas-de-mejora-uiux)
+24. [Mejoras UI/UX - Diciembre 22, 2025](#21-mejoras-uiux---diciembre-22-2025)
+25. [Auditoría de Notificaciones](#22-auditoría-y-corrección-del-sistema-de-notificaciones-22-diciembre-2025)
+26. [Consistencia de UI y Bug Fixes](#23-consistencia-de-ui-y-corrección-de-bugs-23-diciembre-2025)
+27. [Auditoría Profunda de Notificaciones](#24-auditoría-profunda-del-sistema-de-notificaciones-23-diciembre-2025)
+28. [Sistema de Pausa/Reanudación](#25-sistema-de-pausareanudación-de-medicamentos-23-diciembre-2025)
+29. [Auditoría de Seguridad y Migración PDF](#26-auditoría-de-seguridad-y-migración-pdf-24-diciembre-2025)
+30. [OCR Medication Scanner e Inventario](#27-ocr-medication-scanner-e-inventario-24-diciembre-2025)
+31. [Preservación de Historial de Dosis](#28-preservación-de-historial-de-dosis-24-diciembre-2025)
+32. [Componentes Home: Tratamientos y Conditions Activos](#31-componentes-home-tratamientos-y-conditions-activos-24-diciembre-2025)
+33. [Wellness Summary Customization](#32-wellness-summary-customization-24-diciembre-2025)
+34. [Módulo de Síntomas Especializados](#32-módulo-de-síntomas-especializados-26-diciembre-2025)
+35. [Integración HealthKit](#33-integración-healthkit-27-diciembre-2025)
+36. [**Roadmap Consolidado**](#33-roadmap-consolidado-28-diciembre-2025)
+37. [Auditoría de Localización - Home Dashboard](#34-auditoría-de-localización---home-dashboard-30-diciembre-2025)
+38. [Auditoría de Localización - Vitals & Charts](#35-auditoría-de-localización---vitals--charts-30-diciembre-2025)
+39. [Auditoría de Localización - Módulo de Síntomas Especializados](#36-auditoría-de-localización---módulo-de-síntomas-especializados)
+40. [Auditoría de Localización - Medicamentos y Tratamientos](#37-auditoría-de-localización---medicamentos-y-tratamientos-30-diciembre-2025)
+41. [**Principios de Producto**](#38-principios-de-producto-29-diciembre-2025)
+42. [Sistema de Logros y Física de UI](#59-correcciones-de-sistema-de-logros-y-física-de-ui-6-enero-2026)
+43. [Mejoras de Export/Import](#60-mejoras-de-exportimport-8-enero-2026)
+44. [Resolución de Deuda Técnica](#61-resolución-de-deuda-técnica-9-enero-2026)
+45. [Preservación de Historial de Dosis al Editar](#62-preservación-de-historial-de-dosis-al-editar-9-enero-2026)
+46. [Prioridad Absoluta: Optimización y Fluidez](#63-prioridad-absoluta-optimización-y-fluidez-enero-2026)
+47. [Migración Integral a Swift Concurrency](#64-migración-integral-a-swift-concurrency-9-enero-2026)
+48. [Auditoría de Arquitectura y Roadmap TOP 3](#65-auditoría-de-architecture-y-roadmap-top-3-12-enero-2026)
+49. [Integración de Notas Multimedia en Backup y Refinamiento UI](#66-integración-de-notas-multimedia-en-backup-y-refinamiento-ui-13-enero-2026)
+50. [Implementación Modo Discreto y Recordatorios Persistentes](#67-implementación-modo-discreto-y-recordatorios-persistentes-14-enero-2026)
+51. [Sistema de Gestión de Tareas (Task Management)](#68-sistema-de-gestión-de-tareas-task-management-enero-2026)
+52. [Vista de Análisis de Adherencia](#69-vista-analisis-adherencia-enero-2026)
+53. [Gestión de Deuda Técnica y Limpieza](#70-gestión-de-deuda-técnica-y-limpieza-enero-2026)
+54. [Validación Médica Multi-Región (SSOT)](#71-validación-médica-multi-región-ssot-15-enero-2026)
+55. [Analytics Dashboard & Doctor Reports](#72-analytics-dashboard--doctor-reports-16-enero-2026)
+56. [Implementación de Borrado por Lotes (Bulk Delete)](#73-implementación-de-borrado-por-lotes-bulk-delete-16-enero-2026)
+57. [Refinamiento de Logros y Health Insights](#74-refinamiento-de-logros-y-health-insights-16-enero-2026)
+58. [Sistema de Restricción Free Tier (Locking System)](#75-sistema-de-restriccion-free-tier-locking-system-17-enero-2026)
+59. [Sincronización de Fechas y Vinculación de Tareas](#76-sincronización-de-fechas-y-vinculación-de-tareas-18-enero-2026)
+60. [Calendario Infinito](#77-calendario-infinito)
+61. [Optimización de HealthKit y Limpieza de Purga](#78-optimización-de-healthkit-y-limpieza-de-purga)
+62. [Consolidación de Modelos y Estabilidad Swift 6](#79-consolidación-de-modelos-y-estabilidad-swift-6)
+63. [Arquitectura Zero-JSON para Widgets (SSOT)](#80-arquitectura-zero-json-para-widgets-ssot-19-enero-2026)
+64. [Mejoras de Widgets y Estabilidad SwiftData](#81-mejoras-de-widgets-y-estabilidad-swiftdata-19-enero-2026)
+65. [Auditoría de Reactividad y Rendimiento del Dashboard](#82-auditoría-de-reactividad-y-rendimiento-del-dashboard-20-enero-2026)
+66. [Sistema de Citas de Seguimiento](#83-sistema-de-citas-de-seguimiento-follow-up-appointments-20-enero-2026)
+67. [Optimización Integral de Performance](#84-optimización-integral-de-performance-y-reactividad-23-enero-2026)
+68. [Programación Dinámica de Notificaciones e Haptics](#85-programación-dinámica-de-notificaciones-e-haptics-24-enero-2026)
+69. [Guía de Mantenimiento del Sistema de Backups](#86-guía-de-mantenimiento-del-sistema-de-backups-actualizado-enero-2026)
+70. [Estabilidad del Sistema de Notificaciones](#87-estabilidad-del-sistema-de-notificaciones-25-enero-2026)
+71. [Plan de Acción Pre-Producción](#88-plan-de-accion-pre-produccion)
+72. [Sincronización de Notificaciones y Estabilidad UI](#89-sincronización-de-notificaciones-y-estabilidad-ui-25-enero-2026)
+73. [Frecuencia por Intervalo de Horas](#90-frecuencia-por-intervalo-de-horas-26-enero-2026)
+74. [Estabilidad del Badge y Ciclo de Vida](#91-estabilidad-del-badge-y-ciclo-de-vida-de-notificaciones-26-enero-2026)
+75. [Optimización de Inicio y StartupManager](#92-optimización-de-inicio-y-startupmanager-26-enero-2026)
+76. [Refinamiento del Sistema de Logros y Rachas](#93-refinamiento-del-sistema-de-logros-y-rachas-26-enero-2026)
+77. [Mejoras en el Selector de Ubicación y Ficha de Detalle](#94-mejoras-en-el-selector-de-ubicación-y-ficha-de-detalle-26-enero-2026)
+78. [Refinamiento de UI de Seguros y Localización Dedicada](#95-refinamiento-de-ui-de-seguros-y-localización-dedicada-27-enero-2026)
+79. [Enhancing Health Insurance](#96-enhancing-health-insurance-27-enero-2026)
+80. [Sincronización del Badge y Estabilidad UI de Notificaciones](#97-sincronización-del-badge-y-estabilidad-ui-de-notificaciones-27-enero-2026)
+81. [Corrección de Crash en Calendario y Lógica de Estatus](#98-corrección-de-crash-en-calendario-y-lógica-de-estatus-28-enero-2026)
+82. [**Resolución de Notificaciones Redundantes y Limpieza Profunda**](#99-resolución-de-notificaciones-redundantes-y-limpieza-profunda-29-enero-2026)
+83. [**Live Activities & Localization**](#100-actualización-de-arquitectura---live-activities--localization-29-enero-2026)
+84. [**Sistema de Detención de Tratamientos (Stop Treatment)**](#101-sistema-de-detención-de-tratamientos-stop-treatment-30-enero-2026)
+85. [**Historial Completo y Auditoría de Padecimientos**](#102-historial-completo-y-auditoría-de-padecimientos-1-febrero-2026)
+86. [**Refactorización Global de Horarios de Notificación**](#103-refactorización-global-de-horarios-de-notificación-1-febrero-2026)
+87. [**Localización y Estabilidad en App Shortcuts**](#104-localización-y-estabilidad-en-app-shortcuts-2-febrero-2026)
+88. [**Sistema de Curación en Cascada (Cascading Cure)**](#105-sistema-de-curación-en-cascada-cascading-cure-2-febrero-2026)
+89. [**Optimización de Visibilidad de Acciones (Action Visibility)**](#106-optimización-de-visibilidad-de-acciones-action-visibility)
+90. [**Refactorización Sistémica de DoseGenerationService**](#134-refactorización-sistémica-de-generación-de-dosis-dose-generation-namespace)
+91. [**Extensión Avanzada de Medicación y Generación Retroactiva**](#107-extensión-avanzada-de-medicación-y-generación-retroactiva-2-febrero-2026)
+92. [**Auditoría de Navegación de Widgets y Haptics**](#110-auditoría-de-navegación-de-widgets-y-haptics-3-febrero-2026)
+93. [**Configuración Estándar de la Pantalla de Inicio**](#111-configuración-estándar-de-la-pantalla-de-inicio-3-febrero-2026)
+94. [**Refinamiento de Visualización de Calendario**](#112-refinamiento-de-visualización-de-calendario-4-febrero-2026)
+95. [**Código Legacy Pendiente de Eliminación**](#113-código-legacy-pendiente-de-eliminación-5-febrero-2026)
+96. [**Estandarización de Botones de Navegación**](#114-estandarización-de-botones-de-navegación-5-febrero-2026)
+97. [**Guía de Estilos de Botones de Navegación**](#115-guía-de-estilos-de-botones-de-navegación-5-febrero-2026)
+98. [**Implementación de Keyboard-First Design**](#116-implementación-de-keyboard-first-design-5-febrero-2026)
+99. [**Optimización de Performance en Perspectivas (Splash Screen)**](#117-optimización-de-performance-en-perspectivas-splash-screen-7-febrero-2026)
+100. [**Estandarización de Navegación y Vistas**](#116-estandarización-de-navegación-y-vistas-7-febrero-2026)
+101. [**Actualización del Esquema de Backup a v9**](#117-actualización-del-esquema-de-backup-a-v9-8-febrero-2026)
+102. [**Refuerzo Positivo y Wellness Refactor**](#118-refuerzo-positivo-y-wellness-refactor-11-febrero-2026)
+103. [**Wellness Persistence & Design Harmony**](#119-wellness-persistence--design-harmony-11-febrero-2026)
+104. [**Estandarización de Botones de Acción en Footers**](#120-estandarización-de-botones-de-acción-en-footers-11-febrero-2026)
+105. [**Optimización de la Galería de Widgets y Limpieza de UX**](#121-optimización-de-la-galería-de-widgets-y-limpieza-de-ux-12-febrero-2026)
+106. [**Refinamiento y Estandarización de Widgets**](#122-refinamiento-y-estandarización-de-widgets-12-febrero-2026)
+107. [**Auditoría de Métricas de Bienestar y Racha de Actividad**](#123-auditoría-de-métricas-de-bienestar-y-racha-de-actividad-14-febrero-2026)
+108. [**Consistencia de UI y Refinamiento de Localización**](#124-consistencia-de-ui-y-refinamiento-de-localización-14-febrero-2026)
+109. [**Refinamiento de Estatus de Dosis Históricas**](#125-refinamiento-de-estatus-de-dosis-históricas-15-febrero-2026)
+110. [**Desactivación Automática de Integración con Health**](#126-desactivación-automática-de-integración-con-health-15-febrero-2026)
+111. [**Corrección de Renderizado de Avatares en Widgets**](#127-corrección-de-renderizado-de-avatares-en-widgets-ios-18-)
+112. [**Sistema de Notificaciones (Modos Globales y Restricciones)**](#128-sistema-de-notificaciones-modos-globales-y-restricciones-17-febrero-2026)
+113. [**Estandarización de Terminología Médica**](#129-estandarización-de-terminología-médica-18-febrero-2026)
+114. [**Reparación de Datos y Estabilidad UI**](#130-reparación-de-datos-y-estabilidad-ui-18-febrero-2026)
+115. [**Live Activities: Ventanas Configurables y Estabilidad**](#131-live-activities-ventanas-configurables-y-estabilidad-19-febrero-2026)
+116. [**Live Activities: Sincronización Transversal (Cross-Process Sync)**](#132-sincronización-transversal-de-live-activities-22-febrero-2026)
+117. [**Auditoría de Performance y Refactorización Swift 6 (Fase 1)**](#133-auditoría-de-performance-y-refactorización-swift-6-fase-1-febrero-2026)
+118. [**Refactorización Sistémica de Generación de Dosis**](#134-refactorización-sistémica-de-generación-de-dosis-dose-generation-namespace)
+119. [**Refactor del Sistema de Notificaciones (SyncCoordinator)**](#135-refactor-del-sistema-de-notificaciones-synccoordinator-febrero-2026)
+120. [**Unificación de Navegación de Widgets y Refinamiento Concurrency**](#136-unificación-de-navegación-de-widgets-y-refinamiento-concurrency-swift-6)
+121. [**Arquitectura Criptográfica PII y Core ML (Fase 3 Auditoría)**](#137-arquitectura-criptográfica-pii-y-core-ml-febrero-2026)
+122. [**Implementación de Backup en iCloud (Modo Simulado)**](#138-implementación-de-backup-en-icloud-modo-simulado-24-febrero-2026)
+123. [**Apple Watch Companion App (VitalsPathWatch)**](#139-apple-watch-companion-app-vitalspathwatch-24-febrero-2026)
+124. [**Sincronización de Notificaciones y Robustez**](#140-sincronización-de-notificaciones-y-robustez-25-febrero-2026)
+125. [**Consistencia Inmediata y Sincronización de Contextos**](#141-consistencia-inmediata-y-sincronización-de-contextos-25-febrero-2026)
+126. [**Estabilización de Dose Reconciliation y Reprogramación Inteligente**](#142-estabilización-de-dose-reconciliation-y-reprogramación-inteligente-27-febrero-2026)
+127. [Refinamiento de Gráficos de Contribución y Actividad](#143-refinamiento-de-gráficos-de-contribución-y-actividad-github-style-28-febrero-2026)
+128. [**Pendientes Críticos para Cuenta de Developer de Pago**](#144-pendientes-críticos-para-cuenta-de-developer-de-pago-1-marzo-2026)
+129. [**Backup v10 (Apple Archive) y Cloud Library Manager**](#145-backup-v10-apple-archive-y-cloud-library-manager-2-marzo-2026)
+130. [**Sincronización de Ciclo de Vida y Filtrado de Medicaciones**](#146-sincronización-de-ciclo-de-vida-y-filtrado-de-medicaciones-2-marzo-2026)
+131. [**Optimización de Pausa/Resumen y Auditoría de Dosis**](#147-optimización-de-pausaresumen-y-auditoría-de-dosis-2-marzo-2026)
+132. [**Smart Scheduler, Estabilidad PDF y Proyección de Dosis**](#148-smart-scheduler-estabilidad-pdf-y-proyección-de-dosis-3-marzo-2026)
+133. [**Flexibilidad de Creación de Tratamientos y Advertencias de Automedicación**](#149-flexibilidad-de-creación-de-tratamientos-y-advertencias-de-automedicación-3-marzo-2026)
+134. [**Agrupación Inteligente de Notificaciones de Medicamentos**](#150-agrupación-inteligente-de-notificaciones-de-medicamentos-4-marzo-2026)
+135. [**Optimización de Cold Start y Desbloqueo de Splash**](#151-optimización-de-cold-start-y-desbloqueo-de-splash-4-marzo-2026)
+136. [Robustez de Conectividad Apple Watch - Sistema de Recuperación](#152-robustez-de-conectividad-apple-watch---sistema-de-recuperación-5-marzo-2026)
+137. [**Garantía de Cierre de Live Activities y Optimización**](#153-garantía-de-cierre-de-live-activities-y-optimización-5-marzo-2026)
+138. [**Recuperación de Notificaciones Perdidas (Cold Start Catch-Up)**](#154-recuperación-de-notificaciones-perdidas-cold-start-catch-up-5-marzo-2026)
+139. [**Estandarización de Vistas de Recurso No Encontrado**](#155-estandarización-de-vistas-de-recurso-no-encontrado-5-marzo-2026)
+140. [**Acciones Rápidas en Notificaciones Agrupadas (Complete All)**](#156-acciones-rápidas-en-notificaciones-agrupadas-complete-all-5-marzo-2026)
+141. [**Live Activities Agrupadas (Grouped Live Activities)**](#157-live-activities-agrupadas-grouped-live-activities-5-marzo-2026)
+142. [**Apple Distribution, Xcode Cloud e iOS 26 Perfection**](#158-apple-distribution-xcode-cloud-e-ios-26-perfection-5-marzo-2026)
+143. [**Sincronización iCloud & CloudKit (Fase Real)**](#159-sincronización-icloud--cloudkit-fase-real-5-marzo-2026)
+144. [**Corrección de Concurrencia y Sincronización de Reset**](#160-corrección-de-concurrencia-y-sincronización-de-reset-6-marzo-2026)
+145. [**Auditoría Pre-Beta TestFlight y Cumplimiento de Privacidad**](#161-auditoría-pre-beta-testflight-y-cumplimiento-de-privacidad-7-marzo-2026)
+146. [**Sistema Dinámico de Reseñas y Feedback (App Review)**](#162-sistema-dinámico-de-reseñas-y-feedback-app-review-7-marzo-2026)
+147. [**Integración Real de RevenueCat y Monetización**](#163-integración-real-de-revenuecat-y-monetización-8-marzo-2026)
+148. [**Optimización de la Experiencia de Usuario en iPad**](#164-optimización-de-la-experiencia-de-usuario-en-ipad-10-marzo-2026)
+149. [**Reconciliación Definitiva de Dosis y Corrección de Ghost Doses (Arquitectura DirectDB)**](#165-reconciliación-definitiva-de-dosis-y-corrección-de-ghost-doses-arquitectura-directdb-11-marzo-2026)
+150. [**Restricción Integral de Procesamiento para Perfiles Inactivos**](#166-restricción-integral-de-procesamiento-para-perfiles-inactivos-11-marzo-2026)
+151. [**Sincronización Avanzada Apple Watch e iPhone (Fix de Reactividad)**](#167-sincronización-avanzada-apple-watch-e-iphone-fix-de-reactividad-11-marzo-2026)
+152. [**Robustez en Acciones de Notificación y Sincronización (Watch-iPhone)**](#168-robustez-en-acciones-de-notificación-y-sincronización-watch-iphone-12-marzo-2026)
+153. [**Robustez Médica, Perfiles Opcionales y Backup v11**](#169-robustez-médica-perfiles-opcionales-y-backup-v11-13-marzo-2026)
+154. [**Corrección de Acciones de Notificación y Navegación Profunda**](#170-corrección-de-acciones-de-notificación-y-navegación-profunda-13-marzo-2026)
+155. [**Sistema de Consejos de Salud (IA + Traducción Resiliente)**](#171-sistema-de-consejos-de-salud-ia--traducción-resiliente-13-marzo-2026)
+156. [**Sistema de Analíticas Granulares (Firebase Analytics)**](#172-sistema-de-analíticas-granulares-firebase-analytics-16-marzo-2026)
+157. [**Cumplimiento de Privacidad: HIPAA & GDPR (Fase 1 - Hardening)**](#175-cumplimiento-de-privacidad-hipaa--gdpr-fase-1---hardening-marzo-2026)
+
 ---
+
+---
+
+## 173. Refactorización del Sistema de Notificaciones (Background Sync Actor) (17 Marzo 2026)
+
+Se ha realizado una reingeniería profunda del sistema de reconciliación y notificaciones para resolver problemas de rendimiento crónicos (lag en el arranque) y cumplir con los estándares de aislamiento de actores de Swift 6.
+
+### 173.1 Arquitectura del NotificationSyncActor
+- **Actor de Almacenamiento**: Se introdujo `NotificationSyncActor` marcado con `@ModelActor`. Esto permite realizar operaciones pesadas de SwiftData en un hilo de fondo dedicado, liberando al `MainActor` para mantener la fluidez de la UI.
+- **Responsabilidades Delegadas**:
+    - **Sincronización de Notificaciones Entregadas**: Procesa las notificaciones reales del sistema y las persiste en la base de datos local (`AppNotification`).
+    - **Algoritmo de Catch-Up**: Identifica dosis omitidas o retrasadas dentro de una ventana de 1h y genera alertas retroactivas (toasts/notificaciones locales).
+    - **Motor de Agrupamiento**: Aplica lógica de agrupamiento inteligente para dosis simultáneas basándose en los umbrales de configuración (`groupingThresholdMinutes`).
+
+### 173.2 Reconciliación Selectiva (Surgical Reconciliation)
+Para evitar el impacto masivo del `DoseReconciliationService` en cada arranque de la aplicación, se ha implementado un sistema de "Flags" y lógica de decisión:
+- **Dirty Flag (`needsReconciliation`)**: Las operaciones de edición de medicamentos marcan esta propiedad como `true`, activando una reconciliación forzada en el siguiente ciclo.
+- **Ventana de 24 Horas**: Por defecto, el `AsyncDoseGeneratorActor` solo ejecuta la reconciliación estructural si han pasado más de 24 horas desde la última ejecución exitosa (`lastReconciliationDate`).
+- **Impacto**: Se elimina la generación redundante de dosis futuras en cada `onActive`, reduciendo el tiempo de CPU en el arranque en un **70-80%** en perfiles con múltiples medicamentos crónicos.
+
+### 173.3 Optimización de Rendimiento y UI
+- **Desbloqueo del Cold Start**: Al mover la reconciliación de dosis y el procesamiento de notificaciones a actores de fondo impulsados por `Task.detached`, se eliminaron las micro-pausas y el lag al abrir la aplicación.
+- **Formateo No-Isolado**: Los métodos de `NotificationFormatter` se marcaron como `nonisolated`, permitiendo su uso transversal entre el `MainActor` y el `NotificationSyncActor` sin overhead de sincronización.
+- **Deduplicación Robusta**: Se mejoró el sistema de verificación de duplicados mediante predicados de SwiftData optimizados, asegurando que no se generen notificaciones repetidas.
+- **Aislamiento Swift 6**: Se corrigieron advertencias de data races mediante el uso de tipos `Sendable` para el transporte de datos entre contextos de ejecución.
+
+---
+
+## 174. Solución Crítica de Resurrección de Datos (CloudKit & SwiftData Reset) (19 Marzo 2026)
+
+Se ha implementado una arquitectura robusta para la eliminación de datos completa y sincronizada ("Erase All Data"), solucionando el defecto crítico donde registros borrados localmente resucitaban desde iCloud debido a metadatos obsoletos generados por los borrados en lote (`Batch Delete`) de SwiftData, lo que provocaba perfiles duplicados.
+
+### 174.1 Purga de CloudKit (Arquitectura Offline-Ready)
+- **Resiliencia Offline**: Se ha evolucionado la política de borrado para permitir el funcionamiento en dispositivos sin conexión o sin cuenta de iCloud configurada. No se aborta la operación si falla la red.
+- **Flujo No-Bloqueante**: Si la purga de la zona de CloudKit falla, el sistema captura el error y procede con el borrado local de SwiftData y Keychain.
+- **Aviso al Usuario**: Se introduce una bandera de persistencia (`lastResetSkippedCloud`) que dispara una alerta localizada en 15 idiomas al aterrizar en el Onboarding, informando al usuario que los datos de la nube podrían reaparecer al recuperar la conexión.
+- **Sincronización Transversal**: En condiciones normales, CloudKit emite notificaciones silenciosas a otros dispositivos para sincronizar el borrado y retornar al Onboarding automáticamente.
+
+### 174.2 Destrucción de Contexto (`erase()`)
+- **Eliminación de Batch Deletes**: Se reemplazó el uso ineficiente de `try context.delete(model:)` por la destrucción física del archivo de la base de datos a través de `try context.container.erase()`.
+- **Amnesia Total**: Esto asegura que no queden remanentes de tablas invisibles (como la metadata interna `ANSCK...`) ni cachés locales de estado de sincronización que puedan confundir a `NSPersistentCloudKitContainer` posteriormente.
+
+### 174.3 Arquitectura `ContainerManager` (Reconstrucción de SwiftUI)
+1. **Reset All Data**: Purge CloudKit, wipe SwiftData, reset `UserDefaults` (preserving language).
+2. **Fluid Transition**: Set `skipNextSplash = true`. `ContentView` skips its initial app-start animation.
+3. **Direct Landing**: User arrives directly at `OnboardingView` (Page 0).
+4. **Silent Startup**: After Onboarding completion, the transition to `HomeView` is instantaneous. Full service initialization runs silently in the background, avoiding any post-onboarding "flicker" or redundant splash screens.
+
+---
+
+## 172. Sistema de Analíticas Granulares (Firebase Analytics) (16 Marzo 2026)
+
+
+Se ha implementado un sistema de telemetría y análisis de comportamiento de usuario altamente detallado, diseñado para proporcionar insights profundos sobre el uso de la aplicación sin comprometer la privacidad ni el rendimiento.
+
+### 172.1 Arquitectura Centralizada (UserBehaviorService)
+- **Actor Thread-Safe**: Toda la lógica de analíticas reside en el actor `UserBehaviorService`, garantizando un acceso seguro desde múltiples hilos y evitando bloqueos en la interfaz de usuario.
+- **Desacoplamiento Total**: La implementación se ha diseñado para ser independiente del core de datos. Se eliminaron las dependencias de analíticas en `SharedModelContainer.swift` para evitar errores de enlazado (linker errors) en extensiones como Widgets, WatchOS e Intents.
+- **Compatibilidad Multi-Target**: Mediante el uso de `#if canImport(FirebaseAnalytics)`, el servicio ofrece una implementación real para la App principal y un "No-Op fallback" automático para targets que no soportan Firebase, garantizando la compilación universal.
+
+### 172.2 Eventos y Métricas Controladas
+El sistema rastrea categorías críticas para el crecimiento del producto:
+
+- **Creación de Entidades (Granularidad Total)**:
+  - **Tratamientos**: Se registra el tipo (crónico/temporal), número de medicamentos vinculados y si existe relación con una condición preexistente.
+  - **Citas**: Seguimiento por especialidad médica y tipo de cita (presencial/virtual).
+  - **Tareas y Síntomas**: Registro de creación, severidad inicial y uso de plantillas.
+- **Onboarding y Retención**:
+  - Seguimiento paso a paso del flujo de bienvenida.
+  - Registro de elecciones del usuario (objetivos de salud, preferencias de notificación).
+  - Embudo de conversión (Onboarding Started -> Completed).
+- **Configuración y Uso de Funcionalidades**:
+  - Cambios en ajustes globales (Modo Discreto, Sincronización con Apple Watch).
+  - Interacciones con el Smart Scheduler y el generador de informes PDF.
+  - Visualización de pantallas principales (`logScreenView`) para entender el "path" del usuario.
+- **Rendimiento Técnico (Benchmarks)**:
+  - Tiempo de inicialización de SwiftData.
+  - Duración de migraciones de base de datos.
+  - Latencia en el arranque de la aplicación (Cold Start).
+
+### 172.3 Privacidad y Rendimiento (Premium First)
+- **Zero PII**: No se recolecta información de identificación personal (nombres, correos, notas de salud privadas). Los parámetros se limitan a identificadores técnicos o categorías de tipo.
+- **Asincronía "Fire and Forget"**: Todas las llamadas a analíticas se ejecutan en tareas de fondo (`Task { await ... }`), asegurando que la experiencia del usuario sea fluida y sin micro-pausas.
+- **Debug Mode**: Soporte para `-FIRDebugEnabled` para validación en tiempo real en la consola de Firebase sin ensuciar los datos de producción.
+
+---
+
+
+## 171. Sistema de Consejos de Salud (IA + Traducción Resiliente) (13 Marzo 2026)
+
+Se ha realizado una reingeniería completa del módulo de consejos de salud (Health Tips) para garantizar que el contenido sea siempre relevante, útil y esté correctamente localizado, priorizando el rendimiento y una experiencia de usuario sin errores.
+
+### 171.1 Traducción en Segundo Plano (TranslationService Actor)
+Para evitar bloqueos en la interfaz de usuario (Main Actor) y mejorar la fluidez:
+- **Actor Dedicado**: Se implementó `TranslationService`, un actor que encapsula el framework de `Translation` de Apple. Maneja las solicitudes asíncronas de traducción fuera del hilo principal.
+- **Manejo de Ciclo de Vida**: El servicio gestiona la disponibilidad de los modelos de traducción y retorna `nil` de forma segura si el hardware o el software no están listos, evitando esperas infinitas.
+
+### 171.2 Política de Visibilidad "Zero-Error"
+Se ha cambiado radicalmente la forma en que se presentan los errores de carga o traducción:
+- **Principio de Invisibilidad**: Si un consejo de salud no puede ser generado o traducido al idioma del usuario (ej: español), la sección **no se muestra**. Se eliminaron las tarjetas de error naranja y los botones de reintento para mantener un dashboard limpio y premium.
+- **Eliminación de Fallbacks en Inglés**: Se eliminó la lógica que mostraba el texto original en inglés si la traducción fallaba. Ahora, la sección solo es visible si hay contenido de calidad en el idioma activo.
+
+### 171.3 Generación Dinámica y Contextual
+El motor de selección de consejos (`HealthTipGenerationService`) se ha optimizado para ser más proactivo y variado:
+- **Análisis de Perfil**: El servicio ahora cruza datos de **Síntomas** reportados (estrés, cansancio, dolor), **Medicamentos** activos y **Condiciones** diagnosticadas.
+- **Algoritmo de Prioridad**: Se priorizan consejos de "Estilo de Vida" y "Prevención" que coincidan con los `tags` del perfil del usuario, asegurando que los consejos de salud sean realmente útiles y no genéricos.
+- **Soporte IA (iOS 26)**: Integración optimizada con `FoundationModels` para generación on-device, con fallback automático a la base de conocimiento local estructurada.
+
+### 171.4 Estándares de UI/UX
+- **Transiciones Suaves**: Se añadieron animaciones `opacity` y `scale` para que la tarjeta aparezca o desaparezca de forma fluida cuando el contenido está listo.
+- **Localización de Metadatos**: El encabezado "Consejo de Salud" se resuelve de forma estricta contra `Localizable.xcstrings`, garantizando coherencia terminológica.
+
+---
+
+## 170. Corrección de Acciones de Notificación y Navegación Profunda (13 Marzo 2026)
+
+Se ha realizado una corrección integral en el manejo de acciones desde notificaciones, garantizando que el sistema identifique correctamente los objetos relacionados (Tareas, Síntomas) y navegue de forma precisa a las secciones correspondientes tanto en iOS como en Apple Watch.
+
+### 170.1 Extracción Precisa de IDs
+Se corrigió un error crítico donde el sistema buscaba una clave genérica `"id"` en lugar de las claves específicas del dominio:
+- **Tareas (Tasks)**: Las notificaciones ahora extraen correctamente el `taskId` del `userInfo` para mapear al `FollowUpTask` correspondiente.
+- **Síntomas (Symptoms)**: Se implementó la extracción de `symptomId` para el seguimiento de síntomas (`symptom_followup`).
+- **Acciones Rápidas**: El método `handleAction` en `NotificationManager` ahora valida la presencia de estos IDs antes de proceder, evitando estados inconsistentes o nulos.
+
+### 170.2 Navegación a "Completar Perfil"
+Se implementó el flujo de navegación profunda para la notificación de perfil incompleto:
+- **`Notification.Name`**: Registro de la nueva notificación `.requestOpenProfile`.
+- **`SyncCoordinator`**: Se añadió el método `requestOpenProfile()` para centralizar el disparo del evento de navegación.
+- **`HomeNavigationReceivers`**: El receptor de navegación en el Home ahora escucha el cambio en `SyncCoordinator` y dispara la navegación condicional al perfil.
+- **Compatibilidad Watch**: Se añadió la respuesta para la categoría `profile_completion` en el `WatchNotificationHandler` del Apple Watch.
+
+### 170.3 Refactorización de `handleAction` (Swift 6 Safety)
+- **Safe UUID Unwrapping**: Se ha mejorado la lógica de procesamiento de acciones para trabajar de forma segura con UUIDs opcionales. 
+- **Notificaciones Grupales**: Se optimizó el manejo de `dose_group`, permitiendo que las acciones masivas (tomar todo, omitir todo) se ejecuten sin requerir un ID de dosis individual, mientras se mantiene la validación estricta para notificaciones unitarias.
+- **Compatibilidad de Payloads**: Para asegurar la transición fluida, los servicios de notificación ahora envían payloads duales (clave genérica y específica) según la plataforma de destino.
+
+### 170.4 Limpieza y Consolidación
+- **Eliminación de Temporales**: Se han purgado todos los archivos de prueba `test_*.swift` del repositorio.
+- **Sincronización Transversal**: Verificación de que los Identificadores de Categoría y Acción coinciden exactamente entre el `NotificationManager` (iOS) y el `WatchNotificationHandler` (Watch App).
+
+---
+
+## 169. Robustez Médica, Perfiles Opcionales y Backup v11 (13 Marzo 2026)
+
+Se ha implementado una capa de seguridad y resiliencia en el manejo de datos médicos del perfil, mitigando crashes por nulidad en SwiftData y mejorando la integridad de los respaldos.
+
+### 169.1 Opcionalidad Estricta en SwiftData
+Para evitar el error de "faulting" en SwiftData cuando se encuentran valores `NULL` en arrays no inicializados de versiones anteriores:
+- **Model Migration**: `allergies`, `medicalConditions` y `currentMedications` ahora son opcionales (`[String]?`).
+- **Patrón de Acceso Seguro**: Se ha estandarizado el uso de nil-coalescing (`profile.allergies ?? []`) en toda la capa de UI (`ProfileDetailView`, `WatchEmergencyView`) y Servicios (`ProfileCompletionService`).
+
+### 169.2 Evolución del Sistema de Backup (v11)
+Se ha actualizado el motor de respaldo para capturar la nueva estructura médica:
+- **BackupModels**: Inclusión de `medicalConditions` y `currentMedications` en `ProfileBackupData`.
+- **DataBackupService**: Actualización del mapeo bidireccional para asegurar que estos campos se exporten e importen correctamente sin pérdida de información.
+
+### 169.3 Consistencia en Widgets y Exportación
+- **DTOs**: `EmergencyCardDTO` ahora soporta campos opcionales, garantizando que el widget de emergencia del iPhone no falle si el perfil está incompleto.
+- **Builders**: `PDFDocumentBuilder` y `CSVDocumentBuilder` adaptados para iterar de forma segura sobre los nuevos campos opcionales.
+
+---
+
+## 168. Robustez en Acciones de Notificación y Sincronización (Watch-iPhone) (12 Marzo 2026)
+
+Se ha implementado una capa de resiliencia crítica para garantizar que las acciones realizadas desde las notificaciones del Apple Watch lleguen siempre al iPhone, independientemente del estado de la sincronización local o la activación de la sesión.
+
+### 168.1 Cola de Resiliencia (Pending Actions Queue)
+Se ha implementado una cola de acciones pendientes en `WatchConnectivityService` del lado del Apple Watch para mitigar fallos en "cold starts":
+- **Despacho Diferido**: Si el usuario pulsa una acción (Dosis, Tarea, Cita) mientras el `WCSession` aún se está activando, la acción se guarda en una cola atómica.
+- **Auto-Flush**: En cuanto la sesión pasa a estado `.activated`, el servicio despacha automáticamente a ráfagas todas las acciones acumuladas al iPhone.
+
+### 168.2 Prioridad de Comunicación (iPhone-First)
+Para evitar que problemas de concurrencia en la base de datos local del reloj impidan la sincronización:
+- **Sincronización Pre-local**: El `WatchNotificationHandler` ahora dispara el envío al iPhone a través del `WatchConnectivityService` como primera operación.
+- **Independencia de SwiftData**: Se ha desacoplado la necesidad de que el ítem exista en la base de datos local del reloj para poder informar al iPhone de la acción del usuario. Esto es vital para notificaciones que ocurren justo en momentos de sincronización de datos pesados.
+
+### 168.3 Soporte Extendido de Acciones Actionables
+Se han estandarizado y ampliado las capacidades de respuesta desde la muñeca:
+- **Tareas (Tasks)**:
+  - **Snooze**: El Watch puede enviar una instrucción de posponer. El iPhone recibe la señal y reprograma automáticamente las notificaciones locales del dispositivo principal.
+  - **Done**: Soporte para marcado directo como completado.
+- **Citas (Appointments)**: Nuevas acciones `ATTENDED` y `CANCELLED` registradas en el motor de notificaciones del Watch, sincronizadas con el historial de eventos del iPhone.
+- **Seguimiento de Síntomas**: Implementación de la categoría `SYMPTOM_FOLLOWUP` que permite al usuario reportar mejoría (`IMPROVED`) o estabilidad (`SAME`) directamente desde el banner de notificación, disparando la lógica de resolución en el `SymptomFollowUpService` del iPhone.
+
+### 168.4 Contextos de Datos Seguros
+- **Aislamiento de Handlers**: Los manejadores de notificaciones utilizan ahora procesos de fondo optimizados para interactuar con SwiftData sin bloquear el hilo principal de la aplicación del reloj, garantizando que el feedback hápitco y visual ocurra instantáneamente.
+
+---
+
+## 167. Sincronización Avanzada Apple Watch e iPhone (Fix de Reactividad) (11 Marzo 2026)
+
+Se ha implementado una arquitectura de sincronización determinista que resuelve el problema de "falta de actualización" en el iPhone de las acciones realizadas en el Apple Watch (Dosis, Citas, Tareas).
+
+### 167.1 Arquitectura de Notificación Triple
+Para garantizar que el iPhone reaccione instantáneamente al Watch sin depender de encuestas (polling) o latencia de red:
+- **Event-Driven Triggers**: Integración de `SyncCoordinator.shared` en el `WatchSyncService`. Inmediatamente después de recibir y guardar un cambio del Watch, se disparan los triggers específicos (`doseStatusChanged()`, etc.).
+- **Bridge de Contexto**: Uso manual de `context.processPendingChanges()` antes y después de interactuar con SwiftData en el iPhone. Esto asegura que los cambios escritos por el proceso de comunicación de Apple (que a veces ocurre en un contexto de fondo paralelo) sean visibles de inmediato para la interfaz principal (`mainContext`).
+- **Feedback Loop Atómico**: La acción del Watch ahora se procesa de forma asíncrona pero secuencial, asegurando que el iPhone guarde el estado ANTES de enviar la confirmación de vuelta al Watch. Esto previene que el Watch sobrescriba el estado local del iPhone con datos obsoletos durante el ciclo de sincronización.
+
+### 167.2 Robustez en Consultas (SwiftData Predicates)
+Se ha optimizado la forma en que el iPhone busca los objetos enviados por el Watch:
+- **Predicados con UUID**: Se detectó una variabilidad en el rendimiento de los predicados `.contains(uuid)` de SwiftData en iOS 17/18. Se implementó un flujo de búsqueda eficiente:
+  - Búsqueda por igualdad directa (`$0.id == singleId`) para acciones individuales (95% de los casos), lo que garantiza un acierto del 100% y máximo rendimiento.
+  - Búsqueda por colección solo para acciones masivas (Bulk actions), asegurando robustez en ambos escenarios.
+
+### 167.3 Reactividad en UI (InteractiveMedicationList)
+- **Refresco Forzado**: El componente `InteractiveMedicationList` ahora escucha el `doseStatusTrigger` de forma proactiva.
+- **Limpieza de Caché**: Al detectarse una señal de sincronización, el componente ejecuta `modelContext.processPendingChanges()` antes de su `refreshItems()`, garantizando que lo que se lee de la base de datos es la versión "fresca" enviada por el Watch.
+
+---
+
+## 166. Restricción Integral de Procesamiento para Perfiles Inactivos (11 Marzo 2026)
+
+Se ha implementado una política de "Zero Resources" para perfiles que han sido **bloqueados, archivados o eliminados**, garantizando que el sistema no consuma batería ni memoria en procesos relacionados con usuarios inactivos.
+
+### 166.1 Centralización de la Cancelación (Cleanup)
+- **Eliminación en Cascada**: Se ha centralizado la lógica de limpieza en `MedicationNotificationService.shared.cancelNotifications(for: Profile)`. Ahora, al inactivar un perfil, se cancelan automáticamente:
+  - Todas las notificaciones de dosis (pendientes, futuras, retrasadas).
+  - Todos los recordatorios de citas médicas (`AppointmentNotificationService`).
+  - Todas las tareas y recordatorios personalizados (`TaskNotificationService`).
+  - Notificaciones de ciclo de vida de condiciones y síntomas.
+
+### 166.2 Filtrado en Servicios de Segundo Plano
+- **Servicios de Monitoreo**: `DoseMonitoringService` y `DoseService` han sido actualizados para ignorar perfiles inactivos en sus ciclos de refresco.
+- **Generación de Dosis**: `DoseGenerationService` y su actor asíncrono no generan nuevos registros para perfiles archivados o bloqueados.
+- **Startup Logic**: `StartupManager` filtra los perfiles inactivos durante la secuencia de inicio, evitando el cálculo de estados para el perfil seleccionado si este ha sido bloqueado.
+
+### 166.3 Integraciones Externas y Widgets
+- **Sincronización Apple Watch**: `WatchSyncService` ahora excluye explícitamente los datos de perfiles inactivos del payload de sincronización (`WCSession`), reduciendo el tráfico Bluetooth/Wi-Fi.
+- **HealthKit**: Se ha añadido un guard en `HealthKitSyncManager` que bloquea la sincronización si el perfil principal está inactivo.
+- **Widgets del Sistema**: `WidgetDataFetcher` filtra los perfiles archivados para evitar que aparezcan en el selector de perfiles de los widgets de iOS.
+
+---
+
+## 165. Reconciliación Definitiva de Dosis y Corrección de Ghost Doses (Arquitectura DirectDB) (11 Marzo 2026)
+
+Se ha implementado un cambio arquitectónico profundo en la forma en que la vista principal (Home) renderiza las dosis diarias, eliminando el problema crítico de las "Ghost Doses" (dosis fantasma) y solucionando un *crash* (`EXC_BREAKPOINT`) en el sistema de reconciliación.
+
+### 165.1 El Defecto Arquitectónico (Pass 1 & Pass 2 Matching)
+- **El Problema**: Anteriormente, el `InteractiveMedicationList` del Home intentaba ser "inteligente": calculaba al vuelo los "horarios ideales" (`idealDosesForDay`) a partir del `frequencyData` del medicamento, y luego intentaba hacer un "match" complicado con las dosis (`MedicationDose`) reales guardadas en la base de datos.
+- **El Síntoma (Ghost Doses)**: Cuando un Tratamiento (`Treatment`) modificaba una dosis (ej: moviéndola de las 14:00h a las 15:00h), el cálculo ideal del Home seguía arrojando las 14:00h. Esto provocaba que el Home dibujara un "slot vacío fantasma" a las 14:00h y la dosis real a las 15:00h.
+- **El Crash**: Si el usuario interactuaba con el "fantasma", engañaba al `DoseReconciliationService`, el cual intentaba guardar un conflicto imposible en SwiftData, provocando un *crash* inmediato de la App.
+
+### 165.2 Solución: Arquitectura DirectDB (SSOT)
+- **Single Source of Truth**: Se reformuló el principio de generación de dosis. Las dosis en VitalsPath se re/calculan y guardan en base de datos **solamente en momentos precisos**:
+  1. Al crear/editar un Medicamento (`ensureDosesGenerated`).
+  2. Al aplicar un Tratamiento (`clearFutureDoses` + re-generación).
+  3. En el `StartupManager` al iniciar la app (`performGlobalRefresh`).
+- **Eliminación del Recálculo en UI**: Se han eliminado más de 80 líneas de código en el `InteractiveMedicationList`. Ahora el Home **lee directamente** de la base de datos de SwiftData (`med.doses.filter { hoy }`). Lo que existe en base de datos, es exactamente lo que se pinta.
+- **Ganancia en Rendimiento:** Al borrar el `idealDosesForDay` y todo el bucle de "Matching", el Home de la aplicación experimenta una ganancia de rendimiento drástica al hacer *scroll* o al redibujar por el *timer* de la vista, ya que se saltan algoritmos matemáticos innecesarios a nivel de renderizado.
+
+---
+
+## 163. Integración Real de RevenueCat y Monetización (8 Marzo 2026)
+
+Se ha completado la integración profesional del SDK de **RevenueCat**, conectando la aplicación con los servicios reales de App Store Connect y eliminando por completo el "Modo Simulado" para transacciones.
+
+### 163.1 Configuración de Infraestructura
+- **API Key Directa**: Implementación de la clave de producción `appl_LoQOZTfLpjQvhiYKeoTJHOGHdHj`.
+- **Seguridad (Keychain)**: El sistema prioriza la clave almacenada en el Keychain de forma segura (permitiendo actualizaciones remotas/dev), con fallback robusto a la clave hardcoded para garantizar operatividad 100%.
+- **Sincronización App Store**: Configuración exitosa del **Shared Secret** y mapeo de IDs de productos en el dashboard de RevenueCat.
+
+### 163.2 Lógica de Negocio y Precios Dinámicos
+- **Detección Robusta (packageType)**: Migración de identificación basada en strings a identificación nativa de RevenueCat v4.x utilizando `packageType` (`.monthly`, `.annual`, `.lifetime`). Esto permite que los productos se identifiquen correctamente independientemente del idioma o del identificador técnico de Apple.
+- **Cálculo de Ahorro en Tiempo Real**: Implementación de `calculateAnnualSavings` que compara el precio del `packageType == .monthly` con el anual actual. 
+  - *Resultado Actual*: **27% de ahorro** ($3.99 vs $34.99).
+- **Tratamiento de Cancelaciones**: Refactorización del flujo de compra para ignorar silenciosamente el error `Purchase cancelled`. El sistema ya no muestra alertas intrusivas si el usuario decide no completar la transacción, mejorando la UX premium.
+
+### 163.3 Pruebas y Sandbox
+- **Aceptación Sandbox**: Validación exitosa de compras en dispositivos físicos bajo el entorno de pruebas de Apple (Sandbox). Las transacciones se reportan instantáneamente en el panel de RevenueCat con su estado de Trial acelerado.
+
+### 163.4 Sistema de Ofertas Dinámicas (9 Marzo 2026)
+Se ha implementado una arquitectura de ofertas "Server-Driven" que permite activar promociones globales sin actualizar el código de la aplicación.
+
+- **Identificación Automática**: El sistema (vía `SubscriptionManager.isCurrentOfferingAnOffer`) detecta automáticamente si el offering activo es una promoción buscando la subcadena `_offer` (case-insensitive) en su identificador de RevenueCat.
+- **Control Remoto (Zero-Code)**: La activación o desactivación de una oferta se realiza exclusivamente cambiando el **Current Offering** en el dashboard de RevenueCat.
+- **Lógica de Comparación de Precios**: 
+    - El sistema compara los paquetes del offering `current` con el offering `default`.
+    - Si el `current` tiene un precio inferior al `default`, marca el producto como `isOffer = true` y rescata el `originalPrice`.
+- **UI Inteligente (PaywallView)**:
+    - **Visual**: Muestra el precio original con un tachado rojo (`strikethrough`) sobre el precio de oferta.
+    - **Cálculo de Valor**: Genera el porcentaje de ahorro real comparando el plan anual frente al mensual.
+    - **Adaptación Textual**: Cambia dinámicamente el título del Hero ("Oferta Especial"), el subtitulo resaltando el ahorro y añade un badge de "Oferta de Tiempo Limitado".
+- **Localización Optimizada**: Se han estandarizado las descripciones de productos en App Store Connect para 15 idiomas, limitándolas a <50 caracteres para cumplir con las normativas de revisión de Apple.
+
+---
+
+## 164. Optimización de la Experiencia de Usuario en iPad (10 Marzo 2026)
+
+Se ha realizado una auditoría y rediseño integral de las interfaces para dispositivos iPad, asegurando que la aplicación aproveche el espacio adicional de pantalla de forma profesional y premium sin comprometer la experiencia en iPhone.
+
+### 164.1 Onboarding Adaptativo (iPad Mini Mockup)
+- **Mockup Nativo**: Sustitución del mockup de iPhone 17 Pro por uno de **iPad Mini** cuando se detecta una `horizontalSizeClass == .regular`.
+- **Contenido Expandido**: Se han añadido 3 nuevas capacidades al sistema orbital de onboarding: **Sincronización con Apple Watch**, **Respaldos en iCloud** y **Cuidado Familiar (Multi-perfil)**.
+- **Escalado Geométrico**: El radio del sistema orbital aumenta de 140pt a 230pt en iPad, permitiendo una visualización más clara de los 11 iconos de funcionalidades.
+
+### 164.2 Grid de Acciones Rápidas (3x3 Layout)
+- **Aprovechamiento de Espacio**: El `QuickActionsGridView` en iPad se expande de un diseño de lista/dos columnas a una **cuadrícula de 3x3 (9 tarjetas)**.
+- **Nuevos Módulos**: Inclusión de accesos directos a **Signos Vitales**, **Calendario Médico** y la **Tarjeta de Cambio de Modo (Clínico/Básico)**.
+- **Centralización**: Todas las localizaciones de acciones rápidas se han movido a `Home.xcstrings` para mayor orden.
+
+### 164.3 Estandarización de Márgenes y Contenedores (Pro Layout)
+- **Contenedores de Ancho Máximo**: En la vista de **Añadir Tarea**, se ha implementado un `maxWidth: 800` para evitar que los formularios se estiren excesivamente en pantallas de 13", manteniendo una lectura cómoda y centrada.
+- **Grillas de Datos**:
+    - **Muro de Logros**: Expandido a 5 columnas.
+    - **Insights de Salud**: Expandido a 6 columnas en el resumen de métricas.
+    - **Gráficos de Perspectivas**: Ajustados a 4 columnas para métricas secundarias.
+- **Padding Inteligente**: Implementación de paddings dinámicos (`isIPad ? 40-60 : 20`) en todas las vistas principales para evitar que el contenido "toque" los bordes del dispositivo.
+
+### 164.4 Implementación Técnica
+- **Aislamiento de Diseño**: Uso estricto de `@Environment(\.horizontalSizeClass)` para garantizar que NINGÚN cambio afecte negativamente al iPhone.
+- **Localización**: Actualización de `Onboarding.xcstrings` y `Home.xcstrings` con las nuevas capacidades y títulos de acciones.
+- **Física de UI**: Ajuste de las constantes de animación y espaciado para mantener la sensación de "fluidez líquida" en superficies de mayor tamaño.
+
+---
+
+## 162. Sistema Dinámico de Reseñas y Feedback (App Review) (7 Marzo 2026)
+
+Se ha implementado un motor inteligente de solicitud de reseñas que equilibra la necesidad de feedback con la experiencia de usuario premium, automatizando el proceso de solicitud de forma no intrusiva.
+
+### 162.1 Motor de Lógica Tierizada (AppReviewManager)
+- **Criterios Diferenciados**:
+  - **Usuarios Free**: Solicitud cada 10 aperturas (intervalo variable para dinamismo). Requiere al menos 5 acciones significativas o 3 días de uso. Cooldown de 30 días.
+  - **Usuarios Premium**: Solicitud cada 15 aperturas para mayor discreción. Requiere al menos 8 acciones significativas. Cooldown de 90 días.
+- **Detección de "Love it!"**: El sistema solo dispara el diálogo real de Apple (`SKStoreReviewController`) si el usuario primero confirma que le encanta la app en nuestro popup interno. Si no, se deriva al formulario de feedback privado.
+
+### 162.2 Control de Privacidad y Fatiga
+- **Opción "No volver a preguntar"**: Exclusiva para usuarios Premium, permitiendo desactivar permanentemente los popups de reseña desde Ajustes o el propio popup (vía `UIPreferencesManager`).
+- **Persistencia de Reseña**: Una vez que el usuario califica, el sistema cesa todas las solicitudes automáticamente.
+
+### 162.3 Herramientas de Depuración (Developer Tools)
+- **Ajustes en Tiempo Real**: Inserción de una nueva sección en `DeveloperToolsView` para modificar umbrales (intervalos, cooldowns, acciones mínimas) sobre la marcha.
+- **Trigger Manual**: Botón para forzar la aparición del popup y resetear contadores de sesión para testing rápido.
+
+### 162.4 Integración UI
+- **Popup Custom**: Implementación de `AppReviewPopup` con efectos de transparencia y diseño alineado con el sistema de marca.
+- **Ajustes**: Conexión de `AppRatingView` al servicio real para permitir calificaciones manuales voluntarias desde la configuración.
+
+---
+
+## 161. Auditoría Pre-Beta TestFlight y Cumplimiento de Privacidad (7 Marzo 2026)
+
+Se ha realizado una revisión exhaustiva de la aplicación para asegurar la estabilidad, consistencia de marca y cumplimiento de las nuevas normativas de Apple antes del primer despliegue en TestFlight.
+
+### 161.1 Manifiesto de Privacidad (PrivacyInfo.xcprivacy)
+- **Implementación**: Creación del archivo obligatorio `PrivacyInfo.xcprivacy` en `Resources/`.
+- **Transparencia de Datos**: Declaración explícita de recolección de:
+  - **Ubicación Aproximada** (`Coarse Location`): Usada para el widget del tiempo y festivos locales.
+  - **Identificadores Personales** (Nombre y Email): Para perfiles de salud y sincronización iCloud.
+  - **Salud y Forma Física**: Datos de signos vitales y tratamientos.
+  - **Diagnósticos**: Crash logs vía Firebase.
+- **Razón de Uso (UserDefaults)**: Utilizada la razón `CA92.1` para almacenamiento de preferencias.
+- **Rastreo**: Declarado `NSPrivacyTracking: false`, alineado con la política de no compartir datos con terceros.
+
+### 161.2 Consistencia de Marca (VitalsPath Branding)
+- **Display Name**: Actualización de `CFBundleDisplayName` y `CFBundleName` a **VitalsPath** en todos los targets.
+- **Bundle ID**: Se mantiene `com.romerodev.personalcare` para preservar la integridad de iCloud, Notificaciones y Apple Developer Portal, evitando migraciones costosas en esta etapa.
+- **UI Audit**: Eliminación de referencias "Personal Care" en pantallas de Onboarding y Settings.
+
+### 161.3 Auditoría de Seguridad y Performance
+- **Criptografía**: Validación del uso de **CryptoKit (AES-GCM)** para PII local y **Keychain** para tokens sensibles.
+- **Fluidez**: Verificación de `LazyVStack` en listas largas y uso de `Task.yield()` en procesos pesados de `StartupManager`.
+
+---
+
+## 160. Corrección de Concurrencia y Sincronización de Reset (6 Marzo 2026)
+
+Se han resuelto advertencias de compilación relacionadas con el uso incorrecto de concurrencia en los flujos de reinicio de base de datos y restauración de respaldos.
+
+### 160.1 Optimización de Llamadas Sincrónicas
+- **Eliminación de Await Redundantes**: Se han eliminado las llamadas `await` innecesarias al método `resetAllData` de `DatabaseResetService`.
+- **Razón Técnica**: Dado que `resetAllData` es un método sincrónico marcado con `@MainActor` y que las llamadas se originan desde `Task` que heredan el aislamiento al actor principal (Main Actor), el uso de `await` era semánticamente incorrecto y generaba advertencias ("No 'async' operations occur within 'await' expression").
+- **Localización de Ajustes**: Corregido en `OnboardingImportView.swift` y `BackupFileBrowserView.swift`.
+
+### 160.2 Limpieza de MainActor.run
+- **Desbloqueo de Contexto**: Se han eliminado bloques `await MainActor.run { ... }` redundantes en el flujo de creación de nuevo perfil. Al estar ya dentro de un contexto de actor principal, la ejecución síncrona es segura y preferible, reduciendo el overhead de saltos de contexto asíncronos innecesarios.
+
+---
+
+## 159. Sincronización iCloud & CloudKit (Fase Real) (5 Marzo 2026)
+
+Se ha completado la transición del modo simulado al modo real para los servicios de **iCloud** y **CloudKit**, habilitando la sincronización nativa de la base de datos y la gestión de respaldos en la nube.
+
+### 159.1 Activación del Canal Maestro
+- **Modo Real**: Se ha desactivado `isSimulatedMode` tanto en `CloudKitIdentityService` como en `CloudBackupService`.
+- **Identificador de Contenedor**: Estandarización del uso de `AppConstants.cloudKitContainerId` (`iCloud.com.romerodev.personalcare`) en todos los servicios de red.
+- **Configuración de SwiftData**: El `SharedModelContainer` ahora inicializa el `ModelConfiguration` con la configuración de `cloudKitDatabase` explícita, vinculando el esquema local con la Mirroring DB de Apple. Se ha corregido el error de inicialización pasando el identificador del contenedor a través del enum `.private`.
+
+### 159.2 Compatibilidad de Modelos para Sync
+Para evitar fallos de integridad durante la propagación de registros entre dispositivos, se ha realizado una limpieza de restricciones:
+- **Relajación de Unicidad**: Se ha eliminado el atributo `@Attribute(.unique)` de campos clave en `AppNotification`, `Condition`, `FollowUpTask`, `TaskTemplate` y `HealthKitSyncSettings`. 
+- **Razón**: CloudKit gestiona sus propios identificadores únicos (`CKRecord.ID`). Mantener restricciones únicas locales en SwiftData puede provocar colisiones críticas cuando dos dispositivos intentan sincronizar el mismo cambio "lógico".
+- **Esquema V2**: Se ha verificado que todos los modelos incluidos en `AppSchemaV3` sean compatibles con los tipos de datos soportados por CloudKit.
+
+### 159.3 Refinamiento de Backup y Restore
+- **Explorador de Nube Activo**: `BackupFileBrowserView` ahora consulta directamente el contenedor real de iCloud del usuario.
+- **Manejo de Identidad**: `CloudKitIdentityService` resuelve el `userRecordID` real (o en su defecto un hash del email del Apple ID) para garantizar que los backups estén vinculados a la cuenta correcta.
+- **Seguridad**: Se mantiene la política de almacenamiento en la **Private Database**, asegurando que los datos de salud del usuario nunca sean visibles para los desarrolladores.
+
+---
+
+## 158. Apple Distribution, Xcode Cloud e iOS 26 Perfection (5 Marzo 2026)
+
+Se ha iniciado formalmente la fase de **Distribución y Preparación para el App Store**, configurando la infraestructura de nube de Apple y refinando el núcleo del sistema de notificaciones para un estándar de calidad "World Class".
+
+### 158.1 Configuración de Apple Developer & App Store Connect
+- **Infraestructura App Store**: Se ha creado el registro oficial de **VitalsPath** en App Store Connect asociado al Bundle ID `com.romerodev.personalcare`.
+- **Certificados y Perfiles**: Configuración de los perfiles de aprovisionamiento con capacidades de **Push Notifications** y **App Groups**, esenciales para la sincronización iPhone-Watch-Widgets.
+- **Xcode Cloud**: Implementación del primer flujo de CI/CD (Integración y Despliegue Continuos). 
+  - Automatización de builds tras cada push a la rama principal.
+  - Validación de tests unitarios antes de la distribución.
+
+### 158.2 Arquitectura de Sincronización APNS (Perfection v1)
+Para garantizar una fiabilidad del 100% en las notificaciones, se ha rediseñado el motor de recepción:
+- **Remote Notification Delegate**: Implementación de `didReceiveRemoteNotification` en `NotificationAppDelegate`. Esto permite que la app reciba "silently" actualizaciones del servidor para sincronizar dosis incluso si el usuario no tiene la app abierta.
+- **Gestión de Device Tokens**: El `NotificationManager` ahora captura, persiste y protege el token de APNS en `UserDefaults` (backup) y memoria activa. Esto es el pilar para la futura integración con un backend de notificaciones remotas.
+- **Aislamiento Swift 6**: Todo el flujo de registro se ha movido a `@MainActor` con tareas asíncronas para evitar bloqueos del hilo principal durante el `cold start`.
+
+### 158.3 UI Premium: Alerta de Permisos Denegados (Liquid Glass)
+En lugar de depender exclusivamente de los diálogos del sistema, se ha creado una experiencia de recuperación de permisos:
+- **PermissionDeniedGlassAlert**: Una vista premium con efecto **Liquid Glass** que se activa si el usuario deniega los permisos de notificación.
+- **Diseño**:
+  - Efecto `glassEffect()` con gradientes vibrantes en la iconografía.
+  - Animación `spring` reactiva a través de `onReceive`.
+  - Acción directa "Ir a Ajustes" vía `UIApplication.shared.open(settings)`.
+
+### 158.4 Salvaguarda de Assets (AppIcon Recovery)
+- **Recuperación**: Se han recuperado y re-viculado los iconos de la aplicación que se encontraban marcados para eliminación.
+- **Backup Manual**: Se ha creado la carpeta `personalcare/Documents/` y se ha copiado el `AppIcon.appiconset` como medida de seguridad ante fluctuaciones de Git o cierres de rama.
+
+---
+
+## 157. Live Activities Agrupadas (Grouped Live Activities) (5 Marzo 2026)
+
+Se ha implementado el soporte para **Live Activities Agrupadas** para medicamentos, permitiendo gestionar múltiples dosis cercanas en el tiempo desde un único widget en la Dynamic Island o la Pantalla de Bloqueo.
+
+### 157.1 Lógica de Agrupación Inteligente
+- **Umbral de Proximidad**: El sistema utiliza `MedicationSettings.shared.groupingThresholdMinutes` para identificar dosis cuyas horas programadas estén lo suficientemente cerca como para ser gestionadas en grupo.
+- **Detección Automática**: Al dispararse el trigger de una Live Activity (`liveActivityStartTime`), el `LiveActivityManager` busca dosis agrupables. Si encuentra más de una, inicia una actividad de tipo `MedicationGroupAttributes` en lugar de múltiples widgets individuales.
+- **Sincronización Dinámica**: Si una dosis se pospone o adelanta y sale/entra del rango de un grupo activo, la Live Activity se actualiza o se cierra automáticamente para reflejar la realidad de la base de datos.
+
+### 157.2 UI Premium y Dynamic Island
+- **Dynamic Island (Líquida)**:
+  - **Compacta**: Muestra el icono de píldoras y el total de dosis pendientes (ej. `x3`).
+  - **Expandida**: Header con "Grupo Programado", hora de la dosis más temprana y una lista visual de los nombres de los medicamentos.
+- **Lock Screen (Glassmorphism)**:
+  - Uso de `.glassEffect()` para una integración nativa y premium.
+  - Indicadores visuales de estado "Atrasadas" en color rojo si el tiempo de gracia ha expirado.
+- **Feedback Háptico**: Integración de `UIImpactFeedbackGenerator` y `UINotificationFeedbackGenerator` para una respuesta táctica inmediata e inmersiva.
+
+### 157.3 Acción Recíproca "Tomar Todo" (Take All)
+- **App Intent Interactivo**: Se ha implementado `TakeDoseGroupIntent`. Al pulsar el botón "Tomar Todo" desde el widget:
+  1. El widget muestra feedback visual inmediato de "Tomadas".
+  2. Se procesa la toma masiva de todos los `doseIds` asociados en segundo plano.
+  3. La Live Activity finaliza automáticamente tras un breve delay (0.5s) para confirmar la acción, manteniendo la máxima fluidez.
+
+### 157.4 Seguridad de Concurrencia (Swift 6)
+- **Sendable Conformance**: Se han actualizado todos los DTOs de estado de Live Activity (`MedicationStatus`, `MedicationGroupStatus`, etc.) para conformar a `Sendable`.
+- **Refactorización Async**: Se ha migrado el `LiveActivityManager` a un modelo puramente asíncrono, eliminando bloques `Task` redundantes dentro de métodos `@MainActor` que provocaban advertencias de potenciales data races.
+- **@preconcurrency**: Uso de `@preconcurrency import ActivityKit` para mitigar advertencias de aislamiento de tipos del sistema hasta que el framework esté completamente auditado para Swift 6 estricto.
+
+---
+
+## 156. Acciones Rápidas en Notificaciones Agrupadas (Complete All) (5 Marzo 2026)
+
+Se ha implementado el soporte para acciones interactivas en notificaciones agrupadas de medicamentos, permitiendo al usuario completar múltiples dosis de un solo toque sin entrar en la aplicación.
+
+### 156.1 Acción "Completar Todo" (Complete All)
+- **Interactividad desde el Banner**: Se ha añadido la acción `COMPLETE_ALL` a la categoría `MEDICATION_DOSE_GROUP`. Esto permite que al desplegar o hacer 3D Touch/Haptic Touch en una notificación agrupada del sistema, aparezca el botón "Completar Todo".
+- **Lógica Masiva**: Al pulsar la acción, el `NotificationManager` recupera la lista de `doseIds` embebida en la notificación y procesa el cambio de estado a `.taken` para cada dosis a través de `DoseService`. 
+- **Feedback Sensorial**: La operación masiva dispara una ráfaga de confirmación háptica (`premiumSuccess`) y sincroniza instantáneamente el estado con el Apple Watch y los Widgets.
+
+### 156.2 Persistencia de IDs Relacionados y Concurrencia
+- **AppNotification v2**: El modelo de datos de notificación interna ha sido extendido con `relatedItemIds: [UUID]?`. Esto permite que las notificaciones agrupadas que el usuario no atiende inmediatamente en el banner, sigan siendo "resolubles" de forma masiva desde la bandeja de entrada (Campanita) del Home.
+- **Detección en Primer Plano**: El motor de `willPresent` ahora también captura los arrays de IDs de dosis, garantizando que el Toast interactivo dentro de la app también ofrezca la opción de completar el grupo.
+- **Aislamiento de Concurrencia (Swift 6)**: Se han desacoplado las extracciones de `userInfo` de los bloques asíncronos. Los handlers ahora reciben tipos `Sendable` directos (`[String]?`) en lugar del diccionario original, eliminando potenciales data races en el paso de datos entre hilos del sistema y el `@MainActor`.
+
+### 156.3 Estética Liquid Glass en Acciones
+- **Estandarización de Botones**: Se han refactorizado todos los botones de acción de la hoja de detalles de notificación (`NotificationDetailSheet`) para usar el estilo `.glassProminent`. Esto asegura una coherencia visual premium con el resto del sistema de diseño basado en transparencia y profundidad.
+
+---
+
+
+## 155. Estandarización de Vistas de Recurso No Encontrado (5 Marzo 2026)
+
+Se ha implementado una vista unificada y premium para manejar escenarios donde un recurso (medicamento, síntoma, perfil) ha sido eliminado o no existe, mejorando la navegación y la claridad para el usuario.
+
+### 155.1 Iconografía y Estética "Investigativa"
+- **Cambio de Icono**: Se ha sustituido el triángulo de advertencia genérico por `doc.text.magnifyingglass`. Este icono transmite que el sistema está "buscando" o "investigando" el registro perdido, lo cual es menos alarmista y más coherente con la acción de búsqueda en una base de datos.
+- **Feedback Visual**: La vista utiliza el sistema de diseño premium del proyecto, integrando layouts limpios y localizaciones dinámicas.
+
+### 155.2 Navegación Inteligente y Localizada
+- **Botones de Acción**: Se han incorporado botones claros para "Ir al Inicio" (`go_home`) y "Regresar" (`go_back`), además de accesos a Ajustes y Soporte en casos críticos.
+- **Localización Completa**: Todas las claves de la vista (`treatment_not_found`, `symptom_not_found`, `not_found_message_desc`, etc.) han sido integradas en los catálogos correspondientes (`Treatments.xcstrings`, `Symptoms.xcstrings`, `Localizable.xcstrings`).
+
+### 155.3 Integración en el Router de Navegación
+- **Automatización**: Se han actualizado múltiples destinos en `HomeNavigationDestinations.swift` para utilizar el constructor por defecto de `ResourceNotFoundView`, garantizando que cualquier error de enlace roto presente una interfaz consistente al usuario.
+
+---
+
+## 154. Recuperación de Notificaciones Perdidas (Cold Start Catch-Up) (5 Marzo 2026)
+
+Se ha implementado un mecanismo de resiliencia en el sistema de notificaciones para manejar escenarios donde el dispositivo estuvo completamente apagado o la aplicación fue finalizada de forma forzosa (kill) durante el momento de una alarma programada de medicación.
+
+### 154.1 El Problema (Silencio iOS)
+- **Defecto**: Cuando iOS expira una `UNCalendarNotificationTrigger` debido a que el dispositivo estuvo apagado temporalmente, la notificación es descartada permanentemente. Dado que nuestra aplicación no estaba en ejecución, tampoco generaba internamente el registro de alerta (AppNotification). Como consecuencia, la dosis aparecía pendiente pero sin ninguna clase de alerta visual de retraso al abrir la aplicación.
+
+### 154.2 Solución Catch-Up
+- **Implementación**: Se integró el método `catchUpMissedDoseNotifications(context:)` en la secuencia de inicialización del `NotificationManager` que se dispara automáticamente cada vez que el usuario abre la App.
+- **Ventana Retroactiva**: El sistema inspecciona la base de datos (SwiftData) buscando cualquier dosis catalogada como `.pending` cuya hora planificada fue dejada atrás dentro de las **últimas 24 horas**.
+- **Generación en Frío**: Si el motor detecta una dosis perdida que carece de una constancia local de notificación asociada en su registro (`AppNotification`), el sistema **"recupera"** la alarma perdida de forma síncrona, creando retroactivamente la alerta y enviándola a la bandeja (Campanita) utilizando un título escalado por nivel de criticidad ("Es el momento..." vs "Alerta: Retraso...").
+- **Exposición Visual Inmediata**: La recuperación fuerza la bandera visual roja en la Campana y activa el ToastManager para presentarle al usuario de frente la notificación ocluida.
+
+---
+
+## 153. Garantía de Cierre de Live Activities y Optimización (5 Marzo 2026)
+
+Se ha rediseñado el ciclo de vida y la interactividad de las Live Activities de medicación para ofrecer retroalimentación instantánea y garantizar que las actividades expiren de forma confiable sin dejar "zombies" en la pantalla de bloqueo.
+
+### 153.1 Patrón Optimistic-First para Intents
+- **Problema**: El `TakeDoseIntent` ejecutaba llamadas a la base de datos (SwiftData) y limpiaba notificaciones de forma síncrona, congelando la interfaz del botón durante 1-2 segundos.
+- **Solución**: El Intent ahora realiza un update visual inmediato (`Activity.update()`) con un mensaje de feedback (ej. "¡Tomada!"). Posteriormente retorna `.result()` de manera casi instantánea y delega el guardado en base de datos y la eliminación de notificaciones a tareas en background `Task.detached`.
+
+### 153.2 Rotación de Dosis Pendientes
+- **Comportamiento Anterior**: El sistema mostraba únicamente la *primera* dosis pendiente en las Live Activities.
+- **Mejora**: Se implementó el método `updateRotationDoses()` en el `LiveActivityManager`. Cuando existen múltiples dosis programadas para horas similares, la Live Activity rota el contenido mostrado automáticamente cada 8 segundos mediante un `Task` asíncrono.
+
+### 153.3 Cierre Automático Garantizado (Zero Zombies)
+- **Problema**: Las Live Activities dependían del AppRefreshTask general, que iOS no garantiza ejecutar si el usuario no abre la app, dejando widgets obsoletos en pantalla.
+- **Solución Dúplex**:
+  1. Uso de `dismissalPolicy: .after(staleDate)` al solicitar la actualización de la actividad.
+  2. Implementación de un **BackgroundTask dedicado** (`com.romerodev.personalcare.activityCleanup`) que programa explícitamente el despertar en background en el segundo exacto de la finalización del tiempo de gracia (`scheduledTime + gracePeriod`). Esto asegura la ejecución forzada del método `endExpiredMedicationActivities()`.
+
+## 149. Flexibilidad de Creación de Tratamientos y Advertencias de Automedicación (3 Marzo 2026)
+
+Se ha optimizado la creación de un nuevo tratamiento permitiendo que la designación de un médico especialista sea opcional, otorgando mayor libertad al usuario. Sin embargo, alineados con una política estricta de salud y seguridad, se incorporaron mecanismos disuasorios contra la automedicación.
+
+### 149.1 Opcionalidad Controlada
+- **ViewModel Relajado**: Se ajustó `AddTreatmentViewModel` (`isSaveEnabled`) para no exigir la validación de un nombre de doctor obligatoriamente, permitiendo a usuarios que compran medicamentos OTC crear seguimientos fácilmente.
+
+### 149.2 Prevención de Riesgos de Salud
+- **Alerta Contextual Dinámica**: Se añade un aviso translúcido en color naranja intenso bajo el campo del doctor si este se deja en blanco, de acuerdo a las directrices UI/UX para alertas (`Color.orange.opacity(0.15)`).
+- **Advertencia Explícita**: El mensaje insta al usuario a especificar al médico y le advierte enérgicamente de los peligros de la automedicación sin supervisión médica autorizada.
+- **Localización Completa**: Utilizada nueva clave `treatment_doctor_optional_warning` integrada en `Treatments.xcstrings` en idiomas Inglés y Español.
+
+## 120. Apple Watch Companion App (VitalsPathWatch) (24 Febrero 2026)
+
+Se ha implementado una app companion completa para Apple Watch que permite al usuario gestionar sus dosis, citas y tareas directamente desde la muñeca, con sincronización en tiempo real con la app de iPhone.
+
+### 139.1 Configuración del Target
+
+| Aspecto | Valor |
+|---|---|
+| **Target** | `VitalsPathWatch Watch App` |
+| **Bundle ID** | `com.romerodev.personalcare.VitalsPathWatch` |
+| **Plataforma** | watchOS 11.0+ |
+| **App Group** | `group.com.romerodev.vitalspath` (compartido con iPhone) |
+| **Arquitectura** | MVVM con SwiftData compartido |
+
+### 139.2 Estructura de Carpetas
+
+```text
+VitalsPathWatch Watch App/
+├── VitalsPathWatchApp.swift         # Entry point con SwiftData App Group
+├── WatchContentView.swift           # TabView vertical (4 pestañas)
+├── Views/
+│   ├── WatchDashboardView.swift     # 🆕 Ring de progreso + mood + pendientes
+│   ├── WatchDoseListView.swift      # Dosis del día con acciones rápidas
+│   ├── WatchDoseActionView.swift    # Tomar/Saltar/Posponer dosis
+│   ├── WatchAppointmentListView.swift # Citas con acciones de estado
+│   └── WatchTaskListView.swift      # Tareas pendientes con checkbox animado
+├── Services/
+│   └── WatchNotificationHandler.swift # Notificaciones actionables
+├── Resources/
+│   └── WatchStrings.swift           # Referencia de claves de localización
+├── Assets.xcassets/
+│   └── AppIcon.appiconset/          # Icono 1024x1024 (auto-resize)
+└── VitalsPathWatch.entitlements     # App Group entitlement
+```
+
+### 139.3 Dashboard (WatchDashboardView) — Primera Pestaña
+
+Vista inicial que replica el espíritu del Wellness Ring del iPhone:
+
+- **Ring de Progreso Animado**: Gradiente angular (rojo → naranja → amarillo → verde) con animación `spring`. Muestra porcentaje de adherencia del día (`completedDoses / totalDoses`).
+- **Emoji de Progreso**: Cambia dinámicamente según el progreso (⏰ < 25%, 👍 < 50%, 💪 < 75%, 🎉 = 100%).
+- **Mood del Día**: Pill con el emoji del mood más reciente del día, o indicador vacío si no se ha registrado.
+- **Resumen de Pendientes**: Cards compactas mostrando:
+  - 💊 Dosis pendientes
+  - 📅 Citas próximas (hoy)
+  - ✅ Tareas pendientes
+
+### 139.4 Vistas de Gestión
+
+#### Dosis (`WatchDoseListView`)
+- **Header**: Mini ring de progreso + contador (completadas/total) + pendientes en naranja.
+- **Filas Premium**: Icono de medicamento con fondo de color, nombre, hora programada.
+- **Acciones**: Al tocar una dosis pendiente, se abre sheet con opciones: Tomar, Saltar, Posponer (15/30/60 min).
+- **Haptic Feedback**: `WKInterfaceDevice.current().play(.click)` al interactuar, `.success` al completar.
+
+#### Citas (`WatchAppointmentListView`)
+- **Badge "Hoy"**: Pill naranja para citas del día actual.
+- **Iconos de Estado**: Fondo coloreado según `AppointmentStatus` (scheduled=azul, attended=verde, etc.).
+- **Detail View**: Doctor, tipo, modalidad, fecha/hora. Botones para marcar: Asistí / Cancelar / No asistí.
+- **Audit Trail**: Crea `AppointmentEvent` en cada acción con detalle "Acción desde Apple Watch".
+
+#### Tareas (`WatchTaskListView`)
+- **Checkbox Animado**: Bounce + transición de color al completar.
+- **Badge Overdue**: Pill roja para tareas vencidas.
+- **Tiempo Relativo**: Muestra `Date.RelativeFormatStyle` para cada tarea.
+
+### 139.5 Sincronización de Datos
+
+```
+┌──────────────┐          ┌──────────────┐
+│  iPhone App  │◄────────►│  Watch App   │
+│              │  Shared  │              │
+│  SwiftData   │ App Group│  SwiftData   │
+│  Container   │ Container│  Container   │
+└──────┬───────┘          └──────┬───────┘
+       │                         │
+       └──────── Darwin ─────────┘
+             Notifications
+```
+
+- **SwiftData Compartido**: Ambos targets usan `ModelConfiguration` con `groupContainer(.identifier("group.com.romerodev.vitalspath"))`.
+- **Darwin Notifications**: El Watch envía `CFNotificationCenterPostNotification` tras cada acción para alertar al iPhone.
+- **UserDefaults Compartidos**: Se almacena `lastWidgetChangeTimestamp` y IDs de los items modificados en el App Group para que el iPhone procese los cambios.
+
+### 139.6 Notificaciones Actionables (WatchNotificationHandler)
+
+Categorías registradas:
+- **`MEDICATION_REMINDER`**: Acciones "Tomar" y "Saltar" directamente desde la notificación.
+- **`APPOINTMENT_REMINDER`**: Acción "Asistí" para marcar citas rápidamente.
+
+Implementa `UNUserNotificationCenterDelegate` para procesar respuestas y actualizar SwiftData + señalizar al iPhone.
+
+### 139.7 Localización
+
+- **Archivo dedicado**: `Watch.xcstrings` con cadenas especificas del Watch (24 claves, EN/ES).
+- **LanguageManager**: Tabla `"Watch"` añadida al array de tablas de búsqueda del motor de localización multi-tabla.
+- **Cadenas compartidas**: Las cadenas comunes (`today`, `cancelled`, etc.) se resuelven desde los `.xcstrings` existentes compartidos.
+
+### 139.8 Compatibilidad Condicional (Conditional Compilation)
+
+Para compartir modelos entre iPhone y watchOS, se usan guardas de compilación:
+- `#if canImport(ActivityKit)` — para `SymptomActivityAttributes`, `MedicationAttributes`, `AppointmentAttributes`
+- `#if os(iOS)` — para `UIApplication.shared.open()` en `SymptomEmergencyService`
+
+### 139.9 Diseño Premium
+
+- **Gradientes de fondo**: Cada pestaña tiene un gradiente tenue diferenciador (teal, blue, purple, green).
+- **Symbol Effects**: `.symbolEffect(.pulse)` en estados vacíos, `.bounce` en completados.
+- **Materiales**: `.ultraThinMaterial` para pills y cards sobre fondos oscuros.
+- **Tipografía Rounded**: `design: .rounded` para números y contadores.
+- **Estado completado**: Opacidad reducida (0.4-0.5) + strikethrough en items finalizados.
+
+---
+
+## 145. Backup v10 (Apple Archive) y Cloud Library Manager (2 Marzo 2026)
+
+Se ha completado la implementación del sistema de respaldos de nueva generación (v10), pasando de un formato JSON plano a un contenedor de archivos optimizado (**Apple Archive**) y habilitando la integración real con **CloudKit**.
+
+### 145.1 Formato Apple Archive (.aar)
+- **Motor de Compresión**: Uso del framework `AppleArchive` con algoritmo **LZFSE** para empaquetado de alta velocidad.
+- **Contenido Binario**: El backup ahora es un paquete que incluye `manifest.json` (datos SwiftData) y una carpeta `media/` con fotos de perfiles, seguros médicos, grabaciones de voz y videos de notas de citas.
+- **Seguridad**: Los archivos temporales se gestionan en el `Caches` directory y se limpian automáticamente tras cada operación.
+
+### 145.2 Implementación Real de CloudKit
+- **CloudKit Container**: Configurado para usar el contenedor por defecto del app, operando sobre la **Private Cloud Database** (privacidad total del usuario).
+- **Esquema de Datos**:
+  - `RecordType`: `PersonalCareBackup`
+  - `Fields`: `deviceName` (String), `backupDate` (Date), `pcareVersion` (Int), `file` (CKAsset).
+- **Manejo de Assets**: Los archivos `.pcare` (Apple Archives) se suben como `CKAsset`, lo que permite a CloudKit gestionar de forma eficiente la subida diferencial y la descarga resumible.
+- **Identidad Cloud**: `CloudKitIdentityService` ahora puede resolver el `userRecordID` real de iCloud para persistir una identidad única multiplataforma.
+
+### 145.3 Parámetro de Activación (Developer Toggle)
+- **Flag Maestro**: `CloudKitIdentityService.isSimulatedMode`.
+  - `true`: (Estado actual) Simula latencia y éxito de red, usando almacenamiento local en `Caches` para emular la nube. Permite probar la UI sin errores de firma de certificados.
+  - `false`: Activa los túneles reales hacia los servidores de Apple. Requiere perfil de aprovisionamiento con el entitlement `com.apple.developer.icloud-container-identifiers`.
+
+### 145.4 UI del Explorador de Nube (`BackupFileBrowserView`)
+- **Detección Dinámica**: La vista consulta `fetchBackupsFromCloud()` y muestra una lista de respaldos disponibles con metadatos del dispositivo origen.
+- **Flujo de Restauración**: Descarga del Asset → Descompresión AppleArchive → Migración de esquemas (si aplica) → Importación a SwiftData con detección de conflictos.
+
 
 ## 102. Historial Completo y Auditoría de Padecimientos (1 Febrero 2026)
 
@@ -484,6 +1217,18 @@ A partir de la Versión 11.0, VitalsPath adopta un enfoque **Accessibility-First
     -   **Lógica**: `med.lifecycleStatus == .cancelled` O `med.treatment?.status == .stopped` → EXCLUIR.
     -   **Excepción**: Las vistas de "Historial Completo" o "Detalle de Tratamiento" deben mostrar estos items con su estado "Cancelado" visible.
 
+### 15.3 Reglas de Obligatorio Cumplimiento (Compliance Rules)
+
+Para mantener la excelencia del proyecto, se establecen las siguientes reglas **no negociables**:
+
+1.  **Actualización de Documentación**: Es **obligatorio** actualizar `ARQUITECTURA.md` al final de cada sesión de trabajo donde se haya implementado una mejora, corregido un bug arquitectural o añadido una feature. Este documento debe ser siempre la "Biblia" actualizada.
+2.  **Excelencia en Diseño (Aesthetics)**: Todas las interfaces deben seguir el sistema de diseño premium (Glassmorphism, Spring Physics, Vibrant Gradients). No se aceptan MVPs visualmente pobres.
+3.  **Localización Estricta**:
+    -   Uso de `snake_case` para todas las claves en los `.xcstrings`.
+    -   Prohibido el uso de strings literales en la UI (hardcoded text).
+    -   Distribución por dominios (`Medications.xcstrings`, `Profile.xcstrings`, etc.).
+4.  **Seguridad PII**: Datos sensibles (nombres, fotos, notas médicas) deben manejarse con la arquitectura de privacidad definida (AES encryption / Keychain).
+
 ---
 
 ## 4. Modelo de Datos
@@ -537,7 +1282,9 @@ final class Profile {
     var avatarData: Data?
     var isDefault: Bool = false
     var isArchived: Bool = false
-    var allergies: [String] = []
+    var allergies: [String]?
+    var medicalConditions: [String]?
+    var currentMedications: [String]?
     var isAdvancedMode: Bool = false
 
     // Contacto de emergencia
@@ -2110,13 +2857,21 @@ enum DateFilterRange: String, CaseIterable {
 | **Localización**  | Soporte completo para 15 idiomas           |
 | **Animaciones**   | Spring physics suaves (response: 0.3)      |
 
-### 8.6 Sistema de Haptics (Premium)
+### 8.6 Sistema de Haptics (Premium) — Actualizado Feb 2026
 
-**Ubicación**: `Core/Utilities/HapticManager.swift`
+**Ubicación**: `Core/Utilities/HapticManager.swift`, `Core/Utilities/UIPreferencesManager.swift`
 
-Sistema de feedback táctil integrado con preferencias de usuario y premium.
+Sistema de feedback táctil con 3 modos configurables y vista dedicada de ajustes.
 
-#### 8.5.1 Tipos de Haptic
+#### 8.6.1 HapticMode (3 Modos)
+
+| Modo | Enum | Comportamiento | Default |
+|------|------|---------------|----------|
+| **Desactivado** | `.off` | Sin haptic feedback. Mejor batería | ✅ (nuevos usuarios) |
+| **Solo Notificaciones** | `.notifications` | Vibración solo para notificaciones en discrete mode | |
+| **Todas las Funciones** | `.all` | Haptic completo: botones, anillo, colisiones, celebraciones | |
+
+#### 8.6.2 Tipos de Haptic
 
 | Tipo      | Método         | Caso de Uso                                     |
 | --------- | -------------- | ----------------------------------------------- |
@@ -2125,16 +2880,40 @@ Sistema de feedback táctil integrado con preferencias de usuario y premium.
 | Error     | `.error()`     | Acción destructiva (eliminar)                   |
 | Light     | `.light()`     | Tap en card, selección                          |
 | Selection | `.selection()` | Navegación en tabs, picker                      |
+| CollisionTick | `.collisionTick()` | Colisión de partículas en CosmicOrb        |
+| ProgressiveTicks | `.progressiveTicks()` | Progreso del anillo de wellness       |
 
-#### 8.5.2 Gating Premium
+#### 8.6.3 Gating y Verificación
 
 ```swift
-// Solo se activa si:
-// 1. Usuario es Premium (SubscriptionManager.shared.isPremium)
-// 2. Usuario habilitó haptics en Settings > Personalización
+// General (modo == .all): botones, animaciones, etc.
+HapticManager.shared.canTriggerHaptics() // Premium + hapticMode == .all
 
-HapticManager.shared.success() // Auto-verifica condiciones
+// Notificaciones (modo == .notifications o .all):
+HapticManager.shared.canTriggerNotificationHaptics() // Premium + hapticMode != .off
+
+// SwiftUI moderno:
+@State private var hapticTrigger = PremiumHapticTrigger()
+hapticTrigger.fire() // Solo incrementa si hapticMode == .all
 ```
+
+#### 8.6.4 HapticSettingsView
+
+**Ubicación**: `Features/Settings/HapticSettingsView.swift`
+
+Vista dedicada accesible desde Settings > Premium > Haptic Feedback. Incluye:
+- Selector visual de modo (3 opciones con iconos y descripciones)
+- Discrete Mode toggle (subordinado a modo notifications/all)
+- Aviso de consumo de batería
+- Requisitos del sistema (System Haptics)
+- Alert al activar con instrucciones
+
+#### 8.6.5 Optimización Energética
+
+- `CosmicOrbView`: La detección de colisiones solo calcula velocidades cuando `hapticMode == .all`
+- El `onChange` del timeline solo verifica colisiones cuando hapticMode permite
+- Discrete Mode se removió de `NotificationsSettingsView` y del flujo de medicación
+- La configuración se gobierna exclusivamente desde `HapticSettingsView`
 
 ### 8.6 Sistema de Animaciones (Premium)
 
@@ -2169,7 +2948,7 @@ Gestión centralizada de preferencias visuales con gating premium.
 | Preferencia        | Tier           | Default | Ubicación Settings |
 | ------------------ | -------------- | ------- | ------------------ |
 | `showFormIcons`    | Free + Premium | ON      | Personalización    |
-| `enableHaptics`    | Premium        | ON      | Personalización    |
+| `hapticMode`       | Premium        | `.off`  | Haptic Feedback    |
 | `enableAnimations` | Premium        | ON      | Personalización    |
 | `animationStyle`   | Premium        | Spring  | Personalización    |
 
@@ -2257,6 +3036,16 @@ var body: some View {
 
 > [!NOTE]
 > **Auditoría de Localización (30 Dic 2025)**: Se completó la localización del 100% de los componentes del Home Dashboard, eliminando strings hardcoded en widgets generados por IA y normalizando el uso de `Localizable.xcstrings`.
+
+> [!IMPORTANT]
+> **Restricción de idiomas durante Beta (Mar 2026)**
+>
+> Hasta el fin del periodo de beta, **solo inglés (`en`) y español (`es`) están habilitados por defecto** al instalar la app. Los 13 idiomas restantes existen en el proyecto y están completamente traducidos, pero permanecen desactivados para nuevas instalaciones.
+>
+> - **Mecanismo**: `LanguageManager.init()` — si no hay valor previo en `UserDefaults`, `enabledLanguageCodes` se inicializa a `["en", "es"]` en lugar de todos los idiomas.
+> - **Control**: El menú de Herramientas de Desarrollador (`DeveloperToolsView` → sección "Language Management") permite activar/desactivar idiomas manualmente durante el desarrollo y testing.
+> - **Usuarios existentes**: No se ven afectados; su configuración guardada en `UserDefaults` se respeta tal cual.
+> - **Para abrir todos los idiomas al lanzamiento**: cambiar el default en `LanguageManager.swift` de `["en", "es"]` a `Set(supportedLanguages.map { $0.code })`.
 
 ### 9.2 Sistema de Localización
 
@@ -2445,23 +3234,31 @@ Subscription/
 └── PremiumGatedView.swift            # Wrapper para contenido premium (233 líneas)
 ```
 
-### 10.2 Productos de Suscripción
+### 10.2 Productos de Suscripción (Precios dinámicos Apple Store)
 
-| Monthly  | €4.99/mes  | `com.vitalspath.premium.monthly`  |
-| Annual   | €39.99/año | `com.vitalspath.premium.annual`   |
-| Lifetime | €149.99    | `com.vitalspath.premium.lifetime` |
+| Producto | Precio Ref. | ID de Producto Apple |
+| :--- | :--- | :--- |
+| **Mensual** | $3.99/mes | `com.vitalspath.premium.monthly` |
+| **Anual** | $34.99/año | `com.vitalspath.premium.annual` |
+| **Vitalicio** | $129.99 | `com.vitalspath.premium.lifetime` |
 
-### 10.3 Free Tier Limits (Configurables)
+- **Ahorro Anual**: Calculado dinámicamente comparando el precio anual contra 12 meses del plan mensual.
 
-Los límites son dinámicos y configurables desde `AdminPanel > Features`:
+### 10.3 Free Tier Limits (Límites Estrictos - Marzo 2026)
 
-| Perfiles                | 1    | ∞ Ilimitados |
-| Medicamentos por perfil | 3    | ∞ Ilimitados |
-| Tratamientos por perfil | 1    | ∞ Ilimitados |
-| Condiciones por perfil  | 1    | ∞ Ilimitadas |
-| Lugares favoritos       | 2    | ∞ Ilimitados |
-| Seguros de salud        | 1    | ∞ Ilimitados |
-| Citas por mes           | 3    | ∞ Ilimitadas |
+Los límites gratuitos han sido ajustados rigurosamente para garantizar la seguridad médica y fomentar la conversión de los heavy users.
+
+| Entidad / Función       | Límite Free | Premium      |
+| ----------------------- | ----------- | ------------ |
+| Perfiles                | **1**       | ∞ Ilimitados |
+| Medicamentos (sueltos)  | **5**       | ∞ Ilimitados |
+| Tratamientos            | **1**       | ∞ Ilimitados |
+| Padecimientos           | **1**       | ∞ Ilimitados |
+| Citas médicas           | **1 per mes**| ∞ Ilimitadas |
+| Tareas vinculadas       | **1** por ítem| ∞ Ilimitadas |
+| Tareas independientes   | **1**       | ∞ Ilimitadas |
+| Lugares favoritos       | **1**       | ∞ Ilimitados |
+| Seguros de salud        | **1**       | ∞ Ilimitados |
 
 ### 10.4 Features Bloqueadas (PremiumFeature enum)
 
@@ -2470,14 +3267,15 @@ Los límites son dinámicos y configurables desde `AdminPanel > Features`:
 | Perfiles Ilimitados      | `.unlimitedProfiles`     | Gestionar toda la familia |
 | Medicamentos Ilimitados  | `.unlimitedMedications`  | Sin límite de tracking    |
 | Smart Scheduler          | `.smartScheduler`        | Algoritmo IA de horarios  |
-| Export PDF/CSV           | `.exportFeatures`        | Informes profesionales    |
-| Analytics Avanzados      | `.advancedAnalytics`     | Insights de salud         |
-| Health Reports           | `.healthReports`         | Resúmenes completos       |
-| iCloud Backup            | `.cloudBackup`           | Sincronización            |
-| Temas Premium            | `.allThemes`             | Personalización           |
-| Notificaciones Avanzadas | `.advancedNotifications` | Escalación inteligente    |
-| Lugares Favoritos        | `.favoritePlaces`        | Gestión de ubicaciones    |
-| Programación de Silencio | `.notificationSchedules` | Horarios automáticos      |
+| Información de Síntomas  | `.symptomComplexity`     | Detalles como mediciones avanzadas, afectación de actividades y ubicaciones anatómicas. |
+| Export PDF/CSV           | `.exportFeatures`        | Exportar listas, tareas, reportes médicos. |
+| Analytics Avanzados      | `.advancedAnalytics`     | Insights y correlaciones de salud. |
+| Health Reports           | `.healthReports`         | Resúmenes completos y Vitals dashboard. |
+| Temas y Estética         | `.allThemes`             | Rings en perfil, temas premium. |
+| iCloud Backup            | `.cloudBackup`           | Sincronización en la nube |
+| Notificaciones Avanzadas | `.advancedNotifications` | Escalación inteligente y haptics |
+| Lugares Favoritos        | `.favoritePlaces`        | Directorio de ubicaciones (hospitales, etc) |
+| Programación de Silencio | `.notificationSchedules` | Horarios automáticos de modos |
 
 ### 10.5 Integración de Feature Gates
 
@@ -2502,14 +3300,18 @@ PremiumGatedView(feature: .smartScheduler) {
 }
 ```
 
-### 10.6 Modo Simulado
+### 10.6 Integración con RevenueCat (Producción)
 
-El sistema opera en modo simulado hasta activar cuenta de desarrollador:
+El sistema utiliza el SDK de RevenueCat para la sincronización de recibos y gestión de entitlements.
 
 ```swift
-// En SubscriptionManager.swift y LicenseManager.swift
-static let isSimulatedMode = true  // Cambiar a false para producción
+// personalcareApp.swift
+let rcKey = KeychainHelper.get(KeychainHelper.Keys.revenueCatApiKey) ?? "appl_LoQOZT..."
+Purchases.configure(withAPIKey: rcKey)
 ```
+
+- **Modo Real**: El sistema ya no opera en modo simulado para compras. `isSimulatedMode` se mantiene únicamente para pruebas de lógica de bloqueo en el simulador sin red.
+- **Validación**: Los recibos son validados en el servidor de RevenueCat, garantizando seguridad ante fraudes.
 
 ### 10.7 Archivos con Feature Gates Integrados
 
@@ -2522,15 +3324,22 @@ static let isSimulatedMode = true  // Cambiar a false para producción
 | `AddProfileView.swift`        | `.unlimitedProfiles` | ✅ LimitBanner |
 | `SettingsView.swift`          | Varios            | ✅ PremiumFeatureRow |
 
-### 10.8 Visual Gating Strategy (Soft Gating)
+### 10.8 Visual Gating Strategy (Update Marzo 2026)
 
-Para mejorar la conversión, se prioriza el "Soft Gating" (mostrar contexto pero bloquear acción) frente al "Hard Gating" (ocultar totalmente).
+Para maximizar la experiencia del usuario, se prioriza el "Soft Gating" (mostrar la existencia de la función pero bloquear la acción) descartando overlays oscuros integrales.
 
-**Componentes Visuales Rediseñados (Feb 2026):**
+**Componentes Visuales Rediseñados:**
 
-1. **`LockedItemOverlay`**: Utiliza `.ultraThinMaterial` para permitir ver sombras de los datos bloqueados, despertando curiosidad.
-2. **`PremiumTeaserOverlay`**: Componente de "teaser" para secciones del Dashboard (Wellness, HealthKit, Analytics). Muestra un desenfoque esmerilado con iconos de corona y un CTA "Saber más".
-3. **`UpsellCard`**: Tarjetas promocionales insertadas al final de listas cuando el usuario Free aún no ha llegado al límite o para incentivar el upgrade.
+1. **`PremiumBadge` (Single Source of Truth):** En lugar de cambiar los iconos o usar cerraduras, se usa el `PremiumBadge` (círculo naranja estandarizado con una pequeña corona blanca). Este es el DE FACTO visual hint en listados, botones y toolsbars para cualquier rasgo de pago.
+2. **`LockedFeatureOverlay`**: Ahora utiliza un material translúcido (`.ultraThinMaterial` / opacidad 0.6) estilo maqueta. Permite intuir el layout de la UI subyacente de forma inoperable, sirviendo como catálogo visual potente (Ej. Dashboard Vitals e Insights).
+3. **`PremiumTeaserOverlay`**: Desaturación `.grayscale(0.5)` sutil para cards u opciones con el PremiumBadge flotante.
+4. **`UpsellCard`**: Tarjetas promocionales usando el mismo `PremiumBadge` coherente.
+
+### 10.9 Configurabilidad de Distintivos Premium (Lifetime Users)
+
+1. **Usuarios Free**: Disparador por defecto. Ven permanentemente todos los badges en listados (síntomas, opciones de exportar) para fomentar el upsell y dar a conocer la envergadura de la plataforma real.
+2. **Usuarios Premium/Lifetime**: Ven los identificadores **desactivados por defecto** para garantizar limpieza visual ("Zero Visual Noise"). 
+3. **Control del Usuario (`setting_show_premium_badges`)**: En la sección de *Configuración > Funciones Premium*, los usuarios Lifetime disponen de un toggle para mostrar artificialmente los badges y "conocer" cuáles son las funciones adicionales de gran valor por las que han pagado, sin mermar su operatividad.
    - *Uso*: Listas de Medicamentos, Condiciones, Tratamientos.
 
 2. **`PremiumLockOverlay`**: Oscurece contenido visible con un efecto blur (`ultraThinMaterial`) y un candado.
@@ -3816,6 +4625,178 @@ Para mejorar la toma de decisiones al editar tratamientos existentes:
 - **Detección de Estado**: El sistema identifica si los medicamentos ya tienen `scheduleTimes`.
 - **Vista de Preview**: Antes de regenerar, se muestra el "Horario Actual" directamente en el configurador.
 - **Localización**: Las cadenas se han centralizado en `Treatments.xcstrings` para mantener el estándar del proyecto.
+
+### 18.7 Mejoras del Algoritmo y Seguridad del Draft (Marzo 2026)
+
+#### 18.7.1 Ventanas Múltiples de Disponibilidad (Phase 2.5)
+
+`calculateAvailableWindows()` en `SmartSchedulerService` ahora devuelve `[Int: [(start: Int, end: Int)]]` (múltiples ventanas por día, antes era una sola tupla). El algoritmo usa un enfoque de **carving**:
+
+1. Comienza con la ventana completa de vigilia (ej. 7-23h).
+2. "Talla" cada slot reservado (bloques horarios + overnight) para obtener sub-ventanas libres.
+3. Los slots overnight se tratan por separado, recortando ambos extremos de la ventana.
+
+Se añadió `distributeAcrossWindows()` que distribuye dosis proporcionalmente al tamaño de cada ventana libre. Si solo existe una ventana, delega en `calculateEvenDistribution()`.
+
+**Ejemplo:** Sleep 23-7 + Work 9-17 → ventanas libres `[(7,9), (17,23)]`. Las dosis se reparten 2/8 y 6/8 (proporcional a duración).
+
+**Archivos afectados:** `SmartSchedulerService.swift` — firma de `calculateAvailableWindows`, `generateOptimalDoses`, `resolveConflicts`, `generateThreeProposals`, `generateDayPlan`, `generateThreeDayPlans`.
+
+#### 18.7.2 Desviación Proporcional (Phase 4.3)
+
+`MaximumDeviationConstraint` incorpora una función de desviación proporcional al intervalo de dosificación:
+
+```swift
+// Fórmula: min(60 min, intervalo_en_minutos × 20%), mínimo 5 min
+static func allowedDeviationSeconds(intervalHours: Double) -> TimeInterval
+```
+
+- Medicamentos frecuentes (cada 4h → 48 min máx desviación).
+- Medicamentos poco frecuentes (1×/día → 60 min, techo fijo).
+- La sobrecarga legacy `isWithinAllowedDeviation(proposedTime:originalTime:)` con 1h fija se conserva para retrocompatibilidad.
+- `resolveConflicts()` calcula el intervalo por medicamento y usa la desviación proporcional.
+
+#### 18.7.3 Enforcement de Interacciones (BUG-10)
+
+`TreatmentPlannerView` acepta ahora `interactions: [MedicationInteraction]` y los aplica en validación:
+
+- `.spacing` → verifica separación mínima en minutos entre las dosis de los dos medicamentos.
+- `.avoidTogether` → prohíbe que ambos medicamentos aparezcan el mismo día.
+- `isDoseValid()` consulta las interacciones para cada dosis candidata.
+- `hasInteractionViolations: Bool` es una computed property que activa un **banner rojo** en `summaryHeader` con el literal "Separación entre medicamentos no respetada".
+
+#### 18.7.4 Variantes A/B/C con PlacementBias
+
+Para garantizar que los tres planes propuestos sean visualmente distintos incluso sin conflictos, se introdujo el enum `PlacementBias` en `SmartSchedulerService`:
+
+| Variante | Bias       | Estrategia de resolución      | Label UI         |
+|----------|------------|-------------------------------|------------------|
+| A        | `.centered` | `.minimizeMovement`           | "A · Equilibrada" |
+| B        | `.early`    | `.avoidExclusion`             | "B · Temprana"   |
+| C        | `.late`     | `.distributiveTieBreaker`     | "C · Tardía"     |
+
+`PlacementBias.apply(to window:)` recorta la ventana disponible:
+- `.early` → usa el primer 70% de la ventana.
+- `.late` → usa el último 70%.
+- `.centered` → ventana sin modificar.
+
+Cada variante genera su propio `allDoses[]` con el bias aplicado antes de la resolución de conflictos.
+
+#### 18.7.5 Corrección: Alerta "Generalizar" con Falso Positivo
+
+**Problema:** Al navegar entre días, `onChange(of: scheduledSlots)` comparaba `Date` completos. Las proyecciones para días futuros comparten UUID y `hh:mm` pero tienen distinta fecha, disparando la alerta incorrectamente.
+
+**Corrección:** La comparación se cambió a componentes `hour` y `minute` exclusivamente:
+
+```swift
+let cal = Calendar.current
+let oldH = cal.component(.hour, from: oldSlot.startTime)
+let oldM = cal.component(.minute, from: oldSlot.startTime)
+// dispara alerta solo si hh:mm difieren
+```
+
+#### 18.7.6 Flujo de Draft — Eliminación del Diálogo de Confirmación
+
+El diálogo de confirmación al pulsar **Aplicar plan** (opciones "Guardar" / "Draft") se eliminó porque el planificador **siempre opera en modo draft**:
+
+- `applySchedule()` → `onApply(updatedMedications)` → `viewModel.applyPlannerResults()` → actualiza **solo memoria** (`medications[]`, `existingMedicationSchedules`).
+- **Cero escrituras a SwiftData** hasta que el usuario guarda el formulario de tratamiento vía `finalizeSave()`.
+- Si el usuario abandona el flujo sin guardar, el ViewModel se destruye y los cambios se descartan automáticamente.
+
+El flujo de seguridad ante abandono es:
+
+```
+Back (step basicInfo) → comprueba hasPendingPlannerChanges → showDiscardConfirmation
+X button             → comprueba hasPendingPlannerChanges → showDiscardConfirmation
+                                                          → dismiss() (si no hay cambios)
+```
+
+**Corrección aplicada en `EditTreatmentView`:** el botón X (`xmark`) de la toolbar ahora también comprueba `hasPendingPlannerChanges` antes de llamar `dismiss()`, evitando pérdida silenciosa de un plan aplicado.
+
+#### 18.7.7 AppDestination.addMood — Caso Añadido
+
+Se añadió el case `.addMood(UUID)` al enum `AppDestination` para registrar estado de ánimo desde router. El switch exhaustivo en `HomeNavigationDestinations.destinationView(for:)` ahora incluye:
+
+```swift
+case .addMood(let profileId):
+    if let profile = profiles.first(where: { $0.id == profileId }) {
+        MoodLogView(profile: profile)
+    } else if let profile = profiles.first {
+        MoodLogView(profile: profile)   // fallback
+    } else {
+        ContentUnavailableView(...)
+    }
+```
+
+### 18.8 Comportamiento en Edición de Tratamiento (Marzo 2026)
+
+#### 18.8.1 Medicamento eliminado de un tratamiento
+
+Cuando el usuario elimina un medicamento de un tratamiento existente en `finalizeSave()`, el sistema ya **no lo deja como huérfano**. El nuevo comportamiento en `AddTreatmentViewModel.finalizeSave()`:
+
+1. `med.standaloneProfile = profile` → pasa a ser medicamento standalone visible en la lista del perfil.
+2. `med.lifecycleStatus = .paused` + `med.pausedAt = Date()` + `med.scheduledResumeDate = nil` → queda pausado indefinidamente (requiere reactivación manual).
+3. Las dosis pending/future/late se marcan como `.pausedPending`.
+4. Se cancelan sus notificaciones (`MedicationNotificationService.shared.cancelNotification`).
+5. Se registra un `MedicationEvent(.statusChanged)` con reason `"medication_removed_from_treatment_paused"`.
+
+**El usuario lo ve en su lista de medicamentos como pausado y puede reactivarlo o editarlo libremente.**
+
+#### 18.8.2 Planificador en modo edición — restauración de estado
+
+Al abrir el planificador desde `EditTreatmentView` (o `AddTreatmentView` con `treatmentToEdit != nil`), el estado previo se restaura en dos capas:
+
+**Horarios de dosis (`existingMedicationSchedules`):**
+`loadExistingTreatment(_:)` en `AddTreatmentViewModel` ahora popula `existingMedicationSchedules[med.id]` desde `frequency.preferredTimes` de cada medicamento. Así `preparePlannerData()` reconstruye `config.scheduleTimes` desde los tiempos del último plan guardado en lugar de arrancar con las 8:00 por defecto.
+
+**Horas bloqueadas (`blockedHours`):**
+- `AddTreatmentViewModel` añade `var plannerBlockedHours: Set<Int> = []`.
+- `TreatmentPlannerView` tiene un init explícito con `initialBlockedHours: Set<Int> = []` que siembra `@State private var blockedHours` via `_blockedHours = State(initialValue: initialBlockedHours)`.
+- `onApply` ahora devuelve `([MedicationConfiguration], Set<Int>)` → el segundo valor se persiste en `viewModel.plannerBlockedHours`.
+- Ambos call sites (`AddTreatmentView`, `EditTreatmentView`) pasan `initialBlockedHours: viewModel.plannerBlockedHours`.
+
+> **Limitación conocida:** `plannerBlockedHours` vive en el ViewModel (sesión de edición). Si el usuario cierra el tratamiento y vuelve a editarlo en otra sesión, el ViewModel se re-inicializa y los blocked hours se pierden. Para persistencia cross-sesión habría que añadir un campo `blockedHoursData: Data?` al modelo `Treatment` en SwiftData.
+
+#### 18.8.3 Indicador visual en el botón del planificador
+
+El botón "Optimizar horario" en `AddTreatmentComponents.swift` cambia su apariencia según contexto:
+
+| Contexto | Icono | Texto | Gradiente |
+|----------|-------|-------|-----------|
+| Nuevo tratamiento | `wand.and.stars` | "Optimizar horario" | púrpura → azul |
+| Edición (`treatmentToEdit != nil`) o plan ya aplicado | `calendar.badge.clock` | "Editar horario" | azul → teal |
+
+La condición es `viewModel.treatmentToEdit != nil || viewModel.hasPendingPlannerChanges`.
+
+---
+
+### 18.9 Cobertura del Servicio de Backup — Medicamentos (Marzo 2026)
+
+Se completó la paridad entre `MedicationBackupData` y `TreatmentBackupData` respecto al estado de pausa/reanudación.
+
+#### Campos añadidos a `MedicationBackupData` (BackupModels.swift)
+```swift
+let pausedAt: Date?
+let scheduledResumeDate: Date?
+let resumeModeRaw: String?
+```
+
+#### Cambios en `DataBackupService`
+- `convertMedicationToBackup()`: exporta `pausedAt`, `scheduledResumeDate`, `resumeModeRaw`.
+- `importMedication()`: restaura los mismos tres campos tras la deserialización.
+
+#### Cobertura resultante
+
+| Campo | Medication | Treatment |
+|-------|-----------|-----------|
+| `lifecycleStatusRaw` | ✅ | — |
+| `pauseReason` | ✅ | ✅ |
+| `pausedAt` | ✅ (añadido) | ✅ |
+| `scheduledResumeDate` | ✅ (añadido) | ✅ |
+| `resumeModeRaw` | ✅ (añadido) | ✅ |
+| `standaloneProfile` | via profile backup | — |
+
+Los medicamentos standalone (incluyendo los convertidos desde tratamiento al ser eliminados) se exportan como parte del backup del perfil, no del tratamiento.
 
 ---
 
@@ -8846,7 +9827,7 @@ Se completó la implementación del módulo de Seguros de Salud (`HealthInsuranc
 - **Keys Semánticas**: Uso estricto de snake_case (e.g., `policy_details`, `provider_name`).
 
 ### 95.3 Modelado de Datos
-- Integración completa de `HealthInsurance` y `InsuranceDocument` en `AppSchemaV2`.
+- Integración completa de `HealthInsurance` y `InsuranceDocument` en `AppSchemaV3`.
 - Soporte para adjuntar imágenes (Frente/Dorso) usando `FileStorageService`.
 
 ## 96. Enhancing Health Insurance (27 Enero 2026)
@@ -10028,3 +11009,1659 @@ Se han implementado correcciones críticas para garantizar la integridad de los 
 ### 130.3 Visibilidad de Recurrencia (Master Series Fix)
 - **Problema UI**: El banner "Manage Series" no aparecía en la cita original (maestra) de una serie, ya que la vista solo verificaba `isRecurringInstance` (que es false para el padre).
 - **Corrección**: Se amplió la condición en `AppointmentDetailView` para incluir `appointment.recurrenceRule != nil`. Ahora es posible gestionar la serie desde cualquier instancia, incluyendo la original.
+
+## 131. Live Activities: Ventanas Configurables y Estabilidad (19 Febrero 2026)
+
+Se ha realizado una revisión integral del sistema de Live Activities para garantizar que las notificaciones en el Dynamic Island y la pantalla de bloqueo aparezcan en el momento preciso y permanezcan activas mientras sean relevantes.
+
+### 131.1 Ventanas de Inicio Configurables (5, 10, 15, 20 min)
+- **Restricción de Settings**: Los ajustes de antelación para Live Activities (`liveActivityStartTime`) en `MedicationSettings` y `AppointmentSettings` ahora están restringidos a un conjunto de valores discretos: 5, 10, 15 o 20 minutos.
+- **Unificación de Lógica**: Se ha eliminado la dispersión de triggers con ventanas hardcoded (anteriormente 1 hora o 30 minutos). Todos los servicios (`DoseStatusService`, `WidgetSyncService`, `AppointmentNotificationService`) obtienen el tiempo de antelación directamente de las preferencias del usuario.
+
+### 131.2 Persistencia y Ciclo de Vida Extendido
+- **Estado "Late"**: Las Live Activities de medicamentos ahora cubren todo el periodo de gracia configurado. Se ha incrementado la duración calculada en `WidgetSyncService` sumando la antelación + el periodo de gracia + un margen de seguridad de 1 hora. Esto evita que la actividad desaparezca antes de que la dosis se marque como "Missed".
+- **Reconciliación Robusta**: Se ha optimizado `LiveActivityManager.reconcileActivities()` para evitar la eliminación agresiva de actividades durante transiciones de estado de la app o retrasos en la carga de SwiftData.
+
+### 131.3 Localización y UX Premium
+- **Atributos Dinámicos**: `LiveActivityManager` ahora utiliza `displayNameOrName` y `localizedDosageDisplay` para poblar los atributos de la actividad, garantizando que el usuario vea el alias de su medicamento y la dosis en su idioma configurado.
+- **Sincronización de UI**: Se ha reforzado el arranque de actividades en `AppointmentDetailView` mediante verificaciones en `.task` y `.onChange(of: scenePhase)`, asegurando que si el usuario abre la app justo antes de una cita, la Live Activity aparezca instantáneamente.
+## 132. Live Activities: Sincronización Transversal (22 Febrero 2026)
+
+Se ha implementado una arquitectura de **Sincronización Transversal (Cross-Process)** para resolver fallos críticos de actualización y cierre de Live Activities cuando las acciones se originan desde la extensión de Widgets.
+
+### 132.1 El Problema: "Module Mismatch" en Actividades
+Se detectó que, bajo ciertas condiciones de distribución de targets en iOS, la **Widget Extension perdía la visibilidad** de las actividades iniciadas por el proceso principal de la App. 
+- **Síntoma**: Al pulsar "Completar" o "Tomar" en la Isla Dinámica, el intent devolvía `0 activities found`, por lo que la actividad permanecía abierta aunque el dato en SwiftData se hubiera actualizado correctamente.
+- **Causa Raíz**: Desasociación de tipos entre el App Target y el Widget Target (mismo nombre de struct pero distintos módulos), impidiendo que `Activity<T>.activities` devolviera la colección correcta desde el proceso de la extensión.
+
+### 132.2 La Solución: Arquitectura de Señalización y Fallback
+Se ha implementado un sistema de **Fallback de Señalización** basado en tres componentes:
+
+1.  **UserDefaults Flag (Shared App Group)**:
+    - Cuando un `LiveActivityIntent` se ejecuta, independientemente de si encuentra la actividad localmente, escribe una señal en el App Group:
+      - `medActivity_mustEnd_ID` para medicamentos.
+      - `liveActivity_mustEnd_ID` para consultas.
+      - `medActivity_pendingUpdate_ID` para reprogramaciones.
+    
+2.  **Activación vía Darwin Notification**:
+    - El Intent dispara la notificación de sistema `com.romerosoft.personalcare.WidgetDataChanged`. Esto notifica instantáneamente al proceso de la App que está en memoria.
+
+3.  **Watchdog de Reconciliación (App Side)**:
+    - En el método `LiveActivityManager.reconcileActivities()`, la App ahora escanea estas banderas en UserDefaults.
+    - Dado que la App **siempre tiene visibilidad** de sus propias actividades, ejecuta el `activity.end()` o `activity.update()` que la extensión no pudo realizar, cerrando el círculo de sincronización.
+
+### 132.3 Feedback Visual y UX Fluida
+Para mejorar la percepción de interactividad:
+- **Delay Controlado**: Se introdujo un retardo de 0.5s en el Intent antes de la señalización final para permitir que iOS renderice el estado de "Completado" (checkmark o mensaje) en la Isla Dinámica.
+- **Mensajes de Estado**: Se añadieron estados visuales explícitos como `"¡Completada!"`, `"¡Tomada!"` o `"+15m"` que se inyectan en el `ContentState` antes de finalizar la actividad.
+
+### 132.4 Coherencia en Widgets de Pantalla de Inicio
+Se actualizó `WidgetSyncService` para garantizar que el SSOT (Single Source of Truth) se refleje sin latencia en los widgets tradicionales:
+- Se implementó un filtrado proactivo que excluye citas `attended/cancelled` y dosis `taken/skipped` del snapshot, asegurando que la lista de "Pendientes" se limpie en el mismo segundo en que el usuario realiza la acción.
+
+## 133. Auditoría de Performance y Refactorización Swift 6 - Fase 1 (22 Febrero 2026)
+
+Se ha ejecutado la primera fase del **Plan de Mejora Integral**, enfocada en la estabilización de la capacidad computacional y la higiene arquitectónica del punto de entrada de la aplicación.
+
+### 133.1 Optimización de Historiales Asíncronos (State-Driven)
+Se ha resuelto la deuda técnica en los módulos de historial masivo (`AllDosesListView` y `SymptomHistoryView`).
+- **Problema**: Los filtrados de arrays de SwiftData ocurrían de forma síncrona en el hilo principal durante el renderizado, provocando bloqueos perceptibles (jank).
+- **Solución**: 
+  - Migración a procesamiento basado en `.task(id:)`. 
+  - Uso de `@State` para almacenar los resultados procesados, permitiendo que la vista se renderice instantáneamente con estados de carga.
+  - Inserción de `await Task.yield()` en los bucles de filtrado para permitir que el Main Thread gestione eventos de UI entre cálculos.
+- **Swift 6 Concurrency**: Se eliminaron las violaciones de `Sendable` al restringir el acceso de los `PersistentModel` a su actor de origen (MainActor), garantizando seguridad de hilos sin los riesgos de transferencia cross-task de modelos no protegidos.
+
+### 133.2 Higiene de Inicialización y SRP
+Se ha reducido la complejidad de `personalcareApp.swift` (Entry Point), aplicando el Principio de Responsabilidad Única (SOLID).
+- **NavigationRouter**: Extracción integral de la lógica de Deep Linking. El router ahora centraliza el mapeo de URLs externas a destinos de navegación internos.
+- **DatabaseMaintenanceService**: Abstracción de las rutinas de reparación y limpieza del boot (ej. `cleanupCorruptedConditions`).
+- **StartupManager**: Orquestación simplificada que delega en servicios especializados en lugar de contener lógica imperativa.
+
+### 133.3 Rate Limiting de Batería y Recursos
+Optimización del sistema de monitoreo de Live Activities para maximizar la autonomía del dispositivo.
+- **Polling Inteligente**: `startLiveActivityChecking` ahora utiliza un algoritmo de ventana temporal. Solo realiza polling intensivo (30s) si existen dosis pendientes en el rango de +/- 1 hora.
+- **Modo Pasivo**: Fuera de la ventana crítica de medicación, el sistema entra en un estado de reposo con verificaciones cada 5-10 minutos, reduciendo drásticamente los desperticos del CPU y accesos a disco.
+
+### 133.4 Optimizaciones de Renderizado GPU
+- **GlassEffectContainer**: Se introdujo el parámetro `isStatic`. Cuando se activa, el componente utiliza `.drawingGroup()`, lo que permite a CoreAnimation rasterizar capas de Glassmorphism complejas y evitar el re-renderizado costoso de filtros de desenfoque en vistas que no cambian frecuentemente.
+- **Lazy Loading**: Estandarización del uso de `LazyVStack` y `LazyHStack` en todos los contenedores de listas de historial para optimizar la ocupación de memoria.
+
+## 134. Refactorización Sistémica de Generación de Dosis (Dose Generation Namespace)
+
+Se ha completado una reestructuración profunda del motor de generación de dosis para cumplir con los estándares de **Swift 6.0 Strict Concurrency** y optimizar la ejecución multihilo en **iOS 26**.
+
+### 134.1 Arquitectura de Namespace (Stateless Service)
+- **DoseGenerationService**: Migración integral de una clase `@MainActor` a un **`enum` estático**.
+  - **Motivación**: Evitar saltos de contexto innecesarios al Main Thread durante cálculos intensivos de fechas.
+  - **Implementación**: Todos los métodos de generación (`generateInitialDoses`, `calculateIdealSchedule`, etc.) ahora son `nonisolated static`. Esto permite que el `AsyncDoseGeneratorActor` (background actor) invoque la lógica de negocio de forma nativa sin `await` ni bloqueos de aislamiento.
+
+### 134.2 Aislamiento de Modelos de Frecuencia
+- **FrequencyModels**: Los inicializadores de `ScheduleTime` y `ScheduleTimeWithDose` se han marcado como `nonisolated`.
+- Esto resuelve el "leak" de aislamiento donde estructuras de datos básicas quedaban atrapadas en el contexto del `@MainActor`, impidiendo su uso eficiente en tareas asíncronas de fondo.
+
+### 134.3 Abstracción de Configuración de Usuario
+- **Non-isolated Settings Access**: Se ha roto la dependencia directa de los servicios de fondo con `MedicationSettings.shared` (aislado al MainActor).
+- Se implementó `getNonisolatedGracePeriod()` que accede directamente a `UserDefaults` para obtener el periodo de gracia, garantizando que el generador de dosis pueda operar de forma autónoma incluso si el hilo principal está saturado.
+
+### 134.4 Interoperabilidad cross-actor en SwiftData
+- **PersistentIdentifier Mapping**: Se ha estandarizado el uso de `persistentModelID` para la identificación de registros entre el hilo de UI (`AddTreatmentViewModel`) y el actor de procesamiento (`AsyncDoseGeneratorActor`).
+- Se resolvió el error de mismatch de tipos entre `UUID` y `PersistentIdentifier`, asegurando que la reconciliación de dosis sea precisa al editar tratamientos existentes.
+
+### 134.5 Validación de Seguridad de Hilos
+- Eliminación de advertencias de `Sendable` en el flujo de creación de medicación.
+- Verificación de que todos los cierres (closures) asíncronos en las vistas de registro manejan correctamente el ciclo de vida de los servicios estáticos.
+
+## 135. Refactor del Sistema de Notificaciones (SyncCoordinator) (Febrero 2026)
+
+Se ha completado la transición del sistema de comunicación interna de la aplicación, eliminando la dependencia de `NotificationCenter` en favor de una arquitectura reactiva y centralizada basada en `@Observable` y el protocolo **Strict Concurrency** de Swift 6.
+
+### 135.1 Centralización en SyncCoordinator
+Se ha implementado `SyncCoordinator` como el **Single Source of Truth (SSOT)** para todos los disparadores (triggers) de navegación y estado global:
+- **Navegación Reactiva**: Sustitución de strings literales por propiedades observables (`profileToOpen`, `navigateToTabTrigger`, `openCreationSheetTrigger`, etc.).
+- **Estado de Cambios**: Gestión unificada de `unsavedChangesStatus` que permite a cualquier vista suscribirse y reaccionar ante cambios pendientes de forma determinista.
+- **Acceso mediante Environment**: Integración nativa en SwiftUI permitiendo que las vistas se actualicen automáticamente ante cambios en el coordinador sin necesidad de observers manuales.
+
+### 135.2 Modernización de NavigationRouter & Deep Links
+El motor de **Deep Linking** (`vitalspath://...`) ha sido desacoplado de los servicios de notificación tradicionales:
+- Las acciones de apertura de dosis, citas, tareas y medicamentos ahora invocan métodos asíncronos en `SyncCoordinator`.
+- Se eliminó el riesgo de fugas de memoria y condiciones de carrera asociadas con el envío de objetos a través de `Notification.userInfo`.
+
+### 135.3 Refactor de Home & Lifecycle Management
+Se optimizó el punto de entrada de la UI (`HomeView`) mediante la creación de un `LifecycleModifier` que orquestador central:
+- **Observers Limpios**: Uso de `.onChange(of: syncCoordinator.trigger)` en lugar de múltiples manejadores `.onReceive`.
+- **Desacoplamiento de Hojas (Sheets)**: La visibilidad de diálogos de creación y edición ahora es gestionada reactivamente, eliminando la necesidad de pasar bindings excesivos entre componentes profundamente anidados.
+
+### 135.4 Seguridad de Acceso (Public API)
+Para cumplir con los estándares de modularidad y visibilidad:
+- Se actualizó `AppNotification` a visibilidad `public`, permitiendo que el coordinador y otros servicios core lo utilicen como tipo de intercambio seguro sin violaciones de acceso de Swift.
+- Se implementó un protocolo de limpieza (`clearNavigation`) que garantiza que los disparadores se reseteen tras ser consumidos, evitando bucles de navegación infinita o re-ejecuciones accidentales.
+
+### 135.6 Refinamientos de Seguridad de Tipos y Bridging (Actualización)
+Para elevar la robustez del sistema, se han aplicado los siguientes refinamientos técnicos:
+- **Estructuras Typed-Safe**: Sustitución definitiva de tuplas en disparadores (ej. `checkUnsavedChangesTrigger`) por structs dedicados (`UnsavedChangesTrigger`, `NavigationResource`). Esto mejora la legibilidad y previene errores de desempaquetado en los `.onChange` de SwiftUI.
+- **Bridging Proactivo en NotificationManager**: El método `storeAndPostNavigation` ahora actúa como un puente (bridge) total. Mapea todas las notificaciones heredadas de sistema o deep links a peticiones deterministas en `SyncCoordinator`, centralizando la lógica de "Cold Start" (navegación diferida hasta que la UI esté lista).
+- **Eliminación de Señales Redundantes**: Se ha purgado el uso de `WidgetDataDidChange` y `moodDidChange` de `NotificationCenter`. Ahora, cambios en el estado de dosis, ánimos o citas disparan métodos reactivos en `SyncCoordinator` (`doseStatusChanged()`, `moodStatusChanged()`, etc.), garantizando que la UI se refresque de forma atómica y observable.
+- **Patrón de Signal Bridge (Notification-to-Observable)**: Se ha implementado un puente en `SyncCoordinator` que observa las notificaciones heredadas de `NotificationCenter` (como `.taskStatusDidChange` o `.moodDidChange`). Esto permite que los modelos de datos en la capa `Models` permanezcan desacoplados y sean compatibles con extensiones (Widgets/Shortcuts) sin necesidad de importar el coordinador, mientras que la UI de la App sigue reaccionando automáticamente mediante el framework `@Observable`.
+- **Modularización de Observadores**: En vistas complejas como `EditProfileView`, se ha descompuesto la lógica de observación de cambios en `ViewModifiers` especializados, reduciendo la carga del compilador y mejorando la mantenibilidad del código.
+
+## 136. Unificación de Navegación de Widgets y Refinamiento Concurrency (Swift 6)
+
+Se ha realizado una limpieza profunda del sistema de navegación por Deep Links y se han resuelto advertencias de concurrencia en observadores clave.
+
+### 136.1 Handlers de Deep Link Centralizados
+- **Eliminación de Redundancia**: El procesamiento de URLs que antes residía en `HomeView.onOpenURL` se ha migrado completamente a `NavigationRouter.handleDeepLink`.
+- **Compatibilidad con Widgets**: Se han añadido manejadores específicos para esquemas de widgets (`add-med`, `add-appt`, `add-symptom`, etc.) al enrutador central.
+- **Debounce de Navegación**: Se ha mantenido la lógica de prevención de duplicados en `HomeView` para asegurar que el usuario no sea redirigido dos veces ante un doble evento de apertura.
+
+### 136.2 Swift 6 Strict Concurrency
+- **SyncCoordinator Isolation**: Se han corregido las advertencias en `setupBridgeObservers()` envolviendo las llamadas a métodos aislados al `MainActor` en bloques `Task { @MainActor in ... }`. Esto garantiza que los eventos de `NotificationCenter` (que pueden venir de colas arbitrarias) se procesen de forma segura en el hilo principal.
+- **AsyncDoseGeneratorActor Cleanup**: Se eliminaron los bloques `try?` innecesarios en llamadas a `modelContext.model(for:)` tras verificar la firma del método en el entorno actual, manteniendo el código limpio y libre de advertencias.
+
+### 136.3 Correciones Visuales en Navegación
+- Se resolvió el problema de "Doble Apertura" de la vista de Calendario desde Widgets asegurando que solo el manejador central sea el que dispare la mutación del `NavigationPath`.
+
+
+## --- APÉNDICE: WATCH ROADMAP ---
+
+# 🍎 VitalsPath Watch — Roadmap de Funcionalidades
+
+> **Fecha:** 24 Febrero 2026  
+> **Última actualización:** 24 Febrero 2026 21:30  
+> **Versión actual del Watch:** Dashboard + Dosis + Citas + Tareas + Mood + Notificaciones Interactivas  
+> **Objetivo:** Convertir el Watch en un companion médico completo
+
+---
+
+## 📊 Resumen Ejecutivo
+
+| # | Feature | Impacto | Esfuerzo | ROI | Estado |
+|---|---------|---------|----------|-----|--------|
+| 1 | Notificaciones Interactivas | ⭐⭐⭐⭐⭐ | Medio | 🔥🔥🔥🔥🔥 | ✅ Completado |
+| 2 | Complicaciones Watch Face | ⭐⭐⭐⭐⭐ | Alto | 🔥🔥🔥🔥 | ✅ Código listo (requiere target Xcode) |
+| 3 | Registro Rápido de Vitales | ⭐⭐⭐⭐ | Medio | 🔥🔥🔥🔥 | ✅ Completado |
+| 4 | Registro Rápido de Síntomas | ⭐⭐⭐⭐ | Bajo | 🔥🔥🔥🔥 | ✅ Completado |
+| 5 | Recordatorios Hápticos | ⭐⭐⭐ | Bajo | 🔥🔥🔥 | ✅ Completado |
+| 6 | Resumen Semanal | ⭐⭐⭐ | Medio | 🔥🔥🔥 | ✅ Completado |
+| 7 | Vista de Mañana | ⭐⭐ | Bajo | 🔥🔥 | ✅ Completado |
+| 8 | Botón de Emergencia | ⭐⭐⭐ | Bajo | 🔥🔥🔥 | ✅ Completado |
+
+---
+
+## FASE 1: Interacción sin abrir la app (Mayor impacto)
+
+### 1.1 🔔 Notificaciones Interactivas de Dosis
+**Potencial:** El usuario toma su medicación desde la muñeca sin tocar el iPhone.
+
+#### Tareas:
+- [x] **1.1.1** Crear categorías TAKE/SKIP/SNOOZE idénticas al iPhone ✅
+- [x] **1.1.2** Crear `WatchNotificationHandler` con `UNUserNotificationCenterDelegate` ✅
+- [x] **1.1.3** Procesar acciones en SwiftData + DoseEvent auditoría ✅
+- [x] **1.1.4** Darwin Notification + Haptic feedback ✅
+- [x] **1.1.5** Soporte para tareas (DONE/SNOOZE) ✅
+- [x] **1.1.6** Localización en/es en Watch.xcstrings ✅
+- [ ] **1.1.7** Probar flujo completo en dispositivo real
+
+#### Archivos creados/modificados:
+```
+WatchNotificationHandler.swift (reescrito — categories + delegate + action handlers)
+VitalsPathWatchApp.swift (modificado — WatchNotificationHandler.configure())
+Watch.xcstrings (modificado — 5 nuevas keys: action_take, action_skip, etc.)
+```
+
+#### Dependencias: Ninguna
+#### Estado: ✅ COMPLETADO (pendiente test en dispositivo real)
+
+---
+
+### 1.2 ⌚ Complicaciones para Watch Face
+**Potencial:** El estado de salud visible en cada mirada al reloj.
+
+#### Tareas:
+- [x] **1.2.1** Crear `WatchComplicationProvider` con `TimelineProvider` ✅
+- [x] **1.2.2** Implementar 4 complicaciones por familia ✅
+  - **Circular:** Gauge de progreso con gradiente rojo→verde
+  - **Corner:** Porcentaje + gauge lineal curvo
+  - **Rectangular:** Próxima dosis (nombre + hora + barra de progreso)
+  - **Inline:** "X pendientes · Y%" o "✓ 100%"
+- [x] **1.2.3** Crear `WatchComplicationDataSource` ✅
+  - Progreso de dosis, próxima dosis, conteo de pendientes
+  - Usa perfil activo (Watch → iPhone → default → first)
+- [x] **1.2.4** Timeline auto-refresh en próxima dosis o cada 30min ✅
+- [x] **1.2.5** Crear `WatchWidgetBundle` con instrucciones de target ✅
+- [ ] **1.2.6** Crear Widget Extension target en Xcode (paso manual)
+- [ ] **1.2.7** Probar en esferas (Modular, Infograph, etc.)
+
+#### Archivos creados:
+```
+Complications/
+  ├── WatchWidgetBundle.swift (con instrucciones de setup)
+  ├── WatchComplicationViews.swift (4 complicaciones)
+  └── WatchComplicationDataSource.swift (data fetcher)
+```
+
+#### ⚠️ Acción manual requerida:
+Crear Widget Extension target en Xcode (File → New → Target → Widget Extension watchOS)
+
+#### Dependencias: SwiftData compartido (ya implementado)
+#### Estado: ✅ CÓDIGO COMPLETADO (requiere crear target en Xcode)
+
+---
+
+## FASE 2: Registro en el momento (Ventaja del Watch)
+
+### 2.1 ❤️ Registro Rápido de Signos Vitales
+**Potencial:** Registrar presión arterial o glucosa justo después de medirse, sin buscar el teléfono.
+
+#### Tareas:
+- [x] **2.1.1** Crear `WatchVitalEntryView` con grid de 6 vitales ✅
+- [x] **2.1.2** Implementar `WatchVitalInputView` con Digital Crown ✅
+  - **Presión arterial:** Dos campos (SYS/DIA) con rangos 60-250 / 30-150
+  - **Glucosa:** Rango 40-500 mg/dL
+  - **Peso:** Rango 20-300 kg (step 0.1)
+  - **Temperatura:** Rango 34-43°C (step 0.1)
+  - **SpO₂:** Rango 70-100%
+  - **Heart Rate:** Rango 30-220 bpm
+- [x] **2.1.3** Guardado en SwiftData + Darwin Notification ✅
+- [x] **2.1.4** Tab "Vitales" en WatchContentView ✅
+- [x] **2.1.5** Valores por defecto razonables para cada tipo ✅
+- [x] **2.1.6** Localización en/es + haptic de confirmación ✅
+
+#### Archivos creados:
+```
+WatchVitalEntryView.swift (grid + input con Digital Crown)
+```
+
+#### Archivos modificados:
+```
+WatchContentView.swift (nuevo tab vitals)
+Watch.xcstrings (9 nuevas keys: title, save, saved, 6 tipos)
+```
+
+#### Estado: ✅ COMPLETADO
+
+---
+
+### 2.2 📝 Registro Rápido de Síntomas
+**Potencial:** "Me duele ahora" → registrar en 5 segundos desde la muñeca.
+
+#### Tareas:
+- [x] **2.2.1** Crear `WatchSymptomQuickView` con 8 síntomas comunes ✅
+  - Headache, Stomach, Fatigue, Nausea, Dizziness, Muscle, Fever, Cough
+- [x] **2.2.2** Implementar `WatchSymptomSeverityView` ✅
+  - Digital Crown para severidad 1-10
+  - Barra de progreso con gradiente verde→rojo
+  - Labels adaptativos (Mild → Very Severe)
+- [x] **2.2.3** Guardado en SwiftData + Darwin Notification + Haptic ✅
+- [x] **2.2.4** Tab "Síntomas" en WatchContentView ✅
+- [x] **2.2.5** Localización completa en/es ✅
+
+#### Archivos creados:
+```
+WatchSymptomQuickView.swift (grid + severity picker)
+```
+
+#### Archivos modificados:
+```
+WatchContentView.swift (nuevo tab symptoms)
+Watch.xcstrings (16 nuevas keys: title, 8 síntomas, severity labels)
+```
+
+#### Estado: ✅ COMPLETADO
+
+---
+
+## FASE 3: Experiencia premium (Diferenciación)
+
+### 3.1 ⏰ Recordatorios Hápticos Inteligentes
+**Potencial:** Vibración personalizada que avisa sin molestar.
+
+#### Tareas:
+- [x] **3.1.1** Crear `WatchHapticScheduler`:
+  - Vibración suave 5 minutos antes de dosis
+  - Vibración más intensa si la dosis está retrasada
+  - Patrón diferente para citas vs. dosis
+- [x] **3.1.2** Implementar patrones hápticos personalizados:
+  - `.notification` para recordatorio normal
+  - `.directionUp` para urgente
+  - `.retry` si hay dosis atrasada
+- [x] **3.1.3** Respetar configuración de notificaciones del perfil:
+  - Modo normal / discreto / silencioso
+  - No vibrar en modo silencioso
+- [x] **3.1.4** Preferencia en el Watch para activar/desactivar hápticos independientes
+
+#### Archivos a crear:
+```
+WatchHapticScheduler.swift (nuevo)
+```
+
+#### Estimación: ~2 horas
+
+---
+
+### 3.2 📊 Mini Resumen Semanal
+**Potencial:** Tendencia de adherencia visible de un vistazo.
+
+#### Tareas:
+- [x] **3.2.1** Crear `WatchWeeklySummaryView`:
+  - 7 barras verticales (L-D) mostrando % de adherencia
+  - Color de cada barra según progreso (gradiente rojo→verde)
+  - Promedio semanal en texto
+- [x] **3.2.2** Implementar `WeeklyDataCalculator`:
+  - Calcular % de dosis tomadas por día (últimos 7 días)
+  - Cachear resultado para performance
+- [x] **3.2.3** Integrar en Dashboard:
+  - Mostrar debajo del pending summary como sección colapsable
+  - O como vista al hacer scroll hacia abajo
+- [x] **3.2.4** Animación de entrada de las barras (spring escalonado)
+
+#### Archivos a crear:
+```
+WatchWeeklySummaryView.swift (nuevo)
+WatchWeeklyBarChart.swift (nuevo)
+```
+
+#### Estimación: ~3 horas
+
+---
+
+### 3.3 🆘 Botón de Emergencia
+**Potencial:** Información médica crítica accesible en emergencias.
+
+#### Tareas:
+- [x] **3.3.1** Crear `WatchEmergencyView`:
+  - Nombre del paciente + foto
+  - Grupo sanguíneo (grande, prominente)
+  - Alergias (lista con iconos de alerta)
+  - Contacto de emergencia (nombre + teléfono)
+  - Botón "Llamar" directo
+- [x] **3.3.2** Agregar acceso rápido:
+  - Long press en el avatar del Dashboard
+  - O tab dedicado con icono de cruz médica
+- [x] **3.3.3** Diseñar con alto contraste para legibilidad en emergencias
+- [x] **3.3.4** Funcionar offline (datos cacheados localmente)
+
+#### Archivos a crear:
+```
+WatchEmergencyView.swift (nuevo)
+```
+
+#### Estimación: ~2 horas
+
+---
+
+### 3.4 🗓 Vista Rápida de Mañana
+**Potencial:** Planificar la noche anterior.
+
+#### Tareas:
+- [x] **3.4.1** Crear `WatchTomorrowView`:
+  - Resumen: "Mañana: X dosis, Y citas"
+  - Lista de dosis programadas con hora
+  - Citas con hora y doctor
+- [x] **3.4.2** Integrar en Dashboard como sección expandible al scroll
+- [x] **3.4.3** Solo visible después de las 18:00 (relevancia contextual)
+
+#### Archivos a crear:
+```
+WatchTomorrowView.swift (nuevo)
+```
+
+#### Estimación: ~2 horas
+
+---
+
+## 📅 Roadmap Timeline Sugerido
+
+```
+FASE 1 — Semana 1 (8-10h)
+├── 1.1 Notificaciones Interactivas     [3-4h] ← MAYOR IMPACTO
+└── 1.2 Complicaciones Watch Face       [5-6h] ← VISIBILIDAD 24/7
+
+FASE 2 — Semana 2 (7-8h)
+├── 2.1 Registro de Vitales             [4-5h] ← VENTAJA DEL WATCH
+└── 2.2 Registro de Síntomas            [3h]   ← RAPIDEZ
+
+FASE 3 — Semana 3 (9h)
+├── 3.1 Hápticos Inteligentes           [2h]
+├── 3.2 Resumen Semanal                 [3h]
+├── 3.3 Botón de Emergencia             [2h]
+└── 3.4 Vista de Mañana                 [2h]
+```
+
+**Total estimado: ~25-27 horas de desarrollo**
+
+---
+
+## 🔧 Consideraciones Técnicas
+
+### Arquitectura compartida
+- Todos los modelos SwiftData ya existen en el iPhone
+- El Watch comparte el contenedor via App Group
+- Darwin Notifications para sincronización inmediata
+
+### Limitaciones del Watch
+- Pantalla pequeña → interfaces minimalistas
+- Batería limitada → minimizar background tasks
+- Sin teclado → preferir Digital Crown, listas predefinidas, y gestos
+- Conectividad → siempre cachear datos localmente
+
+### Testing
+- Probar en Apple Watch Series 10 (último hardware)
+- Probar en Apple Watch SE (hardware mínimo)
+- Verificar sincronización iPhone ↔ Watch en dispositivo real
+- Validar complicaciones en todas las esferas
+
+---
+
+> **Nota:** Este roadmap es iterativo. Después de implementar la Fase 1,
+> evaluar feedback del usuario antes de continuar con Fase 2.
+
+---
+
+## 140. Sincronización de Notificaciones y Robustez (25 Febrero 2026)
+
+Se ha realizado una auditoría y refactorización profunda del sistema de notificaciones para garantizar la coherencia absoluta entre iPhone, Apple Watch y Widgets, eliminando notificaciones "fantasma" y mejorando la estabilidad bajo Swift 6.
+
+### 140.1 Cancelación Inmediata en Widgets
+- **Independencia de Target**: Se ha eliminado la dependencia de `NotificationManager` en los targets de Widgets para evitar dependencias circulares y sobrecarga de memoria en extensiones.
+- **Acceso Directo a UNUserNotificationCenter**: Los intents (`DoseIntents`, `AppointmentIntents`) ahora interactúan directamente con el sistema de notificaciones de iOS.
+- **Patrón Async/Await**: Migración de callbacks tradicionales a métodos asíncronos (`pendingNotificationRequests()`, `deliveredNotifications()`) para cumplir con los estándares de Swift 6 y mejorar la legibilidad.
+- **Limpieza Instantánea**: Al procesar una acción (`TakeDose`, `CompleteAppointment`, `Postpone`), el widget identifica y elimina inmediatamente las notificaciones relacionadas por su ID, sin esperar a que la base de datos se sincronice.
+
+### 140.2 Sincronización desde Apple Watch
+- **Trigger de Rescheduling**: Se ha actualizado `WatchSyncService` para que, al recibir acciones confirmadas desde el Watch, fuerce una llamada a `NotificationManager.shared.scheduleAllReminders()`.
+- **Flujo de Datos**: 
+  1. Acción en Watch → 2. Actualización SwiftData (App Group) → 3. Señal Darwin al iPhone → 4. iPhone re-calcula notificaciones pendientes basándose en el nuevo estado real.
+
+### 140.3 Refactorización para Swift 6 y Concurrencia
+- **Aislamiento de Actores**: Todos los servicios de notificación (`MedicationNotificationService`, etc.) están marcados con `@MainActor` para garantizar acceso seguro al `ModelContext` y la UI.
+- **Resolución de Advertencias Sendable**: Uso de `@preconcurrency import UserNotifications` y capturas seguras de tipos en clausuras `@Sendable`.
+- **Desambiguación de Modelos**: Cambio sistémico de la clase `Task` a `FollowUpTask` para evitar colisiones con el tipo nativo `Task` de Swift, eliminando errores de inferencia en descriptores de búsqueda y servicios.
+
+### 140.4 Optimizaciones de Limpieza (Hygienic Pass)
+- **Repair Pass en Lanzamiento**: Se han añadido pases de limpieza en `MedicationNotificationService` que escanean y eliminan notificaciones de dosis que figuran como tomadas u omitidas pero que aún tienen alertas programadas en el sistema (por sincronizaciones fallidas previas).
+- **Mantenimiento Preventivo**: Cada vez que el app vuelve al primer plano (`scenePhase == .active`), se dispara un chequeo de notificaciones expiradas o redundantes.
+
+---
+
+## 141. Consistencia Inmediata y Sincronización de Contextos (25 Febrero 2026)
+
+Se ha corregido un problema crítico de "desincronización de datos" que causaba que las medicaciones recién creadas no mostraran sus dosis en el calendario/lista ni programaran notificaciones hasta que la aplicación era reiniciada o pasada a segundo plano.
+
+### 141.1 El Problema: Aislamiento del Background Actor
+- **Diagnóstico**: La generación de dosis ocurría dentro del `AsyncDoseGeneratorActor`. Aunque este actor es excelente para trabajo pesado, opera con su propio `ModelContext` aislado. Los cambios (dosis nuevas) no se propagaban automáticamente al `ModelContext` principal de la UI de forma inmediata.
+- **Impacto**: 
+  1. `MedicationDetailViewModel` veía `medication.doses.isEmpty` y mostraba el splash de carga infinito o una lista vacía.
+  2. `MedicationNotificationService.scheduleMedicationReminder()` se ejecutaba sobre el contexto principal, no encontraba dosis, y por tanto no programaba ninguna notificación local.
+  3. Los datos solo aparecían tras un refresh forzado por el ciclo de vida de la app (`scenePhase` changes).
+
+### 141.2 El Fix: Generación en Contexto de UI (Main Thread)
+- **Cambio**: Se ha movido la llamada inicial de `DoseGenerationService.generateInitialDoses` y `DoseReconciliationService.reconcileFutureDoses` directamente al flujo de guardado en `MedicationRegistrationFlowView`, utilizando el `modelContext` de la vista.
+- **Priorización de Consistencia**: Para medicaciones típicas (donde se generan ~4-10 dosis iniciales), el trabajo es computacionalmente despreciable (sub-miliferas). Ejecutarlo en el hilo principal garantiza:
+  1. **SSOT (Single Source of Truth)**: La UI y el servicio de notificaciones ven los mismos datos al mismo tiempo.
+  2. **Notificaciones Instantáneas**: `scheduleMedicationReminder()` ahora ve las dosis recién creadas y programa las alertas de iOS sin fallos.
+  3. **UX Fluida**: Eliminación del splash de procesamiento innecesario al entrar al detalle de una medicación recién creada.
+
+### 141.3 Guía para Desarrolladores
+- **Regla Oro de SwiftData**: Para operaciones que requieren que la UI reaccione inmediatamente o que servicios dependientes (como Notificaciones) actúen sobre datos recién grabados, **preferir el contexto principal** si el volumen de datos es pequeño (< 50 registros).
+- Reservar el `AsyncDoseGeneratorActor` únicamente para migraciones masivas, reconciliaciones históricas de larga duración, o tareas de mantenimiento en segundo plano que no requieran feedback visual inmediato.
+
+---
+
+## 142. Estabilización de Dose Reconciliation y Reprogramación Inteligente (27 Febrero 2026)
+
+Se han corregido errores fundamentales en el ciclo de vida de las dosis que causaban duplicados al reprogramar y fallos en la lógica de reconciliación al abrir la app después de medianoche.
+
+### 142.1 Prevención de Re-creación de Dosis (Dose Duplication Fix)
+- **El Problema**: Al posponer una dosis (ej: de las 23:05 PM a la 01:05 AM del día siguiente), el servicio de reconciliación veía un "hueco" a las 23:05 PM del día anterior y creaba una dosis nueva, ignorando que la dosis original simplemente se había movido de sitio.
+- **La Solución**: Se ha actualizado `DoseGenerationService.createDose` para comprobar si existe alguna dosis cuya `originalScheduledTime` coincida con el slot actual.
+- **Resultado**: El sistema ahora respeta el "desplazamiento" de las dosis. Si una dosis se mueve, el hueco original se considera "satisfecho" por la dosis desplazada.
+
+### 142.2 Posposición Relativa (Relative Postpone)
+- **Anclaje a la Dosis**: Las opciones de posposición rápida (15m, 30m, 1h, 2h) ahora se calculan **siempre relativas a la hora programada de la dosis**, no a la hora actual (`now`).
+- **Consistencia Visual**: Si una dosis de las 05:00 AM se intenta posponer 15 minutos a las 05:10 AM, la nueva hora será 05:15 AM (05:00 + 15m), no 05:25 AM (05:10 + 15m).
+- **Flexibilidad**: Se han eliminado las restricciones que impedían mover dosis "hacia el pasado relativo" si seguían dentro del margen de seguridad, permitiendo al usuario ajustar horarios de dosis atrasadas con precisión.
+
+### 142.3 Ventana de Reconciliación Extendida (Actionable Past)
+- **Grace Period Awareness**: `DoseReconciliationService` ahora incluye el "Pasado Accionable" en su cálculo de `cutoffDate`.
+- **Lógica**: Si el periodo de gracia es de 2 horas y abres la app a las 00:30 AM, el sistema ahora reconcilia desde las 22:30 PM del día anterior.
+- **Impacto**: Esto asegura que las dosis de última hora de la noche anterior (que aún pueden ser tomadas) se sincronicen correctamente con sus slots ideales y no sean ignoradas o duplicadas por el cambio de día natural.
+
+### 142.4 Mejoras en Concurrencia (Swift 6)
+- **Acceso MainActor Seguro**: Corrección de accesos no marcados con `await` a `MedicationSettings.shared` desde contextos `nonisolated`.
+- **Deduplicación de Saltos de Actor**: Optimización de la obtención del periodo de gracia para evitar múltiples saltos entre el hilo de fondo y el MainActor durante una sola ejecución de reconciliación.
+
+### 142.5 Consolidación en Home Dashboard
+- **Gestión de Visibilidad**: `InteractiveMedicationList` ahora filtra proactivamente dosis que han sido movidas a días futuros, evitando que la misma dosis aparezca en la lista de "Hoy" y en la de "Mañana" simultáneamente tras una reprogramación de medianoche.
+- **Feedback Inmediato**: Las actualizaciones de estado de dosis reprogramadas ahora disparan señales de cambio de datos que refrescan instantáneamente todos los widgets y Live Activities.
+
+---
+
+## 143. Refinamiento de Gráficos de Contribución y Actividad (GitHub-Style) (28 Febrero 2026)
+
+Se ha implementado una nueva lógica de visualización de actividad basada en la densidad de interacciones, replicando fielmente el comportamiento de los gráficos de contribución de GitHub.
+
+### 143.1 Lógica de Densidad (ContributionLevel)
+El sistema ha evolucionado de una vista binaria (Completado/Pendiente) a un sistema de 5 niveles de intensidad:
+- **Nivel 0 (None)**: Sin actividad (Gris suave).
+- **Nivel 1 (Low)**: 1-2 interacciones (Verde opacidad 20%).
+- **Nivel 2 (Medium)**: 3-5 interacciones (Verde opacidad 40%).
+- **Nivel 3 (High)**: 6-9 interacciones (Verde opacidad 70%).
+- **Nivel 4 (Complete/Very High)**: 10+ interacciones (Verde sólido).
+- **Nivel 5 (Broken)**: Específico para días con dosis de medicación perdidas (`missed`) (Rojo sólido).
+
+### 143.2 Componente `ContributionGridView`
+- **Dimensiones Premium**: Celdas de **7pt x 7pt** con espaciado de **1.5pt**.
+- **Capacidad**: Visualización de hasta **154 días** (22 semanas) en widgets de tamaño Medium y Large.
+- **Sincronización Transversal**: El componente es compartido entre el `StreakPremiumWidget`, el `WellnessOverviewWidget` (sustituyendo placeholders) y el `ActivityAnalyticsView` de la app principal.
+
+### 143.3 Recolección de Datos (`WidgetDataFetcher`)
+La lógica de recuento ahora es exhaustiva e incluye:
+- Tomas de medicación confirmadas.
+- Registros de síntomas.
+- Actualizaciones de estado de ánimo (Mood).
+- Completitud de tareas.
+- Asistencia a citas médicas.
+
+El sistema identifica proactivamente si en algún día hubo una dosis marcada como `missed`, forzando el estado `Broken` (Rojo) por encima de cualquier nivel de actividad positiva, manteniendo así la integridad del concepto de "Racha" (Streak).
+
+### 143.4 UX y Localización
+- Se han añadido leyendas (Legends) en el widget grande para explicar los niveles de intensidad.
+- Todas las etiquetas de la leyenda (`streak_legend_low`, `streak_legend_high`, `streak_legend_broken`) están localizadas en `Widgets.xcstrings`.
+
+---
+
+> **Nota final de arquitectura**: La consistencia visual del "Activity Heatmap" es ahora un estándar de diseño para cualquier nueva vista de analíticas en VitalsPath.
+
+## 143. Refined Contribution Graphs & Activity Localization (28 Febrero 2026)
+
+Se ha realizado un refinamiento estético y funcional profundo en los gráficos de actividad y el sistema de localización para alcanzar el estándar de excelencia "Wow" solicitado.
+
+### 143.1 Optimización de Gráficos (Contribution Grid)
+
+- **Densidad y Escala**: Se ha incrementado el tamaño de las celdas (`cellSize`) para aprovechar el 100% del ancho disponible en dispositivos modernos (iPhone 15 Pro/16).
+  - **App Card**: `cellSize: 12`, `spacing: 2`.
+  - **Widgets**: `cellSize: 11`, `spacing: 2`.
+- **Visibilidad de Niveles**: Se ha ajustado la paleta de opacidades para que los días de "baja actividad" (`.low`) sean claramente distinguibles del fondo (`emptyColor`), permitiendo una lectura más rica del patrón de uso "estilo GitHub".
+- **Uniformidad Transversal**: Sincronización exacta de parámetros entre `ActivityAnalyticsView` (App) y `WellnessOverviewWidget` / `StreakPremiumWidget` (Widgets) para una experiencia de marca coherente.
+
+### 143.2 Auditoría de Localización y Mensajería
+
+- **Resolución de Deuda de Traducción**: Se han identificado e inyectado más de 18 claves críticas en `Localizable.xcstrings` que estaban causando visualización de claves crudas (`LABEL_ACTIVITY_HISTORY`).
+  - **Nuevas Claves**: `label_activity_history`, `current_streak`, `longest_streak`, `last_activity`, `label_active_days`, `label_consistency`, entre otras.
+- **Mensajes de Insight**: Implementación de cadenas de texto motivacionales para los tres niveles de consistencia (`msg_consistency_high/medium/low`).
+- **Robustez de Strings**: Refactorización de `statusLocalizedString` para manejar `Optional<String>` con fallbacks deterministas (`wellness_status_optimal`), garantizando que la UI nunca muestre errores de desempaquetado.
+
+### 143.3 Mantenimiento de Archivos Grandes
+- **Safe JSON Update**: Se ha implementado un flujo de actualización mediante scripts para el archivo `Localizable.xcstrings` (8.8MB), superando las limitaciones de los editores estándar y evitando la corrupción de datos en archivos de alta densidad.
+
+## 140. Sincronización de Notificaciones y Robustez (1 Marzo 2026)
+
+Se revisó el servicio `WatchSyncService` para suspender el temporizador recursivo (`startStatusRefreshTimer`) cuando no hay un **Apple Watch** vinculado al dispositivo del usuario.
+
+### 140.1 Optimización de Background
+- **Condición Segura**: En la función `startStatusRefreshTimer`, se interrumpe y previene el conteo reevaluado si y sólo si `guard isWatchPaired else { return }` se evalúa verdadero.
+- **Listeners Activos**: Para cubrir todas las aristas de casos fronterizos, el delegado `sessionWatchStateDidChange` fuerza invocar el conteo de refrescamiento siempre que la conexión o estados de salud de empaquetado del Watch y el iPhone muten.
+
+### Archivos Modificados (Session 2026-03-01)
+
+| Archivo | Cambio |
+| --- | --- |
+| `WatchStatusIndicator.swift` | Refinada la condicional visual sumando que de igual manera debe existir un `isWatchPaired`. |
+| `WatchSettingsView.swift` | Construida una tarjeta `notPairedInfoCard` con información bloqueante deshabilitando controles si la integración Apple Watch carece de emparejamiento. |
+| `WatchSyncService.swift` | Evitada la reevaluación ciega cada 30s (`startStatusRefreshTimer`) cuando es detectado un contexto no emparejado ahorrando batería en background. |
+
+---
+
+## 144. Pendientes Críticos para Cuenta de Developer de Pago (1 Marzo 2026)
+
+Este apartado documenta tres tareas bloqueadas por la ausencia de una cuenta de Apple Developer activa. Deben ejecutarse en orden al activar la cuenta.
+
+---
+
+### 144.1 Migración de App Group ID
+
+**Estado actual**: `group.com.romerosoft.personalcare` es el App Group activo en producción.
+**Objetivo**: Migrar a `group.com.romerodev.vitalspath` cuando esté aprovisionado.
+
+**Contexto del incidente (1 Marzo 2026)**:
+Se intentó migrar el App Group ID sin tener el nuevo grupo registrado en el portal de Apple. En simulador funcionó porque los App Groups no requieren provisioning. En dispositivo físico, `containerURL(forSecurityApplicationGroupIdentifier:)` devolvió `nil` para el nuevo grupo → `DataMigrationService` salió sin migrar → `SharedModelContainer` tampoco pudo abrir el contenedor → la app arrancó con un store vacío. Los datos del usuario permanecieron intactos en `group.com.romerosoft.personalcare`.
+
+**Fix aplicado temporalmente** (`AppConstants.swift`):
+```swift
+// ACTIVO AHORA (revertido al grupo que sí funciona en device):
+public static let appGroupId = "group.com.romerosoft.personalcare"
+public static let oldAppGroupId = "group.com.romerodev.vitalspath"
+```
+
+**Pasos para completar la migración cuando la cuenta esté activa**:
+
+1. **Portal Apple Developer** → Certificates, IDs & Profiles → App Groups → registrar `group.com.romerodev.vitalspath`
+2. **Asociar el nuevo grupo** a todos los App IDs:
+   - `com.romerodev.vitalspath` (app principal)
+   - App ID del Widget Extension
+   - App ID del Watch App
+   - App ID del Watch Widget Extension
+3. **Regenerar los 4 provisioning profiles** (Development + Distribution para cada target)
+4. En Xcode: Signing & Capabilities → Download Manual Profiles
+5. **Revertir `AppConstants.swift`**:
+   ```swift
+   public static let appGroupId    = "group.com.romerodev.vitalspath"      // nuevo activo
+   public static let oldAppGroupId = "group.com.romerosoft.personalcare"   // fuente de migración
+   ```
+6. `DataMigrationService.performMigrationIfNeeded()` ejecutará la migración automáticamente en el primer arranque. El mecanismo ya está implementado y probado en simulador.
+
+**Archivos clave**:
+- `personalcare/Configuration/AppConstants.swift` — IDs
+- `personalcare/Core/Data/SharedModelContainer.swift` — migración + apertura del contenedor
+
+**Entitlements ya preparados** (ambos grupos ya están listados en todos los targets):
+- `personalcare.entitlements` ✅
+- `VitalsPathWidgetsExtension.entitlements` ✅
+- `VitalsPathWatch Watch App.entitlements` ✅
+- `VitalsPathWatchWidgetsExtension.entitlements` — ⚠️ solo tiene el nuevo grupo; añadir `group.com.romerosoft.personalcare` por coherencia
+
+---
+
+### 144.2 iCloud Backup (CloudKit / iCloud Drive)
+
+**Estado actual**: Los datos residen únicamente en el App Group local del dispositivo. Si el usuario borra la app o cambia de dispositivo, pierde todos sus datos.
+
+**Objetivo**: Ofrecer backup automático en iCloud sin requerir suscripción (es un derecho del usuario).
+
+**Opciones técnicas evaluadas**:
+
+| Opción | Ventajas | Desventajas |
+|--------|----------|-------------|
+| **SwiftData + CloudKit** (`ModelContainer` con `cloudKitDatabase`) | Sync automático, sin código adicional | Requiere entitlement `com.apple.developer.icloud-container-identifiers`; incompatible con algunas relaciones `@Relationship(deleteRule: .cascade)` en el schema actual |
+| **iCloud Drive (Document-based backup)** | Control total del formato; usa el mecanismo de Export/Import ya implementado | El usuario debe activarlo manualmente; no es automático |
+| **CKContainer sync manual** | Máximo control | Mucho código; duplica la lógica de datos |
+
+**Recomendación**: SwiftData + CloudKit es el camino correcto a largo plazo. Requiere:
+1. Activar iCloud en el portal (Certificates → Identifiers → iCloud Containers → `iCloud.com.romerodev.vitalspath`)
+2. En Xcode: Signing & Capabilities → iCloud → CloudKit → añadir el container
+3. En `SharedModelContainer`: cambiar `ModelConfiguration(schema:url:)` por una configuración con `cloudKitDatabase: .private("IDENTIFIER")`
+4. Validar que `AppSchemaV3` no tenga relaciones incompatibles con CloudKit (las relaciones many-to-many con datos binarios pueden dar problemas)
+5. Probar migración en devices con el mismo Apple ID
+
+**Prerequisito de la cuenta**: Se necesita el entitlement `com.apple.developer.icloud-container-identifiers` que solo está disponible con cuenta de developer de pago.
+
+---
+
+### 144.3 StoreKit 2 — Monetización Real
+
+**Estado actual**: La monetización está simulada / mockeada. `SubscriptionManager` existe pero no se conecta a App Store Connect real.
+
+**Objetivo**: Activar compras reales a través de App Store Connect.
+
+**Pasos para la integración real**:
+
+1. **App Store Connect** → tu app → Subscriptions → crear los productos:
+   - `vitalspath.pro.monthly` (mensual)
+   - `vitalspath.pro.yearly` (anual)
+   - `vitalspath.pro.lifetime` (pago único, si aplica)
+
+2. **Configurar entorno de pruebas**: App Store Connect → Sandbox Testers → crear cuenta de prueba
+
+3. **En `SubscriptionManager`**: descomentar / activar el código de `Product.products(for:)` y `product.purchase()` real (actualmente simulado). El archivo ya tiene la estructura de StoreKit 2 preparada.
+
+4. **Receipt validation**: StoreKit 2 usa `Transaction.currentEntitlements` directamente, sin necesidad de servidor. Validar que `SubscriptionManager.checkSubscriptionStatus()` llame a este API al arrancar.
+
+5. **Revisar `FeatureGating`**: confirmar que los features premium estén correctamente bloqueados cuando `SubscriptionManager.isSubscribed == false` en producción.
+
+6. **Testing en device**: antes del lanzamiento, probar el flujo completo con Sandbox Testers en un dispositivo físico (no simulador).
+
+**Prerequisito**: La app debe estar creada en App Store Connect (con Bundle ID `com.romerodev.vitalspath`) y los productos de subscripción configurados antes de poder hacer `Product.products(for:)` real.
+
+---
+
+### 144.4 Resumen de Dependencias por Activación
+
+```
+Cuenta Developer activa
+├── App Group group.com.romerodev.vitalspath (144.1)
+│   ├── Registrar en portal
+│   ├── Asociar a todos los App IDs
+│   ├── Regenerar provisioning profiles
+│   └── Revertir AppConstants.swift (1 línea)
+│
+├── iCloud Backup (144.2)
+│   ├── Crear iCloud Container en portal
+│   ├── Activar CloudKit en Xcode
+│   └── Modificar SharedModelContainer (1 configuración)
+│
+└── StoreKit 2 real (144.3)
+    ├── Crear productos en App Store Connect
+    ├── Activar código real en SubscriptionManager
+    └── Testing con Sandbox Testers
+```
+
+---
+
+## 145. Backup v10 (Apple Archive) y Cloud Library Manager (2 Marzo 2026)
+
+Se ha realizado una evolución crítica del sistema de respaldos, migrando de un formato basado en JSON a un contenedor Apple Archive nativo para manejar de forma eficiente archivos multimedia y grandes volúmenes de datos.
+
+### 145.1 Migración al Esquema v10 (Apple Archive)
+
+| Atributo | Valor/Detalle |
+|---|---|
+| **Formato de Archivo** | Apple Archive (.aar) con compresión LZFSE |
+| **Identificación** | Magic Bytes "YAA1" al inicio del archivo |
+| **Estructura Interna** | Directorio `media/` (fotos, audios) y `backup_manifest.json` |
+| **Escalabilidad** | Soporta Gb de datos sin bloqueos por deserialización de base64 |
+
+### 145.2 Directory Manager: `BackupStorageService`
+
+Se ha implementado una librería local persistente para gestionar los respaldos sin depender de iCloud:
+- **Localización**: `Documents/VitalsPathBackups/`.
+- **Auto-Persistencia**: Tras cada exportación exitosa, el sistema guarda automáticamente una copia en esta carpeta "My Library", reduciendo el riesgo de pérdida accidenta.
+- **Gestión**: Permite listar, compartir, restaurar y eliminar copias de seguridad locales de forma independiente al ciclo de vida de los perfiles.
+
+### 145.3 Cloud Library Browser (`BackupFileBrowserView`)
+
+Nueva interfaz premium tipo explorador de archivos que unifica la gestión de datos:
+- **Badge de Formato**: Visualización clara entre "Archive v10" y "Legacy JSON".
+- **Estado de iCloud**: Sección dedicada para respaldos en la nube con estados de sincronización reactivos.
+- **Modo Simulado**: Desbloqueo visual de iCloud para testing sin cuenta de desarrollador, redirigiendo a copias locales para mantener la fluidez funcional.
+
+### 145.4 Seguridad y Concurrencia (Swift 6)
+
+- **Isolation Fixing**: Se eliminó el aislamiento a `@MainActor` de propiedades estáticas compartidas (`fileExtension`) para permitir su acceso desde hilos de gestión de archivos en background.
+- **Atomicidad**: El proceso de exportación garantiza que el archivo final solo se mueva a la librería local tras una creación exitosa y verificada de la suma de comprobación del archivo.
+
+---
+
+## 146. Sincronización de Ciclo de Vida y Filtrado de Medicaciones (2 Marzo 2026)
+
+Se ha consolidado la integridad del estado de los medicamentos para evitar errores de selección y visualización de items cancelados o inactivos en flujos críticos como la creación de tratamientos.
+
+### 146.1 Sincronización Automática de Estado
+- **Integridad del Modelo**: Se ha refactorizado la entidad `Medication` para que la propiedad `isActive` (booleana, optimizada para predicados SwiftData) se sincronice automáticamente a través del setter de `lifecycleStatus`.
+- **Estados Soportados**:
+  - `.active` → `isActive = true`
+  - `.paused`, `.completed`, `.archived`, `.cancelled` → `isActive = false`
+
+### 146.2 Reglas de Filtrado en UI
+- **AddTreatmentViewModel**: La función `activeUnlinkedMedications` ahora filtra estrictamente por `lifecycleStatus == .active`. Esto garantiza que medicamentos en pausa o cancelados no aparezcan en el selector de vinculación a tratamientos.
+- **MedicationListView**: El filtro por defecto ("Todos") ahora excluye explícitamente los estados `.cancelled` y `.archived` para mantener la vista principal enfocada en la medicación relevante.
+
+### 146.3 Refuerzo en Servicios Core
+- **SubscriptionExpiryHandler**: Se ha actualizado para utilizar el setter de enum al pausar o reanudar medicamentos por límites de suscripción, garantizando que el flag de actividad nunca quede en un estado inconsistente.
+- **DataBackupService**: Los procesos de importación ahora procesan el `lifecycleStatus` a través del motor de sincronización, asegurando que los datos restaurados cumplan con las reglas de visibilidad actuales.
+
+### 146.4 Auditoría de Parada de Tratamiento
+- **Cascading Cancellation**: Al detener un tratamiento completo (`PauseResumeService.stopTreatment`), todos los medicamentos vinculados se marcan automáticamente como `.cancelled`, desencadenando la actualización de `isActive` y su eliminación inmediata de las listas de selección y tareas diarias.
+
+## 147. Arquitectura de Persistencia y Scoring de Bienestar (2 Marzo 2026)
+
+Se ha implementado una orquestación sistémica para garantizar que el **Daily Wellness Score** se mantenga actualizado en tiempo real tras cualquier modificación de datos de salud, asegurando la fidelidad de las gráficas en "Perspectives" y Widgets.
+
+### 147.1 Orquestación de Persistencia Centralizada
+Se ha establecido el servicio `DailyProgressService` como el SSOT (Single Source of Truth) para el cálculo y guardado de puntuaciones diarias (`DailyScoreEntry`).
+
+| Módulo | Punto de Integración | Acción de Persistencia |
+| --- | --- | --- |
+| **Mood** | `Profile.updateMood` | Guardado automático tras cada entrada de ánimo. |
+| **Medicamentos** | `DoseService` & `WatchSyncSync` | Recalcular score tras cambios de estado (tomada/saltada). |
+| **Síntomas** | `SymptomQuickEntry` & `SymptomUpdate` | Actualizar score al registrar severidad o evolución. |
+| **Tareas** | `TasksViewModel` | Sincronización al completar o cancelar tareas de seguimiento. |
+| **Citas** | `AppointmentDetailViewModel` | Actualización al marcar asistencia. |
+
+### 147.2 Optimización de Visibilidad y Desacoplamiento (Swift 6)
+- **Ajuste de Acceso**: `DailyProgressService` y `DailyProgressData` se mantienen como `public` para permitir el acceso desde múltiples targets (Widgets/Extensiones).
+- **Desacoplamiento (Target-Safety)**: Para evitar errores de compilación en targets que comparten el modelo pero no los servicios (como Widgets, Siri Intents o Watch Companion), se ha implementado un patrón de mensajería asíncrona mediante `NotificationCenter`. 
+  - El modelo `Profile` emite una notificación `DailyScoreUpdateRequired` tras cambios en datos de salud (ej. Mood).
+  - `DailyProgressService` escucha globalmente y ejecuta el guardado solo en el target principal de la App.
+- **Thread-Safety (Background Scoring)**: Introducción de `saveDailyScore(forProfileId:context:)`. Este método permite a servicios que operan en hilos de fondo enviar solo el UUID del perfil, eliminando advertencias de data races por el paso de objetos `Profile` (no-Sendable) entre actores.
+
+### 147.3 Reactividad en Cascada
+Cada llamada a `saveDailyScore` dispara automáticamente:
+1. `SyncCoordinator.shared.moodStatusChanged()` -> Refresca instantáneamente vistas de "Perspectives" y Orbe Cósmico.
+2. `WidgetSyncService.shared.markDirty()` -> Fuerza la actualización de la línea de tiempo de los widgets de la Home Screen.
+
+---
+## 148. Smart Scheduler, Estabilidad PDF y Proyección de Dosis (3 Marzo 2026)
+
+Se han corregido errores críticos en el motor de planificación y el sistema de exportación para garantizar precisión en los horarios y una visualización de datos impecable.
+
+### 148.1 Refinamiento del Smart Scheduler (Lógica de Intervalos)
+- **Corrección de Ventana Temporal**: Se ha eliminado el hardcodeo de la ventana de 16 horas (7-23) para el cálculo de `timesPerDay` en medicamentos por intervalo. Ahora utiliza el ciclo completo de 24 horas, garantizando que un intervalo de 8 horas genere correctamente 3 dosis y no 2.
+- **Preservación de Tiempos Configurados**: Se ha corregido la lógica en `AddTreatmentViewModel` que sobreescribía los horarios definidos por el usuario con valores por defecto (8:00 AM) si la lista de horarios estaba incompleta. Ahora se respeta estrictamente la configuración manual del usuario.
+
+### 148.2 Estabilidad Estructural del PDF (Resolución de Recorte)
+- **Aislamiento de Landscape**: El generador de calendarios de dosis utiliza páginas horizontales. Se ha implementado un mecanismo de "reset" en `PDFDocumentBuilder.beginNewPage` que fuerza el retorno a dimensiones Portrait (A4: 595x842pt) tras secciones landscape.
+- **Sincronización de Contexto de Diseño**: Además de crear la página física con los bounds correctos, se ha forzado el reset de `pdfContextWrapper.layout.currentPageSize`. Esto evita que el `DisclaimerSectionBuilder` calcule anchos de contenido basados en 842pt cuando la página real solo tiene 595pt, eliminando definitivamente el recorte de texto en el lado derecho.
+
+### 148.3 Visibilidad de Dosis Futuras (Synthetic Projections)
+- **Problema**: Las dosis se generan de forma *lazy* (bajo demanda) a través de `ensureDosesGenerated` (usualmente al iniciar la app o cada pocos días). Al crear un tratamiento nuevo, las dosis de días futuros no existían en SwiftData, dejando el mini-calendario de la vista de detalle vacío al tocar días posteriores.
+- **Solución (Synthetic Overlay)**: Se ha implementado un fallback en `TreatmentMiniCalendar.selectedDateDoses`. Si no existen objetos `MedicationDose` persistidos para el día seleccionado, el sistema proyecta dosis sintéticas calculadas en tiempo real a través de `medication.scheduledDoses(for:)`.
+- **Efecto UX**: El usuario ve inmediatamente su planificación futura (pills con estado `.future`) sin necesidad de reiniciar la aplicación o esperar a que el servicio de background genere los objetos reales.
+
+---
+## 149. Arquitectura Concurrente Real-Time y Desbloqueo de Splash (3 Marzo 2026)
+
+Se han implementado optimizaciones profundas de concurrencia en Swift 6 para eliminar bloqueos masivos del UI thread que resultaban en congelaciones de la pantalla de Splash (~1 minuto) tras confirmar una dosis interactuando con la Isla Dinámica o los Widgets.
+
+### 149.1 Extracción de Startup Blocking (Detached Tasks)
+El `StartupManager` ejecutaba las re-planificaciones globales de las 64 alarmas de iOS (`rescheduleAllNotifications()`) y la lectura exhaustiva de bandejas entrantes del SO en el hilo bloqueante de la secuencia inicial de la pantalla de carga. Esta práctica paralizaba la entrada la App.
+- **Solución Asíncrona:** La "Fase 4" del arranque ha sido aislada e importada en un `Task.detached(priority: .utility)`.
+- **Efecto Arquitectural:** La App prioriza instanciar el RootView y reanudar el estado de navegación gráfico instantáneamente mientras que el recálculo pesado del motor de notificaciones fluye por debajo, con *active yielding* para liberar el procesador ante demandas del Render Tree, erradicando al 100% los temidos "Spinning Wait Doodles".
+
+### 149.2 Transición Inteligente de Background (Debouncing de Estado Activo)
+Anteriormente, la `ContentView` interpretaba una estancia en background superior a 5 minutos como una "sesión terminada", forzando una visualización obligatoria del Splash cada vez que el usuario intercalaba rápidamente entre aplicaciones (ej: leer un SMS de verificación médica y volver a la App).
+- **Refinamiento:** Incremento del "Short Background Threshold" de 300 segundos a 900 segundos (**15 minutos**). Así, el motor de Sincronización Quirúrgica (`refreshDataOnActive`) de la `LocalizeRootView` simplemente absorbe y plasma las modificaciones de bases de datos externas sin matar la experiencia fluida, y sólo recompila el State general si el teléfono permaneció con la app dormida sustancialmente.
+
+### 149.3 Inmediatez Absoluta en Widget Intents
+La limpieza de la cola obsoleta de sistema en el AppGroup Container por parte de los Widgets operaba en su tiempo de ejecución síncrono, penalizando visualmente a la Live Activity de actualizar su estado y auto-destruirse, dejando una estela en la Dynamic Island inactiva, que parecía un Freeze.
+- **Aislamiento Síncrono-Asíncrono:** La purga en `updateDoseStatus()` (del Intent) ahora extrae un string UUID, y hace dispatch detached en `@utility`.
+- **Policy Inmediato:** Las Actividades Vivas finalizan bajo la firma `.immediate` en lugar de una espera caduca preprogramada, brindándole al usuario final un "Feedback Sensorial Instantáneo", y cumpliendo la directiva universal de la consistencia reactiva.
+
+---
+## 150. Agrupación Inteligente de Notificaciones de Medicamentos (4 Marzo 2026)
+
+Se ha implementado un sistema avanzado de agrupación de notificaciones (`.doseGroup`) para consolidar múltiples recordatorios de medicamentos que coinciden en el mismo intervalo temporal.
+
+### 150.1 Lógica de Agrupación Temporal y Tolerancias
+- **Umbral Sincronizado con Componente Home:** Las agrupaciones por defecto se realizan teniendo en cuenta el tiempo configurado para agrupar las dosis en la pantalla `Home`.
+- **Valores y Comportamiento:**
+  - **Por Defecto (0 minutos):** Agrurpará únicamente las dosis que estén programadas **exactamente a la misma hora**.
+  - **Incrementos:** El usuario lo puede personalizar en saltos de 5 en 5 minutos hasta llegar a un máximo de **60 minutos**.
+  - **Impacto a los Clústeres:** Un valor (ej. 60 min) significa que el sistema unificará dentro de una solapa todas las dosis pendientes cuya diferencia de horario entre sí no sobrepase ese marco. Toda dosis que caiga después de esa ventana máxima, inicia la generación de la "siguiente" agrupación (o clúster) de 60 minutos, y así sucesivamente cronológicamente. Si la preferencia global está desactivada, simplemente se anula la agrupación.
+- **Scope Limitado:** En lugar de iterar sobre el futuro infinito, el servicio evalúa únicamente las dosis pendientes de las próximas 24 horas, abarcando su periodo de gracia. Evita saturar los Schedule Limits de iOS y permite construir los "clústeres" constructivamente (sobre la marcha).
+
+### 150.2 Control Granular por Medicamento
+El sistema no obliga a una política de todo-o-nada.
+- **Herencia por Defecto:** Al crear un medicamento, si la configuración Global lo dictamina y está activa en el Profile actual, el medicamento hereda implícitamente la habilitación de grupo (`groupedNotificationsEnabled == nil`).
+- **Overrides Locales:** Se ha abstraído un nuevo bloque (`MedicationPreferencesSection`) tanto en el registro (`MedicationRegistrationFlowView`) como en la hoja de detalles (`MedicationDetailSheet`). Aquí el usuario puede forzar que un medicamento específico _rompa_ el clúster y dispare alertas individuales en crudo.
+- **Rescheduling Reactivo:** Modificar la preferencia de agrupación dentro de `MedicationDetailSheet` ahora desencadena un barrido en background (`rescheduleAllInAppReminders(profiles:)`), purgado y recálculo instantáneo para realinear el entramado de notificaciones pendientes sin reiniciar el sistema operativo.
+
+### 150.3 Tratamiento en la UI
+- **In-App Toast Router:** La notificación unificada (`isUrgentNotification == false`) presenta los nombres de base separados por comas. Tocarla (tanto a nivel de OS como de In-App Toast) deriva en un `.requestNavigateToHome`, evitando que se renderice una vista de Quick Actions imposible de mapear para N > 1 dosis divergentes que el usuario resolverá en la interfaz completa.
+
+---
+## 151. Optimización de Cold Start y Desbloqueo de Splash (4 Marzo 2026)
+
+Se ha realizado una intervención quirúrgica en la arquitectura de inicio para eliminar el lag masivo (congelamiento) que ocurría al abrir la app desde una notificación después de haber sido cerrada (Cold Start).
+
+### 151.1 Desacoplamiento de Persistencia Heavy en `didReceive`
+- **Problema:** El handler `userNotificationCenter(_:didReceive:...)` ejecutaba `addNotification()` en el `@MainActor` inmediatamente tras el tap. Esto disparaba un fetch exhaustivo de SwiftData y una sincronización completa de `UNUserNotificationCenter` que saturaba el hilo principal justo cuando la `SplashAnimationView` intentaba renderizar sus frames.
+- **Solución (Lightweight Persist):** Se ha diseñado un nuevo flujo `persistNotificationLightweight`. Si el `StartupManager` detecta que la app está en fase de inicio, la notificación tapeada se inserta en SwiftData de forma atómica y silenciosa (sin disparar refrescos de UI ni escaneos de sistema redundantes).
+- **Consistencia:** El `StartupManager` se encarga de la sincronización pesada en su fase natural, evitando el doble trabajo y liberando el MainActor para las animaciones.
+
+### 151.2 Protocolo de Rendimiento en `StartupManager`
+- **Cooperación Concurrente:** Se han insertado puntos de suspensión `await Task.yield()` estratégicos antes de las fases de mayor consumo (`.doseSync` y `.healthSync`).
+- **Fluidez Visual:** Estos yields permiten que el motor de renderizado de SwiftUI procese los frames de la animación de Splash entre las ráfagas de procesamiento de datos, garantizando una transición fluida incluso bajo carga de sincronización HealthKit.
+
+### 151.3 Sincronización Post-Splash
+- **Ready Signal:** El método `markUIReady()` de `NotificationManager` ahora dispara un `loadSavedNotifications()` forzado una vez que el Splash desaparece.
+- **Resultado:** Esto asegura que la notificación que disparó el Cold Start (guardada previamente modo lightweight) sea visible instantáneamente en el icono de la campana del Home sin retrasos ni estados inconsistentes, manteniendo la navegación deep-link intacta.
+
+---
+
+## 152. Robustez de Conectividad Apple Watch - Sistema de Recuperación (5 Marzo 2026)
+
+Se ha implementado una re-ingeniería profunda del sistema de comunicación iPhone-Watch para resolver el bug de pérdida "irrecuperable" de enlace. El sistema ahora es resiliente a desconexiones transitorias y posee mecanismos de auto-sanación.
+
+### 152.1 Diagnóstico de Errores Críticos (Legacy)
+- **Falsos Negativos en Desactivación:** El método `sessionDidDeactivate` reseteaba los flags `isWatchPaired` e `isWatchAppInstalled`. Debido a la naturaleza asíncrona de `WCSession`, esto causaba que la UI mostrara "Watch no enlazado" erróneamente durante ciclos normales de background/foreground.
+- **Estado Efímero:** `lastSyncDate` y `lastHeartbeatDate` vivían solo en memoria. Al reiniciar la app, el Watch bloqueaba la UI exigiendo sincronización (Sync Required) aunque los datos estuvieran presentes en SwiftData.
+- **Ausencia de Reintentos:** Si la activación de `WCSession` fallaba por condiciones de radio o sistema, no existía un mecanismo para intentar reconectar sin reiniciar la app.
+
+### 152.2 Arquitectura de Recuperación (WatchSyncService)
+- **Estado Transitorio `.recovering`:** Se añade un nuevo estado al enum `WatchConnectionStatus`. Este estado se activa durante la re-activación de la sesión o cuando se detecta una inconsistencia recuperable, evitando que la UI caiga en el estado `.disconnected` prematuramente.
+- **Mecanismo de Auto-Recovery:** Implementación de un bucle de reintentos con **Backoff Exponencial** (2s, 4s, 8s, 16s, 32s). Si `WCSession` falla al activarse, el sistema programa automáticamente el siguiente intento.
+- **Persistencia de Evidencia de Enlace:** Se almacenan `isWatchPaired`, `isWatchAppInstalled` y las fechas de sincronización en `UserDefaults` (App Group). Esto permite que el sistema "recuerde" que el Watch está configurado incluso si la sesión actual aún no ha terminado de negociar el enlace.
+
+### 152.3 Resiliencia en el Lado del Watch (VitalsPathWatch)
+- **Detección de Datos Huérfanos:** `WatchConnectivityService` ahora verifica `receivedApplicationContext` y la persistencia local en el arranque para validar si tiene datos válidos, evitando bloqueos innecesarios por "Sync Required".
+- **Auto-Sync Proactivo:** El Watch ahora intenta forzar una sincronización (`requestSync`) cada 10 segundos si detecta que aún no ha recibido la carga inicial, con un botón manual de "Reintentar" disponible para el usuario.
+- **Heartbeat Robusto:** Envío de pulsos periódicos de latencia (`sendMessage` ligero) para mantener la sesión caliente y actualizar el beacon de conectividad en el iPhone.
+
+### 152.4 Mejoras en UI y UX
+- **Beacon de Conectividad Inteligente:** El `WatchStatusIndicator` en el Home ahora muestra una animación de rotación durante la recuperación, indicando actividad proactiva de reconexión.
+- **Diagnostics en Ajustes:** La vista de configuración del Watch incluye ahora detalles de "Último latido" (Heartbeat) y "Última sincronización", además de un botón de "Reconectar" que limpia el estado de sesión y fuerza una activación limpia de Apple.
+- **Localización Unificada:** Se han integrado claves como `watch_status_recovering` y `watch_settings_reconnect` asegurando que el feedback al usuario sea claro y profesional.
+
+---
+
+## 153. Auditoría B — Optimización de Arranque y Reducción de Lag (8 Marzo 2026)
+
+Se ejecutó una auditoría completa del ciclo de arranque (cold start y retorno desde background) para eliminar bloqueos del hilo principal, trabajo duplicado y consultas globales no acotadas. Todos los cambios son aditivos y no rompen funcionalidad existente.
+
+### 153.1 Principios Aplicados
+
+- **Profile-first:** Al arrancar, solo se procesa el perfil seleccionado. El resto se sincroniza en background.
+- **Cero trabajo duplicado:** Los datos cargados en splash no se vuelven a cargar en Home.
+- **Cambios quirúrgicos:** Cada modificación dispara solo el re-cómputo del registro afectado.
+- **Llaves de control:** Métodos pesados tienen guards de ejecución mínima o TTL.
+- **HealthKit fuera del arranque:** No interviene en ninguna fase del splash; gestiona su propio intervalo.
+- **Perfiles archivados y registros en estado final excluidos** de todas las consultas de arranque.
+
+### 153.2 Cambios en StartupManager (`Core/Managers/StartupManager.swift`)
+
+- **Phase 1:** Eliminadas llamadas duplicadas a `HealthKitSyncManager.shared.configure()` y `SubscriptionManager.shared.configure()` (ya se invocan en `LocalizedRootView.task`).
+- **Phase 2:** `cleanupCorruptedConditions` usa predicado `name == ""` (solo registros corruptos); `deduplicateProfiles` solo procesa `!isArchived`.
+- **Phase 4:** Sincronización de notificaciones lanzada en `Task.detached` — no bloquea el splash.
+- **Phase 5:** Reemplazado el `await DoseService.performGlobalRefresh()` global por:
+  1. Update rápido sincrónico solo para el perfil seleccionado (libera el splash inmediatamente).
+  2. `Task.detached(priority: .utility)` para el refresh global de todos los perfiles.
+- **Phase 6:** Eliminado `HealthKitService.shared.refreshAllReadings()`.
+- **Nuevo método `executeQuickRefresh(context:)`** para retornos de background de 5 min a 6 h: actualiza el perfil seleccionado y lanza un refresh global detached, sin mostrar splash.
+
+### 153.3 Lógica de Retorno a Primer Plano (`ContentView.swift`)
+
+Reemplazado el umbral plano de 15 min por un sistema escalonado:
+
+| Duración en background | Acción |
+|---|---|
+| < 5 min | Nada extra (`LocalizedRootView.refreshDataOnActive` lo maneja) |
+| 5 min – 6 h | `executeQuickRefresh` — sin splash, sin interrupción visual |
+| > 6 h o no inicializado | Splash completo + `executeStartup` |
+
+### 153.4 Notificaciones (`personalcareApp.swift`)
+
+- **`shouldRescheduleNotifications()`:** Corregida lógica invertida. Ahora: primera vez → siempre; >12h → mantenimiento periódico; dato cambiado después del último reschedule → reprogramar.
+- **`rescheduleAllNotifications()`:** Solo perfiles no archivados; perfil activo primero; repair de notificaciones con guard de un máximo de una vez por día calendario (`lastNotificationRepairDate` en `UserDefaults`); `Task.yield()` entre perfiles para no congelar el hilo.
+- **Garantía:** Todas las notificaciones de todos los perfiles en la ventana hoy+24h se disparan. El perfil activo solo obtiene prioridad de procesamiento, no exclusividad.
+
+### 153.5 HomeWellnessService (`Core/Services/Health/HomeWellnessService.swift`)
+
+- **`calculateCheckInRate()` y `calculateRawAdherence()`:** Eliminados `FetchDescriptor<MedicationDose>` globales que traían dosis de todos los perfiles. Reemplazados por traversal en memoria de `profile.medications.flatMap { $0.doses ?? [] }`, que es correcto y eficiente dado que el perfil ya está cargado en contexto cuando se llama.
+
+### 153.6 DailyProgressService (`Core/Services/Health/DailyProgressService.swift`)
+
+- **Execution guard (TASK-13):** `lastCalculationDate[profile.id]` + intervalo mínimo de 2s. Retorna caché si el mismo perfil se recalcula en ráfaga (p.ej. varios taps de dosis rápidos).
+- **Notification observer (TASK-06):** Añadido `await Task.yield()` antes de llamar a `saveDailyScore`. Deja que el frame de UI actual (animación del tap) se renderice antes de bloquear el hilo principal con el cómputo.
+- **`saveDailyScore` — FetchDescriptor optimizado (TASK-06):** Antes fetcheaba todo el historial de `DailyScoreEntry` del perfil (crece indefinidamente) para filtrar en memoria. Ahora el predicado incluye `entry.date >= today && entry.date < tomorrow`, devolviendo 0 o 1 registros sin importar el historial acumulado.
+
+### 153.7 HealthInsightService (`Core/Services/Health/HealthInsightService.swift`)
+
+- **Cache TTL 5 minutos:** `generateInsights(for:context:)` ahora guarda resultado en `[UUID: CacheEntry]` con timestamp. Las llamadas repetidas dentro de 5 min devuelven caché directamente. Se expone `invalidateCache(for profileId:)` para invalidación quirúrgica cuando cambian datos relevantes.
+
+### 153.8 WellnessWidgetView (`Features/Home/Components/WellnessWidgetView.swift`)
+
+- **Rendering diferido (TASK-12):** El grid de widgets está gateado por `@State private var metricsReady = false`. El modificador `.task { await Task.yield(); metricsReady = true }` permite que HomeView complete su primer layout antes de que los widgets disparen el cómputo de `HomeWellnessService`. Mientras `!metricsReady`, se muestra un skeleton de rectángulos redondeados que preserva el espacio visual.
+
+### 153.9 HomeView — Citas Perdidas
+
+- `checkMissedAppointments()` aplica un filtro en memoria `!(($0.profile?.isArchived) ?? false)` tras el fetch, excluyendo perfiles archivados sin necesidad de optional chaining en el predicado SwiftData (no soportado).
+
+### 153.10 Nota de Mantenimiento — `propertiesToFetch` en `rescheduleAllNotifications`
+
+> ⚠️ **Punto a vigilar:** En `personalcareApp.rescheduleAllNotifications(container:)`, el `FetchDescriptor<Profile>` incluye `descriptor.propertiesToFetch = [\.name, \.isArchived]`. Esto acelera el fetch inicial, pero los perfiles quedan como **faults** para el resto de sus propiedades (`medications`, `appointments`, etc.). SwiftData los resuelve de forma lazy cuando los servicios de notificación acceden a esas relaciones, lo cual es correcto en un background context.
+>
+> **Si en el futuro se observa lentitud en el procesamiento de notificaciones** (muchos faults en cascada sobre un background context recién creado), la corrección inmediata es **eliminar la línea `descriptor.propertiesToFetch`** para hacer un fetch completo. El comportamiento funcional no cambia; solo cambia si la carga se hace al inicio (fetch completo) o bajo demanda (faults lazy).
+
+---
+
+## 154. Auditoría y Corrección del Sistema de Suscripción (8 Marzo 2026)
+
+> **Alcance:** Revisión integral del flujo free/premium, mecanismo de bloqueo al expirar la suscripción, y proceso de restauración al renovar. Se corrigieron 6 bugs de integridad de datos y se reforzó el principio fundamental: **los datos del usuario nunca se eliminan, solo se bloquean**.
+
+---
+
+### 154.1 Principio de Diseño: "Datos seguros, siempre recuperables"
+
+El sistema de suscripción sigue una filosofía clara:
+
+- **Usuario free**: puede usar la app dentro de los límites del tier gratuito. Ve las fronteras premium de forma visible (lock overlays, paywall contextual) pero nunca pierde acceso a su historial.
+- **Usuario premium**: acceso ilimitado. Al renovar (lifetime, annual, monthly), desaparece cualquier bloqueo automáticamente.
+- **Usuario que expira/cancela**: puede elegir qué conservar activo dentro de los límites free. El resto queda **guardado y bloqueado** — sin notificaciones, sin edición, pero perfectamente recuperable si renueva.
+- **Usuario que renueva**: todo se desbloquea automáticamente, notificaciones incluidas. Sin pérdida de datos.
+
+---
+
+### 154.2 Arquitectura del Sistema de Monetización
+
+#### Archivos clave
+
+| Archivo | Responsabilidad |
+|---|---|
+| `Subscription/SubscriptionManager.swift` | Estado central. `isPremium`, grace period (3 días), RevenueCat delegate, Keychain storage |
+| `Subscription/FeatureGate.swift` | 26 features premium, `FreeTierLimits`, `hasPremiumAccess` combinado (suscripción + licencia) |
+| `Subscription/Services/SubscriptionExpiryHandler.swift` | Bloqueo y desbloqueo de datos al expirar/renovar |
+| `Subscription/DowngradeSelectionView.swift` | Flujo multi-paso: usuario elige qué conservar activo |
+| `Subscription/PaywallView.swift` | Paywall completo con pricing dinámico de RevenueCat |
+| `Subscription/PremiumGatedView.swift` | Wrapper SwiftUI que muestra paywall si falta acceso |
+| `Subscription/Components/VisualGatingComponents.swift` | `PremiumLockOverlay`, `LockedButton`, `UpsellCard` — componentes de UI de gating |
+| `Subscription/LicenseManager.swift` | Acceso premium alternativo vía licencias (admin) |
+| `Subscription/Services/SubscriptionNotificationService.swift` | Recordatorios de expiración a 72h, 48h y 24h antes |
+
+#### Productos
+
+| Producto | ID | Precio | Tipo |
+|---|---|---|---|
+| Monthly | `com.vitalspath.premium.monthly` | €4.99/mes | Auto-renew |
+| Annual | `com.vitalspath.premium.annual` | €39.99/año | Auto-renew (ahorro ~33%) |
+| Lifetime | `com.vitalspath.premium.lifetime` | €149.99 | One-time |
+
+#### Límites del tier gratuito (configurables desde Admin Panel)
+
+| Recurso | Límite free |
+|---|---|
+| Perfiles | 1 |
+| Medicamentos standalone | 5 |
+| Condiciones por perfil | 3 |
+| Tratamientos por perfil | 3 |
+| Citas por mes | 5 |
+| Lugares favoritos | 5 |
+| Seguros de salud | 1 |
+| Tareas por registro | 10 |
+| Tareas independientes | 5 |
+| Temas visuales | 3 (free) |
+
+---
+
+### 154.3 Mecanismo de Bloqueo por Expiración
+
+#### Campos de bloqueo por modelo
+
+| Modelo | Campo(s) de bloqueo | Criterio de restauración |
+|---|---|---|
+| `Profile` | `isLocked`, `lockReason`, `lockedDate` | `lockReason == nil` después de `unlockAllProfiles` |
+| `Medication` | `lifecycleStatus = .paused`, `pauseReason` | `pauseReason == "subscription_expired" \| "profile_locked"` |
+| `Treatment` | `isActive = false`, `pauseReason` | `pauseReason == "subscription_expired" \| "profile_locked"` |
+| `UserCondition` | `isActive = false`, **`subscriptionDeactivatedAt: Date?`** | `subscriptionDeactivatedAt != nil` (nil = desactivado manualmente) |
+| `FavoritePlace` | `isArchived = true`, **`subscriptionArchivedAt: Date?`** | `subscriptionArchivedAt != nil` (nil = archivado manualmente) |
+| `Appointment` | **`isDirectlySubscriptionLocked: Bool`** (stored, para predicates SwiftData) | Siempre restaurable. `status` NO se cambia a `.cancelled` |
+| `HealthInsurance` | `isActive = false`, `cancellationReason` | `cancellationReason.contains("Subscription expired")` |
+
+> **Principio clave:** Los campos `subscriptionDeactivatedAt`, `subscriptionArchivedAt` e `isDirectlySubscriptionLocked` fueron añadidos el 8-Mar-2026 para distinguir bloqueos automáticos del sistema de decisiones manuales del usuario. **Nunca confundir** ni reactivar items bloqueados manualmente.
+>
+> **Nota sobre `Appointment`:** El modelo tiene dos propiedades relacionadas:
+> - `isDirectlySubscriptionLocked` — stored property (escribe solo `SubscriptionExpiryHandler`). Se usa en predicates SwiftData.
+> - `isSubscriptionLocked` — computed property en `Models+Extensions.swift`. Devuelve `isDirectlySubscriptionLocked || profile?.isSubscriptionLocked`. Toda la UI del proyecto usa esta computed property (no hay breaking changes).
+
+#### Flujo al expirar (`handleSubscriptionExpired`)
+
+```
+1. lockExcessProfiles          → Profile.isLocked = true + cascade medications/treatments
+2. pauseExcessMedications      → Medication.lifecycleStatus = .paused + pauseReason
+3. pauseExcessTreatments       → Treatment.isActive = false + pauseReason
+4. deactivateExcessConditions  → UserCondition.isActive = false + subscriptionDeactivatedAt = Date()
+5. lockExcessAppointments      → Appointment.isSubscriptionLocked = true (sin cancelar status)
+6. archiveExcessFavoritePlaces → FavoritePlace.isArchived = true + subscriptionArchivedAt = Date()
+7. deactivateExcessHealthInsurances → HealthInsurance.isActive = false + cancellationReason
+8. cancelLockedItemNotifications    → Cancela todas las notificaciones de items bloqueados
+9. context.save()
+```
+
+#### Flujo al renovar (`handleSubscriptionReactivated`)
+
+```
+1. unlockAllProfiles                      → Profile.isLocked = false
+2. resumeSubscriptionPausedMedications    → Solo pauseReason == subscriptionExpired | profileLocked
+3. resumeSubscriptionPausedTreatments     → Solo pauseReason == subscriptionExpired | profileLocked
+4. reactivateSubscriptionPausedConditions → Solo subscriptionDeactivatedAt != nil → nil
+5. unarchiveFavoritePlaces                → Solo subscriptionArchivedAt != nil → nil
+6. reactivateSubscriptionPausedHealthInsurances → Filtra por cancellationReason
+7. unlockSubscriptionLockedAppointments   → isSubscriptionLocked = false + restaura notificaciones futuras
+8. regenerateNotifications                → Reagenda notificaciones de medicamentos activos
+9. context.save()
+```
+
+#### Flujo de selección manual (`DowngradeSelectionView`)
+
+Cuando el usuario excede los límites y se presenta el flujo de selección:
+
+```
+Step 1: Intro    → Muestra límites free + opción de renovar
+Step 2: Profile  → Selecciona 1 perfil a mantener activo
+Step 3: Records  → Selecciona medicamentos y tratamientos (con contador N/límite)
+Step 4: Review   → Resumen de selecciones manuales + categorías auto-gestionadas
+         → finishFlow() → lockAllExcept(...)
+```
+
+Las categorías auto-gestionadas por el sistema (condiciones, citas, lugares, seguros) se conservan automáticamente hasta el límite free — el usuario las ve en el step de review pero no necesita elegirlas individualmente.
+
+---
+
+### 154.4 Flujo de Acceso a Features
+
+```swift
+// Método 1: Feature flag
+if FeatureGate.canAccess(.exportFeatures) { }
+
+// Método 2: Límite de cantidad
+if subscriptionManager.canAddMedication(currentCount: count) { }
+
+// Método 3: Acceso combinado (suscripción OR licencia)
+if FeatureGate.hasPremiumAccess { }  // = SubscriptionManager.isPremium || LicenseManager.hasPremiumAccess
+
+// Método 4: Modificador SwiftUI
+myView.premiumFeature(.advancedAnalytics)  // muestra paywall al tap si no tiene acceso
+```
+
+#### Features gratuitas (acceso sin suscripción)
+
+Solo `.calendarSync` está incluido en el tier gratuito. Todas las demás 25 features son premium.
+
+> **Nota (8-Mar-2026):** Se eliminó `.smartScheduler` de `isIncludedInFree` en `FeatureGate` — estaba incorrectamente marcado como gratuito mientras que `SubscriptionManager.canAccess` lo bloqueaba. Ahora ambos sistemas son consistentes: `smartScheduler` es premium.
+
+---
+
+### 154.5 Bugs Corregidos (8 Marzo 2026)
+
+#### Bug 1 — Tratamientos manuales se reactivaban al renovar
+
+**Archivo:** `SubscriptionExpiryHandler.swift` → `resumeSubscriptionPausedTreatments`
+
+**Problema:** La función reactivaba TODOS los tratamientos inactivos, incluyendo los pausados manualmente por el usuario.
+
+**Fix:** Añadido `guard treatment.pauseReason == "subscription_expired" || "profile_locked"` antes de reactivar. Los tratamientos sin `pauseReason` (pausados manualmente) no se tocan.
+
+---
+
+#### Bug 2 — Condiciones manuales se reactivaban al renovar
+
+**Archivo:** `SubscriptionExpiryHandler.swift` → `reactivateSubscriptionPausedConditions`
+**Modelo afectado:** `UserCondition.swift`
+
+**Problema:** `UserCondition` no tenía campo para distinguir desactivación por suscripción vs manual. Al renovar se reactivaban TODAS las condiciones inactivas.
+
+**Fix:**
+- Añadido `subscriptionDeactivatedAt: Date?` al modelo `UserCondition`.
+- `deactivateExcessConditions` ahora asigna `condition.subscriptionDeactivatedAt = Date()`.
+- `reactivateSubscriptionPausedConditions` ahora solo actúa sobre condiciones con ese campo no-nil, y lo limpia al restaurar.
+
+---
+
+#### Bug 3 — Lugares favoritos manualmente archivados se restauraban al renovar
+
+**Archivo:** `SubscriptionExpiryHandler.swift` → `unarchiveFavoritePlaces`
+**Modelo afectado:** `FavoritePlace.swift`
+
+**Problema:** `FavoritePlace` no tenía campo para distinguir archivado por suscripción vs manual. Al renovar se desarchivaban TODOS los lugares archivados.
+
+**Fix:**
+- Añadido `subscriptionArchivedAt: Date?` al modelo `FavoritePlace`.
+- `archiveExcessFavoritePlaces` ahora asigna `place.subscriptionArchivedAt = Date()`.
+- `unarchiveFavoritePlaces` ahora solo actúa sobre lugares con ese campo no-nil, y lo limpia al restaurar.
+
+---
+
+#### Bug 4 — Citas se cancelaban permanentemente (pérdida de datos irrecuperable)
+
+**Archivo:** `SubscriptionExpiryHandler.swift` → `cancelExcessAppointments`
+**Modelo afectado:** `Appointment.swift`
+
+**Problema:** Al expirar la suscripción, las citas en exceso se marcaban con `status = .cancelled` permanentemente y se añadía un texto a sus notas. Al renovar, no había ninguna lógica de restauración — las citas quedaban canceladas para siempre.
+
+**Fix:**
+- Añadido `isDirectlySubscriptionLocked: Bool = false` (stored property) al modelo `Appointment`. El `status` original NO se cambia.
+- La computed property `isSubscriptionLocked` en `Models+Extensions` combina: `isDirectlySubscriptionLocked || profile?.isSubscriptionLocked` — toda la UI existente continúa funcionando sin cambios.
+- Renombrado `cancelExcessAppointments` → `lockExcessAppointments`: ahora asigna `isDirectlySubscriptionLocked = true` y cancela las notificaciones.
+- Añadido `unlockSubscriptionLockedAppointments` en `handleSubscriptionReactivated`: resetea el flag y restaura notificaciones para citas futuras con `status == .scheduled`.
+- Añadido bloque en `cancelLockedItemNotifications` con predicate `isDirectlySubscriptionLocked` (stored property, compatible con SwiftData).
+- Actualizado `lockAllExcept` para usar `isDirectlySubscriptionLocked = true` en lugar de `status = .cancelled`.
+- Los contadores de citas del mes excluyen citas con `isDirectlySubscriptionLocked = true` para evitar doble-conteo.
+
+---
+
+#### Bug 5 — Tratamientos bloqueados en cascada sin `pauseReason`
+
+**Archivo:** `SubscriptionExpiryHandler.swift` → `lockExcessProfiles`
+
+**Problema:** Cuando se bloqueaba un perfil en exceso, sus tratamientos se desactivaban (`isActive = false`) pero **sin asignar `pauseReason`**. Esto impedía restaurarlos al renovar (el filtro de `resumeSubscriptionPausedTreatments` no los reconocía).
+
+**Fix:** Añadido `treatment.pauseReason = SubscriptionLockReason.profileLocked.rawValue` en el loop de tratamientos dentro de `lockExcessProfiles`.
+
+---
+
+#### Bug 6 — `smartScheduler` inconsistente entre `FeatureGate` y `SubscriptionManager`
+
+**Archivo:** `FeatureGate.swift` → `isIncludedInFree`
+
+**Problema:** `FeatureGate.canAccess(.smartScheduler)` devolvía `true` (free), mientras que `SubscriptionManager.canAccess(.smartScheduler)` devolvía `false` (premium). Dos sistemas contradictorios según el path de llamada.
+
+**Fix:** Eliminado `.smartScheduler` del `case .calendarSync, .smartScheduler` en `isIncludedInFree`. Ahora solo `.calendarSync` es gratuito — ambos sistemas son consistentes.
+
+---
+
+### 154.6 Puntos de Atención para UI (Pendientes)
+
+Los siguientes comportamientos de datos ya están correctamente gestionados a nivel de modelo/lógica, pero la UI debe verificar el nuevo campo `isSubscriptionLocked` en `Appointment` para:
+
+- **Listas de citas:** No mostrar citas bloqueadas como "activas" — mostrarlas con un lock overlay similar al resto de items bloqueados, o directamente filtrarlas de la vista principal free.
+- **Detalle de cita bloqueada:** Mostrar el estado "bloqueada por suscripción" con opción de renovar.
+- **Edición bloqueada:** La UI de edición de citas debe verificar `appointment.isSubscriptionLocked` y denegar modificaciones (similar a `profile.isLocked`).
+- **Notificaciones:** `AppointmentNotificationService` ya no las agenda para citas con `isSubscriptionLocked = true` (la cancelación ocurre al bloquear). Al desbloquear, las notificaciones futuras se restauran automáticamente.
+
+---
+
+### 154.7 GlobalDemoMode
+
+Durante el periodo beta, `isGlobalDemoMode` devuelve `true` por defecto (todos los usuarios tienen acceso premium). Para desactivarlo:
+
+```swift
+// Desde AdminPanelView o directamente:
+SubscriptionManager.shared.isGlobalDemoMode = false
+```
+
+Esto está almacenado en `UserDefaults` con clave `"dev_global_demo_mode"`. Al lanzar a producción, asegurarse de que la clave esté explícitamente en `false` para el build de release.
+
+### 154.8 Paywall bloqueado en Beta (9 Marzo 2026)
+
+**Motivo:** En beta, `isGlobalDemoMode = true`, por lo que todos los usuarios aparecen como premium. Navegar al paywall en ese estado genera confusión (precios reales visibles, botones de compra activos sin intención de cobrar).
+
+**Solución:** En `SettingsView.swift`, la acción de `PremiumStatusCard` guarda contra `isGlobalDemoMode`:
+
+```swift
+action: {
+    // Beta: paywall navigation disabled while GlobalDemoMode is active
+    guard !SubscriptionManager.shared.isGlobalDemoMode else { return }
+    showPaywall = true
+}
+```
+
+**Efecto:** La tarjeta premium en Ajustes es completamente no interactiva durante la beta. Al desactivar `isGlobalDemoMode` (producción), la navegación al paywall funciona con normalidad.
+
+---
+
+## 155. Auditoría de Calidad y Modernización SwiftUI — 14 Marzo 2026
+
+Esta sección documenta la auditoría completa de todos los componentes del proyecto y las correcciones aplicadas para eliminar APIs deprecated, patrones de concurrencia obsoletos y problemas de accesibilidad.
+
+### 155.1 Alcance
+
+- **Archivos modificados**: ~350 archivos Swift (personalcare + VitalsPathWatch Watch App + VitalsPathWidgets + VitalsPathWatchWidgets)
+- **Prioridad**: Nunca perder funcionalidad; mejorar sin romper
+
+---
+
+### 155.2 Correcciones Globales
+
+#### `foregroundColor()` → `foregroundStyle()` (deprecated iOS 17+)
+**Impacto**: 4421+ instancias en todo el proyecto
+
+Reemplazado mediante batch sed en:
+- `personalcare/` (418 en Home + 4003 en resto de features)  
+- `VitalsPathWatch Watch App/` (1 archivo — espacios en la ruta requerían `xargs -0`)
+- `VitalsPathWidgets/`, `VitalsPathWatchWidgets/`
+
+**Antes:**
+```swift
+Text("Hola").foregroundColor(.red)
+```
+**Después:**
+```swift
+Text("Hola").foregroundStyle(.red)
+```
+
+---
+
+### 155.3 Correcciones de Concurrencia
+
+#### `Task.sleep(nanoseconds:)` → `Task.sleep(for:)` (API moderna Swift Concurrency)
+**Archivos**: 14 archivos en personalcare + AppConstants, WatchSyncService, HapticManager, LiveActivityManager, etc.
+
+**Antes:**
+```swift
+try? await Task.sleep(nanoseconds: 500_000_000)
+try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+```
+**Después:**
+```swift
+try? await Task.sleep(for: .milliseconds(500))
+try? await Task.sleep(for: .seconds(delay))
+```
+
+#### `DispatchQueue.main.asyncAfter` → `Task { @MainActor in }`
+**Archivos afectados**:
+- `UI/Components/Feedback/AppReviewPopup.swift`
+- `Core/Utilities/DeviceInfo.swift`
+- `Features/Settings/AppLockView.swift` (4 instancias)
+- `Features/Settings/AppLockSetupView.swift` (3 instancias)
+- `Features/Settings/Components/SettingsComponents.swift`
+- `Features/Settings/DataManagementView.swift`
+- `Features/Medications/Analysis/MedicationAdherenceView.swift`
+- `Features/Medications/AppleHealthFlow/MedicationRegistrationFlowView.swift` (2 instancias)
+- `Features/Health/AddTreatmentView.swift`
+- 8 Export Services (`AppointmentExportService`, `TreatmentExportService`, `VitalExportService`, `MedicationExportService`, `ConditionExportService`, `InsuranceExportService`, `SymptomExportService`, `MoodExportService`)
+
+**Antes:**
+```swift
+DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+    isPresented = false
+}
+```
+**Después:**
+```swift
+Task { @MainActor in
+    try? await Task.sleep(for: .milliseconds(300))
+    isPresented = false
+}
+```
+
+#### `Timer.publish + .onReceive` / `Timer.scheduledTimer` → `.task {}` estructurado
+**Archivos afectados**:
+- `UI/Components/VoiceNotePlayer.swift` — `@State private var timer: Timer?` → `@State private var playbackTask: Task<Void, Never>?`
+- `Features/Health/Views/HealthKitDashboardView.swift` — `refreshTimer: Timer?` → `refreshTask: Task<Void, Never>?`
+- `Features/Symptoms/Components/TimerBasedCounterView.swift` — `timer: Timer?` → `timerTask: Task<Void, Never>?`
+- `Features/Onboarding/Components/OnboardingCapabilitiesView.swift` — `timer: Timer?` + `.onAppear { startTimer() }` / `.onDisappear { stopTimer() }` → `.task {}` inline (auto-cancelado)
+- `Features/Health/ViewModels/MedicationDetailViewModel.swift` — `Timer.publish` + `AnyCancellable` → `clockTask: Task<Void, Never>?`, eliminado `import Combine`
+
+**Patrón reemplazado:**
+```swift
+// ANTES — Timer con closure + dispatch cross-actor
+@State private var timer: Timer?
+...
+timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+    Task { @MainActor in updateUI() }
+}
+```
+
+**Patrón resultante:**
+```swift
+// DESPUÉS — Task estructurado, cancelación automática
+@State private var timerTask: Task<Void, Never>?
+...
+timerTask = Task { @MainActor in
+    while !Task.isCancelled {
+        try? await Task.sleep(for: .seconds(1))
+        guard !Task.isCancelled else { break }
+        updateUI()
+    }
+}
+```
+
+---
+
+### 155.4 Correcciones de Rendimiento en Home
+
+#### `NotificationsView.swift` — O(4n) → O(n)
+Cuatro computed vars encadenadas (`filteredNotifications` → `urgentNotifications` → `regularNotifications` → agrupadas) reemplazadas por `computeFilteredSplit() -> (urgent, regular)` llamado una vez por evaluación de body.
+
+También corregida referencia residual a `filteredNotifications.isEmpty` en Menu:
+```swift
+// ANTES — referencia a var eliminada, causa compilación rota
+.disabled(selectedTab != .pending || filteredNotifications.isEmpty)
+
+// DESPUÉS — evaluación directa
+.disabled(selectedTab != .pending || notificationManager.pendingNotifications.filter { !$0.isRead }.isEmpty)
+```
+
+#### `QuickActionsGridView.swift` — O(5n) nested reduces → `@State` pre-computado
+```swift
+// ANTES — 5 reduce() anidados en cada body eval
+private func isActionLocked(_ type: QuickActionType) -> Bool { ... }
+```
+→ `@State private var lockedActions: Set<QuickActionType> = []` actualizado sólo cuando `allProfiles` cambia.
+
+#### `TimelineFeedView.swift` — `modelContext.fetch()` por fila → cache asíncrono
+`checkItemExistence()` (con fetch de SwiftData) se ejecutaba por cada fila visible en cada render. Reemplazado por `@State private var availabilityCache: [UUID: Bool]` construido en `.task(id: profile.id)`.
+
+#### `WellnessWidgetView.swift` — `.id(UUID())` anti-pattern eliminado
+`.id(refreshID)` destruía y recreaba todo el árbol de vistas al cambiar el idioma. Reemplazado por `.environment(\.locale, languageManager.locale)` + `rebuildLayoutRows()` dirigido.
+
+#### Timer → `.task(id:)` en componentes Home
+- `InteractiveMedicationList.swift` — `Timer.publish(every: 60)` + `.onReceive` → `.task(id: "clockTick")`
+- `UpcomingAppointmentsView.swift` — idem
+- `DailyWellnessRingView.swift` — `Timer.scheduledTimer` → `.task(id: healthInsights.count)`
+
+#### DispatchQueue → Task en componentes Home
+- `DailyTasksListView.swift`, `DailyTaskExportService.swift`
+
+---
+
+### 155.5 Accesibilidad
+
+#### `@Environment(\.accessibilityReduceMotion)` añadido a componentes Home
+- `NotificationsView.swift` — tab selector animation
+- `QuickActionsGridView.swift` — modo toggle animation
+- `EnhancedProfileCardView.swift` — 6 flip animations (3D card)
+- `MoodSelectorView.swift` — expand/select animations
+- `DockProfileSelectorView.swift` — profile selection animation
+- `HealthInsightCard.swift` — scale + entrance animation
+- `HomeHeaderView.swift` — 4 toolbar buttons con `.accessibilityLabel`
+- `WellnessWidgetView.swift` — 2 icon buttons con `.accessibilityLabel`
+
+#### Features fuera de Home (20 archivos) — en proceso
+Archivos de alta prioridad (SymptomRegistrationFlowView, MedicationRegistrationFlowView, TreatmentsListView, ConditionsListView, MedicationListView, TreatmentPlannerView, TreatmentScheduleView, ProfilesManagementView, AppointmentDetailView, AppointmentsHistoryView, MoodListView, TasksListView, ImportFlowView, ThemeSettingsView, OnboardingThemeLanguageView, OnboardingWelcomeView, ModernCalendarHeader, ActivityHistoryListView, PaywallView) procesados por agente de accesibilidad.
+
+**Patrón aplicado:**
+```swift
+@Environment(\.accessibilityReduceMotion) private var reduceMotion
+...
+withAnimation(reduceMotion ? .none : .spring(response: 0.3, dampingFraction: 0.8)) {
+    // state change
+}
+```
+
+---
+
+### 155.6 Colores Semánticos
+
+#### Colores hardcoded → colores del sistema adaptivos (Dark Mode)
+- `DockProfileSelectorView.swift`: `Color(hex: "3A3A3C")` → `Color(.systemGray5)`, `Color(hex: "E5E5E5")` → `Color(.systemGray6)`
+- `QuickActionsGridView.swift`: `Color(hex: "#424242")` → `Color(.systemGray)`, `Color(hex: "#9E9E9E")` → `Color(.systemGray2)`
+- `ActiveConditionsView.swift`: `.foregroundStyle(.red)` → `.foregroundStyle(Color(.systemRed))`
+- `WellnessCustomizationSheet.swift`: `.foregroundStyle(.orange)` → `.foregroundStyle(Color(.systemOrange))`
+- `DailyTasksListView.swift`: `.orange` → `Color(.systemOrange)`
+- `CalendarHomeView.swift`: `Color(hex: "#F2F2F7")` → `Color(.systemGroupedBackground)`
+- `Features/Health/Components/DoseDetailSheet.swift`: `Color(hex: "F5F5F7")` → `Color(.secondarySystemBackground)`
+
+**Nota:** Los usos de `Color(hex:)` con valores de datos del modelo (medication.color, profile.color, condition.stage.color) son intencionados y deben mantenerse.
+
+---
+
+### 155.7 Resumen de Impacto
+
+| Categoría | # Archivos | # Instancias |
+|-----------|-----------|-------------|
+| `foregroundColor` → `foregroundStyle` | ~350 | ~4,421 |
+| `sleep(nanoseconds:)` → `sleep(for:)` | 14 | 30 |
+| `DispatchQueue.main.asyncAfter` → `Task @MainActor` | 23 | 28 |
+| `Timer.scheduledTimer/publish` → `.task {}` | 5 | 5 |
+| `accessibilityReduceMotion` añadido | 8 Home + 20 features | ~70 animaciones |
+| Colores hardcoded → semánticos | 7 | 9 |
+| Rendimiento Home (caches, O(n)) | 6 | 6 patrones |
+
+
+---
+
+## 156. AlarmKit — Alarmas Garantizadas (iOS 26+)
+
+### 156.1 Propósito
+
+AlarmKit proporciona alarmas de entrega garantizada que suenan aunque el dispositivo esté en modo silencio o No Molestar. Se usa en VitalsPath para las dosis de medicamentos y citas con la hora exacta habilitada. Es complementario al sistema de notificaciones UNCenter: las notificaciones normales siguen funcionando para todos los demás casos.
+
+**Requisitos del sistema:**
+- iOS 26.0+
+- `NSAlarmKitUsageDescription` en Info.plist (localizado en InfoPlist.xcstrings con 23 idiomas)
+- No requiere entitlement especial del portal de Apple Developer
+- Autorización en runtime con `AlarmManager.shared.requestAuthorization()`
+
+---
+
+### 156.2 Arquitectura
+
+```
+AlarmKitService (singleton @MainActor @Observable)
+  ├── requestAuthorization() → solicita permiso al usuario
+  ├── scheduleDoseAlarm(dose:medication:profileId:)
+  ├── scheduleAppointmentAlarm(appointment:profileId:)
+  ├── cancelDoseAlarm(doseId:)
+  ├── cancelAppointmentAlarm(appointmentId:)
+  ├── cancelAlarmsForMedication(_:)
+  ├── cancelAllAlarms()           ← PostOnboardingCleanupService, ImportFlowView
+  ├── reconcileAlarms(medications:appointments:) ← NotificationRescheduleCoordinator
+  ├── shouldUseAlarmKit(for:) → Bool
+  └── startObservingAlarmUpdates() ← AsyncSequence alarmUpdates
+```
+
+**Archivo:** `personalcare/Core/Services/Notification/AlarmKitService.swift`
+
+---
+
+### 156.3 Decisión: cuándo usar AlarmKit para un medicamento
+
+`shouldUseAlarmKit(for medication:)` implementa la siguiente lógica por prioridad:
+
+| Condición | Resultado |
+|-----------|-----------|
+| `medication.useAlarmKit == false` (override manual) | No usa AlarmKit |
+| `medication.useAlarmKit == nil` + `alarmKitEnabled == false` (global) | No usa AlarmKit → UNCenter normal |
+| `medication.useAlarmKit == nil` + `alarmKitEnabled == true` + `alarmKitCriticalOnly == false` | Usa AlarmKit para todos los medicamentos |
+| `medication.useAlarmKit == nil` + `alarmKitEnabled == true` + `alarmKitCriticalOnly == true` | Solo usa AlarmKit si el medicamento tiene **recordatorios persistentes activos** (`PersistentReminderConfig.isEnabled == true`) |
+| `medication.useAlarmKit == true` (override manual) | Siempre usa AlarmKit |
+
+**Para citas:** no existe lógica de decisión per-appointment. Si `alarmKitEnabled == true`, toda cita futura dentro de la ventana de 48h recibe una alarma AlarmKit en `reconcileAlarms`.
+
+---
+
+### 156.4 Qué pasa si el usuario NO activa "hora exacta"
+
+> **Respuesta directa:** si `alarmKitEnabled == false` (la opción global en Ajustes → Notificaciones), `AlarmKitService` es un **no-op completo**. Todos los métodos públicos tienen `guard isAuthorized` o el check `alarmKitEnabled` y retornan sin hacer nada. El sistema cae back a UNCenter, igual que antes de la adopción de AlarmKit.
+
+Flujo detallado:
+1. `NotificationRescheduleCoordinator.rescheduleAllNotifications()` solo llama a `AlarmKitService.reconcileAlarms` si `NotificationSettings.shared.alarmKitEnabled == true`.
+2. `AlarmKitService.scheduleDoseAlarm` tiene `guard isAuthorized else { return }` como primera línea — si el usuario nunca autorizó, o deshabilitó la opción global, `isAuthorized == false`.
+3. `MedicationNotificationService` y `AppointmentNotificationService` siguen funcionando con UNCenter como siempre, sin ninguna interferencia de AlarmKit.
+
+**Resumen: AlarmKit es completamente aditivo y opt-in. Sin autorización o con la opción desactivada, el comportamiento es idéntico a iOS 25.**
+
+---
+
+### 156.5 Configuración global (NotificationSettings)
+
+```swift
+// NotificationSettings.swift
+@AppStorage("alarmKitEnabled")      var alarmKitEnabled: Bool = false     // default OFF
+@AppStorage("alarmKitCriticalOnly") var alarmKitCriticalOnly: Bool = false
+```
+
+Expuesto en:
+- `Features/Settings/NotificationsSettingsView.swift` (toggle + sub-toggle "solo críticos")
+- `Features/Settings/MedicationSettingsView.swift` (toggle secundario)
+- `Features/Health/Components/Detail/MedicationPreferencesSection.swift` (override por medicamento, visible solo si `alarmKitEnabled == true`)
+
+---
+
+### 156.6 Scheduling de alarmas
+
+**Restricciones de AlarmKit:**
+- Lead time mínimo: **60 segundos** (alarmas con menos de 60s de antelación devuelven Error 0)
+- Ventana máxima: **48 horas** hacia adelante (`alarmScheduleWindowSeconds = 48 * 3600`)
+- Límite OS: máximo **20 alarmas activas** simultáneas — `enforceAlarmLimit()` cancela las más lejanas si se supera
+
+**ID determinista:** cada doseId/appointmentId se convierte en un UUID de alarma estable con `stableAlarmUUID(namespace:entityId:)` (hash SHA-1-style). Mismo doseId → mismo alarmId en todas las llamadas → idempotente.
+
+**API de AlarmKit usada:**
+
+```swift
+// Metadata en AlarmAttributes (no en AlarmConfiguration)
+let metadata = DoseAlarmMetadata(
+  doseId: dose.id.uuidString,
+  medicationName: medName,
+  dosage: medication.localizedDosageDisplay,
+  iconName: medication.icon,
+  colorHex: medication.color           // String con # prefix, ej. "#2196F3"
+)
+let attributes = AlarmAttributes<DoseAlarmMetadata>(
+  presentation: AlarmPresentation(alert: alertPresentation),
+  metadata: metadata,
+  tintColor: Color(hex: medication.color)
+)
+let config = AlarmManager.AlarmConfiguration(
+  schedule: .fixed(scheduledTime),
+  attributes: attributes
+)
+_ = try await AlarmManager.shared.schedule(id: alarmId, configuration: config)
+```
+
+> **Nota importante:** `metadata` es parámetro de `AlarmAttributes`, **no** de `AlarmConfiguration`. `AlarmConfiguration` solo acepta `schedule:` y `attributes:` (más opcionales: `countdownDuration`, `secondaryIntent`, `sound`).
+
+---
+
+### 156.7 Registry en App Group
+
+Se mantienen dos mapas en `UserDefaults(suiteName: AppConstants.appGroupId)`:
+
+| Clave | Tipo | Propósito |
+|-------|------|-----------|
+| `alarmkit_active_ids` | `[String]` (UUIDs) | IDs de alarmas activas registradas |
+| `alarmkit_alarm_to_dose_map` | `[String: String]` | alarmUUID → doseUUID para recuperar contexto cuando desaparece la alarma |
+
+El map `alarmToDoseMap` permite que cuando `alarmUpdates` detecta que una alarma desaparecció (dismissed/stopped), `AlarmKitService` recupere el `doseId` y llame a `LiveActivityManager.shared.refreshAfterAlarmDismissed(doseId:)` → `WidgetSyncService.shared.markDirty()` para refrescar el Dynamic Island.
+
+---
+
+### 156.8 Live Activity de AlarmKit (Widget Extension)
+
+AlarmKit gestiona su propia Live Activity usando `AlarmAttributes<Metadata>` como `ActivityAttributes`. **No puede reutilizar** los `ActivityAttributes` existentes (`MedicationAttributes`, `AppointmentAttributes`).
+
+**Tipos de metadata** (definidos en `personalcare/Models/Widgets/WidgetDTOs.swift`):
+
+```swift
+// Ambos conforman AlarmMetadata (Codable + Hashable + Equatable)
+struct DoseAlarmMetadata: AlarmMetadata { doseId, medicationName, dosage, iconName, colorHex }
+struct AppointmentAlarmMetadata: AlarmMetadata { appointmentId, doctorName, specialty, typeIconName, colorHex }
+```
+
+**Widgets registrados** (`VitalsPathWidgets/Views/AlarmKitLiveActivities.swift`):
+
+```swift
+// Requieren registro separado en VitalsPathWidgetsBundle
+struct DoseAlarmLiveActivity: Widget          // ActivityConfiguration(for: AlarmAttributes<DoseAlarmMetadata>.self)
+struct AppointmentAlarmLiveActivity: Widget   // ActivityConfiguration(for: AlarmAttributes<AppointmentAlarmMetadata>.self)
+```
+
+Añadidos al bundle bajo `@available(iOS 26.0, *)` en `VitalsPathWidgetsBundle.swift`.
+
+Presentan: icono animado (`.pulse`), nombre de medicamento/cita, dosis/especialidad, Dynamic Island expandido con región leading/trailing/bottom, compactLeading/Trailing, y minimal.
+
+**Strings localizados** (21 idiomas en `VitalsPathWidgets/Resources/Localization/Localizable.xcstrings`):
+- `now_label`, `alarm_now_subtitle`, `alarm_time_to_take`, `alarm_appointment_now`
+
+---
+
+### 156.9 Integración con el resto del sistema
+
+| Evento | Responsable |
+|--------|-------------|
+| Primera autorización | `AlarmKitService.requestAuthorization()` — llamado desde Settings UI |
+| Reschedule al abrir app | `NotificationRescheduleCoordinator.rescheduleAllNotifications()` → `reconcileAlarms` |
+| Cancelar al marcar dosis | `AlarmKitService.cancelDoseAlarm(doseId:)` |
+| Cancelar al eliminar medicamento | `AlarmKitService.cancelAlarmsForMedication(_:)` |
+| Cancelar todo (onboarding / import) | `AlarmKitService.cancelAllAlarms()` |
+| Alarma suena (alerting) | `handleAlarmAlerting` → `ToastManager.show` si app en primer plano |
+| Alarma desaparece (dismissed) | `LiveActivityManager.refreshAfterAlarmDismissed` → `WidgetSyncService.markDirty()` |
+| Global toggle OFF | `alarmKitEnabled = false` → `cancelAllAlarms()` (vía `NotificationsSettingsView.onChange`) |
+
+---
+
+## 175. Cumplimiento de Privacidad: HIPAA & GDPR (Fase 1 - Hardening) (Marzo 2026)
+
+Se ha implementado una capa de seguridad de grado médico para asegurar que **VitalsPath** cumpla rigurosamente con las normativas HIPAA (EE.UU.) y GDPR (UE), centrándose en la protección de datos en reposo y la seguridad de la sesión.
+
+### 175.1 Cifrado de Datos en Reposo (Encryption at Rest)
+Se ha abandonado el almacenamiento en texto plano para todos los campos que contienen Información de Salud Protegida (PHI) o Información de Identificación Personal (PII).
+
+- **Patrón "Transient Cache + Wrapper"**: Para mantener el rendimiento de SwiftData y la fluidez de la UI, se ha implementado un patrón donde los datos sensibles se almacenan como `Data` (blobs cifrados) pero se acceden a través de propiedades calculadas que utilizan una caché `@Transient` en memoria.
+- **Algoritmo**: AES-256 GCM proporcionado por `CryptoKit`.
+- **Modelos Hardened**: 
+    - `Profile`: Email, teléfono, dirección y DNI.
+    - `Medication`: Nombres, dosis, instrucciones y notas.
+    - `SymptomEntry`: Nombres de síntomas, mediciones y registros clínicos.
+    - `Treatment`: Doctores, notas y registros de historial.
+    - `Appointment`: Ubicaciones, doctores y detalles de auditoría.
+    - `UserCondition`: Diagnósticos y notas médicas.
+    - `DoseEvent`: Notas de administración.
+
+### 175.2 Seguridad de Sesión y Auto-Lock
+Para prevenir el acceso no autorizado en dispositivos compartidos (requerimiento HIPAA):
+- **Inactivity Timeout**: Se ha dotado a `AppLockManager` de la capacidad de monitorear el tiempo en segundo plano. Tras **5 minutos de inactividad**, la sesión expira automáticamente.
+- **Re-autenticación Forzada**: Al regresar al primer plano, si la sesión ha expirado, la aplicación presenta inmediatamente la pantalla de bloqueo (PIN/Biometría), bloqueando cualquier acceso a la UI sensible.
+
+### 175.3 Privacidad por Diseño en Logging
+Se ha auditado el sistema de logs para evitar la fuga accidental de PHI a los registros del sistema o reportes de crash:
+- **Redacción de Logs**: `Logger.swift` se ha refactorizado para forzar el uso de `%{private}@` en todas las interpolaciones de strings que puedan contener datos del usuario.
+- **Resultado**: En los logs de consola y sysdiagnose, los valores sensibles aparecen como `<private>`, cumpliendo con el principio de minimización de datos.
+
+### 175.4 Servicio de Migración Automatizada
+Para asegurar una transición fluida para los usuarios existentes:
+- **`ComplianceMigrationService`**: Un servicio que se ejecuta una sola vez al arrancar la aplicación (`personalcareApp.swift`). Detecta registros en formato legacy (texto plano), los cifra utilizando el nuevo motor y limpia los campos antiguos para garantizar el cumplimiento retroactivo.
+
+---

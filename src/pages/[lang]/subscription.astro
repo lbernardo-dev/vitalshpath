@@ -1,11 +1,9 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ThemeToggle from "../../components/ThemeToggle.astro";
-import LanguageSelector from "../../components/LanguageSelector.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
+import LegalPageShell from "../../components/LegalPageShell.astro";
+import { getLegalCopy } from "../../content/legal-copy";
 import { supportedLangs, type Lang } from "../../i18n/ui-locales";
 import { useTranslations } from "../../i18n";
+import { launchPricingPlans } from "../../lib/pricing";
 
 export function getStaticPaths() {
     return supportedLangs.map((lang) => ({
@@ -15,173 +13,145 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const currentLang = lang as Lang;
+const copy = getLegalCopy(currentLang).subscription;
 const t = useTranslations(currentLang);
+const premiumScopeBody: Record<Lang, string> = {
+    en: "Premium can expand limits and add convenience features for personal organization and follow-up. It does not turn VitalsPath into a medical service, diagnosis tool, or emergency system.",
+    es: "Premium puede ampliar límites y añadir funciones de comodidad para la organización personal y el seguimiento. No convierte VitalsPath en un servicio médico, una herramienta de diagnóstico ni un sistema de emergencia.",
+    fr: "Premium peut augmenter certaines limites et ajouter des fonctions de confort pour l’organisation personnelle et le suivi. Cela ne transforme pas VitalsPath en service médical, outil de diagnostic ou système d’urgence.",
+    de: "Premium kann bestimmte Grenzen erweitern und Komfortfunktionen für persönliche Organisation und Nachverfolgung hinzufügen. Dadurch wird VitalsPath weder zu einem medizinischen Dienst noch zu einem Diagnosetool oder Notfallsystem.",
+    it: "Premium può ampliare alcuni limiti e aggiungere funzioni di comodità per l’organizzazione personale e il monitoraggio. Non trasforma VitalsPath in un servizio medico, uno strumento diagnostico o un sistema di emergenza.",
+    pt: "O Premium pode ampliar limites e adicionar recursos de conveniência para organização pessoal e acompanhamento. Isso não transforma o VitalsPath em um serviço médico, ferramenta de diagnóstico ou sistema de emergência.",
+    ja: "Premium は、個人の健康管理とフォローアップのための上限拡張や利便機能を追加する場合があります。VitalsPath が医療サービス、診断ツール、緊急対応システムになるわけではありません。",
+    zh: "Premium 可能会扩展部分使用上限，并增加面向个人健康整理与跟进的便捷功能。但这并不会使 VitalsPath 成为医疗服务、诊断工具或紧急系统。",
+    ko: "Premium은 개인 건강 정리와 추적을 위한 일부 한도를 확장하고 편의 기능을 추가할 수 있습니다. 그렇다고 VitalsPath가 의료 서비스, 진단 도구 또는 응급 시스템이 되는 것은 아닙니다.",
+    ru: "Premium может расширять некоторые лимиты и добавлять дополнительные удобные функции для личной организации и наблюдения. Это не делает VitalsPath медицинским сервисом, инструментом диагностики или системой экстренной помощи.",
+    ar: "قد يوسّع Premium بعض الحدود ويضيف مزايا تسهّل التنظيم الشخصي والمتابعة. وهذا لا يحوّل VitalsPath إلى خدمة طبية أو أداة تشخيص أو نظام طوارئ.",
+    hi: "Premium कुछ सीमाएँ बढ़ा सकता है और व्यक्तिगत स्वास्थ्य संगठन व फॉलो-अप के लिए अतिरिक्त सुविधा सुविधाएँ जोड़ सकता है। इससे VitalsPath कोई चिकित्सा सेवा, निदान उपकरण या आपातकालीन सिस्टम नहीं बन जाता।",
+    tr: "Premium bazı sınırları genişletebilir ve kişisel sağlık organizasyonu ile takip için ek kolaylık özellikleri sunabilir. Bu, VitalsPath'i tıbbi bir hizmete, teşhis aracına veya acil durum sistemine dönüştürmez.",
+    nl: "Premium kan bepaalde limieten verruimen en extra gemaksfuncties toevoegen voor persoonlijke organisatie en opvolging. Daardoor wordt VitalsPath geen medische dienst, diagnosetool of noodsysteem.",
+    pl: "Premium może zwiększać niektóre limity i dodawać funkcje ułatwiające osobistą organizację zdrowia oraz obserwację. Nie zmienia to VitalsPath w usługę medyczną, narzędzie diagnostyczne ani system ratunkowy.",
+};
 ---
 
-<Layout lang={currentLang}>
-    <main class="relative overflow-hidden min-h-screen">
-        <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-            <div
-                class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%]"
-            >
-            </div>
-            <div
-                class="absolute w-[400px] h-[400px] bg-purple-400/15 dark:bg-purple-500/10 rounded-full blur-[100px] top-[40%] right-[-5%]"
-            >
-            </div>
-        </div>
-
-        <Header lang={currentLang} />
-
-        <section class="pt-32 pb-24 relative">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h1
-                    class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4"
-                >
-                    {t("legal.subscription.title")}
-                </h1>
-                <p class="text-sm text-gray-500 dark:text-gray-500 mb-8">
-                    {t("legal.subscription.lastUpdated")}
-                </p>
-
-                <div
-                    class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-8"
-                >
-                    <section>
-                        <div
-                            class="space-y-4"
-                            set:html={t("legal.subscription.intro")}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.whatIs.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.whatIs.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.plans.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.plans.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.howItWorks.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.howItWorks.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.management.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.management.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {
-                                t(
-                                    "legal.subscription.sections.cancellation.title"
-                                )
-                            }
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.cancellation.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.issues.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.issues.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.changes.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.changes.content"
-                            )}
-                        >
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2
-                            class="text-2xl font-bold text-gray-900 dark:text-white mb-4"
-                        >
-                            {t("legal.subscription.sections.law.title")}
-                        </h2>
-                        <div
-                            class="space-y-4"
-                            set:html={t(
-                                "legal.subscription.sections.law.content"
-                            )}
-                        >
-                        </div>
-                    </section>
+<LegalPageShell
+    lang={currentLang}
+    title={copy.title}
+    subtitle={copy.subtitle}
+    lastUpdated={copy.lastUpdated}
+>
+    <div class="space-y-8">
+        <section>
+            <div class="not-prose overflow-hidden rounded-[1.75rem] border border-blue-200/70 bg-gradient-to-br from-blue-50 via-white to-sky-50 p-6 shadow-[0_30px_90px_-55px_rgba(37,99,235,0.45)] dark:border-blue-500/20 dark:from-blue-500/10 dark:via-slate-950 dark:to-slate-950">
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="inline-flex rounded-full bg-blue-600 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white">
+                        {t("pricing.launch.activeBadge")}
+                    </span>
+                    <p class="text-sm font-medium text-slate-600 dark:text-slate-300">
+                        {t("pricing.launch.note")}
+                    </p>
                 </div>
+
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                    {
+                        launchPricingPlans.map((plan) => (
+                            <article
+                                class:list={[
+                                    "rounded-[1.5rem] border p-5",
+                                    plan.featured
+                                        ? "border-blue-500/30 bg-blue-500 text-white"
+                                        : "border-slate-200/80 bg-white/85 dark:border-white/10 dark:bg-white/5",
+                                ]}
+                            >
+                                <div class="flex items-start justify-between gap-3">
+                                    <div>
+                                        <p
+                                            class:list={[
+                                                "text-lg font-black",
+                                                plan.featured
+                                                    ? "text-white"
+                                                    : "text-slate-950 dark:text-white",
+                                            ]}
+                                        >
+                                            {t(`pricing.${plan.key}.title`)}
+                                        </p>
+                                        <p
+                                            class:list={[
+                                                "mt-1 text-sm",
+                                                plan.featured
+                                                    ? "text-blue-100"
+                                                    : "text-slate-500 dark:text-slate-400",
+                                            ]}
+                                        >
+                                            {t(`pricing.${plan.key}.description`)}
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col items-end gap-2">
+                                        {
+                                            plan.featured && (
+                                                <span class="inline-flex rounded-full bg-white px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-blue-700">
+                                                    {t("pricing.launch.bestValue")}
+                                                </span>
+                                            )
+                                        }
+                                        <span class="inline-flex rounded-full bg-red-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white">
+                                            {plan.discount}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 flex items-end gap-3">
+                                    <span
+                                        class:list={[
+                                            "text-4xl font-black tracking-tight",
+                                            plan.featured
+                                                ? "text-white"
+                                                : "text-slate-950 dark:text-white",
+                                        ]}
+                                    >
+                                        {plan.launchPrice}
+                                    </span>
+                                    <span
+                                        class:list={[
+                                            "pb-1 text-lg font-bold line-through decoration-2",
+                                            plan.featured
+                                                ? "text-blue-100/80"
+                                                : "text-slate-400",
+                                        ]}
+                                    >
+                                        {plan.officialPrice}
+                                    </span>
+                                </div>
+                            </article>
+                        ))
+                    }
+                </div>
+
+                <p class="mt-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                    {t("pricing.launch.legalNote")}
+                </p>
             </div>
         </section>
 
-        <Footer lang={currentLang} />
-    </main>
-</Layout>
+        <section class="rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-6 dark:border-white/10 dark:bg-white/5">
+            <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                {copy.intro}
+            </p>
+        </section>
+
+        <div class="space-y-6">
+            {
+                copy.sections.map((section, index) => (
+                    <section class="rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-6 dark:border-white/10 dark:bg-white/5">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
+                            {section.title}
+                        </h2>
+                        <p class="mt-3 text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                            {index === 0 ? premiumScopeBody[currentLang] : section.body}
+                        </p>
+                    </section>
+                ))
+            }
+        </div>
+    </div>
+</LegalPageShell>

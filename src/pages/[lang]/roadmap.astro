@@ -1,0 +1,85 @@
+---
+import PageShell from "../../components/PageShell.astro";
+import { supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { getSiteCopy } from "../../content/site-copy";
+import { appStoreLabels } from "../../lib/app-store-labels";
+import {
+    getDefaultAppStoreLinks,
+    getAppStoreUrlForLang,
+} from "../../lib/app-store-links";
+
+export function getStaticPaths() {
+    return supportedLangs.map((lang) => ({
+        params: { lang },
+    }));
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Lang;
+const copy = getSiteCopy(currentLang);
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks());
+---
+
+<PageShell
+    lang={currentLang}
+    title={copy.roadmap.title}
+    intro={copy.roadmap.intro}
+    badge={copy.nav.roadmap}
+    pageTitle={`${copy.roadmap.title} | VitalsPath`}
+    pageDescription={copy.roadmap.intro}
+>
+    <div class="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+        <section class="rounded-[1.7rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_-55px_rgba(15,23,42,0.3)] dark:border-white/10 dark:bg-white/5 sm:p-6">
+            <p class="text-sm font-black uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
+                {copy.roadmap.nextReleaseTitle}
+            </p>
+            <ul class="mt-6 space-y-3">
+                {
+                    copy.roadmap.nextReleaseItems.map((item) => (
+                        <li class="rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-4 text-base leading-7 text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-200">
+                            {item}
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+
+        <div class="space-y-6">
+            <section class="rounded-[1.7rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_-55px_rgba(15,23,42,0.3)] dark:border-white/10 dark:bg-white/5 sm:p-6">
+                <h2 class="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
+                    {copy.roadmap.directionTitle}
+                </h2>
+                <p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
+                    {copy.roadmap.directionBody}
+                </p>
+            </section>
+
+            <section class="rounded-[1.7rem] border border-amber-200 bg-amber-50 p-5 dark:border-amber-500/20 dark:bg-amber-500/10 sm:p-6">
+                <p class="text-sm font-black uppercase tracking-[0.22em] text-amber-700 dark:text-amber-300">
+                    Roadmap
+                </p>
+                <p class="mt-4 text-base leading-7 text-slate-700 dark:text-slate-200">
+                    {copy.roadmap.safetyNote}
+                </p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                    <a
+                        href={`${baseUrl}/${currentLang}/release-features/`}
+                        class="inline-flex rounded-2xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
+                    >
+                        {copy.nav.releaseFeatures}
+                    </a>
+                    <a
+                        href={appStoreHref}
+                        data-app-store-link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
+                    >
+                        {appStoreLabels[currentLang].view}
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+</PageShell>

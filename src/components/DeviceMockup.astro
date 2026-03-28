@@ -1,30 +1,56 @@
 ---
 interface Props {
-    type?: "iphone" | "ipad" | "watch-ultra" | "watch-se";
+    type?: "iphone" | "ipad" | "watch-ultra" | "watch-s11" | "watch-se";
+    model?: string; // Legacy support
+    showIsland?: boolean;
     className?: string;
 }
 
-const { type = "iphone", className = "" } = Astro.props;
+const { type, model, showIsland = true, className = "" } = Astro.props;
 
-// Realistic Apple Device Proportions
-const configs = {
+// Map model to type for backward compatibility
+const deviceType = type || (model?.startsWith("iphone") ? "iphone" : (model?.startsWith("watch") ? "watch-s11" : "iphone"));
+
+interface DeviceConfig {
+    wrapper: string;
+    screen: string;
+    bezel?: string;
+    actionButton?: string;
+    crown?: string;
+    sideButton?: string;
+    antenna?: string;
+}
+
+// Realistic Apple Device Proportions (2026 Standards)
+const configs: Record<string, DeviceConfig> = {
     iphone: {
         wrapper:
-            "relative rounded-[3.5rem] bg-zinc-900 p-[6px] shadow-2xl overflow-hidden aspect-[9/19.5] border-[1px] border-white/10",
-        screen: "w-full h-full rounded-[3rem] overflow-hidden bg-black relative",
+            "relative rounded-[3.8rem] bg-[#1a1a1a] p-[8px] shadow-2xl overflow-hidden aspect-[9/19.5] border-[1px] border-white/15 ring-2 ring-black/50",
+        screen: "w-full h-full rounded-[3.2rem] overflow-hidden bg-black relative",
     },
     ipad: {
         wrapper:
-            "relative rounded-[2.5rem] bg-zinc-800 p-[12px] shadow-2xl overflow-hidden aspect-[4/3] border-[1px] border-white/5",
-        screen: "w-full h-full rounded-[1.8rem] overflow-hidden bg-black relative",
+            "relative rounded-[2.8rem] bg-[#1a1a1a] p-[10px] shadow-2xl overflow-hidden aspect-[4/3] border-[1px] border-white/10 ring-4 ring-black/30",
+        screen: "w-full h-full rounded-[2rem] overflow-hidden bg-black relative",
     },
     "watch-ultra": {
+        // Apple Watch Ultra 3 - Titanium (Rugged Design)
         wrapper:
-            "relative rounded-[2.8rem] bg-[#d1d1d6] p-[4px] shadow-2xl overflow-hidden aspect-[1/1.2] border-[1px] border-zinc-400 ring-2 ring-zinc-300",
-        screen: "w-full h-full rounded-[2.4rem] overflow-hidden bg-black relative",
-        bezel: "absolute inset-0 border-[6px] border-zinc-800/20 rounded-[2.8rem] pointer-events-none z-20",
-        button: "absolute -left-1 top-1/3 w-2 h-12 bg-orange-600 rounded-r-md z-10 shadow-sm",
-        crown: "absolute -right-2 top-1/4 w-4 h-14 bg-zinc-400 rounded-l-lg z-10 border-y border-l border-zinc-500 shadow-inner",
+            "relative rounded-[3rem] bg-[#d1d5db] p-[4px] shadow-2xl overflow-hidden aspect-[1/1.2] border-[1.5px] border-[#9ca3af] ring-4 ring-[#e5e7eb]",
+        screen: "w-full h-full rounded-[2.6rem] overflow-hidden bg-black relative z-10",
+        bezel: "absolute inset-0 border-[6px] border-black/40 rounded-[3rem] pointer-events-none z-20",
+        actionButton: "absolute -left-1.5 top-[35%] w-2.5 h-16 bg-[#ff6b00] rounded-r-lg z-30 shadow-md border-y border-r border-[#cc5500]",
+        crown: "absolute -right-2 top-[22%] w-5 h-16 bg-[#f3f4f6] rounded-l-xl z-30 border-y border-l border-[#d1d5db] shadow-inner",
+        sideButton: "absolute -right-1.5 top-[48%] w-2.5 h-20 bg-[#d1d5db] rounded-l-lg z-20 shadow-sm border-l border-zinc-400",
+        antenna: "absolute top-[10%] left-1/2 -translate-x-1/2 w-[40%] h-[4px] bg-black/10 rounded-full z-0"
+    },
+    "watch-s11": {
+        // Apple Watch Series 11 - Midnight (Slim Bezel, Rounded)
+        wrapper:
+            "relative rounded-[2.8rem] bg-[#020617] p-[3px] shadow-2xl overflow-hidden aspect-[1/1.2] border-[1px] border-white/15 ring-1 ring-white/5",
+        screen: "w-full h-full rounded-[2.5rem] overflow-hidden bg-black relative",
+        crown: "absolute -right-1.5 top-[25%] w-3.5 h-10 bg-[#0f172a] rounded-l-lg z-30 border-l border-white/10 shadow-lg",
+        sideButton: "absolute -right-1 top-[52%] w-2 h-14 bg-black/80 rounded-l-md z-20 shadow-sm"
     },
     "watch-se": {
         wrapper:
@@ -34,58 +60,72 @@ const configs = {
     },
 };
 
-const config = configs[type];
+const activeConfig = configs[deviceType] || configs.iphone;
 ---
 
-<div class={`${config.wrapper} ${className}`}>
-    <!-- Watch Ultra Hardware Details -->
+<div class={`${activeConfig.wrapper} ${className} transition-transform duration-700`}>
+    <!-- Hardware Details -->
     {
-        type === "watch-ultra" && (
+        type === "watch-ultra" && "bezel" in activeConfig && (
             <>
-                <div class={config.bezel} />
-                <div class={config.button} />
-                <div class={config.crown} />
+                <div class={activeConfig.bezel} />
+                <div class={activeConfig.actionButton} />
+                <div class={activeConfig.crown} />
+				<div class={activeConfig.sideButton} />
+				<div class={activeConfig.antenna} />
             </>
         )
     }
 
-    <!-- Watch SE Hardware Details -->
-    {type === "watch-se" && <div class={config.crown} />}
-
-    <!-- iPhone Sensors (Hidden to avoid overlap with existing status bars in screenshots) -->
     {
-        type === "iphone" && (
-            <div class="absolute top-3 left-1/2 -translate-x-1/2 w-[35%] h-[28px] bg-black rounded-full z-40 hidden md:block opacity-90 blur-[1px]" />
+        type === "watch-s11" && "crown" in activeConfig && (
+            <>
+                <div class={activeConfig.crown} />
+                <div class={activeConfig.sideButton} />
+            </>
+        )
+    }
+
+    {type === "watch-se" && "crown" in activeConfig && <div class={activeConfig.crown} />}
+
+    <!-- Dynamic Island / Sensors for iPhone -->
+    {
+        deviceType === "iphone" && showIsland && (
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-[30%] h-[24px] bg-black rounded-full z-40 opacity-95 flex items-center justify-center gap-2">
+				<div class="w-1.5 h-1.5 rounded-full bg-blue-500/20 blur-[1px]"></div>
+				<div class="w-2 h-2 rounded-full bg-indigo-500/10"></div>
+			</div>
         )
     }
 
     <!-- Screen Content -->
-    <div class={config.screen}>
+    <div class={activeConfig.screen}>
         <slot />
+        <!-- Screen Shine Overlay -->
+        <div class="absolute inset-0 pointer-events-none z-50 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-30"></div>
+            <div class="absolute top-0 -left-1/2 w-full h-[200%] bg-white/5 skew-x-[-25deg] blur-3xl translate-x-1/2 animate-shimmer"></div>
+        </div>
     </div>
 </div>
 
 <style>
-    /* Premium Specular Shine Layer */
-    .iphone-shine::after,
-    .ipad-shine::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 40%,
-            rgba(255, 255, 255, 0.05) 100%
-        );
-        pointer-events: none;
-        z-index: 30;
+    @keyframes shimmer {
+        0% { transform: translateX(-150%) skewX(-25deg); }
+        100% { transform: translateX(150%) skewX(-25deg); }
+    }
+    
+    .animate-shimmer {
+        animation: shimmer 8s infinite linear;
     }
 
     :global(.mockup-image) {
         width: 100% !important;
         height: 100% !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
+        object-position: center top !important;
         display: block !important;
+        border-radius: inherit;
+        background: #000;
     }
 </style>

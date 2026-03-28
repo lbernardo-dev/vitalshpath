@@ -6,6 +6,15 @@ interface Props {
 }
 
 const { lang: currentLang } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const normalizedPath = Astro.url.pathname.endsWith("/")
+    ? Astro.url.pathname
+    : `${Astro.url.pathname}/`;
+const translateHref = (lang: Lang) =>
+    normalizedPath.replace(
+        new RegExp(`^${baseUrl}/${currentLang}(?=/|$)`),
+        `${baseUrl}/${lang}`,
+    );
 ---
 
 <div class="relative language-selector">
@@ -45,7 +54,7 @@ const { lang: currentLang } = Astro.props;
             {
                 supportedLangs.map((lang) => (
                     <a
-                        href={`${import.meta.env.BASE_URL}/${lang}/`}
+                        href={translateHref(lang)}
                         class={`flex items-center gap-3 px-4 py-2 text-sm transition-colors ${
                             lang === currentLang
                                 ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"

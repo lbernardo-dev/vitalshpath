@@ -121,25 +121,36 @@ ALTER TABLE events ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Anyone can insert events" ON events FOR INSERT WITH CHECK (true);
 CREATE POLICY "Anyone can select events" ON events FOR SELECT USING (true);
 
--- Function to get current stats (Updated for TestFlight)
+-- Function to get current stats (App Store launch compatible)
 CREATE OR REPLACE FUNCTION get_stats()
 RETURNS JSON AS $$
 DECLARE
     result JSON;
-    tf_manual INTEGER;
-    tf_tracked INTEGER;
+    app_store_manual INTEGER;
+    app_store_tracked INTEGER;
 BEGIN
-    -- Get manual count from settings
-    SELECT (value->>0)::INTEGER INTO tf_manual 
-    FROM site_settings 
-    WHERE key = 'testflight_manual_count';
-    
-    IF tf_manual IS NULL THEN tf_manual := 0; END IF;
+    -- Get manual count from settings, with fallback to the legacy TestFlight key
+    SELECT COALESCE(
+        (SELECT CASE
+            WHEN jsonb_typeof(value) = 'number' THEN (value::text)::INTEGER
+            WHEN jsonb_typeof(value) = 'string' THEN trim(both '"' from value::text)::INTEGER
+            ELSE NULL
+        END
+        FROM site_settings
+        WHERE key = 'app_store_manual_count'),
+        (SELECT CASE
+            WHEN jsonb_typeof(value) = 'number' THEN (value::text)::INTEGER
+            WHEN jsonb_typeof(value) = 'string' THEN trim(both '"' from value::text)::INTEGER
+            ELSE NULL
+        END
+        FROM site_settings
+        WHERE key = 'testflight_manual_count'),
+        0
+    ) INTO app_store_manual;
 
-    -- Get tracked clicks
-    SELECT COUNT(*) INTO tf_tracked 
-    FROM events 
-    WHERE event_name = 'testflight_click';
+    SELECT COUNT(*) INTO app_store_tracked
+    FROM events
+    WHERE event_name IN ('app_store_click', 'testflight_click');
 
     SELECT json_build_object(
         'total_signups', (SELECT COUNT(*) FROM waitlist),
@@ -147,9 +158,9 @@ BEGIN
         'today_visitors', (SELECT COUNT(DISTINCT visitor_id) FROM page_views WHERE created_at >= CURRENT_DATE),
         'online_now', (SELECT COUNT(*) FROM active_sessions WHERE last_activity > NOW() - INTERVAL '5 minutes'),
         'total_visitors', (SELECT COUNT(DISTINCT visitor_id) FROM page_views),
-        'testflight_clicks_total', tf_manual + tf_tracked,
-        'testflight_clicks_tracked', tf_tracked,
-        'testflight_clicks_manual', tf_manual
+        'app_store_clicks_total', app_store_manual + app_store_tracked,
+        'app_store_clicks_tracked', app_store_tracked,
+        'app_store_clicks_manual', app_store_manual
     ) INTO result;
     
     RETURN result;
@@ -165,5 +176,26 @@ END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Initial settings
+INSERT INTO site_settings (key, value) VALUES ('app_store_manual_count', '0')
+ON CONFLICT (key) DO NOTHING;
+
 INSERT INTO site_settings (key, value) VALUES ('testflight_manual_count', '0')
+ON CONFLICT (key) DO NOTHING;
+
+INSERT INTO site_settings (key, value)
+VALUES ('maintenance_mode', '{"enabled": false, "message": ""}'::jsonb)
+ON CONFLICT (key) DO NOTHING;
+
+INSERT INTO site_settings (key, value)
+VALUES (
+    'app_store_links',
+    '{
+        "genericUrl": "https://apps.apple.com/app/id6760143192",
+        "reviewUrl": "https://apps.apple.com/app/id6760143192?action=write-review",
+        "storefronts": {
+            "en": "https://apps.apple.com/us/app/id6760143192",
+            "es": "https://apps.apple.com/es/app/id6760143192"
+        }
+    }'::jsonb
+)
 ON CONFLICT (key) DO NOTHING;

@@ -33,7 +33,7 @@
     }
   },
   "problems": {
-    "badge": "Echte Problemen",
+    "badge": "De Echte Uitdaging",
     "title": "Gezinsgezondheid beheren",
     "titleLine2": "is complexer dan u denkt.",
     "subtitle": "Verspreide apps, vergeten doses en ontbrekende info brengen de gezondheid van uw gezin in gevaar.",
@@ -66,7 +66,7 @@
     "cta": "VitalsPath lost dit allemaal op..."
   },
   "features": {
-    "badge": "Alles-in-één",
+    "badge": "Eén Hub, Alle Oplossingen",
     "title": "Alles wat u nodig heeft,",
     "titleHighlight": "perfect georganiseerd.",
     "subtitle": "We hebben elk aspect van gezinsgezondheidsbeheer vereenvoudigd in één intelligent dashboard.",
@@ -110,6 +110,10 @@
       "wellness": {
         "title": "Wellness Score",
         "description": "Een holistische index van uw algemeen welzijn op basis van uw dagelijkse gegevens."
+      },
+      "metrics": {
+        "title": "Gezondheidsstatistieken",
+        "description": "Gedetailleerde inzichten en holistische analyses van uw gezondheidstraject."
       }
     },
     "cta": {
@@ -273,7 +277,7 @@
     "titleHighlight": "gezinsgezondheid",
     "subtitle": "Onze exclusieve publieke beta is nu geopend op TestFlight. Sluit u aan bij 8.000 testers en help ons de ultieme gezondheidshub te bouwen.",
     "offer": "Beperkte Beta Aanbieding",
-    "premium_free": "De eerste 100 actieve testers krijgen 3 maanden Premium gratis bij de lancering.",
+    "premium_free": "De eerste 100 testers krijgen 3 maanden gratis PREMIUM bij de lancering.",
     "slots": "0/8.000 Slots Bezet (Toegang open)",
     "cta": {
       "button": "Doe gratis mee aan de Beta",
@@ -294,56 +298,44 @@
     "privacy": "Privacy",
     "support": "Ondersteuning",
     "copyright": "2026 VitalsPath · Gemaakt met",
-    "developer": "Product van RomeroDev",
+    "developer": "door RomeroDev",
     "feedback": "Feedback",
     "terms": "Voorwaarden",
     "disclaimer": "Disclaimer",
-    "subscription": "Plannen"
+    "subscription": "Suscripción"
   },
   "legal": {
     "terms": {
-      "title": "VitalsPath Voorwaarden",
-      "subtitle": "Gezondheid & Medicatie Tracker",
+      "title": "VitalsPath Voorwaarden en Condities",
+      "subtitle": "Health & Medication Tracker",
       "lastUpdated": "Laatst bijgewerkt: 2026",
       "sections": {
         "general": {
-          "title": "1. Algemeen",
-          "content": "Deze voorwaarden regelen het gebruik van de VitalsPath applicatie.<br><br>Door de app te gebruiken, gaat u akkoord met deze voorwaarden en ons privacybeleid."
+          "title": "1. Algemene Informatie",
+          "content": "Deze Voorwaarden regelen de toegang tot en het gebruik van de mobiele applicatie VitalsPath – Health & Medication Tracker."
         },
         "owner": {
-          "title": "2. Bedrijfsgegevens",
-          "content": "Eigenaar: Lester Romero Bernardo, Software Engineer. vitalspath@gmail.com"
+          "title": "2. Eigenaar van de Applicatie",
+          "content": "Eigenaar: Lester Romero Bernardo, Computer Science Engineer."
         },
         "purpose": {
           "title": "3. Doel van de Dienst",
-          "content": "VitalsPath biedt tools om gezondheidsinfo te organiseren (medicijnherinneringen, symptomen, afspraken).<br><br>De app stelt geen medische diagnoses."
+          "content": "VitalsPath biedt tools voor het organiseren en bijhouden van gezondheidsinformatie."
         },
         "usage": {
-          "title": "4. Beperkingen en Medische Waarschuwing",
-          "content": "Bedoeld voor personen van 18+ jaar. Bel bij nood direct 112."
+          "title": "4. Medische Waarschuwing",
+          "content": "De applicatie is geen medisch hulpmiddel en vervangt geen professioneel advies."
         }
       }
     },
     "privacy": {
       "title": "VitalsPath Privacybeleid",
-      "subtitle": "Uw Persoonlijke Gezondheidshub",
+      "subtitle": "Health & Medication Tracker",
       "lastUpdated": "Laatst bijgewerkt: 18 februari 2026",
       "sections": {
         "intro": {
           "title": "Introductie",
-          "content": "Wij uploaden uw gegevens nooit naar externe servers. Uw privacy is onze prioriteit."
-        },
-        "info": {
-          "title": "1. Verzameling van Informatie",
-          "content": "Medicijnen, symptomen en profielen worden uitsluitend lokaal opgeslagen."
-        },
-        "storage": {
-          "title": "2. Gegevensopslag",
-          "content": "Data wordt opgeslagen op uw iPhone en in uw versleutelde iCloud back-up."
-        },
-        "contact": {
-          "title": "3. Contact",
-          "content": "Privacy vragen: vitalspath@gmail.com"
+          "content": "Wij respecteren uw privacy en uploaden uw gegevens nooit naar externe servers."
         }
       }
     },
@@ -351,107 +343,197 @@
       "title": "Medische Disclaimer",
       "notice": {
         "title": "Belangrijke Mededeling",
-        "content": "Lees dit voordat u VitalsPath gebruikt."
+        "content": "Lees dit aandachtig voordat u VitalsPath gebruikt."
       },
       "sections": {
         "notMedical": {
-          "title": "Geen Medisch Advies",
+          "title": "Geen Medische Dienst",
           "content": "VitalsPath is een organisatietool, geen medisch hulpmiddel."
         },
         "emergency": {
           "title": "Noodgevallen",
-          "content": "Bel bij een medisch noodgeval direct 112.",
-          "callToAction": "Bel bij nood direct 112."
+          "content": "Bel bij nood direct de lokale hulpdiensten (112).",
+          "callToAction": "Bel direct 112 bij nood."
+        },
+        "accuracy": {
+          "title": "Gegevensprecisie",
+          "content": "U bent verantwoordelijk voor de juistheid van de ingevoerde gegevens."
+        },
+        "medication": {
+          "title": "Medicatiebeheer",
+          "content": "De app controleert geen interacties tussen medicijnen."
+        },
+        "responsibility": {
+          "title": "Verantwoordelijkheid",
+          "content": "Gebruik de app niet als vervanging voor professionele zorg."
+        },
+        "contact": {
+          "title": "Vragen",
+          "content": "Neem bij vragen contact met ons op via vitalspath@gmail.com."
+        }
+      }
+    },
+    "subscription": {
+      "title": "Suscripción Voorwaarden",
+      "lastUpdated": "Laatst bijgewerkt: 18 februari 2026",
+      "sections": {
+        "whatIs": {
+          "title": "1. Wat is VitalsPath Premium?",
+          "content": "Premium ontgrendelt onbeperkte profielen en geavanceerde functies."
         }
       }
     }
   },
   "feedback": {
-    "title": "Feedback",
-    "subtitle": "Laten we VitalsPath samen verbeteren.",
+    "title": "Feedback Versturen",
+    "subtitle": "Help ons VitalsPath te verbeteren.",
+    "types": {
+      "feature": "Functie Aanvraag",
+      "bug": "Bug Melden",
+      "improvement": "Verbetering",
+      "question": "Vraag",
+      "other": "Overig"
+    },
     "form": {
-      "type": "Type",
+      "type": "Type Feedback",
       "name": "Uw Naam",
-      "email": "E-mail",
+      "email": "E-mailadres",
       "subject": "Onderwerp",
       "message": "Bericht",
-      "submit": "Verstuur"
+      "namePlaceholder": "Naam invoeren",
+      "emailPlaceholder": "uw@email.com",
+      "subjectPlaceholder": "Korte beschrijving",
+      "messagePlaceholder": "Vertel ons meer...",
+      "submit": "Verstuur Feedback"
+    },
+    "success": {
+      "title": "Bedankt!",
+      "message": "Uw feedback is ontvangen.",
+      "backHome": "Terug naar Home"
     }
   },
   "pricing": {
-    "badge": "Introductie Aanbieding",
-    "title": "Eenvoudige Prijzen",
-    "subtitle": "Geen verborgen kosten. Kies het ideale plan voor uw gezin.",
+    "badge": "Nieuw Model",
+    "title": "Kies uw plan",
+    "subtitle": "Eén app voor iedereen. Altijd gratis of Premium voor meer.",
+    "launch": {
+      "activeBadge": "Lanceringsoffer",
+      "bestValue": "Beste waarde",
+      "firstMonth": "De promotieprijs geldt tijdens de eerste maand na de lancering.",
+      "note": "Deze promotieprijzen gelden tijdens de eerste maand na de lancering. Daarna gelden weer de officiële App Store-prijzen.",
+      "legalNote": "De App Store toont de definitieve prijs vóór aankoop. Deze kan variëren per land, valuta en toepasselijke belastingen."
+    },
+    "monthly": {
+      "title": "Maandelijks",
+      "description": "Volledige Premium-toegang voor een speciale maandprijs"
+    },
     "premium": {
       "title": "VitalsPath Premium",
-      "subtitle": "De ultieme tool voor uw gezin.",
+      "subtitle": "Ontgrendel het volledige potentieel.",
       "features_title": "Alles in Gratis, plus:",
-      "privacy_title": "100% Lokale Bescherming",
-      "privacy_desc": "Uw data verlaat nooit uw telefoon."
+      "feature_desc": "Onbeperkte registraties in alle diensten.",
+      "privacy_title": "100% On-Device Privacy",
+      "privacy_desc": "Uw gegevens verlaten nooit uw iPhone."
     },
     "free": {
       "title": "Gratis",
-      "description": "De kernfuncties blijven altijd gratis.",
-      "functional_badge": "100% Functioneel",
-      "forever_badge": "Altijd Gratis"
+      "description": "Altijd 100% functioneel met limieten.",
+      "functional_badge": "100% FUNCTIONEEL",
+      "forever_badge": "ALTIJD"
     },
     "annual": {
       "title": "Jaarlijks",
-      "description": "Meest gekozen"
+      "description": "Jaarlijkse facturatie, bespaar 16%"
     },
     "lifetime": {
       "title": "Lifetime",
-      "description": "Eenmalig betalen, altijd premium"
+      "description": "Onbeperkte toegang voor altijd met korting"
     },
     "features": {
       "unlimited_profiles": "Onbeperkte Profielen",
       "unlimited_diseases": "Onbeperkte Geschiedenis",
       "unlimited_medications": "Onbeperkte Medicatie",
-      "stock_inventory": "Voorraadbeheer",
-      "export_pdf_csv": "Export PDF/CSV Data",
+      "unlimited_treatments": "Onbeperkte Behandelingen",
+      "extended_pause": "Verlengde Pauze",
+      "extend_medication": "Medicatie Verlengen",
+      "full_schedule": "Volledig Schema",
+      "quiet_schedule": "Stil Schema",
+      "stock_inventory": "Voorraad & Inventaris",
+      "export_pdf_csv": "Export naar PDF/CSV",
       "advanced_analytics": "Geavanceerde Statistieken",
-      "health_reports": "Doktersrapporten",
-      "ocr_scanner": "Medische OCR Scanner",
+      "health_reports": "Gezondheidsrapporten",
+      "health_reports_desc": "Gedetailleerde rapporten voor uw arts.",
+      "ocr_scanner": "Medicatie OCR Scanner",
       "healthkit": "HealthKit Integratie",
-      "icloud_backup": "Veilige iCloud Back-up",
-      "all_themes": "Alle Premium Thema's",
-      "smart_scheduler_ia": "AI Slimme Planner",
-      "gamification": "Beloningen & Doelen"
+      "complex_symptoms": "Complexe Symptomen",
+      "icloud_backup": "iCloud Back-up",
+      "icloud_backup_desc": "Veilig via Apple protocol.",
+      "all_themes": "Alle Thema's",
+      "all_themes_desc": "Volledige aanpassing.",
+      "advanced_notifications": "Geavanceerde Meldingen",
+      "advanced_notifications_desc": "Kritieke waarschuwingen.",
+      "haptic_feedback": "Haptische Feedback",
+      "haptic_feedback_desc": "Tactiele navigatie.",
+      "widget_styles": "Widget Stijlen",
+      "widget_styles_desc": "Diverse groottes.",
+      "unlimited_profiles_desc": "Beheer uw hele gezin zonder limieten.",
+      "smart_scheduler_ia_desc": "Slimme AI optimalisatie.",
+      "advanced_analytics_desc": "Gedetailleerde grafieken.",
+      "export_pdf_csv_desc": "Uw data in meerdere formaten.",
+      "basic_profiles": "1 Profiel (Onbeperkt in Premium)",
+      "basic_medications": "3 Medicijnen per profiel",
+      "local_reminders": "Basis Herinneringen",
+      "wellness_score": "Wellness Score",
+      "wellness_details": "Geavanceerde factoren",
+      "smart_scheduler": "Conflicten Checker (Handmatig)",
+      "smart_scheduler_ia": "AI Automatische Optimalisatie",
+      "appointments_limit": "3 Afspraken per maand",
+      "unlimited_appointments": "Onbeperkte Afspraken",
+      "locations_limit": "2 Favoriete Plaatsen",
+      "insurance_limit": "1 Zorgverzekering",
+      "symptoms_basic": "Basis Symptomen",
+      "symptoms_complex": "Complexe Symptomen",
+      "inventory_basic": "Basis Voorraad",
+      "health_status": "Gezondheidsstatus Analyse",
+      "health_status_desc": "Holistisch overzicht.",
+      "gamification": "Beloningen & Motivatie",
+      "gamification_desc": "Doelen en prestaties."
     },
     "cta": "Binnenkort",
-    "cta_alt": "Schrijf u in"
+    "cta_alt": "Schrijf me in"
   },
   "smartScheduling": {
     "badge": "Slim Algoritme",
-    "title": "Slimme Planning",
-    "subtitle": "Analyseert interacties om de veiligste tijdstippen te bepalen.",
+    "title": "Slimme Planner",
+    "subtitle": "Ons algoritme optimaliseert uw schema.",
     "steps": {
       "1": {
         "title": "Invoer",
         "desc": "Medicatie & Tijd"
       },
       "2": {
-        "title": "Slots",
-        "desc": "Beschikbaarheid"
+        "title": "Schema's",
+        "desc": "Slots"
       },
       "3": {
         "title": "Analyse",
-        "desc": "Veiligheidscheck"
+        "desc": "Márgenes"
       },
       "4": {
         "title": "Check",
-        "desc": "Conflictcontrole"
+        "desc": "Overlap"
       },
       "5": {
         "title": "Optimal",
-        "desc": "Beste Schema"
+        "desc": "Best Schema"
       }
     }
   },
   "notificationModes": {
-    "badge": "Flexibele Meldingen",
-    "title": "Contextuele Alerts",
-    "subtitle": "Kies de meldingsstijl die bij uw situatie past.",
+    "badge": "Intuïtieve Meldingen",
+    "title": "Meldingen die bij u passen",
+    "subtitle": "Kies de stijl voor elke context.",
+    "hapticTip": "Beschikbaarheid hangt af van iPhone hardware.",
     "modes": {
       "normal": {
         "title": "Normaal",
@@ -459,20 +541,20 @@
       },
       "quiet": {
         "title": "Stil",
-        "desc": "Alleen subtiele melding."
+        "desc": "Alleen visueel."
       },
       "discrete": {
         "title": "Discreet",
-        "desc": "Zachte haptische tik."
+        "desc": "Subtiele haptiek."
       },
       "off": {
         "title": "Uit",
-        "desc": "Niet storen."
+        "desc": "Geen onderbrekingen."
       }
     },
     "simulator": {
       "now": "Nu",
-      "doseTitle": "Tijd voor Medicatie",
+      "doseTitle": "Ibuprofen Dosis",
       "ready": "Gereed"
     }
   },
@@ -480,45 +562,47 @@
     "badge": "Native Ervaring",
     "title": "Widgets &",
     "titleHighlight": "Live Activiteiten.",
-    "subtitle": "Alles direct in één oogopslag vanaf uw toegangsscherm.",
+    "subtitle": "Info in één oogopslag.",
+    "description": "Behoud controle zonder de app te openen.",
     "items": {
       "widgets": {
         "title": "10+ Widgets",
-        "desc": "Volg vanaf uw Home Screen."
+        "desc": "Van reminders tot overzichten."
       },
       "dynamic": {
         "title": "Dynamic Island",
-        "desc": "Real-time herinneringen."
+        "desc": "Real-time updates."
       },
       "live": {
         "title": "Live Activiteiten",
-        "desc": "Volg de actieve dosis."
+        "desc": "Volg uw behandeling."
       }
     }
   },
   "languages": {
     "title": "In uw eigen taal",
-    "subtitle": "Wereldwijde dekking",
-    "description": "VitalsPath is vertaald naar 15 talen voor een naadloze ervaring."
+    "subtitle": "Wereldwijd",
+    "description": "VitalsPath is vertaald naar 15 talen."
   },
   "footerStats": {
     "activeUsers": "Actieve Gebruikers",
-    "regions": "Regio's & Landen",
-    "plansCreated": "Gezondheidsplannen Gem."
+    "regions": "Regio's",
+    "plansCreated": "Plannen Gem."
   },
   "survey": {
     "badge": "Snelle Vraag",
-    "question": "Denkt u dat deze app nuttig zou zijn voor uw gezin?",
+    "question": "Denkt u dat deze app nuttig zou zijn?",
     "options": {
-      "yes": "Ja, absoluut",
-      "no": "Nog niet",
+      "yes": "Ja",
+      "no": "Nee",
       "maybe": "Misschien"
-    }
+    },
+    "thanks": "Bedankt!"
   },
   "ecosystem": {
     "badge": "Apple Ecosysteem",
-    "title": "Op al uw Apple apparaten",
-    "subtitle": "VitalsPath is volledig geïntegreerd met het Apple-ecosysteem.",
+    "title": "Op al uw apparaten",
+    "subtitle": "Perfecte integratie met Apple hardware.",
     "iphone": {
       "name": "iPhone",
       "os": "iOS 18+"
@@ -531,6 +615,6 @@
       "name": "Apple Watch",
       "os": "watchOS 11+"
     },
-    "description": "Onmiddellijke synchronisatie via iCloud en perfecte integratie met Apple Health."
+    "description": "Sync via iCloud en volledige Health App ondersteuning."
   }
 }

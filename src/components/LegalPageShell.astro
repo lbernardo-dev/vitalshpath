@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+import { type Lang } from "../i18n/ui-locales";
+
+interface Props {
+    lang: Lang;
+    title: string;
+    subtitle?: string;
+    lastUpdated?: string;
+}
+
+const { lang, title, subtitle, lastUpdated } = Astro.props;
+---
+
+<Layout
+    lang={lang}
+    pageTitle={`${title} | VitalsPath`}
+    pageDescription={subtitle ?? title}
+>
+    <main class="relative min-h-screen overflow-hidden bg-white dark:bg-black">
+        <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+            <div
+                class="absolute left-[-8%] top-[-4%] h-[28rem] w-[28rem] rounded-full bg-blue-400/15 blur-[110px] dark:bg-blue-500/10"
+            >
+            </div>
+            <div
+                class="absolute right-[-8%] top-[22%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-400/10 blur-[110px] dark:bg-purple-500/10"
+            >
+            </div>
+        </div>
+
+        <Header lang={lang} />
+
+        <section class="relative pt-28 pb-20 md:pt-32 md:pb-24">
+            <div class="container mx-auto max-w-5xl px-5 sm:px-6">
+                <div
+                    class="rounded-[2rem] border border-slate-200/80 bg-white/90 p-6 shadow-[0_30px_90px_-45px_rgba(15,23,42,0.22)] backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:shadow-[0_30px_90px_-45px_rgba(0,0,0,0.7)] md:p-10"
+                >
+                    <div
+                        class="mb-10 border-b border-slate-200 pb-8 dark:border-white/10"
+                    >
+                        <div
+                            class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-blue-600 dark:border-blue-500/20 dark:bg-blue-500/10 dark:text-blue-300"
+                        >
+                            VitalsPath
+                        </div>
+
+                        <h1
+                            class="mt-5 text-4xl font-black tracking-tight text-slate-950 dark:text-white sm:text-5xl"
+                        >
+                            {title}
+                        </h1>
+
+                        {
+                            subtitle && (
+                                <p class="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                                    {subtitle}
+                                </p>
+                            )
+                        }
+
+                        {
+                            lastUpdated && (
+                                <p class="mt-4 text-sm font-medium text-slate-400 dark:text-slate-500">
+                                    {lastUpdated}
+                                </p>
+                            )
+                        }
+                    </div>
+
+                    <div
+                        class="prose prose-slate max-w-none prose-headings:font-black prose-headings:tracking-tight prose-p:text-slate-700 prose-li:text-slate-700 prose-strong:text-slate-950 dark:prose-invert dark:prose-p:text-slate-300 dark:prose-li:text-slate-300"
+                    >
+                        <slot />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <Footer lang={lang} />
+    </main>
+</Layout>

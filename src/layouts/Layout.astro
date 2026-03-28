@@ -4,58 +4,92 @@ import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
 import appMockup from "../assets/images/app-mockup.png";
 import appIcon from "../assets/images/AppIcon_v2.png";
-import SurveyWidget from "../components/SurveyWidget.astro";
 
 interface Props {
 	lang: Lang;
+	robots?: string;
+	pageTitle?: string;
+	pageDescription?: string;
 }
 
-const { lang } = Astro.props;
+const {
+	lang,
+	robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+	pageTitle,
+	pageDescription,
+} = Astro.props;
 const t = useTranslations(lang);
 const { dir } = languages[lang];
 
-const title = t("meta.title");
-const description = t("meta.description");
+const title = pageTitle ?? t("meta.title");
+const description = pageDescription ?? t("meta.description");
 
 const siteOrigin = "https://lbernardo-dev.github.io";
 const basePath = "/vitalshpath";
 const siteUrl = `${siteOrigin}${basePath}`;
+const baseHref = import.meta.env.BASE_URL.endsWith("/")
+	? import.meta.env.BASE_URL
+	: `${import.meta.env.BASE_URL}/`;
+const normalizedPath = Astro.url.pathname.endsWith("/")
+	? Astro.url.pathname
+	: `${Astro.url.pathname}/`;
+const currentUrl = new URL(normalizedPath, siteOrigin).toString();
+const localizedPathForLang = (targetLang: Lang) =>
+	normalizedPath.replace(
+		new RegExp(`^${basePath}/${lang}(?=/|$)`),
+		`${basePath}/${targetLang}`,
+	);
+const defaultLocaleUrl = new URL(localizedPathForLang("en"), siteOrigin).toString();
+const socialImageUrl = new URL(appMockup.src, siteOrigin).toString();
+
+const localeTags: Record<Lang, string> = {
+	en: "en-US",
+	es: "es-ES",
+	fr: "fr-FR",
+	de: "de-DE",
+	it: "it-IT",
+	pt: "pt-BR",
+	ja: "ja-JP",
+	zh: "zh-Hans",
+	ko: "ko-KR",
+	ru: "ru-RU",
+	ar: "ar-SA",
+	hi: "hi",
+	tr: "tr-TR",
+	nl: "nl-NL",
+	pl: "pl",
+};
+
+const maintenanceSafeSegments = [
+	"/privacy",
+	"/terms",
+	"/disclaimer",
+	"/subscription",
+	"/feedback",
+];
 
 const jsonLd = [
 	{
 		"@context": "https://schema.org",
-		"@type": ["SoftwareApplication", "MedicalApplication"],
-		name: "VitalsPath: Smart Med Tracker",
+		"@type": "SoftwareApplication",
+		name: "VitalsPath",
+		url: currentUrl,
 		applicationCategory: "HealthApplication",
-		operatingSystem: "iOS 18.0 or later, watchOS 11.0 or later",
-		softwareVersion: "1.0",
-		screenshot: [`${siteUrl}${appMockup.src}`],
-		offers: {
-			"@type": "Offer",
-			price: "0",
-			priceCurrency: "USD",
-			availability: "https://schema.org/PreOrder",
-		},
-		aggregateRating: {
-			"@type": "AggregateRating",
-			ratingValue: 4.9,
-			bestRating: 5,
-			worstRating: 1,
-			ratingCount: 500,
-		},
+		operatingSystem: "iOS, watchOS",
+		image: appIcon.src ? [new URL(appIcon.src, siteOrigin).toString()] : undefined,
+		screenshot: [socialImageUrl],
 		description: description,
 		inLanguage: supportedLangs,
 		author: {
-			"@type": "Organization",
-			name: "RomeroDev",
+			"@type": "Person",
+			name: "Lester Romero Bernardo",
 		},
 		featureList: [
-			"Medication & Pill Management",
-			"Vitals & Symptoms Tracking",
-			"Doctor Appointment Manager",
-			"Smart Refill Alerts",
-			"Live Activities & Dynamic Island",
-			"Apple Watch Sync",
+			"Medication planning and dose logging",
+			"Symptom, mood and vitals tracking",
+			"Appointments and follow-up tasks",
+			"Widgets, Live Activities and Apple Watch support",
+			"Private personal health organization",
 		],
 	},
 	{
@@ -79,136 +113,91 @@ const jsonLd = [
 		<meta name="description" content={description} />
 		<meta
 			name="keywords"
-			content="medication tracker, pill reminder, vitals tracker, prescription manager, doctor appointment, pharmacy refill, medical alerts, iOS health app"
+			content="medication tracking, symptom tracking, vitals tracking, appointment organization, refill reminders, Apple Watch, widgets, Live Activities"
 		/>
 		<meta name="author" content="Lester Romero Bernardo" />
-		<meta
-			name="robots"
-			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-		/>
+		<meta name="robots" content={robots} />
 		<meta name="language" content={lang} />
 		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="VitalsPath" />
 
-		<!-- Preconnect to external domains -->
-		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+			<link rel="sitemap" href={`${siteUrl}/sitemap-index.xml`} />
+			<link rel="canonical" href={currentUrl} />
+			{
+				supportedLangs.map((l) => (
+					<link
+						rel="alternate"
+						hreflang={localeTags[l]}
+						href={new URL(localizedPathForLang(l), siteOrigin).toString()}
+					/>
+				))
+			}
+			<link rel="alternate" hreflang="x-default" href={defaultLocaleUrl} />
 
-		<!-- Google Tag Manager -->
-		<script is:inline>
-			(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({
-					"gtm.start": new Date().getTime(),
-					event: "gtm.js",
-				});
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != "dataLayer" ? "&l=" + l : "";
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-N5RRS3V8");
-		</script>
-		<!-- End Google Tag Manager -->
-
-		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta
-			property="og:image"
-			content={`${siteUrl}${appMockup.src}`}
-		/>
-		<meta property="og:url" content={siteUrl} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:locale" content={lang} />
-		<meta property="og:site_name" content="VitalsPath" />
-		<meta
-			property="og:image:alt"
-			content="VitalsPath: Smart Medication & Vitals Tracker"
-		/>
+			<!-- Open Graph -->
+			<meta property="og:type" content="website" />
+			<meta property="og:title" content={title} />
+			<meta property="og:description" content={description} />
+			<meta property="og:image" content={socialImageUrl} />
+			<meta property="og:url" content={currentUrl} />
+			<meta property="og:image:width" content="1200" />
+			<meta property="og:image:height" content="630" />
+			<meta property="og:locale" content={localeTags[lang].replace("-", "_")} />
+			<meta property="og:site_name" content="VitalsPath" />
+			<meta
+				property="og:image:alt"
+				content="VitalsPath health timeline interface"
+			/>
 
 		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta
-			name="twitter:image"
-			content={`${siteUrl}${appMockup.src}`}
-		/>
-		<meta name="twitter:creator" content="@vitalspath" />
-		<meta
-			name="twitter:image:alt"
-			content="VitalsPath: Smart Medication & Vitals Tracker"
-		/>
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:title" content={title} />
+			<meta name="twitter:description" content={description} />
+			<meta name="twitter:image" content={socialImageUrl} />
+			<meta
+				name="twitter:image:alt"
+				content="VitalsPath health timeline interface"
+			/>
 
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href={`${siteUrl}/favicon-32x32.png`}
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href={`${siteUrl}/favicon-16x16.png`}
-		/>
-		<link
-			rel="icon"
-			type="image/x-icon"
-			href={`${siteUrl}/favicon.ico`}
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href={`${siteUrl}/apple-touch-icon.png`}
-		/>
-<!-- <link
-			rel="icon"
-			type="image/svg+xml"
-			href={`${import.meta.env.BASE_URL}/favicon.svg`}
-		/> -->
-		<link
-			rel="manifest"
-			href={`${siteUrl}/site.webmanifest`}
-		/>
-		<meta name="theme-color" content="#007aff" />
-		<meta
-			name="apple-mobile-web-app-status-bar-style"
+			<link
+				rel="icon"
+				type="image/png"
+				sizes="32x32"
+				href={`${baseHref}favicon-32x32.png`}
+			/>
+			<link
+				rel="icon"
+				type="image/png"
+				sizes="16x16"
+				href={`${baseHref}favicon-16x16.png`}
+			/>
+			<link
+				rel="icon"
+				type="image/x-icon"
+				href={`${baseHref}favicon.ico`}
+			/>
+			<link
+				rel="apple-touch-icon"
+				sizes="180x180"
+				href={`${baseHref}apple-touch-icon.png`}
+			/>
+			<!-- <link
+				rel="icon"
+				type="image/svg+xml"
+				href={`${import.meta.env.BASE_URL}/favicon.svg`}
+			/> -->
+			<link rel="manifest" href={`${baseHref}site.webmanifest`} />
+			<meta name="theme-color" content="#007aff" />
+			<meta
+				name="apple-mobile-web-app-status-bar-style"
 			content="black-translucent"
 		/>
 
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+			<meta name="generator" content={Astro.generator} />
+			<title>{title}</title>
 
-		<!-- Canonical and Hreflang -->
-		<link
-			rel="sitemap"
-			href={`${siteUrl}/sitemap-index.xml`}
-		/>
-		<link
-			rel="canonical"
-			href={`${siteUrl}/${lang}/`}
-		/>
-		<link
-			rel="alternate"
-			hreflang="x-default"
-			href={`${siteUrl}/en/`}
-		/>
-		{
-			supportedLangs.map((l) => (
-				<link
-					rel="alternate"
-					hreflang={l}
-					href={`${siteUrl}/${l}/`}
-				/>
-			))
-		}
-
-		<!-- JSON-LD Structured Data -->
-		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}
+			<!-- JSON-LD Structured Data -->
+			<script type="application/ld+json" set:html={JSON.stringify(jsonLd)}
 		></script>
 
 		<!-- Theme initialization -->
@@ -216,16 +205,16 @@ const jsonLd = [
 			(function () {
 				try {
 					var saved = localStorage.getItem("theme");
-					var prefersDark = window.matchMedia(
-						"(prefers-color-scheme: dark)"
-					).matches;
-					var isDark = saved === "dark" || (!saved && prefersDark);
+					var isDark = saved === "dark";
 					document.documentElement.classList.toggle("dark", isDark);
 				} catch (e) {}
 			})();
 		</script>
 	</head>
 	<body
+		data-site-lang={lang}
+		data-base-path={basePath}
+		data-maintenance-safe-segments={maintenanceSafeSegments.join(",")}
 		class="bg-white dark:bg-black text-gray-900 dark:text-white min-h-screen transition-colors"
 	>
 		<!-- Skip to main content for accessibility -->
@@ -235,15 +224,6 @@ const jsonLd = [
 		>
 			Skip to main content
 		</a>
-		<!-- Google Tag Manager (noscript) -->
-		<noscript
-			><iframe
-				src="https://www.googletagmanager.com/ns.html?id=GTM-N5RRS3V8"
-				height="0"
-				width="0"
-				style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
 		<div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
 			<div
 				class="absolute w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-[100px] top-[-5%] left-[-5%] animate-float"
@@ -256,11 +236,93 @@ const jsonLd = [
 			</div>
 		</div>
 		<slot />
-		<SurveyWidget lang={lang} />
 		<script>
 			import { initScrollReveal } from "../lib/scrollReveal";
-			// Initialize scroll reveal animations
-			initScrollReveal();
+			import { hydrateAppStoreLinks } from "../lib/app-store-links";
+			import { getSupabase, isSupabaseConfigured } from "../lib/supabase";
+			import { trackEvent } from "../lib/supabase/tracking";
+
+			function getLayoutConfig() {
+				const body = document.body;
+				return {
+					lang: body.dataset.siteLang || "en",
+					basePath: body.dataset.basePath || "",
+					maintenanceSafeSegments: (body.dataset.maintenanceSafeSegments || "")
+						.split(",")
+						.filter(Boolean),
+				};
+			}
+
+			async function syncMaintenanceState() {
+				if (!isSupabaseConfigured()) return;
+
+				const { lang, basePath, maintenanceSafeSegments } = getLayoutConfig();
+				const pathname = window.location.pathname.replace(/\/+$/, "");
+				const localizedMaintenancePath = `${basePath}/${lang}/maintenance`;
+				const isMaintenancePage = pathname === localizedMaintenancePath;
+				const isSafeRoute = maintenanceSafeSegments.some((segment) =>
+					pathname.endsWith(segment),
+				);
+
+				const supabase = getSupabase();
+				if (!supabase) return;
+
+				const { data, error } = await supabase
+					.from("site_settings")
+					.select("value")
+					.eq("key", "maintenance_mode")
+					.maybeSingle();
+
+				if (error || !data?.value) return;
+
+				const value = data.value;
+				const enabled =
+					typeof value === "boolean" ? value : Boolean(value?.enabled);
+
+				if (enabled && !isMaintenancePage && !isSafeRoute) {
+					window.location.replace(`${localizedMaintenancePath}/`);
+					return;
+				}
+
+				if (!enabled && isMaintenancePage) {
+					window.location.replace(`${basePath}/${lang}/`);
+				}
+			}
+
+			function bindAppStoreTracking() {
+				if (window.__vitalsPathAppStoreTrackingBound) return;
+
+				document.addEventListener("click", (event) => {
+					const target = event.target instanceof Element ? event.target : null;
+					if (!target) return;
+
+					const link = target.closest("[data-app-store-link], [data-app-store-review-link]");
+					if (!(link instanceof HTMLAnchorElement)) return;
+
+					const isReviewLink = link.hasAttribute("data-app-store-review-link");
+					trackEvent(
+						isReviewLink ? "app_store_review_click" : "app_store_click",
+						{
+							href: link.href,
+							page: window.location.pathname,
+							label: (link.textContent || "").trim().slice(0, 80),
+						},
+					);
+				});
+
+				window.__vitalsPathAppStoreTrackingBound = true;
+			}
+
+			async function initClientPage() {
+				const { lang } = getLayoutConfig();
+				initScrollReveal();
+				bindAppStoreTracking();
+				await hydrateAppStoreLinks(lang);
+				await syncMaintenanceState();
+			}
+
+			initClientPage();
+			document.addEventListener("astro:page-load", initClientPage);
 		</script>
 	</body>
 </html>

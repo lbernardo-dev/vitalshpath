@@ -110,6 +110,10 @@
       "wellness": {
         "title": "Wellness Score",
         "description": "Métrica multifactorial de tu bienestar."
+      },
+      "metrics": {
+        "title": "Métricas de Salud",
+        "description": "Información detallada y análisis exhaustivo de tu salud."
       }
     },
     "cta": {
@@ -300,6 +304,14 @@
     "disclaimer": "Aviso Legal",
     "subscription": "Suscripción"
   },
+  "maintenance": {
+    "status": "Preparación del Lanzamiento",
+    "title": "Estamos preparando el lanzamiento público",
+    "subtitle": "VitalsPath está temporalmente en modo mantenimiento mientras cerramos los últimos ajustes para el lanzamiento y la revisión de App Store.",
+    "defaultMessage": "La landing pública queda limitada de forma temporal. Las páginas legales, de privacidad, suscripción y feedback siguen disponibles para que todos los enlaces compartidos desde la app continúen funcionando.",
+    "legalAccess": "Los enlaces usados por la app siguen operativos durante el mantenimiento para preservar la continuidad de onboarding, soporte y flujos legales.",
+    "backToHome": "Volver más tarde"
+  },
   "legal": {
     "terms": {
       "title": "Términos y Condiciones de VitalsPath",
@@ -465,7 +477,7 @@
         },
         "contact": {
           "title": "Preguntas o Preocupaciones",
-          "content": "Si tienes preguntas sobre este aviso o sobre cómo usar correctamente VitalsPath en conjunto con el cuidado médico profesional, contáctanos en support@vitalspath.app."
+          "content": "Si tienes preguntas sobre este aviso o sobre cómo usar correctamente VitalsPath en conjunto con el cuidado médico profesional, contáctanos en vitalspath@gmail.com."
         }
       }
     },
@@ -541,9 +553,16 @@
     "badge": "Nuevo Modelo",
     "title": "Elige tu plan",
     "subtitle": "Una app para todos. Gratis para siempre o Premium para ir más allá.",
+    "launch": {
+      "activeBadge": "Oferta de lanzamiento",
+      "bestValue": "Mejor valor",
+      "firstMonth": "Precio promocional activo durante el primer mes tras el lanzamiento.",
+      "note": "Durante el primer mes tras el lanzamiento se aplican estos importes promocionales. Después volverán los precios oficiales del App Store.",
+      "legalNote": "El App Store muestra el precio final antes de confirmar la compra. Puede variar según país, divisa e impuestos aplicables."
+    },
     "monthly": {
       "title": "Mensual",
-      "description": "Facturación mensual, cancela cuando quieras"
+      "description": "Acceso Premium completo a un precio mensual especial"
     },
     "premium": {
       "title": "VitalsPath Premium",
@@ -561,11 +580,11 @@
     },
     "annual": {
       "title": "Anual",
-      "description": "Plan completo con pago anual"
+      "description": "Facturación anual, ahorra un 16%"
     },
     "lifetime": {
       "title": "De por vida",
-      "description": "Pago único, para siempre"
+      "description": "Acceso ilimitado para siempre con descuento"
     },
     "features": {
       "unlimited_profiles": "Perfiles Ilimitados",
