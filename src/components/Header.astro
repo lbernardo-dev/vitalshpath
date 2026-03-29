@@ -33,8 +33,8 @@ const navItems = [
 ---
 
 <header id="main-header" class="glass-header">
-    <nav class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-3">
-        <div class="flex items-center justify-between gap-4 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-4 lg:px-6 py-2 rounded-full border border-white/80 dark:border-white/10 shadow-sm transition-all">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+        <div class="flex items-center justify-between gap-8 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-6 lg:px-8 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm transition-all">
             <!-- Logo Section -->
             <a
                 href={`${baseUrl}/${lang}/`}
@@ -98,37 +98,48 @@ const navItems = [
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu Overlay -->
         <div
             id="mobile-menu"
-            class="hidden absolute top-full left-4 right-4 mt-2 glass-panel p-6 animate-in fade-in slide-in-from-top-4 duration-500 z-50 lg:hidden"
+            class="hidden fixed inset-0 z-[100] bg-white/60 dark:bg-black/80 backdrop-blur-3xl lg:hidden animate-in fade-in duration-300"
         >
-            <div class="flex flex-col gap-6">
-                {
-                    navItems.map((item) => (
-                        <a
-                            href={item.href}
-                            class="text-sm font-black uppercase tracking-widest text-slate-text p-2 hover:text-teal-primary border-b border-slate-100 dark:border-white/5 pb-4"
-                        >
-                            {item.label}
-                        </a>
-                    ))
-                }
-                
-                <div class="flex items-center justify-between mt-2 px-2">
-                    <LanguageSelector lang={lang} />
-                    <ThemeToggle />
-                </div>
-
-                <a
-                    href={appStoreHref}
-                    data-app-store-link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-primary w-full flex justify-center py-4"
+            <div class="flex flex-col h-full p-8 pt-24 space-y-8">
+                <button 
+                    id="mobile-menu-close"
+                    class="absolute top-8 right-8 p-3 rounded-full bg-slate-text/5 text-slate-text"
                 >
-                    {copy.home.primaryCta}
-                </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+
+                <div class="flex flex-col gap-8">
+                    {
+                        navItems.map((item) => (
+                            <a
+                                href={item.href}
+                                class="text-3xl font-black uppercase tracking-tighter text-slate-text hover:text-teal-primary transition-colors"
+                            >
+                                {item.label}
+                            </a>
+                        ))
+                    }
+                </div>
+                
+                <div class="mt-auto space-y-8">
+                    <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-text/5">
+                        <LanguageSelector lang={lang} />
+                        <ThemeToggle />
+                    </div>
+
+                    <a
+                        href={appStoreHref}
+                        data-app-store-link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-primary w-full flex justify-center py-5 text-sm"
+                    >
+                        {copy.home.primaryCta}
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -137,27 +148,41 @@ const navItems = [
 <script>
     function setupMobileMenu() {
         const button = document.getElementById("mobile-menu-button");
+        const closeButton = document.getElementById("mobile-menu-close");
         const menu = document.getElementById("mobile-menu");
 
         if (!button || !menu) return;
 
-        button.onclick = () => {
+        const toggleMenu = () => {
             const isHidden = menu.classList.contains("hidden");
             if (isHidden) {
                 menu.classList.remove("hidden");
+                document.body.style.overflow = "hidden"; // Prevent background scroll
                 button.setAttribute("aria-expanded", "true");
             } else {
                 menu.classList.add("hidden");
+                document.body.style.overflow = ""; // Re-enable background scroll
                 button.setAttribute("aria-expanded", "false");
             }
         };
 
+        button.onclick = toggleMenu;
+        if (closeButton) closeButton.onclick = toggleMenu;
+
         // Close on escape
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-                menu.classList.add('hidden');
-                button.setAttribute('aria-expanded', 'false');
+                toggleMenu();
             }
+        });
+
+        // Close on link click
+        const links = menu.querySelectorAll('a');
+        links.forEach(link => {
+            link.onclick = () => {
+                menu.classList.add('hidden');
+                document.body.style.overflow = "";
+            };
         });
     }
 
