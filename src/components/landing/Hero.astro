@@ -30,9 +30,13 @@ if (periodIndex !== -1) {
 }
 ---
 
-<section class="relative min-h-[85vh] flex flex-col justify-center items-center pt-32 md:pt-44 pb-8 overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] bg-teal-vibrant/10 dark:bg-teal-vibrant/5 blur-[120px] rounded-[100%] -z-10 pointer-events-none"></div>
+<section class="relative pt-16 pb-12 md:pt-24 md:pb-20 overflow-hidden">
+    {/* Dynamic Background Grain & Gradient */}
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div class="absolute top-0 left-0 w-full h-full bg-[#FAFAFA] dark:bg-[#050505]"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-vpath-primary/10 blur-[120px] rounded-full animate-pulse-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-vpath-accent/10 blur-[120px] rounded-full animate-pulse-slow" style="animation-delay: -2s;"></div>
+    </div>
 
     <div class="container mx-auto px-6 relative z-10 w-full flex flex-col items-center">
         <!-- Top Column: Content -->
@@ -56,12 +60,12 @@ if (periodIndex !== -1) {
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a
-                    href={appStoreHref}
-                    class="hover:scale-105 transition-transform duration-400 active:scale-95 drop-shadow-[0_20px_40px_rgba(45,212,191,0.25)] hover:drop-shadow-[0_20px_60px_rgba(45,212,191,0.4)] rounded-[1.2rem] overflow-hidden"
-                    aria-label="Download on the App Store"
-                >
-                    <AppStoreBadge className="h-[55px]" lang={lang} />
+                {/* App Store Badge - Compact & Ultra-Clean */}
+                <a href={appStoreHref} class="hover:scale-105 transition-all duration-500 active:scale-95 flex items-center">
+                    <AppStoreBadge 
+                        className="h-[44px] w-auto" 
+                        lang={lang}
+                    />
                 </a>
             </div>
 

@@ -75,7 +75,7 @@ const navItems = [
                 
                 <a
                     href={appStoreHref}
-                    class="hover:scale-105 transition-all duration-350 active:scale-95 shrink-0 shadow-xl shadow-teal-vibrant/5 rounded-2xl overflow-visible"
+                    class="hover:scale-105 transition-all duration-300 active:scale-95 shrink-0 flex items-center justify-center"
                     aria-label="Download on the App Store"
                 >
                     <AppStoreBadge className="h-[40px]" lang={lang} />
@@ -116,10 +116,13 @@ const navItems = [
                         
                         <a
                             href={appStoreHref}
-                            class="hover:scale-105 transition-all duration-300 active:scale-95 shadow-2xl shadow-teal-vibrant/10 rounded-2xl overflow-hidden"
+                            class="hover:scale-110 transition-all duration-500 active:scale-95 flex items-center justify-center"
                             aria-label="Download on the App Store"
                         >
-                            <AppStoreBadge className="h-[55px]" lang={lang} />
+                            <AppStoreBadge 
+                                className="h-[52px]" 
+                                lang={lang}
+                            />
                         </a>
                     </div>
                 </nav>

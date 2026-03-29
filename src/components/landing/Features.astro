@@ -19,7 +19,7 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 
-// Map bento cards to their respective images and colors
+// Map bento cards to their respective images and colors (6 cards)
 const cardMetadata = [
     { 
         image: screenMeds, 
@@ -36,11 +36,25 @@ const cardMetadata = [
         badgeStyle: "bg-coral-accent/10 text-coral-accent dark:bg-coral-accent/20 dark:text-orange-300"
     },
     { 
+        image: screenWellness, 
+        color: "emerald", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(16,185,129,0.2)]",
+        bgGlow: "from-emerald-500/10",
+        badgeStyle: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300"
+    },
+    { 
         image: screenAppointments, 
         color: "indigo", 
         glow: "hover:shadow-[0_40px_80px_-20px_rgba(99,102,241,0.25)]",
         bgGlow: "from-indigo-500/10",
         badgeStyle: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-300"
+    },
+    { 
+        image: screenWidgets, 
+        color: "cyan", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(6,182,212,0.25)]",
+        bgGlow: "from-cyan-500/10",
+        badgeStyle: "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300"
     },
     { 
         image: screenLiveActivity, 
@@ -51,36 +65,13 @@ const cardMetadata = [
     }
 ];
 
-// Additional features not in the bentoCards yet, but available as content
-const additionalCards = [
-    {
-        badge: lang === 'es' ? "BIENESTAR" : "WELLNESS",
-        title: lang === 'es' ? "Tu progreso de salud" : "Your health progress",
-        body: lang === 'es' ? "Visualiza tendencias y resúmenes de tu actividad, estado de ánimo y constantes para detectar patrones importantes." : "Visualize trends and summaries of your activity, mood, and vitals to spot important patterns.",
-        tags: lang === 'es' ? ["Tendencias", "Resumen", "Insights"] : ["Trends", "Summary", "Insights"],
-        image: screenWellness,
-        color: "emerald",
-        glow: "hover:shadow-[0_40px_80px_-20px_rgba(16,185,129,0.2)]",
-        bgGlow: "from-emerald-500/10",
-        badgeStyle: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300"
-    },
-    {
-        badge: lang === 'es' ? "WIDGETS" : "WIDGETS",
-        title: lang === 'es' ? "Toda tu salud a la vista" : "All your health at a glance",
-        body: lang === 'es' ? "Accede a tus recordatorios y constantes directamente desde tu pantalla de inicio con widgets elegantes y funcionales." : "Access your reminders and vitals directly from your home screen with elegant and functional widgets.",
-        tags: lang === 'es' ? ["Pantalla de inicio", "iOS 18", "Personalizable"] : ["Home Screen", "iOS 18", "Customizable"],
-        image: screenWidgets,
-        color: "cyan",
-        glow: "hover:shadow-[0_40px_80px_-20px_rgba(6,182,212,0.25)]",
-        bgGlow: "from-cyan-500/10",
-        badgeStyle: "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300"
-    }
-];
-
-const allCards = [...copy.home.bentoCards.map((card, i) => ({...card, ...cardMetadata[i]})), ...additionalCards];
+const allCards = copy.home.bentoCards.map((card, i) => ({
+    ...card, 
+    ...cardMetadata[i]
+}));
 ---
 
-<section id="features" class="pt-6 pb-10 sm:pt-8 sm:pb-12 relative overflow-hidden">
+<section id="features" class="pt-4 pb-8 sm:pt-6 sm:pb-10 relative overflow-hidden">
     <!-- Decorative Glow -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-vibrant/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
 

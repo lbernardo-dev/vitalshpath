@@ -84,6 +84,16 @@
         border: 1px solid var(--glass-border);
         border-radius: 36px;
     }
+    .glass-panel-dark {
+        @apply backdrop-blur-[60px] saturate-[180%] shadow-premium relative overflow-hidden;
+        background: rgba(15, 23, 42, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+    }
+    :global(.dark) .glass-panel-dark {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
     .glass-panel::before {
         content: '';
         @apply absolute inset-0 rounded-[36px] pointer-events-none;
@@ -168,28 +178,32 @@
     .mockup-clean-blend {
         mix-blend-mode: multiply;
         filter: contrast(1.05) brightness(1.02);
-        clip-path: inset(5px round 48px);
+        clip-path: inset(10px round 48px);
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         will-change: transform, filter;
+        background-color: transparent !important;
     }
 
     :global(.dark) .mockup-clean-blend {
         mix-blend-mode: normal;
         filter: brightness(1.1) contrast(1.1);
-        clip-path: inset(5px round 48px);
+        clip-path: inset(10px round 48px);
+        background-color: transparent !important;
     }
     
     .mockup-clean-blend-watch {
         mix-blend-mode: multiply;
         filter: contrast(1.05) brightness(1.02);
-        clip-path: inset(6px round 100px);
+        clip-path: inset(12px round 100px);
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: transparent !important;
     }
 
     :global(.dark) .mockup-clean-blend-watch {
         mix-blend-mode: normal;
         filter: brightness(1.1) contrast(1.1);
-        clip-path: inset(6px round 100px);
+        clip-path: inset(12px round 100px);
+        background-color: transparent !important;
     }
 
     .glass-header.scrolled {

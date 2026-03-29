@@ -31,11 +31,11 @@ const locale = localeMap[lang] || "en-US";
 const badgeUrl = `https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/${locale}.svg`;
 ---
 
-<div class={`inline-block ${className}`}>
+<div class={`inline-flex items-center justify-center ${className}`}>
     <img 
         src={badgeUrl} 
         alt="Download on the App Store" 
-        class="h-full w-auto block select-none pointer-events-none"
+        class="h-full w-auto block select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:drop-shadow-[0_8px_20px_rgba(45,212,191,0.3)] transition-all duration-500"
         loading="lazy"
         onerror="this.style.display='none'"
     />
