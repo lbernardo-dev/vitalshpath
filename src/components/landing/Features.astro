@@ -3,8 +3,13 @@ import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 
+// Import all necessary screens for the expanded bento grid
 import screenMeds from "../../assets/images/screens/screen-04-medications.PNG";
 import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
+import screenCalendar from "../../assets/images/screens/screen-10-calendar-month.PNG";
+import screenLiveActivity from "../../assets/images/screens/screen-27-live-activity.PNG";
+import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
+import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
 
 interface Props {
     lang: Lang;
@@ -12,107 +17,129 @@ interface Props {
 
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
+
+// Map bento cards to their respective images and colors
+const cardMetadata = [
+    { 
+        image: screenMeds, 
+        color: "teal", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(45,212,191,0.2)]",
+        bgGlow: "from-teal-vibrant/10",
+        badgeStyle: "bg-teal-vibrant/10 text-teal-vibrant dark:bg-teal-vibrant/20 dark:text-teal-300"
+    },
+    { 
+        image: screenSymptoms, 
+        color: "orange", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(251,146,60,0.2)]",
+        bgGlow: "from-coral-accent/10",
+        badgeStyle: "bg-coral-accent/10 text-coral-accent dark:bg-coral-accent/20 dark:text-orange-300"
+    },
+    { 
+        image: screenCalendar, 
+        color: "indigo", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(99,102,241,0.2)]",
+        bgGlow: "from-indigo-500/10",
+        badgeStyle: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-300"
+    },
+    { 
+        image: screenLiveActivity, 
+        color: "rose", 
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(244,63,94,0.2)]",
+        bgGlow: "from-rose-500/10",
+        badgeStyle: "bg-rose-500/10 text-rose-600 dark:bg-rose-500/20 dark:text-rose-300"
+    }
+];
+
+// Additional features not in the bentoCards yet, but available as content
+const additionalCards = [
+    {
+        badge: lang === 'es' ? "BIENESTAR" : "WELLNESS",
+        title: lang === 'es' ? "Tu progreso de salud" : "Your health progress",
+        body: lang === 'es' ? "Visualiza tendencias y resúmenes de tu actividad, estado de ánimo y constantes para detectar patrones importantes." : "Visualize trends and summaries of your activity, mood, and vitals to spot important patterns.",
+        tags: lang === 'es' ? ["Tendencias", "Resumen", "Insights"] : ["Trends", "Summary", "Insights"],
+        image: screenWellness,
+        color: "emerald",
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(16,185,129,0.2)]",
+        bgGlow: "from-emerald-500/10",
+        badgeStyle: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300"
+    },
+    {
+        badge: lang === 'es' ? "FAMILIA" : "FAMILY",
+        title: lang === 'es' ? "Perfiles para todos" : "Profiles for everyone",
+        body: lang === 'es' ? "Gestiona múltiples perfiles personales o familiares en un solo lugar, manteniendo la privacidad de cada uno." : "Manage multiple personal or family profiles in one place, maintaining the privacy of each one.",
+        tags: lang === 'es' ? ["Multi-usuario", "Privacidad", "Seguro"] : ["Multi-user", "Privacy", "Secure"],
+        image: screenProfiles,
+        color: "cyan",
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(6,182,212,0.2)]",
+        bgGlow: "from-cyan-500/10",
+        badgeStyle: "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300"
+    }
+];
+
+const allCards = [...copy.home.bentoCards.map((card, i) => ({...card, ...cardMetadata[i]})), ...additionalCards];
 ---
 
-<section id="features" class="py-16 sm:py-24 relative overflow-hidden">
+<section id="features" class="pt-8 pb-12 sm:pt-12 sm:pb-16 relative overflow-hidden">
     <!-- Decorative Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-coral-accent/5 dark:bg-coral-accent/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-vibrant/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         
         <!-- Section Title -->
-        <div class="text-center mb-12 max-w-4xl mx-auto reveal">
-            <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter text-balance">
+        <div class="text-center mb-16 max-w-4xl mx-auto reveal">
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter text-balance uppercase italic">
                 {copy.home.featureListTitle}
             </h2>
-            <p class="text-xl text-slate-500 dark:text-slate-400 font-medium">
+            <p class="text-xl text-slate-500 dark:text-slate-400 font-medium tracking-tight">
                 {lang === 'es' ? 'Todo lo que necesitas, diseñado con precisión.' : 'Everything you need, precision-engineered.'}
             </p>
         </div>
 
-        <!-- Bento Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-            
-            <!-- Card 01: Medication Tracking -->
-            <div class="group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(45,212,191,0.15)] reveal-scale">
-                
-                <!-- Card Content (Top) -->
-                <div class="p-10 sm:p-14 pb-0 z-10 flex flex-col items-center text-center">
-                    <div class="inline-flex px-3 py-1 rounded-full bg-teal-vibrant/10 dark:bg-teal-vibrant/20 text-teal-vibrant dark:text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
-                        {copy.home.featureTags[0][0]}
+        <!-- Bento Grid Expanded -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {allCards.map((card, index) => (
+                <div class={`group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 ${card.glow} reveal-scale stagger-${index % 3 + 1}`}>
+                    
+                    <!-- Card Content (Top) -->
+                    <div class="p-8 sm:p-10 pb-0 z-10 flex flex-col items-center text-center">
+                        <div class={`inline-flex px-3 py-1 rounded-full ${card.badgeStyle || card.badge} text-[10px] font-bold tracking-widest uppercase mb-4 shadow-sm border border-current/10`}>
+                            {card.badge}
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3 tracking-tighter text-balance">
+                            {card.title}
+                        </h3>
+                        <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed font-medium mb-6 line-clamp-3">
+                            {card.body}
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-1.5 mb-8">
+                            {card.tags.map((tag: string) => (
+                                <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md text-[10px] font-bold text-slate-600 dark:text-slate-400 border border-transparent group-hover:border-white/20 transition-all uppercase tracking-wide">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                    <h3 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter text-balance">
-                        {copy.home.sections[0].title}
-                    </h3>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mx-auto mb-8">
-                        {copy.home.sections[0].body}
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-10">
-                        {copy.home.featureTags[0].slice(1).map((tag: string) => (
-                            <span class="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors group-hover:bg-black/10 dark:group-hover:bg-white/20">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
 
-                <!-- Image Container (Bottom) -->
-                <div class="relative w-full aspect-square sm:aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-8 sm:px-16">
-                    <!-- Subtle inner glow -->
-                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-teal-vibrant/10 to-transparent z-0"></div>
-                    <div class="relative z-10 w-full max-w-[280px] sm:max-w-[320px] transform transition-transform duration-700 group-hover:-translate-y-4">
-                        <div class="relative w-full aspect-[1170/2532] rounded-[2.5rem] border-[8px] sm:border-[10px] border-slate-900 bg-slate-900 overflow-hidden ring-1 ring-white/20">
-                            <div class="absolute top-2 sm:top-2.5 left-1/2 -translate-x-1/2 w-[35%] h-5 sm:h-6 bg-black rounded-full z-20"></div>
-                            <Image
-                                src={screenMeds}
-                                alt="Medication Tracking"
-                                class="w-full h-full object-cover rounded-[1.75rem]"
-                            />
+                    <!-- Image Container (Bottom) -->
+                    <div class="relative w-full aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-6 sm:px-12">
+                        <!-- Subtle inner glow -->
+                        <div class={`absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t ${card.bgGlow} to-transparent z-0`}></div>
+                        <div class="relative z-10 w-full max-w-[200px] sm:max-w-[220px] transform transition-transform duration-700 group-hover:-translate-y-4 group-hover:scale-110">
+                            <!-- Device Frame -->
+                            <div class="relative w-full aspect-[1170/2532] rounded-[2.2rem] border-[6px] sm:border-[8px] border-slate-900 bg-slate-800 overflow-hidden ring-1 ring-white/10 shadow-2xl">
+                                <!-- Dynamic Notch -->
+                                <div class="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-[35%] h-4 sm:h-5 bg-black rounded-full z-20"></div>
+                                <Image
+                                    src={card.image}
+                                    alt={card.title}
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Card 02: Symptom Tracking -->
-            <div class="group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(251,146,60,0.15)] reveal-scale stagger-2">
-                
-                <!-- Card Content (Top) -->
-                <div class="p-10 sm:p-14 pb-0 z-10 flex flex-col items-center text-center">
-                    <div class="inline-flex px-3 py-1 rounded-full bg-coral-accent/10 dark:bg-coral-accent/20 text-coral-accent dark:text-orange-300 text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
-                        {copy.home.featureTags[1][0]}
-                    </div>
-                    <h3 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter text-balance">
-                        {copy.home.sections[1].title}
-                    </h3>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mx-auto mb-8">
-                        {copy.home.sections[1].body}
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-2 mb-10">
-                        {copy.home.featureTags[1].slice(1).map((tag: string) => (
-                            <span class="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors group-hover:bg-black/10 dark:group-hover:bg-white/20">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-
-                <!-- Image Container (Bottom) -->
-                <div class="relative w-full aspect-square sm:aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-8 sm:px-16">
-                    <!-- Subtle inner glow -->
-                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-coral-accent/10 to-transparent z-0"></div>
-                    <div class="relative z-10 w-full max-w-[280px] sm:max-w-[320px] transform transition-transform duration-700 group-hover:-translate-y-4">
-                        <div class="relative w-full aspect-[1170/2532] rounded-[2.5rem] border-[8px] sm:border-[10px] border-slate-900 bg-slate-900 overflow-hidden ring-1 ring-white/20">
-                            <div class="absolute top-2 sm:top-2.5 left-1/2 -translate-x-1/2 w-[35%] h-5 sm:h-6 bg-black rounded-full z-20"></div>
-                            <Image 
-                                src={screenSymptoms} 
-                                alt="Symptom Tracking" 
-                                class="w-full h-full object-cover rounded-[1.75rem]"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            ))}
         </div>
 
     </div>

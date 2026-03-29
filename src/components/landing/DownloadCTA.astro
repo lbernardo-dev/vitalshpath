@@ -2,8 +2,12 @@
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
-import { ShieldCheck, Heart, Sparkles } from "lucide-react";
+import { ShieldCheck, Heart, Sparkles, Star } from "lucide-react";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
+import { Image } from "astro:assets";
+
+// Import a high-impact screen for the CTA
+import screenDashboard from "../../assets/images/screens/screen-01-dashboard.PNG";
 
 interface Props {
     lang: Lang;
@@ -12,68 +16,136 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+
+// Localized strings fallback for the rating subtitle
+const ratingSub = {
+    en: "Highly rated on App Store",
+    es: "Alta valoración en App Store",
+    fr: "Très bien noté sur l'App Store",
+    de: "Top-bewertet im App Store",
+    it: "Molto votato su App Store",
+    pt: "Alta classificação na App Store",
+    ja: "App Storeで高評価",
+    zh: "在 App Store 上广受好评",
+    ko: "App Store에서 높은 평가",
+    ru: "Высокий рейтинг в App Store",
+    ar: "تقييم عالٍ في App Store",
+    hi: "App Store पर उच्च रेटिंग",
+    tr: "App Store'da yüksek puanlı",
+    nl: "Hoog gewaardeerd in de App Store",
+    pl: "Wysoko oceniana w App Store"
+}[lang] || "Highly rated on App Store";
 ---
 
-<section class="py-20 sm:py-24 bg-transparent relative z-10 overflow-hidden">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+<section class="py-8 sm:py-16 bg-transparent relative z-10 overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         
-        <div class="relative overflow-hidden rounded-[3rem] p-10 sm:p-16 lg:p-20 glass-panel border border-teal-vibrant/20 dark:border-teal-primary/30 bg-gradient-to-br from-white/80 to-slate-50/50 dark:from-slate-900/80 dark:to-slate-900/40 shadow-2xl reveal">
-            <!-- Decorative Glow -->
-            <div class="absolute -top-32 -right-32 w-96 h-96 bg-teal-vibrant/30 dark:bg-teal-primary/20 blur-[100px] rounded-full pointer-events-none"></div>
-            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-coral-accent/30 dark:bg-orange-accent/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="relative overflow-hidden rounded-[3.5rem] p-8 sm:p-12 lg:p-16 glass-panel border border-white/40 dark:border-white/10 bg-gradient-to-br from-white/90 to-teal-50/30 dark:from-slate-900/90 dark:to-teal-900/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] reveal">
+            
+            <!-- Decorative Background Elements -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-vibrant/20 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-coral-accent/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-            <div class="relative z-10 flex flex-col items-center text-center">
-                <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-primary/30 mb-8 shadow-sm">
-                    <span class="text-teal-vibrant dark:text-teal-primary text-[11px] font-bold tracking-[0.2em] uppercase">
-                        {copy.home.ctaBadge}
-                    </span>
-                </div>
-
-                <h2 class="text-4xl sm:text-5xl lg:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter text-balance">
-                    {copy.home.ctaTitle}
-                </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                 
-                <p class="text-lg text-slate-600 dark:text-slate-400 font-medium mb-12 max-w-2xl mx-auto text-balance">
-                    {copy.home.footnote}
-                </p>
+                <!-- Left: Conversion Text -->
+                <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-teal-vibrant/10 dark:bg-teal-vibrant/20 border border-teal-vibrant/20 mb-8">
+                        <Star className="w-3.5 h-3.5 text-teal-vibrant mr-2 fill-teal-vibrant" />
+                        <span class="text-teal-vibrant text-[10px] font-black tracking-widest uppercase">
+                            {copy.home.ctaBadge}
+                        </span>
+                    </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                    <a
-                        href={appStoreHref}
-                        class="hover:scale-105 active:scale-95 transition-all duration-300 rounded-2xl"
-                        aria-label="Download on the App Store"
-                    >
-                        <AppStoreBadge className="h-[60px] md:h-[64px]" lang={lang} />
-                    </a>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter leading-[1.05] italic uppercase">
+                        {copy.home.ctaTitle}
+                    </h2>
+                    
+                    <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-10 max-w-xl">
+                        {copy.home.heroSubtitle}
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-6 items-center mb-10">
+                        <a
+                            href={appStoreHref}
+                            class="hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-teal-vibrant/20 group"
+                            aria-label="Download on the App Store"
+                        >
+                            <AppStoreBadge className="h-[64px] md:h-[72px]" lang={lang} />
+                        </a>
+                        
+                        <div class="flex flex-col items-start gap-1">
+                            <div class="flex text-amber-500">
+                                <Star className="w-4 h-4 fill-current" />
+                                <Star className="w-4 h-4 fill-current" />
+                                <Star className="w-4 h-4 fill-current" />
+                                <Star className="w-4 h-4 fill-current" />
+                                <Star className="w-4 h-4 fill-current" />
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-tighter">
+                                {ratingSub}
+                            </span>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-slate-400 dark:text-slate-500 font-bold tracking-tight max-w-md">
+                        {copy.home.footnote}
+                    </p>
                 </div>
 
-                <!-- Benefits Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-10 border-t border-slate-200/50 dark:border-white/10">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-[1rem] bg-teal-vibrant/10 dark:bg-teal-primary/10 flex items-center justify-center text-teal-vibrant dark:text-teal-primary mb-4">
-                            <ShieldCheck className="w-6 h-6" />
+                <!-- Right: High Fidelity Device Mockup -->
+                <div class="relative flex justify-center lg:justify-end reveal-scale">
+                    <!-- Floating Widget Mockup -->
+                    <div class="absolute -left-8 top-1/4 w-32 h-32 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-3xl border border-white p-4 shadow-2xl z-20 animate-float hidden sm:block">
+                        <div class="w-full h-full rounded-2xl bg-teal-vibrant/10 flex items-center justify-center">
+                            <ShieldCheck className="w-10 h-10 text-teal-vibrant" />
                         </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white mb-2">{copy.home.sections[2].title}</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">{copy.home.ctaPrivacyDetail}</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-[1rem] bg-coral-accent/10 dark:bg-orange-accent/10 flex items-center justify-center text-coral-accent dark:text-orange-accent mb-4">
-                            <Heart className="w-6 h-6" />
-                        </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white mb-2">{copy.home.ctaPremiumTitle}</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">{copy.home.ctaPremiumDetail}</p>
                     </div>
 
-                    <div class="flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-[1rem] bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-500 mb-4">
-                            <Sparkles className="w-6 h-6" />
-                        </div>
-                        <h4 class="font-bold text-slate-900 dark:text-white mb-2">{copy.home.ctaCommunityTitle}</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 font-medium">{copy.home.ctaCommunityDetail}</p>
+                    <!-- Main Phone -->
+                    <div class="relative w-[280px] sm:w-[320px] aspect-[1170/2532] rounded-[3rem] border-[10px] border-slate-900 bg-slate-900 overflow-hidden ring-1 ring-white/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] transform rotate-2">
+                        <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[35%] h-6 bg-black rounded-full z-20"></div>
+                        <Image
+                            src={screenDashboard}
+                            alt="VitalsPath Dashboard"
+                            class="w-full h-full object-cover"
+                        />
                     </div>
                 </div>
             </div>
+
+            <!-- Trust Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 pt-12 border-t border-slate-200/40 dark:border-white/5">
+                <div class="flex items-center gap-4 group">
+                    <div class="w-11 h-11 rounded-2xl bg-teal-vibrant/10 flex items-center justify-center text-teal-vibrant group-hover:scale-110 transition-transform">
+                        <ShieldCheck className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">{copy.home.sections[2].title}</h4>
+                        <p class="text-xs text-slate-500 font-medium">{copy.home.ctaPrivacyDetail}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 group">
+                    <div class="w-11 h-11 rounded-2xl bg-coral-accent/10 flex items-center justify-center text-coral-accent group-hover:scale-110 transition-transform">
+                        <Heart className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">{copy.home.ctaPremiumTitle}</h4>
+                        <p class="text-xs text-slate-500 font-medium">{copy.home.ctaPremiumDetail}</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 group">
+                    <div class="w-11 h-11 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                        <Sparkles className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">{copy.home.ctaCommunityTitle}</h4>
+                        <p class="text-xs text-slate-500 font-medium">{copy.home.ctaCommunityDetail}</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     </div>
 </section>

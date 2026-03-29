@@ -9,7 +9,7 @@ import {
 } from "../lib/app-store-links";
 import { appStoreLabels } from "../lib/app-store-labels";
 import { supportEmail } from "../lib/site-config";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 interface Props {
     lang: Lang;
@@ -22,92 +22,96 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 ---
 
-<footer class="border-t border-slate-200/40 bg-transparent dark:border-white/5 mt-16 reveal transition-colors duration-[1.2s] relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream-light/30 dark:to-slate-950/50 -z-10 pointer-events-none"></div>
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div class="grid gap-12 sm:gap-16 lg:grid-cols-[2fr,1fr,1fr]">
-            <div class="space-y-8">
-                <div class="flex items-center gap-5">
+<footer class="bg-[#0a0c10] dark:bg-black text-white/90 border-t border-white/5 relative overflow-hidden transition-colors duration-[1.2s]">
+    <!-- Subtle Gradient Glow -->
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-vibrant/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="mx-auto max-w-7xl px-6 py-8 sm:py-12">
+        <div class="grid gap-12 lg:grid-cols-[1.5fr,1fr,1fr] xl:grid-cols-[2fr,1fr,1fr]">
+            
+            <!-- Brand & Info -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
                     <Image
                         src={appIcon}
                         alt="VitalsPath"
-                        width={56}
-                        height={56}
-                        class="h-14 w-14 rounded-[1.2rem] shadow-premium"
+                        width={48}
+                        height={48}
+                        class="h-12 w-12 rounded-xl shadow-2xl ring-1 ring-white/10"
                     />
-                    <div class="space-y-1">
-                        <p class="text-[11px] font-black tracking-[0.4em] text-teal-primary uppercase">
+                    <div class="space-y-0.5">
+                        <p class="text-[10px] font-black tracking-[0.5em] text-teal-vibrant uppercase">
                             VITALSPATH
                         </p>
-                        <p class="text-[13px] font-bold text-slate-muted">
+                        <p class="text-sm font-bold text-slate-400">
                             {copy.meta.description}
                         </p>
                     </div>
                 </div>
 
-                <p class="max-w-xl text-sm font-medium leading-relaxed text-slate-400">
+                <p class="max-w-md text-[13px] font-medium leading-relaxed text-slate-500">
                     {copy.footer.legalNote}
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                <div class="flex flex-wrap gap-4 pt-2">
                     <a
                         href={appStoreHref}
-                        data-app-store-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn-footer-primary"
+                        class="px-6 py-2.5 rounded-xl bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-teal-vibrant hover:text-white transition-all duration-300 shadow-lg shadow-black/20"
                     >
-                        <span>{copy.home.primaryCta}</span>
+                        {copy.home.primaryCta}
                     </a>
                     <a
                         href={reviewHref}
-                        data-app-store-review-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn-footer-secondary"
+                        class="px-6 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all duration-300"
                     >
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
             </div>
 
-            <div class="space-y-8">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">
+            <!-- Links: Sitemap -->
+            <div class="space-y-6">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">
                     SITEMAP
                 </h2>
-                <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
-                    <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.privacy}</a>
-                    <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.support}</a>
-                    <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
-                        {copy.footer.releaseFeatures}
-                    </a>
-                    <a href={`${baseUrl}/${lang}/roadmap/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.roadmap}</a>
-                </div>
+                <nav class="flex flex-col gap-4 text-xs font-bold text-slate-400">
+                    <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.privacy}</a>
+                    <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.support}</a>
+                    <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.releaseFeatures}</a>
+                    <a href={`${baseUrl}/${lang}/roadmap/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.roadmap}</a>
+                </nav>
             </div>
 
-            <div class="space-y-8">
-                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">
-                    LEGAL & CONTACT
+            <!-- Links: Legal -->
+            <div class="space-y-6">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500">
+                    LEGAL
                 </h2>
-                <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
-                    <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">{copy.footer.terms}</a>
-                    <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
-                        {copy.footer.disclaimer}
-                    </a>
-                    <a href={`${baseUrl}/${lang}/subscription/`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
-                        {copy.footer.subscription}
-                    </a>
-                    <a href={`mailto:${supportEmail}`} class="hover:text-teal-primary transition-colors hover:translate-x-1 duration-300 inline-block">
-                        {supportEmail}
-                    </a>
-                </div>
+                <nav class="flex flex-col gap-4 text-xs font-bold text-slate-400">
+                    <a href={`${baseUrl}/${lang}/terms/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.terms}</a>
+                    <a href={`${baseUrl}/${lang}/disclaimer/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.disclaimer}</a>
+                    <a href={`${baseUrl}/${lang}/subscription/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.subscription}</a>
+                    <a href={`mailto:${supportEmail}`} class="hover:text-teal-vibrant transition-colors lowercase">{supportEmail}</a>
+                </nav>
             </div>
         </div>
         
-        <div class="mt-16 pt-8 border-t border-slate-200/40 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[11px] font-black tracking-widest text-[#8b919d]">
-                &copy; {new Date().getFullYear()} VITALSPATH. {lang === 'es' ? 'TODOS LOS DERECHOS RESERVADOS.' : 'ALL RIGHTS RESERVED.'}
+        <!-- Bottom Bar -->
+        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] font-black tracking-widest text-slate-600 uppercase">
+                &copy; {new Date().getFullYear()} VITALSPATH • MADE WITH PRECISION
             </p>
+            
+            <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5">
+                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span class="text-[9px] font-black text-slate-400 uppercase tracking-tighter">
+                    Version 2026.1.0 • All systems functional
+                </span>
+            </div>
         </div>
     </div>
 </footer>
