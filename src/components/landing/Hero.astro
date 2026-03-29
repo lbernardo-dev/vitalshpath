@@ -7,6 +7,8 @@ import { ShieldCheck, ChevronRight, Apple } from "lucide-react";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
 import iphoneHome from "../../assets/images/devices/iphone_home.png";
+import iphoneMeds from "../../assets/images/devices/iphone_meds.png";
+import iphoneCalendar from "../../assets/images/devices/iphone_calendar.png";
 
 interface Props {
     lang: Lang;
@@ -19,6 +21,10 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const titleWords = copy.home.heroTitle.split(" ");
 const lastWord = titleWords.pop();
 const mainTitle = titleWords.join(" ");
+
+// JourneyBot Heading Style
+const headingPart1 = "Take Charge Of Your Health.";
+const headingPart2 = "Focus On The Journey.";
 ---
 
 <section class="relative min-h-[100vh] flex flex-col items-center justify-start pt-40 md:pt-48 pb-0 overflow-hidden">
@@ -35,9 +41,9 @@ const mainTitle = titleWords.join(" ");
             </span>
         </div>
 
-        <!-- Headline — always visible -->
-        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] leading-[1.1] mb-8 font-black tracking-tighter text-slate-text text-balance">
-            {mainTitle} <span class="block mt-4 text-gradient">{lastWord}</span>
+        <!-- Headline — JourneyBot Style -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] mb-8 font-black tracking-[-0.04em] text-slate-text text-balance">
+            {headingPart1} <span class="text-teal-primary block">{headingPart2}</span>
         </h1>
 
         <!-- Subtitle — always visible -->
@@ -71,19 +77,35 @@ const mainTitle = titleWords.join(" ");
             <!-- Dynamic Aura -->
             <div class="absolute inset-0 bg-gradient-to-t from-teal-primary/30 to-orange-accent/20 blur-[120px] -z-10 rounded-full opacity-50 scale-110"></div>
             
-            <div class="relative z-20 animate-float" style="animation-duration: 15s;">
-                <!-- Removing the padded background container to solve transparency border issue -->
-                <div class="relative group">
-                    <!-- Subtle outer glow for the device itself -->
-                    <div class="absolute inset-4 bg-white/50 blur-2xl -z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
-                    
+            <div class="relative z-20 flex justify-center items-end h-[450px] md:h-[600px]">
+                <!-- Side Device 1 (Blurred) -->
+                <div class="absolute left-[-20%] sm:left-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float" style="animation-delay: -3s;">
+                    <Image
+                        src={iphoneMeds}
+                        alt="VitalsPath Meds"
+                        class="w-full h-auto select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen grayscale-[0.2]"
+                    />
+                </div>
+
+                <!-- Side Device 2 (Blurred) -->
+                <div class="absolute right-[-20%] sm:right-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float" style="animation-delay: -7s;">
+                    <Image
+                        src={iphoneCalendar}
+                        alt="VitalsPath Calendar"
+                        class="w-full h-auto select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen grayscale-[0.2]"
+                    />
+                </div>
+
+                <!-- Main Device (Sharp) -->
+                <div class="relative z-30 w-full hover:scale-[1.02] transition-transform duration-700 animate-float" style="animation-duration: 15s;">
                     <Image
                         src={iphoneHome}
                         alt="VitalsPath App Interface"
-                        class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.12)] select-none pointer-events-none mix-multiply dark:mix-screen contrast-[1.02]"
+                        class="w-full h-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.12)] select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen contrast-[1.05]"
                         loading="eager"
                     />
                 </div>
+            </div>
 
                 <!-- Floating interactive pills with improved glass style -->
                 <div class="hidden md:block absolute -top-8 -right-12 glass-panel py-4 px-6 shadow-2xl animate-float-slow border-white/60">

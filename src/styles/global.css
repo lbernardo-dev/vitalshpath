@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --white: #FFFFFF;
-    --cream-light: #FDFBF7; /* JourneyBot cream */
-    --cream: #F8F5EF;
-    --cream-dark: #F0E8DD;
-    --teal-primary: #0080A0; /* VitalsPath Deep Teal */
+    --cream-light: #FDF8F1; /* JourneyBot exact warm beige */
+    --cream: #F9F4ED;
+    --cream-dark: #F2EBE1;
+    --teal-primary: #00A3C4; /* JourneyBot Vibrant Teal */
     --teal-light: #4FB3C3;
-    --orange-accent: #E65100;
-    --slate-text: #191919;
+    --orange-accent: #FF5C00; /* JourneyBot Orange */
+    --slate-text: #1A1A1A; /* JourneyBot Charcoal */
     --slate-muted: #666666;
     --glass-bg: rgba(255, 255, 255, 0.6); /* More opaque */
     --glass-border: rgba(0, 0, 0, 0.04); /* Ritualist soft border */
@@ -63,8 +63,8 @@
   }
 
   h1, h2, h3, .font-serif {
-    font-family: 'Outfit', sans-serif; /* Moving away from Playfair for a cleaner, Ritualist-style massive look */
-    @apply tracking-tighter font-black leading-[1.1];
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-[-0.04em] font-black leading-[1.05];
   }
 }
 
@@ -167,7 +167,7 @@
 
     .bg-mesh::after {
         content: "";
-        @apply fixed inset-0 z-[1] pointer-events-none opacity-[0.015] dark:opacity-[0.03];
+        @apply fixed inset-0 z-[1] pointer-events-none opacity-[0.012] dark:opacity-[0.025];
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
     }
 
