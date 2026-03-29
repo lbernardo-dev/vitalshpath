@@ -7,19 +7,23 @@
 @layer base {
   :root {
     --white: #FFFFFF;
-    --cream-light: #FDF8F1; /* JourneyBot exact warm beige */
-    --cream: #F9F4ED;
+    --cream-light: #FDFBF7; /* JourneyBot exact warm paper background */
+    --cream: #FAF7F2;
     --cream-dark: #F2EBE1;
-    --teal-primary: #00A3C4; /* JourneyBot Vibrant Teal */
-    --teal-light: #4FB3C3;
-    --orange-accent: #FF5C00; /* JourneyBot Orange */
-    --slate-text: #1A1A1A; /* JourneyBot Charcoal */
-    --slate-muted: #666666;
-    --glass-bg: rgba(255, 255, 255, 0.6); /* More opaque */
-    --glass-border: rgba(0, 0, 0, 0.04); /* Ritualist soft border */
-    --shadow-premium: 0 40px 100px -20px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0,0,0,0.1); /* Softer, multi-level shadow */
-    --shadow-premium-soft: 0 20px 40px -10px rgba(0, 0, 0, 0.03);
-    --shadow-glow: 0 0 40px rgba(0, 128, 160, 0.12);
+    
+    /* JourneyBot Premium Palette */
+    --navy-deep: #0F172A; /* Deep Navy for headings */
+    --teal-vibrant: #0D9488; /* Vibrant Teal/Cyan for accents/gradient */
+    --coral-accent: #F0624A; /* Signature Coral/Orange */
+    
+    --slate-text: #1E293B; /* JourneyBot sophisticated slate */
+    --slate-muted: #64748B;
+    
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --shadow-premium: 0 40px 100px -20px rgba(15, 23, 42, 0.06), 0 0 1px rgba(15, 23, 42, 0.1);
+    --shadow-premium-soft: 0 20px 40px -10px rgba(15, 23, 42, 0.04);
+    --shadow-glow: 0 0 60px rgba(13, 148, 136, 0.15);
 
     /* RGB triplets for Tailwind alpha-value support (e.g. text-slate-text/50) */
     --cream-light-rgb: 253 251 247;
@@ -64,7 +68,8 @@
 
   h1, h2, h3, .font-serif {
     font-family: 'Outfit', sans-serif;
-    @apply tracking-[-0.04em] font-black leading-[1.05];
+    @apply tracking-tight font-black leading-[1.05];
+    color: var(--navy-deep);
   }
 }
 
@@ -73,14 +78,14 @@
         @apply backdrop-blur-[40px] shadow-premium;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
-        border-radius: 40px;
+        border-radius: 32px; /* 2rem - JourneyBot radius */
     }
 
     .premium-card {
         @apply relative transition-all duration-[800ms] backdrop-blur-3xl shadow-premium overflow-hidden;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
-        border-radius: 40px;
+        border-radius: 32px; /* 2rem */
     }
 
     .premium-card:hover {
@@ -191,12 +196,12 @@
 
     .bg-mesh::before {
         content: "";
-        @apply absolute inset-0 -z-10 opacity-40 dark:opacity-20;
+        @apply absolute inset-0 -z-10 opacity-30 dark:opacity-20;
         background-image: 
-            radial-gradient(at 0% 0%, var(--teal-light) 0, transparent 40%),
-            radial-gradient(at 80% 10%, var(--orange-accent) 0, transparent 30%),
-            radial-gradient(at 100% 0%, var(--teal-primary) 0, transparent 40%);
-        filter: blur(100px);
+            radial-gradient(at 0% 0%, var(--teal-vibrant) 0, transparent 40%),
+            radial-gradient(at 80% 10%, var(--coral-accent) 0, transparent 30%),
+            radial-gradient(at 100% 0%, var(--navy-deep) 0, transparent 40%);
+        filter: blur(80px);
     }
 
     @keyframes float {
@@ -223,9 +228,8 @@
     }
 
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-primary via-teal-light to-teal-primary;
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--navy-deep)] to-[var(--teal-vibrant)];
         background-size: 200% auto;
-        animation: gradient-flow 6s linear infinite;
     }
 
     @keyframes gradient-flow {

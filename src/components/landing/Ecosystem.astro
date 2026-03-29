@@ -14,45 +14,32 @@ interface Props {
 
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
-
-// Generic localized items - fallback to EN if not found
-const ecosystemItems: Record<string, { title: string; description: string; icon: any }[]> = {
-    en: [
-        { title: "Smart Widgets", description: "Vitals and meds directly on your home screen.", icon: Smartphone },
-        { title: "Apple Watch", description: "Fast logging and alerts right on your wrist.", icon: Watch },
-        { title: "Live Activities", description: "Real-time tracking of active doses.", icon: Zap }
-    ],
-    es: [
-        { title: "Widgets Inteligentes", description: "Constantes y tomas en tu pantalla de inicio.", icon: Smartphone },
-        { title: "Apple Watch", description: "Registros rápidos y alertas desde tu muñeca.", icon: Watch },
-        { title: "Live Activities", description: "Seguimiento en tiempo real de tomas activas.", icon: Zap }
-    ]
-};
-
-const items = ecosystemItems[lang as string] || ecosystemItems.en;
 ---
 
-<section id="ecosystem" class="py-32 sm:py-40 overflow-hidden bg-transparent relative z-10 transition-colors duration-[1.2s]">
+<section id="ecosystem" class="py-20 sm:py-24 overflow-hidden bg-transparent relative z-10 transition-colors duration-[1.2s]">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         
         <div class="lg:grid lg:grid-cols-2 gap-24 items-center">
             
             <div class="reveal">
                 <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-teal-primary mb-6">
-                    Ecosystem
+                    {copy.home.ecosystemLabel}
                 </h2>
                 <h3 class="text-4xl sm:text-6xl md:text-7xl font-black text-slate-text leading-[1.15] tracking-tighter mb-8 text-balance">
-                    {copy.home.sections[2].title}
+                    {copy.home.ecosystemTitle}
                 </h3>
                 <p class="text-xl text-slate-muted leading-relaxed font-medium mb-12">
-                    {copy.home.sections[2].body}
+                    {copy.home.ecosystemBody}
                 </p>
                 
                 <div class="space-y-4">
-                    {items.map((item, index) => (
+                    {copy.home.ecosystemItems.map((item: { title: string; description: string }, index: number) => {
+                        const icons = [Smartphone, Watch, Zap];
+                        const Icon = icons[index % icons.length];
+                        return (
                         <div class={`reveal stagger-${index + 1} flex items-center gap-6 p-6 sm:p-8 premium-card group`}>
                             <div class="w-14 h-14 rounded-[1.2rem] bg-teal-primary/10 border border-teal-primary/20 flex items-center justify-center text-teal-primary shrink-0 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 shadow-sm">
-                                <item.icon className="w-6 h-6" />
+                                <Icon className="w-6 h-6" />
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-slate-text mb-1 tracking-tight">
@@ -63,7 +50,7 @@ const items = ecosystemItems[lang as string] || ecosystemItems.en;
                                 </p>
                             </div>
                         </div>
-                    ))}
+                    )})}
                 </div>
             </div>
 

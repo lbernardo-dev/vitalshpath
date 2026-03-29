@@ -1,11 +1,8 @@
 ---
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
-import { 
-    getAppStoreUrlForLang, 
-    getDefaultAppStoreLinks 
-} from "../../lib/app-store-links";
-import { ArrowRight, ShieldCheck, Heart, Sparkles } from "lucide-react";
+import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
+import { ShieldCheck, Heart, Sparkles } from "lucide-react";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
 interface Props {
@@ -17,88 +14,52 @@ const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 ---
 
-<section class="py-32 sm:py-48 relative overflow-hidden bg-transparent transition-colors duration-[1.2s]">
-    <!-- Ambient Background Decorations -->
-    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-primary/5 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-orange-accent/5 blur-[140px] rounded-full translate-x-1/2 translate-y-1/2"></div>
-
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
+<section class="py-20 sm:py-24 bg-transparent">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         
-        <div class="reveal reveal-scale premium-card p-12 sm:p-20 lg:p-32 overflow-hidden relative shadow-premium rounded-[3.5rem]">
-            <!-- Inner Glowing Orb -->
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-primary/10 blur-[80px] rounded-full animate-float -z-10"></div>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-text dark:text-white mb-4 tracking-tight">
+                {copy.home.ctaTitle}
+            </h2>
+            <p class="text-lg text-slate-muted leading-relaxed max-w-2xl mx-auto">
+                {copy.home.footnote}
+            </p>
+        </div>
+         
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <a
+                href={appStoreHref}
+                class="hover:scale-105 active:scale-95 transition-transform"
+                aria-label="Download on the App Store"
+            >
+                <AppStoreBadge className="h-[60px] md:h-[64px]" lang={lang} />
+            </a>
+        </div>
+        
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center p-6">
+                <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary mx-auto mb-4">
+                    <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h4 class="font-bold text-slate-text dark:text-white mb-2">{copy.home.sections[2].title}</h4>
+                <p class="text-sm text-slate-muted">{copy.home.ctaPrivacyDetail}</p>
+            </div>
             
-            <div class="relative z-10 text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 mb-12 px-5 py-2 rounded-full border border-teal-primary/10 bg-white/50 dark:bg-black/20 backdrop-blur-3xl shadow-sm">
-                    <Heart className="w-4 h-4 text-orange-accent fill-orange-accent animate-pulse" />
-                    <span class="text-[11px] font-black uppercase tracking-[0.4em] text-teal-primary">
-                        {lang === 'es' ? 'COMIENZA HOY' : 'START TODAY'}
-                    </span>
+            <div class="text-center p-6">
+                <div class="w-12 h-12 rounded-2xl bg-orange-accent/10 flex items-center justify-center text-orange-accent mx-auto mb-4">
+                    <Heart className="w-6 h-6" />
                 </div>
-                
-                <h3 class="text-5xl sm:text-7xl lg:text-8xl font-black text-slate-text leading-[1.1] mb-10 tracking-tighter text-balance">
-                    {lang === 'es' ? 'Tu salud, en tus manos y en privado' : 'Your health, in your hands and private'}
-                </h3>
-                
-                <p class="text-xl sm:text-2xl font-medium text-slate-muted mb-16 leading-relaxed max-w-2xl mx-auto">
-                    {copy.home.footnote}
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                    <a
-                        href={appStoreHref}
-                        class="hover:scale-105 active:scale-95 transition-all duration-700 shadow-[0_20px_60px_-15px_rgba(0,163,196,0.35)] rounded-[1.2rem] overflow-hidden group/badge"
-                        aria-label="Download on the App Store"
-                    >
-                        <AppStoreBadge className="h-[72px] md:h-[80px]" />
-                    </a>
-                    
-                    <a
-                        href={`/${lang}/release-features`}
-                        class="group flex items-center gap-2 text-slate-text dark:text-white font-bold text-sm tracking-tight px-8 py-5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-xl transition-all duration-300"
-                    >
-                        {copy.home.secondaryCta}
-                        <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
-                    </a>
-                </div>
-                
-                <div class="mt-24 pt-16 border-t border-slate-200/60 dark:border-white/10 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-                    <div class="flex flex-col items-center md:items-start gap-5">
-                        <div class="w-14 h-14 rounded-[1.2rem] bg-teal-primary/10 flex items-center justify-center text-teal-primary border border-teal-primary/20 shadow-sm">
-                            <ShieldCheck className="w-6 h-6" />
-                        </div>
-                        <div class="text-center md:text-left">
-                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">{copy.home.sections[2].title}</h4>
-                            <p class="text-sm font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Privacidad absoluta con cifrado de extremo a extremo.' : 'Absolute privacy with end-to-end encryption.'}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center md:items-start gap-5">
-                        <div class="w-14 h-14 rounded-[1.2rem] bg-orange-accent/10 flex items-center justify-center text-orange-accent border border-orange-accent/20 shadow-sm">
-                            <Heart className="w-6 h-6" />
-                        </div>
-                        <div class="text-center md:text-left">
-                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">PREMIUM CARE</h4>
-                            <p class="text-sm font-medium text-slate-muted leading-snug">{lang === 'es' ? 'Diseñado para pacientes crónicos y cuidadores.' : 'Designed for chronic patients and caregivers.'}</p>
-                        </div>
-                    </div>
+                <h4 class="font-bold text-slate-text dark:text-white mb-2">{copy.home.ctaPremiumTitle}</h4>
+                <p class="text-sm text-slate-muted">{copy.home.ctaPremiumDetail}</p>
+            </div>
 
-                    <div class="flex flex-col items-center md:items-start gap-5">
-                         <div class="flex -space-x-3 overflow-hidden mb-1">
-                            {[1, 2, 3, 4].map((i) => (
-                                <div class="inline-flex h-12 w-12 rounded-full ring-4 ring-white/50 dark:ring-black/20 bg-slate-200 dark:bg-slate-800 items-center justify-center text-xs font-bold text-slate-400 border border-white/20 shadow-sm backdrop-blur-md">
-                                    {String.fromCharCode(64 + i)}
-                                </div>
-                            ))}
-                        </div>
-                        <div class="text-center md:text-left mt-1">
-                            <h4 class="text-slate-text font-black text-[11px] uppercase tracking-[0.2em] mb-2">COMMUNITY</h4>
-                            <p class="text-sm font-medium text-slate-muted leading-snug">
-                                <span class="font-bold text-teal-primary">+20k</span> {lang === 'es' ? 'usuarios activos confiando en nosotros' : 'active users trusting us'}
-                            </p>
-                        </div>
-                    </div>
+            <div class="text-center p-6">
+                <div class="w-12 h-12 rounded-2xl bg-teal-primary/10 flex items-center justify-center text-teal-primary mx-auto mb-4">
+                    <Sparkles className="w-6 h-6" />
                 </div>
+                <h4 class="font-bold text-slate-text dark:text-white mb-2">{copy.home.ctaCommunityTitle}</h4>
+                <p class="text-sm text-slate-muted">{copy.home.ctaCommunityDetail}</p>
             </div>
         </div>
 
