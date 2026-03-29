@@ -34,8 +34,8 @@ const navItems = [
 ---
 
 <header id="main-header" class="glass-header">
-    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-        <div class="flex items-center justify-between gap-8 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-8 py-3.5 rounded-full border border-white/80 dark:border-white/5 shadow-premium transition-all duration-500">
+    <nav class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-3">
+        <div class="flex items-center justify-between gap-4 sm:gap-8 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-5 sm:px-8 py-2.5 sm:py-3.5 rounded-full border border-white/80 dark:border-white/5 shadow-premium transition-all duration-500">
             <!-- Logo Section -->
             <a
                 href={`${baseUrl}/${lang}/`}
@@ -102,13 +102,18 @@ const navItems = [
                     {navItems.map((item, index) => (
                         <a
                             href={item.href}
-                            class="text-3xl font-black text-slate-text dark:text-white hover:text-teal-primary transition-all tracking-tighter uppercase active:scale-95"
+                            class="text-4xl font-black text-slate-text dark:text-white hover:text-teal-primary transition-all tracking-tighter uppercase active:scale-95 reveal-fade"
                         >
                             {item.label}
                         </a>
                     ))}
                     
-                    <div class="mt-8 flex flex-col items-center">
+                    <div class="mt-8 flex flex-col items-center gap-6">
+                        <div class="flex items-center gap-4 bg-slate-text/5 p-4 rounded-2xl">
+                            <span class="text-xs font-bold text-slate-text/40 dark:text-white/40 uppercase tracking-widest">{lang === 'es' ? 'IDIOMA' : (lang === 'en' ? 'LANGUAGE' : 'LANGUE')}</span>
+                            <LanguageSelector lang={lang} />
+                        </div>
+                        
                         <a
                             href={appStoreHref}
                             class="hover:scale-105 transition-all duration-300 active:scale-95 shadow-2xl shadow-teal-primary/10 rounded-2xl overflow-hidden"
@@ -153,9 +158,21 @@ const navItems = [
             if (isClosed) {
                 mobileMenu.classList.remove("translate-x-full");
                 document.body.style.overflow = "hidden";
+                
+                // Stagger reveal links
+                mobileLinks.forEach((link, index) => {
+                    setTimeout(() => {
+                        link.classList.add("is-visible");
+                    }, 100 + index * 50);
+                });
             } else {
                 mobileMenu.classList.add("translate-x-full");
                 document.body.style.overflow = "";
+                
+                // Hide links
+                mobileLinks.forEach((link) => {
+                    link.classList.remove("is-visible");
+                });
             }
         }
 

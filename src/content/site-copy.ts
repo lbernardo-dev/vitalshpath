@@ -323,7 +323,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ecosystemTitle: "Experiencia integrada",
             ecosystemBody: "VitalsPath está diseñada para funcionar a la perfección en todos tus dispositivos. Usa widgets para actualizaciones instantáneas, Actividades en vivo para seguir tomas activas y el Apple Watch para registros rápidos desde tu muñeca.",
             ecosystemItems: [
-                { title: "Widgets", description: "Informacion util rapida." },
+                { title: "Widgets", description: "Información útil rápida." },
                 { title: "Apple Watch", description: "Registros rápidos y alertas desde tu muñeca." },
                 { title: "Live Activities", description: "Seguimiento en tiempo real de tomas activas." }
             ],
