@@ -122,6 +122,19 @@
         background: transparent;
     }
 
+    /* --- Premium Mockup Blend Utility --- */
+    .mockup-clean-blend {
+        /* Critical: brightness pushes off-whites to pure white so mix-blend-multiply can kill them */
+        filter: brightness(1.05) contrast(1.1);
+        mix-blend-mode: multiply;
+        transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    :global(.dark) .mockup-clean-blend {
+        mix-blend-mode: screen;
+        filter: brightness(1.1) contrast(1.1);
+    }
+
     .glass-header.scrolled {
         @apply py-3 bg-white/60 dark:bg-black/60 shadow-xl;
         backdrop-filter: blur(40px) saturate(180%);

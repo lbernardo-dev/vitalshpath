@@ -42,12 +42,12 @@ const navItems = [
                 class="flex items-center gap-3 group transition-all duration-500"
             >
                 <div class="relative">
-                    <Image
-                        src={appIcon}
+                    <img
+                        src={appIcon.src}
                         alt="VitalsPath Icon"
-                        width={32}
-                        height={32}
-                        class="h-8 w-8 rounded-[0.8rem] shadow-sm relative z-10 transition-transform group-hover:scale-110"
+                        width="32"
+                        height="32"
+                        class="h-8 w-8 rounded-[0.8rem] shadow-sm relative z-10 transition-transform group-hover:scale-110 mockup-clean-blend"
                     />
                 </div>
                 <span class="hidden sm:block text-[13px] font-black tracking-[0.15em] text-slate-text uppercase">
@@ -56,21 +56,26 @@ const navItems = [
             </a>
 
             <!-- Desktop Nav Section -->
-            <nav class="hidden md:flex items-center gap-2 p-1.5 rounded-2xl glass-panel-dark border-white/20">
-                <div class="flex items-center px-2">
+            <nav class="hidden md:flex items-center gap-4 p-1.5 rounded-2xl glass-panel-dark border-white/20">
+                <div class="flex items-center px-2 border-r border-white/10 mr-2">
                     {navItems.map((item) => (
                         <a
                             href={item.href}
-                            class="px-4 py-2 text-[12px] font-bold text-slate-text/70 dark:text-white/70 hover:text-slate-text dark:hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                            class="px-3 py-2 text-[12px] font-bold text-slate-text/70 dark:text-white/70 hover:text-slate-text dark:hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
                         >
                             {item.label}
                         </a>
                     ))}
                 </div>
+
+                <div class="flex items-center gap-3 pr-2">
+                    <LanguageSelector lang={lang} />
+                    <ThemeToggle />
+                </div>
                 
                 <a
                     href={appStoreHref}
-                    class="hover:scale-105 transition-all duration-300 active:scale-95 rounded-xl overflow-hidden shadow-lg shadow-teal-primary/5"
+                    class="hover:scale-105 transition-all duration-300 active:scale-95 rounded-xl overflow-hidden shadow-lg shadow-teal-primary/5 shrink-0"
                     aria-label="Download on the App Store"
                 >
                     <AppStoreBadge className="h-[36px]" />
@@ -79,7 +84,7 @@ const navItems = [
 
         <div
             id="mobile-menu"
-            class="fixed inset-0 z-[200] translate-x-full transition-transform duration-500 ease-premium bg-cream-light dark:bg-slate-bg md:hidden overflow-hidden"
+            class="fixed inset-0 z-[200] translate-x-full transition-transform duration-500 ease-premium bg-[#FDF8F1]/95 dark:bg-[#1A1A1A]/95 backdrop-blur-2xl md:hidden overflow-hidden"
         >
             <div class="flex flex-col h-full relative p-8">
                 <!-- Close Button inside overlay -->
@@ -143,6 +148,7 @@ const navItems = [
         const mobileLinks = mobileMenu.querySelectorAll("a");
 
         function toggleMenu() {
+            if (!mobileMenu) return;
             const isClosed = mobileMenu.classList.contains("translate-x-full");
             if (isClosed) {
                 mobileMenu.classList.remove("translate-x-full");
@@ -158,7 +164,7 @@ const navItems = [
 
         mobileLinks.forEach((link) => {
             link.addEventListener("click", () => {
-                mobileMenu.classList.add("translate-x-full");
+                mobileMenu?.classList.add("translate-x-full");
                 document.body.style.overflow = "";
             });
         });

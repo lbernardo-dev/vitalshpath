@@ -52,13 +52,16 @@ const headingPart2 = "Focus On The Journey.";
         </p>
 
         <!-- CTAs — Hero Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 w-full reveal stagger-2">
+        <div class="flex flex-wrap gap-8 justify-center lg:justify-start mb-12 w-full reveal stagger-2">
             <a
                 href={appStoreHref}
-                class="hover:scale-105 transition-all duration-500 active:scale-95 shadow-2xl shadow-teal-primary/20 rounded-2xl overflow-hidden"
+                class="hover:scale-105 transition-all duration-300 active:scale-95 group/btn relative"
                 aria-label="Download on the App Store"
             >
-                <AppStoreBadge className="h-[52px] md:h-[60px]" />
+                <div class="absolute -inset-1 bg-gradient-to-r from-teal-primary/40 to-orange-accent/40 rounded-2xl blur-lg opacity-0 group-hover/btn:opacity-50 transition duration-500"></div>
+                <div class="relative glass-panel-dark px-1 py-1 rounded-2xl border border-white/20 shadow-2xl">
+                    <AppStoreBadge className="h-[48px] md:h-[52px]" />
+                </div>
             </a>
             
             <a href="#features" class="group flex items-center gap-2 text-slate-text dark:text-white font-bold text-sm tracking-tight px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-xl transition-all duration-300">
@@ -79,29 +82,31 @@ const headingPart2 = "Focus On The Journey.";
             
             <div class="relative z-20 flex justify-center items-end h-[450px] md:h-[600px]">
                 <!-- Side Device 1 (Blurred) -->
-                <div class="absolute left-[-20%] sm:left-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float" style="animation-delay: -3s;">
+                <div class="absolute left-[-20%] sm:left-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float z-10" style="animation-delay: -3s;">
                     <Image
                         src={iphoneMeds}
                         alt="VitalsPath Meds"
-                        class="w-full h-auto select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen grayscale-[0.2]"
+                        class="w-full h-auto select-none pointer-events-none mockup-clean-blend grayscale-[0.2]"
                     />
                 </div>
 
                 <!-- Side Device 2 (Blurred) -->
-                <div class="absolute right-[-20%] sm:right-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float" style="animation-delay: -7s;">
+                <div class="absolute right-[-20%] sm:right-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float z-10" style="animation-delay: -7s;">
                     <Image
                         src={iphoneCalendar}
                         alt="VitalsPath Calendar"
-                        class="w-full h-auto select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen grayscale-[0.2]"
+                        class="w-full h-auto select-none pointer-events-none mockup-clean-blend grayscale-[0.2]"
                     />
                 </div>
 
                 <!-- Main Device (Sharp) -->
                 <div class="relative z-30 w-full hover:scale-[1.02] transition-transform duration-700 animate-float" style="animation-duration: 15s;">
+                    <!-- Inner Glow for the main device -->
+                    <div class="absolute -inset-10 bg-teal-primary/5 blur-[60px] rounded-full pointer-events-none"></div>
                     <Image
                         src={iphoneHome}
                         alt="VitalsPath App Interface"
-                        class="w-full h-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.12)] select-none pointer-events-none mix-blend-multiply dark:mix-blend-screen contrast-[1.05]"
+                        class="w-full h-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.12)] select-none pointer-events-none mockup-clean-blend"
                         loading="eager"
                     />
                 </div>
