@@ -156,16 +156,10 @@
     }
 
     .glass-header.scrolled {
-        @apply py-4 shadow-sm;
-        background: rgba(253, 251, 247, 0.85);
-        backdrop-filter: blur(40px) saturate(180%);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        @apply py-4;
+        /* Removed background and border to keep it transparent as requested */
     }
 
-    :global(.dark) .glass-header.scrolled {
-        background: rgba(11, 11, 13, 0.85);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
 
     /* Reveal Animations */
     .reveal {

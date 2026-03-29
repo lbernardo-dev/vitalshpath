@@ -48,8 +48,9 @@ const translateHref = (lang: Lang) =>
     </button>
 
     <div
-        class="absolute right-0 top-full mt-3 w-56 glass-panel opacity-0 invisible transform -translate-y-4 transition-all duration-300 z-50 language-dropdown"
+        class="absolute right-0 top-full mt-3 w-56 glass-panel !bg-white/95 dark:!bg-[#1A1A1A]/95 !border-white/20 dark:!border-white/10 opacity-0 invisible transform -translate-y-4 transition-all duration-300 z-50 language-dropdown"
     >
+
         <div class="py-3 px-2 max-h-[32rem] overflow-y-auto">
             {
                 supportedLangs.map((lang) => (
