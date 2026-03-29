@@ -1,7 +1,9 @@
 ---
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
-import { ShieldCheck, Layers, Activity } from "lucide-react";
+import { Activity, LayoutTemplate, Zap } from "lucide-react";
+import DeviceMockup from "../DeviceMockup.astro";
+import watchVitals from "../../assets/images/devices/watch_vitals.png";
 
 interface Props {
     lang: Lang;
@@ -10,54 +12,70 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 
-const icons = [Activity, Layers, ShieldCheck];
-const colors = ["text-teal-vibrant", "text-blue-500", "text-coral-accent"];
-const bgColors = ["bg-teal-vibrant/10 dark:bg-teal-vibrant/20", "bg-blue-500/10 dark:bg-blue-500/20", "bg-coral-accent/10 dark:bg-coral-accent/20"];
-
-// Using the 3 sections from copy to map to Routine, Ecosystem, and Privacy
-const pillars = copy.home.sections;
+// Icons mapping for ecosystem items
+const icons = [LayoutTemplate, Zap, Activity]; 
 ---
 
-<section id="pillars" class="py-24 sm:py-32 relative overflow-hidden">
-    <!-- Decorative Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-teal-vibrant/5 dark:bg-teal-vibrant/5 blur-[120px] rounded-[100%] -z-10 pointer-events-none"></div>
-
+<section id="ecosystem" class="py-24 sm:py-32 relative overflow-hidden bg-slate-50/50 dark:bg-black/20">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <!-- Section Title -->
-        <div class="text-center mb-20 max-w-4xl mx-auto reveal">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-8 shadow-sm">
-                <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
-                    {copy.home.ecosystemLabel}
-                </span>
-            </div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tighter text-balance">
-                {copy.home.ecosystemTitle}
-            </h2>
-            <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mt-6 max-w-2xl mx-auto">
-                {copy.home.ecosystemBody}
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pillars.map((section, index) => {
-                const Icon = icons[index % icons.length];
-                const colorClass = colors[index % colors.length];
-                const bgClass = bgColors[index % bgColors.length];
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            <!-- Left Side: Text and Checklist -->
+            <div class="reveal">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-8 shadow-sm">
+                    <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
+                        {copy.home.ecosystemLabel}
+                    </span>
+                </div>
                 
-                return (
-                    <div class={`reveal stagger-${index + 1} flex flex-col p-10 sm:p-12 rounded-[2.5rem] glass-panel border border-white/60 dark:border-white/10 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] group`}>
-                        <div class={`w-16 h-16 rounded-[1.5rem] ${bgClass} flex items-center justify-center mb-8 transform transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6`}>
-                            <Icon className={`w-8 h-8 ${colorClass}`} />
-                        </div>
-                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
-                            {section.title}
-                        </h3>
-                        <p class="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
-                            {section.body}
-                        </p>
-                    </div>
-                );
-            })}
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tighter text-balance mb-6">
+                    {copy.home.ecosystemTitle}
+                </h2>
+                
+                <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-12 max-w-2xl leading-relaxed">
+                    {copy.home.ecosystemBody}
+                </p>
+
+                <div class="space-y-8">
+                    {copy.home.ecosystemItems.map((item, index) => {
+                        const Icon = icons[index % icons.length];
+                        return (
+                            <div class={`reveal stagger-${index + 1} flex items-start group`}>
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-12 h-12 rounded-2xl bg-teal-vibrant/10 dark:bg-teal-vibrant/20 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6 border border-teal-vibrant/20">
+                                        <Icon className="w-6 h-6 text-teal-vibrant" />
+                                    </div>
+                                </div>
+                                <div class="ml-6">
+                                    <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2 tracking-tight block group-hover:text-teal-vibrant transition-colors duration-300">
+                                        {item.title}
+                                    </h3>
+                                    <p class="text-lg text-slate-600 dark:text-slate-400 font-medium">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <!-- Right Side: Giant Apple Watch -->
+            <div class="relative flex justify-center items-center py-10 lg:py-0 reveal-scale stagger-3 perspective-1000 mt-8 lg:mt-0">
+                <!-- Glowing background behind the watch -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-gradient-to-tr from-teal-vibrant/30 to-blue-500/20 blur-[100px] rounded-full z-0 animate-pulse-slow pointer-events-none mix-blend-multiply dark:mix-blend-screen"></div>
+                
+                <!-- Giant Watch Mockup container -->
+                <div class="relative z-10 w-full max-w-[340px] sm:max-w-[420px] transform transition-transform duration-1000 hover:scale-105 hover:-translate-y-4 hover:rotate-2 drop-shadow-[0_40px_80px_rgba(0,0,0,0.15)] dark:drop-shadow-[0_40px_80px_rgba(45,212,191,0.2)]">
+                    <img
+                        src={watchVitals.src}
+                        alt="VitalsPath on Apple Watch"
+                        class="w-full h-auto object-contain rounded-[3rem]"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
