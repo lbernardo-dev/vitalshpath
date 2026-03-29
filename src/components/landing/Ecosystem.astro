@@ -1,12 +1,7 @@
 ---
-import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
-import { Smartphone, Watch, Zap } from "lucide-react";
-
-// New device mockups
-import watchVitals from "../../assets/images/devices/watch_vitals.png";
-import watchHome from "../../assets/images/devices/watch_home.png";
+import { ShieldCheck, Layers, Activity } from "lucide-react";
 
 interface Props {
     lang: Lang;
@@ -14,71 +9,55 @@ interface Props {
 
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
+
+const icons = [Activity, Layers, ShieldCheck];
+const colors = ["text-teal-vibrant", "text-blue-500", "text-coral-accent"];
+const bgColors = ["bg-teal-vibrant/10 dark:bg-teal-vibrant/20", "bg-blue-500/10 dark:bg-blue-500/20", "bg-coral-accent/10 dark:bg-coral-accent/20"];
+
+// Using the 3 sections from copy to map to Routine, Ecosystem, and Privacy
+const pillars = copy.home.sections;
 ---
 
-<section id="ecosystem" class="py-20 sm:py-24 overflow-hidden bg-transparent relative z-10 transition-colors duration-[1.2s]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        
-        <div class="lg:grid lg:grid-cols-2 gap-24 items-center">
-            
-            <div class="reveal">
-                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-teal-primary mb-6">
-                    {copy.home.ecosystemLabel}
-                </h2>
-                <h3 class="text-4xl sm:text-6xl md:text-7xl font-black text-slate-text leading-[1.15] tracking-tighter mb-8 text-balance">
-                    {copy.home.ecosystemTitle}
-                </h3>
-                <p class="text-xl text-slate-muted leading-relaxed font-medium mb-12">
-                    {copy.home.ecosystemBody}
-                </p>
-                
-                <div class="space-y-4">
-                    {copy.home.ecosystemItems.map((item: { title: string; description: string }, index: number) => {
-                        const icons = [Smartphone, Watch, Zap];
-                        const Icon = icons[index % icons.length];
-                        return (
-                        <div class={`reveal stagger-${index + 1} flex items-center gap-6 p-6 sm:p-8 premium-card group`}>
-                            <div class="w-14 h-14 rounded-[1.2rem] bg-teal-primary/10 border border-teal-primary/20 flex items-center justify-center text-teal-primary shrink-0 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700 shadow-sm">
-                                <Icon className="w-6 h-6" />
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-slate-text mb-1 tracking-tight">
-                                    {item.title}
-                                </h4>
-                                <p class="text-slate-muted text-sm font-medium transition-colors">
-                                    {item.description}
-                                </p>
-                            </div>
-                        </div>
-                    )})}
-                </div>
-            </div>
+<section id="pillars" class="py-24 sm:py-32 relative overflow-hidden">
+    <!-- Decorative Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-teal-vibrant/5 dark:bg-teal-vibrant/5 blur-[120px] rounded-[100%] -z-10 pointer-events-none"></div>
 
-            <div class="mt-24 lg:mt-0 relative reveal reveal-scale stagger-2 flex justify-center lg:justify-end">
-                <!-- Background Glow -->
-                <div class="absolute inset-0 bg-teal-primary/20 blur-[120px] rounded-full animate-float -z-10"></div>
-                
-                <div class="relative flex justify-center items-center">
-                    <!-- Overlapping Watches -->
-                    <div class="relative z-10 animate-float" style="animation-delay: -1s">
-                         <Image 
-                            src={watchVitals} 
-                            alt="VitalsPath Apple Watch" 
-                            class="w-full max-w-[260px] sm:max-w-[300px] h-auto drop-shadow-premium select-none pointer-events-none mockup-clean-blend" 
-                        />
-                    </div>
-                    
-                    <!-- Secondary Watch in background -->
-                    <div class="absolute -right-8 sm:-right-16 -top-12 z-0 animate-float opacity-60 scale-90" style="animation-delay: -4s">
-                         <Image 
-                            src={watchHome} 
-                            alt="VitalsPath Watch Home" 
-                            class="w-full max-w-[200px] sm:max-w-[240px] h-auto drop-shadow-premium select-none pointer-events-none mockup-clean-blend opacity-80" 
-                        />
-                    </div>
-                </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Section Title -->
+        <div class="text-center mb-20 max-w-4xl mx-auto reveal">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-8 shadow-sm">
+                <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
+                    {copy.home.ecosystemLabel}
+                </span>
             </div>
-            
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tighter text-balance">
+                {copy.home.ecosystemTitle}
+            </h2>
+            <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mt-6 max-w-2xl mx-auto">
+                {copy.home.ecosystemBody}
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {pillars.map((section, index) => {
+                const Icon = icons[index % icons.length];
+                const colorClass = colors[index % colors.length];
+                const bgClass = bgColors[index % bgColors.length];
+                
+                return (
+                    <div class={`reveal stagger-${index + 1} flex flex-col p-10 sm:p-12 rounded-[2.5rem] glass-panel border border-white/60 dark:border-white/10 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] group`}>
+                        <div class={`w-16 h-16 rounded-[1.5rem] ${bgClass} flex items-center justify-center mb-8 transform transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6`}>
+                            <Icon className={`w-8 h-8 ${colorClass}`} />
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4 tracking-tight">
+                            {section.title}
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                            {section.body}
+                        </p>
+                    </div>
+                );
+            })}
         </div>
     </div>
 </section>

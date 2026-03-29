@@ -8,52 +8,52 @@
   :root {
     --white: #FFFFFF;
     --cream-light: #FDFBF7; /* JourneyBot exact warm paper background */
-    --cream: #FAF7F2;
-    --cream-dark: #F2EBE1;
+    --cream: #F5F1E8;
+    --cream-dark: #EBE5DB;
     
     /* JourneyBot Premium Palette */
-    --navy-deep: #0F172A; /* Deep Navy for headings */
-    --teal-vibrant: #0D9488; /* Vibrant Teal/Cyan for accents/gradient */
-    --coral-accent: #F0624A; /* Signature Coral/Orange */
+    --navy-deep: #0B1120; /* Deep Navy for headings */
+    --teal-vibrant: #14B8A6; /* Vibrant Teal/Cyan for accents/gradient */
+    --coral-accent: #F97316; /* Signature Coral/Orange */
     
     --slate-text: #1E293B; /* JourneyBot sophisticated slate */
     --slate-muted: #64748B;
     
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(0, 0, 0, 0.05);
-    --shadow-premium: 0 40px 100px -20px rgba(15, 23, 42, 0.06), 0 0 1px rgba(15, 23, 42, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-premium: 0 40px 100px -20px rgba(15, 23, 42, 0.08), 0 0 1px rgba(15, 23, 42, 0.15);
     --shadow-premium-soft: 0 20px 40px -10px rgba(15, 23, 42, 0.04);
-    --shadow-glow: 0 0 60px rgba(13, 148, 136, 0.15);
+    --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.2);
 
-    /* RGB triplets for Tailwind alpha-value support (e.g. text-slate-text/50) */
+    /* RGB triplets for Tailwind alpha-value support */
     --cream-light-rgb: 253 251 247;
-    --cream-rgb: 248 245 239;
-    --cream-dark-rgb: 240 232 221;
-    --slate-text-rgb: 25 25 25;
-    --slate-muted-rgb: 102 102 102;
+    --cream-rgb: 245 241 232;
+    --cream-dark-rgb: 235 229 219;
+    --slate-text-rgb: 30 41 59;
+    --slate-muted-rgb: 100 116 139;
   }
 
   .dark {
-    --cream-light: #0B0B0C;
-    --cream: #121314;
-    --cream-dark: #191B1D;
+    --cream-light: #0B0B0D; /* OLED black with a hint of warmth */
+    --cream: #131416;
+    --cream-dark: #1C1E22;
     --slate-text: #FDFBF7;
     --slate-muted: #A1A1AA;
-    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-bg: rgba(30, 32, 35, 0.4);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --shadow-premium: 0 50px 120px -30px rgba(0, 0, 0, 0.9);
-    --shadow-glow: 0 0 60px rgba(0, 128, 160, 0.25);
+    --shadow-premium: 0 50px 120px -30px rgba(0, 0, 0, 0.9), 0 0 1px rgba(255, 255, 255, 0.1);
+    --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.3);
 
     /* Override RGB triplets for dark mode */
-    --cream-light-rgb: 11 11 12;
-    --cream-rgb: 18 19 20;
-    --cream-dark-rgb: 25 27 29;
+    --cream-light-rgb: 11 11 13;
+    --cream-rgb: 19 20 22;
+    --cream-dark-rgb: 28 30 34;
     --slate-text-rgb: 253 251 247;
     --slate-muted-rgb: 161 161 170;
 
     /* Headings contrast in dark mode */
     --navy-deep: #FDFBF7;
-    --teal-vibrant: #4FB3C3;
+    --teal-vibrant: #2DD4BF;
   }
 
   html {
@@ -65,49 +65,60 @@
   body {
     @apply bg-mesh transition-colors duration-1000;
     font-family: 'Outfit', 'Inter', system-ui, sans-serif;
-    /* Use CSS variables directly so dark mode color switch works properly */
     color: var(--slate-text);
     background-color: var(--cream-light);
   }
 
-  h1, h2, h3, .font-serif {
+  h1, h2, h3, h4, .font-serif {
     font-family: 'Outfit', sans-serif;
-    @apply tracking-tight font-black leading-[1.05];
+    @apply tracking-tighter font-black leading-[1.05];
     color: var(--navy-deep);
   }
 }
 
 @layer components {
+    /* iOS 26 Liquid Glass Pattern */
     .glass-panel {
-        @apply backdrop-blur-[40px] shadow-premium;
+        @apply backdrop-blur-[60px] saturate-[180%] shadow-premium relative overflow-hidden;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
-        border-radius: 32px; /* 2rem - JourneyBot radius */
+        border-radius: 36px;
+    }
+    .glass-panel::before {
+        content: '';
+        @apply absolute inset-0 rounded-[36px] pointer-events-none;
+        background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+        opacity: 0.5;
+    }
+    
+    :global(.dark) .glass-panel::before {
+        background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
     }
 
     .premium-card {
-        @apply relative transition-all duration-[800ms] backdrop-blur-3xl shadow-premium overflow-hidden;
+        @apply relative transition-all duration-[800ms] backdrop-blur-[60px] saturate-[180%] shadow-premium overflow-hidden;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
-        border-radius: 32px; /* 2rem */
+        border-radius: 36px;
     }
 
     .premium-card:hover {
-        @apply -translate-y-3 dark:bg-white/10;
-        box-shadow: 0 60px 120px -20px rgba(0, 128, 160, 0.12);
+        @apply -translate-y-3;
+        box-shadow: 0 60px 120px -20px rgba(20, 184, 166, 0.15), 0 0 0 1px rgba(20, 184, 166, 0.1) inset;
     }
 
+    /* Important Buttons using Liquid Glass */
     .btn-liquid-glass {
-        @apply relative inline-flex items-center justify-center px-10 py-5 rounded-[2rem] font-black text-[15px] uppercase tracking-widest transition-all duration-500 overflow-hidden;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        @apply relative inline-flex items-center justify-center px-10 py-[18px] rounded-full font-black text-[15px] uppercase tracking-[0.15em] transition-all duration-500 overflow-hidden shadow-premium;
+        background: var(--glass-bg);
+        backdrop-filter: blur(40px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        color: var(--navy-deep);
     }
 
     .btn-liquid-glass::before {
         content: '';
-        @apply absolute inset-0 bg-gradient-to-tr from-teal-primary via-teal-light to-orange-accent opacity-0 transition-opacity duration-500 -z-10;
+        @apply absolute inset-0 bg-gradient-to-tr from-teal-500 via-teal-400 to-orange-400 opacity-0 transition-opacity duration-500 -z-10;
     }
 
     .btn-liquid-glass:hover::before {
@@ -115,52 +126,53 @@
     }
 
     .btn-liquid-glass:hover {
-        @apply text-white border-transparent scale-[1.05] shadow-glow;
+        @apply text-white border-transparent scale-[1.03] shadow-glow;
     }
 
     .btn-primary {
-        @apply relative overflow-hidden px-10 py-5 rounded-[2rem] bg-teal-primary text-white font-black text-[15px] tracking-widest transition-all duration-500 hover:scale-[1.05] active:scale-[0.95] hover:shadow-glow;
+        @apply relative overflow-hidden px-10 py-[18px] rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-extrabold text-[15px] tracking-wide transition-all duration-500 hover:scale-[1.03] active:scale-[0.97] hover:shadow-xl hover:shadow-slate-900/20 dark:hover:shadow-white/20;
     }
 
     .btn-secondary {
-        @apply px-10 py-5 rounded-[2rem] border-[1.5px] border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-200 font-bold tracking-wide transition-all duration-500 hover:bg-white dark:hover:bg-white/5 hover:scale-[1.05] active:scale-[0.95] backdrop-blur-md;
+        @apply px-10 py-[18px] rounded-full border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold tracking-wide transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-[1.03] active:scale-[0.97] backdrop-blur-md;
     }
 
     .glass-header {
-        @apply fixed inset-x-0 top-0 z-50 transition-all duration-700 py-4;
+        @apply fixed inset-x-0 top-0 z-50 transition-all duration-700 py-6;
         background: transparent;
     }
 
     /* --- Premium Mockup Blend Utility --- */
     .mockup-clean-blend {
-        /* In light mode, multiply helps remove any remaining white fringing from assets */
         mix-blend-mode: multiply;
         filter: brightness(1.02) contrast(1.1);
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     :global(.dark) .mockup-clean-blend {
-        /* In dark mode, we MUST avoid 'screen' if assets have white fringes.
-           Instead, we use a more neutral blend or just standard transparency 
-           if the assets are actually transparent. But to match the white-fringe 
-           user report, we apply a tiny inset clip-path to 'choke' the edges. */
         mix-blend-mode: normal;
         filter: brightness(1.1) contrast(1.1);
-        clip-path: inset(1px); /* Hides the 1px white border reported by user */
+        clip-path: inset(1px); 
     }
 
     .glass-header.scrolled {
-        @apply py-3 bg-white/60 dark:bg-black/60 shadow-xl;
+        @apply py-4 shadow-sm;
+        background: rgba(253, 251, 247, 0.85);
         backdrop-filter: blur(40px) saturate(180%);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    :global(.dark) .glass-header.scrolled {
+        background: rgba(11, 11, 13, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     /* Reveal Animations */
     .reveal {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(40px);
+        transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-visible {
@@ -170,14 +182,14 @@
 
     .reveal-scale {
         opacity: 0;
-        transform: scale(0.95);
-        transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: scale(0.96) translateY(20px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-scale.reveal-visible {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
 
     .reveal-fade {
@@ -191,10 +203,10 @@
         transform: translateY(0);
     }
 
-    .stagger-1 { transition-delay: 80ms; }
-    .stagger-2 { transition-delay: 160ms; }
-    .stagger-3 { transition-delay: 240ms; }
-    .stagger-4 { transition-delay: 320ms; }
+    .stagger-1 { transition-delay: 100ms; }
+    .stagger-2 { transition-delay: 200ms; }
+    .stagger-3 { transition-delay: 300ms; }
+    .stagger-4 { transition-delay: 400ms; }
 }
 
 @layer utilities {
@@ -205,32 +217,32 @@
 
     .bg-mesh::after {
         content: "";
-        @apply fixed inset-0 z-[1] pointer-events-none opacity-[0.012] dark:opacity-[0.025];
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
+        @apply fixed inset-0 z-[1] pointer-events-none opacity-[0.02] dark:opacity-[0.035];
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
     .bg-mesh::before {
         content: "";
-        @apply absolute inset-0 -z-10 opacity-30 dark:opacity-20;
+        @apply absolute inset-0 -z-10 opacity-40 dark:opacity-20 pointer-events-none;
         background-image: 
-            radial-gradient(at 0% 0%, var(--teal-vibrant) 0, transparent 40%),
-            radial-gradient(at 80% 10%, var(--coral-accent) 0, transparent 30%),
-            radial-gradient(at 100% 0%, var(--navy-deep) 0, transparent 40%);
-        filter: blur(80px);
+            radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.3) 0, transparent 40%),
+            radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.2) 0, transparent 40%),
+            radial-gradient(circle at 50% 100%, rgba(11, 17, 32, 0.1) 0, transparent 50%);
+        filter: blur(100px);
     }
 
     @keyframes float {
         0%, 100% { transform: translateY(0) rotate(0deg); }
-        33% { transform: translateY(-30px) rotate(1deg); }
-        66% { transform: translateY(-15px) rotate(-1deg); }
+        33% { transform: translateY(-15px) rotate(1deg); }
+        66% { transform: translateY(-8px) rotate(-1deg); }
     }
 
     .animate-float {
-        animation: float 10s ease-in-out infinite;
+        animation: float 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     .animate-float-slow {
-        animation: float 15s ease-in-out infinite;
+        animation: float 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     @keyframes pulse-slow {
@@ -243,14 +255,8 @@
     }
 
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--navy-deep)] to-[var(--teal-vibrant)];
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-500 dark:from-white dark:to-slate-400;
         background-size: 200% auto;
-    }
-
-    @keyframes gradient-flow {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
     }
 }
 
@@ -261,12 +267,11 @@
         transform: none !important;
         transition: none !important;
     }
-    .animate-float {
+    .animate-float, .animate-float-slow {
         animation: none !important;
     }
 }
 
-/* Fallback if JS fails to load - reveal everything */
 .js-reveal-failed .reveal,
 .js-reveal-failed .reveal-scale {
     opacity: 1 !important;

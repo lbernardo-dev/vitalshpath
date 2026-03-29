@@ -3,8 +3,8 @@ import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 
-import iphoneMeds from "../../assets/images/devices/iphone_meds.png";
-import iphoneSynthom from "../../assets/images/devices/iphone_synthom.png";
+import screenMeds from "../../assets/images/screens/screen-04-medications.PNG";
+import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
 
 interface Props {
     lang: Lang;
@@ -14,75 +14,105 @@ const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 ---
 
-<section id="features" class="py-20 sm:py-24 bg-slate-50 dark:bg-slate-900/50">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+<section id="features" class="py-24 sm:py-32 relative overflow-hidden">
+    <!-- Decorative Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-coral-accent/5 dark:bg-coral-accent/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
         
         <!-- Section Title -->
-        <div class="text-center mb-16 max-w-3xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-text dark:text-white mb-4 tracking-tight">
+        <div class="text-center mb-20 max-w-4xl mx-auto reveal">
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter text-balance">
                 {copy.home.featureListTitle}
             </h2>
+            <p class="text-xl text-slate-500 dark:text-slate-400 font-medium">
+                {lang === 'es' ? 'Todo lo que necesitas, diseñado con precisión.' : 'Everything you need, precision-engineered.'}
+            </p>
         </div>
 
-        <!-- Feature Cards -->
-        <div class="space-y-16">
-            <!-- Card 01 -->
-            <div class="lg:grid lg:grid-cols-2 gap-12 items-center">
-                <div class="order-2 lg:order-1">
-                    <div class="text-sm font-bold text-teal-primary uppercase tracking-widest mb-3">
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            
+            <!-- Card 01: Medication Tracking -->
+            <div class="group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(45,212,191,0.15)] reveal-scale">
+                
+                <!-- Card Content (Top) -->
+                <div class="p-10 sm:p-14 pb-0 z-10 flex flex-col items-center text-center">
+                    <div class="inline-flex px-3 py-1 rounded-full bg-teal-vibrant/10 dark:bg-teal-vibrant/20 text-teal-vibrant dark:text-teal-300 text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
                         {copy.home.featureTags[0][0]}
                     </div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-slate-text dark:text-white mb-4 tracking-tight">
+                    <h3 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter text-balance">
                         {copy.home.sections[0].title}
                     </h3>
-                    <p class="text-lg text-slate-muted leading-relaxed">
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mx-auto mb-8">
                         {copy.home.sections[0].body}
                     </p>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        {copy.home.featureTags[0].map((tag: string) => (
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-600 dark:text-slate-300">{tag}</span>
+                    <div class="flex flex-wrap justify-center gap-2 mb-10">
+                        {copy.home.featureTags[0].slice(1).map((tag: string) => (
+                            <span class="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors group-hover:bg-black/10 dark:group-hover:bg-white/20">
+                                {tag}
+                            </span>
                         ))}
                     </div>
                 </div>
-                <div class="order-1 lg:order-2 mt-8 lg:mt-0">
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <Image
-                            src={iphoneMeds}
-                            alt="Medication Tracking"
-                            class="w-full h-auto"
-                        />
+
+                <!-- Image Container (Bottom) -->
+                <div class="relative w-full aspect-square sm:aspect-[4/3] flex justify-center items-start overflow-hidden mt-auto px-8 sm:px-16">
+                    <!-- Subtle inner glow -->
+                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-teal-vibrant/10 to-transparent z-0"></div>
+                    <div class="relative z-10 w-full max-w-[280px] sm:max-w-[320px] transform transition-transform duration-700 group-hover:-translate-y-4">
+                        <div class="relative w-full aspect-[1170/2532] rounded-[2.5rem] border-[8px] sm:border-[10px] border-slate-900 bg-slate-900 overflow-hidden ring-1 ring-white/20 shadow-2xl">
+                            <div class="absolute top-2 sm:top-2.5 left-1/2 -translate-x-1/2 w-[35%] h-5 sm:h-6 bg-black rounded-full z-20"></div>
+                            <Image
+                                src={screenMeds}
+                                alt="Medication Tracking"
+                                class="w-full h-full object-cover rounded-[1.75rem]"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 02 -->
-            <div class="lg:grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="text-sm font-bold text-orange-accent uppercase tracking-widest mb-3">
+            <!-- Card 02: Symptom Tracking -->
+            <div class="group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_40px_80px_-20px_rgba(251,146,60,0.15)] reveal-scale stagger-2">
+                
+                <!-- Card Content (Top) -->
+                <div class="p-10 sm:p-14 pb-0 z-10 flex flex-col items-center text-center">
+                    <div class="inline-flex px-3 py-1 rounded-full bg-coral-accent/10 dark:bg-coral-accent/20 text-coral-accent dark:text-orange-300 text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
                         {copy.home.featureTags[1][0]}
                     </div>
-                    <h3 class="text-2xl sm:text-3xl font-black text-slate-text dark:text-white mb-4 tracking-tight">
+                    <h3 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter text-balance">
                         {copy.home.sections[1].title}
                     </h3>
-                    <p class="text-lg text-slate-muted leading-relaxed">
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mx-auto mb-8">
                         {copy.home.sections[1].body}
                     </p>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        {copy.home.featureTags[1].map((tag: string) => (
-                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-600 dark:text-slate-300">{tag}</span>
+                    <div class="flex flex-wrap justify-center gap-2 mb-10">
+                        {copy.home.featureTags[1].slice(1).map((tag: string) => (
+                            <span class="px-4 py-1.5 rounded-full bg-black/5 dark:bg-white/10 backdrop-blur-md text-xs font-semibold text-slate-700 dark:text-slate-300 transition-colors group-hover:bg-black/10 dark:group-hover:bg-white/20">
+                                {tag}
+                            </span>
                         ))}
                     </div>
                 </div>
-                <div class="mt-8 lg:mt-0">
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <Image 
-                            src={iphoneSynthom} 
-                            alt="Symptom Tracking" 
-                            class="w-full h-auto"
-                        />
+
+                <!-- Image Container (Bottom) -->
+                <div class="relative w-full aspect-square sm:aspect-[4/3] flex justify-center items-start overflow-hidden mt-auto px-8 sm:px-16">
+                    <!-- Subtle inner glow -->
+                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-coral-accent/10 to-transparent z-0"></div>
+                    <div class="relative z-10 w-full max-w-[280px] sm:max-w-[320px] transform transition-transform duration-700 group-hover:-translate-y-4">
+                        <div class="relative w-full aspect-[1170/2532] rounded-[2.5rem] border-[8px] sm:border-[10px] border-slate-900 bg-slate-900 overflow-hidden ring-1 ring-white/20 shadow-2xl">
+                            <div class="absolute top-2 sm:top-2.5 left-1/2 -translate-x-1/2 w-[35%] h-5 sm:h-6 bg-black rounded-full z-20"></div>
+                            <Image 
+                                src={screenSymptoms} 
+                                alt="Symptom Tracking" 
+                                class="w-full h-full object-cover rounded-[1.75rem]"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
