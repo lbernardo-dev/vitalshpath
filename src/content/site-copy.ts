@@ -31,6 +31,7 @@ type SiteCopy = {
         secondaryCta: string;
         sections: [Section, Section, Section];
         featureListTitle: string;
+        featureListSubtitle: string;
         featureListItems: string[];
         primaryFeatures: string[];
         featureTags: string[][];
@@ -139,6 +140,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Core areas",
+            featureListSubtitle: "Everything you need, precision-engineered.",
             featureListItems: [
                 "Medication and dose tracking",
                 "Taken, skipped and postponed doses",
@@ -185,10 +187,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Vitals", "Timeline", "Mood"]
                 },
                 {
+                    badge: "WELLNESS",
+                    title: "Your health progress",
+                    body: "Visualize trends and summaries of your activity, mood, and vitals to spot important patterns.",
+                    tags: ["Trends", "Summary", "Insights"]
+                },
+                {
                     badge: "APPOINTMENTS",
                     title: "Never miss a visit",
                     body: "Keep doctors' appointments, follow-ups, and condition tracking organized in the same view.",
                     tags: ["Calendar", "Conditions", "Tasks"]
+                },
+                {
+                    badge: "WIDGETS",
+                    title: "All your health at a glance",
+                    body: "Access your reminders and vitals directly from your home screen with elegant and functional widgets.",
+                    tags: ["Home Screen", "iOS 18", "Customizable"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -335,8 +349,9 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Áreas principales",
+            featureListSubtitle: "Todo lo que necesitas, diseñado con precisión.",
             featureListItems: [
-                "Seguimiento de medicación y dosis",
+                "Seguimiento de medicación and dosis",
                 "Dosis tomadas, omitidas y pospuestas",
                 "Control de stock y recordatorios",
                 "Registro de síntomas y ánimo",
@@ -380,10 +395,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Vitales", "Cronología", "Ánimo"]
                 },
                 {
+                    badge: "BIENESTAR",
+                    title: "Tu progreso de salud",
+                    body: "Visualiza tendencias y resúmenes de tu actividad, estado de ánimo y constantes para detectar patrones importantes.",
+                    tags: ["Tendencias", "Resumen", "Insights"]
+                },
+                {
                     badge: "CITAS",
                     title: "Organiza tus visitas",
                     body: "Mantén bajo control tus citas médicas, tareas de seguimiento y el historial de tus condiciones.",
                     tags: ["Calendario", "Condiciones", "Tareas"]
+                },
+                {
+                    badge: "WIDGETS",
+                    title: "Toda tu salud a la vista",
+                    body: "Accede a tus recordatorios y constantes directamente desde tu pantalla de inicio con widgets elegantes y funcionales.",
+                    tags: ["Pantalla de inicio", "iOS 18", "Personalizable"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -524,6 +551,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Domaines clés",
+            featureListSubtitle: "Tout ce dont vous avez besoin, conçu avec précision.",
             featureListItems: [
                 "Suivi des médicaments et des doses",
                 "Doses prises, omises et reportées",
@@ -547,7 +575,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ecosystemItems: [
                 { title: "Widgets Intelligents", description: "Constantes et médicaments directement sur votre écran d'accueil." },
                 { title: "Apple Watch", description: "Enregistrements rapides et alertes directement sur votre poignet." },
-                { title: "Live Activities", description: "Suivi en temps réel des doses actives." }
+                { title: "Live Activities", description: "Suivi en tempo réel des doses actives." }
             ],
             ctaBadge: "COMMENCER AUJOURD'HUI",
             ctaTitle: "Votre santé, entre vos mains et en privé",
@@ -570,10 +598,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Constantes", "Chronologie", "Humeur"]
                 },
                 {
+                    badge: "BIEN-ÊTRE",
+                    title: "Votre progression santé",
+                    body: "Visualisez les tendances et résumés de votre activité, humeur et constantes pour repérer les schémas importants.",
+                    tags: ["Tendances", "Résumé", "Insights"]
+                },
+                {
                     badge: "RENDEZ-VOUS",
                     title: "Ne manquez aucune visite",
                     body: "Gardez vos rendez-vous médicaux, suivis et antécédents organisés dans une seule vue.",
                     tags: ["Calendrier", "Conditions", "Tâches"]
+                },
+                {
+                    badge: "WIDGETS",
+                    title: "Toute votre santé d'un coup d'œil",
+                    body: "Accédez à vos rappels et constantes directement depuis votre écran d'accueil avec des widgets élégants.",
+                    tags: ["Écran d'accueil", "iOS 18", "Personnalisable"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -662,6 +702,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Kernbereiche",
+            featureListSubtitle: "Alles was Sie brauchen, präzisionsgefertigt.",
             featureListItems: [
                 "Medikamenten- und Dosierungsverfolgung",
                 "Eingenommene, ausgelassene und verschobene Dosen",
@@ -708,10 +749,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Vitalwerte", "Zeitlinie", "Stimmung"]
                 },
                 {
+                    badge: "WELLNESS",
+                    title: "Ihr Gesundheitsfortschritt",
+                    body: "Visualisieren Sie Trends und Zusammenfassungen Ihrer Aktivität, Stimmung und Vitalwerte.",
+                    tags: ["Trends", "Zusammenfassung", "Insights"]
+                },
+                {
                     badge: "TERMINE",
                     title: "Keinen Arztbesuch verpassen",
                     body: "Behalten Sie Arzttermine, Follow-ups und Zustände im selben Kalender im Blick.",
                     tags: ["Kalender", "Zustände", "Aufgaben"]
+                },
+                {
+                    badge: "WIDGETS",
+                    title: "Ihre Gesundheit auf einen Blick",
+                    body: "Greifen Sie auf Ihre Erinnerungen und Vitalwerte direkt von Ihrem Home-Bildschirm mit eleganten Widgets zu.",
+                    tags: ["Home-Bildschirm", "iOS 18", "Anpassbar"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -789,6 +842,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Privacy by design", body: "Le tue informazioni di salute devono restare chiare, personali e sotto il tuo controllo. VitalsPath è costruita per supportare l'organizzazione personale, non per sostituire i professionisti sanitari." },
             ],
             featureListTitle: "Aree principali",
+            featureListSubtitle: "Tutto ciò di cui hai bisogno, progettato con precisione.",
             featureListItems: ["Tracciamento di farmaci e dosi", "Dosi assunte, saltate e posticipate", "Scorte e promemoria di ricarica", "Registro di sintomi e umore", "Parametri e misurazioni", "Foto e note vocali", "Appuntamenti e attività di follow-up", "Widget, Live Activities e Apple Watch"],
             primaryFeatures: ["Gestisci i tuoi farmaci", "Monitora sintomi e parametri"],
             featureTags: [
@@ -825,10 +879,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Parametri", "Timeline", "Umore"]
                 },
                 {
+                    badge: "BENESSERE",
+                    title: "I tuoi progressi",
+                    body: "Visualizza tendenze e riepiloghi della tua attività, umore e parametri per individuare schemi importanti.",
+                    tags: ["Tendenze", "Riepilogo", "Insight"]
+                },
+                {
                     badge: "APPUNTAMENTI",
                     title: "Non perdere una visita",
                     body: "Tieni sempre sotto controllo le visite mediche e il monitoraggio delle condizioni.",
                     tags: ["Calendario", "Condizioni", "Attività"]
+                },
+                {
+                    badge: "WIDGET",
+                    title: "Tutta la salute a colpo d'occhio",
+                    body: "Accedi ai tuoi promemoria e parametri direttamente dalla schermata home con widget eleganti e funzionali.",
+                    tags: ["Schermata Home", "iOS 18", "Personalizzabile"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -903,6 +969,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Privacidade desde a origem", body: "A sua informação de saúde deve manter-se clara, pessoal e sob o seu controlo. VitalsPath foi criada para apoiar a organização pessoal, não para substituir profissionais de saúde." },
             ],
             featureListTitle: "Áreas principais",
+            featureListSubtitle: "Tudo o que precisa, concebido com precisão.",
             featureListItems: ["Seguimento de medicação e doses", "Doses tomadas, ignoradas e adiadas", "Stock e lembretes de reposição", "Registo de sintomas e humor", "Sinais vitais e medições", "Fotos e notas de voz", "Consultas e tarefas de acompanhamento", "Widgets, Live Activities e Apple Watch"],
             primaryFeatures: ["Domine a sua medicação", "Sintomas e sinais vitais"],
             featureTags: [
@@ -1021,6 +1088,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "プライバシーを優先した設計", body: "あなたの健康情報は、明確で個人的なものであり、あなたの管理下にあるべきです。VitalsPathは個人の健康管理をサポートするために構築されており、医療専門家に代わるものではありません。" },
             ],
             featureListTitle: "主な機能領域",
+            featureListSubtitle: "精密に設計された、必要なものすべて。",
             featureListItems: ["服薬と用量の追跡", "服用済み、スキップ、延期された用量", "在庫と補充リマインダー", "症状と気分の記録", "バイタルと測定値", "写真と音声メモ", "予定とフォローアップタスク", "ウィジェット、ライブアクティビティ、Apple Watch"],
             primaryFeatures: ["服薬をマスターする", "症状とバイタルを追跡"],
             featureTags: [
@@ -1050,10 +1118,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["バイタル", "タイムライン", "気分"]
                 },
                 {
+                    badge: "健康管理",
+                    title: "あなたの健康の歩み",
+                    body: "活動、気分、バイタルの傾向と要約を視覚化し、重要なパターンを特定します。",
+                    tags: ["傾向", "要約", "インサイト"]
+                },
+                {
                     badge: "予定",
                     title: "訪問を逃さない",
                     body: "診察、フォローアップタスク、健康履歴を整理して保持します。",
                     tags: ["カレンダー", "状態", "タスク"]
+                },
+                {
+                    badge: "ウィジェット",
+                    title: "健康状態を一目で確認",
+                    body: "洗練された機能的なウィジェットを使用して、ホーム画面からリマインダーやバイタルに直接アクセスできます。",
+                    tags: ["ホーム画面", "iOS 18", "カスタマイズ可能"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -1138,6 +1218,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "以隐私为设计前提", body: "你的健康信息应当清晰、个人化，并由你掌控。VitalsPath 的目标是支持个人整理，而不是替代医疗专业人员。" },
             ],
             featureListTitle: "核心领域",
+            featureListSubtitle: "您所需的一切，精准设计。",
             featureListItems: ["药物与剂量记录", "已服用、已跳过和已延期的剂量", "库存与补货提醒", "症状与情绪记录", "生命体征与测量", "照片与语音备注", "预约与跟进任务", "小组件、Live Activities 与 Apple Watch"],
             primaryFeatures: ["掌控您的药物", "追踪症状与指标"],
             featureTags: [
@@ -1255,6 +1336,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "프라이버시 중심 설계", body: "건강 정보는 명확하고 개인적이어야 하며 사용자의 통제 아래 있어야 합니다. VitalsPath는 개인 정리를 돕기 위해 만들어졌으며 의료 전문가를 대체하지 않습니다." },
             ],
             featureListTitle: "핵심 영역",
+            featureListSubtitle: "필요한 모든 것, 정밀하게 설계되었습니다。",
             featureListItems: ["약물 및 복용량 추적", "복용함, 건너뜀, 연기된 복용량", "재고 및 리필 알림", "증상 및 기분 기록", "활력징후 및 측정값", "사진 및 음성 메모", "일정 및 후속 작업", "위젯, Live Activities, Apple Watch"],
             primaryFeatures: ["복약 마스터하기", "증상 및 활력징후 추적"],
             featureTags: [
@@ -1372,6 +1454,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Конфиденциальность по умолчанию", body: "Информация о здоровье должна оставаться понятной, личной и под вашим контролем. VitalsPath создана для личной организации, а не для замены медицинских специалистов." },
             ],
             featureListTitle: "Основные области",
+            featureListSubtitle: "Все, что вам нужно, спроектировано с точностью.",
             featureListItems: ["Учет лекарств и доз", "Принятые, пропущенные и отложенные дозы", "Запас и напоминания о пополнении", "Запись симптомов и настроения", "Показатели и измерения", "Фото и голосовые заметки", "Визиты и задачи наблюдения", "Виджеты, Live Activities и Apple Watch"],
             primaryFeatures: ["Контроль лекарств", "Симптомы и показатели"],
             featureTags: [
@@ -1606,6 +1689,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "डिज़ाइन से ही निजी", body: "आपकी हेल्थ जानकारी स्पष्ट, व्यक्तिगत और आपके नियंत्रण में रहनी चाहिए। VitalsPath व्यक्तिगत संगठन के लिए बनाई गई है, हेल्थकेयर प्रोफेशनल्स का विकल्प बनने के लिए नहीं।" },
             ],
             featureListTitle: "मुख्य क्षेत्र",
+            featureListSubtitle: "वह सब कुछ जो आपको चाहिए, सटीकता से बनाया गया।",
             featureListItems: ["दवा और डोज़ ट्रैकिंग", "ली गई, छोड़ी गई और टाली गई डोज़", "स्टॉक और रीफिल रिमाइंडर्स", "लक्षण और मूड लॉगिंग", "वाइटल्स और माप", "फोटो और वॉइस नोट्स", "अपॉइंटमेंट्स और फॉलो-अप टास्क", "विजेट्स, Live Activities और Apple Watch"],
             primaryFeatures: ["दवाओं पर नियंत्रण", "लक्षण और वाइटल्स"],
             featureTags: [
@@ -1635,10 +1719,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["वाइटल्स", "शेड्यूल", "मूड"]
                 },
                 {
+                    badge: "स्वास्थ्य",
+                    title: "आपकी स्वास्थ्य प्रगति",
+                    body: "महत्वपूर्ण पैटर्न खोजने के लिए अपनी गतिविधि, मूड और वाइटल्स के रुझान देखें।",
+                    tags: ["रुझान", "सारांश", "इनसाइट्स"]
+                },
+                {
                     badge: "अपॉइंटमेंट्स",
                     title: "कोई भी जांच न छोड़ें",
-                    body: "अपनी डॉक्टर विजिट, फॉलो-अप टास्क और मेडिकल रिकॉर्ड को व्यवस्थित रखें।",
+                    body: "अपनी डॉक्टर विजिट और फॉलो-अप टास्क को व्यवस्थित रखें।",
                     tags: ["कैलेंडर", "कंडीशंस", "टास्क"]
+                },
+                {
+                    badge: "विजेट्स",
+                    title: "एक नज़र में स्वास्थ्य",
+                    body: "सुरुचिपूर्ण और कार्यात्मक विजेट्स के साथ सीधे अपनी होम स्क्रीन से रिमाइंडर्स एक्सेस करें।",
+                    tags: ["होम स्क्रीन", "iOS 18", "कस्टमाइज़ेबल"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -1723,6 +1819,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Tasarım gereği gizli", body: "Sağlık bilgileriniz açık, kişisel ve sizin kontrolünüzde olmalıdır. VitalsPath, kişisel organizasyonu desteklemek için geliştirilmiştir; sağlık profesyonellerinin yerini almak için değil." },
             ],
             featureListTitle: "Temel alanlar",
+            featureListSubtitle: "İhtiyacınız olan her şey, hassasiyetle tasarlandı.",
             featureListItems: ["İlaç ve doz takibi", "Alınan, atlanan ve ertelenen dozlar", "Stok ve yeniden doldurma hatırlatmaları", "Semptom ve ruh hali kaydı", "Vital ölçümler ve diğer ölçümler", "Fotoğraflar ve sesli notlar", "Randevular ve takip görevleri", "Widget'lar, Live Activities ve Apple Watch"],
             primaryFeatures: ["İlaçlarınıza hakim olun", "Semptom ve vitalleri takip edin"],
             featureTags: [
@@ -1752,10 +1849,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Vitaller", "Program", "Ruh Hali"]
                 },
                 {
+                    badge: "SAĞLIK",
+                    title: "Sağlık Gelişiminiz",
+                    body: "Önemli kalıpları belirlemek için aktivite, ruh hali ve vitallerinizin özetlerini görün.",
+                    tags: ["Trendler", "Özet", "Analizler"]
+                },
+                {
                     badge: "RANDEVULAR",
                     title: "Hiçbir ziyareti kaçırmayın",
-                    body: "Doktor ziyaretlerinizi, takip görevlerinizi ve tıbbi kayıtlarınızı düzenli tutun.",
+                    body: "Doktor ziyaretlerinizi ve takip görevlerinizi düzenli tutun.",
                     tags: ["Takvim", "Durumlar", "Görevler"]
+                },
+                {
+                    badge: "ARAÇ TAKIMLARI",
+                    title: "Bir Bakışta Sağlık",
+                    body: "Zarif ve işlevsel araç takımlarıyla hatırlatıcılarınıza ana ekrandan erişin.",
+                    tags: ["Ana Ekran", "iOS 18", "Özelleştirilebilir"]
                 },
                 {
                     badge: "APPLE WATCH",
@@ -1851,6 +1960,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Kerngebieden",
+            featureListSubtitle: "Alles wat u nodig heeft, met precisie ontworpen.",
             featureListItems: [
                 "Medicatie en dosisregistratie",
                 "Ingenomen, overgeslagen and uitgestelde doses",
@@ -1989,6 +2099,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
             ],
             featureListTitle: "Główne obszary",
+            featureListSubtitle: "Wszystko, czego potrzebujesz, precyzyjnie zaprojektowane.",
             featureListItems: [
                 "Śledzenie leków i dawek",
                 "Dawki przyjęte, pominięte i odroczone",
@@ -2028,10 +2139,22 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Parametry", "Harmonogram", "Nastrój"]
                 },
                 {
+                    badge: "DOBROSTAN",
+                    title: "Twój postęp zdrowia",
+                    body: "Wizualizuj trendy i podsumowania aktywności, nastroju i parametrów.",
+                    tags: ["Trendy", "Podsumowanie", "Wnioski"]
+                },
+                {
                     badge: "WIZYTY",
                     title: "Nie przegap wizyty",
-                    body: "Zachowaj porządek w wizytach u lekarza, zadaniach kontrolnych i dokumentacji medycznej.",
+                    body: "Zachowaj porządek w wizytach u lekarza i zadaniach kontrolnych.",
                     tags: ["Kalendarz", "Schorzenia", "Zadania"]
+                },
+                {
+                    badge: "WIDŻETY",
+                    title: "Zdrowie w mgnieniu oka",
+                    body: "Uzyskaj dostęp do przypomnień i parametrów bezpośrednio z ekranu głównego.",
+                    tags: ["Ekran główny", "iOS 18", "Konfigurowalne"]
                 },
                 {
                     badge: "APPLE WATCH",

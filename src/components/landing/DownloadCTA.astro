@@ -17,24 +17,7 @@ const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 
-// Localized strings fallback for the rating subtitle
-const ratingSub = {
-    en: "Highly rated on App Store",
-    es: "Alta valoración en App Store",
-    fr: "Très bien noté sur l'App Store",
-    de: "Top-bewertet im App Store",
-    it: "Molto votato su App Store",
-    pt: "Alta classificação na App Store",
-    ja: "App Storeで高評価",
-    zh: "在 App Store 上广受好评",
-    ko: "App Store에서 높은 평가",
-    ru: "Высокий рейтинг в App Store",
-    ar: "تقييم عالٍ في App Store",
-    hi: "App Store पर उच्च रेटिंग",
-    tr: "App Store'da yüksek puanlı",
-    nl: "Hoog gewaardeerd in de App Store",
-    pl: "Wysoko oceniana w App Store"
-}[lang] || "Highly rated on App Store";
+
 ---
 
 <section class="py-8 sm:py-16 bg-transparent relative z-10 overflow-hidden">
@@ -74,18 +57,7 @@ const ratingSub = {
                             <AppStoreBadge className="h-[64px] md:h-[72px]" lang={lang} />
                         </a>
                         
-                        <div class="flex flex-col items-start gap-1">
-                            <div class="flex text-amber-500">
-                                <Star className="w-4 h-4 fill-current" />
-                                <Star className="w-4 h-4 fill-current" />
-                                <Star className="w-4 h-4 fill-current" />
-                                <Star className="w-4 h-4 fill-current" />
-                                <Star className="w-4 h-4 fill-current" />
-                            </div>
-                            <span class="text-xs font-bold text-slate-500 uppercase tracking-tighter">
-                                {ratingSub}
-                            </span>
-                        </div>
+
                     </div>
 
                     <p class="text-[11px] text-slate-400 dark:text-slate-500 font-bold tracking-tight max-w-md">
