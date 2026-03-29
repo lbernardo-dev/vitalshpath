@@ -37,35 +37,35 @@ if (periodIndex !== -1) {
     <div class="container mx-auto px-6 relative z-10 w-full flex flex-col items-center">
         <!-- Top Column: Content -->
         <div class="flex flex-col items-center text-center max-w-5xl mx-auto reveal">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-6 shadow-sm">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-4 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-teal-vibrant animate-pulse mr-2"></span>
                 <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
                     {copy.home.heroBadge || (lang === 'es' ? 'PRIVADO Y SEGURO' : 'PRIVATE & SECURE')}
                 </span>
             </div>
             
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-6 font-black tracking-tighter text-balance text-slate-900 dark:text-white">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-4 font-black tracking-tighter text-balance text-slate-900 dark:text-white uppercase italic">
                 {headingPart1}
                 {headingPart2 && (
                     <span class="text-gradient block mt-2 text-3xl sm:text-5xl md:text-6xl lg:text-6xl opacity-90">{headingPart2}</span>
                 )}
             </h1>
 
-            <p class="text-lg md:text-2xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium text-balance">
+            <p class="text-lg md:text-2xl text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-2xl font-medium text-balance">
                 {copy.home.heroSubtitle}
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <a
                     href={appStoreHref}
-                    class="hover:scale-105 transition-transform duration-400 active:scale-95 shadow-[0_0_40px_-10px_rgba(45,212,191,0.25)] hover:shadow-[0_0_60px_-10px_rgba(45,212,191,0.4)] rounded-[1.2rem] overflow-hidden"
+                    class="hover:scale-105 transition-transform duration-400 active:scale-95 drop-shadow-[0_20px_40px_rgba(45,212,191,0.25)] hover:drop-shadow-[0_20px_60px_rgba(45,212,191,0.4)] rounded-[1.2rem] overflow-hidden"
                     aria-label="Download on the App Store"
                 >
                     <AppStoreBadge className="h-[55px]" lang={lang} />
                 </a>
             </div>
 
-            <p class="text-[10px] font-medium text-slate-400 dark:text-slate-600 max-w-md italic mt-6">
+            <p class="text-[10px] font-medium text-slate-400 dark:text-slate-600 max-w-md italic mt-4">
                 * {copy.common.medicalDisclaimer}
             </p>
         </div>
@@ -96,8 +96,8 @@ if (periodIndex !== -1) {
                     />
                 </div>
 
-                <!-- Apple Watch (Right / Front-ish) -->
-                <div class="absolute right-[1%] md:right-[6%] lg:right-[8%] top-[25%] sm:top-[35%] w-[42%] md:w-[32%] lg:w-[26%] z-20 transform rotate-12 translate-y-8 sm:translate-y-12 translate-z-[50px] transition-all duration-1000 ease-out hover:rotate-6 hover:-translate-y-4 hover:translate-z-[100px] hover:scale-110">
+                <!-- Apple Watch (Right / Front-ish) - Scaled up for "Premium" presence -->
+                <div class="absolute right-[1%] md:right-[5%] lg:right-[6%] top-[20%] sm:top-[30%] w-[48%] md:w-[38%] lg:w-[35%] z-20 transform rotate-12 translate-y-8 sm:translate-y-12 translate-z-[50px] transition-all duration-1000 ease-out hover:rotate-6 hover:-translate-y-4 hover:translate-z-[100px] hover:scale-110">
                     <Image
                         src={watchImage}
                         alt="VitalsPath Apple Watch App"

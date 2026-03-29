@@ -9,7 +9,8 @@ import {
 } from "../lib/app-store-links";
 import { appStoreLabels } from "../lib/app-store-labels";
 import { supportEmail } from "../lib/site-config";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Heart } from "lucide-react";
+import AppStoreBadge from "./common/AppStoreBadge.astro";
 
 interface Props {
     lang: Lang;
@@ -53,21 +54,22 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                     {copy.footer.legalNote}
                 </p>
 
-                <div class="flex flex-wrap gap-4 pt-2">
+                <div class="flex flex-wrap items-center gap-6 pt-2">
                     <a
                         href={appStoreHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="px-6 py-2.5 rounded-xl bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-teal-vibrant hover:text-white transition-all duration-300 shadow-lg shadow-black/20"
+                        class="hover:scale-105 active:scale-95 transition-all duration-300 drop-shadow-[0_10px_30px_rgba(45,212,191,0.2)]"
                     >
-                        {copy.home.primaryCta}
+                        <AppStoreBadge className="h-[44px]" lang={lang} />
                     </a>
                     <a
                         href={reviewHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="px-6 py-2.5 rounded-xl bg-white/5 border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-white/10 transition-all duration-300"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-all duration-300"
                     >
+                        <Star className="w-3.5 h-3.5 fill-current text-white" />
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
@@ -101,7 +103,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
         </div>
         
         <!-- Bottom Bar -->
-        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-6">
             <p class="text-[10px] font-black tracking-widest text-slate-600 uppercase">
                 &copy; {new Date().getFullYear()} VITALSPATH • MADE WITH PRECISION
             </p>

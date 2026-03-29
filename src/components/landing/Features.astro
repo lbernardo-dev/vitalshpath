@@ -6,8 +6,9 @@ import { getSiteCopy } from "../../content/site-copy";
 // Import all necessary screens for the expanded bento grid
 import screenMeds from "../../assets/images/screens/screen-04-medications.PNG";
 import screenSymptoms from "../../assets/images/screens/screen-13-symptoms.PNG";
-import screenCalendar from "../../assets/images/screens/screen-10-calendar-month.PNG";
+import screenAppointments from "../../assets/images/screens/screen-11-appointments.PNG";
 import screenLiveActivity from "../../assets/images/screens/screen-27-live-activity.PNG";
+import screenWidgets from "../../assets/images/screens/screen-20-widgets-home.PNG";
 import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
 import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
 
@@ -35,16 +36,16 @@ const cardMetadata = [
         badgeStyle: "bg-coral-accent/10 text-coral-accent dark:bg-coral-accent/20 dark:text-orange-300"
     },
     { 
-        image: screenCalendar, 
+        image: screenAppointments, 
         color: "indigo", 
-        glow: "hover:shadow-[0_40px_80px_-20px_rgba(99,102,241,0.2)]",
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(99,102,241,0.25)]",
         bgGlow: "from-indigo-500/10",
         badgeStyle: "bg-indigo-500/10 text-indigo-600 dark:bg-indigo-500/20 dark:text-indigo-300"
     },
     { 
         image: screenLiveActivity, 
         color: "rose", 
-        glow: "hover:shadow-[0_40px_80px_-20px_rgba(244,63,94,0.2)]",
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(244,63,94,0.25)]",
         bgGlow: "from-rose-500/10",
         badgeStyle: "bg-rose-500/10 text-rose-600 dark:bg-rose-500/20 dark:text-rose-300"
     }
@@ -64,13 +65,13 @@ const additionalCards = [
         badgeStyle: "bg-emerald-500/10 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300"
     },
     {
-        badge: lang === 'es' ? "FAMILIA" : "FAMILY",
-        title: lang === 'es' ? "Perfiles para todos" : "Profiles for everyone",
-        body: lang === 'es' ? "Gestiona múltiples perfiles personales o familiares en un solo lugar, manteniendo la privacidad de cada uno." : "Manage multiple personal or family profiles in one place, maintaining the privacy of each one.",
-        tags: lang === 'es' ? ["Multi-usuario", "Privacidad", "Seguro"] : ["Multi-user", "Privacy", "Secure"],
-        image: screenProfiles,
+        badge: lang === 'es' ? "WIDGETS" : "WIDGETS",
+        title: lang === 'es' ? "Toda tu salud a la vista" : "All your health at a glance",
+        body: lang === 'es' ? "Accede a tus recordatorios y constantes directamente desde tu pantalla de inicio con widgets elegantes y funcionales." : "Access your reminders and vitals directly from your home screen with elegant and functional widgets.",
+        tags: lang === 'es' ? ["Pantalla de inicio", "iOS 18", "Personalizable"] : ["Home Screen", "iOS 18", "Customizable"],
+        image: screenWidgets,
         color: "cyan",
-        glow: "hover:shadow-[0_40px_80px_-20px_rgba(6,182,212,0.2)]",
+        glow: "hover:shadow-[0_40px_80px_-20px_rgba(6,182,212,0.25)]",
         bgGlow: "from-cyan-500/10",
         badgeStyle: "bg-cyan-500/10 text-cyan-600 dark:bg-cyan-500/20 dark:text-cyan-300"
     }
@@ -79,14 +80,14 @@ const additionalCards = [
 const allCards = [...copy.home.bentoCards.map((card, i) => ({...card, ...cardMetadata[i]})), ...additionalCards];
 ---
 
-<section id="features" class="pt-8 pb-12 sm:pt-12 sm:pb-16 relative overflow-hidden">
+<section id="features" class="pt-6 pb-10 sm:pt-8 sm:pb-12 relative overflow-hidden">
     <!-- Decorative Glow -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-vibrant/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
 
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         
         <!-- Section Title -->
-        <div class="text-center mb-16 max-w-4xl mx-auto reveal">
+        <div class="text-center mb-10 max-w-4xl mx-auto reveal">
             <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter text-balance uppercase italic">
                 {copy.home.featureListTitle}
             </h2>
@@ -101,19 +102,19 @@ const allCards = [...copy.home.bentoCards.map((card, i) => ({...card, ...cardMet
                 <div class={`group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 ${card.glow} reveal-scale stagger-${index % 3 + 1}`}>
                     
                     <!-- Card Content (Top) -->
-                    <div class="p-8 sm:p-10 pb-0 z-10 flex flex-col items-center text-center">
+                    <div class="p-6 sm:p-8 pb-0 z-10 flex flex-col items-center text-center">
                         <div class={`inline-flex px-3 py-1 rounded-full ${card.badgeStyle || card.badge} text-[10px] font-bold tracking-widest uppercase mb-4 shadow-sm border border-current/10`}>
                             {card.badge}
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-3 tracking-tighter text-balance">
+                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter text-balance uppercase italic">
                             {card.title}
                         </h3>
-                        <p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed font-medium mb-6 line-clamp-3">
+                        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-medium mb-4 line-clamp-3">
                             {card.body}
                         </p>
-                        <div class="flex flex-wrap justify-center gap-1.5 mb-8">
+                        <div class="flex flex-wrap justify-center gap-1.5 mb-6">
                             {card.tags.map((tag: string) => (
-                                <span class="px-3 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md text-[10px] font-bold text-slate-600 dark:text-slate-400 border border-transparent group-hover:border-white/20 transition-all uppercase tracking-wide">
+                                <span class="px-2.5 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md text-[9px] font-bold text-slate-600 dark:text-slate-400 border border-transparent group-hover:border-white/20 transition-all uppercase tracking-wide">
                                     {tag}
                                 </span>
                             ))}
@@ -121,10 +122,10 @@ const allCards = [...copy.home.bentoCards.map((card, i) => ({...card, ...cardMet
                     </div>
 
                     <!-- Image Container (Bottom) -->
-                    <div class="relative w-full aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-6 sm:px-12">
+                    <div class="relative w-full aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-6 sm:px-10">
                         <!-- Subtle inner glow -->
                         <div class={`absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t ${card.bgGlow} to-transparent z-0`}></div>
-                        <div class="relative z-10 w-full max-w-[200px] sm:max-w-[220px] transform transition-transform duration-700 group-hover:-translate-y-4 group-hover:scale-110">
+                        <div class="relative z-10 w-full max-w-[170px] sm:max-w-[190px] transform transition-transform duration-700 group-hover:-translate-y-4 group-hover:scale-110">
                             <!-- Device Frame -->
                             <div class="relative w-full aspect-[1170/2532] rounded-[2.2rem] border-[6px] sm:border-[8px] border-slate-900 bg-slate-800 overflow-hidden ring-1 ring-white/10 shadow-2xl">
                                 <!-- Dynamic Notch -->

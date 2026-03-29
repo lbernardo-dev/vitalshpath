@@ -40,7 +40,7 @@ const ratingSub = {
 <section class="py-8 sm:py-16 bg-transparent relative z-10 overflow-hidden">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         
-        <div class="relative overflow-hidden rounded-[3.5rem] p-8 sm:p-12 lg:p-16 glass-panel border border-white/40 dark:border-white/10 bg-gradient-to-br from-white/90 to-teal-50/30 dark:from-slate-900/90 dark:to-teal-900/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] reveal">
+        <div class="relative overflow-hidden rounded-[3.5rem] p-6 sm:p-10 lg:p-12 glass-panel border border-white/40 dark:border-white/10 bg-gradient-to-br from-white/90 to-teal-50/30 dark:from-slate-900/90 dark:to-teal-900/20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.1)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] reveal">
             
             <!-- Decorative Background Elements -->
             <div class="absolute -top-24 -right-24 w-96 h-96 bg-teal-vibrant/20 blur-[100px] rounded-full pointer-events-none"></div>
@@ -50,25 +50,25 @@ const ratingSub = {
                 
                 <!-- Left: Conversion Text -->
                 <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-teal-vibrant/10 dark:bg-teal-vibrant/20 border border-teal-vibrant/20 mb-8">
+                    <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-teal-vibrant/10 dark:bg-teal-vibrant/20 border border-teal-vibrant/20 mb-6">
                         <Star className="w-3.5 h-3.5 text-teal-vibrant mr-2 fill-teal-vibrant" />
                         <span class="text-teal-vibrant text-[10px] font-black tracking-widest uppercase">
                             {copy.home.ctaBadge}
                         </span>
                     </div>
 
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tighter leading-[1.05] italic uppercase">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-4 tracking-tighter leading-[1.05] italic uppercase">
                         {copy.home.ctaTitle}
                     </h2>
                     
-                    <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-10 max-w-xl">
+                    <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-8 max-w-xl">
                         {copy.home.heroSubtitle}
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-6 items-center mb-10">
                         <a
                             href={appStoreHref}
-                            class="hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-teal-vibrant/20 group"
+                            class="hover:scale-105 active:scale-95 transition-all duration-300 drop-shadow-[0_20px_40px_rgba(45,212,191,0.25)] group"
                             aria-label="Download on the App Store"
                         >
                             <AppStoreBadge className="h-[64px] md:h-[72px]" lang={lang} />
