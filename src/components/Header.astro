@@ -34,7 +34,7 @@ const navItems = [
 
 <header id="main-header" class="glass-header">
     <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-        <div class="flex items-center justify-between gap-8 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-6 lg:px-8 py-2.5 rounded-full border border-white/80 dark:border-white/10 shadow-sm transition-all">
+        <div class="flex items-center justify-between gap-8 bg-white/40 dark:bg-white/5 backdrop-blur-3xl px-8 py-3.5 rounded-full border border-white/80 dark:border-white/10 shadow-premium transition-all duration-500">
             <!-- Logo Section -->
             <a
                 href={`${baseUrl}/${lang}/`}
@@ -49,7 +49,7 @@ const navItems = [
                         class="h-8 w-8 rounded-[0.8rem] shadow-sm relative z-10 transition-transform group-hover:scale-110"
                     />
                 </div>
-                <span class="hidden sm:block text-[11px] font-black tracking-[0.2em] text-slate-text uppercase">
+                <span class="hidden sm:block text-[13px] font-black tracking-[0.15em] text-slate-text uppercase">
                     VITALSPATH
                 </span>
             </a>
@@ -61,7 +61,7 @@ const navItems = [
                         navItems.map((item) => (
                             <a
                                 href={item.href}
-                                class="text-[11px] font-bold uppercase tracking-widest text-slate-text/70 transition-all hover:text-teal-primary dark:hover:text-teal-400"
+                                class="text-[12px] font-bold uppercase tracking-wider text-slate-text/70 transition-all hover:text-teal-primary dark:hover:text-teal-400 whitespace-nowrap"
                             >
                                 {item.label}
                             </a>
@@ -82,7 +82,7 @@ const navItems = [
                     data-app-store-link
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="hidden sm:flex items-center justify-center rounded-full bg-slate-text dark:bg-white px-5 py-2.5 text-[10px] font-black uppercase tracking-widest text-white dark:text-black transition-all hover:scale-[1.05]"
+                    class="hidden sm:flex items-center justify-center rounded-full bg-slate-text dark:bg-white px-6 py-3 text-[11px] font-black uppercase tracking-widest text-white dark:text-black transition-all hover:scale-[1.05] active:scale-[0.98]"
                 >
                     {copy.home.primaryCta}
                 </a>

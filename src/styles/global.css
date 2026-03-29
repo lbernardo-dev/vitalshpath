@@ -160,7 +160,7 @@
 
 @layer utilities {
     .bg-mesh {
-        @apply relative overflow-hidden;
+        @apply relative overflow-x-hidden;
         background-color: var(--cream-light);
     }
 
