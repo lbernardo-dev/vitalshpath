@@ -30,28 +30,28 @@ if (periodIndex !== -1) {
 }
 ---
 
-<section class="relative min-h-screen flex flex-col justify-center items-center pt-40 pb-32 overflow-hidden">
+<section class="relative min-h-[90vh] flex flex-col justify-center items-center pt-32 pb-20 overflow-hidden">
     <!-- Decorative background elements -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-teal-vibrant/10 dark:bg-teal-vibrant/5 blur-[120px] rounded-[100%] -z-10 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] bg-teal-vibrant/10 dark:bg-teal-vibrant/5 blur-[120px] rounded-[100%] -z-10 pointer-events-none"></div>
 
     <div class="container mx-auto px-6 relative z-10 w-full flex flex-col items-center">
         <!-- Top Column: Content -->
         <div class="flex flex-col items-center text-center max-w-5xl mx-auto reveal">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-8 shadow-sm">
+            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-6 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-teal-vibrant animate-pulse mr-2"></span>
                 <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
                     {copy.home.heroBadge || (lang === 'es' ? 'PRIVADO Y SEGURO' : 'PRIVATE & SECURE')}
                 </span>
             </div>
             
-            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-8 font-black tracking-tighter text-balance text-slate-900 dark:text-white">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-6 font-black tracking-tighter text-balance text-slate-900 dark:text-white">
                 {headingPart1}
                 {headingPart2 && (
-                    <span class="text-gradient block mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl opacity-90">{headingPart2}</span>
+                    <span class="text-gradient block mt-2 text-3xl sm:text-5xl md:text-6xl lg:text-6xl opacity-90">{headingPart2}</span>
                 )}
             </h1>
 
-            <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-12 leading-relaxed max-w-2xl font-medium text-balance">
+            <p class="text-lg md:text-2xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-2xl font-medium text-balance">
                 {copy.home.heroSubtitle}
             </p>
 
@@ -61,17 +61,17 @@ if (periodIndex !== -1) {
                     class="hover:scale-105 transition-transform duration-400 active:scale-95 shadow-[0_0_40px_-10px_rgba(45,212,191,0.25)] hover:shadow-[0_0_60px_-10px_rgba(45,212,191,0.4)] rounded-[1.2rem] overflow-hidden"
                     aria-label="Download on the App Store"
                 >
-                    <AppStoreBadge className="h-[60px]" lang={lang} />
+                    <AppStoreBadge className="h-[55px]" lang={lang} />
                 </a>
             </div>
 
-            <p class="text-[11px] font-medium text-slate-400 dark:text-slate-600 max-w-md italic mt-8">
+            <p class="text-[10px] font-medium text-slate-400 dark:text-slate-600 max-w-md italic mt-6">
                 * {copy.common.medicalDisclaimer}
             </p>
         </div>
 
         <!-- Bottom Column: Floating Mockups -->
-        <div class="relative w-full max-w-5xl mx-auto mt-24 lg:mt-32 reveal-scale stagger-2 perspective-1000">
+        <div class="relative w-full max-w-5xl mx-auto mt-12 lg:mt-16 reveal-scale stagger-2 perspective-1000">
             <!-- Glowing background behind devices -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-gradient-to-tr from-teal-vibrant/30 to-coral-accent/10 blur-[140px] rounded-full -z-10 animate-pulse-slow mix-blend-screen dark:mix-blend-lighten pointer-events-none"></div>
             

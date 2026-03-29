@@ -83,12 +83,12 @@ const navItems = [
             </nav>
 
         <div
-            id="mobile-menu"
-            class="fixed inset-0 z-[200] translate-x-full transition-transform duration-500 ease-premium bg-[#FDF8F1]/95 dark:bg-[#1A1A1A]/95 backdrop-blur-2xl md:hidden overflow-hidden"
+            id="mobile-menu-overlay"
+            class="fixed inset-0 z-[200] translate-x-full invisible pointer-events-none transition-all duration-500 ease-premium bg-white/95 dark:bg-[#1A1A1A]/98 backdrop-blur-2xl md:hidden overflow-hidden"
         >
             <div class="flex flex-col h-full relative p-8">
                 <!-- Close Button inside overlay -->
-                <div class="flex justify-end p-2">
+                <div class="flex justify-end p-2 pb-6">
                     <button
                         id="close-menu-button"
                         class="p-4 rounded-2xl bg-slate-text/5 text-slate-text dark:text-white active:scale-90 transition-transform"
@@ -98,53 +98,51 @@ const navItems = [
                     </button>
                 </div>
 
-                <nav class="flex flex-col gap-6 flex-1 justify-center items-center text-center">
+                <nav class="flex flex-col gap-5 flex-1 justify-center items-center text-center">
                     {navItems.map((item, index) => (
                         <a
                             href={item.href}
-                            class="text-4xl font-black text-slate-text dark:text-white hover:text-teal-primary transition-all tracking-tighter uppercase active:scale-95 reveal-fade"
+                            class="text-4xl font-black text-slate-text dark:text-white hover:text-teal-vibrant transition-all tracking-tighter uppercase active:scale-95 reveal-fade"
                         >
                             {item.label}
                         </a>
                     ))}
                     
-                    <div class="mt-8 flex flex-col items-center gap-6">
-                        <div class="flex items-center gap-4 bg-slate-text/5 p-4 rounded-2xl">
+                    <div class="mt-4 pt-4 border-t border-slate-text/10 flex flex-col items-center gap-6 w-full max-w-xs">
+                        <div class="flex items-center gap-4 bg-slate-text/5 p-4 rounded-2xl w-full justify-between">
                             <span class="text-xs font-bold text-slate-text/40 dark:text-white/40 uppercase tracking-widest">{lang === 'es' ? 'IDIOMA' : (lang === 'en' ? 'LANGUAGE' : 'LANGUE')}</span>
                             <LanguageSelector lang={lang} />
                         </div>
                         
                         <a
                             href={appStoreHref}
-                            class="hover:scale-105 transition-all duration-300 active:scale-95 shadow-2xl shadow-teal-primary/10 rounded-2xl overflow-hidden"
+                            class="hover:scale-105 transition-all duration-300 active:scale-95 shadow-2xl shadow-teal-vibrant/10 rounded-2xl overflow-hidden"
                             aria-label="Download on the App Store"
                         >
-                            <AppStoreBadge className="h-[60px]" lang={lang} />
+                            <AppStoreBadge className="h-[55px]" lang={lang} />
                         </a>
                     </div>
                 </nav>
             </div>
         </div>
 
-            <!-- Mobile Menu Toggle -->
-            <div class="flex items-center gap-3 md:hidden">
-                <ThemeToggle />
-                <button
-                    id="mobile-menu-button"
-                    type="button"
-                    class="flex items-center justify-center p-2.5 rounded-xl bg-slate-text/5 text-slate-text dark:text-white"
-                    aria-label="Toggle navigation"
-                >
-                    <Menu className="h-6 w-6" />
-                </button>
-            </div>
+        <div class="flex items-center gap-3 md:hidden">
+            <ThemeToggle />
+            <button
+                id="mobile-menu-button"
+                type="button"
+                class="flex items-center justify-center p-2.5 rounded-xl bg-slate-text/5 text-slate-text dark:text-white"
+                aria-label="Toggle navigation"
+            >
+                <Menu className="h-6 w-6" />
+            </button>
         </div>
     </nav>
 </header>
 
 <script>
     function setupMobileMenu() {
-        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenu = document.getElementById("mobile-menu-overlay");
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const closeMenuButton = document.getElementById("close-menu-button");
         
@@ -152,38 +150,44 @@ const navItems = [
 
         const mobileLinks = mobileMenu.querySelectorAll("a");
 
-        function toggleMenu() {
+        function openMenu() {
             if (!mobileMenu) return;
-            const isClosed = mobileMenu.classList.contains("translate-x-full");
-            if (isClosed) {
-                mobileMenu.classList.remove("translate-x-full");
-                document.body.style.overflow = "hidden";
-                
-                // Stagger reveal links
-                mobileLinks.forEach((link, index) => {
-                    setTimeout(() => {
-                        link.classList.add("is-visible");
-                    }, 100 + index * 50);
-                });
-            } else {
-                mobileMenu.classList.add("translate-x-full");
-                document.body.style.overflow = "";
-                
-                // Hide links
-                mobileLinks.forEach((link) => {
-                    link.classList.remove("is-visible");
-                });
-            }
+            mobileMenu.classList.remove("translate-x-full", "invisible", "pointer-events-none");
+            mobileMenu.classList.add("translate-x-0");
+            document.body.style.overflow = "hidden";
+            
+            // Stagger reveal links
+            mobileLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.classList.add("is-visible");
+                }, 100 + index * 40);
+            });
         }
 
-        mobileMenuButton.addEventListener("click", toggleMenu);
-        closeMenuButton.addEventListener("click", toggleMenu);
+        function closeMenu() {
+            if (!mobileMenu) return;
+            mobileMenu.classList.add("translate-x-full", "invisible", "pointer-events-none");
+            mobileMenu.classList.remove("translate-x-0");
+            document.body.style.overflow = "";
+            
+            // Hide links
+            mobileLinks.forEach((link) => {
+                link.classList.remove("is-visible");
+            });
+        }
+
+        mobileMenuButton.addEventListener("click", openMenu);
+        closeMenuButton.addEventListener("click", closeMenu);
 
         mobileLinks.forEach((link) => {
-            link.addEventListener("click", () => {
-                mobileMenu?.classList.add("translate-x-full");
-                document.body.style.overflow = "";
-            });
+            link.addEventListener("click", closeMenu);
+        });
+        
+        // Failsafe: if menu is open but window is resized to desktop, close it
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && !mobileMenu.classList.contains("translate-x-full")) {
+                closeMenu();
+            }
         });
     }
 
