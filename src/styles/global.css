@@ -124,15 +124,20 @@
 
     /* --- Premium Mockup Blend Utility --- */
     .mockup-clean-blend {
-        /* Critical: brightness pushes off-whites to pure white so mix-blend-multiply can kill them */
-        filter: brightness(1.05) contrast(1.1);
+        /* In light mode, multiply helps remove any remaining white fringing from assets */
         mix-blend-mode: multiply;
+        filter: brightness(1.02) contrast(1.1);
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     :global(.dark) .mockup-clean-blend {
-        mix-blend-mode: screen;
+        /* In dark mode, we MUST avoid 'screen' if assets have white fringes.
+           Instead, we use a more neutral blend or just standard transparency 
+           if the assets are actually transparent. But to match the white-fringe 
+           user report, we apply a tiny inset clip-path to 'choke' the edges. */
+        mix-blend-mode: normal;
         filter: brightness(1.1) contrast(1.1);
+        clip-path: inset(1px); /* Hides the 1px white border reported by user */
     }
 
     .glass-header.scrolled {

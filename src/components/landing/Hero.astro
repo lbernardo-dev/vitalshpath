@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
-import { ShieldCheck, ChevronRight, Apple } from "lucide-react";
+import { ShieldCheck, ChevronRight } from "lucide-react";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
 import iphoneHome from "../../assets/images/devices/iphone_home.png";
@@ -18,22 +18,17 @@ const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 
-const titleWords = copy.home.heroTitle.split(" ");
-const lastWord = titleWords.pop();
-const mainTitle = titleWords.join(" ");
-
-// JourneyBot Heading Style
 const headingPart1 = "Take Charge Of Your Health.";
 const headingPart2 = "Focus On The Journey.";
 ---
 
-<section class="relative min-h-[100vh] flex flex-col items-center justify-start pt-40 md:pt-48 pb-0 overflow-hidden">
+<section class="relative min-h-screen flex flex-col items-center justify-start pt-32 md:pt-48 pb-20 overflow-hidden">
     <!-- Ambient Glows -->
     <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-teal-primary/10 blur-[140px] rounded-full animate-float -z-10"></div>
     <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-orange-accent/5 blur-[120px] rounded-full animate-float -z-10" style="animation-delay: -3s;"></div>
 
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
-        <!-- Badge — always visible, no reveal -->
+    <div class="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
+        <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel mb-8 border-white/40 shadow-sm hover:scale-105 transition-transform duration-300">
             <ShieldCheck className="w-5 h-5 text-teal-primary" />
             <span class="text-[11px] font-black uppercase tracking-[0.2em] text-teal-primary">
@@ -41,18 +36,18 @@ const headingPart2 = "Focus On The Journey.";
             </span>
         </div>
 
-        <!-- Headline — JourneyBot Style -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] mb-8 font-black tracking-[-0.04em] text-slate-text text-balance">
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.05] mb-8 font-black tracking-[-0.04em] text-slate-text dark:text-white text-balance">
             {headingPart1} <span class="text-teal-primary block">{headingPart2}</span>
         </h1>
 
-        <!-- Subtitle — always visible -->
+        <!-- Subtitle -->
         <p class="text-lg sm:text-xl text-slate-muted mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
             {copy.home.heroSubtitle}
         </p>
 
-        <!-- CTAs — Hero Buttons -->
-        <div class="flex flex-wrap gap-8 justify-center lg:justify-start mb-12 w-full reveal stagger-2">
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-6 justify-center mb-12 w-full reveal">
             <a
                 href={appStoreHref}
                 class="hover:scale-105 transition-all duration-300 active:scale-95 group/btn relative"
@@ -70,68 +65,68 @@ const headingPart2 = "Focus On The Journey.";
             </a>
         </div>
 
-        <!-- Medical Disclaimer — always visible -->
-        <p class="text-[11px] font-medium text-slate-muted/50 max-w-md mx-auto italic mb-16">
+        <!-- Medical Disclaimer -->
+        <p class="text-[11px] font-medium text-slate-muted/50 max-w-md mx-auto italic mb-20">
             {copy.common.medicalDisclaimer}
         </p>
 
-        <!-- Phone Mockup — Optimized without bulky borders -->
-        <div class="relative w-full max-w-[340px] md:max-w-[480px] mt-12 mb-20 reveal reveal-scale stagger-3">
-            <!-- Dynamic Aura -->
-            <div class="absolute inset-0 bg-gradient-to-t from-teal-primary/30 to-orange-accent/20 blur-[120px] -z-10 rounded-full opacity-50 scale-110"></div>
+        <!-- Phone Mockups Container -->
+        <div class="relative w-full max-w-[320px] md:max-w-[420px] mb-32 reveal reveal-scale">
+            <!-- Aura background -->
+            <div class="absolute inset-0 bg-gradient-to-t from-teal-primary/30 to-orange-accent/20 blur-[100px] -z-10 rounded-full opacity-50 scale-125"></div>
             
-            <div class="relative z-20 flex justify-center items-end h-[450px] md:h-[600px]">
-                <!-- Side Device 1 (Blurred) -->
-                <div class="absolute left-[-20%] sm:left-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float z-10" style="animation-delay: -3s;">
+            <div class="relative z-20 flex justify-center items-end">
+                <!-- Side Device 1 -->
+                <div class="absolute left-[-25%] sm:left-[-35%] bottom-0 w-[60%] opacity-40 blur-[2px] animate-float z-10" style="animation-delay: -3s;">
                     <Image
                         src={iphoneMeds}
-                        alt="VitalsPath Meds"
+                        alt="VitalsPath Meds View"
                         class="w-full h-auto select-none pointer-events-none mockup-clean-blend grayscale-[0.2]"
                     />
                 </div>
 
-                <!-- Side Device 2 (Blurred) -->
-                <div class="absolute right-[-20%] sm:right-[-30%] bottom-0 w-[60%] opacity-40 blur-[4px] animate-float z-10" style="animation-delay: -7s;">
+                <!-- Side Device 2 -->
+                <div class="absolute right-[-25%] sm:right-[-35%] bottom-0 w-[60%] opacity-40 blur-[2px] animate-float z-10" style="animation-delay: -7s;">
                     <Image
                         src={iphoneCalendar}
-                        alt="VitalsPath Calendar"
+                        alt="VitalsPath Calendar View"
                         class="w-full h-auto select-none pointer-events-none mockup-clean-blend grayscale-[0.2]"
                     />
                 </div>
 
-                <!-- Main Device (Sharp) -->
-                <div class="relative z-30 w-full hover:scale-[1.02] transition-transform duration-700 animate-float" style="animation-duration: 15s;">
-                    <!-- Inner Glow for the main device -->
+                <!-- Main Device -->
+                <div class="relative z-30 w-full hover:scale-[1.02] transition-transform duration-700 animate-float">
                     <div class="absolute -inset-10 bg-teal-primary/5 blur-[60px] rounded-full pointer-events-none"></div>
                     <Image
                         src={iphoneHome}
-                        alt="VitalsPath App Interface"
-                        class="w-full h-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.12)] select-none pointer-events-none mockup-clean-blend"
+                        alt="VitalsPath Main Interface"
+                        class="w-full h-auto drop-shadow-[0_40px_80px_rgba(0,0,0,0.15)] select-none pointer-events-none mockup-clean-blend"
                         loading="eager"
                     />
                 </div>
-            </div>
 
-                <!-- Floating interactive pills with improved glass style -->
-                <div class="hidden md:block absolute -top-8 -right-12 glass-panel py-4 px-6 shadow-2xl animate-float-slow border-white/60">
+                <!-- Floating interactive pills (Desktop only for precision) -->
+                <div class="hidden lg:block absolute -top-8 -right-16 glass-panel py-4 px-6 shadow-2xl animate-float-slow border-white/60">
                     <div class="flex flex-col items-start gap-1">
                         <span class="text-[9px] font-black text-teal-primary tracking-[0.2em] uppercase">Live Sync</span>
                         <span class="text-[12px] font-bold text-slate-text">Healthy Metrics</span>
                     </div>
                 </div>
                 
-                <div class="hidden md:block absolute top-[65%] -left-16 glass-panel py-4 px-6 shadow-2xl animate-float border-white/60" style="animation-delay: -5s">
+                <div class="hidden lg:block absolute top-[60%] -left-20 glass-panel py-4 px-6 shadow-2xl animate-float border-white/60" style="animation-delay: -5s">
                     <div class="flex flex-col items-start gap-1">
                         <span class="text-[9px] font-black text-orange-accent tracking-[0.2em] uppercase">Private</span>
                         <span class="text-[12px] font-bold text-slate-text">Secure Cloud</span>
                     </div>
                 </div>
             </div>
-            <div class="mt-24 sm:mt-32 max-w-sm reveal stagger-4">
-                <p class="text-[10px] text-slate-muted/60 uppercase tracking-widest font-black leading-relaxed">
-                    * VitalsPath is not a medical device. Always consult with a healthcare professional for clinical decisions.
-                </p>
-            </div>
+        </div>
+
+        <!-- Footer Medical Note -->
+        <div class="max-w-sm reveal">
+            <p class="text-[10px] text-slate-muted/60 uppercase tracking-widest font-black leading-relaxed">
+                * VitalsPath is not a medical device. Always consult with a healthcare professional for clinical decisions.
+            </p>
         </div>
     </div>
 </section>
