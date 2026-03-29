@@ -137,6 +137,28 @@
         @apply px-10 py-[18px] rounded-full border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold tracking-wide transition-all duration-500 hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-[1.03] active:scale-[0.97] backdrop-blur-md;
     }
 
+    /* Footer Specific Buttons - More Elegant */
+    .btn-footer-primary {
+        @apply relative inline-flex items-center justify-center px-8 py-4 rounded-2xl font-black text-[13px] uppercase tracking-widest transition-all duration-500 overflow-hidden;
+        background: var(--navy-deep);
+        color: var(--white);
+        box-shadow: 0 10px 30px -10px rgba(11, 17, 32, 0.3);
+    }
+
+    .btn-footer-primary:hover {
+        @apply scale-[1.03] -translate-y-1;
+        background: var(--teal-vibrant);
+        box-shadow: 0 20px 40px -10px rgba(20, 184, 166, 0.4);
+    }
+
+    .btn-footer-secondary {
+        @apply px-8 py-4 rounded-2xl border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold text-[13px] tracking-wide transition-all duration-500 backdrop-blur-md;
+    }
+
+    .btn-footer-secondary:hover {
+        @apply bg-white/40 dark:bg-white/5 scale-[1.03] -translate-y-1;
+    }
+
     .glass-header {
         @apply fixed inset-x-0 top-0 z-50 transition-all duration-700 py-6;
         background: transparent;

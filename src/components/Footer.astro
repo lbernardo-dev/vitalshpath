@@ -25,7 +25,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
 <footer class="border-t border-slate-200/40 bg-transparent dark:border-white/5 mt-32 reveal transition-colors duration-[1.2s] relative">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cream-light/30 dark:to-slate-950/50 -z-10 pointer-events-none"></div>
     <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-        <div class="grid gap-16 lg:grid-cols-[1.5fr,1fr,1fr]">
+        <div class="grid gap-12 sm:gap-16 lg:grid-cols-[2fr,1fr,1fr]">
             <div class="space-y-8">
                 <div class="flex items-center gap-5">
                     <Image
@@ -55,7 +55,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         data-app-store-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn-liquid-glass sm:w-auto"
+                        class="btn-footer-primary"
                     >
                         <span>{copy.home.primaryCta}</span>
                     </a>
@@ -64,15 +64,15 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                         data-app-store-review-link
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="btn-secondary sm:w-auto hover:bg-white/40 dark:hover:bg-white/10"
+                        class="btn-footer-secondary"
                     >
                         {appStoreLabels[lang].rate}
                     </a>
                 </div>
             </div>
 
-            <div class="space-y-8 lg:pl-8">
-                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300 dark:text-slate-600">
+            <div class="space-y-8">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">
                     SITEMAP
                 </h2>
                 <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
@@ -86,7 +86,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
             </div>
 
             <div class="space-y-8">
-                <h2 class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-300 dark:text-slate-600">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 dark:text-slate-500">
                     LEGAL & CONTACT
                 </h2>
                 <div class="flex flex-col gap-5 text-sm font-bold text-slate-600 dark:text-slate-400">
