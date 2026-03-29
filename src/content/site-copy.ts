@@ -32,6 +32,8 @@ type SiteCopy = {
         sections: [Section, Section, Section];
         featureListTitle: string;
         featureListItems: string[];
+        primaryFeatures: string[];
+        featureTags: string[][];
         footnote: string;
         ecosystemLabel: string;
         ecosystemTitle: string;
@@ -140,6 +142,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Photos and voice notes",
                 "Appointments and follow-up tasks",
                 "Widgets, Live Activities and Apple Watch",
+            ],
+            primaryFeatures: ["Master your medication", "Track symptoms & vitals"],
+            featureTags: [
+                ["MEDICATION", "Inventory", "Reminders"],
+                ["SYMPTOMS", "Vitals", "Timeline"]
             ],
             footnote:
                 "Some features may depend on your device, permissions, or plan. Premium availability is shown clearly inside the app where applicable.",
@@ -306,6 +313,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Citas y tareas de seguimiento",
                 "Widgets, Live Activities y Apple Watch",
             ],
+            primaryFeatures: ["Domina tu medicación", "Controla síntomas y vitales"],
+            featureTags: [
+                ["MEDICACIÓN", "Inventario", "Recordatorios"],
+                ["SÍNTOMAS", "Vitales", "Cronología"]
+            ],
             footnote: "Algunas funciones pueden depender de tu dispositivo, permisos o plan. La disponibilidad Premium se muestra claramente dentro de la aplicación donde corresponda.",
             ecosystemLabel: "Ecosistema",
             ecosystemTitle: "Experiencia integrada",
@@ -460,9 +472,14 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Stock et rappels de réapprovisionnement",
                 "Enregistrement des symptômes et de l'humeur",
                 "Constantes et mesures",
-                "Photos et notes vocales",
+                "Fotos et notes vocales",
                 "Rendez-vous et tâches de suivi",
                 "Widgets, Live Activities et Apple Watch",
+            ],
+            primaryFeatures: ["Maîtrisez vos médicaments", "Suivez symptômes et vitaux"],
+            featureTags: [
+                ["MÉDICAMENTS", "Inventaire", "Rappels"],
+                ["SYMPTÔMES", "Vitaux", "Timeline"]
             ],
             footnote:
                 "Certaines fonctions peuvent dépendre de votre appareil, des autorisations ou de votre forfait. La disponibilité Premium est clairement indiquée dans l'application le cas échéant.",
@@ -571,6 +588,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Termine und Follow-up-Aufgaben",
                 "Widgets, Live Activities und Apple Watch",
             ],
+            primaryFeatures: ["Medikation meistern", "Symptome & Vitalwerte"],
+            featureTags: [
+                ["MEDIKAMENTE", "Bestand", "Erinnerungen"],
+                ["SYMPTOME", "Vitalwerte", "Zeitlinie"]
+            ],
             footnote:
                 "Einige Funktionen können von Ihrem Gerät, Ihren Berechtigungen oder Ihrem Plan abhängen. Die Premium-Verfügbarkeit wird in der App deutlich angezeigt, wo dies zutrifft.",
             ecosystemLabel: "Ökosystem",
@@ -658,6 +680,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "Aree principali",
             featureListItems: ["Tracciamento di farmaci e dosi", "Dosi assunte, saltate e posticipate", "Scorte e promemoria di ricarica", "Registro di sintomi e umore", "Parametri e misurazioni", "Foto e note vocali", "Appuntamenti e attività di follow-up", "Widget, Live Activities e Apple Watch"],
+            primaryFeatures: ["Gestisci i tuoi farmaci", "Monitora sintomi e parametri"],
+            featureTags: [
+                ["FARMACI", "Scorte", "Promemoria"],
+                ["SINTOMI", "Parametri", "Timeline"]
+            ],
             footnote: "Alcune funzioni possono dipendere dal dispositivo, dai permessi o dal piano. La disponibilità di Premium è mostrata chiaramente nell'app quando applicabile.",
             ecosystemLabel: "Ecosistema",
             ecosystemTitle: "Esperienza integrata",
@@ -741,6 +768,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "Áreas principais",
             featureListItems: ["Seguimento de medicação e doses", "Doses tomadas, ignoradas e adiadas", "Stock e lembretes de reposição", "Registo de sintomas e humor", "Sinais vitais e medições", "Fotos e notas de voz", "Consultas e tarefas de acompanhamento", "Widgets, Live Activities e Apple Watch"],
+            primaryFeatures: ["Domine a sua medicação", "Sintomas e sinais vitais"],
+            featureTags: [
+                ["MEDICAÇÃO", "Stock", "Lembretes"],
+                ["SINTOMAS", "Sinais Vitais", "Timeline"]
+            ],
             footnote: "Algumas funcionalidades podem depender do seu dispositivo, permissões ou plano. A disponibilidade Premium é mostrada claramente dentro da app quando aplicável.",
             ecosystemLabel: "Ecossistema",
             ecosystemTitle: "Experiência integrada",
@@ -828,6 +860,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "主な機能領域",
             featureListItems: ["服薬と用量の追跡", "服用済み、スキップ、延期された用量", "在庫と補充リマインダー", "症状と気分の記録", "バイタルと測定値", "写真と音声メモ", "予定とフォローアップタスク", "ウィジェット、ライブアクティビティ、Apple Watch"],
+            primaryFeatures: ["服薬をマスターする", "症状とバイタルを追跡"],
+            featureTags: [
+                ["服薬", "在庫", "リマインダー"],
+                ["症状", "バイタル", "タイムライン"]
+            ],
             footnote: "一部の機能は、デバイス、権限、またはプランによって異なる場合があります。プレミアム機能の利用可能性は、該当する場合、アプリ内で明確に表示されます。",
             ecosystemLabel: "エコシステム",
             ecosystemTitle: "統合された体験",
@@ -914,6 +951,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "核心领域",
             featureListItems: ["药物与剂量记录", "已服用、已跳过和已延期的剂量", "库存与补货提醒", "症状与情绪记录", "生命体征与测量", "照片与语音备注", "预约与跟进任务", "小组件、Live Activities 与 Apple Watch"],
+            primaryFeatures: ["掌控您的药物", "追踪症状与指标"],
+            featureTags: [
+                ["药物", "库存", "提醒"],
+                ["症状", "指标", "时间线"]
+            ],
             footnote: "某些功能可能取决于你的设备、权限或订阅方案。涉及 Premium 时，应用内会清楚显示可用情况。",
             ecosystemLabel: "生态系统",
             ecosystemTitle: "深度集成的健身体验",
@@ -1000,6 +1042,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "핵심 영역",
             featureListItems: ["약물 및 복용량 추적", "복용함, 건너뜀, 연기된 복용량", "재고 및 리필 알림", "증상 및 기분 기록", "활력징후 및 측정값", "사진 및 음성 메모", "일정 및 후속 작업", "위젯, Live Activities, Apple Watch"],
+            primaryFeatures: ["복약 마스터하기", "증상 및 활력징후 추적"],
+            featureTags: [
+                ["복약", "재고", "알림"],
+                ["증상", "활력징후", "타임라인"]
+            ],
             footnote: "일부 기능은 기기, 권한 또는 요금제에 따라 달라질 수 있습니다. Premium 제공 여부는 해당 시 앱 안에서 명확하게 표시됩니다.",
             ecosystemLabel: "생태계",
             ecosystemTitle: "통합된 건강 경험",
@@ -1086,6 +1133,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "Основные области",
             featureListItems: ["Учет лекарств и доз", "Принятые, пропущенные и отложенные дозы", "Запас и напоминания о пополнении", "Запись симптомов и настроения", "Показатели и измерения", "Фото и голосовые заметки", "Визиты и задачи наблюдения", "Виджеты, Live Activities и Apple Watch"],
+            primaryFeatures: ["Контроль лекарств", "Симптомы и показатели"],
+            featureTags: [
+                ["ЛЕКАРСТВА", "Запас", "Напоминания"],
+                ["СИМПТОМЫ", "Показатели", "Хронология"]
+            ],
             footnote: "Некоторые функции могут зависеть от устройства, разрешений или плана. Доступность Premium при необходимости ясно показывается внутри приложения.",
             ecosystemLabel: "Экосистема",
             ecosystemTitle: "Интегрированный опыт",
@@ -1172,6 +1224,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "المجالات الأساسية",
             featureListItems: ["تتبع الأدوية والجرعات", "الجرعات المأخوذة والمتجاوزة والمؤجلة", "المخزون وتذكيرات إعادة التعبئة", "تسجيل الأعراض والمزاج", "المؤشرات الحيوية والقياسات", "الصور والملاحظات الصوتية", "المواعيد ومهام المتابعة", "الأدوات وLive Activities وApple Watch"],
+            primaryFeatures: ["أتقن أدويتك", "تتبع الأعراض والمؤشرات"],
+            featureTags: [
+                ["دواء", "مخزون", "تذكير"],
+                ["أعراض", "مؤشرات", "جدول"]
+            ],
             footnote: "قد تعتمد بعض الميزات على جهازك أو الأذونات أو الخطة. يتم توضيح توفر Premium داخل التطبيق بوضوح عند الحاجة.",
             ecosystemLabel: "النظام المتكامل",
             ecosystemTitle: "تجربة متكاملة",
@@ -1258,6 +1315,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "मुख्य क्षेत्र",
             featureListItems: ["दवा और डोज़ ट्रैकिंग", "ली गई, छोड़ी गई और टाली गई डोज़", "स्टॉक और रीफिल रिमाइंडर्स", "लक्षण और मूड लॉगिंग", "वाइटल्स और माप", "फोटो और वॉइस नोट्स", "अपॉइंटमेंट्स और फॉलो-अप टास्क", "विजेट्स, Live Activities और Apple Watch"],
+            primaryFeatures: ["दवाओं पर नियंत्रण", "लक्षण और वाइटल्स"],
+            featureTags: [
+                ["दवा", "इन्वेंट्री", "रिमाइंडर"],
+                ["लक्षण", "वाइटल्स", "टाइमलाइन"]
+            ],
             footnote: "कुछ फीचर्स आपके डिवाइस, परमिशन्स या प्लान पर निर्भर हो सकते हैं। जहाँ लागू हो, Premium की उपलब्धता ऐप के अंदर स्पष्ट रूप से दिखाई जाती है।",
             ecosystemLabel: "इकोसिस्टम",
             ecosystemTitle: "एकीकृत अनुभव",
@@ -1344,6 +1406,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ],
             featureListTitle: "Temel alanlar",
             featureListItems: ["İlaç ve doz takibi", "Alınan, atlanan ve ertelenen dozlar", "Stok ve yeniden doldurma hatırlatmaları", "Semptom ve ruh hali kaydı", "Vital ölçümler ve diğer ölçümler", "Fotoğraflar ve sesli notlar", "Randevular ve takip görevleri", "Widget'lar, Live Activities ve Apple Watch"],
+            primaryFeatures: ["İlaçlarınıza hakim olun", "Semptom ve vitalleri takip edin"],
+            featureTags: [
+                ["İLAÇ", "Stok", "Hatırlatıcı"],
+                ["SEMPTOM", "Vital", "Zaman Çizelgesi"]
+            ],
             footnote: "Bazı özellikler cihazınıza, izinlere veya planınıza bağlı olabilir. Premium uygunluğu gerektiğinde uygulama içinde açıkça gösterilir.",
             ecosystemLabel: "Ekosistem",
             ecosystemTitle: "Entegre deneyim",
@@ -1449,6 +1516,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Foto's en spraaknotities",
                 "Afspraken en vervolgtaken",
                 "Widgets, Live Activities en Apple Watch",
+            ],
+            primaryFeatures: ["Beheers je medicatie", "Track symptomen & vitale functies"],
+            featureTags: [
+                ["MEDICATIE", "Voorraad", "Herinneringen"],
+                ["SYMPTOMEN", "Vitalen", "Tijdlijn"]
             ],
             footnote:
                 "Sommige functies kunnen afhankelijk zijn van uw apparaat, machtigingen of abonnement. Premium-beschikbaarheid wordt duidelijk in de app weergegeven waar van toepassing.",
@@ -1556,6 +1628,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Zdjęcia i notatki głosowe",
                 "Wizyty i zadania kontrolne",
                 "Widżety, Live Activities i Apple Watch",
+            ],
+            primaryFeatures: ["Opanuj swoje leki", "Śledź objawy i parametry"],
+            featureTags: [
+                ["LEKI", "Zapasy", "Przypomnienia"],
+                ["OBJAWY", "Parametry", "Oś czasu"]
             ],
             footnote:
                 "Niektóre funkcje mogą zależeć od urządzenia, uprawnień lub planu. Dostępność Premium jest wyraźnie pokazana w aplikacji tam, gdzie ma to zastosowanie.",
