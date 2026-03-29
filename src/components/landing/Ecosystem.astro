@@ -74,24 +74,20 @@ const items = ecosystemItems[lang as string] || ecosystemItems.en;
                 <div class="relative flex justify-center items-center">
                     <!-- Overlapping Watches -->
                     <div class="relative z-10 animate-float" style="animation-delay: -1s">
-                        <div class="rounded-[40px] p-3 bg-white/30 dark:bg-black/30 backdrop-blur-3xl border border-white/60 dark:border-white/10 shadow-premium">
-                             <Image 
-                                src={watchVitals} 
-                                alt="VitalsPath Apple Watch" 
-                                class="w-full max-w-[260px] sm:max-w-[300px] h-auto rounded-[32px]" 
-                            />
-                        </div>
+                         <Image 
+                            src={watchVitals} 
+                            alt="VitalsPath Apple Watch" 
+                            class="w-full max-w-[260px] sm:max-w-[300px] h-auto drop-shadow-premium contrast-[1.05]" 
+                        />
                     </div>
                     
                     <!-- Secondary Watch in background -->
                     <div class="absolute -right-8 sm:-right-16 -top-12 z-0 animate-float opacity-60 scale-90" style="animation-delay: -4s">
-                         <div class="rounded-[40px] p-3 bg-white/20 dark:bg-black/20 backdrop-blur-3xl border border-white/40 dark:border-white/10 shadow-premium">
-                             <Image 
-                                src={watchHome} 
-                                alt="VitalsPath Watch Home" 
-                                class="w-full max-w-[200px] sm:max-w-[240px] h-auto rounded-[32px] grayscale-[0.2]" 
-                            />
-                         </div>
+                         <Image 
+                            src={watchHome} 
+                            alt="VitalsPath Watch Home" 
+                            class="w-full max-w-[200px] sm:max-w-[240px] h-auto drop-shadow-premium opacity-80" 
+                        />
                     </div>
                 </div>
             </div>

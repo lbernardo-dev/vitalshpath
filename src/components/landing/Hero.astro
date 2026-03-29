@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
-import { ShieldCheck, ChevronRight } from "lucide-react";
+import { ShieldCheck, ChevronRight, Apple } from "lucide-react";
+import AppStoreBadge from "../common/AppStoreBadge.astro";
 
 import iphoneHome from "../../assets/images/devices/iphone_home.png";
 
@@ -44,19 +45,19 @@ const mainTitle = titleWords.join(" ");
             {copy.home.heroSubtitle}
         </p>
 
-        <!-- CTAs — always visible -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 w-full">
+        <!-- CTAs — Hero Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 w-full reveal stagger-2">
             <a
                 href={appStoreHref}
-                data-app-store-link
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-liquid-glass w-full sm:w-auto text-slate-text dark:text-white"
+                class="hover:scale-105 transition-all duration-500 active:scale-95 shadow-2xl shadow-teal-primary/20 rounded-2xl overflow-hidden"
+                aria-label="Download on the App Store"
             >
-                <div class="flex items-center gap-3">
-                    {copy.home.primaryCta}
-                    <ChevronRight className="w-5 h-5" />
-                </div>
+                <AppStoreBadge className="h-[52px] md:h-[60px]" />
+            </a>
+            
+            <a href="#features" class="group flex items-center gap-2 text-slate-text dark:text-white font-bold text-sm tracking-tight px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-xl transition-all duration-300">
+                {copy.home.secondaryCta || "See Features"}
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
         </div>
 
@@ -65,32 +66,45 @@ const mainTitle = titleWords.join(" ");
             {copy.common.medicalDisclaimer}
         </p>
 
-        <!-- Phone Mockup — always visible -->
-        <div class="relative w-full max-w-[320px] md:max-w-[420px] mt-8">
-            <!-- Glow behind phone -->
-            <div class="absolute left-1/2 -translate-x-1/2 top-10 w-[120%] h-[80%] bg-teal-primary/20 blur-[100px] -z-10 rounded-[4rem]"></div>
+        <!-- Phone Mockup — Optimized without bulky borders -->
+        <div class="relative w-full max-w-[340px] md:max-w-[480px] mt-12 mb-20 reveal reveal-scale stagger-3">
+            <!-- Dynamic Aura -->
+            <div class="absolute inset-0 bg-gradient-to-t from-teal-primary/30 to-orange-accent/20 blur-[120px] -z-10 rounded-full opacity-50 scale-110"></div>
             
-            <div class="relative z-20 animate-float" style="animation-duration: 12s;">
-                <div class="rounded-[3.2rem] p-3 sm:p-4 bg-white/40 dark:bg-white/5 backdrop-blur-[50px] border border-white/80 dark:border-white/10 shadow-premium">
+            <div class="relative z-20 animate-float" style="animation-duration: 15s;">
+                <!-- Removing the padded background container to solve transparency border issue -->
+                <div class="relative group">
+                    <!-- Subtle outer glow for the device itself -->
+                    <div class="absolute inset-4 bg-white/50 blur-2xl -z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-700"></div>
+                    
                     <Image
                         src={iphoneHome}
                         alt="VitalsPath App Interface"
-                        class="rounded-[2.5rem] shadow-sm w-full h-auto"
+                        class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.12)] select-none pointer-events-none mix-multiply dark:mix-screen contrast-[1.02]"
                         loading="eager"
                     />
                 </div>
 
-                <!-- Floating pills -->
-                <div class="hidden sm:block absolute -top-4 -right-8 glass-panel py-3 px-5 shadow-xl animate-float" style="animation-delay: -2s">
-                    <span class="text-[10px] font-black text-teal-primary tracking-widest uppercase">Live Sync</span>
+                <!-- Floating interactive pills with improved glass style -->
+                <div class="hidden md:block absolute -top-8 -right-12 glass-panel py-4 px-6 shadow-2xl animate-float-slow border-white/60">
+                    <div class="flex flex-col items-start gap-1">
+                        <span class="text-[9px] font-black text-teal-primary tracking-[0.2em] uppercase">Live Sync</span>
+                        <span class="text-[12px] font-bold text-slate-text">Healthy Metrics</span>
+                    </div>
                 </div>
-                <div class="hidden sm:block absolute top-[60%] -left-12 glass-panel py-3 px-5 shadow-xl animate-float" style="animation-delay: -4s">
-                    <span class="text-[10px] font-black text-orange-accent tracking-widest uppercase">Privacy First</span>
+                
+                <div class="hidden md:block absolute top-[65%] -left-16 glass-panel py-4 px-6 shadow-2xl animate-float border-white/60" style="animation-delay: -5s">
+                    <div class="flex flex-col items-start gap-1">
+                        <span class="text-[9px] font-black text-orange-accent tracking-[0.2em] uppercase">Private</span>
+                        <span class="text-[12px] font-bold text-slate-text">Secure Cloud</span>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Fade gradient into next section -->
-            <div class="absolute bottom-[-80px] left-0 right-0 h-48 bg-gradient-to-t from-cream-light dark:from-black to-transparent z-30 pointer-events-none"></div>
+            <div class="mt-24 sm:mt-32 max-w-sm reveal stagger-4">
+                <p class="text-[10px] text-slate-muted/60 uppercase tracking-widest font-black leading-relaxed">
+                    * VitalsPath is not a medical device. Always consult with a healthcare professional for clinical decisions.
+                </p>
+            </div>
         </div>
     </div>
 </section>

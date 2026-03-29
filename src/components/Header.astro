@@ -1,15 +1,16 @@
 ---
 import { Image } from "astro:assets";
-import { Menu } from "lucide-react";
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSelector from "./LanguageSelector.astro";
 import appIcon from "../assets/images/AppIcon_v2.png";
 import { type Lang } from "../i18n/ui-locales";
 import { getSiteCopy } from "../content/site-copy";
-import {
-    getDefaultAppStoreLinks,
-    getAppStoreUrlForLang,
+import { 
+    getAppStoreUrlForLang, 
+    getDefaultAppStoreLinks 
 } from "../lib/app-store-links";
+import AppStoreBadge from "./common/AppStoreBadge.astro";
+import { Menu, X, Globe, ChevronRight } from "lucide-react";
 
 interface Props {
     lang: Lang;
@@ -54,92 +55,78 @@ const navItems = [
                 </span>
             </a>
 
-            <!-- Desktop Nav -->
-            <div class="hidden lg:flex items-center">
-                <div class="flex items-center gap-6">
-                    {
-                        navItems.map((item) => (
-                            <a
-                                href={item.href}
-                                class="text-[12px] font-bold uppercase tracking-wider text-slate-text/70 transition-all hover:text-teal-primary dark:hover:text-teal-400 whitespace-nowrap"
-                            >
-                                {item.label}
-                            </a>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <!-- Actions Section -->
-            <div class="flex items-center gap-3">
-                <div class="hidden sm:flex items-center gap-2">
-                    <LanguageSelector lang={lang} />
-                    <ThemeToggle />
+            <!-- Desktop Nav Section -->
+            <nav class="hidden md:flex items-center gap-2 p-1.5 rounded-2xl glass-panel-dark border-white/20">
+                <div class="flex items-center px-2">
+                    {navItems.map((item) => (
+                        <a
+                            href={item.href}
+                            class="px-4 py-2 text-[12px] font-bold text-slate-text/70 dark:text-white/70 hover:text-slate-text dark:hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                 </div>
                 
                 <a
                     href={appStoreHref}
-                    data-app-store-link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hidden sm:flex items-center justify-center rounded-full bg-slate-text dark:bg-white px-6 py-3 text-[11px] font-black uppercase tracking-widest text-white dark:text-black transition-all hover:scale-[1.05] active:scale-[0.98]"
+                    class="hover:scale-105 transition-all duration-300 active:scale-95 rounded-xl overflow-hidden shadow-lg shadow-teal-primary/5"
+                    aria-label="Download on the App Store"
                 >
-                    {copy.home.primaryCta}
+                    <AppStoreBadge className="h-[36px]" />
                 </a>
+            </nav>
 
-                <button
-                    id="mobile-menu-button"
-                    type="button"
-                    class="lg:hidden flex items-center justify-center p-2 text-slate-text"
-                    aria-label="Toggle navigation"
-                >
-                    <Menu className="h-5 w-5" />
-                </button>
+        <div
+            id="mobile-menu"
+            class="fixed inset-0 z-[200] translate-x-full transition-transform duration-500 ease-premium bg-cream-light dark:bg-slate-bg md:hidden overflow-hidden"
+        >
+            <div class="flex flex-col h-full relative p-8">
+                <!-- Close Button inside overlay -->
+                <div class="flex justify-end p-2">
+                    <button
+                        id="close-menu-button"
+                        class="p-4 rounded-2xl bg-slate-text/5 text-slate-text dark:text-white active:scale-90 transition-transform"
+                        aria-label="Close menu"
+                    >
+                        <X className="h-8 w-8" />
+                    </button>
+                </div>
+
+                <nav class="flex flex-col gap-6 flex-1 justify-center items-center text-center">
+                    {navItems.map((item, index) => (
+                        <a
+                            href={item.href}
+                            class="text-3xl font-black text-slate-text dark:text-white hover:text-teal-primary transition-all tracking-tighter uppercase active:scale-95"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
+                    
+                    <div class="mt-8 flex flex-col items-center">
+                        <a
+                            href={appStoreHref}
+                            class="hover:scale-105 transition-all duration-300 active:scale-95 shadow-2xl shadow-teal-primary/10 rounded-2xl overflow-hidden"
+                            aria-label="Download on the App Store"
+                        >
+                            <AppStoreBadge className="h-[60px]" />
+                        </a>
+                    </div>
+                </nav>
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div
-            id="mobile-menu"
-            class="hidden fixed inset-0 z-[100] bg-white/60 dark:bg-black/80 backdrop-blur-3xl lg:hidden animate-in fade-in duration-300"
-        >
-            <div class="flex flex-col h-full p-8 pt-24 space-y-8">
-                <button 
-                    id="mobile-menu-close"
-                    class="absolute top-8 right-8 p-3 rounded-full bg-slate-text/5 text-slate-text"
+            <!-- Mobile Menu Toggle -->
+            <div class="flex items-center gap-3 md:hidden">
+                <ThemeToggle />
+                <button
+                    id="mobile-menu-button"
+                    type="button"
+                    class="flex items-center justify-center p-2.5 rounded-xl bg-slate-text/5 text-slate-text dark:text-white"
+                    aria-label="Toggle navigation"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    <Menu className="h-6 w-6" />
                 </button>
-
-                <div class="flex flex-col gap-8">
-                    {
-                        navItems.map((item) => (
-                            <a
-                                href={item.href}
-                                class="text-3xl font-black uppercase tracking-tighter text-slate-text hover:text-teal-primary transition-colors"
-                            >
-                                {item.label}
-                            </a>
-                        ))
-                    }
-                </div>
-                
-                <div class="mt-auto space-y-8">
-                    <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-text/5">
-                        <LanguageSelector lang={lang} />
-                        <ThemeToggle />
-                    </div>
-
-                    <a
-                        href={appStoreHref}
-                        data-app-store-link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-primary w-full flex justify-center py-5 text-sm"
-                    >
-                        {copy.home.primaryCta}
-                    </a>
-                </div>
             </div>
         </div>
     </nav>
@@ -147,42 +134,33 @@ const navItems = [
 
 <script>
     function setupMobileMenu() {
-        const button = document.getElementById("mobile-menu-button");
-        const closeButton = document.getElementById("mobile-menu-close");
-        const menu = document.getElementById("mobile-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const closeMenuButton = document.getElementById("close-menu-button");
+        
+        if (!mobileMenu || !mobileMenuButton || !closeMenuButton) return;
 
-        if (!button || !menu) return;
+        const mobileLinks = mobileMenu.querySelectorAll("a");
 
-        const toggleMenu = () => {
-            const isHidden = menu.classList.contains("hidden");
-            if (isHidden) {
-                menu.classList.remove("hidden");
-                document.body.style.overflow = "hidden"; // Prevent background scroll
-                button.setAttribute("aria-expanded", "true");
+        function toggleMenu() {
+            const isClosed = mobileMenu.classList.contains("translate-x-full");
+            if (isClosed) {
+                mobileMenu.classList.remove("translate-x-full");
+                document.body.style.overflow = "hidden";
             } else {
-                menu.classList.add("hidden");
-                document.body.style.overflow = ""; // Re-enable background scroll
-                button.setAttribute("aria-expanded", "false");
-            }
-        };
-
-        button.onclick = toggleMenu;
-        if (closeButton) closeButton.onclick = toggleMenu;
-
-        // Close on escape
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
-                toggleMenu();
-            }
-        });
-
-        // Close on link click
-        const links = menu.querySelectorAll('a');
-        links.forEach(link => {
-            link.onclick = () => {
-                menu.classList.add('hidden');
+                mobileMenu.classList.add("translate-x-full");
                 document.body.style.overflow = "";
-            };
+            }
+        }
+
+        mobileMenuButton.addEventListener("click", toggleMenu);
+        closeMenuButton.addEventListener("click", toggleMenu);
+
+        mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("translate-x-full");
+                document.body.style.overflow = "";
+            });
         });
     }
 
