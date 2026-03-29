@@ -5,8 +5,9 @@ import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
-import screenHome from "../../assets/images/screens/screen-01-dashboard.PNG";
-import screenMeds from "../../assets/images/screens/screen-04-medications.PNG";
+import screenHome from "../../assets/images/devices/iphone_home.png";
+import screenMeds from "../../assets/images/devices/iphone_meds.png";
+import watchImage from "../../assets/images/devices/watch_home.png";
 
 interface Props {
     lang: Lang;
@@ -43,10 +44,10 @@ if (periodIndex !== -1) {
                 </span>
             </div>
             
-            <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.95] mb-8 font-black tracking-tighter text-balance text-slate-900 dark:text-white">
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-8 font-black tracking-tighter text-balance text-slate-900 dark:text-white">
                 {headingPart1}
                 {headingPart2 && (
-                    <span class="text-gradient block mt-2 text-5xl sm:text-6xl md:text-7xl lg:text-[6.5rem] opacity-90">{headingPart2}</span>
+                    <span class="text-gradient block mt-3 text-4xl sm:text-5xl md:text-6xl lg:text-6xl opacity-90">{headingPart2}</span>
                 )}
             </h1>
 
@@ -76,31 +77,33 @@ if (periodIndex !== -1) {
             
             <div class="relative flex justify-center items-center w-full aspect-[4/3] sm:aspect-[2/1] md:aspect-[21/9] lg:aspect-[2.5/1]">
                 <!-- Secondary Phone (Left / Back) -->
-                <div class="absolute left-[8%] md:left-[15%] lg:left-[22%] w-[45%] md:w-[32%] lg:w-[28%] z-0 transform -rotate-12 translate-y-8 sm:translate-y-12 translate-z-[-100px] opacity-70 transition-all duration-1000 ease-out hover:-rotate-6 hover:translate-y-4 hover:translate-z-[-50px] hover:opacity-100">
-                    <!-- CSS Device Frame -->
-                    <div class="relative w-full aspect-[1170/2532] rounded-[2.5rem] border-[8px] sm:border-[10px] border-slate-900 bg-slate-900 shadow-2xl overflow-hidden ring-1 ring-white/20">
-                        <div class="absolute top-2 left-1/2 -translate-x-1/2 w-[35%] h-5 sm:h-6 bg-black rounded-full z-20"></div>
-                        <Image
-                            src={screenMeds}
-                            alt="VitalsPath Medications Tracking"
-                            class="w-full h-full object-cover rounded-[1.75rem]"
-                            loading="lazy"
-                        />
-                    </div>
+                <div class="absolute left-[5%] md:left-[12%] lg:left-[18%] w-[45%] md:w-[35%] lg:w-[30%] z-0 transform -rotate-12 translate-y-8 sm:translate-y-12 translate-z-[-100px] opacity-70 transition-all duration-1000 ease-out hover:-rotate-6 hover:translate-y-4 hover:translate-z-[-50px] hover:opacity-100 drop-shadow-2xl">
+                    <Image
+                        src={screenMeds}
+                        alt="VitalsPath Medications Tracking"
+                        class="w-full h-auto object-contain"
+                        loading="lazy"
+                    />
                 </div>
 
                 <!-- Main Phone (Center / Front) -->
-                <div class="relative z-10 w-[55%] md:w-[40%] lg:w-[35%] transform transition-all duration-1000 ease-out hover:scale-[1.02] hover:-translate-y-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] rounded-[3rem]">
-                    <!-- CSS Device Frame -->
-                    <div class="relative w-full aspect-[1170/2532] rounded-[3rem] border-[10px] sm:border-[14px] border-black bg-black shadow-2xl overflow-hidden ring-1 ring-white/10 dark:ring-white/20">
-                        <div class="absolute top-2 sm:top-3 left-1/2 -translate-x-1/2 w-[30%] h-6 sm:h-7 bg-black rounded-full z-20"></div>
-                        <Image
-                            src={screenHome}
-                            alt="VitalsPath Main Interface"
-                            class="w-full h-full object-cover rounded-[2rem] sm:rounded-[2.25rem]"
-                            loading="eager"
-                        />
-                    </div>
+                <div class="relative z-10 w-[55%] md:w-[45%] lg:w-[40%] transform transition-all duration-1000 ease-out hover:scale-[1.02] hover:-translate-y-4 drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+                    <Image
+                        src={screenHome}
+                        alt="VitalsPath Main Interface"
+                        class="w-full h-auto object-contain"
+                        loading="eager"
+                    />
+                </div>
+
+                <!-- Apple Watch (Right / Front-ish) -->
+                <div class="absolute right-[2%] md:right-[10%] lg:right-[12%] top-[30%] sm:top-[40%] w-[35%] md:w-[28%] lg:w-[22%] z-20 transform rotate-12 translate-y-8 sm:translate-y-12 translate-z-[50px] transition-all duration-1000 ease-out hover:rotate-6 hover:-translate-y-4 hover:translate-z-[100px] hover:scale-110 drop-shadow-2xl">
+                    <Image
+                        src={watchImage}
+                        alt="VitalsPath Apple Watch App"
+                        class="w-full h-auto object-contain"
+                        loading="lazy"
+                    />
                 </div>
             </div>
         </div>

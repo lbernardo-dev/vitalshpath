@@ -46,6 +46,12 @@ type SiteCopy = {
         ctaPremiumDetail: string;
         ctaCommunityTitle: string;
         ctaCommunityDetail: string;
+        bentoCards: {
+            badge: string;
+            title: string;
+            body: string;
+            tags: string[];
+        }[];
     };
     privacy: {
         title: string;
@@ -165,6 +171,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Designed for chronic patients and caregivers.",
             ctaCommunityTitle: "COMMUNITY",
             ctaCommunityDetail: "active users trusting us",
+            bentoCards: [
+                {
+                    badge: "MEDICATION",
+                    title: "Master your medication",
+                    body: "Plan treatments, mark doses as taken or skipped, review your stock, and get refill reminders to stay prepared.",
+                    tags: ["Inventory", "Reminders", "Schedules"]
+                },
+                {
+                    badge: "SYMPTOMS",
+                    title: "Track what matters",
+                    body: "Log symptoms, mood, and vital signs in one place. Add photos and voice notes for extra context.",
+                    tags: ["Vitals", "Timeline", "Mood"]
+                },
+                {
+                    badge: "APPOINTMENTS",
+                    title: "Never miss a visit",
+                    body: "Keep doctors' appointments, follow-ups, and condition tracking organized in the same view.",
+                    tags: ["Calendar", "Conditions", "Tasks"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Action on the go",
+                    body: "Use Apple Watch for quick logging, Live Activities for active doses, and widgets for instant updates.",
+                    tags: ["Live Activities", "Widgets", "Fast"]
+                }
+            ]
         },
         privacy: {
             title: "Privacy Policy",
@@ -334,6 +366,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Diseñado para pacientes crónicos y cuidadores.",
             ctaCommunityTitle: "COMUNIDAD",
             ctaCommunityDetail: "usuarios activos confiando en nosotros",
+            bentoCards: [
+                {
+                    badge: "MEDICACIÓN",
+                    title: "Domina tus tratamientos",
+                    body: "Planifica dosis, regístralas como tomadas o pospuestas, revisa stock y recibe avisos de reposición.",
+                    tags: ["Inventario", "Recordatorios", "Horarios"]
+                },
+                {
+                    badge: "SÍNTOMAS",
+                    title: "Registra lo importante",
+                    body: "Anota síntomas, estado de ánimo y constantes vitales en un solo lugar con fotos y notas de voz.",
+                    tags: ["Vitales", "Cronología", "Ánimo"]
+                },
+                {
+                    badge: "CITAS",
+                    title: "Organiza tus visitas",
+                    body: "Mantén bajo control tus citas médicas, tareas de seguimiento y el historial de tus condiciones.",
+                    tags: ["Calendario", "Condiciones", "Tareas"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Rapidez en tu muñeca",
+                    body: "Usa el Apple Watch para registros rápidos, Live Activities para tomas activas y widgets útiles.",
+                    tags: ["Live Activities", "Widgets", "Rápido"]
+                }
+            ]
         },
         privacy: {
             title: "Política de Privacidad",
@@ -498,6 +556,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Conçu pour les patients chroniques et les aidants.",
             ctaCommunityTitle: "COMMUNAUTÉ",
             ctaCommunityDetail: "utilisateurs actifs nous font confiance",
+            bentoCards: [
+                {
+                    badge: "MÉDICAMENT",
+                    title: "Maîtrisez vos traitements",
+                    body: "Planifiez les doses, marquez-les comme prises, gérez votre stock et recevez des rappels de renouvellement.",
+                    tags: ["Inventaire", "Rappels", "Horaires"]
+                },
+                {
+                    badge: "SYMPTÔMES",
+                    title: "Suivez l'important",
+                    body: "Journalisez symptômes, humeur et constantes. Ajoutez des photos et mémos vocaux pour plus de contexte.",
+                    tags: ["Constantes", "Chronologie", "Humeur"]
+                },
+                {
+                    badge: "RENDEZ-VOUS",
+                    title: "Ne manquez aucune visite",
+                    body: "Gardez vos rendez-vous médicaux, suivis et antécédents organisés dans une seule vue.",
+                    tags: ["Calendrier", "Conditions", "Tâches"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Agissez en mobilité",
+                    body: "Utilisez l'Apple Watch pour un suivi rapide, les Live Activities pour les doses et les widgets intelligents.",
+                    tags: ["Live Activities", "Widgets", "Rapide"]
+                }
+            ]
         },
         privacy: {
             title: "Politique de confidentialité",
@@ -610,6 +694,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Entwickelt für chronische Patienten und Betreuer.",
             ctaCommunityTitle: "COMMUNITY",
             ctaCommunityDetail: "aktive Nutzer vertrauen uns",
+            bentoCards: [
+                {
+                    badge: "MEDIKAMENTE",
+                    title: "Beherrschen Sie Ihre Medikation",
+                    body: "Planen Sie Behandlungen, verwalten Sie den Bestand und erhalten Sie Erinnerungen zum Nachfüllen.",
+                    tags: ["Bestand", "Erinnerungen", "Zeitpläne"]
+                },
+                {
+                    badge: "SYMPTOME",
+                    title: "Dinge, die zählen",
+                    body: "Protokollieren Sie Symptome, Stimmung und Vitalwerte. Fügen Sie Fotos zur Erklärung hinzu.",
+                    tags: ["Vitalwerte", "Zeitlinie", "Stimmung"]
+                },
+                {
+                    badge: "TERMINE",
+                    title: "Keinen Arztbesuch verpassen",
+                    body: "Behalten Sie Arzttermine, Follow-ups und Zustände im selben Kalender im Blick.",
+                    tags: ["Kalender", "Zustände", "Aufgaben"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Gefühl der Kontrolle",
+                    body: "Nutzen Sie Apple Watch für schnelle Eingaben und Live Activities.",
+                    tags: ["Live Activities", "Widgets", "Schnell"]
+                }
+            ]
         },
         privacy: {
             title: "Datenschutzrichtlinie",
@@ -701,6 +811,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Progettato per pazienti cronici e caregiver.",
             ctaCommunityTitle: "COMMUNITY",
             ctaCommunityDetail: "utenti attivi si fidano di noi",
+            bentoCards: [
+                {
+                    badge: "FARMACI",
+                    title: "Gestisci i tuoi farmaci",
+                    body: "Pianifica i trattamenti, monitora le scorte e ricevi promemoria per le ricariche.",
+                    tags: ["Scorte", "Promemoria", "Orari"]
+                },
+                {
+                    badge: "SINTOMI",
+                    title: "Traccia l'importante",
+                    body: "Registra sintomi, umore e parametri vitali con foto e note vocali.",
+                    tags: ["Parametri", "Timeline", "Umore"]
+                },
+                {
+                    badge: "APPUNTAMENTI",
+                    title: "Non perdere una visita",
+                    body: "Tieni sempre sotto controllo le visite mediche e il monitoraggio delle condizioni.",
+                    tags: ["Calendario", "Condizioni", "Attività"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Azione rapida",
+                    body: "Usa l'Apple Watch per registrazioni rapide e Live Activities in tempo reale.",
+                    tags: ["Live Activities", "Widgets", "Veloce"]
+                }
+            ]
         },
         privacy: {
             title: "Informativa sulla privacy",
@@ -789,6 +925,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             ctaPremiumDetail: "Concebido para doentes crónicos e cuidadores.",
             ctaCommunityTitle: "COMUNIDADE",
             ctaCommunityDetail: "utilizadores ativos confiam em nós",
+            bentoCards: [
+                {
+                    badge: "MEDICAÇÃO",
+                    title: "Domine a sua medicação",
+                    body: "Planeie tratamentos, marque doses como tomadas, reveja o seu stock e receba lembretes.",
+                    tags: ["Stock", "Lembretes", "Horários"]
+                },
+                {
+                    badge: "SINTOMAS",
+                    title: "Registe o importante",
+                    body: "Acompanhe sintomas, humor e sinais vitais. Adicione fotos e notas de voz para maior contexto.",
+                    tags: ["Sinais Vitais", "Timeline", "Humor"]
+                },
+                {
+                    badge: "CONSULTAS",
+                    title: "Nunca perca uma visita",
+                    body: "Mantenha consultas médicas, tarefas de acompanhamento e o seu histórico bem organizado.",
+                    tags: ["Calendário", "Condições", "Tarefas"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Rapidez no pulso",
+                    body: "Use o Apple Watch para registos rápidos e Live Activities para manter as tomas ativas.",
+                    tags: ["Live Activities", "Widgets", "Rápido"]
+                }
+            ]
         },
 
         privacy: {
@@ -873,6 +1035,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "スマートウィジェット", description: "ホーム画面でバイタルと服薬を直接確認。" },
                 { title: "Apple Watch", description: "手首から素早く記録し、アラートを受信。" },
                 { title: "ライブアクティビティ", description: "アクティブな用量をリアルタイムで追跡。" }
+            ],
+            bentoCards: [
+                {
+                    badge: "服薬",
+                    title: "服薬をマスターする",
+                    body: "治療を計画し、用量をマークし、在庫を確認し、リマインダーを受け取ります。",
+                    tags: ["在庫", "リマインダー", "スケジュール"]
+                },
+                {
+                    badge: "症状",
+                    title: "重要なことを記録",
+                    body: "症状、気分、バイタルを記録します。詳細な状況のために写真や音声メモを追加します。",
+                    tags: ["バイタル", "タイムライン", "気分"]
+                },
+                {
+                    badge: "予定",
+                    title: "訪問を逃さない",
+                    body: "診察、フォローアップタスク、健康履歴を整理して保持します。",
+                    tags: ["カレンダー", "状態", "タスク"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "手首から素早く",
+                    body: "Apple Watchで素早く記録し、Live Activitiesでアクティブな用量を維持します。",
+                    tags: ["ライブアクティビティ", "ウィジェット", "迅速"]
+                }
             ],
             ctaBadge: "今日から始める",
             ctaTitle: "あなたの健康を、あなたの手でプライベートに",
@@ -965,6 +1153,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "快速记录并在腕间接收提醒。" },
                 { title: "实时活动", description: "实时追踪当前剂量进度。" }
             ],
+            bentoCards: [
+                {
+                    badge: "药物",
+                    title: "掌控您的药物",
+                    body: "规划治疗方案，标记用药情况，查看库存并获取提醒。",
+                    tags: ["库存", "提醒", "日程"]
+                },
+                {
+                    badge: "症状",
+                    title: "记录重要信息",
+                    body: "记录症状、情绪和生命体征。添加照片和语音备注以提供背景信息。",
+                    tags: ["指标", "时间线", "情绪"]
+                },
+                {
+                    badge: "预约",
+                    title: "不再错过就诊",
+                    body: "让就诊、跟进任务和您的健康记录井井有条。",
+                    tags: ["日历", "状况", "任务"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "腕间快捷操作",
+                    body: "使用 Apple Watch 快速记录，通过实时活动掌握用药进度。",
+                    tags: ["实时活动", "小组件", "快捷"]
+                }
+            ],
             ctaBadge: "立即开始",
             ctaTitle: "您的健康，尽在掌握且隐私安全",
             ctaPrivacyDetail: "端到端加密，确保绝对私密。",
@@ -1055,6 +1269,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "스마트 위젯", description: "홈 화면에서 지표와 약 정보를 직접 확인하세요." },
                 { title: "Apple Watch", description: "손목에서 빠른 기록과 알림을 받아보세요." },
                 { title: "실시간 활동", description: "현재 복용량 정보를 실시간으로 추적합니다." }
+            ],
+            bentoCards: [
+                {
+                    badge: "약물",
+                    title: "복약 마스터하기",
+                    body: "치료를 계획하고, 복용을 표시하고, 재고를 확인하고, 알림을 받으세요。",
+                    tags: ["재고", "알림", "일정"]
+                },
+                {
+                    badge: "증상",
+                    title: "중요한 것 기록하기",
+                    body: "증상, 기분, 활력징후를 기록하세요. 사진과 음성 메모를 추가하여 맥락을 파악하세요。",
+                    tags: ["활력징후", "타임라인", "기분"]
+                },
+                {
+                    badge: "일정",
+                    title: "진료를 놓치지 마세요",
+                    body: "병원 진료, 후속 작업, 건강 기록을 잘 정리하여 보관하세요。",
+                    tags: ["캘린더", "상태", "작업"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "손목에서 빠르게",
+                    body: "Apple Watch로 빠르게 기록하고, 실시간 활동으로 활성 복용량을 유지하세요。",
+                    tags: ["실시간 활동", "위젯", "빠름"]
+                }
             ],
             ctaBadge: "오늘 시작하세요",
             ctaTitle: "내 손안의 건강 정보, 그리고 철저한 프라이버시",
@@ -1147,6 +1387,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "быстрая запись и уведомления прямо на запястье." },
                 { title: "Live Activities", description: "отслеживание текущих доз в реальном времени." }
             ],
+            bentoCards: [
+                {
+                    badge: "ЛЕКАРСТВА",
+                    title: "Контроль лекарств",
+                    body: "Планируйте лечение, отмечайте дозы, проверяйте запасы и получайте напоминания.",
+                    tags: ["Запасы", "Напоминания", "Расписания"]
+                },
+                {
+                    badge: "СИМПТОМЫ",
+                    title: "Записывайте важное",
+                    body: "Записывайте симптомы, настроение и показатели. Добавляйте фото и голосовые заметки для контекста.",
+                    tags: ["Показатели", "Хронология", "Настроение"]
+                },
+                {
+                    badge: "ВИЗИТЫ",
+                    title: "Не пропускайте визиты",
+                    body: "Храните информацию о визитах к врачу, задачах наблюдения и вашей истории в порядке.",
+                    tags: ["Календарь", "Состояния", "Задачи"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Быстро на запястье",
+                    body: "Используйте Apple Watch для быстрых записей и Live Activities для контроля текущих доз.",
+                    tags: ["Live Activities", "Виджеты", "Быстро"]
+                }
+            ],
             ctaBadge: "НАЧАТЬ СЕГОДНЯ",
             ctaTitle: "Ваше здоровье в ваших руках и под защитой",
             ctaPrivacyDetail: "Абсолютная приватность со сквозным шифрованием.",
@@ -1237,6 +1503,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "أدوات ذكية", description: "المؤشرات والأدوية مباشرة على شاشتك الرئيسية." },
                 { title: "Apple Watch", description: "تسجيل سريع وتنبيهات مباشرة على معصمك." },
                 { title: "الأنشطة الحية", description: "تتبع الجرعات النشطة في الوقت الفعلي." }
+            ],
+            bentoCards: [
+                {
+                    badge: "الأدوية",
+                    title: "أتقن أدويتك",
+                    body: "خطط للعلاجات وسجل الجرعات وراجع المخزون واحصل على تذكيرات.",
+                    tags: ["مخزون", "تذكير", "جداول"]
+                },
+                {
+                    badge: "الأعراض",
+                    title: "تتبع ما يهم",
+                    body: "سجل الأعراض والمزاج والمؤشرات الحيوية. أضف الصور والملاحظات الصوتية لتوفير السياق.",
+                    tags: ["مؤشرات", "جدول", "مزاج"]
+                },
+                {
+                    badge: "المواعيد",
+                    title: "لا تفوت أي زيارة",
+                    body: "حافظ على تنظيم زيارات الطبيب ومهام المتابعة وسجلك الطبي.",
+                    tags: ["تقويم", "حالات", "مهام"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "سرعة على معصمك",
+                    body: "استخدم Apple Watch للتسجيل السريع والأنشطة الحية لمتابعة الجرعات النشطة.",
+                    tags: ["أنشطة حية", "أدوات", "سريع"]
+                }
             ],
             ctaBadge: "ابدأ اليوم",
             ctaTitle: "صحتك بين يديك وبخصوصية تامة",
@@ -1329,6 +1621,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "आपकी कलाई से तेज़ लॉगिंग और अलर्ट।" },
                 { title: "लाइव एक्टिविटीज़", description: "एक्टिव डोज़ की रियल-टाइम ट्रैकिंग।" }
             ],
+            bentoCards: [
+                {
+                    badge: "दवाएं",
+                    title: "अपनी दवाओं में महारत हासिल करें",
+                    body: "इलाज की योजना बनाएं, डोज़ लॉग करें, स्टॉक देखें और रिमाइंडर पाएं।",
+                    tags: ["स्टॉक", "रिमाइंडर", "शेड्यूल"]
+                },
+                {
+                    badge: "लक्षण",
+                    title: "जो महत्वपूर्ण है उसे ट्रैक करें",
+                    body: "लक्षणों, मूड और वाइटल्स को लॉग करें। अधिक संदर्भ के लिए तस्वीरें और ऑडियो जोड़ें।",
+                    tags: ["वाइटल्स", "शेड्यूल", "मूड"]
+                },
+                {
+                    badge: "अपॉइंटमेंट्स",
+                    title: "कोई भी जांच न छोड़ें",
+                    body: "अपनी डॉक्टर विजिट, फॉलो-अप टास्क और मेडिकल रिकॉर्ड को व्यवस्थित रखें।",
+                    tags: ["कैलेंडर", "कंडीशंस", "टास्क"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "आपकी कलाई पर गति",
+                    body: "तेज लॉगिंग के लिए Apple Watch का उपयोग करें और एक्टिव डोज़ के लिए Live Activities ट्रैक करें।",
+                    tags: ["Live Activities", "विजेट्स", "तेज़"]
+                }
+            ],
             ctaBadge: "आज ही शुरू करें",
             ctaTitle: "आपका स्वास्थ्य, आपके हाथों में और निजी",
             ctaPrivacyDetail: "एंड-टू-एंड एन्क्रिप्शन के साथ पूर्ण गोपनीयता।",
@@ -1419,6 +1737,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Akıllı Araç Takımları", description: "Veriler ve ilaçlar doğrudan ana ekranınızda." },
                 { title: "Apple Watch", description: "Bileğinizden hızlı kayıt ve uyarılar." },
                 { title: "Canlı Etkinlikler", description: "Aktif dozların gerçek zamanlı takibi." }
+            ],
+            bentoCards: [
+                {
+                    badge: "İLAÇLAR",
+                    title: "İlaçlarınıza hakim olun",
+                    body: "Tedavileri planlayın, dozları kaydedin, stoku gözden geçirin ve hatırlatıcılar alın.",
+                    tags: ["Stok", "Hatırlatıcılar", "Programlar"]
+                },
+                {
+                    badge: "SEMPTOMLAR",
+                    title: "Önemli olanı takip edin",
+                    body: "Semptomları, ruh halini ve vitalleri kaydedin. Bağlamı korumak için fotoğraf ve ses ekleyin.",
+                    tags: ["Vitaller", "Program", "Ruh Hali"]
+                },
+                {
+                    badge: "RANDEVULAR",
+                    title: "Hiçbir ziyareti kaçırmayın",
+                    body: "Doktor ziyaretlerinizi, takip görevlerinizi ve tıbbi kayıtlarınızı düzenli tutun.",
+                    tags: ["Takvim", "Durumlar", "Görevler"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Bileğinizde hız",
+                    body: "Hızlı kayıt için Apple Watch'u kullanın ve aktif dozları Live Activities ile takip edin.",
+                    tags: ["Live Activities", "Araç Takımları", "Hızlı"]
+                }
             ],
             ctaBadge: "BUGÜN BAŞLAYIN",
             ctaTitle: "Sağlığınız elinizde ve özel kalsın",
@@ -1532,6 +1876,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "Snel loggen en waarschuwingen direct op je pols." },
                 { title: "Live Activities", description: "Realtime volgen van actieve doses." }
             ],
+            bentoCards: [
+                {
+                    badge: "MEDICATIE",
+                    title: "Beheers uw medicatie",
+                    body: "Plan behandelingen, registreer doses, controleer voorraad en ontvang herinneringen.",
+                    tags: ["Voorraad", "Herinneringen", "Schema's"]
+                },
+                {
+                    badge: "SYMPTOMEN",
+                    title: "Volg wat er toe doet",
+                    body: "Registreer symptomen, stemming en vitale functies. Voeg foto's en audio toe voor meer context.",
+                    tags: ["Vitale functies", "Schema", "Stemming"]
+                },
+                {
+                    badge: "AFSPRAKEN",
+                    title: "Mis nooit een bezoek",
+                    body: "Houd uw doktersbezoeken, opvolgtaken en medische dossiers georganiseerd.",
+                    tags: ["Kalender", "Aandoeningen", "Taken"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Snelheid om je pols",
+                    body: "Gebruik Apple Watch voor snel registreren en volg actieve doses met Live Activities.",
+                    tags: ["Live Activities", "Widgets", "Snel"]
+                }
+            ],
             ctaBadge: "START VANDAAG",
             ctaTitle: "Jouw gezondheid, in jouw handen en privé",
             ctaPrivacyDetail: "Absolute privacy met end-to-end encryptie.",
@@ -1643,6 +2013,32 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Inteligentne widżety", description: "Parametry życiowe i leki bezpośrednio na ekranie głównym." },
                 { title: "Apple Watch", description: "Szybkie logowanie i alerty bezpośrednio na nadgarstku." },
                 { title: "Live Activities", description: "Śledzenie aktywnych dawek w czasie rzeczywistym." }
+            ],
+            bentoCards: [
+                {
+                    badge: "LEKI",
+                    title: "Zapanuj nad lekami",
+                    body: "Planuj leczenie, zapisuj dawki, sprawdzaj zapasy i otrzymuj przypomnienia.",
+                    tags: ["Zapasy", "Przypomnienia", "Harmonogramy"]
+                },
+                {
+                    badge: "OBJAWY",
+                    title: "Śledź to, co ważne",
+                    body: "Zapisuj objawy, nastrój i parametry. Dodawaj zdjęcia i dźwięk dla kontekstu.",
+                    tags: ["Parametry", "Harmonogram", "Nastrój"]
+                },
+                {
+                    badge: "WIZYTY",
+                    title: "Nie przegap wizyty",
+                    body: "Zachowaj porządek w wizytach u lekarza, zadaniach kontrolnych i dokumentacji medycznej.",
+                    tags: ["Kalendarz", "Schorzenia", "Zadania"]
+                },
+                {
+                    badge: "APPLE WATCH",
+                    title: "Szybkość na nadgarstku",
+                    body: "Używaj Apple Watch do szybkiego logowania i śledź aktywne dawki za pomocą Live Activities.",
+                    tags: ["Live Activities", "Widżety", "Szybko"]
+                }
             ],
             ctaBadge: "ZACZNIJ DZISIAJ",
             ctaTitle: "Twoje zdrowie, w Twoich rękach i prywatnie",
