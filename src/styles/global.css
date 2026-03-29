@@ -167,14 +167,29 @@
     /* --- Premium Mockup Blend Utility --- */
     .mockup-clean-blend {
         mix-blend-mode: multiply;
-        filter: brightness(1.02) contrast(1.1);
+        filter: contrast(1.05) brightness(1.02);
+        clip-path: inset(2px round 48px);
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform, filter;
     }
 
     :global(.dark) .mockup-clean-blend {
         mix-blend-mode: normal;
         filter: brightness(1.1) contrast(1.1);
-        clip-path: inset(1px); 
+        clip-path: inset(2px round 48px);
+    }
+    
+    .mockup-clean-blend-watch {
+        mix-blend-mode: multiply;
+        filter: contrast(1.05) brightness(1.02);
+        clip-path: inset(4px round 100px);
+        transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    :global(.dark) .mockup-clean-blend-watch {
+        mix-blend-mode: normal;
+        filter: brightness(1.1) contrast(1.1);
+        clip-path: inset(4px round 100px);
     }
 
     .glass-header.scrolled {

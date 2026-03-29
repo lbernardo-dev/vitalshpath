@@ -5,9 +5,9 @@ import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
-import screenHome from "../../assets/images/devices/iphone_home.png";
-import screenMeds from "../../assets/images/devices/iphone_meds.png";
-import watchImage from "../../assets/images/devices/watch_home.png";
+import screenHome from "../../assets/images/devices/iphone_home_clean.png";
+import screenMeds from "../../assets/images/devices/iphone_meds_clean.png";
+import watchImage from "../../assets/images/devices/watch_home_clean.png";
 
 interface Props {
     lang: Lang;
@@ -77,11 +77,11 @@ if (periodIndex !== -1) {
             
             <div class="relative flex justify-center items-center w-full aspect-[4/3] sm:aspect-[2/1] md:aspect-[21/9] lg:aspect-[2.5/1]">
                 <!-- Secondary Phone (Left / Back) -->
-                <div class="absolute left-[5%] md:left-[12%] lg:left-[18%] w-[45%] md:w-[35%] lg:w-[30%] z-0 transform -rotate-12 translate-y-8 sm:translate-y-12 translate-z-[-100px] opacity-70 transition-all duration-1000 ease-out hover:-rotate-6 hover:translate-y-4 hover:translate-z-[-50px] hover:opacity-100 drop-shadow-2xl">
+                <div class="absolute left-[5%] md:left-[12%] lg:left-[18%] w-[45%] md:w-[35%] lg:w-[30%] z-0 transform -rotate-12 translate-y-8 sm:translate-y-12 translate-z-[-100px] opacity-70 transition-all duration-1000 ease-out hover:-rotate-6 hover:translate-y-4 hover:translate-z-[-50px] hover:opacity-100">
                     <Image
                         src={screenMeds}
                         alt="VitalsPath Medications Tracking"
-                        class="w-full h-auto object-contain transition-all duration-700 hover:scale-105"
+                        class="w-full h-auto object-contain transition-all duration-700 hover:scale-105 mockup-clean-blend"
                         loading="lazy"
                     />
                 </div>
@@ -91,7 +91,7 @@ if (periodIndex !== -1) {
                     <Image
                         src={screenHome}
                         alt="VitalsPath Main Interface"
-                        class="w-full h-auto object-contain"
+                        class="w-full h-auto object-contain mockup-clean-blend"
                         loading="eager"
                     />
                 </div>
@@ -101,7 +101,7 @@ if (periodIndex !== -1) {
                     <Image
                         src={watchImage}
                         alt="VitalsPath Apple Watch App"
-                        class="w-full h-auto object-contain"
+                        class="w-full h-auto object-contain mockup-clean-blend-watch"
                         loading="lazy"
                     />
                 </div>

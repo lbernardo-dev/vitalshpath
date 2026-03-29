@@ -2,8 +2,8 @@
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
 import { Activity, LayoutTemplate, Zap } from "lucide-react";
-import DeviceMockup from "../DeviceMockup.astro";
-import watchVitals from "../../assets/images/devices/watch_vitals.png";
+import { Image } from "astro:assets";
+import watchVitals from "../../assets/images/devices/watch_vitals_clean.png";
 
 interface Props {
     lang: Lang;
@@ -67,10 +67,10 @@ const icons = [LayoutTemplate, Zap, Activity];
                 
                 <!-- Giant Watch Mockup container -->
                 <div class="relative z-10 w-full max-w-[340px] sm:max-w-[420px] transform transition-transform duration-1000 hover:scale-105 hover:-translate-y-4 hover:rotate-2">
-                    <img
-                        src={watchVitals.src}
+                    <Image
+                        src={watchVitals}
                         alt="VitalsPath on Apple Watch"
-                        class="w-full h-auto object-contain rounded-[3rem]"
+                        class="w-full h-auto object-contain rounded-[3rem] mockup-clean-blend-watch"
                         loading="lazy"
                     />
                 </div>
