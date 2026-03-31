@@ -30,7 +30,7 @@ if (periodIndex !== -1) {
 }
 ---
 
-<section class="relative pt-16 pb-12 md:pt-24 md:pb-20 overflow-hidden">
+<section class="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-visible">
     {/* Dynamic Background Grain & Gradient */}
     <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
         <div class="absolute top-0 left-0 w-full h-full bg-[#FAFAFA] dark:bg-[#050505]"></div>
@@ -40,7 +40,7 @@ if (periodIndex !== -1) {
 
     <div class="container mx-auto px-6 relative z-10 w-full flex flex-col items-center">
         <!-- Top Column: Content -->
-        <div class="flex flex-col items-center text-center max-w-5xl mx-auto reveal">
+        <div class="flex flex-col items-center text-center max-w-5xl mx-auto">
             <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-4 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-teal-vibrant animate-pulse mr-2"></span>
                 <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
@@ -48,14 +48,14 @@ if (periodIndex !== -1) {
                 </span>
             </div>
             
-            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.05] mb-4 font-black tracking-tighter text-balance text-slate-900 dark:text-white uppercase italic">
+            <h1 class="text-fluid-hero mb-4 font-black tracking-tighter text-balance text-slate-900 dark:text-white uppercase italic">
                 {headingPart1}
                 {headingPart2 && (
-                    <span class="text-gradient block mt-2 text-3xl sm:text-5xl md:text-6xl lg:text-6xl opacity-90">{headingPart2}</span>
+                    <span class="text-gradient block mt-2 text-fluid-h2 opacity-90">{headingPart2}</span>
                 )}
             </h1>
 
-            <p class="text-lg md:text-2xl text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-2xl font-medium text-balance">
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-2xl font-medium text-balance opacity-80">
                 {copy.home.heroSubtitle}
             </p>
 

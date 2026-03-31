@@ -12,6 +12,8 @@ export default {
                 },
                 'teal-primary': '#0080A0',
                 'teal-light': '#4FB3C3',
+                'teal-vibrant': 'rgb(var(--teal-vibrant-rgb) / <alpha-value>)',
+                'coral-accent': 'rgb(var(--coral-accent-rgb) / <alpha-value>)',
                 'orange-accent': '#E65100',
                 // Dynamic: changes in dark mode via CSS custom properties
                 'slate-text': 'rgb(var(--slate-text-rgb) / <alpha-value>)',
