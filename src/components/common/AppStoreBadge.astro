@@ -28,15 +28,29 @@ const localeMap: Record<Lang, string> = {
 };
 
 const locale = localeMap[lang] || "en-US";
-const badgeUrl = `https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/${locale}.svg`;
+const blackBadgeUrl = `https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/${locale}.svg`;
+const whiteBadgeUrl = `https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/${locale}.svg`;
 ---
 
-<div class={`inline-flex items-center justify-center ${className}`}>
+<div class={`inline-flex items-center justify-center ${className} app-store-badge-container`}>
     <img 
-        src={badgeUrl} 
+        src={blackBadgeUrl} 
         alt="Download on the App Store" 
-        class="h-full w-auto block select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:drop-shadow-[0_8px_20px_rgba(45,212,191,0.3)] transition-all duration-500"
+        class="badge-black h-full w-auto select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(0,0,0,0.15)] hover:drop-shadow-[0_8px_20px_rgba(45,212,191,0.3)] transition-all duration-500"
         loading="lazy"
-        onerror="this.style.display='none'"
+    />
+    <img 
+        src={whiteBadgeUrl} 
+        alt="Download on the App Store" 
+        class="badge-white h-full w-auto select-none pointer-events-none drop-shadow-[0_4px_12px_rgba(255,255,255,0.1)] hover:drop-shadow-[0_8px_20px_rgba(45,212,191,0.3)] transition-all duration-500"
+        loading="lazy"
     />
 </div>
+
+<style>
+    .badge-white { display: none; }
+    .badge-black { display: block; }
+    
+    :global(.dark) .badge-white { display: block; }
+    :global(.dark) .badge-black { display: none; }
+</style>

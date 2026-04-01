@@ -252,7 +252,7 @@ const jsonLd = [
 				if (!header) return;
 
 				const handleScroll = () => {
-					if (window.scrollY > 20) {
+					if (window.scrollY > 15) {
 						header.classList.add("scrolled");
 					} else {
 						header.classList.remove("scrolled");
@@ -263,39 +263,44 @@ const jsonLd = [
 				handleScroll(); // Initial check
 			}
 
+			// Non-blocking maintenance sync
 			async function syncMaintenanceState() {
-				if (!isSupabaseConfigured()) return;
+				try {
+					if (!isSupabaseConfigured()) return;
 
-				const { lang, basePath, maintenanceSafeSegments } = getLayoutConfig();
-				const pathname = window.location.pathname.replace(/\/+$/, "");
-				const localizedMaintenancePath = `${basePath}/${lang}/maintenance`;
-				const isMaintenancePage = pathname === localizedMaintenancePath;
-				const isSafeRoute = maintenanceSafeSegments.some((segment) =>
-					pathname.endsWith(segment),
-				);
+					const { lang, basePath, maintenanceSafeSegments } = getLayoutConfig();
+					const pathname = window.location.pathname.replace(/\/+$/, "");
+					const localizedMaintenancePath = `${basePath}/${lang}/maintenance`;
+					const isMaintenancePage = pathname === localizedMaintenancePath;
+					const isSafeRoute = maintenanceSafeSegments.some((segment) =>
+						pathname.endsWith(segment),
+					);
 
-				const supabase = getSupabase();
-				if (!supabase) return;
+					const supabase = getSupabase();
+					if (!supabase) return;
 
-				const { data, error } = await supabase
-					.from("site_settings")
-					.select("value")
-					.eq("key", "maintenance_mode")
-					.maybeSingle();
+					const { data, error } = await (supabase
+						.from("site_settings")
+						.select("value")
+						.eq("key", "maintenance_mode")
+						.maybeSingle() as unknown as Promise<{ data: any, error: any }>);
 
-				if (error || !data?.value) return;
+					if (error || !data) return;
 
-				const value = data.value;
-				const enabled =
-					typeof value === "boolean" ? value : Boolean(value?.enabled);
+					const value = data.value;
+					const enabled =
+						typeof value === "boolean" ? value : Boolean(value?.enabled);
 
-				if (enabled && !isMaintenancePage && !isSafeRoute) {
-					window.location.replace(`${localizedMaintenancePath}/`);
-					return;
-				}
+					if (enabled && !isMaintenancePage && !isSafeRoute) {
+						window.location.replace(`${localizedMaintenancePath}/`);
+						return;
+					}
 
-				if (!enabled && isMaintenancePage) {
-					window.location.replace(`${basePath}/${lang}/`);
+					if (!enabled && isMaintenancePage) {
+						window.location.replace(`${basePath}/${lang}/`);
+					}
+				} catch (e) {
+					console.warn("Maintenance sync failed", e);
 				}
 			}
 
@@ -324,12 +329,29 @@ const jsonLd = [
 			}
 
 			async function initClientPage() {
-				const { lang } = getLayoutConfig();
+				const config = getLayoutConfig() as { lang: string };
+				const { lang } = config as any;
+				
+				// Priority 1: Vital UI behavior
 				setupHeader();
 				setupRevealObserver();
+				
+				// Priority 2: Interactivity
 				bindAppStoreTracking();
-				await hydrateAppStoreLinks(lang);
-				await syncMaintenanceState();
+				
+				// Priority 3: External sync (Non-blocking)
+				hydrateAppStoreLinks(lang).catch(console.error);
+				syncMaintenanceState().catch(console.error);
+				
+				// Failsafe for reveal animations: if observer fails or element is not in view
+				setTimeout(() => {
+					document.querySelectorAll('.reveal:not(.reveal-visible)').forEach(el => {
+						const rect = el.getBoundingClientRect();
+						if (rect.top < window.innerHeight) {
+							el.classList.add('reveal-visible');
+						}
+					});
+				}, 2000);
 			}
 
 			initClientPage();

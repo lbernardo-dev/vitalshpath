@@ -22,9 +22,9 @@
     
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.5);
-    --shadow-premium: 0 40px 100px -20px rgba(15, 23, 42, 0.12), 0 0 1px rgba(15, 23, 42, 0.05);
+    --shadow-premium: 0 40px 100px -20px rgba(15, 23, 42, 0.1), 0 0 1px rgba(15, 23, 42, 0.05); /* Lighter shadow */
     --shadow-premium-soft: 0 20px 40px -10px rgba(15, 23, 42, 0.04);
-    --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.2);
+    --shadow-glow: 0 0 60px rgba(20, 184, 166, 0.15); /* Subtler glow */
 
     /* RGB triplets for Tailwind alpha-value support */
     --teal-vibrant-rgb: 20 184 166;
@@ -81,22 +81,21 @@
 }
 
 @layer components {
-    /* iOS 26 Liquid Glass Pattern */
     .glass-panel {
-        @apply backdrop-blur-[40px] saturate-[200%] shadow-premium relative overflow-hidden;
+        @apply backdrop-blur-[24px] md:backdrop-blur-[40px] saturate-[180%] shadow-premium relative overflow-hidden;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
         border-radius: 36px;
     }
     .glass-panel-dark {
-        @apply backdrop-blur-[40px] saturate-[200%] shadow-premium relative overflow-hidden;
-        background: rgba(15, 23, 42, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        @apply backdrop-blur-[24px] md:backdrop-blur-[40px] saturate-[180%] shadow-premium relative overflow-hidden;
+        background: rgba(30, 41, 59, 0.05); /* Slightly darker/slatier background */
+        border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 24px;
     }
     :global(.dark) .glass-panel-dark {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.6); /* Much darker for better contrast */
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     .glass-panel::before {
         content: '';
@@ -110,10 +109,11 @@
     }
 
     .premium-card {
-        @apply relative transition-all duration-[600ms] backdrop-blur-[40px] saturate-[180%] shadow-premium overflow-hidden;
+        @apply relative transition-all duration-[600ms] backdrop-blur-[20px] md:backdrop-blur-[40px] saturate-[180%] shadow-premium overflow-hidden;
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
         border-radius: 36px;
+        transform: translateZ(0); /* Force hardware acceleration */
     }
 
     .premium-card:hover {
@@ -174,15 +174,17 @@
     }
 
     .glass-header {
-        @apply fixed inset-x-0 top-0 z-50 transition-all duration-700 py-6;
-        background: transparent;
+        @apply fixed inset-x-0 top-0 z-50 transition-all duration-700 py-6 px-4 md:px-0;
+        background: transparent !important;
+        backdrop-filter: none !important; 
+        -webkit-backdrop-filter: none !important;
     }
 
     /* --- Premium Mockup Blend Utility --- */
     .mockup-clean-blend {
         mix-blend-mode: multiply;
         filter: contrast(1.05) brightness(1.02);
-        clip-path: inset(10px round 48px);
+        border-radius: 48px; /* Standardize with clip-path-esque appearance */
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         will-change: transform, filter;
         background-color: transparent !important;
@@ -198,7 +200,7 @@
     .mockup-clean-blend-watch {
         mix-blend-mode: multiply;
         filter: contrast(1.05) brightness(1.02);
-        clip-path: inset(12px round 100px);
+        border-radius: 60px;
         transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         background-color: transparent !important;
     }
@@ -211,13 +213,26 @@
     }
 
     .glass-header.scrolled {
-        @apply py-4 shadow-2xl;
-        background: rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(40px) saturate(180%);
+        @apply py-3;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
-
-    :global(.dark) .glass-header.scrolled {
-        background: rgba(0, 0, 0, 0.4);
+    
+    .glass-header.scrolled .header-pill {
+        @apply shadow-2xl scale-[1.02];
+        background: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    :global(.dark) .glass-header.scrolled .header-pill {
+        background: rgba(15, 17, 20, 0.8) !important; /* Deep dark glass */
+        backdrop-filter: blur(24px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
     }
 
 
@@ -277,11 +292,11 @@
 
     .bg-mesh::before {
         content: "";
-        @apply absolute inset-0 -z-10 opacity-40 dark:opacity-20 pointer-events-none;
+        @apply absolute inset-0 -z-10 opacity-30 dark:opacity-40 pointer-events-none;
         background-image: 
-            radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.3) 0, transparent 40%),
-            radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.2) 0, transparent 40%),
-            radial-gradient(circle at 50% 100%, rgba(11, 17, 32, 0.1) 0, transparent 50%);
+            radial-gradient(circle at 10% 0%, rgba(20, 184, 166, 0.15) 0, transparent 40%),
+            radial-gradient(circle at 90% 10%, rgba(249, 115, 22, 0.1) 0, transparent 40%),
+            radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.05) 0, transparent 50%);
         filter: blur(100px);
     }
 
