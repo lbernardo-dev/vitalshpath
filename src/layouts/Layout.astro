@@ -4,6 +4,7 @@ import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
 import appMockup from "../assets/images/app-mockup.png";
 import appIcon from "../assets/images/AppIcon_v2.png";
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../lib/supabase/config";
 
 interface Props {
 	lang: Lang;
@@ -208,6 +209,12 @@ const jsonLd = [
 					document.documentElement.classList.toggle("dark", isDark);
 				} catch (e) {}
 			})();
+		</script>
+		<script is:inline define:vars={{ SUPABASE_URL, SUPABASE_ANON_KEY }}>
+			window.VITALSPATH_CONFIG = {
+				supabaseUrl: SUPABASE_URL,
+				supabaseAnonKey: SUPABASE_ANON_KEY
+			};
 		</script>
 	</head>
 	<body

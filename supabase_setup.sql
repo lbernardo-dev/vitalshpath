@@ -113,3 +113,29 @@ create policy "Auth users can delete releases" on public.releases for delete to 
 
 -- Index
 create index if not exists idx_releases_created_at on public.releases(created_at desc);
+
+-- Table: roadmap
+create table if not exists public.roadmap (
+    id uuid default uuid_generate_v4() primary key,
+    title text not null,
+    target_date text,
+    description text,
+    status text default 'planned',
+    priority integer default 0,
+    is_public boolean default false,
+    created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+    translations jsonb not null default '{}'::jsonb
+);
+
+-- Enable RLS
+alter table public.roadmap enable row level security;
+
+-- Policies for roadmap
+create policy "Anon can view public roadmap" on public.roadmap for select to anon, authenticated using (is_public = true or auth.role() = 'authenticated');
+create policy "Auth users can insert roadmap" on public.roadmap for insert to authenticated with check (true);
+create policy "Auth users can update roadmap" on public.roadmap for update to authenticated using (true);
+create policy "Auth users can delete roadmap" on public.roadmap for delete to authenticated using (true);
+
+-- Index
+create index if not exists idx_roadmap_priority on public.roadmap(priority desc);
+create index if not exists idx_roadmap_created_at on public.roadmap(created_at desc);

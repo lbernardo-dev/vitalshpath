@@ -19,6 +19,8 @@ const currentLang = lang as Lang;
 const copy = getSiteCopy(currentLang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks());
+
+// Note: We fetch client-side for "dynamic" roadmap updates without rebuilds.
 ---
 
 <PageShell
@@ -29,57 +31,177 @@ const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks(
     pageTitle={`${copy.roadmap.title} | VitalsPath`}
     pageDescription={copy.roadmap.intro}
 >
-    <div class="grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
-        <section class="rounded-[1.7rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_-55px_rgba(15,23,42,0.3)] dark:border-white/10 dark:bg-white/5 sm:p-6">
-            <p class="text-sm font-black uppercase tracking-[0.22em] text-sky-600 dark:text-sky-300">
-                {copy.roadmap.nextReleaseTitle}
-            </p>
-            <ul class="mt-6 space-y-3">
-                {
-                    copy.roadmap.nextReleaseItems.map((item) => (
-                        <li class="rounded-2xl border border-slate-200/80 bg-slate-50 px-4 py-4 text-base leading-7 text-slate-700 dark:border-white/10 dark:bg-slate-950/60 dark:text-slate-200">
-                            {item}
-                        </li>
-                    ))
-                }
-            </ul>
+    <div class="grid gap-12 lg:grid-cols-[1.2fr,0.8fr]">
+        <!-- MAIN ROADMAP TIMELINE -->
+        <section class="relative">
+            <div class="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-slate-200 dark:via-white/10 to-transparent"></div>
+            
+            <div id="dynamic-roadmap-content" class="space-y-12">
+                <!-- Skeleton Loader -->
+                <div class="roadmap-skeleton space-y-12">
+                    {[1, 2, 3].map(() => (
+                        <div class="relative pl-20 animate-pulse">
+                            <div class="absolute left-6 top-0 w-5 h-5 rounded-full bg-slate-200 dark:bg-white/10 border-4 border-white dark:border-slate-900 z-10"></div>
+                            <div class="rounded-[2rem] border border-slate-100 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-xl p-8">
+                                <div class="h-4 bg-slate-100 dark:bg-white/10 rounded w-24 mb-4"></div>
+                                <div class="h-8 bg-slate-100 dark:bg-white/10 rounded w-1/2 mb-4"></div>
+                                <div class="h-4 bg-slate-100 dark:bg-white/10 rounded w-3/4"></div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Fallback Static Content (Hidden if dynamic loads) -->
+            <div id="static-roadmap-fallback" class="hidden mt-12 pl-20 relative">
+                <div class="absolute left-6 top-0 w-5 h-5 rounded-full bg-sky-500 border-4 border-white dark:border-slate-900 z-10 shadow-lg shadow-sky-200"></div>
+                <div class="rounded-[2rem] border border-sky-100 bg-sky-50/50 dark:border-sky-500/20 dark:bg-sky-500/5 backdrop-blur-xl p-8">
+                    <p class="text-xs font-black uppercase tracking-widest text-sky-600 dark:text-sky-300 mb-2">Next Milestone</p>
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4">{copy.roadmap.nextReleaseTitle}</h3>
+                    <ul class="space-y-3">
+                        {copy.roadmap.nextReleaseItems.map((item) => (
+                            <li class="flex items-start gap-3 text-slate-600 dark:text-slate-300 font-medium">
+                                <span class="text-sky-500 mt-1">•</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <div class="space-y-6">
-            <section class="rounded-[1.7rem] border border-slate-200/80 bg-white p-5 shadow-[0_24px_80px_-55px_rgba(15,23,42,0.3)] dark:border-white/10 dark:bg-white/5 sm:p-6">
-                <h2 class="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
+        <!-- SIDEBAR INFO -->
+        <div class="space-y-8">
+            <section class="glass-effect-container p-8 rounded-[2.5rem] border border-slate-200/50 bg-white/40 dark:bg-black/20 backdrop-blur-3xl shadow-2xl shadow-indigo-500/5">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white mb-6 shadow-xl shadow-indigo-200/50 dark:shadow-indigo-900/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h2 class="text-3xl font-black tracking-tighter text-slate-950 dark:text-white leading-tight">
                     {copy.roadmap.directionTitle}
                 </h2>
-                <p class="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">
-                    {copy.roadmap.directionBody}
+                <p class="mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 font-medium italic">
+                    "{copy.roadmap.directionBody}"
                 </p>
             </section>
 
-            <section class="rounded-[1.7rem] border border-amber-200 bg-amber-50 p-5 dark:border-amber-500/20 dark:bg-amber-500/10 sm:p-6">
-                <p class="text-sm font-black uppercase tracking-[0.22em] text-amber-700 dark:text-amber-300">
-                    Roadmap
-                </p>
-                <p class="mt-4 text-base leading-7 text-slate-700 dark:text-slate-200">
-                    {copy.roadmap.safetyNote}
-                </p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a
-                        href={`${baseUrl}/${currentLang}/release-features/`}
-                        class="inline-flex rounded-2xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
-                    >
-                        {copy.nav.releaseFeatures}
-                    </a>
-                    <a
-                        href={appStoreHref}
-                        data-app-store-link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
-                    >
-                        {appStoreLabels[currentLang].view}
-                    </a>
+            <section class="relative overflow-hidden p-8 rounded-[2.5rem] bg-slate-900 text-white shadow-2xl">
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/20 blur-[100px]"></div>
+                <div class="relative z-10">
+                    <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-indigo-300 border border-white/5">Disclaimer</span>
+                    <p class="mt-6 text-base leading-relaxed text-slate-400 font-bold">
+                        {copy.roadmap.safetyNote}
+                    </p>
+                    <div class="mt-8 flex flex-col gap-3">
+                        <a
+                            href={`${baseUrl}/${currentLang}/release-features/`}
+                            class="flex items-center justify-between px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all group"
+                        >
+                            <span class="font-black uppercase tracking-widest text-xs">{copy.nav.releaseFeatures}</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                        <a
+                            href={appStoreHref}
+                            data-app-store-link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex items-center justify-center gap-3 px-6 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl transition-all shadow-xl shadow-indigo-600/30 active:scale-[0.98]"
+                        >
+                            <span class="font-black uppercase tracking-widest text-xs">{appStoreLabels[currentLang].view}</span>
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
+
+    <script is:inline define:vars={{ currentLang, translations: copy.roadmap }}>
+        async function initRoadmap() {
+            const container = document.getElementById('dynamic-roadmap-content');
+            const fallback = document.getElementById('static-roadmap-fallback');
+            
+            try {
+                // We use a dynamic import or global access if available
+                // For direct access in is:inline, we use the global supabase if loaded, 
+                // but PageShell usually doesn't load it globally.
+                // We'll fetch directly from the API endpoint or use the client if exposed.
+                
+                // Assuming supabase is available via a script or we can use the environment variables
+                // For this demo, let's use a fetch to a helper or the direct Supabase REST API
+                // (Using the lib/supabase/client normally requires a bundler, but in is:inline we stay simple)
+                
+                // If we can't use the client easily, we show the fallback.
+                // However, I'll try to use the window.supabase if I added it to PageShell, 
+                // OR I'll just use a standard fetch to the Supabase REST API.
+                
+                const SUPABASE_URL = window.VITALSPATH_CONFIG?.supabaseUrl;
+                const SUPABASE_ANON_KEY = window.VITALSPATH_CONFIG?.supabaseAnonKey;
+
+                if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+                    console.warn('Supabase config not found, using fallback.');
+                    fallback.classList.remove('hidden');
+                    if (container.querySelector('.roadmap-skeleton')) container.querySelector('.roadmap-skeleton').remove();
+                    return;
+                }
+
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/roadmap?is_public=eq.true&select=*&order=priority.desc,created_at.desc`, {
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    }
+                });
+
+                if (!response.ok) throw new Error('Fetch failed');
+
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    let html = '';
+                    data.forEach(item => {
+                        const translation = item.translations?.[currentLang] || { title: item.title, description: item.description };
+                        const statusColors = {
+                            'completed': 'indigo',
+                            'in-progress': 'blue',
+                            'planned': 'slate'
+                        };
+                        const color = statusColors[item.status] || 'slate';
+
+                        html += `
+                            <div class="relative pl-20 group reveal-on-scroll">
+                                <div class="absolute left-6 top-0 w-5 h-5 rounded-full bg-${color}-500 border-4 border-white dark:border-slate-900 z-10 shadow-lg shadow-${color}-200/50 group-hover:scale-125 transition-transform"></div>
+                                <div class="rounded-[2.5rem] border border-slate-200/60 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-2xl p-8 hover:shadow-2xl hover:shadow-${color}-500/10 transition-all border-l-4 border-l-${color}-500">
+                                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                                        <div class="flex items-center gap-3">
+                                            <span class="px-3 py-1 rounded-full bg-${color}-100 dark:bg-${color}-500/20 text-[10px] font-black uppercase tracking-widest text-${color}-600 dark:text-${color}-300 border border-${color}-200/50">
+                                                ${item.status}
+                                            </span>
+                                            <span class="text-xs font-bold text-slate-400">
+                                                ${item.target_date || 'TBD'}
+                                            </span>
+                                        </div>
+                                        ${item.priority > 5 ? '<span class="text-[10px] font-black bg-amber-100 text-amber-700 px-2 py-0.5 rounded-md uppercase tracking-tighter">High Priority</span>' : ''}
+                                    </div>
+                                    <h3 class="text-2xl font-black text-slate-950 dark:text-white mb-2 uppercase tracking-tight">${translation.title}</h3>
+                                    <p class="text-base leading-relaxed text-slate-600 dark:text-slate-400 font-medium">
+                                        ${translation.description}
+                                    </p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    container.innerHTML = html;
+                } else {
+                    fallback.classList.remove('hidden');
+                    if (container.querySelector('.roadmap-skeleton')) container.querySelector('.roadmap-skeleton').remove();
+                }
+
+            } catch (err) {
+                console.error('Roadmap init error:', err);
+                fallback.classList.remove('hidden');
+                if (container.querySelector('.roadmap-skeleton')) container.querySelector('.roadmap-skeleton').remove();
+            }
+        }
+
+        initRoadmap();
+    </script>
 </PageShell>
+
