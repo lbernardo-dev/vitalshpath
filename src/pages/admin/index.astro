@@ -584,8 +584,39 @@ const baseUrl = import.meta.env.BASE_URL;
                                 <label class="block text-sm font-medium text-gray-700 mb-1">API Key (Se guarda seguro en tu navegador local)</label>
                                 <input type="password" id="release-apikey" class="w-full px-4 py-2 border rounded-lg" placeholder="sk-...">
                             </div>
-                            <button id="submit-release-btn" class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">Generar Traducciones y Publicar</button>
-                            <p id="release-status" class="text-sm font-bold text-blue-600 hidden text-center p-3 bg-blue-50 rounded-lg">Generando... puede tardar unos segundos.</p>
+                            <button id="submit-release-btn" class="w-full md:w-auto px-10 py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 transition-all shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)] active:scale-[0.98] flex items-center justify-center gap-3">
+                                <span>Publicar Nueva Versión</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg>
+                            </button>
+                            
+                            <!-- Enhanced Status/Progress UI -->
+                            <div id="release-status-container" class="hidden mt-6 p-6 rounded-2xl border border-blue-100 bg-blue-50/50 backdrop-blur-md">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="animate-spin rounded-full h-5 w-5 border-2 border-blue-500 border-t-transparent"></div>
+                                    <p id="release-status-title" class="font-bold text-blue-900">Procesando lanzamiento...</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div id="step-ai" class="flex items-center gap-2 text-sm text-blue-700 opacity-50 transition-opacity">
+                                        <span class="step-icon">○</span> <span>Generando traducciones (15 idiomas)</span>
+                                    </div>
+                                    <div id="step-parse" class="flex items-center gap-2 text-sm text-blue-700 opacity-50 transition-opacity">
+                                        <span class="step-icon">○</span> <span>Validando integridad del contenido</span>
+                                    </div>
+                                    <div id="step-db" class="flex items-center gap-2 text-sm text-blue-700 opacity-50 transition-opacity">
+                                        <span class="step-icon">○</span> <span>Publicando en base de datos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Error Display -->
+                            <div id="release-error" class="hidden mt-6 p-6 rounded-2xl border border-red-200 bg-red-50 text-red-900 shadow-sm animate-float-slow">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+                                    <h4 class="font-bold">Error en el proceso</h4>
+                                </div>
+                                <p id="release-error-msg" class="text-sm font-medium opacity-80 leading-relaxed"></p>
+                                <button onclick="document.getElementById('release-error').classList.add('hidden')" class="mt-4 text-xs font-bold uppercase tracking-widest text-red-600 hover:text-red-800">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                     <!-- Lista de versiones anteriores -->
@@ -1376,15 +1407,34 @@ const baseUrl = import.meta.env.BASE_URL;
                             list.innerHTML = "<p class='text-gray-500 text-sm'>No hay versiones registradas</p>";
                         } else {
                             list.innerHTML = data.map(r => `
-                                <div class="border border-gray-200 rounded-xl p-5 bg-gray-50 shadow-sm">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <h4 class="font-black text-gray-900 text-lg tracking-tight">v${r.version} <span class="bg-gray-200 text-gray-600 font-bold px-2 py-0.5 rounded-full text-xs">Build ${r.build_number}</span></h4>
-                                        <span class="text-xs font-medium text-gray-500">${new Date(r.created_at).toLocaleDateString()}</span>
+                                <div class="premium-card p-6 border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-black/20 backdrop-blur-xl">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-black text-gray-900 dark:text-white text-lg tracking-tight leading-tight">v${r.version}</h4>
+                                                <span class="text-[10px] font-black uppercase tracking-widest text-gray-400">Build ${r.build_number}</span>
+                                            </div>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-gray-400 bg-gray-50 dark:bg-white/5 px-2 py-1 rounded-md">${new Date(r.created_at).toLocaleDateString("es-ES", { day: '2-digit', month: 'short' })}</span>
                                     </div>
-                                    <div class="text-xs text-gray-400 bg-white p-3 rounded-lg border font-mono truncate">
-                                        ${Object.keys(r.translations).length} idiomas traducidos (${Object.keys(r.translations).join(', ')})
+                                    
+                                    <div class="mb-4 grid grid-cols-5 gap-1">
+                                        ${Object.keys(r.translations || {}).slice(0, 5).map(lang => `
+                                            <div class="px-2 py-1 bg-gray-100 dark:bg-white/5 rounded text-[10px] font-bold text-gray-500 text-center uppercase">${lang}</div>
+                                        `).join("")}
+                                        ${Object.keys(r.translations || {}).length > 5 ? `<div class="px-2 py-1 bg-gray-100 dark:bg-white/5 rounded text-[10px] font-bold text-gray-500 text-center uppercase">+${Object.keys(r.translations).length - 5}</div>` : ''}
                                     </div>
-                                    <button class="mt-3 text-red-600 hover:text-red-800 text-sm font-bold delete-release-btn" data-id="${r.id}">Eliminar</button>
+
+                                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-white/5">
+                                        <button class="text-xs font-black text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-widest flex items-center gap-2">
+                                            <span>Detalles</span>
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        </button>
+                                        <button class="text-[10px] font-black text-red-400 hover:text-red-600 transition-colors uppercase tracking-widest delete-release-btn" data-id="${r.id}">Eliminar</button>
+                                    </div>
                                 </div>
                             `).join("");
 
@@ -1403,25 +1453,58 @@ const baseUrl = import.meta.env.BASE_URL;
                 fetchReleases();
 
                 document.getElementById("submit-release-btn")?.addEventListener("click", async () => {
-                    const version = document.getElementById("release-version").value.trim();
-                    const build = document.getElementById("release-build").value.trim();
-                    const changes = document.getElementById("release-changes").value.trim();
-                    const aiProvider = document.getElementById("release-ai").value;
-                    const apiKey = document.getElementById("release-apikey").value.trim();
-                    const sourceLang = document.getElementById("release-lang").value;
+                    const version = (document.getElementById("release-version") as HTMLInputElement).value.trim();
+                    const build = (document.getElementById("release-build") as HTMLInputElement).value.trim();
+                    const changes = (document.getElementById("release-changes") as HTMLTextAreaElement).value.trim();
+                    const aiProvider = (document.getElementById("release-ai") as HTMLSelectElement).value;
+                    const apiKey = (document.getElementById("release-apikey") as HTMLInputElement).value.trim();
+                    const sourceLang = (document.getElementById("release-lang") as HTMLSelectElement).value;
 
-                    if (!version || !build || !changes || !apiKey) return alert("Por favor completa todos los campos y el API Key.");
+                    const statusContainer = document.getElementById("release-status-container")!;
+                    const statusTitle = document.getElementById("release-status-title")!;
+                    const errorBox = document.getElementById("release-error")!;
+                    const errorMsg = document.getElementById("release-error-msg")!;
+                    const btn = document.getElementById("submit-release-btn") as HTMLButtonElement;
 
+                    const setStep = (id, active, done = false) => {
+                        const el = document.getElementById(id);
+                        if (!el) return;
+                        el.style.opacity = active || done ? "1" : "0.5";
+                        el.querySelector('.step-icon').textContent = done ? "✓" : (active ? "●" : "○");
+                        if (active) el.classList.add("font-bold");
+                        else el.classList.remove("font-bold");
+                    };
+
+                    if (!version || !build || !changes || !apiKey) {
+                        errorMsg.textContent = "Por favor completa todos los campos (Versión, Build, Novedades y API Key).";
+                        errorBox.classList.remove("hidden");
+                        window.scrollTo({ top: errorBox.offsetTop - 100, behavior: 'smooth' });
+                        return;
+                    }
+
+                    // Reset UI
                     localStorage.setItem(lsKey, apiKey);
-                    const statusText = document.getElementById("release-status");
-                    statusText.classList.remove("hidden");
-                    statusText.textContent = "Generando traducciones a 15 idiomas... No cierres esta ventana.";
+                    errorBox.classList.add("hidden");
+                    statusContainer.classList.remove("hidden");
+                    btn.disabled = true;
+                    btn.style.opacity = "0.5";
+                    
+                    setStep("step-ai", true);
+                    setStep("step-parse", false);
+                    setStep("step-db", false);
 
                     const targetLangs = ["en", "es", "fr", "de", "it", "pt", "ja", "zh", "ko", "ru", "ar", "hi", "tr", "nl", "pl"];
                     
                     try {
                         let translationsObj = {};
-                        const promptMsg = `Translate the following release notes (each line is a bullet point) into the following exact languages: ${targetLangs.join(', ')}. Return ONLY a JSON object where the keys are strictly the 2-letter language codes provided and the values are string arrays of the translated bullet points. Omit markdown formatting inside the JSON (no backticks).\n\nOriginal (${sourceLang}):\n${changes}`;
+                        // Better prompt for structured data
+                        const promptMsg = `Task: Translate release notes into 15 languages.
+Target Languages: ${targetLangs.join(', ')}
+Output Format: STRICT JSON object where keys are 2-letter codes and values are arrays of strings (one for each bullet point).
+Constraint: Do NOT include original text. DO NOT include markdown backticks.
+
+Original Content (${sourceLang}):
+${changes}`;
 
                         if (aiProvider === "openai") {
                             const res = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -1434,45 +1517,92 @@ const baseUrl = import.meta.env.BASE_URL;
                                 })
                             });
                             const json = await res.json();
-                            if (json.error) throw new Error(json.error.message);
-                            translationsObj = JSON.parse(json.choices[0].message.content);
+                            if (json.error) throw new Error(`OpenAI Error: ${json.error.message || "Error desconocido"}`);
+                            translationsObj = typeof json.choices[0].message.content === 'string' 
+                                ? JSON.parse(json.choices[0].message.content) 
+                                : json.choices[0].message.content;
                         } else if (aiProvider === "gemini") {
-                            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({
-                                    contents: [{ parts: [{ text: promptMsg }] }],
-                                    generationConfig: { responseMimeType: "application/json" }
-                                })
-                            });
+                            // Unified Gemini call with fallback logic
+                            const tryGemini = async (modelName: string) => {
+                                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`, {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({
+                                        contents: [{ parts: [{ text: promptMsg }] }],
+                                        generationConfig: { 
+                                            responseMimeType: "application/json",
+                                            temperature: 0.1
+                                        }
+                                    })
+                                });
+                                return response;
+                            };
+
+                            let res = await tryGemini("gemini-2.0-flash");
+                            if (res.status === 404 || res.status === 400) {
+                                console.warn("Gemini 2.0 Flash not available, falling back to 1.5 Flash");
+                                res = await tryGemini("gemini-1.5-flash");
+                            }
+                            
+                            if (!res.ok) {
+                                const errJson = await res.json().catch(() => ({}));
+                                const msg = errJson.error?.message || `Error HTTP ${res.status}`;
+                                throw new Error(`Gemini API: ${msg}`);
+                            }
+
                             const json = await res.json();
-                            if (json.error) throw new Error(json.error.message);
-                            translationsObj = JSON.parse(json.candidates[0].content.parts[0].text);
+                            const rawText = json.candidates?.[0]?.content?.parts?.[0]?.text;
+                            if (!rawText) throw new Error("La respuesta de Gemini está vacía o malformada.");
+                            
+                            // Robust JSON extraction
+                            const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+                            if (!jsonMatch) throw new Error("No se encontró un objeto JSON válido en la respuesta de la IA.");
+                            translationsObj = JSON.parse(jsonMatch[0]);
                         }
 
-                        // Sanitize checking
-                        if (!translationsObj["en"] || !translationsObj["es"] || Array.isArray(translationsObj) ) {
-                            throw new Error("El JSON devuelto por la IA tiene un formato inválido o carece del idioma inglés/español.");
+                        setStep("step-ai", false, true);
+                        setStep("step-parse", true);
+
+                        // Validation
+                        if (!translationsObj["en"] || !translationsObj["es"]) {
+                            console.error("Missing core langs:", translationsObj);
+                            throw new Error("Faltan idiomas críticos (en/es) en la respuesta de la IA.");
                         }
 
-                        statusText.textContent = "Guardando base de datos Supabase...";
-                        
-                        const { error } = await supabase.from("releases").insert([{
-                            version, build_number: build, translations: translationsObj
+                        setStep("step-parse", false, true);
+                        setStep("step-db", true);
+
+                        const { error } = await (supabase.from("releases") as any).insert([{
+                            version, 
+                            build_number: build, 
+                            translations: translationsObj
                         }]);
 
-                        if (error) throw error;
+                        if (error) throw new Error("Supabase: " + error.message);
                         
-                        statusText.textContent = "¡Publicado con éxito!";
+                        setStep("step-db", false, true);
+                        statusTitle.textContent = "¡Versión publicada!";
+                        
+                        // Success cleanup
                         document.getElementById("release-version").value = "";
                         document.getElementById("release-build").value = "";
                         document.getElementById("release-changes").value = "";
-                        setTimeout(() => statusText.classList.add("hidden"), 3000);
+                        
+                        setTimeout(() => {
+                            statusContainer.classList.add("hidden");
+                            btn.disabled = false;
+                            btn.style.opacity = "1";
+                        }, 3000);
+                        
                         fetchReleases();
 
                     } catch (e) {
-                        alert("Error al generar: " + e.message);
-                        statusText.classList.add("hidden");
+                        console.error("Release creation failed:", e);
+                        errorMsg.textContent = e.message;
+                        errorBox.classList.remove("hidden");
+                        statusContainer.classList.add("hidden");
+                        btn.disabled = false;
+                        btn.style.opacity = "1";
                     }
                 });
             }
