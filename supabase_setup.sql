@@ -91,4 +91,25 @@ begin
         ''total_visitors'', total_visitors
     );
 end;
-';
+'';
+
+-- Table: releases
+create table if not exists public.releases (
+    id uuid default uuid_generate_v4() primary key,
+    version text not null,
+    build_number text not null,
+    created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+    translations jsonb not null default '{}'::jsonb
+);
+
+-- Enable RLS
+alter table public.releases enable row level security;
+
+-- Policies for releases
+create policy "Anon can view releases" on public.releases for select to anon, authenticated using (true);
+create policy "Auth users can insert releases" on public.releases for insert to authenticated with check (true);
+create policy "Auth users can update releases" on public.releases for update to authenticated using (true);
+create policy "Auth users can delete releases" on public.releases for delete to authenticated using (true);
+
+-- Index
+create index if not exists idx_releases_created_at on public.releases(created_at desc);

@@ -16,6 +16,7 @@ type SiteCopy = {
         support: string;
         releaseFeatures: string;
         roadmap: string;
+        timeline?: string;
     };
     common: {
         medicalDisclaimer: string;
@@ -84,11 +85,16 @@ type SiteCopy = {
         directionTitle: string;
         directionBody: string;
     };
+    timeline?: {
+        title: string;
+        subtitle: string;
+    };
     footer: {
         privacy: string;
         support: string;
         releaseFeatures: string;
         roadmap: string;
+        timeline?: string;
         terms: string;
         disclaimer: string;
         subscription: string;
@@ -108,6 +114,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             support: "Support",
             releaseFeatures: "Release Features",
             roadmap: "Roadmap",
+            timeline: "Timeline",
         },
         common: {
             medicalDisclaimer:
@@ -296,11 +303,16 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Product direction",
             directionBody: "The short-term focus is to make everyday follow-up clearer, faster and more reliable across medication, symptoms, vitals and appointments, while improving consistency across iPhone, widgets and Apple Watch.",
         },
+        timeline: {
+            title: "App Timeline",
+            subtitle: "Version history and latest updates",
+        },
         footer: {
             privacy: "Privacy Policy",
             support: "Support",
             releaseFeatures: "Release Features",
             roadmap: "Roadmap",
+            timeline: "Timeline",
             terms: "Terms",
             disclaimer: "Medical Disclaimer",
             subscription: "Subscription",
@@ -319,6 +331,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             support: "Soporte",
             releaseFeatures: "Funciones de lanzamiento",
             roadmap: "Hoja de ruta",
+            timeline: "Cronología",
         },
         common: {
             medicalDisclaimer:
@@ -504,11 +517,16 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Dirección de producto",
             directionBody: "El foco a corto plazo es hacer el seguimiento diario más claro, rápido y fiable en medicación, síntomas, constantes y citas, mejorando al mismo tiempo la consistencia entre iPhone, widgets y Apple Watch.",
         },
+        timeline: {
+            title: "Cronología de la app",
+            subtitle: "Historial de versiones y últimas actualizaciones",
+        },
         footer: {
             privacy: "Política de Privacidad",
             support: "Soporte",
             releaseFeatures: "Funciones de lanzamiento",
             roadmap: "Hoja de ruta",
+            timeline: "Cronología",
             terms: "Términos",
             disclaimer: "Aviso médico",
             subscription: "Suscripción",
@@ -521,7 +539,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             title: "VitalsPath | Suivi privé des médicaments, symptômes, constantes et rendez-vous",
             description: "Suivi privé des médicaments, symptômes, constantes et rendez-vous dans une chronologie de santé claire.",
         },
-        nav: { home: "Accueil", privacy: "Confidentialité", support: "Support", releaseFeatures: "Fonctions de lancement", roadmap: "Feuille de route" },
+        nav: { home: "Accueil", privacy: "Confidentialité", support: "Support", releaseFeatures: "Fonctions de lancement", roadmap: "Feuille de route", timeline: "Chronologie" },
         common: {
             medicalDisclaimer: "VitalsPath est conçue pour l'organisation personnelle de santé et le suivi. Elle ne remplace pas un avis médical, un diagnostic, un traitement ni une urgence médicale.",
             appStoreSoon: "Le lien App Store sera activé ici dès que la fiche publique sera disponible.",
@@ -665,14 +683,18 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Orientation produit",
             directionBody: "À court terme, l’objectif est de rendre le suivi quotidien plus clair, plus rapide et plus fiable pour les médicaments, symptômes, constantes et rendez-vous, tout en améliorant la cohérence entre iPhone, widgets et Apple Watch.",
         },
-        footer: { privacy: "Confidentialité", support: "Support", releaseFeatures: "Fonctions de lancement", roadmap: "Feuille de route", terms: "Conditions", disclaimer: "Avertissement médical", subscription: "Abonnement", legalNote: "VitalsPath est destinée à l’organisation personnelle de santé uniquement et ne remplace pas un avis médical, un diagnostic, un traitement ni une urgence médicale." },
+        timeline: {
+            title: "Chronologie des versions",
+            subtitle: "Suivez le développement de VitalsPath"
+        },
+        footer: { privacy: "Confidentialité", support: "Support", releaseFeatures: "Fonctions de lancement", roadmap: "Feuille de route", timeline: "Chronologie", terms: "Conditions", disclaimer: "Avertissement médical", subscription: "Abonnement", legalNote: "VitalsPath est destinée à l’organisation personnelle de santé uniquement et ne remplace pas un avis médical, un diagnostic, un traitement ni une urgence médicale." },
     },
     de: {
         meta: {
             title: "VitalsPath | Private Erfassung von Medikamenten, Symptomen, Werten und Terminen",
             description: "Private Erfassung von Medikamenten, Symptomen, Werten und Terminen in einer klaren Gesundheitschronik.",
         },
-        nav: { home: "Start", privacy: "Datenschutz", support: "Support", releaseFeatures: "Release-Funktionen", roadmap: "Roadmap" },
+        nav: { home: "Start", privacy: "Datenschutz", support: "Support", releaseFeatures: "Release-Funktionen", roadmap: "Roadmap", timeline: "Zeitachse" },
         common: {
             medicalDisclaimer: "VitalsPath ist für persönliche Gesundheitsorganisation und Nachverfolgung gedacht. Sie ersetzt keine medizinische Beratung, Diagnose, Behandlung oder Notfallversorgung.",
             appStoreSoon: "Der App-Store-Link wird hier aktiviert, sobald der öffentliche Eintrag live ist.",
@@ -816,14 +838,18 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Produktfokus",
             directionBody: "Kurzfristig liegt der Fokus darauf, die tägliche Nachverfolgung von Medikamenten, Symptomen, Vitalwerten und Terminen klarer, schneller und zuverlässiger zu machen und die Konsistenz zwischen iPhone, Widgets und Apple Watch zu verbessern.",
         },
-        footer: { privacy: "Datenschutz", support: "Support", releaseFeatures: "Release-Funktionen", roadmap: "Roadmap", terms: "Bedingungen", disclaimer: "Medizinischer Hinweis", subscription: "Abonnement", legalNote: "VitalsPath dient ausschließlich der persönlichen Gesundheitsorganisation und ersetzt keine medizinische Beratung, Diagnose, Behandlung oder Notfallversorgung." },
+        timeline: {
+            title: "Release-Zeitachse",
+            subtitle: "Verfolgen Sie die Entwicklung von VitalsPath"
+        },
+        footer: { privacy: "Datenschutz", support: "Support", releaseFeatures: "Release-Funktionen", roadmap: "Roadmap", timeline: "Zeitachse", terms: "Bedingungen", disclaimer: "Medizinischer Hinweis", subscription: "Abonnement", legalNote: "VitalsPath dient ausschließlich der persönlichen Gesundheitsorganisation und ersetzt keine medizinische Beratung, Diagnose, Behandlung oder Notfallversorgung." },
     },
     it: {
         meta: {
             title: "VitalsPath | Tracciamento privato di farmaci, sintomi, parametri e appuntamenti",
             description: "Tracciamento privato di farmaci, sintomi, parametri e appuntamenti in una timeline della salute chiara.",
         },
-        nav: { home: "Home", privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap" },
+        nav: { home: "Home", privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", timeline: "Cronologia" },
         common: {
             medicalDisclaimer: "VitalsPath è progettata per l'organizzazione personale della salute e il follow-up. Non sostituisce consulenza medica, diagnosi, trattamento o assistenza d'emergenza.",
             appStoreSoon: "Il link dell'App Store sarà attivato qui non appena la scheda pubblica sarà disponibile.",
@@ -946,11 +972,12 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Direzione del prodotto",
             directionBody: "Nel breve periodo il focus è rendere il follow-up quotidiano più chiaro, rapido e affidabile tra farmaci, sintomi, parametri e appuntamenti, migliorando la coerenza tra iPhone, widget e Apple Watch.",
         },
-        footer: { privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", terms: "Termini", disclaimer: "Avvertenza medica", subscription: "Abbonamento", legalNote: "VitalsPath è progettata per l'organizzazione sanitaria personale e il follow-up. Non sostituisce pareri medici, diagnosi, trattamenti o assistenza medica d'emergenza." },
+        footer: { privacy: "Privacy", support: "Supporto", releaseFeatures: "Funzioni di lancio", roadmap: "Roadmap", timeline: "Cronologia", terms: "Termini", disclaimer: "Avvertenza medica", subscription: "Abbonamento", legalNote: "VitalsPath è progettata per l'organizzazione sanitaria personale e il follow-up. Non sostituisce pareri medici, diagnosi, trattamenti o assistenza medica d'emergenza." },
+        timeline: { title: "Cronologia dei rilasci", subtitle: "Segui lo sviluppo di VitalsPath" },
     },
     pt: {
         meta: { title: "VitalsPath - A sua saúde, organizada em privado", description: "Acompanhe a medicação, sintomas, sinais vitais e consultas num espaço pessoal e seguro." },
-        nav: { home: "Início", privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap" },
+        nav: { home: "Início", privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap", timeline: "Cronologia" },
         common: {
             medicalDisclaimer: "VitalsPath foi concebida para organização pessoal de saúde e acompanhamento. Não substitui aconselhamento médico, diagnóstico, tratamento ou cuidados de emergência.",
             appStoreSoon: "O link da App Store será ativado aqui assim que a ficha pública estiver disponível.",
@@ -1062,14 +1089,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Direção do produto",
             directionBody: "No curto prazo, o foco é tornar o acompanhamento diário mais claro, rápido e fiável em medicação, sintomas, sinais vitais e consultas, melhorando a consistência entre iPhone, widgets e Apple Watch.",
         },
-        footer: { privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap", terms: "Termos", disclaimer: "Aviso médico", subscription: "Subscrição", legalNote: "A VitalsPath destina-se apenas à organização pessoal de saúde e não substitui aconselhamento médico, diagnóstico, tratamento ou cuidados de emergência." },
+        footer: { privacy: "Privacidade", support: "Suporte", releaseFeatures: "Funcionalidades de lançamento", roadmap: "Roadmap", timeline: "Linha do Tempo", terms: "Termos", disclaimer: "Aviso médico", subscription: "Subscrição", legalNote: "A VitalsPath destina-se apenas à organização pessoal de saúde e não substitui aconselhamento médico, diagnóstico, tratamento ou cuidados de emergência." },
+        timeline: { title: "Linha do Tempo", subtitle: "Acompanhe o desenvolvimento do VitalsPath" },
     },
     ja: {
         meta: {
             title: "VitalsPath | 薬、症状、バイタル、予定を個人で整理するプライベート追跡",
             description: "薬、症状、バイタル、予定をわかりやすい健康タイムラインで個人的に記録できます。",
         },
-        nav: { home: "ホーム", privacy: "プライバシー", support: "サポート", releaseFeatures: "リリース機能", roadmap: "ロードマップ" },
+        nav: { home: "ホーム", privacy: "プライバシー", support: "サポート", releaseFeatures: "リリース機能", roadmap: "ロードマップ", timeline: "タイムライン" },
         common: {
             medicalDisclaimer: "VitalsPath は個人の健康管理とフォローアップのために設計されています。医療アドバイス、診断、治療、救急対応の代わりにはなりません。",
             appStoreSoon: "公開 App Store ページが利用可能になり次第、ここにリンクを表示します。",
@@ -1192,14 +1220,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "製品の方向性",
             directionBody: "短期的には、薬、症状、バイタル、予定にまたがる日々のフォローアップを、よりわかりやすく、速く、信頼できるものにしながら、iPhone、ウィジェット、Apple Watch 間の一貫性を高めることに注力します。",
         },
-        footer: { privacy: "プライバシー", support: "サポート", releaseFeatures: "リリース機能", roadmap: "ロードマップ", terms: "利用規約", disclaimer: "医療に関する注意", subscription: "サブスクリプション", legalNote: "VitalsPath は個人の健康管理専用であり、医療アドバイス、診断、治療、緊急対応の代わりにはなりません。" },
+        footer: { privacy: "プライバシー", support: "サポート", releaseFeatures: "リリース機能", roadmap: "ロードマップ", timeline: "タイムライン", terms: "利用規約", disclaimer: "医療に関する注意", subscription: "サブスクリプション", legalNote: "VitalsPath は個人の健康管理専用であり、医療アドバイス、診断、治療、緊急対応の代わりにはなりません。" },
+        timeline: { title: "リリース履歴", subtitle: "VitalsPathの開発状況を確認できます" },
     },
     zh: {
         meta: {
             title: "VitalsPath | 私密记录药物、症状、生命体征与预约",
             description: "在清晰的健康时间线中私密记录药物、症状、生命体征与预约。",
         },
-        nav: { home: "首页", privacy: "隐私", support: "支持", releaseFeatures: "首发功能", roadmap: "路线图" },
+        nav: { home: "首页", privacy: "隐私", support: "支持", releaseFeatures: "首发功能", roadmap: "路线图", timeline: "时间线" },
         common: {
             medicalDisclaimer: "VitalsPath 用于个人健康整理与跟进，不替代医疗建议、诊断、治疗或紧急救助。",
             appStoreSoon: "公开 App Store 页面上线后，这里会显示对应链接。",
@@ -1310,14 +1339,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "产品方向",
             directionBody: "短期内，重点是让药物、症状、生命体征和预约的日常跟进更加清晰、快速且可靠，同时提升 iPhone、小组件和 Apple Watch 之间的一致性。",
         },
-        footer: { privacy: "隐私政策", support: "支持", releaseFeatures: "首发功能", roadmap: "路线图", terms: "条款", disclaimer: "医疗免责声明", subscription: "订阅", legalNote: "VitalsPath 仅用于个人健康整理，不替代医疗建议、诊断、治疗或紧急救助。" },
+        footer: { privacy: "隐私政策", support: "支持", releaseFeatures: "首发功能", roadmap: "路线图", timeline: "时间线", terms: "条款", disclaimer: "医疗免责声明", subscription: "订阅", legalNote: "VitalsPath 仅用于个人健康整理，不替代医疗建议、诊断、治疗 or 紧急救助。" },
+        timeline: { title: "发布时间线", subtitle: "关注 VitalsPath 的开发进程" },
     },
     ko: {
         meta: {
             title: "VitalsPath | 약물, 증상, 활력징후, 일정을 위한 개인 건강 추적",
             description: "약물, 증상, 활력징후, 일정을 한눈에 보이는 건강 타임라인에서 비공개로 관리하세요.",
         },
-        nav: { home: "홈", privacy: "개인정보", support: "지원", releaseFeatures: "출시 기능", roadmap: "로드맵" },
+        nav: { home: "홈", privacy: "개인정보", support: "지원", releaseFeatures: "출시 기능", roadmap: "로드맵", timeline: "타임라인" },
         common: {
             medicalDisclaimer: "VitalsPath는 개인 건강 정리와 추적을 위해 설계되었습니다. 의료 조언, 진단, 치료 또는 응급 대응을 대체하지 않습니다.",
             appStoreSoon: "공개 App Store 페이지가 열리면 이곳에 링크가 표시됩니다.",
@@ -1428,14 +1458,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "제품 방향",
             directionBody: "단기적으로는 약물, 증상, 활력징후, 일정 전반의 일상 추적을 더 명확하고 빠르며 안정적으로 만들고, iPhone, 위젯, Apple Watch 간 일관성을 높이는 데 집중합니다.",
         },
-        footer: { privacy: "개인정보", support: "지원", releaseFeatures: "출시 기능", roadmap: "로드맵", terms: "이용약관", disclaimer: "의료 안내", subscription: "구독", legalNote: "VitalsPath는 개인 건강 정리를 위한 용도이며 의료 조언, 진단, 치료 또는 응급 대응을 대체하지 않습니다." },
+        footer: { privacy: "개인정보", support: "지원", releaseFeatures: "출시 기능", roadmap: "로드맵", timeline: "타임라인", terms: "이용약관", disclaimer: "의료 안내", subscription: "구독", legalNote: "VitalsPath는 개인 건강 정리를 위한 용도이며 의료 조언, 진단, 치료 또는 응급 대응을 대체하지 않습니다." },
+        timeline: { title: "릴리스 타임라인", subtitle: "VitalsPath의 개발 현황을 확인하세요" },
     },
     ru: {
         meta: {
             title: "VitalsPath | Приватный учет лекарств, симптомов, показателей и визитов",
             description: "Приватный учет лекарств, симптомов, показателей и визитов в понятной хронологии здоровья.",
         },
-        nav: { home: "Главная", privacy: "Конфиденциальность", support: "Поддержка", releaseFeatures: "Функции релиза", roadmap: "Дорожная карта" },
+        nav: { home: "Главная", privacy: "Конфиденциальность", support: "Поддержка", releaseFeatures: "Функции релиза", roadmap: "Дорожная карта", timeline: "Хронология" },
         common: {
             medicalDisclaimer: "VitalsPath предназначена для личной организации здоровья и наблюдения. Она не заменяет медицинские рекомендации, диагностику, лечение или экстренную помощь.",
             appStoreSoon: "Ссылка на App Store появится здесь, как только публичная страница станет доступна.",
@@ -1546,14 +1577,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Направление продукта",
             directionBody: "Краткосрочная цель — сделать ежедневное наблюдение за лекарствами, симптомами, показателями и визитами более понятным, быстрым и надежным, одновременно улучшая согласованность между iPhone, виджетами и Apple Watch.",
         },
-        footer: { privacy: "Конфиденциальность", support: "Поддержка", releaseFeatures: "Функции релиза", roadmap: "Дорожная карта", terms: "Условия", disclaimer: "Медицинское предупреждение", subscription: "Подписка", legalNote: "VitalsPath предназначена только для личной организации здоровья и не заменяет медицинские рекомендации, диагностику, лечение или экстренную помощь." },
+        footer: { privacy: "Конфиденциальность", support: "Поддержка", releaseFeatures: "Функции релиза", roadmap: "Дорожная карта", timeline: "Хронология", terms: "Условия", disclaimer: "Медицинское предупреждение", subscription: "Подписка", legalNote: "VitalsPath предназначена только для личной организации здоровья и не заменяет медицинские рекомендации, диагностику, лечение или экстренную помощь." },
+        timeline: { title: "Хронология выпусков", subtitle: "Следите за развитием VitalsPath" },
     },
     ar: {
         meta: {
             title: "VitalsPath | تتبع خاص للأدوية والأعراض والمؤشرات الحيوية والمواعيد",
             description: "تتبع خاص للأدوية والأعراض والمؤشرات الحيوية والمواعيد ضمن خط زمني صحي واضح.",
         },
-        nav: { home: "الرئيسية", privacy: "الخصوصية", support: "الدعم", releaseFeatures: "ميزات الإطلاق", roadmap: "خارطة الطريق" },
+        nav: { home: "الرئيسية", privacy: "الخصوصية", support: "الدعم", releaseFeatures: "ميزات الإطلاق", roadmap: "خارطة الطريق", timeline: "الخط الزمني" },
         common: {
             medicalDisclaimer: "تم تصميم VitalsPath لتنظيم الصحة الشخصي والمتابعة فقط. وهي لا تحل محل المشورة الطبية أو التشخيص أو العلاج أو رعاية الطوارئ.",
             appStoreSoon: "سيظهر رابط App Store هنا بمجرد توفر الصفحة العامة.",
@@ -1572,6 +1604,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "الخصوصية جزء من التصميم", body: "يجب أن تبقى معلوماتك الصحية واضحة وشخصية وتحت سيطرتك. تم تصميم VitalsPath لدعم التنظيم الشخصي، وليس لاستبدال المختصين الصحيين." },
             ],
             featureListTitle: "المجالات الأساسية",
+            featureListSubtitle: "كل ما تحتاجه، مصمم بدقة.",
             featureListItems: ["تتبع الأدوية والجرعات", "الجرعات المأخوذة والمتجاوزة والمؤجلة", "المخزون وتذكيرات إعادة التعبئة", "تسجيل الأعراض والمزاج", "المؤشرات الحيوية والقياسات", "الصور والملاحظات الصوتية", "المواعيد ومهام المتابعة", "الأدوات وLive Activities وApple Watch"],
             primaryFeatures: ["أتقن أدويتك", "تتبع الأعراض والمؤشرات"],
             featureTags: [
@@ -1663,14 +1696,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "اتجاه المنتج",
             directionBody: "التركيز على المدى القصير هو جعل المتابعة اليومية للأدوية والأعراض والمؤشرات الحيوية والمواعيد أوضح وأسرع وأكثر موثوقية، مع تحسين الاتساق بين iPhone والأدوات وApple Watch.",
         },
-        footer: { privacy: "الخصوصية", support: "الدعم", releaseFeatures: "ميزات الإطلاق", roadmap: "خارطة الطريق", terms: "الشروط", disclaimer: "إخلاء طبي", subscription: "الاشتراك", legalNote: "VitalsPath مخصصة لتنظيم الصحة الشخصي فقط ولا تحل محل المشورة الطبية أو التشخيص أو العلاج أو رعاية الطوارئ." },
+        footer: { privacy: "الخصوصية", support: "الدعم", releaseFeatures: "ميزات الإطلاق", roadmap: "خارطة الطريق", timeline: "الخط الزمني", terms: "الشروط", disclaimer: "إخلاء طبي", subscription: "الاشتراك", legalNote: "VitalsPath مخصصة لتنظيم الصحة الشخصي فقط ولا تحل محل المشورة الطبية أو التشخيص أو العلاج أو رعاية الطوارئ." },
+        timeline: { title: "خط روي الإصدارات", subtitle: "تابع تطور VitalsPath" },
     },
     hi: {
         meta: {
             title: "VitalsPath | दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स का निजी ट्रैकिंग",
             description: "दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स को एक स्पष्ट हेल्थ टाइमलाइन में निजी रूप से ट्रैक करें।",
         },
-        nav: { home: "होम", privacy: "प्राइवेसी", support: "सपोर्ट", releaseFeatures: "रिलीज़ फीचर्स", roadmap: "रोडमैप" },
+        nav: { home: "होम", privacy: "प्राइवेसी", support: "सपोर्ट", releaseFeatures: "रिलीज़ फीचर्स", roadmap: "रोडमैप", timeline: "टाइमलाइन" },
         common: {
             medicalDisclaimer: "VitalsPath व्यक्तिगत हेल्थ ऑर्गनाइज़ेशन और फॉलो-अप के लिए बनाई गई है। यह मेडिकल सलाह, निदान, इलाज या इमरजेंसी केयर का विकल्प नहीं है।",
             appStoreSoon: "जैसे ही सार्वजनिक App Store सूची उपलब्ध होगी, उसका लिंक यहाँ दिखेगा।",
@@ -1793,14 +1827,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "प्रोडक्ट दिशा",
             directionBody: "कम अवधि का ध्यान दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स के दैनिक फॉलो-अप को अधिक स्पष्ट, तेज़ और विश्वसनीय बनाना है, साथ ही iPhone, विजेट्स और Apple Watch के बीच एकरूपता सुधारना है।",
         },
-        footer: { privacy: "प्राइवेसी पॉलिसी", support: "सपोर्ट", releaseFeatures: "रिलीज़ फीचर्स", roadmap: "रोडमैप", terms: "शर्तें", disclaimer: "मेडिकल डिस्क्लेमर", subscription: "सब्सक्रिप्शन", legalNote: "VitalsPath केवल व्यक्तिगत हेल्थ ऑर्गनाइज़ेशन के लिए है और मेडिकल सलाह, निदान, इलाज या इमरजेंसी केयर का विकल्प नहीं है।" },
+        footer: { privacy: "प्राइवेसी पॉलिसी", support: "सपोर्ट", releaseFeatures: "रिलीज़ फीचर्स", roadmap: "रोडमैप", timeline: "टाइमलाइन", terms: "शर्तें", disclaimer: "मेडिकल डिस्क्लेमर", subscription: "सब्सक्रिप्शन", legalNote: "VitalsPath केवल व्यक्तिगत हेल्थ ऑर्गनाइज़ेशन के लिए है और मेडिकल सलाह, निदान, इलाज या इमरजेंसी केयर का विकल्प नहीं है।" },
+        timeline: { title: "रिलीज़ टाइमलाइन", subtitle: "VitalsPath के विकास का अनुसरण करें" },
     },
     tr: {
         meta: {
             title: "VitalsPath | İlaç, semptom, vital ve randevu takibi için özel alan",
             description: "İlaçları, semptomları, vital ölçümleri ve randevuları net bir sağlık zaman çizelgesinde özel olarak takip edin.",
         },
-        nav: { home: "Ana Sayfa", privacy: "Gizlilik", support: "Destek", releaseFeatures: "Çıkış Özellikleri", roadmap: "Yol Haritası" },
+        nav: { home: "Ana Sayfa", privacy: "Gizlilik", support: "Destek", releaseFeatures: "Çıkış Özellikleri", roadmap: "Yol Haritası", timeline: "Zaman Çizelgesi" },
         common: {
             medicalDisclaimer: "VitalsPath kişisel sağlık organizasyonu ve takip için tasarlanmıştır. Tıbbi tavsiye, teşhis, tedavi veya acil yardımın yerine geçmez.",
             appStoreSoon: "Genel App Store sayfası yayına girer girmez bağlantı burada görünecek.",
@@ -1923,14 +1958,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Ürün yönü",
             directionBody: "Kısa vadeli odak; ilaç, semptom, vital ölçümler ve randevular arasında günlük takibi daha net, hızlı ve güvenilir hâle getirmek ve iPhone, widget'lar ile Apple Watch arasındaki tutarlılığı artırmaktır.",
         },
-        footer: { privacy: "Gizlilik", support: "Destek", releaseFeatures: "Çıkış özellikleri", roadmap: "Yol Haritası", terms: "Şartlar", disclaimer: "Tıbbi uyarı", subscription: "Abonelik", legalNote: "VitalsPath yalnızca kişisel sağlık organizasyonu içindir ve tıbbi tavsiye, teşhis, tedavi veya acil yardımın yerine geçmez." },
+        footer: { privacy: "Gizlilik", support: "Destek", releaseFeatures: "Çıkış özellikleri", roadmap: "Yol Haritası", timeline: "Zaman Çizelgesi", terms: "Şartlar", disclaimer: "Tıbbi uyarı", subscription: "Abonelik", legalNote: "VitalsPath yalnızca kişisel sağlık organizasyonu içindir ve tıbbi tavsiye, teşhis, tedavi veya acil yardımın yerine geçmez." },
+        timeline: { title: "Yayın Zaman Çizelgesi", subtitle: "VitalsPath'in gelişimini takip edin" },
     },
     nl: {
         meta: {
             title: "VitalsPath | Privé overzicht van medicatie, symptomen, waarden en afspraken",
             description: "Privé overzicht van medicatie, symptomen, waarden en afspraken in één duidelijke gezondheidstijdlijn.",
         },
-        nav: { home: "Home", privacy: "Privacy", support: "Support", releaseFeatures: "Releasefuncties", roadmap: "Roadmap" },
+        nav: { home: "Home", privacy: "Privacy", support: "Support", releaseFeatures: "Releasefuncties", roadmap: "Roadmap", timeline: "Tijdlijn" },
         common: {
             medicalDisclaimer: "VitalsPath is ontworpen voor persoonlijke gezondheidsorganisatie en opvolging. Het vervangt geen medisch advies, diagnose, behandeling of spoedzorg.",
             appStoreSoon: "De App Store-link verschijnt hier zodra de openbare vermelding live staat.",
@@ -2062,14 +2098,15 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Productrichting",
             directionBody: "De focus op korte termijn is om dagelijkse opvolging rond medicatie, symptomen, waarden en afspraken duidelijker, sneller en betrouwbaarder te maken, terwijl de consistentie tussen iPhone, widgets en Apple Watch verbetert.",
         },
-        footer: { privacy: "Privacybeleid", support: "Support", releaseFeatures: "Releasefuncties", roadmap: "Roadmap", terms: "Voorwaarden", disclaimer: "Medische disclaimer", subscription: "Abonnement", legalNote: "VitalsPath is alleen bedoeld voor persoonlijke gezondheidsorganisatie en vervangt geen medisch advies, diagnose, behandeling of spoedzorg." },
+        footer: { privacy: "Privacybeleid", support: "Support", releaseFeatures: "Releasefuncties", roadmap: "Roadmap", timeline: "Tijdlijn", terms: "Voorwaarden", disclaimer: "Medische disclaimer", subscription: "Abonnement", legalNote: "VitalsPath is alleen bedoeld voor persoonlijke gezondheidsorganisatie en vervangt geen medisch advies, diagnose, behandeling of spoedzorg." },
+        timeline: { title: "Release Tijdlijn", subtitle: "Volg de ontwikkeling van VitalsPath" },
     },
     pl: {
         meta: {
             title: "VitalsPath | Prywatne śledzenie leków, objawów, parametrów i wizyt",
             description: "Prywatne śledzenie leków, objawów, parametrów i wizyt w jednej przejrzystej osi zdrowia.",
         },
-        nav: { home: "Start", privacy: "Prywatność", support: "Wsparcie", releaseFeatures: "Funkcje wydania", roadmap: "Mapa drogowa" },
+        nav: { home: "Start", privacy: "Prywatność", support: "Wsparcie", releaseFeatures: "Funkcje wydania", roadmap: "Mapa drogowa", timeline: "Oś czasu" },
         common: {
             medicalDisclaimer: "VitalsPath służy do osobistej organizacji zdrowia i bieżącego śledzenia. Nie zastępuje porady medycznej, diagnozy, leczenia ani pomocy w nagłych przypadkach.",
             appStoreSoon: "Link do App Store pojawi się tutaj, gdy publiczna karta aplikacji będzie już dostępna.",
@@ -2213,7 +2250,8 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             directionTitle: "Kierunek produktu",
             directionBody: "W krótkim terminie celem jest uczynienie codziennego śledzenia leków, objawów, parametrów i wizyt bardziej przejrzystym, szybszym i bardziej niezawodnym przy jednoczesnej poprawie spójności między iPhone'em, widżetami i Apple Watch.",
         },
-        footer: { privacy: "Polityka prywatności", support: "Wsparcie", releaseFeatures: "Funkcje wydania", roadmap: "Mapa drogowa", terms: "Warunki", disclaimer: "Zastrzeżenie medyczne", subscription: "Subskrypcja", legalNote: "VitalsPath służy wyłącznie do osobistej organizacji zdrowia i nie zastępuje porady medycznej, diagnozy, leczenia ani pomocy w nagłych przypadkach." },
+        footer: { privacy: "Polityka prywatności", support: "Wsparcie", releaseFeatures: "Funkcje wydania", roadmap: "Mapa drogowa", timeline: "Oś czasu", terms: "Warunki", disclaimer: "Zastrzeżenie medyczne", subscription: "Subskrypcja", legalNote: "VitalsPath służy wyłącznie do osobistej organizacji zdrowia i nie zastępuje porady medycznej, diagnozy, leczenia ani pomocy w nagłych przypadkach." },
+        timeline: { title: "Oś Czasu Wydania", subtitle: "Śledź rozwój VitalsPath" },
     },
 };
 

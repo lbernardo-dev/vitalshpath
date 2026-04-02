@@ -239,6 +239,11 @@ const baseUrl = import.meta.env.BASE_URL;
                         class="px-4 py-2 border-b-2 border-transparent font-medium text-gray-500 hover:text-gray-700 transition-all"
                         >Ajustes</button
                     >
+                    <button
+                        id="tab-releases"
+                        class="px-4 py-2 border-b-2 border-transparent font-medium text-blue-500 hover:text-blue-700 transition-all"
+                        >App Releases</button
+                    >
                 </div>
 
                 <!-- Section: Waitlist -->
@@ -542,6 +547,52 @@ const baseUrl = import.meta.env.BASE_URL;
                                     class="text-sm font-medium text-blue-600 hover:text-blue-700"
                                 >Ver página</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Releases -->
+                <div id="section-releases" class="hidden space-y-8">
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Lanzar Nueva Versión</h3>
+                        <div class="space-y-4 max-w-2xl">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Versión (App)</label><input type="text" id="release-version" class="w-full px-4 py-2 border rounded-lg" placeholder="1.2.0"></div>
+                                <div><label class="block text-sm font-medium text-gray-700 mb-1">Build</label><input type="text" id="release-build" class="w-full px-4 py-2 border rounded-lg" placeholder="42"></div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Novedades (una por línea o Markdown)</label>
+                                <textarea id="release-changes" rows="5" class="w-full px-4 py-3 border rounded-lg" placeholder="- Mejora de rendimiento\n- Nuevo diseño"></textarea>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Idioma Origen</label>
+                                    <select id="release-lang" class="w-full px-4 py-2 border rounded-lg">
+                                        <option value="es">Español</option>
+                                        <option value="en">Inglés</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Motor IA (Traducirá a 15 idiomas)</label>
+                                    <select id="release-ai" class="w-full px-4 py-2 border rounded-lg">
+                                        <option value="gemini">Google Gemini</option>
+                                        <option value="openai">OpenAI (ChatGPT)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">API Key (Se guarda seguro en tu navegador local)</label>
+                                <input type="password" id="release-apikey" class="w-full px-4 py-2 border rounded-lg" placeholder="sk-...">
+                            </div>
+                            <button id="submit-release-btn" class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">Generar Traducciones y Publicar</button>
+                            <p id="release-status" class="text-sm font-bold text-blue-600 hidden text-center p-3 bg-blue-50 rounded-lg">Generando... puede tardar unos segundos.</p>
+                        </div>
+                    </div>
+                    <!-- Lista de versiones anteriores -->
+                    <div class="bg-white rounded-xl shadow-sm border p-6">
+                        <h3 class="font-bold text-gray-900 mb-4">Versiones Previas</h3>
+                        <div id="releases-list" class="space-y-4">
+                            <p class="text-gray-500">Cargando...</p>
                         </div>
                     </div>
                 </div>
@@ -1060,7 +1111,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
             // Tab switching logic
             function setupTabs() {
-                const tabs = ["waitlist", "analytics", "pricing", "surveys", "settings"];
+                const tabs = ["waitlist", "analytics", "pricing", "surveys", "settings", "releases"];
                 tabs.forEach((tab) => {
                     document
                         .getElementById(`tab-${tab}`)
@@ -1311,10 +1362,126 @@ const baseUrl = import.meta.env.BASE_URL;
                 });
             }
 
+            function setupReleases() {
+                const lsKey = "vitalspath_ai_key";
+                const savedKey = localStorage.getItem(lsKey);
+                if (savedKey) document.getElementById("release-apikey").value = savedKey;
+
+                async function fetchReleases() {
+                    if (!supabase) return;
+                    const { data, error } = await supabase.from("releases").select("*").order("created_at", { ascending: false });
+                    if (data) {
+                        const list = document.getElementById("releases-list");
+                        if (data.length === 0) {
+                            list.innerHTML = "<p class='text-gray-500 text-sm'>No hay versiones registradas</p>";
+                        } else {
+                            list.innerHTML = data.map(r => `
+                                <div class="border border-gray-200 rounded-xl p-5 bg-gray-50 shadow-sm">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h4 class="font-black text-gray-900 text-lg tracking-tight">v${r.version} <span class="bg-gray-200 text-gray-600 font-bold px-2 py-0.5 rounded-full text-xs">Build ${r.build_number}</span></h4>
+                                        <span class="text-xs font-medium text-gray-500">${new Date(r.created_at).toLocaleDateString()}</span>
+                                    </div>
+                                    <div class="text-xs text-gray-400 bg-white p-3 rounded-lg border font-mono truncate">
+                                        ${Object.keys(r.translations).length} idiomas traducidos (${Object.keys(r.translations).join(', ')})
+                                    </div>
+                                    <button class="mt-3 text-red-600 hover:text-red-800 text-sm font-bold delete-release-btn" data-id="${r.id}">Eliminar</button>
+                                </div>
+                            `).join("");
+
+                            document.querySelectorAll(".delete-release-btn").forEach(btn => {
+                                btn.addEventListener("click", async (e) => {
+                                    if(confirm("¿Eliminar versión?")) {
+                                        const id = e.target.getAttribute("data-id");
+                                        await supabase.from("releases").delete().eq("id", id);
+                                        fetchReleases();
+                                    }
+                                });
+                            });
+                        }
+                    }
+                }
+                fetchReleases();
+
+                document.getElementById("submit-release-btn")?.addEventListener("click", async () => {
+                    const version = document.getElementById("release-version").value.trim();
+                    const build = document.getElementById("release-build").value.trim();
+                    const changes = document.getElementById("release-changes").value.trim();
+                    const aiProvider = document.getElementById("release-ai").value;
+                    const apiKey = document.getElementById("release-apikey").value.trim();
+                    const sourceLang = document.getElementById("release-lang").value;
+
+                    if (!version || !build || !changes || !apiKey) return alert("Por favor completa todos los campos y el API Key.");
+
+                    localStorage.setItem(lsKey, apiKey);
+                    const statusText = document.getElementById("release-status");
+                    statusText.classList.remove("hidden");
+                    statusText.textContent = "Generando traducciones a 15 idiomas... No cierres esta ventana.";
+
+                    const targetLangs = ["en", "es", "fr", "de", "it", "pt", "ja", "zh", "ko", "ru", "ar", "hi", "tr", "nl", "pl"];
+                    
+                    try {
+                        let translationsObj = {};
+                        const promptMsg = `Translate the following release notes (each line is a bullet point) into the following exact languages: ${targetLangs.join(', ')}. Return ONLY a JSON object where the keys are strictly the 2-letter language codes provided and the values are string arrays of the translated bullet points. Omit markdown formatting inside the JSON (no backticks).\n\nOriginal (${sourceLang}):\n${changes}`;
+
+                        if (aiProvider === "openai") {
+                            const res = await fetch("https://api.openai.com/v1/chat/completions", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json", "Authorization": `Bearer ${apiKey}` },
+                                body: JSON.stringify({
+                                    model: "gpt-4o-mini",
+                                    messages: [{ role: "user", content: promptMsg }],
+                                    response_format: { type: "json_object" }
+                                })
+                            });
+                            const json = await res.json();
+                            if (json.error) throw new Error(json.error.message);
+                            translationsObj = JSON.parse(json.choices[0].message.content);
+                        } else if (aiProvider === "gemini") {
+                            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                    contents: [{ parts: [{ text: promptMsg }] }],
+                                    generationConfig: { responseMimeType: "application/json" }
+                                })
+                            });
+                            const json = await res.json();
+                            if (json.error) throw new Error(json.error.message);
+                            translationsObj = JSON.parse(json.candidates[0].content.parts[0].text);
+                        }
+
+                        // Sanitize checking
+                        if (!translationsObj["en"] || !translationsObj["es"] || Array.isArray(translationsObj) ) {
+                            throw new Error("El JSON devuelto por la IA tiene un formato inválido o carece del idioma inglés/español.");
+                        }
+
+                        statusText.textContent = "Guardando base de datos Supabase...";
+                        
+                        const { error } = await supabase.from("releases").insert([{
+                            version, build_number: build, translations: translationsObj
+                        }]);
+
+                        if (error) throw error;
+                        
+                        statusText.textContent = "¡Publicado con éxito!";
+                        document.getElementById("release-version").value = "";
+                        document.getElementById("release-build").value = "";
+                        document.getElementById("release-changes").value = "";
+                        setTimeout(() => statusText.classList.add("hidden"), 3000);
+                        fetchReleases();
+
+                    } catch (e) {
+                        alert("Error al generar: " + e.message);
+                        statusText.classList.add("hidden");
+                    }
+                });
+            }
+
             setupTabs();
             setupPricing();
             setupSurveys();
             setupSettings();
+            setupReleases();
             init();
         </script>
     </body>

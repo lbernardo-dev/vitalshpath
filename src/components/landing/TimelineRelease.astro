@@ -1,0 +1,147 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.params;
+const currentLang = (lang as string) || "en";
+---
+
+<div id="timeline-container" class="relative space-y-12 before:absolute before:left-[11px] before:top-4 before:h-[calc(100%-32px)] before:w-0.5 before:bg-slate-200 dark:before:bg-white/10 sm:space-y-16 sm:before:left-[1.65rem]">
+    <!-- Skeleton loader or initial state -->
+    <div class="animate-pulse space-y-12">
+        {[1, 2].map((_) => (
+            <div class="group relative pl-10 sm:pl-16">
+                <div class="absolute left-0 top-1.5 h-[24px] w-[24px] rounded-full bg-slate-200 dark:bg-white/5 sm:h-[54px] sm:w-[54px]" />
+                <div class="h-8 w-1/3 bg-slate-200 dark:bg-white/5 rounded-lg mb-4" />
+                <div class="h-48 w-full bg-slate-200 dark:bg-white/5 rounded-[2.5rem]" />
+            </div>
+        ))}
+    </div>
+</div>
+
+<template id="release-template">
+    <div class="group relative pl-10 sm:pl-16 reveal-fade">
+        {/* Timeline Dot with Glow Effect */}
+        <div class="absolute left-0 top-1.5 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white ring-4 ring-slate-50 transition-all duration-500 group-hover:scale-110 group-hover:ring-sky-500/20 dark:bg-slate-900 dark:ring-slate-950 dark:group-hover:ring-sky-400/20 sm:h-[54px] sm:w-[54px] sm:ring-8">
+            <div class="h-2 w-2 rounded-full bg-sky-500 group-hover:animate-pulse sm:h-3 sm:w-3" />
+        </div>
+        
+        <div class="flex flex-col gap-5">
+            <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-baseline gap-2">
+                    <span class="version-text text-3xl font-black tracking-tight text-slate-950 dark:text-white sm:text-4xl"></span>
+                    <span class="build-text text-sm font-bold text-slate-400 dark:text-slate-500"></span>
+                </div>
+                
+                <div class="flex items-center gap-3 ml-auto">
+                    <time class="date-text text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500"></time>
+                </div>
+            </div>
+            
+            <div class="glass-container rounded-[2.5rem] border border-slate-200/80 bg-white/70 p-6 shadow-[0_32px_64px_-48px_rgba(15,23,42,0.2)] backdrop-blur-2xl transition-all duration-500 group-hover:border-sky-500/30 group-hover:bg-white/90 group-hover:shadow-[0_48px_80px_-48px_rgba(14,165,233,0.15)] dark:border-white/10 dark:bg-white/5 dark:group-hover:bg-white/10 sm:p-10">
+                <ul class="changes-list space-y-6"></ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import { getSupabase } from "../../lib/supabase/client";
+
+    async function loadTimeline() {
+        const container = document.getElementById('timeline-container');
+        const template = document.getElementById('release-template') as HTMLTemplateElement;
+        const currentLang = document.documentElement.lang || 'en';
+        
+        if (!container || !template) return;
+
+        const supabase = getSupabase();
+        if (!supabase) {
+            container.innerHTML = '<p class="text-center text-slate-500 p-12">Error de conexión.</p>';
+            return;
+        }
+
+        const { data: rawData, error } = await supabase
+            .from("releases")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+        const releases = rawData as any[] | null;
+
+        if (error || !releases || releases.length === 0) {
+            container.innerHTML = `
+                <div class="rounded-[2.5rem] border border-slate-200 bg-white/50 p-12 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+                    <p class="text-lg font-medium text-slate-500 dark:text-slate-400">
+                        ${currentLang === 'es' ? 'Pronto aparecerán aquí las novedades de VitalsPath.' : 'VitalsPath updates will appear here soon.'}
+                    </p>
+                </div>
+            `;
+            return;
+        }
+
+        // Clear loading state
+        container.innerHTML = '';
+
+        releases.forEach((release) => {
+            const clone = template.content.cloneNode(true) as HTMLElement;
+            
+            const versionEl = clone.querySelector('.version-text');
+            const buildEl = clone.querySelector('.build-text');
+            const dateEl = clone.querySelector('.date-text');
+            const listEl = clone.querySelector('.changes-list');
+
+            if (versionEl) versionEl.textContent = `v${release.version}`;
+            if (buildEl) buildEl.textContent = `#${release.build_number}`;
+            
+            if (dateEl) {
+                const date = new Date(release.created_at);
+                dateEl.textContent = date.toLocaleDateString(currentLang, { 
+                    year: 'numeric', month: 'short', day: 'numeric' 
+                });
+            }
+
+            if (listEl) {
+                const changes = release.translations?.[currentLang] || release.translations?.["en"] || [];
+                (Array.isArray(changes) ? changes : []).forEach(change => {
+                    const li = document.createElement('li');
+                    li.className = "flex gap-5 text-[1.05rem] leading-relax text-slate-600 transition-colors duration-300 group-hover:text-slate-950 dark:text-slate-300 dark:group-hover:text-white";
+                    li.innerHTML = `
+                        <span class="mt-2.5 h-2 w-2 flex-none rounded-full bg-sky-500/30 group-hover:bg-sky-500 transition-colors duration-300"></span>
+                        <span>${change}</span>
+                    `;
+                    listEl.appendChild(li);
+                });
+            }
+
+            container.appendChild(clone);
+        });
+    }
+
+    // Initialize
+    loadTimeline();
+    
+    // Listen for Astro view transitions
+    document.addEventListener('astro:page-load', loadTimeline);
+</script>
+
+<style>
+    .glass-container {
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .leading-relax {
+        line-height: 1.75;
+    }
+
+    .reveal-fade {
+        animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes reveal {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

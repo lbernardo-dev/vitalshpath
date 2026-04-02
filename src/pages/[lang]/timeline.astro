@@ -1,0 +1,37 @@
+---
+import PageShell from "../../components/PageShell.astro";
+import { supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { getSiteCopy } from "../../content/site-copy";
+import TimelineRelease from "../../components/landing/TimelineRelease.astro";
+
+export function getStaticPaths() {
+    return supportedLangs.map((lang) => ({
+        params: { lang },
+    }));
+}
+
+const { lang } = Astro.params;
+const currentLang = lang as Lang;
+const copy = getSiteCopy(currentLang);
+
+// Fallback for languages where timeline copy is not yet added
+const timelineCopy = copy.timeline || {
+    title: currentLang === 'es' ? "Cronología de la app" : "App Timeline",
+    subtitle: currentLang === 'es' ? "Historial de versiones y últimas actualizaciones" : "Version history and latest updates",
+};
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<PageShell
+    lang={currentLang}
+    title={timelineCopy.title}
+    intro={timelineCopy.subtitle}
+    badge={copy.nav.timeline || (currentLang === 'es' ? "Cronología" : "Timeline")}
+    pageTitle={`${timelineCopy.title} | VitalsPath`}
+    pageDescription={timelineCopy.subtitle}
+>
+    <div class="max-w-4xl mx-auto py-12">
+        <TimelineRelease lang={currentLang} />
+    </div>
+</PageShell>

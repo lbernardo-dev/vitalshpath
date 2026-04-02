@@ -111,6 +111,29 @@ export interface Database {
                     created_at?: string;
                 };
             };
+            releases: {
+                Row: {
+                    id: string;
+                    version: string;
+                    build_number: string;
+                    translations: Record<string, string[]>;
+                    created_at: string;
+                };
+                Insert: {
+                    id?: string;
+                    version: string;
+                    build_number: string;
+                    translations: Record<string, string[]>;
+                    created_at?: string;
+                };
+                Update: {
+                    id?: string;
+                    version?: string;
+                    build_number?: string;
+                    translations?: Record<string, string[]>;
+                    created_at?: string;
+                };
+            };
         };
         Functions: {
             get_stats: {
