@@ -1485,10 +1485,19 @@ const baseUrl = import.meta.env.BASE_URL;
                 });
             }
 
+            // AI API Key configuration
+            const LS_KEY_AI = "vitalspath_ai_key";
+
             function setupReleases() {
-                const lsKey = "vitalspath_ai_key";
-                const savedKey = localStorage.getItem(lsKey);
-                if (savedKey) document.getElementById("release-apikey").value = savedKey;
+                const apiKeyInput = document.getElementById("release-apikey") as HTMLInputElement;
+                
+                const savedKey = localStorage.getItem(LS_KEY_AI);
+                if (savedKey && apiKeyInput) apiKeyInput.value = savedKey;
+
+                // Auto-save on input
+                apiKeyInput?.addEventListener("input", () => {
+                    localStorage.setItem(LS_KEY_AI, apiKeyInput.value.trim());
+                });
 
                 async function fetchReleases() {
                     if (!supabase) return;
@@ -1578,7 +1587,6 @@ const baseUrl = import.meta.env.BASE_URL;
                     }
 
                     // Reset UI
-                    localStorage.setItem(lsKey, apiKey);
                     errorBox.classList.add("hidden");
                     statusContainer.classList.remove("hidden");
                     btn.disabled = true;
@@ -1799,6 +1807,11 @@ ${changes}`;
                 fetchRoadmap();
 
                 document.getElementById("submit-roadmap-btn")?.addEventListener("click", async () => {
+                    const statusContainer = document.getElementById("roadmap-status-container")!;
+                    const statusTitle = document.getElementById("roadmap-status-title")!;
+                    const errorBox = document.getElementById("roadmap-error")!;
+                    const btn = document.getElementById("submit-roadmap-btn") as HTMLButtonElement;
+
                     try {
                         const title = (document.getElementById("roadmap-title") as HTMLInputElement).value.trim();
                         const date = (document.getElementById("roadmap-date") as HTMLInputElement).value.trim();
@@ -1806,12 +1819,7 @@ ${changes}`;
                         const status = (document.getElementById("roadmap-status") as HTMLSelectElement).value;
                         const priority = parseInt((document.getElementById("roadmap-priority") as HTMLInputElement).value) || 0;
                         const isPublic = (document.getElementById("roadmap-public") as HTMLInputElement).checked;
-                        
                         const apiKey = (document.getElementById("release-apikey") as HTMLInputElement).value.trim();
-                        const statusContainer = document.getElementById("roadmap-status-container")!;
-                        const statusTitle = document.getElementById("roadmap-status-title")!;
-                        const errorBox = document.getElementById("roadmap-error")!;
-                        const btn = document.getElementById("submit-roadmap-btn") as HTMLButtonElement;
 
                         if (!title || !apiKey) {
                             alert("Por favor rellena al menos el título y asegúrate de tener una API Key guardada en la sección de versiones.");
