@@ -240,6 +240,7 @@ const baseUrl = import.meta.env.BASE_URL;
                         >Ajustes</button
                     >
                     <button
+                        id="tab-releases"
                         data-section="releases"
                         class="px-6 py-4 text-sm font-bold text-gray-500 hover:text-blue-600 transition-all border-b-2 border-transparent"
                     >
@@ -763,25 +764,30 @@ const baseUrl = import.meta.env.BASE_URL;
                         document.getElementById("stat-online").textContent =
                             data.online_now || 0;
 
-                        // App Store Clicks
+                        // Core Stats
                         if (data.app_store_clicks_total !== undefined) {
-                            document.getElementById("stat-app-store-clicks").textContent = data.app_store_clicks_total;
-                            document.getElementById("stat-app-store-tracked").textContent = data.app_store_clicks_tracked;
-                            document.getElementById("stat-app-store-manual").textContent = data.app_store_clicks_manual;
+                            const clicksEl = document.getElementById("stat-app-store-clicks");
+                            const trackedEl = document.getElementById("stat-app-store-tracked");
+                            const manualEl = document.getElementById("stat-app-store-manual");
+                            if (clicksEl) clicksEl.textContent = data.app_store_clicks_total;
+                            if (trackedEl) trackedEl.textContent = data.app_store_clicks_tracked;
+                            if (manualEl) manualEl.textContent = data.app_store_clicks_manual;
                         }
 
                         if (data.avg_duration_seconds !== undefined) {
                             const secs = Math.round(data.avg_duration_seconds);
                             const el = document.getElementById("stat-avg-time");
-                            if (secs < 60) {
-                                el.textContent = `${secs}s`;
-                            } else {
-                                const mins = Math.floor(secs / 60);
-                                const remSecs = secs % 60;
-                                el.textContent =
-                                    remSecs > 0
-                                        ? `${mins}m ${remSecs}s`
-                                        : `${mins}m`;
+                            if (el) {
+                                if (secs < 60) {
+                                    el.textContent = `${secs}s`;
+                                } else {
+                                    const mins = Math.floor(secs / 60);
+                                    const remSecs = secs % 60;
+                                    el.textContent =
+                                        remSecs > 0
+                                            ? `${mins}m ${remSecs}s`
+                                            : `${mins}m`;
+                                }
                             }
                         }
                     }
@@ -795,76 +801,82 @@ const baseUrl = import.meta.env.BASE_URL;
                         // Render Langs
                         const langsEl =
                             document.getElementById("analytics-langs");
-                        langsEl.innerHTML =
-                            data.top_languages
-                                .map(
-                                    (l) => `
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium text-gray-700">${l.lang.toUpperCase()}</span>
-                                    <span class="text-gray-500">${
-                                        l.count
-                                    } vistas</span>
+                        if (langsEl && data.top_languages) {
+                            langsEl.innerHTML =
+                                data.top_languages
+                                    .map(
+                                        (l) => `
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="font-medium text-gray-700">${(l.lang || "??").toUpperCase()}</span>
+                                        <span class="text-gray-500">${
+                                            l.count
+                                        } vistas</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: ${Math.min(
+                                            100,
+                                            (l.count /
+                                                (data.top_languages[0]?.count || 1)) *
+                                                100
+                                        )}%"></div>
+                                    </div>
                                 </div>
-                                <div class="w-full bg-gray-100 rounded-full h-2">
-                                    <div class="bg-blue-500 h-2 rounded-full" style="width: ${Math.min(
-                                        100,
-                                        (l.count /
-                                            data.top_languages[0].count) *
-                                            100
-                                    )}%"></div>
-                                </div>
-                            </div>
-                        `
-                                )
-                                .join("") ||
-                            '<p class="text-gray-500 text-sm">Sin datos</p>';
+                            `
+                                    )
+                                    .join("") ||
+                                '<p class="text-gray-500 text-sm">Sin datos</p>';
+                        }
 
                         // Render Pages
                         const pagesEl =
                             document.getElementById("analytics-pages");
-                        pagesEl.innerHTML =
-                            data.top_pages
-                                .map(
-                                    (p) => `
-                            <div>
-                                <div class="flex justify-between text-sm mb-1">
-                                    <span class="font-medium text-gray-700 truncate mr-2">${
-                                        p.page
-                                    }</span>
-                                    <span class="text-gray-500">${
-                                        p.count
-                                    }</span>
+                        if (pagesEl && data.top_pages) {
+                            pagesEl.innerHTML =
+                                data.top_pages
+                                    .map(
+                                        (p) => `
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="font-medium text-gray-700 truncate mr-2">${
+                                            p.page
+                                        }</span>
+                                        <span class="text-gray-500">${
+                                            p.count
+                                        }</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-purple-500 h-2 rounded-full" style="width: ${Math.min(
+                                            100,
+                                            (p.count / (data.top_pages[0]?.count || 1)) *
+                                                100
+                                        )}%"></div>
+                                    </div>
                                 </div>
-                                <div class="w-full bg-gray-100 rounded-full h-2">
-                                    <div class="bg-purple-500 h-2 rounded-full" style="width: ${Math.min(
-                                        100,
-                                        (p.count / data.top_pages[0].count) *
-                                            100
-                                    )}%"></div>
-                                </div>
-                            </div>
-                        `
-                                )
-                                .join("") ||
-                            '<p class="text-gray-500 text-sm">Sin datos</p>';
+                            `
+                                    )
+                                    .join("") ||
+                                '<p class="text-gray-500 text-sm">Sin datos</p>';
+                        }
 
                         // Render History
                         const historyBody = document.getElementById(
                             "analytics-history-body"
                         );
-                        historyBody.innerHTML = data.history
-                            .map(
-                                (h) => `
-                            <tr>
-                                <td class="px-6 py-4 font-medium text-gray-900">${h.date}</td>
-                                <td class="px-6 py-4 text-gray-600">${h.unique_visitors}</td>
-                                <td class="px-6 py-4 text-gray-600">${h.page_views}</td>
-                                <td class="px-6 py-4 text-blue-600 font-bold">${h.signups}</td>
-                            </tr>
-                        `
-                            )
-                            .join("");
+                        if (historyBody && data.history) {
+                            historyBody.innerHTML = data.history
+                                .map(
+                                    (h) => `
+                                <tr>
+                                    <td class="px-6 py-4 font-medium text-gray-900">${h.date}</td>
+                                    <td class="px-6 py-4 text-gray-600">${h.unique_visitors}</td>
+                                    <td class="px-6 py-4 text-gray-600">${h.page_views}</td>
+                                    <td class="px-6 py-4 text-blue-600 font-bold">${h.signups}</td>
+                                </tr>
+                            `
+                                )
+                                .join("") || '<tr><td colspan="4" class="px-6 py-12 text-center text-gray-500">Sin historial</td></tr>';
+                        }
 
                         // Render Survey
                         const surveyEl =
@@ -1229,42 +1241,37 @@ const baseUrl = import.meta.env.BASE_URL;
             function setupTabs() {
                 const tabs = ["waitlist", "analytics", "pricing", "surveys", "settings", "releases", "roadmap"];
                 tabs.forEach((tab) => {
-                    document
-                        .getElementById(`tab-${tab}`)
-                        ?.addEventListener("click", () => {
-                            tabs.forEach((t) => {
-                                document
-                                    .getElementById(`tab-${t}`)
-                                    .classList.remove(
-                                        "border-blue-500",
-                                        "text-blue-600"
-                                    );
-                                document
-                                    .getElementById(`tab-${t}`)
-                                    .classList.add(
-                                        "border-transparent",
-                                        "text-gray-500"
-                                    );
-                                document
-                                    .getElementById(`section-${t}`)
-                                    .classList.add("hidden");
-                            });
-                            document
-                                .getElementById(`tab-${tab}`)
-                                .classList.add(
+                    const tabEl = document.getElementById(`tab-${tab}`);
+                    if (!tabEl) return;
+                    
+                    tabEl.addEventListener("click", () => {
+                        tabs.forEach((t) => {
+                            const otherTab = document.getElementById(`tab-${t}`);
+                            if (otherTab) {
+                                otherTab.classList.remove(
                                     "border-blue-500",
                                     "text-blue-600"
                                 );
-                            document
-                                .getElementById(`tab-${tab}`)
-                                .classList.remove(
+                                otherTab.classList.add(
                                     "border-transparent",
                                     "text-gray-500"
                                 );
-                            document
-                                .getElementById(`section-${tab}`)
-                                .classList.remove("hidden");
+                            }
+                            const section = document.getElementById(`section-${t}`);
+                            if (section) section.classList.add("hidden");
                         });
+                        
+                        tabEl.classList.add(
+                            "border-blue-500",
+                            "text-blue-600"
+                        );
+                        tabEl.classList.remove(
+                            "border-transparent",
+                            "text-gray-500"
+                        );
+                        const targetSection = document.getElementById(`section-${tab}`);
+                        if (targetSection) targetSection.classList.remove("hidden");
+                    });
                 });
             }
 
