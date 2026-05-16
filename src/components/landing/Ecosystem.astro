@@ -1,11 +1,11 @@
 ---
 import { type Lang } from "../../i18n/ui-locales";
 import { getSiteCopy } from "../../content/site-copy";
-import { Activity, LayoutTemplate, Zap, Smartphone, Watch, Layout } from "lucide-react";
+import { Activity, Watch, Layout } from "lucide-react";
 import { Image } from "astro:assets";
 
 // High fidelity assets for the ecosystem collage
-import watchVitals from "../../assets/images/devices/watch_vitals_clean.png";
+import watchVitals from "../../assets/images/eco-watch-ring.png";
 import screenWidgets from "../../assets/images/screens/screen-21-widgets-gallery.PNG";
 import screenLiveActivity from "../../assets/images/screens/screen-27-live-activity.PNG";
 
@@ -20,7 +20,7 @@ const copy = getSiteCopy(lang);
 const ecosystemIcons = [Layout, Watch, Activity];
 ---
 
-<section id="ecosystem" class="py-6 sm:py-10 relative overflow-hidden bg-slate-50/30 dark:bg-black/40">
+<section id="ecosystem" class="relative overflow-hidden border-y border-slate-200 bg-slate-50 py-14 sm:py-20 dark:border-white/10 dark:bg-[#0c1117]">
     <!-- Sophisticated background pattern -->
     <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#2dd4bf 1px, transparent 1px); background-size: 40px 40px;"></div>
 
@@ -29,35 +29,35 @@ const ecosystemIcons = [Layout, Watch, Activity];
             
             <!-- Left Side: Content Hierarchy -->
             <div class="reveal">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-teal-vibrant/10 border border-teal-vibrant/20 mb-8 backdrop-blur-md">
-                    <span class="text-teal-vibrant text-[11px] font-black tracking-[0.4em] uppercase">
+                <div class="mb-6 inline-flex items-center rounded-lg bg-sky-100 px-3 py-1.5 dark:bg-teal-300/10">
+                    <span class="text-[11px] font-black uppercase tracking-[0.22em] text-sky-700 dark:text-teal-200">
                         {copy.home.ecosystemLabel}
                     </span>
                 </div>
                 
-                <h2 class="text-fluid-h2 font-black text-slate-900 dark:text-white tracking-tighter text-balance mb-8 uppercase italic">
+                <h2 class="mb-6 text-[clamp(2.2rem,5vw,4.5rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
                     {copy.home.ecosystemTitle}
                 </h2>
                 
-                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium mb-12 max-w-xl leading-relaxed opacity-80">
+                <p class="mb-10 max-w-xl text-lg font-medium leading-8 text-slate-600 dark:text-slate-300 md:text-xl">
                     {copy.home.ecosystemBody}
                 </p>
 
-                <div class="grid grid-cols-1 gap-8">
+                <div class="grid grid-cols-1 gap-5">
                     {copy.home.ecosystemItems.map((item, index) => {
                         const Icon = ecosystemIcons[index % ecosystemIcons.length];
                         return (
-                            <div class={`reveal stagger-${index + 1} flex items-start group`}>
+                            <div class={`group flex items-start rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-colors duration-300 hover:border-sky-200 reveal stagger-${index + 1} dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-teal-300/30`}>
                                 <div class="flex-shrink-0 mt-1">
-                                    <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-white/10 shadow-sm transform transition-all duration-500 group-hover:scale-110 group-hover:bg-teal-vibrant group-hover:text-white">
-                                        <Icon className="w-7 h-7" />
+                                    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-50 text-sky-700 transition-colors duration-300 group-hover:bg-sky-600 group-hover:text-white dark:bg-teal-300/10 dark:text-teal-200 dark:group-hover:bg-teal-300 dark:group-hover:text-slate-950">
+                                        <Icon className="h-6 w-6" />
                                     </div>
                                 </div>
-                                <div class="ml-6">
-                                    <h3 class="text-xl font-black text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-teal-vibrant transition-colors">
+                                <div class="ml-4">
+                                    <h3 class="mb-1 text-lg font-black tracking-tight text-slate-950 transition-colors group-hover:text-sky-700 dark:text-white dark:group-hover:text-teal-200">
                                         {item.title}
                                     </h3>
-                                    <p class="text-base text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                                    <p class="text-sm font-medium leading-6 text-slate-600 dark:text-slate-300">
                                         {item.description}
                                     </p>
                                 </div>
@@ -68,23 +68,23 @@ const ecosystemIcons = [Layout, Watch, Activity];
             </div>
 
             <!-- Right Side: The Ecosystem Collage -->
-            <div class="relative py-12 lg:py-0 reveal-scale perspective-2000 h-[500px] sm:h-[600px] flex items-center justify-center">
+            <div class="relative flex h-[500px] items-center justify-center py-12 reveal-scale perspective-2000 sm:h-[600px] lg:py-0">
                 
                 <!-- Background Glow -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-tr from-teal-vibrant/20 to-blue-500/10 blur-[100px] rounded-full z-0 opacity-50"></div>
 
                 <!-- Apple Watch (Front/Center) -->
-                <div class="absolute z-30 w-[240px] sm:w-[320px] transform transition-transform duration-1000 hover:scale-105 hover:-translate-y-4 hover:rotate-1">
+                <div class="absolute z-30 w-[190px] transform transition-transform duration-700 hover:-translate-y-3 sm:w-[250px]">
                     <Image
                         src={watchVitals}
                         alt="VitalsPath on Apple Watch"
-                        class="w-full h-auto object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.3)] mockup-clean-blend-watch"
+                        class="h-auto w-full object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.24)]"
                     />
                 </div>
 
                 <!-- Live Activity Mockup (Floating Right) -->
-                <div class="absolute z-40 top-1/4 -right-4 sm:-right-8 w-[200px] sm:w-[260px] transform rotate-3 transition-all duration-700 hover:rotate-0 hover:scale-110 animate-float translate-y-12">
-                    <div class="relative rounded-[2rem] border-[6px] border-slate-900 bg-black overflow-hidden shadow-2xl overflow-hidden ring-1 ring-white/20">
+                <div class="absolute right-0 top-1/4 z-40 w-[180px] translate-y-12 rotate-3 transform transition-all duration-700 hover:rotate-0 sm:-right-8 sm:w-[240px]">
+                    <div class="relative overflow-hidden rounded-[1.7rem] border-[6px] border-slate-950 bg-black shadow-2xl ring-1 ring-white/20">
                          <div class="absolute top-1 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full z-20"></div>
                          <Image
                             src={screenLiveActivity}
@@ -92,14 +92,14 @@ const ecosystemIcons = [Layout, Watch, Activity];
                             class="w-full h-auto"
                         />
                     </div>
-                    <div class="absolute -bottom-2 -right-2 px-3 py-1 rounded-full bg-teal-vibrant text-[10px] font-black text-white shadow-xl uppercase tracking-widest z-50">
+                    <div class="absolute -bottom-2 -right-2 z-50 rounded-lg bg-sky-600 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-xl dark:bg-teal-300 dark:text-slate-950">
                         {lang === 'es' ? 'EN VIVO' : 'LIVE'}
                     </div>
                 </div>
 
                 <!-- Widget Mockup (Floating Left/Bottom) -->
-                <div class="absolute z-20 -bottom-4 -left-4 sm:-left-12 w-[180px] sm:w-[240px] transform -rotate-6 transition-all duration-700 hover:rotate-0 hover:scale-110 animate-pulse-slow">
-                     <div class="relative rounded-[2.5rem] border-[8px] border-slate-900 bg-slate-900 overflow-hidden shadow-2xl ring-1 ring-white/10">
+                <div class="absolute -bottom-4 -left-4 z-20 w-[170px] -rotate-6 transform transition-all duration-700 hover:rotate-0 sm:-left-12 sm:w-[230px]">
+                     <div class="relative overflow-hidden rounded-[2rem] border-[8px] border-slate-950 bg-slate-900 shadow-2xl ring-1 ring-white/10">
                          <Image
                             src={screenWidgets}
                             alt="Widgets Gallery"

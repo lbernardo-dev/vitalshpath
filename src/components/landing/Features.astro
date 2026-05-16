@@ -10,7 +10,6 @@ import screenAppointments from "../../assets/images/screens/screen-11-appointmen
 import screenLiveActivity from "../../assets/images/screens/screen-27-live-activity.PNG";
 import screenWidgets from "../../assets/images/screens/screen-20-widgets-home.PNG";
 import screenWellness from "../../assets/images/screens/screen-18-wellness.PNG";
-import screenProfiles from "../../assets/images/screens/screen-02-profiles.PNG";
 
 interface Props {
     lang: Lang;
@@ -71,41 +70,38 @@ const allCards = copy.home.bentoCards.map((card, i) => ({
 }));
 ---
 
-<section id="features" class="pt-4 pb-8 sm:pt-6 sm:pb-10 relative overflow-hidden">
-    <!-- Decorative Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-vibrant/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
-
+<section id="features" class="relative overflow-hidden bg-white py-12 sm:py-16 dark:bg-[#080b0f]">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         
         <!-- Section Title -->
-        <div class="text-center mb-16 max-w-5xl mx-auto reveal">
-            <h2 class="text-fluid-h2 font-black text-slate-900 dark:text-white mb-6 tracking-tighter text-balance uppercase italic">
+        <div class="mb-12 max-w-4xl reveal">
+            <h2 class="mb-4 text-[clamp(2.1rem,5vw,4.4rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
                 {copy.home.featureListTitle}
             </h2>
-            <p class="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium tracking-tight opacity-75">
-                {lang === 'es' ? 'Todo lo que necesitas, diseñado con precisión.' : 'Everything you need, precision-engineered.'}
+            <p class="max-w-2xl text-lg font-medium leading-8 text-slate-600 dark:text-slate-300 md:text-xl">
+                {copy.home.featureListSubtitle}
             </p>
         </div>
 
         <!-- Bento Grid Expanded -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {allCards.map((card, index) => (
-                <div class={`group relative rounded-[3rem] overflow-hidden glass-panel border border-white/60 dark:border-white/10 flex flex-col justify-between transition-all duration-700 hover:-translate-y-2 ${card.glow} reveal-scale stagger-${index % 3 + 1}`}>
+                <div class={`group relative flex min-h-[560px] flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition-all duration-500 hover:-translate-y-1 hover:bg-white ${card.glow} reveal-scale stagger-${index % 3 + 1} dark:border-white/10 dark:bg-white/[0.04] dark:hover:bg-white/[0.07]`}>
                     
                     <!-- Card Content (Top) -->
-                    <div class="p-6 sm:p-8 pb-0 z-10 flex flex-col items-center text-center">
-                        <div class={`inline-flex px-3 py-1 rounded-full ${card.badgeStyle || card.badge} text-[10px] font-bold tracking-widest uppercase mb-4 shadow-sm border border-current/10`}>
+                    <div class="z-10 p-6 pb-0 sm:p-7">
+                        <div class={`mb-4 inline-flex rounded-lg px-2.5 py-1 ${card.badgeStyle || card.badge} text-[10px] font-black uppercase tracking-[0.16em]`}>
                             {card.badge}
                         </div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter text-balance uppercase italic">
+                        <h3 class="mb-3 text-2xl font-black leading-none tracking-tight text-slate-950 dark:text-white sm:text-3xl">
                             {card.title}
                         </h3>
-                        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-medium mb-4 line-clamp-3">
+                        <p class="mb-5 text-sm font-medium leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
                             {card.body}
                         </p>
-                        <div class="flex flex-wrap justify-center gap-1.5 mb-6">
+                        <div class="flex flex-wrap gap-1.5">
                             {card.tags.map((tag: string) => (
-                                <span class="px-2.5 py-1 rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md text-[9px] font-bold text-slate-600 dark:text-slate-400 border border-transparent group-hover:border-white/20 transition-all uppercase tracking-wide">
+                                <span class="rounded-md bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-slate-500 ring-1 ring-slate-200 dark:bg-white/5 dark:text-slate-300 dark:ring-white/10">
                                     {tag}
                                 </span>
                             ))}
@@ -113,12 +109,12 @@ const allCards = copy.home.bentoCards.map((card, i) => ({
                     </div>
 
                     <!-- Image Container (Bottom) -->
-                    <div class="relative w-full aspect-[4/3] flex justify-center items-start overflow-visible mt-auto px-6 sm:px-10">
+                    <div class="relative mt-auto flex aspect-[4/3] w-full items-start justify-center overflow-hidden px-6 sm:px-10">
                         <!-- Subtle inner glow -->
-                        <div class={`absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t ${card.bgGlow} to-transparent z-0`}></div>
-                        <div class="relative z-10 w-full max-w-[170px] sm:max-w-[190px] transform transition-transform duration-700 group-hover:-translate-y-4 group-hover:scale-110">
+                        <div class={`absolute inset-x-0 bottom-0 z-0 h-2/3 bg-gradient-to-t ${card.bgGlow} to-transparent`}></div>
+                        <div class="relative z-10 w-full max-w-[185px] translate-y-4 transform transition-transform duration-700 group-hover:translate-y-0 sm:max-w-[205px]">
                             <!-- Device Frame -->
-                            <div class="relative w-full aspect-[1170/2532] rounded-[2.2rem] border-[6px] sm:border-[8px] border-slate-900 bg-slate-800 overflow-hidden ring-1 ring-white/10 shadow-2xl">
+                            <div class="relative aspect-[1170/2532] w-full overflow-hidden rounded-[2rem] border-[7px] border-slate-950 bg-slate-900 shadow-2xl ring-1 ring-white/10">
                                 <!-- Dynamic Notch -->
                                 <div class="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-[35%] h-4 sm:h-5 bg-black rounded-full z-20"></div>
                                 <Image

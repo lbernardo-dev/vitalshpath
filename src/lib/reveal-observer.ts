@@ -22,16 +22,9 @@ export function setupRevealObserver() {
             }
         });
 
-        // Clear failsafe once observer is working
-        const anyVisible = Array.from(revealElements).some((el) =>
-            el.classList.contains("reveal-visible")
-        );
-        if (anyVisible) clearTimeout(failsafeTimer);
-
     }, observerOptions);
 
     revealElements.forEach((el) => {
         observer.observe(el);
     });
 }
-

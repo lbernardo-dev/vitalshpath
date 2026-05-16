@@ -5,9 +5,10 @@ import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
-import screenHome from "../../assets/images/devices/iphone_home_clean.png";
+import appMockup from "../../assets/images/app-mockup.png";
 import screenMeds from "../../assets/images/devices/iphone_meds_clean.png";
-import watchImage from "../../assets/images/devices/watch_home_clean.png";
+import screenSymptoms from "../../assets/images/devices/iphone_synthom_clean.png";
+import watchImage from "../../assets/images/devices/watch_vitals_clean.png";
 
 interface Props {
     lang: Lang;
@@ -16,6 +17,7 @@ interface Props {
 const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const heroTitle = copy.home.heroTitle;
 const periodIndex = heroTitle.indexOf('. ');
@@ -30,88 +32,96 @@ if (periodIndex !== -1) {
 }
 ---
 
-<section class="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-visible">
-    {/* Dynamic Background Grain & Gradient */}
-    <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <div class="absolute top-0 left-0 w-full h-full bg-[#FAFAFA] dark:bg-[#050505]"></div>
-        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-vpath-primary/10 blur-[120px] rounded-full animate-pulse-slow"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-vpath-accent/10 blur-[120px] rounded-full animate-pulse-slow" style="animation-delay: -2s;"></div>
-    </div>
+<section class="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
+    <div class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_58%,#eff8ff_100%)] dark:bg-[linear-gradient(180deg,#07090c_0%,#101419_62%,#071512_100%)]"></div>
+    <div class="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent dark:via-teal-300/40"></div>
 
-    <div class="container mx-auto px-6 relative z-10 w-full flex flex-col items-center">
-        <!-- Top Column: Content -->
-        <div class="flex flex-col items-center text-center max-w-5xl mx-auto">
-            <div class="inline-flex items-center px-4 py-1.5 rounded-full glass-panel border border-teal-vibrant/20 dark:border-teal-vibrant/10 mb-4 shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-teal-vibrant animate-pulse mr-2"></span>
-                <span class="text-teal-vibrant text-[11px] font-bold tracking-[0.2em] uppercase">
-                    {copy.home.heroBadge || (lang === 'es' ? 'PRIVADO Y SEGURO' : 'PRIVATE & SECURE')}
-                </span>
+    <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8">
+        <div class="max-w-3xl text-center lg:text-left">
+            <div class="mb-5 inline-flex items-center rounded-full border border-sky-200/80 bg-white/80 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-sky-700 shadow-sm shadow-sky-900/5 dark:border-teal-300/20 dark:bg-white/5 dark:text-teal-200">
+                {copy.home.heroBadge || (lang === 'es' ? 'VITALSPATH 2.0.0' : 'VITALSPATH 2.0.0')}
             </div>
-            
-            <h1 class="text-fluid-hero mb-4 font-black tracking-tighter text-balance text-slate-900 dark:text-white uppercase italic">
+
+            <h1 class="mb-6 text-[clamp(2.85rem,8vw,6.65rem)] font-black leading-[0.92] tracking-tight text-slate-950 dark:text-white">
                 {headingPart1}
                 {headingPart2 && (
-                    <span class="text-gradient block mt-2 text-fluid-h2 opacity-90">{headingPart2}</span>
+                    <span class="mt-2 block text-[clamp(2rem,4.8vw,4.35rem)] leading-[0.98] text-sky-700 dark:text-teal-200">{headingPart2}</span>
                 )}
             </h1>
 
-            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-6 leading-relaxed max-w-2xl font-medium text-balance opacity-80">
+            <p class="mx-auto mb-8 max-w-2xl text-lg font-medium leading-8 text-slate-600 dark:text-slate-300 lg:mx-0 md:text-xl">
                 {copy.home.heroSubtitle}
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                {/* App Store Badge - Compact & Ultra-Clean */}
-                <a href={appStoreHref} class="hover:scale-105 transition-all duration-500 active:scale-95 flex items-center">
-                    <AppStoreBadge 
-                        className="h-[44px] w-auto" 
-                        lang={lang}
-                    />
+            <div class="flex flex-col items-center gap-4 sm:flex-row lg:items-start">
+                <a href={appStoreHref} class="flex items-center transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
+                    <AppStoreBadge className="h-[48px] w-auto" lang={lang} />
+                </a>
+                <a
+                    href={`${baseUrl}/${lang}/release-features/`}
+                    class="inline-flex h-[48px] items-center justify-center rounded-xl border border-slate-300 bg-white px-5 text-sm font-extrabold text-slate-900 shadow-sm transition-colors duration-200 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-teal-300/40 dark:hover:text-teal-200"
+                >
+                    {copy.home.secondaryCta}
                 </a>
             </div>
 
-            <p class="text-[10px] font-medium text-slate-400 dark:text-slate-600 max-w-md italic mt-4">
+            <div class="mt-8 grid gap-3 sm:grid-cols-3">
+                {copy.home.sections.map((section) => (
+                    <div class="rounded-2xl border border-slate-200/80 bg-white/70 p-4 text-left shadow-sm shadow-slate-900/5 backdrop-blur dark:border-white/10 dark:bg-white/[0.04]">
+                        <h2 class="mb-1 text-sm font-black leading-tight tracking-tight text-slate-950 dark:text-white">
+                            {section.title}
+                        </h2>
+                        <p class="line-clamp-3 text-xs font-medium leading-5 text-slate-500 dark:text-slate-400">
+                            {section.body}
+                        </p>
+                    </div>
+                ))}
+            </div>
+
+            <p class="mt-5 max-w-2xl text-[11px] font-semibold leading-5 text-slate-400 dark:text-slate-500">
                 * {copy.common.medicalDisclaimer}
             </p>
         </div>
 
-        <!-- Bottom Column: Floating Mockups -->
-        <div class="relative w-full max-w-5xl mx-auto mt-8 lg:mt-12 reveal-scale stagger-2 perspective-1000">
-            <!-- Glowing background behind devices -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 bg-gradient-to-tr from-teal-vibrant/30 to-coral-accent/10 blur-[140px] rounded-full -z-10 animate-pulse-slow mix-blend-screen dark:mix-blend-lighten pointer-events-none"></div>
-            
-            <div class="relative flex justify-center items-center w-full aspect-[4/3] sm:aspect-[2/1] md:aspect-[21/9] lg:aspect-[2.5/1]">
-                <!-- Secondary Phone (Left / Back) -->
-                <div class="absolute left-[5%] md:left-[12%] lg:left-[18%] w-[45%] md:w-[35%] lg:w-[30%] z-0 transform -rotate-12 translate-y-8 sm:translate-y-12 translate-z-[-100px] opacity-70 transition-all duration-1000 ease-out hover:-rotate-6 hover:translate-y-4 hover:translate-z-[-50px] hover:opacity-100">
+        <div class="relative mx-auto w-full max-w-[640px] reveal-scale">
+            <div class="relative grid min-h-[520px] place-items-center sm:min-h-[620px]">
+                <div class="absolute left-0 top-16 hidden w-[33%] -rotate-6 opacity-90 blur-[0.2px] transition-transform duration-700 hover:-translate-y-2 hover:rotate-[-3deg] sm:block">
                     <Image
                         src={screenMeds}
-                        alt="VitalsPath Medications Tracking"
-                        class="w-full h-auto object-contain transition-all duration-700 hover:scale-105 mockup-clean-blend"
+                        alt="VitalsPath medication detail"
+                        class="h-auto w-full rounded-[2rem] shadow-[0_28px_70px_-30px_rgba(15,23,42,0.55)]"
                         loading="lazy"
                     />
                 </div>
 
-                <!-- Main Phone (Center / Front) -->
-                <div class="relative z-10 w-[55%] md:w-[45%] lg:w-[40%] transform transition-all duration-1000 ease-out hover:scale-[1.02] hover:-translate-y-4">
+                <div class="absolute bottom-16 left-5 hidden w-[30%] rotate-3 opacity-85 transition-transform duration-700 hover:-translate-y-2 hover:rotate-0 md:block">
                     <Image
-                        src={screenHome}
-                        alt="VitalsPath Main Interface"
-                        class="w-full h-auto object-contain mockup-clean-blend"
+                        src={screenSymptoms}
+                        alt="VitalsPath symptoms module"
+                        class="h-auto w-full rounded-[2rem] shadow-[0_28px_70px_-30px_rgba(15,23,42,0.45)]"
+                        loading="lazy"
+                    />
+                </div>
+
+                <div class="relative z-10 w-[74%] max-w-[380px] transition-transform duration-700 hover:-translate-y-2">
+                    <Image
+                        src={appMockup}
+                        alt="VitalsPath 2.0 home dashboard"
+                        class="h-auto w-full rounded-[3.3rem] shadow-[0_40px_110px_-32px_rgba(14,116,144,0.55)] dark:shadow-[0_40px_110px_-34px_rgba(0,0,0,0.9)]"
                         loading="eager"
                     />
                 </div>
 
-                <!-- Apple Watch (Right / Front-ish) - Scaled up for "Premium" presence -->
-                <div class="absolute right-[1%] md:right-[5%] lg:right-[6%] top-[20%] sm:top-[30%] w-[48%] md:w-[38%] lg:w-[35%] z-20 transform rotate-12 translate-y-8 sm:translate-y-12 translate-z-[50px] transition-all duration-1000 ease-out hover:rotate-6 hover:-translate-y-4 hover:translate-z-[100px] hover:scale-110">
+                <div class="absolute right-0 bottom-20 z-20 w-[42%] max-w-[230px] rotate-6 transition-transform duration-700 hover:-translate-y-2 hover:rotate-3">
                     <Image
                         src={watchImage}
-                        alt="VitalsPath Apple Watch App"
-                        class="w-full h-auto object-contain mockup-clean-blend-watch"
+                        alt="VitalsPath Apple Watch wellness view"
+                        class="h-auto w-full object-contain drop-shadow-[0_34px_55px_rgba(15,23,42,0.35)]"
                         loading="lazy"
                     />
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 

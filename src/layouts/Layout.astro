@@ -352,7 +352,7 @@ const jsonLd = [
 				
 				// Failsafe for reveal animations: if observer fails or element is not in view
 				setTimeout(() => {
-					document.querySelectorAll('.reveal:not(.reveal-visible)').forEach(el => {
+					document.querySelectorAll('.reveal:not(.reveal-visible), .reveal-scale:not(.reveal-visible)').forEach(el => {
 						const rect = el.getBoundingClientRect();
 						if (rect.top < window.innerHeight) {
 							el.classList.add('reveal-visible');
@@ -366,4 +366,3 @@ const jsonLd = [
 		</script>
 	</body>
 </html>
-
