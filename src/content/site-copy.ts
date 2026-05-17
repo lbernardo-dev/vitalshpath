@@ -128,7 +128,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         home: {
             heroBadge: "VITALSPATH 2.0.0",
             heroTitle:
-                "A calmer command center for medication, symptoms, vitals and appointments.",
+                "Medication, symptoms, vitals and appointments in one calmer health hub.",
             heroSubtitle:
                 "VitalsPath 2.0 brings daily planning, dose actions, specialized symptom logging, wellness summaries, secure local data handling, widgets, Live Activities and Apple Watch support into one focused health hub.",
             primaryCta: "Download on the App Store",
@@ -345,7 +345,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         },
         home: {
             heroBadge: "VITALSPATH 2.0.0",
-            heroTitle: "Un centro de control más claro para medicación, síntomas, constantes y citas.",
+            heroTitle: "Medicación, síntomas, constantes y citas en un hub de salud más claro.",
             heroSubtitle: "VitalsPath 2.0 reúne planificación diaria, acciones de dosis, registro avanzado de síntomas, resumen de bienestar, datos locales protegidos, widgets, Live Activities y Apple Watch en un hub de salud enfocado.",
             primaryCta: "Descargar en el App Store",
             secondaryCta: "Ver novedades",
@@ -517,7 +517,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Mejoras de localización y accesibilidad",
             ],
             directionTitle: "Dirección de producto",
-            directionBody: "El foco a corto plazo es hacer el seguimiento diario más claro, rápido y fiable en medicación, síntomas, constantes y citas, mejorando al mismo tiempo la conistencia entre iPhone, widgets y Apple Watch.",
+            directionBody: "El foco a corto plazo es hacer el seguimiento diario más claro, rápido y fiable en medicación, síntomas, constantes y citas, mejorando al mismo tiempo la consistencia entre iPhone, widgets y Apple Watch.",
             safetyNote: "Las características, los plazos y la disponibilidad mencionados en esta página pueden cambiar a medida que continúa el desarrollo. Esto no es una garantía de futuras versiones.",
         },
         timeline: {
@@ -2271,6 +2271,338 @@ export const siteCopy: Record<Lang, SiteCopy> = {
     },
 };
 
+type DeepPartial<T> = {
+    [K in keyof T]?: T[K] extends Array<infer _U>
+        ? T[K]
+        : T[K] extends object
+          ? DeepPartial<T[K]>
+          : T[K];
+};
+
+const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
+    fr: {
+        meta: {
+            title: "VitalsPath 2.0 | Organisation privée des médicaments, symptômes, constantes et rendez-vous",
+            description: "VitalsPath 2.0 organise médicaments, symptômes, constantes, rendez-vous, widgets, Live Activities et Apple Watch dans un hub de santé privé.",
+        },
+        nav: { releaseFeatures: "Version 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Un centre de contrôle plus clair pour médicaments, symptômes, constantes et rendez-vous.",
+            heroSubtitle: "VitalsPath 2.0 réunit planification quotidienne, actions de dose, symptômes enrichis, résumé bien-être, données locales protégées, widgets, Live Activities et Apple Watch.",
+            featureListTitle: "Nouveautés de la 2.0",
+            featureListSubtitle: "Un espace santé plus clair, rapide et complet.",
+            ctaBadge: "VERSION 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Fonctions de la version 2.0.0",
+            intro: "Cette page décrit les capacités préparées pour VitalsPath 2.0.0.",
+            note: "Cette page reflète l'ensemble de fonctions VitalsPath 2.0.0 en préparation.",
+        },
+        roadmap: { nextReleaseTitle: "Après la 2.0.0" },
+        timeline: { title: "Chronologie de l'app", subtitle: "Version 2.0.0 et prochaines étapes" },
+        footer: { releaseFeatures: "Version 2.0" },
+    },
+    de: {
+        meta: {
+            title: "VitalsPath 2.0 | Private Organisation für Medikamente, Symptome, Werte und Termine",
+            description: "VitalsPath 2.0 organisiert Medikamente, Symptome, Vitalwerte, Termine, Widgets, Live Activities und Apple Watch in einem privaten Gesundheits-Hub.",
+        },
+        nav: { releaseFeatures: "Version 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Eine klarere Kommandozentrale für Medikamente, Symptome, Vitalwerte und Termine.",
+            heroSubtitle: "VitalsPath 2.0 bündelt Tagesplanung, Dosisaktionen, erweiterte Symptome, Wellness-Zusammenfassungen, geschützte lokale Daten, Widgets, Live Activities und Apple Watch.",
+            featureListTitle: "Neu in 2.0",
+            featureListSubtitle: "Ein klarerer, schnellerer und vollständigerer Gesundheitsbereich.",
+            ctaBadge: "VERSION 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Funktionen der Version 2.0.0",
+            intro: "Diese Seite beschreibt die Funktionen, die für VitalsPath 2.0.0 vorbereitet werden.",
+            note: "Diese Seite spiegelt den vorbereiteten Funktionsumfang von VitalsPath 2.0.0 wider.",
+        },
+        roadmap: { nextReleaseTitle: "Nach 2.0.0" },
+        timeline: { title: "App-Zeitachse", subtitle: "Version 2.0.0 und nächste Schritte" },
+        footer: { releaseFeatures: "Version 2.0" },
+    },
+    it: {
+        meta: {
+            title: "VitalsPath 2.0 | Organizzazione privata di farmaci, sintomi, parametri e visite",
+            description: "VitalsPath 2.0 organizza farmaci, sintomi, parametri, appuntamenti, widget, Live Activities e Apple Watch in un hub salute privato.",
+        },
+        nav: { releaseFeatures: "Versione 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Un centro di controllo più chiaro per farmaci, sintomi, parametri e visite.",
+            heroSubtitle: "VitalsPath 2.0 riunisce pianificazione quotidiana, azioni sulle dosi, sintomi avanzati, riepiloghi benessere, dati locali protetti, widget, Live Activities e Apple Watch.",
+            featureListTitle: "Novità della 2.0",
+            featureListSubtitle: "Uno spazio salute più chiaro, rapido e completo.",
+            ctaBadge: "VERSIONE 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Funzioni della versione 2.0.0",
+            intro: "Questa pagina descrive le funzionalità in preparazione per VitalsPath 2.0.0.",
+            note: "Questa pagina riflette il set di funzioni VitalsPath 2.0.0 in preparazione.",
+        },
+        roadmap: { nextReleaseTitle: "Dopo la 2.0.0" },
+        timeline: { title: "Cronologia dell'app", subtitle: "Versione 2.0.0 e prossimi passi" },
+        footer: { releaseFeatures: "Versione 2.0" },
+    },
+    pt: {
+        meta: {
+            title: "VitalsPath 2.0 | Organização privada de medicação, sintomas, sinais vitais e consultas",
+            description: "VitalsPath 2.0 organiza medicação, sintomas, sinais vitais, consultas, widgets, Live Activities e Apple Watch num hub de saúde privado.",
+        },
+        nav: { releaseFeatures: "Versão 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Um centro de controlo mais claro para medicação, sintomas, sinais vitais e consultas.",
+            heroSubtitle: "VitalsPath 2.0 reúne planeamento diário, ações de dose, registo avançado de sintomas, resumo de bem-estar, dados locais protegidos, widgets, Live Activities e Apple Watch.",
+            featureListTitle: "Novidades da 2.0",
+            featureListSubtitle: "Um espaço de saúde mais claro, rápido e completo.",
+            ctaBadge: "VERSÃO 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Funcionalidades da versão 2.0.0",
+            intro: "Esta página descreve as capacidades em preparação para VitalsPath 2.0.0.",
+            note: "Esta página reflete o conjunto de funcionalidades VitalsPath 2.0.0 em preparação.",
+        },
+        roadmap: { nextReleaseTitle: "Depois da 2.0.0" },
+        timeline: { title: "Cronologia da app", subtitle: "Versão 2.0.0 e próximos passos" },
+        footer: { releaseFeatures: "Versão 2.0" },
+    },
+    ja: {
+        meta: {
+            title: "VitalsPath 2.0 | 服薬、症状、バイタル、予定を非公開で整理",
+            description: "VitalsPath 2.0 は服薬、症状、バイタル、予定、ウィジェット、Live Activities、Apple Watch をひとつの非公開ヘルスハブに整理します。",
+        },
+        nav: { releaseFeatures: "バージョン 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "服薬、症状、バイタル、予定のための、より見やすいコントロールセンター。",
+            heroSubtitle: "VitalsPath 2.0 は日々の計画、服薬アクション、詳しい症状記録、ウェルネス概要、保護されたローカルデータ、ウィジェット、Live Activities、Apple Watch をまとめます。",
+            featureListTitle: "2.0 の新機能",
+            featureListSubtitle: "より明確で速く、充実したヘルスワークスペース。",
+            ctaBadge: "バージョン 2.0.0",
+        },
+        releaseFeatures: {
+            title: "バージョン 2.0.0 の機能",
+            intro: "このページでは VitalsPath 2.0.0 に向けて準備中の機能を説明します。",
+            note: "このページは準備中の VitalsPath 2.0.0 機能セットを反映しています。",
+        },
+        roadmap: { nextReleaseTitle: "2.0.0 の後" },
+        timeline: { title: "アプリのタイムライン", subtitle: "バージョン 2.0.0 と次のステップ" },
+        footer: { releaseFeatures: "バージョン 2.0" },
+    },
+    zh: {
+        meta: {
+            title: "VitalsPath 2.0 | 私密管理用药、症状、生命体征和预约",
+            description: "VitalsPath 2.0 将用药、症状、生命体征、预约、小组件、Live Activities 和 Apple Watch 整理在一个私密健康中心。",
+        },
+        nav: { releaseFeatures: "版本 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "更清晰地管理用药、症状、生命体征和预约。",
+            heroSubtitle: "VitalsPath 2.0 汇集每日计划、剂量操作、增强症状记录、健康摘要、受保护的本地数据、小组件、Live Activities 和 Apple Watch。",
+            featureListTitle: "2.0 新功能",
+            featureListSubtitle: "更清晰、更快速、更完整的健康工作区。",
+            ctaBadge: "版本 2.0.0",
+        },
+        releaseFeatures: {
+            title: "版本 2.0.0 功能",
+            intro: "本页介绍正在为 VitalsPath 2.0.0 准备的功能。",
+            note: "本页反映正在准备的 VitalsPath 2.0.0 功能集。",
+        },
+        roadmap: { nextReleaseTitle: "2.0.0 之后" },
+        timeline: { title: "应用时间线", subtitle: "版本 2.0.0 和后续步骤" },
+        footer: { releaseFeatures: "版本 2.0" },
+    },
+    ko: {
+        meta: {
+            title: "VitalsPath 2.0 | 복약, 증상, 활력징후, 진료 일정을 비공개로 정리",
+            description: "VitalsPath 2.0은 복약, 증상, 활력징후, 진료 일정, 위젯, Live Activities, Apple Watch를 하나의 비공개 건강 허브로 정리합니다.",
+        },
+        nav: { releaseFeatures: "버전 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "복약, 증상, 활력징후, 진료 일정을 더 명확하게 관리하는 허브.",
+            heroSubtitle: "VitalsPath 2.0은 일일 계획, 복약 액션, 고급 증상 기록, 웰니스 요약, 보호된 로컬 데이터, 위젯, Live Activities, Apple Watch를 함께 제공합니다.",
+            featureListTitle: "2.0의 새로운 기능",
+            featureListSubtitle: "더 명확하고 빠르고 완성도 높은 건강 작업 공간.",
+            ctaBadge: "버전 2.0.0",
+        },
+        releaseFeatures: {
+            title: "버전 2.0.0 기능",
+            intro: "이 페이지는 VitalsPath 2.0.0을 위해 준비 중인 기능을 설명합니다.",
+            note: "이 페이지는 준비 중인 VitalsPath 2.0.0 기능 세트를 반영합니다.",
+        },
+        roadmap: { nextReleaseTitle: "2.0.0 이후" },
+        timeline: { title: "앱 타임라인", subtitle: "버전 2.0.0 및 다음 단계" },
+        footer: { releaseFeatures: "버전 2.0" },
+    },
+    ru: {
+        meta: {
+            title: "VitalsPath 2.0 | Приватная организация лекарств, симптомов, показателей и визитов",
+            description: "VitalsPath 2.0 объединяет лекарства, симптомы, показатели, визиты, виджеты, Live Activities и Apple Watch в приватном центре здоровья.",
+        },
+        nav: { releaseFeatures: "Версия 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Более понятный центр управления лекарствами, симптомами, показателями и визитами.",
+            heroSubtitle: "VitalsPath 2.0 объединяет ежедневное планирование, действия с дозами, расширенный журнал симптомов, сводки самочувствия, защищенные локальные данные, виджеты, Live Activities и Apple Watch.",
+            featureListTitle: "Что нового в 2.0",
+            featureListSubtitle: "Более ясное, быстрое и полное пространство здоровья.",
+            ctaBadge: "ВЕРСИЯ 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Функции версии 2.0.0",
+            intro: "Эта страница описывает возможности, готовящиеся для VitalsPath 2.0.0.",
+            note: "Эта страница отражает набор функций VitalsPath 2.0.0, готовящийся к выпуску.",
+        },
+        roadmap: { nextReleaseTitle: "После 2.0.0" },
+        timeline: { title: "Хронология приложения", subtitle: "Версия 2.0.0 и следующие шаги" },
+        footer: { releaseFeatures: "Версия 2.0" },
+    },
+    ar: {
+        meta: {
+            title: "VitalsPath 2.0 | تنظيم خاص للأدوية والأعراض والمؤشرات والمواعيد",
+            description: "يجمع VitalsPath 2.0 الأدوية والأعراض والمؤشرات والمواعيد والويدجت و Live Activities و Apple Watch في مركز صحي خاص.",
+        },
+        nav: { releaseFeatures: "الإصدار 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "مركز أوضح لإدارة الأدوية والأعراض والمؤشرات والمواعيد.",
+            heroSubtitle: "يجمع VitalsPath 2.0 التخطيط اليومي وإجراءات الجرعات وتسجيل الأعراض المتقدم وملخصات العافية والبيانات المحلية المحمية والويدجت و Live Activities و Apple Watch.",
+            featureListTitle: "الجديد في 2.0",
+            featureListSubtitle: "مساحة صحية أوضح وأسرع وأكثر اكتمالا.",
+            ctaBadge: "الإصدار 2.0.0",
+        },
+        releaseFeatures: {
+            title: "ميزات الإصدار 2.0.0",
+            intro: "توضح هذه الصفحة الإمكانات الجاري إعدادها لـ VitalsPath 2.0.0.",
+            note: "تعكس هذه الصفحة مجموعة ميزات VitalsPath 2.0.0 الجاري إعدادها.",
+        },
+        roadmap: { nextReleaseTitle: "بعد 2.0.0" },
+        timeline: { title: "الخط الزمني للتطبيق", subtitle: "الإصدار 2.0.0 والخطوات التالية" },
+        footer: { releaseFeatures: "الإصدار 2.0" },
+    },
+    hi: {
+        meta: {
+            title: "VitalsPath 2.0 | दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट का निजी संगठन",
+            description: "VitalsPath 2.0 दवाओं, लक्षणों, वाइटल्स, अपॉइंटमेंट, widgets, Live Activities और Apple Watch को एक निजी हेल्थ हब में व्यवस्थित करता है।",
+        },
+        nav: { releaseFeatures: "वर्जन 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट के लिए ज्यादा साफ कंट्रोल सेंटर।",
+            heroSubtitle: "VitalsPath 2.0 दैनिक योजना, डोज़ एक्शन, उन्नत symptom logging, wellness summaries, सुरक्षित local data, widgets, Live Activities और Apple Watch को साथ लाता है।",
+            featureListTitle: "2.0 में नया",
+            featureListSubtitle: "एक ज्यादा साफ, तेज और पूरा हेल्थ workspace.",
+            ctaBadge: "वर्जन 2.0.0",
+        },
+        releaseFeatures: {
+            title: "वर्जन 2.0.0 फीचर्स",
+            intro: "यह पेज VitalsPath 2.0.0 के लिए तैयार की जा रही क्षमताओं को बताता है।",
+            note: "यह पेज तैयार हो रहे VitalsPath 2.0.0 फीचर सेट को दर्शाता है।",
+        },
+        roadmap: { nextReleaseTitle: "2.0.0 के बाद" },
+        timeline: { title: "ऐप टाइमलाइन", subtitle: "वर्जन 2.0.0 और अगले कदम" },
+        footer: { releaseFeatures: "वर्जन 2.0" },
+    },
+    tr: {
+        meta: {
+            title: "VitalsPath 2.0 | İlaç, semptom, vital değer ve randevular için özel sağlık düzeni",
+            description: "VitalsPath 2.0 ilaçları, semptomları, vital değerleri, randevuları, widgetları, Live Activities ve Apple Watch desteğini özel bir sağlık merkezinde toplar.",
+        },
+        nav: { releaseFeatures: "Sürüm 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "İlaçlar, semptomlar, vital değerler ve randevular için daha net bir kontrol merkezi.",
+            heroSubtitle: "VitalsPath 2.0 günlük planlama, doz eylemleri, gelişmiş semptom kaydı, sağlık özetleri, korumalı yerel veriler, widgetlar, Live Activities ve Apple Watch desteğini bir araya getirir.",
+            featureListTitle: "2.0'da yenilikler",
+            featureListSubtitle: "Daha net, hızlı ve eksiksiz bir sağlık çalışma alanı.",
+            ctaBadge: "SÜRÜM 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Sürüm 2.0.0 Özellikleri",
+            intro: "Bu sayfa VitalsPath 2.0.0 için hazırlanan yetenekleri açıklar.",
+            note: "Bu sayfa hazırlanan VitalsPath 2.0.0 özellik setini yansıtır.",
+        },
+        roadmap: { nextReleaseTitle: "2.0.0 sonrası" },
+        timeline: { title: "Uygulama zaman çizelgesi", subtitle: "Sürüm 2.0.0 ve sonraki adımlar" },
+        footer: { releaseFeatures: "Sürüm 2.0" },
+    },
+    nl: {
+        meta: {
+            title: "VitalsPath 2.0 | Prive organisatie voor medicatie, symptomen, waarden en afspraken",
+            description: "VitalsPath 2.0 houdt medicatie, symptomen, vitale waarden, afspraken, widgets, Live Activities en Apple Watch georganiseerd in een prive gezondheidscentrum.",
+        },
+        nav: { releaseFeatures: "Versie 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Een duidelijker controlecentrum voor medicatie, symptomen, vitale waarden en afspraken.",
+            heroSubtitle: "VitalsPath 2.0 brengt dagplanning, dosisacties, uitgebreid symptoomloggen, welzijnsoverzichten, beschermde lokale data, widgets, Live Activities en Apple Watch samen.",
+            featureListTitle: "Nieuw in 2.0",
+            featureListSubtitle: "Een duidelijkere, snellere en completere gezondheidsruimte.",
+            ctaBadge: "VERSIE 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Functies van versie 2.0.0",
+            intro: "Deze pagina beschrijft de mogelijkheden die worden voorbereid voor VitalsPath 2.0.0.",
+            note: "Deze pagina weerspiegelt de VitalsPath 2.0.0-functieset die wordt voorbereid.",
+        },
+        roadmap: { nextReleaseTitle: "Na 2.0.0" },
+        timeline: { title: "App-tijdlijn", subtitle: "Versie 2.0.0 en volgende stappen" },
+        footer: { releaseFeatures: "Versie 2.0" },
+    },
+    pl: {
+        meta: {
+            title: "VitalsPath 2.0 | Prywatna organizacja leków, objawów, parametrów i wizyt",
+            description: "VitalsPath 2.0 porządkuje leki, objawy, parametry, wizyty, widżety, Live Activities i Apple Watch w prywatnym centrum zdrowia.",
+        },
+        nav: { releaseFeatures: "Wersja 2.0" },
+        home: {
+            heroBadge: "VITALSPATH 2.0.0",
+            heroTitle: "Czytelniejsze centrum kontroli leków, objawów, parametrów i wizyt.",
+            heroSubtitle: "VitalsPath 2.0 łączy plan dnia, działania na dawkach, zaawansowane wpisy objawów, podsumowania dobrostanu, chronione dane lokalne, widżety, Live Activities i Apple Watch.",
+            featureListTitle: "Nowości w 2.0",
+            featureListSubtitle: "Czytelniejsza, szybsza i pełniejsza przestrzeń zdrowia.",
+            ctaBadge: "WERSJA 2.0.0",
+        },
+        releaseFeatures: {
+            title: "Funkcje wersji 2.0.0",
+            intro: "Ta strona opisuje możliwości przygotowywane dla VitalsPath 2.0.0.",
+            note: "Ta strona odzwierciedla przygotowywany zestaw funkcji VitalsPath 2.0.0.",
+        },
+        roadmap: { nextReleaseTitle: "Po 2.0.0" },
+        timeline: { title: "Oś czasu aplikacji", subtitle: "Wersja 2.0.0 i kolejne kroki" },
+        footer: { releaseFeatures: "Wersja 2.0" },
+    },
+};
+
+function mergeCopy<T>(base: T, override?: DeepPartial<T>): T {
+    if (!override) return base;
+    const result: any = { ...(base as any) };
+
+    for (const [key, value] of Object.entries(override as Record<string, unknown>)) {
+        if (
+            value &&
+            typeof value === "object" &&
+            !Array.isArray(value) &&
+            result[key] &&
+            typeof result[key] === "object" &&
+            !Array.isArray(result[key])
+        ) {
+            result[key] = mergeCopy(result[key], value as any);
+        } else {
+            result[key] = value;
+        }
+    }
+
+    return result;
+}
+
 export function getSiteCopy(lang: Lang): SiteCopy {
-    return siteCopy[lang] ?? siteCopy.en;
+    return mergeCopy(siteCopy[lang] ?? siteCopy.en, version2CoreUpdates[lang]);
 }

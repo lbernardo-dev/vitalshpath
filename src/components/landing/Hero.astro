@@ -5,7 +5,8 @@ import { getSiteCopy } from "../../content/site-copy";
 import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
 import AppStoreBadge from "../common/AppStoreBadge.astro";
 
-import appMockup from "../../assets/images/app-mockup.png";
+import appIcon from "../../assets/images/AppIcon_v2.png";
+import screenHome from "../../assets/images/devices/iphone_home_clean.png";
 import screenMeds from "../../assets/images/devices/iphone_meds_clean.png";
 import screenSymptoms from "../../assets/images/devices/iphone_synthom_clean.png";
 import watchImage from "../../assets/images/devices/watch_vitals_clean.png";
@@ -18,35 +19,26 @@ const { lang } = Astro.props;
 const copy = getSiteCopy(lang);
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const heroTitle = copy.home.heroTitle;
-const periodIndex = heroTitle.indexOf('. ');
-let headingPart1 = heroTitle;
-let headingPart2 = "";
-
-if (periodIndex !== -1) {
-    headingPart1 = heroTitle.substring(0, periodIndex + 1);
-    headingPart2 = heroTitle.substring(periodIndex + 2);
-} else {
-    headingPart1 = heroTitle;
-}
 ---
 
-<section class="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16">
-    <div class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_58%,#eff8ff_100%)] dark:bg-[linear-gradient(180deg,#07090c_0%,#101419_62%,#071512_100%)]"></div>
+<section class="relative overflow-hidden pt-28 pb-12 md:pt-32 md:pb-16">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_24%,rgba(14,165,233,0.16),transparent_34%),linear-gradient(180deg,#f8fbff_0%,#ffffff_58%,#eef8f6_100%)] dark:bg-[radial-gradient(circle_at_78%_24%,rgba(45,212,191,0.16),transparent_34%),linear-gradient(180deg,#07090c_0%,#101419_62%,#071512_100%)]"></div>
     <div class="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-sky-300/70 to-transparent dark:via-teal-300/40"></div>
 
-    <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8">
+    <div class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-[1fr_0.94fr] lg:gap-12 lg:px-8">
         <div class="max-w-3xl text-center lg:text-left">
-            <div class="mb-5 inline-flex items-center rounded-full border border-sky-200/80 bg-white/80 px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-sky-700 shadow-sm shadow-sky-900/5 dark:border-teal-300/20 dark:bg-white/5 dark:text-teal-200">
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-white/80 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-sky-700 shadow-sm shadow-sky-900/5 dark:border-teal-300/20 dark:bg-white/5 dark:text-teal-200">
+                <Image
+                    src={appIcon}
+                    alt=""
+                    class="h-5 w-5 rounded-md object-contain"
+                    loading="eager"
+                />
                 {copy.home.heroBadge || (lang === 'es' ? 'VITALSPATH 2.0.0' : 'VITALSPATH 2.0.0')}
             </div>
 
-            <h1 class="mb-6 text-[clamp(2.85rem,8vw,6.65rem)] font-black leading-[0.92] tracking-tight text-slate-950 dark:text-white">
-                {headingPart1}
-                {headingPart2 && (
-                    <span class="mt-2 block text-[clamp(2rem,4.8vw,4.35rem)] leading-[0.98] text-sky-700 dark:text-teal-200">{headingPart2}</span>
-                )}
+            <h1 class="mb-6 max-w-4xl text-[clamp(2.45rem,5.7vw,4.85rem)] font-black leading-[1] tracking-tight text-slate-950 dark:text-white">
+                {copy.home.heroTitle}
             </h1>
 
             <p class="mx-auto mb-8 max-w-2xl text-lg font-medium leading-8 text-slate-600 dark:text-slate-300 lg:mx-0 md:text-xl">
@@ -83,36 +75,36 @@ if (periodIndex !== -1) {
             </p>
         </div>
 
-        <div class="relative mx-auto w-full max-w-[640px] reveal-scale">
-            <div class="relative grid min-h-[520px] place-items-center sm:min-h-[620px]">
-                <div class="absolute left-0 top-16 hidden w-[33%] -rotate-6 opacity-90 blur-[0.2px] transition-transform duration-700 hover:-translate-y-2 hover:rotate-[-3deg] sm:block">
+        <div class="relative mx-auto w-full max-w-[620px] reveal-scale">
+            <div class="relative grid min-h-[500px] place-items-center sm:min-h-[610px]">
+                <div class="absolute left-0 top-20 hidden w-[32%] -rotate-6 opacity-95 blur-[0.15px] transition-transform duration-700 hover:-translate-y-2 hover:rotate-[-3deg] sm:block">
                     <Image
                         src={screenMeds}
                         alt="VitalsPath medication detail"
-                        class="h-auto w-full rounded-[2rem] shadow-[0_28px_70px_-30px_rgba(15,23,42,0.55)]"
+                        class="h-auto w-full drop-shadow-[0_28px_46px_rgba(15,23,42,0.22)]"
                         loading="lazy"
                     />
                 </div>
 
-                <div class="absolute bottom-16 left-5 hidden w-[30%] rotate-3 opacity-85 transition-transform duration-700 hover:-translate-y-2 hover:rotate-0 md:block">
+                <div class="absolute bottom-16 left-7 hidden w-[29%] rotate-3 opacity-90 transition-transform duration-700 hover:-translate-y-2 hover:rotate-0 md:block">
                     <Image
                         src={screenSymptoms}
                         alt="VitalsPath symptoms module"
-                        class="h-auto w-full rounded-[2rem] shadow-[0_28px_70px_-30px_rgba(15,23,42,0.45)]"
+                        class="h-auto w-full drop-shadow-[0_26px_42px_rgba(15,23,42,0.2)]"
                         loading="lazy"
                     />
                 </div>
 
-                <div class="relative z-10 w-[74%] max-w-[380px] transition-transform duration-700 hover:-translate-y-2">
+                <div class="relative z-10 w-[72%] max-w-[360px] transition-transform duration-700 hover:-translate-y-2">
                     <Image
-                        src={appMockup}
+                        src={screenHome}
                         alt="VitalsPath 2.0 home dashboard"
-                        class="h-auto w-full rounded-[3.3rem] shadow-[0_40px_110px_-32px_rgba(14,116,144,0.55)] dark:shadow-[0_40px_110px_-34px_rgba(0,0,0,0.9)]"
+                        class="h-auto w-full drop-shadow-[0_42px_70px_rgba(14,116,144,0.26)] dark:drop-shadow-[0_42px_70px_rgba(0,0,0,0.62)]"
                         loading="eager"
                     />
                 </div>
 
-                <div class="absolute right-0 bottom-20 z-20 w-[42%] max-w-[230px] rotate-6 transition-transform duration-700 hover:-translate-y-2 hover:rotate-3">
+                <div class="absolute right-0 bottom-20 z-20 w-[41%] max-w-[225px] rotate-6 transition-transform duration-700 hover:-translate-y-2 hover:rotate-3">
                     <Image
                         src={watchImage}
                         alt="VitalsPath Apple Watch wellness view"

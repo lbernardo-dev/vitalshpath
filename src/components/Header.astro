@@ -96,54 +96,56 @@ const navItems = [
             </div>
         </div>
 
-        <div
-            id="mobile-menu-overlay"
-            class="fixed inset-0 z-[200] translate-x-full invisible pointer-events-none transition-all duration-500 ease-premium bg-white/95 dark:bg-[#1A1A1A]/98 backdrop-blur-2xl md:hidden overflow-hidden"
-        >
-            <div class="flex flex-col h-full relative p-8">
-                <!-- Close Button inside overlay -->
-                <div class="flex justify-end p-2 pb-6">
-                    <button
-                        id="close-menu-button"
-                        class="p-4 rounded-2xl bg-slate-text/5 text-slate-text dark:text-white active:scale-90 transition-transform"
-                        aria-label="Close menu"
-                    >
-                        <X className="h-8 w-8" />
-                    </button>
-                </div>
-
-                <nav class="flex flex-col gap-5 flex-1 justify-center items-center text-center">
-                    {navItems.map((item, index) => (
-                        <a
-                            href={item.href}
-                            class="text-4xl font-black text-slate-text dark:text-white hover:text-teal-vibrant transition-all tracking-tighter uppercase active:scale-95 reveal-fade"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                    
-                    <div class="mt-4 pt-4 border-t border-slate-text/10 flex flex-col items-center gap-6 w-full max-w-xs">
-                        <div class="flex items-center gap-4 bg-slate-text/5 p-4 rounded-2xl w-full justify-between">
-                            <span class="text-xs font-bold text-slate-text/40 dark:text-white/40 uppercase tracking-widest">{lang === 'es' ? 'IDIOMA' : (lang === 'en' ? 'LANGUAGE' : 'LANGUE')}</span>
-                            <LanguageSelector lang={lang} />
-                        </div>
-                        
-                        <a
-                            href={appStoreHref}
-                            class="hover:scale-110 transition-all duration-500 active:scale-95 flex items-center justify-center"
-                            aria-label="Download on the App Store"
-                        >
-                            <AppStoreBadge 
-                                className="h-[52px]" 
-                                lang={lang}
-                            />
-                        </a>
-                    </div>
-                </nav>
-            </div>
-        </div>
     </nav>
 </header>
+
+<div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 z-[200] translate-x-full invisible pointer-events-none transition-all duration-500 ease-premium text-white backdrop-blur-2xl md:hidden overflow-hidden"
+    style="background: rgba(2, 6, 23, 0.98);"
+>
+    <div class="flex flex-col h-full relative p-8">
+        <!-- Close Button inside overlay -->
+        <div class="flex justify-end p-2 pb-6">
+            <button
+                id="close-menu-button"
+                class="p-4 rounded-2xl bg-white/10 text-white active:scale-90 transition-transform"
+                aria-label="Close menu"
+            >
+                <X className="h-8 w-8" />
+            </button>
+        </div>
+
+        <nav class="flex flex-col gap-5 flex-1 justify-center items-center text-center">
+            {navItems.map((item) => (
+                <a
+                    href={item.href}
+                    class="text-4xl font-black text-white hover:text-teal-vibrant transition-all tracking-tighter uppercase active:scale-95 reveal-fade"
+                >
+                    {item.label}
+                </a>
+            ))}
+            
+            <div class="mt-4 pt-4 border-t border-white/10 flex flex-col items-center gap-6 w-full max-w-xs">
+                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl w-full justify-between">
+                    <span class="text-xs font-bold text-white/60 uppercase tracking-widest">{lang === 'es' ? 'IDIOMA' : (lang === 'en' ? 'LANGUAGE' : 'LANGUE')}</span>
+                    <LanguageSelector lang={lang} />
+                </div>
+                
+                <a
+                    href={appStoreHref}
+                    class="hover:scale-110 transition-all duration-500 active:scale-95 flex items-center justify-center"
+                    aria-label="Download on the App Store"
+                >
+                    <AppStoreBadge 
+                        className="h-[52px]" 
+                        lang={lang}
+                    />
+                </a>
+            </div>
+        </nav>
+    </div>
+</div>
 
 <script>
     function setupMobileMenu() {
@@ -199,4 +201,3 @@ const navItems = [
     setupMobileMenu();
     document.addEventListener("astro:page-load", setupMobileMenu);
 </script>
-

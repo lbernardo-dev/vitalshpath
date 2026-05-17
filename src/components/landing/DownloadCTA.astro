@@ -7,7 +7,7 @@ import AppStoreBadge from "../common/AppStoreBadge.astro";
 import { Image } from "astro:assets";
 
 // Import a high-impact screen for the CTA
-import screenDashboard from "../../assets/images/app-mockup.png";
+import screenDashboard from "../../assets/images/devices/iphone_home_clean.png";
 
 interface Props {
     lang: Lang;
@@ -71,7 +71,7 @@ const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
                     </div>
 
                     <!-- Main Phone -->
-                    <div class="relative w-[250px] rotate-2 transform overflow-hidden rounded-[3rem] bg-slate-900 shadow-[0_50px_100px_-24px_rgba(0,0,0,0.5)] ring-1 ring-white/20 sm:w-[300px]">
+                    <div class="relative w-[250px] rotate-2 transform drop-shadow-[0_50px_70px_rgba(0,0,0,0.22)] sm:w-[300px] dark:drop-shadow-[0_50px_70px_rgba(0,0,0,0.62)]">
                         <Image
                             src={screenDashboard}
                             alt="VitalsPath Dashboard"

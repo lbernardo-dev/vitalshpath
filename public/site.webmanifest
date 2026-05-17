@@ -1,11 +1,11 @@
 {
     "name": "VitalsPath",
     "short_name": "VitalsPath",
-    "description": "Tu hub de salud familiar para iOS",
+    "description": "VitalsPath 2.0: private health organization for medication, symptoms, vitals, appointments and Apple Watch.",
     "start_url": "/vitalshpath/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#007aff",
+    "background_color": "#07090c",
+    "theme_color": "#0f766e",
     "icons": [
         {
             "src": "/vitalshpath/favicon-48.png",

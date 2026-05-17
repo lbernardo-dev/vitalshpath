@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import { languages, supportedLangs, type Lang } from "../i18n/ui-locales";
 import { useTranslations } from "../i18n";
-import appMockup from "../assets/images/app-mockup.png";
 import appIcon from "../assets/images/AppIcon_v2.png";
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "../lib/supabase/config";
 
@@ -24,6 +23,10 @@ const { dir } = languages[lang];
 
 const title = pageTitle ?? t("meta.title");
 const description = pageDescription ?? t("meta.description");
+const keywordsByLang: Partial<Record<Lang, string>> = {
+	en: "VitalsPath 2.0, medication tracker, pill reminder, symptom tracker, vitals tracker, appointments, Apple Watch health app, iOS health organizer",
+	es: "VitalsPath 2.0, seguimiento de medicacion, recordatorio de pastillas, registro de sintomas, constantes vitales, citas medicas, Apple Watch salud, organizador de salud iOS",
+};
 
 const siteOrigin = "https://lbernardo-dev.github.io";
 const basePath = "/vitalshpath";
@@ -41,7 +44,8 @@ const localizedPathForLang = (targetLang: Lang) =>
 		`${basePath}/${targetLang}`,
 	);
 const defaultLocaleUrl = new URL(localizedPathForLang("en"), siteOrigin).toString();
-const socialImageUrl = new URL(appMockup.src, siteOrigin).toString();
+const appIconUrl = new URL(appIcon.src, siteOrigin).toString();
+const socialImageUrl = appIconUrl;
 
 const localeTags: Record<Lang, string> = {
 	en: "en-US",
@@ -77,7 +81,7 @@ const jsonLd = [
 		url: currentUrl,
 		applicationCategory: "HealthApplication",
 		operatingSystem: "iOS, watchOS",
-		image: appIcon.src ? [new URL(appIcon.src, siteOrigin).toString()] : undefined,
+		image: [appIconUrl],
 		screenshot: [socialImageUrl],
 		description: description,
 		inLanguage: supportedLangs,
@@ -114,7 +118,7 @@ const jsonLd = [
 		<meta name="description" content={description} />
 		<meta
 			name="keywords"
-			content="medication tracking, symptom tracking, vitals tracking, appointment organization, refill reminders, Apple Watch, widgets, Live Activities"
+			content={keywordsByLang[lang] ?? keywordsByLang.en}
 		/>
 		<meta name="author" content="Lester Romero Bernardo" />
 		<meta name="robots" content={robots} />
@@ -146,13 +150,13 @@ const jsonLd = [
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={socialImageUrl} />
 		<meta property="og:url" content={currentUrl} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
+		<meta property="og:image:width" content="2048" />
+		<meta property="og:image:height" content="2048" />
 		<meta property="og:locale" content={localeTags[lang].replace("-", "_")} />
 		<meta property="og:site_name" content="VitalsPath" />
 		<meta
 			property="og:image:alt"
-			content="VitalsPath health timeline interface"
+			content="VitalsPath app icon"
 		/>
 
 		<!-- Twitter Card -->
@@ -162,7 +166,7 @@ const jsonLd = [
 		<meta name="twitter:image" content={socialImageUrl} />
 		<meta
 			name="twitter:image:alt"
-			content="VitalsPath health timeline interface"
+			content="VitalsPath app icon"
 		/>
 
 		<link
@@ -179,7 +183,7 @@ const jsonLd = [
 		/>
 		<link
 			rel="icon"
-			type="image/x-icon"
+			type="image/png"
 			href={`${baseHref}favicon.ico`}
 		/>
 		<link
