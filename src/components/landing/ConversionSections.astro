@@ -1,0 +1,332 @@
+---
+import { Image } from "astro:assets";
+import { Activity, Bell, CalendarDays, CheckCircle2, LockKeyhole, Pill, ShieldCheck, Stethoscope, Watch } from "lucide-react";
+import type { Lang } from "../../i18n/ui-locales";
+import { getAppStoreUrlForLang, getDefaultAppStoreLinks } from "../../lib/app-store-links";
+import AppStoreBadge from "../common/AppStoreBadge.astro";
+
+import screenCalendar from "../../assets/images/screens/screen-10-calendar-month.PNG";
+import screenDose from "../../assets/images/screens/screen-06-dose-log.PNG";
+import screenEmergency from "../../assets/images/screens/screen-30-emergency.PNG";
+
+interface Props {
+    lang: Lang;
+}
+
+const { lang } = Astro.props;
+const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
+
+const content = lang === "es"
+    ? {
+        proofTitle: "Para personas que necesitan recordar, registrar y explicar mejor su salud diaria.",
+        proofItems: [
+            "Tratamientos y dosis bajo control",
+            "Síntomas, ánimo y constantes con contexto",
+            "Citas, tareas y seguimiento en una línea de tiempo",
+            "Privacidad, bloqueo de app y datos sensibles protegidos",
+        ],
+        useCaseLabel: "Por qué convierte mejor",
+        useCaseTitle: "VitalsPath no es otra lista de recordatorios. Es el historial práctico que llevas a consulta.",
+        useCaseBody: "Cuando todo vive entre notas, alarmas, capturas y memoria, es fácil olvidar una dosis, perder un síntoma importante o llegar a una cita sin contexto. VitalsPath junta el día de salud en una experiencia pensada para revisar rápido, actuar a tiempo y compartir mejor lo ocurrido con tu profesional sanitario.",
+        audiences: [
+            {
+                title: "Tratamientos recurrentes",
+                body: "Planifica tomas, registra acciones y revisa stock sin depender de varias alarmas sueltas.",
+            },
+            {
+                title: "Síntomas que cambian",
+                body: "Guarda severidad, desencadenantes, alivios, fotos y notas para detectar patrones con más claridad.",
+            },
+            {
+                title: "Cuidadores y seguimiento",
+                body: "Mantén citas, tareas y condiciones conectadas para preparar mejor cada revisión.",
+            },
+        ],
+        stepsTitle: "Del recordatorio al seguimiento completo en tres pasos",
+        steps: [
+            {
+                title: "Crea tu rutina",
+                body: "Añade medicación, horarios, citas, síntomas relevantes y constantes que quieras seguir.",
+            },
+            {
+                title: "Registra el día real",
+                body: "Marca dosis tomadas, omitidas o pospuestas y añade notas cuando algo cambie.",
+            },
+            {
+                title: "Revisa patrones",
+                body: "Consulta cronología, bienestar, widgets y Apple Watch para entender qué pasó y cuándo.",
+            },
+        ],
+        compareTitle: "Menos dispersión que notas, alarmas y hojas sueltas",
+        compareRows: [
+            ["Recordatorios aislados", "Dosis, stock, estado y seguimiento juntos"],
+            ["Síntomas sin contexto", "Severidad, desencadenantes, alivios, fotos y notas"],
+            ["Citas desconectadas", "Calendario, tareas y condiciones en la misma historia"],
+            ["Privacidad genérica", "Bloqueo de app, logs privados y almacenamiento sensible protegido"],
+        ],
+        faqTitle: "Preguntas antes de descargar",
+        faqs: [
+            {
+                question: "¿VitalsPath sustituye a mi médico?",
+                answer: "No. VitalsPath sirve para organización personal, seguimiento y preparación de revisiones. No diagnostica, no trata y no sustituye consejo médico ni atención de emergencia.",
+            },
+            {
+                question: "¿Puedo usarla solo para medicación?",
+                answer: "Sí. Puedes empezar con tratamientos y dosis, y después añadir síntomas, constantes, citas, tareas o widgets cuando lo necesites.",
+            },
+            {
+                question: "¿Funciona con Apple Watch?",
+                answer: "Sí. La experiencia está pensada para iPhone, widgets, Live Activities y Apple Watch, aunque algunas funciones dependen del dispositivo, permisos, sistema operativo o plan.",
+            },
+            {
+                question: "¿Qué la diferencia de una app de notas?",
+                answer: "VitalsPath estructura la información de salud: dosis, síntomas, citas, constantes y seguimiento quedan conectados por fecha y contexto, no perdidos en entradas sueltas.",
+            },
+        ],
+        ctaTitle: "Empieza hoy con un historial de salud más fácil de revisar.",
+        ctaBody: "Descarga VitalsPath y organiza medicación, síntomas, constantes y citas desde una línea de tiempo privada.",
+    }
+    : {
+        proofTitle: "For people who need to remember, log and explain daily health more clearly.",
+        proofItems: [
+            "Medication and dose routines under control",
+            "Symptoms, mood and vitals with context",
+            "Appointments, tasks and follow-up in one timeline",
+            "Privacy, app lock and protected sensitive data",
+        ],
+        useCaseLabel: "Why it converts",
+        useCaseTitle: "VitalsPath is not another reminder list. It is the practical health history you bring to appointments.",
+        useCaseBody: "When health details live across notes, alarms, screenshots and memory, it is easy to miss a dose, lose important symptom context or arrive at an appointment unprepared. VitalsPath brings the health day into one focused experience for faster review, timely action and clearer conversations with clinicians.",
+        audiences: [
+            {
+                title: "Recurring treatments",
+                body: "Plan doses, log actions and review stock without relying on scattered alarms.",
+            },
+            {
+                title: "Changing symptoms",
+                body: "Capture severity, triggers, relief, photos and notes so patterns become easier to review.",
+            },
+            {
+                title: "Caregivers and follow-up",
+                body: "Keep appointments, tasks and conditions connected before every review.",
+            },
+        ],
+        stepsTitle: "From reminder to complete follow-up in three steps",
+        steps: [
+            {
+                title: "Create your routine",
+                body: "Add medication, schedules, appointments, relevant symptoms and vitals you want to track.",
+            },
+            {
+                title: "Log the real day",
+                body: "Mark doses as taken, skipped or postponed and add notes when something changes.",
+            },
+            {
+                title: "Review patterns",
+                body: "Use timeline, wellness, widgets and Apple Watch to understand what happened and when.",
+            },
+        ],
+        compareTitle: "Less scattered than notes, alarms and loose spreadsheets",
+        compareRows: [
+            ["Isolated reminders", "Doses, stock, status and follow-up together"],
+            ["Symptoms without context", "Severity, triggers, relief, photos and notes"],
+            ["Disconnected appointments", "Calendar, tasks and conditions in the same history"],
+            ["Generic privacy", "App lock, private logs and protected sensitive storage"],
+        ],
+        faqTitle: "Questions before downloading",
+        faqs: [
+            {
+                question: "Does VitalsPath replace my doctor?",
+                answer: "No. VitalsPath is for personal organization, follow-up and appointment preparation. It does not diagnose, treat or replace medical advice or emergency care.",
+            },
+            {
+                question: "Can I use it only for medication?",
+                answer: "Yes. You can start with treatments and doses, then add symptoms, vitals, appointments, tasks or widgets when needed.",
+            },
+            {
+                question: "Does it work with Apple Watch?",
+                answer: "Yes. The experience is designed for iPhone, widgets, Live Activities and Apple Watch, though some features depend on device, permissions, operating system or plan.",
+            },
+            {
+                question: "How is it different from a notes app?",
+                answer: "VitalsPath structures health information: doses, symptoms, appointments, vitals and follow-up stay connected by date and context instead of being buried in loose notes.",
+            },
+        ],
+        ctaTitle: "Start today with a health history that is easier to review.",
+        ctaBody: "Download VitalsPath and organize medication, symptoms, vitals and appointments from one private timeline.",
+    };
+
+const stepImages = [screenDose, screenCalendar, screenEmergency];
+const proofIcons = [Bell, Activity, Watch, ShieldCheck];
+const audienceIcons = [Pill, Stethoscope, CalendarDays];
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)}></script>
+
+<section class="relative overflow-hidden bg-slate-950 py-14 text-white sm:py-20">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(45,212,191,0.18),transparent_34%),radial-gradient(circle_at_80%_15%,rgba(249,115,22,0.12),transparent_30%),linear-gradient(180deg,#020617_0%,#0f172a_100%)]"></div>
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <h2 class="max-w-3xl text-[clamp(2rem,4vw,4rem)] font-black leading-none tracking-tight text-white">
+                {content.proofTitle}
+            </h2>
+            <div class="grid gap-3 sm:grid-cols-2">
+                {content.proofItems.map((item, index) => {
+                    const Icon = proofIcons[index % proofIcons.length];
+                    return (
+                        <div class="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-teal-300/10 text-teal-200">
+                                <Icon className="h-5 w-5" />
+                            </div>
+                            <p class="text-sm font-bold leading-5 text-white/85">{item}</p>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="relative overflow-hidden bg-white py-14 sm:py-20 dark:bg-[#080b0f]">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-start">
+            <div class="reveal">
+                <p class="mb-4 text-[11px] font-black uppercase tracking-[0.24em] text-teal-700 dark:text-teal-200">
+                    {content.useCaseLabel}
+                </p>
+                <h2 class="mb-5 text-[clamp(2rem,4.5vw,4.1rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
+                    {content.useCaseTitle}
+                </h2>
+                <p class="max-w-2xl text-lg font-medium leading-8 text-slate-600 dark:text-slate-300">
+                    {content.useCaseBody}
+                </p>
+            </div>
+
+            <div class="grid gap-4">
+                {content.audiences.map((audience, index) => {
+                    const Icon = audienceIcons[index % audienceIcons.length];
+                    return (
+                        <article class={`reveal stagger-${index + 1} rounded-lg border border-slate-200 bg-slate-50 p-5 shadow-sm dark:border-white/10 dark:bg-white/[0.04]`}>
+                            <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-white text-teal-700 shadow-sm ring-1 ring-slate-200 dark:bg-white/5 dark:text-teal-200 dark:ring-white/10">
+                                <Icon className="h-6 w-6" />
+                            </div>
+                            <h3 class="mb-2 text-xl font-black tracking-tight text-slate-950 dark:text-white">{audience.title}</h3>
+                            <p class="text-sm font-medium leading-6 text-slate-600 dark:text-slate-300">{audience.body}</p>
+                        </article>
+                    );
+                })}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-slate-50 py-14 sm:py-20 dark:bg-[#0c1117]">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <h2 class="max-w-3xl text-[clamp(2rem,4.3vw,4rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
+                {content.stepsTitle}
+            </h2>
+            <a href={appStoreHref} class="inline-flex w-fit items-center transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
+                <AppStoreBadge className="h-[48px]" lang={lang} />
+            </a>
+        </div>
+
+        <div class="grid gap-5 lg:grid-cols-3">
+            {content.steps.map((step, index) => (
+                <article class={`reveal-scale stagger-${index + 1} overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/[0.04]`}>
+                    <div class="aspect-[16/11] overflow-hidden bg-slate-100 dark:bg-slate-900">
+                        <Image
+                            src={stepImages[index]}
+                            alt={step.title}
+                            class="h-full w-full object-cover object-top"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="p-5">
+                        <div class="mb-4 flex h-8 w-8 items-center justify-center rounded-md bg-slate-950 text-sm font-black text-white dark:bg-teal-300 dark:text-slate-950">
+                            {index + 1}
+                        </div>
+                        <h3 class="mb-2 text-2xl font-black tracking-tight text-slate-950 dark:text-white">{step.title}</h3>
+                        <p class="text-sm font-medium leading-6 text-slate-600 dark:text-slate-300">{step.body}</p>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>
+
+<section class="bg-white py-14 sm:py-20 dark:bg-[#080b0f]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div>
+            <h2 class="mb-5 text-[clamp(2rem,4.2vw,3.8rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
+                {content.compareTitle}
+            </h2>
+            <p class="text-base font-medium leading-7 text-slate-600 dark:text-slate-300">
+                {lang === "es"
+                    ? "La conversión mejora cuando el visitante entiende rápidamente el coste de no cambiar: menos olvidos, menos información perdida y más claridad antes de cada revisión."
+                    : "Conversion improves when visitors quickly understand the cost of staying scattered: fewer missed details, less lost context and more clarity before every review."}
+            </p>
+        </div>
+        <div class="overflow-hidden rounded-lg border border-slate-200 dark:border-white/10">
+            {content.compareRows.map((row, index) => (
+                <div class={`grid gap-0 border-slate-200 md:grid-cols-2 dark:border-white/10 ${index === content.compareRows.length - 1 ? "" : "border-b"}`}>
+                    <div class="bg-slate-50 p-4 text-sm font-bold text-slate-500 dark:bg-white/[0.03] dark:text-slate-400">
+                        {row[0]}
+                    </div>
+                    <div class="flex items-start gap-3 bg-white p-4 text-sm font-extrabold text-slate-950 dark:bg-white/[0.06] dark:text-white">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-teal-600 dark:text-teal-200" />
+                        {row[1]}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<section class="bg-slate-50 py-14 sm:py-20 dark:bg-[#0c1117]">
+    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+        <h2 class="mb-8 text-center text-[clamp(2rem,4.2vw,3.8rem)] font-black leading-none tracking-tight text-slate-950 dark:text-white">
+            {content.faqTitle}
+        </h2>
+        <div class="grid gap-4">
+            {content.faqs.map((faq) => (
+                <details class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-white/[0.04]">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-black tracking-tight text-slate-950 dark:text-white">
+                        {faq.question}
+                        <span class="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-slate-100 text-slate-500 transition-transform group-open:rotate-45 dark:bg-white/10 dark:text-white">+</span>
+                    </summary>
+                    <p class="mt-3 max-w-3xl text-sm font-medium leading-6 text-slate-600 dark:text-slate-300">
+                        {faq.answer}
+                    </p>
+                </details>
+            ))}
+        </div>
+    </div>
+</section>
+
+<section class="bg-white px-6 py-14 sm:py-20 dark:bg-[#080b0f]">
+    <div class="mx-auto flex max-w-5xl flex-col items-center rounded-lg border border-slate-200 bg-slate-950 p-8 text-center shadow-[0_30px_90px_-50px_rgba(15,23,42,0.75)] sm:p-12 dark:border-white/10">
+        <LockKeyhole className="mb-5 h-10 w-10 text-teal-200" />
+        <h2 class="mb-4 max-w-3xl text-[clamp(2rem,4.5vw,4rem)] font-black leading-none tracking-tight text-white">
+            {content.ctaTitle}
+        </h2>
+        <p class="mb-8 max-w-2xl text-base font-medium leading-7 text-white/70 sm:text-lg">
+            {content.ctaBody}
+        </p>
+        <a href={appStoreHref} class="inline-flex transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98]">
+            <AppStoreBadge className="h-[54px] md:h-[62px]" lang={lang} />
+        </a>
+    </div>
+</section>

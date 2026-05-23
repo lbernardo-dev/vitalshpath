@@ -106,8 +106,8 @@ type SiteCopy = {
 export const siteCopy: Record<Lang, SiteCopy> = {
     en: {
         meta: {
-            title: "VitalsPath 2.0 | Private health organization for medication, symptoms, vitals and appointments",
-            description: "VitalsPath 2.0 keeps medication, symptoms, vitals, appointments, widgets, Live Activities and Apple Watch support organized in one private health hub.",
+            title: "Medication reminder and symptom tracker for iPhone | VitalsPath 2.0",
+            description: "VitalsPath 2.0 is a private iPhone health app for medication reminders, symptom tracking, vitals, appointments, widgets and Apple Watch.",
         },
         nav: {
             home: "Home",
@@ -128,9 +128,9 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         home: {
             heroBadge: "VITALSPATH 2.0.0",
             heroTitle:
-                "Medication, symptoms, vitals and appointments in one calmer health hub.",
+                "Your private medication reminder, symptom tracker and health timeline.",
             heroSubtitle:
-                "VitalsPath 2.0 brings daily planning, dose actions, specialized symptom logging, wellness summaries, secure local data handling, widgets, Live Activities and Apple Watch support into one focused health hub.",
+                "VitalsPath 2.0 helps you plan doses, log symptoms and vitals, prepare appointments and keep daily health context close with widgets, Live Activities and Apple Watch.",
             primaryCta: "Download on the App Store",
             secondaryCta: "See Release Features",
             sections: [
@@ -324,8 +324,8 @@ export const siteCopy: Record<Lang, SiteCopy> = {
     },
     es: {
         meta: {
-            title: "VitalsPath 2.0 | Organización privada de medicación, síntomas, constantes y citas",
-            description: "VitalsPath 2.0 organiza medicación, síntomas, constantes, citas, widgets, Live Activities y Apple Watch en un centro de salud privado.",
+            title: "Recordatorio de medicación y registro de síntomas | VitalsPath 2.0",
+            description: "VitalsPath 2.0 es una app privada para iPhone que organiza medicación, síntomas, constantes, citas, widgets y Apple Watch.",
         },
         nav: {
             home: "Inicio",
@@ -345,8 +345,8 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         },
         home: {
             heroBadge: "VITALSPATH 2.0.0",
-            heroTitle: "Medicación, síntomas, constantes y citas en un hub de salud más claro.",
-            heroSubtitle: "VitalsPath 2.0 reúne planificación diaria, acciones de dosis, registro avanzado de síntomas, resumen de bienestar, datos locales protegidos, widgets, Live Activities y Apple Watch en un hub de salud enfocado.",
+            heroTitle: "Tu recordatorio de medicación, registro de síntomas y cronología de salud privada.",
+            heroSubtitle: "VitalsPath 2.0 te ayuda a planificar dosis, registrar síntomas y constantes, preparar citas y tener el contexto diario a mano con widgets, Live Activities y Apple Watch.",
             primaryCta: "Descargar en el App Store",
             secondaryCta: "Ver novedades",
             sections: [

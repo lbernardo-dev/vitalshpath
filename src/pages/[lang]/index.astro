@@ -4,6 +4,7 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import Hero from "../../components/landing/Hero.astro";
 import Features from "../../components/landing/Features.astro";
+import ConversionSections from "../../components/landing/ConversionSections.astro";
 import Ecosystem from "../../components/landing/Ecosystem.astro";
 import DownloadCTA from "../../components/landing/DownloadCTA.astro";
 import {
@@ -33,6 +34,8 @@ const copy = getSiteCopy(currentLang);
     <Hero lang={currentLang} />
 
     <Features lang={currentLang} />
+
+    <ConversionSections lang={currentLang} />
 
     <Ecosystem lang={currentLang} />
 
