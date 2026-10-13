@@ -21,6 +21,13 @@ const copy = getSiteCopy(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 const appStoreHref = getAppStoreUrlForLang(lang, getDefaultAppStoreLinks());
 const reviewHref = getDefaultAppStoreLinks().reviewUrl;
+const helpLabels: Record<Lang, string> = {
+    en: "Help center & tutorials", es: "Ayuda y tutoriales", fr: "Aide et tutoriels",
+    de: "Hilfe und Anleitungen", it: "Guida e tutorial", pt: "Ajuda e tutoriais",
+    ja: "ヘルプとチュートリアル", zh: "帮助与教程", ko: "도움말 및 튜토리얼",
+    ru: "Справка и инструкции", ar: "المساعدة والدروس", hi: "सहायता और ट्यूटोरियल",
+    tr: "Yardım ve eğitimler", nl: "Hulp en handleidingen", pl: "Pomoc i samouczki",
+};
 ---
 
 <footer class="bg-[#0a0c10] dark:bg-black text-white/90 border-t border-white/5 relative overflow-hidden transition-colors duration-[1.2s]">
@@ -81,6 +88,7 @@ const reviewHref = getDefaultAppStoreLinks().reviewUrl;
                     SITEMAP
                 </h2>
                 <nav class="flex flex-col gap-4 text-xs font-bold text-slate-400">
+                    <a href={`${baseUrl}/${lang}/help/`} class="hover:text-teal-vibrant transition-colors">{helpLabels[lang]}</a>
                     <a href={`${baseUrl}/${lang}/privacy/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.privacy}</a>
                     <a href={`${baseUrl}/${lang}/feedback/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.support}</a>
                     <a href={`${baseUrl}/${lang}/release-features/`} class="hover:text-teal-vibrant transition-colors">{copy.footer.releaseFeatures}</a>
