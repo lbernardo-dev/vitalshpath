@@ -1,0 +1,162 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { supportedLangs, type Lang } from "../../i18n/ui-locales";
+import { translatedHelpPages, type HelpPageCopy } from "../../content/help-translations";
+
+export function getStaticPaths() {
+    return supportedLangs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const basePage: HelpPageCopy = lang === "es" ? {
+    title: "Centro de ayuda de VitalsPath",
+    description: "Guías de uso, tutoriales, preguntas frecuentes y límites de VitalsPath.",
+    eyebrow: "AYUDA Y DOCUMENTACIÓN",
+    intro: "Guías prácticas para organizar tratamientos, registrar síntomas y preparar el seguimiento de salud con VitalsPath.",
+    languageNotice: "",
+    startTitle: "Empieza aquí",
+    startBody: "VitalsPath ayuda a organizar información y rutinas personales. Configura la app con las indicaciones de tus profesionales sanitarios y revisa los datos antes de compartirlos.",
+    guidesTitle: "Tutoriales",
+    guides: [
+        { title: "1. Configura perfiles y datos básicos", body: "Crea o selecciona el perfil que vas a usar antes de registrar información. Comprueba el perfil activo en cada pantalla: las entradas, tratamientos y citas deben quedar en la persona correcta. Completa solo los datos que quieras mantener y revisa permisos y opciones de privacidad desde los ajustes del dispositivo y de la app." },
+        { title: "2. Añade un tratamiento y organiza las tomas", body: "Introduce el nombre, la pauta, la dosis y el horario siguiendo exactamente las instrucciones recibidas. Comprueba unidades, fechas de inicio y fin, y zona horaria. Registra cada toma como realizada, omitida o pospuesta según corresponda; una notificación es un recordatorio, no confirma que se haya tomado el medicamento. Actualiza existencias como una estimación y contrástalas con el envase." },
+        { title: "3. Registra síntomas, estado de ánimo y constantes", body: "Añade una entrada con fecha y hora, intensidad y contexto útil —por ejemplo, desencadenantes, alivio y notas—. Si registras peso, presión arterial u otras constantes, verifica la unidad y el valor antes de guardar. Los datos introducidos por ti no se validan clínicamente y la app no interpreta ni diagnostica patrones." },
+        { title: "4. Prepara citas y seguimiento", body: "Guarda la fecha, el centro o profesional y las notas o preguntas que quieras llevar. Después de la cita, añade las tareas de seguimiento y actualiza las indicaciones de tratamiento solo con la información que te haya confirmado tu equipo sanitario." },
+        { title: "5. Comparte un perfil con una persona de confianza", body: "La colaboración depende de iCloud, conexión de red, invitaciones aceptadas y permisos de las cuentas participantes. Comprueba qué perfil y qué acceso estás compartiendo antes de invitar. La sincronización puede tardar; confirma en ambos dispositivos que los cambios llegaron. Retira el acceso cuando ya no sea necesario y evita compartir más información de la necesaria." },
+        { title: "6. Usa widgets, Apple Watch y funciones de Apple", body: "Estas funciones requieren dispositivos, versiones del sistema y permisos compatibles. Activa solo las que quieras usar. Los widgets y las actividades en vivo pueden mostrar información reciente, pero iOS decide cuándo actualizarlos y no son una vista en tiempo real garantizada. Revisa desde la app cualquier dato que necesites confirmar." },
+        { title: "7. Revisa y comparte informes", body: "Antes de exportar o compartir un informe, revisa el intervalo, el perfil, las unidades y cada dato. Un informe es un resumen de la información registrada; no es un historial clínico completo ni una evaluación médica. Compártelo por un canal que tú elijas y con las personas adecuadas." },
+        { title: "8. Comprueba permisos y notificaciones", body: "Si faltan recordatorios o datos de Apple Health, revisa los permisos de notificaciones o Salud en Ajustes de iOS y dentro de la app. Los modos de concentración, el volumen, el estado del dispositivo y las reglas de iOS pueden afectar a las alertas. Concede únicamente los permisos que necesites y puedes revocarlos desde Ajustes." },
+    ],
+    limitsTitle: "Notas aclaratorias y limitaciones",
+    limits: [
+        "VitalsPath sirve para organizar y consultar información personal. No ofrece diagnóstico, consejo médico ni tratamiento, y no reemplaza a profesionales sanitarios.",
+        "No uses la app para emergencias. La tarjeta de emergencia no llama automáticamente a los servicios de emergencia. Si necesitas ayuda urgente, contacta directamente con los servicios locales.",
+        "Las notificaciones no garantizan la entrega puntual de cada recordatorio. Dependen de permisos y ajustes de iOS, conectividad, energía y del estado del dispositivo. Mantén un método alternativo para tratamientos críticos.",
+        "Los widgets y las actividades en vivo no se actualizan continuamente; iOS controla su frecuencia y puede mostrar datos desactualizados.",
+        "La información de Salud/HealthKit depende de los permisos concedidos, las fuentes conectadas y la disponibilidad del dispositivo. No presupongas que todos los datos de Salud se importan.",
+        "La colaboración requiere cuentas y permisos compatibles, iCloud y red. Puede haber retrasos o fallos temporales de sincronización. Comprueba los cambios importantes en los dispositivos participantes.",
+        "La exactitud depende de la información que introduzcas o importes. Revisa dosis, unidades, fechas e informes; confirma las instrucciones clínicas con tu equipo sanitario.",
+        "Los límites del plan gratuito, las funciones premium y los precios pueden cambiar por versión, territorio u oferta. Consulta la pantalla de suscripción de la app y la ficha de App Store antes de comprar.",
+        "La disponibilidad de Apple Watch, widgets, Live Activities, Siri y Salud depende del modelo, sistema operativo, idioma, región y permisos. Algunas funciones no están disponibles en todos los dispositivos.",
+    ],
+    faqTitle: "Preguntas frecuentes",
+    faq: [
+        { q: "¿VitalsPath decide qué medicamento o dosis debo tomar?", a: "No. Registra el plan que tú introduces; sigue la pauta de tu profesional sanitario y consulta cualquier cambio con él." },
+        { q: "¿Por qué no recibí una notificación?", a: "Revisa permisos, concentración, volumen, conectividad y ajustes de iOS. La entrega puntual no está garantizada por la app ni por el sistema." },
+        { q: "¿Por qué no veo cambios compartidos?", a: "Comprueba la conexión, que la invitación se haya aceptado, los permisos y que ambos estén consultando el perfil correcto. La sincronización puede tardar." },
+        { q: "¿Los widgets muestran siempre el dato más reciente?", a: "No necesariamente. iOS limita cuándo se actualizan los widgets; abre la app para comprobar la información actual." },
+        { q: "¿Todos mis datos se quedan en el dispositivo o están cifrados de extremo a extremo?", a: "No hagas esa suposición. La ubicación y sincronización dependen de la función y de la configuración. Consulta la Política de privacidad vigente para conocer los tratamientos de datos." },
+        { q: "¿Dónde consulto el precio y los límites de mi plan?", a: "En la pantalla de suscripción de la app y en la confirmación de compra de App Store; pueden variar según región, impuestos, oferta y elegibilidad." },
+    ],
+    linksTitle: "Más información",
+    links: { privacy: "Privacidad", disclaimer: "Aviso médico", subscription: "Planes y suscripción", support: "Soporte" },
+    updated: "Revisa esta guía cuando cambie la app. La disponibilidad y los límites pueden variar por versión y región.",
+} : {
+    title: "VitalsPath Help Center",
+    description: "Practical VitalsPath guides, tutorials, FAQs, permissions and limitations.",
+    eyebrow: "HELP & DOCUMENTATION",
+    intro: "Practical guides to organize treatments, log symptoms and prepare for health follow-up with VitalsPath.",
+    languageNotice: "",
+    startTitle: "Start here",
+    startBody: "VitalsPath helps organize personal information and routines. Set it up using guidance from your healthcare professionals, and review information before sharing it.",
+    guidesTitle: "Tutorials",
+    guides: [
+        { title: "1. Set up profiles and basic details", body: "Create or select the profile you plan to use before logging information. Check the active profile on each screen so entries, treatments and appointments are assigned to the right person. Add only details you want to maintain, and review permissions and privacy settings in both the app and your device settings." },
+        { title: "2. Add a treatment and organize doses", body: "Enter the name, instructions, dose and schedule exactly as prescribed. Check units, start and end dates, and time zone. Record a dose as taken, skipped or postponed as appropriate; a notification is a reminder and does not confirm that medicine was taken. Treat stock counts as estimates and check them against the package." },
+        { title: "3. Log symptoms, mood and vitals", body: "Add an entry with its date and time, intensity and useful context such as triggers, relief and notes. If you log weight, blood pressure or other vitals, verify the unit and value before saving. Information you enter is not clinically validated, and the app does not interpret or diagnose patterns." },
+        { title: "4. Prepare appointments and follow-up", body: "Save the date, clinic or professional, and any notes or questions you want to bring. After the appointment, add follow-up tasks and update treatment instructions only with information confirmed by your healthcare team." },
+        { title: "5. Share a profile with someone you trust", body: "Collaboration depends on iCloud, a network connection, accepted invitations and permissions for participating accounts. Check which profile and access you are sharing before inviting someone. Sync can take time; confirm on both devices that changes arrived. Remove access when it is no longer needed and share only what is necessary." },
+        { title: "6. Use widgets, Apple Watch and Apple features", body: "These features require compatible devices, operating-system versions and permissions. Enable only the ones you want. Widgets and Live Activities may show recent information, but iOS decides when they refresh, so they are not guaranteed real-time views. Open the app to confirm information when needed." },
+        { title: "7. Review and share reports", body: "Before exporting or sharing a report, check its date range, profile, units and each entry. A report summarizes logged information; it is not a complete medical record or clinical assessment. Choose a sharing channel yourself and send it only to the intended people." },
+        { title: "8. Check permissions and notifications", body: "If reminders or Apple Health data are missing, review notification or Health permissions in iOS Settings and in the app. Focus modes, volume, device state and iOS rules can affect alerts. Grant only the access you need; you can revoke it in Settings." },
+    ],
+    limitsTitle: "Important notes and limitations",
+    limits: [
+        "VitalsPath is for organizing and reviewing personal information. It does not provide diagnosis, medical advice or treatment, and it does not replace healthcare professionals.",
+        "Do not use the app for emergencies. The emergency card does not automatically call emergency services. If you need urgent help, contact local emergency services directly.",
+        "Notifications do not guarantee that every reminder will arrive on time. They depend on iOS permissions and settings, connectivity, power and device state. Keep an alternative for critical treatments.",
+        "Widgets and Live Activities do not refresh continuously; iOS controls their update frequency and may show stale information.",
+        "Apple Health/HealthKit information depends on granted permissions, connected sources and device availability. Do not assume all Health data is imported.",
+        "Collaboration requires compatible accounts and permissions, iCloud and a network connection. Sync can be delayed or temporarily fail. Confirm important changes on participating devices.",
+        "Accuracy depends on information you enter or import. Review doses, units, dates and reports; confirm clinical instructions with your healthcare team.",
+        "Free-plan limits, premium features and prices can change by app version, storefront or offer. Check the app's subscription screen and App Store listing before purchase.",
+        "Apple Watch, widgets, Live Activities, Siri and Health availability depends on device model, OS, language, region and permissions. Some features are unavailable on some devices.",
+    ],
+    faqTitle: "Frequently asked questions",
+    faq: [
+        { q: "Does VitalsPath decide which medicine or dose I should take?", a: "No. It records the plan you enter; follow your healthcare professional's instructions and ask them about any changes." },
+        { q: "Why did I miss a notification?", a: "Review permissions, Focus, volume, connectivity and iOS settings. Timely delivery is not guaranteed by the app or operating system." },
+        { q: "Why can't I see shared changes?", a: "Check connectivity, invitation acceptance, permissions and that both people have selected the correct profile. Sync may take time." },
+        { q: "Do widgets always show the latest information?", a: "Not necessarily. iOS limits widget refreshes; open the app to check current information." },
+        { q: "Does all my data stay on my device or use end-to-end encryption?", a: "Do not assume so. Storage and sync depend on the feature and your configuration. Read the current Privacy Policy for information about data processing." },
+        { q: "Where can I check my plan price and limits?", a: "Check the app's subscription screen and the App Store purchase confirmation; they can vary by region, taxes, offer and eligibility." },
+    ],
+    linksTitle: "More information",
+    links: { privacy: "Privacy", disclaimer: "Medical disclaimer", subscription: "Plans & subscription", support: "Support" },
+    updated: "Review this guide as the app changes. Availability and limits can vary by version and region.",
+};
+const page = translatedHelpPages[lang] ?? basePage;
+---
+
+<Layout lang={lang} pageTitle={page.title + " | VitalsPath"} pageDescription={page.description}>
+    <Header lang={lang} />
+    <main lang={lang} class="min-h-screen bg-slate-50 px-4 pb-20 pt-32 text-slate-900 dark:bg-[#0b0f14] dark:text-white sm:px-6">
+        <div class="mx-auto max-w-5xl">
+            <p class="mb-4 text-xs font-black tracking-[0.24em] text-teal-700 dark:text-teal-300">{page.eyebrow}</p>
+            <h1 class="max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">{page.title}</h1>
+            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{page.intro}</p>
+            
+
+            <section class="mt-12 rounded-3xl border border-teal-200 bg-teal-50 p-6 dark:border-teal-900 dark:bg-teal-950/30 sm:p-8">
+                <h2 class="text-2xl font-bold">{page.startTitle}</h2>
+                <p class="mt-3 max-w-3xl leading-7 text-slate-700 dark:text-slate-200">{page.startBody}</p>
+            </section>
+
+            <section class="mt-14">
+                <h2 class="text-3xl font-bold">{page.guidesTitle}</h2>
+                <div class="mt-6 grid gap-4 md:grid-cols-2">
+                    {page.guides.map((guide) => (
+                        <article class="rounded-3xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/[0.04] sm:p-7">
+                            <h3 class="text-xl font-bold">{guide.title}</h3>
+                            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{guide.body}</p>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold">{page.limitsTitle}</h2>
+                <ul class="mt-6 space-y-3">
+                    {page.limits.map((item) => <li class="rounded-2xl border border-slate-200 bg-white p-5 leading-7 text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200">{item}</li>)}
+                </ul>
+            </section>
+
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold">{page.faqTitle}</h2>
+                <div class="mt-6 space-y-4">
+                    {page.faq.map((item) => (
+                        <details class="group rounded-2xl border border-slate-200 bg-white p-5 dark:border-white/10 dark:bg-white/[0.04]">
+                            <summary class="cursor-pointer font-bold marker:text-teal-600">{item.q}</summary>
+                            <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{item.a}</p>
+                        </details>
+                    ))}
+                </div>
+            </section>
+
+            <section class="mt-16 rounded-3xl bg-slate-900 p-6 text-white dark:bg-white/10 sm:p-8">
+                <h2 class="text-2xl font-bold">{page.linksTitle}</h2>
+                <nav aria-label={page.linksTitle} class="mt-5 flex flex-wrap gap-3">
+                    <a class="rounded-full border border-white/20 px-5 py-3 hover:bg-white/10" href={baseUrl + "/" + lang + "/privacy/"}>{page.links.privacy}</a>
+                    <a class="rounded-full border border-white/20 px-5 py-3 hover:bg-white/10" href={baseUrl + "/" + lang + "/disclaimer/"}>{page.links.disclaimer}</a>
+                    <a class="rounded-full border border-white/20 px-5 py-3 hover:bg-white/10" href={baseUrl + "/" + lang + "/subscription/"}>{page.links.subscription}</a>
+                    <a class="rounded-full border border-white/20 px-5 py-3 hover:bg-white/10" href={baseUrl + "/" + lang + "/feedback/"}>{page.links.support}</a>
+                </nav>
+                <p class="mt-6 text-sm leading-6 text-white/70">{page.updated}</p>
+            </section>
+        </div>
+    </main>
+    <Footer lang={lang} />
+</Layout>

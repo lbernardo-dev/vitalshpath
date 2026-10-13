@@ -12,13 +12,30 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const currentLang = lang as Lang;
 const copy = getLegalCopy(currentLang).terms;
+const termsMeta: Record<Lang, { subtitle: string; lastUpdated: string }> = {
+    en: { subtitle: "Terms governing use of the VitalsPath app and website.", lastUpdated: "Updated October 13, 2026." },
+    es: { subtitle: "Condiciones de uso de la app VitalsPath y de este sitio web.", lastUpdated: "Actualizado el 13 de octubre de 2026." },
+    fr: { subtitle: "Conditions d’utilisation de l’application VitalsPath et de ce site.", lastUpdated: "Mis à jour le 13 octobre 2026." },
+    de: { subtitle: "Bedingungen für die Nutzung der VitalsPath-App und dieser Website.", lastUpdated: "Aktualisiert am 13. Oktober 2026." },
+    it: { subtitle: "Condizioni per l’uso dell’app VitalsPath e di questo sito web.", lastUpdated: "Aggiornato il 13 ottobre 2026." },
+    pt: { subtitle: "Termos de uso do app VitalsPath e deste site.", lastUpdated: "Atualizado em 13 de outubro de 2026." },
+    ja: { subtitle: "VitalsPathアプリおよび本ウェブサイトの利用条件。", lastUpdated: "2026年10月13日更新。" },
+    zh: { subtitle: "VitalsPath 应用及本网站的使用条款。", lastUpdated: "更新于 2026 年 10 月 13 日。" },
+    ko: { subtitle: "VitalsPath 앱과 이 웹사이트의 이용 약관입니다.", lastUpdated: "2026년 10월 13일 업데이트." },
+    ru: { subtitle: "Условия использования приложения VitalsPath и этого сайта.", lastUpdated: "Обновлено 13 октября 2026 года." },
+    ar: { subtitle: "شروط استخدام تطبيق VitalsPath وهذا الموقع.", lastUpdated: "تم التحديث في 13 أكتوبر 2026." },
+    hi: { subtitle: "VitalsPath ऐप और इस वेबसाइट के उपयोग की शर्तें।", lastUpdated: "13 अक्टूबर 2026 को अपडेट किया गया।" },
+    tr: { subtitle: "VitalsPath uygulamasının ve bu web sitesinin kullanım koşulları.", lastUpdated: "13 Ekim 2026 tarihinde güncellendi." },
+    nl: { subtitle: "Voorwaarden voor het gebruik van de VitalsPath-app en deze website.", lastUpdated: "Bijgewerkt op 13 oktober 2026." },
+    pl: { subtitle: "Warunki korzystania z aplikacji VitalsPath i tej witryny.", lastUpdated: "Zaktualizowano 13 października 2026 r." },
+};
 ---
 
 <LegalPageShell
     lang={currentLang}
     title={copy.title}
-    subtitle={copy.subtitle}
-    lastUpdated={copy.lastUpdated}
+    subtitle={termsMeta[currentLang].subtitle}
+    lastUpdated={termsMeta[currentLang].lastUpdated}
 >
     <div class="space-y-6">
         {

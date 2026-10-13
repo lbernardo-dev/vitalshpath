@@ -19,15 +19,38 @@ const currentLang = lang as Lang;
 const copy = getSiteCopy(currentLang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks());
+const archiveMessage: Record<Lang, string> = {
+    en: "Historical overview of the Version 2.0 feature set. Availability and behavior may have changed; check the current app and Help Center for up-to-date guidance.",
+    es: "Resumen histórico de las funciones de la versión 2.0. La disponibilidad y el comportamiento pueden haber cambiado; consulta la app actual y el centro de ayuda para ver la información vigente.",
+    fr: "Aperçu historique des fonctionnalités de la version 2.0. Leur disponibilité et leur fonctionnement peuvent avoir changé ; consultez l’application actuelle et le centre d’aide.",
+    de: "Historischer Überblick über die Funktionen von Version 2.0. Verfügbarkeit und Verhalten können sich geändert haben; aktuelle Hinweise findest du in der App und im Hilfe-Center.",
+    it: "Panoramica storica delle funzioni della versione 2.0. Disponibilità e comportamento potrebbero essere cambiati; consulta l’app attuale e il centro assistenza.",
+    pt: "Visão histórica dos recursos da versão 2.0. A disponibilidade e o funcionamento podem ter mudado; consulte a app atual e a central de ajuda.",
+    ja: "バージョン2.0の機能をまとめた過去の情報です。利用可否や動作は変更されている場合があります。最新情報は現在のアプリとヘルプセンターをご確認ください。",
+    zh: "这是 2.0 版本功能的历史概览。功能可用性和行为可能已变化；请查看当前应用和帮助中心获取最新说明。",
+    ko: "버전 2.0 기능에 대한 과거 안내입니다. 이용 가능 여부와 동작은 변경되었을 수 있으므로 최신 정보는 현재 앱과 도움말 센터에서 확인하세요.",
+    ru: "Исторический обзор функций версии 2.0. Доступность и работа функций могли измениться; актуальную информацию смотрите в приложении и центре справки.",
+    ar: "هذه نظرة تاريخية على ميزات الإصدار 2.0. ربما تغير التوفر أو طريقة العمل؛ راجع التطبيق الحالي ومركز المساعدة للمعلومات المحدّثة.",
+    hi: "यह संस्करण 2.0 की सुविधाओं का पुराना विवरण है। उपलब्धता और व्यवहार बदल सकते हैं; नई जानकारी के लिए मौजूदा ऐप और सहायता केंद्र देखें।",
+    tr: "Bu, 2.0 sürümünün özelliklerine ilişkin geçmişe dönük bir özettir. Kullanılabilirlik ve çalışma biçimi değişmiş olabilir; güncel bilgi için uygulamayı ve yardım merkezini inceleyin.",
+    nl: "Historisch overzicht van de functies in versie 2.0. Beschikbaarheid en werking kunnen zijn veranderd; bekijk de huidige app en het helpcentrum voor actuele informatie.",
+    pl: "Historyczny przegląd funkcji wersji 2.0. Dostępność i działanie mogły się zmienić; aktualne informacje znajdziesz w aplikacji i centrum pomocy.",
+};
+const helpLabels: Record<Lang, string> = {
+    en: "Help Center", es: "Centro de ayuda", fr: "Centre d’aide", de: "Hilfe-Center",
+    it: "Centro assistenza", pt: "Central de ajuda", ja: "ヘルプセンター", zh: "帮助中心",
+    ko: "도움말 센터", ru: "Центр помощи", ar: "مركز المساعدة", hi: "सहायता केंद्र",
+    tr: "Yardım merkezi", nl: "Helpcentrum", pl: "Centrum pomocy",
+};
 ---
 
 <PageShell
     lang={currentLang}
     title={copy.releaseFeatures.title}
-    intro={copy.releaseFeatures.intro}
+    intro={archiveMessage[currentLang]}
     badge={copy.nav.releaseFeatures}
     pageTitle={`${copy.releaseFeatures.title} | VitalsPath`}
-    pageDescription={copy.releaseFeatures.intro}
+    pageDescription={archiveMessage[currentLang]}
 >
     <div class="grid gap-6">
         {
@@ -54,9 +77,7 @@ const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks(
             <p class="text-sm font-black uppercase tracking-[0.22em] text-sky-700 dark:text-sky-300">
                 VitalsPath
             </p>
-            <p class="mt-4 text-base leading-7 text-slate-700 dark:text-slate-200">
-                {copy.releaseFeatures.note}
-            </p>
+
             <div class="mt-6 flex flex-wrap gap-3">
                 <a
                     href={appStoreHref}
@@ -66,6 +87,12 @@ const appStoreHref = getAppStoreUrlForLang(currentLang, getDefaultAppStoreLinks(
                     class="inline-flex rounded-2xl bg-sky-600 px-4 py-3 text-sm font-black text-white transition-colors hover:bg-sky-700"
                 >
                     {appStoreLabels[currentLang].view}
+                </a>
+                <a
+                    href={`${baseUrl}/${currentLang}/help/`}
+                    class="inline-flex rounded-2xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:border-slate-300 hover:text-slate-950 dark:border-white/10 dark:text-slate-200 dark:hover:border-white/20 dark:hover:text-white"
+                >
+                    {helpLabels[currentLang]}
                 </a>
                 <a
                     href={`${baseUrl}/${currentLang}/feedback/`}
