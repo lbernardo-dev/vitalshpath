@@ -2,8 +2,6 @@
 import LegalPageShell from "../../components/LegalPageShell.astro";
 import { getLegalCopy } from "../../content/legal-copy";
 import { supportedLangs, type Lang } from "../../i18n/ui-locales";
-import { useTranslations } from "../../i18n";
-import { launchPricingPlans } from "../../lib/pricing";
 
 export function getStaticPaths() {
     return supportedLangs.map((lang) => ({
@@ -14,7 +12,23 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const currentLang = lang as Lang;
 const copy = getLegalCopy(currentLang).subscription;
-const t = useTranslations(currentLang);
+const currentTerms: Record<Lang, { pricingTitle: string; pricingBody: string; billingTitle: string; billingBody: string }> = {
+    en: { pricingTitle: "Current plans and prices", pricingBody: "Available plans, prices, billing periods, trials and introductory offers can vary by country, account and eligibility. Check the current offer in VitalsPath and the final amount and terms in Apple's App Store purchase sheet before confirming.", billingTitle: "Billing, renewal and cancellation", billingBody: "Apple displays the billing period and processes App Store purchases. Manage or cancel a subscription in your Apple Account subscription settings before its renewal date. Apple handles refunds and billing questions. Use Restore Purchases in VitalsPath if an eligible purchase is not recognized." },
+    es: { pricingTitle: "Planes y precios vigentes", pricingBody: "Los planes disponibles, precios, periodos de facturación, pruebas y ofertas pueden variar según el país, la cuenta y la elegibilidad. Consulta la oferta actual en VitalsPath y confirma el importe final y las condiciones en la hoja de compra de App Store antes de aceptar.", billingTitle: "Facturación, renovación y cancelación", billingBody: "Apple muestra el periodo de facturación y procesa las compras de App Store. Gestiona o cancela la suscripción en los ajustes de suscripciones de tu cuenta Apple antes de la fecha de renovación. Apple gestiona reembolsos e incidencias de facturación. Usa Restaurar compras en VitalsPath si una compra válida no aparece." },
+    fr: { pricingTitle: "Offres et tarifs actuels", pricingBody: "Les offres, tarifs, périodes de facturation, essais et promotions disponibles peuvent varier selon le pays, le compte et l’éligibilité. Consultez l’offre dans VitalsPath et confirmez le montant final et les conditions dans la feuille d’achat de l’App Store avant de valider.", billingTitle: "Facturation, renouvellement et résiliation", billingBody: "Apple affiche la période de facturation et traite les achats App Store. Gérez ou résiliez l’abonnement dans les réglages de votre compte Apple avant son renouvellement. Apple gère les remboursements et les questions de facturation. Utilisez Restaurer les achats dans VitalsPath si un achat éligible n’est pas reconnu." },
+    de: { pricingTitle: "Aktuelle Angebote und Preise", pricingBody: "Verfügbare Pläne, Preise, Abrechnungszeiträume, Testzeiträume und Einstiegsangebote können je nach Land, Konto und Berechtigung variieren. Prüfe das aktuelle Angebot in VitalsPath und bestätige Endpreis und Bedingungen im App-Store-Kaufdialog.", billingTitle: "Abrechnung, Verlängerung und Kündigung", billingBody: "Apple zeigt den Abrechnungszeitraum an und verarbeitet App-Store-Käufe. Verwalte oder kündige ein Abo vor der Verlängerung in den Abo-Einstellungen deines Apple Accounts. Apple bearbeitet Rückerstattungen und Abrechnungsfragen. Nutze in VitalsPath „Käufe wiederherstellen“, wenn ein berechtigter Kauf fehlt." },
+    it: { pricingTitle: "Piani e prezzi attuali", pricingBody: "Piani, prezzi, periodi di fatturazione, prove e offerte introduttive disponibili possono variare in base a paese, account ed eleggibilità. Controlla l’offerta attuale in VitalsPath e conferma importo finale e condizioni nella schermata di acquisto dell’App Store.", billingTitle: "Fatturazione, rinnovo e cancellazione", billingBody: "Apple mostra il periodo di fatturazione ed elabora gli acquisti App Store. Gestisci o annulla l’abbonamento nelle impostazioni dell’account Apple prima del rinnovo. Apple gestisce rimborsi e problemi di fatturazione. Usa Ripristina acquisti in VitalsPath se un acquisto idoneo non viene riconosciuto." },
+    pt: { pricingTitle: "Planos e preços atuais", pricingBody: "Planos, preços, períodos de cobrança, testes e ofertas introdutórias disponíveis podem variar conforme país, conta e elegibilidade. Consulte a oferta atual no VitalsPath e confirme o valor final e as condições na tela de compra da App Store antes de aceitar.", billingTitle: "Cobrança, renovação e cancelamento", billingBody: "A Apple apresenta o período de cobrança e processa as compras da App Store. Gerencie ou cancele a assinatura nos ajustes da sua Conta Apple antes da renovação. A Apple cuida de reembolsos e questões de cobrança. Use Restaurar Compras no VitalsPath se uma compra elegível não for reconhecida." },
+    ja: { pricingTitle: "現在のプランと価格", pricingBody: "利用できるプラン、価格、請求期間、トライアル、初回オファーは、国・アカウント・利用資格によって異なります。VitalsPathで現在のオファーを確認し、確定前にApp Storeの購入画面で最終金額と条件をご確認ください。", billingTitle: "請求、更新、解約", billingBody: "App Storeの購入画面に請求期間が表示され、Appleが購入を処理します。更新日前にApple Accountのサブスクリプション設定から管理または解約してください。返金や請求に関する問い合わせはAppleが対応します。対象の購入が反映されない場合は、VitalsPathで「購入を復元」をお試しください。" },
+    zh: { pricingTitle: "当前方案与价格", pricingBody: "可用方案、价格、计费周期、试用和优惠可能因国家或地区、账户及资格而异。请在 VitalsPath 查看当前优惠，并在确认购买前通过 App Store 购买页面核对最终金额与条款。", billingTitle: "账单、续订与取消", billingBody: "Apple 会显示计费周期并处理 App Store 购买。请在续订日期前通过 Apple 账户的订阅设置管理或取消订阅。退款和账单问题由 Apple 处理。如果符合条件的购买未显示，请在 VitalsPath 中使用“恢复购买”。" },
+    ko: { pricingTitle: "현재 요금제 및 가격", pricingBody: "이용 가능한 요금제, 가격, 결제 주기, 체험 및 도입 혜택은 국가, 계정, 자격에 따라 달라질 수 있습니다. VitalsPath에서 현재 혜택을 확인하고 구매를 확정하기 전에 App Store 결제 화면에서 최종 금액과 조건을 확인하세요.", billingTitle: "결제, 갱신 및 취소", billingBody: "Apple은 결제 주기를 표시하고 App Store 구매를 처리합니다. 갱신일 전에 Apple 계정의 구독 설정에서 구독을 관리하거나 취소하세요. 환불과 결제 문의는 Apple에서 처리합니다. 적격 구매가 표시되지 않으면 VitalsPath에서 구입 항목 복원을 사용하세요." },
+    ru: { pricingTitle: "Текущие планы и цены", pricingBody: "Доступные планы, цены, периоды оплаты, пробные периоды и вводные предложения могут зависеть от страны, аккаунта и права на участие. Проверьте актуальное предложение в VitalsPath и подтвердите итоговую сумму и условия на экране покупки App Store.", billingTitle: "Оплата, продление и отмена", billingBody: "Apple показывает период оплаты и обрабатывает покупки App Store. Управляйте подпиской или отмените ее в настройках подписок Apple Account до даты продления. Возвраты и вопросы оплаты обрабатывает Apple. Если подходящая покупка не отображается, воспользуйтесь функцией восстановления покупок в VitalsPath." },
+    ar: { pricingTitle: "الخطط والأسعار الحالية", pricingBody: "قد تختلف الخطط والأسعار وفترات الفوترة والتجارب والعروض المتاحة حسب البلد والحساب والأهلية. راجع العرض الحالي في VitalsPath وتحقق من المبلغ النهائي والشروط في شاشة شراء App Store قبل التأكيد.", billingTitle: "الفوترة والتجديد والإلغاء", billingBody: "تعرض Apple فترة الفوترة وتعالج مشتريات App Store. أدر الاشتراك أو ألغِه من إعدادات اشتراكات حساب Apple قبل موعد التجديد. تتولى Apple طلبات الاسترداد واستفسارات الفوترة. استخدم استعادة المشتريات في VitalsPath إذا لم يظهر شراء مؤهل." },
+    hi: { pricingTitle: "मौजूदा प्लान और कीमतें", pricingBody: "उपलब्ध प्लान, कीमतें, बिलिंग अवधि, परीक्षण और शुरुआती ऑफ़र देश, खाते और पात्रता के अनुसार बदल सकते हैं। VitalsPath में मौजूदा ऑफ़र देखें और पुष्टि करने से पहले App Store खरीद स्क्रीन पर अंतिम राशि और शर्तें जाँचें।", billingTitle: "बिलिंग, नवीनीकरण और रद्द करना", billingBody: "Apple बिलिंग अवधि दिखाता है और App Store खरीद संसाधित करता है। नवीनीकरण से पहले अपने Apple Account की सदस्यता सेटिंग में सदस्यता प्रबंधित या रद्द करें। रिफंड और बिलिंग प्रश्न Apple संभालता है। पात्र खरीद दिखाई न दे तो VitalsPath में Restore Purchases चुनें।" },
+    tr: { pricingTitle: "Güncel planlar ve fiyatlar", pricingBody: "Sunulan planlar, fiyatlar, faturalandırma dönemleri, denemeler ve tanıtım teklifleri ülkeye, hesaba ve uygunluk durumuna göre değişebilir. VitalsPath'teki güncel teklifi inceleyin ve onaylamadan önce App Store satın alma ekranındaki son tutarı ve koşulları doğrulayın.", billingTitle: "Faturalandırma, yenileme ve iptal", billingBody: "Faturalandırma dönemini Apple gösterir ve App Store satın alımlarını işler. Yenileme tarihinden önce Apple Account abonelik ayarlarından aboneliği yönetin veya iptal edin. İade ve faturalandırma konularını Apple ele alır. Uygun bir satın alım görünmüyorsa VitalsPath'te Satın Alımları Geri Yükle'yi kullanın." },
+    nl: { pricingTitle: "Huidige abonnementen en prijzen", pricingBody: "Beschikbare abonnementen, prijzen, factureringsperioden, proefperiodes en introductieaanbiedingen kunnen per land, account en geschiktheid verschillen. Bekijk de huidige aanbieding in VitalsPath en controleer het eindbedrag en de voorwaarden in het App Store-aankoopvenster voordat je bevestigt.", billingTitle: "Facturering, verlenging en opzegging", billingBody: "Apple toont de factureringsperiode en verwerkt App Store-aankopen. Beheer of zeg een abonnement op via de abonnementsinstellingen van je Apple Account vóór de verlenging. Apple behandelt terugbetalingen en factureringsvragen. Gebruik ‘Aankopen herstellen’ in VitalsPath als een in aanmerking komende aankoop ontbreekt." },
+    pl: { pricingTitle: "Aktualne plany i ceny", pricingBody: "Dostępne plany, ceny, okresy rozliczeniowe, okresy próbne i oferty wprowadzające mogą zależeć od kraju, konta i uprawnień. Sprawdź aktualną ofertę w VitalsPath i potwierdź końcową kwotę oraz warunki w oknie zakupu App Store.", billingTitle: "Płatności, odnowienie i anulowanie", billingBody: "Apple pokazuje okres rozliczeniowy i obsługuje zakupy App Store. Zarządzaj subskrypcją lub anuluj ją w ustawieniach subskrypcji konta Apple przed odnowieniem. Apple obsługuje zwroty i pytania dotyczące płatności. Jeśli kwalifikujący się zakup się nie wyświetla, użyj funkcji Odtwórz zakupy w VitalsPath." },
+};
 const premiumScopeBody: Record<Lang, string> = {
     en: "Premium can expand limits and add convenience features for personal organization and follow-up. It does not turn VitalsPath into a medical service, diagnosis tool, or emergency system.",
     es: "Premium puede ampliar límites y añadir funciones de comodidad para la organización personal y el seguimiento. No convierte VitalsPath en un servicio médico, una herramienta de diagnóstico ni un sistema de emergencia.",
@@ -38,100 +52,9 @@ const premiumScopeBody: Record<Lang, string> = {
     lang={currentLang}
     title={copy.title}
     subtitle={copy.subtitle}
-    lastUpdated={copy.lastUpdated}
 >
     <div class="space-y-8">
-        <section>
-            <div class="not-prose overflow-hidden rounded-[1.75rem] border border-blue-200/70 bg-gradient-to-br from-blue-50 via-white to-sky-50 p-6 shadow-[0_30px_90px_-55px_rgba(37,99,235,0.45)] dark:border-blue-500/20 dark:from-blue-500/10 dark:via-slate-950 dark:to-slate-950">
-                <div class="flex flex-wrap items-center gap-3">
-                    <span class="inline-flex rounded-full bg-blue-600 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white">
-                        {t("pricing.launch.activeBadge")}
-                    </span>
-                    <p class="text-sm font-medium text-slate-600 dark:text-slate-300">
-                        {t("pricing.launch.note")}
-                    </p>
-                </div>
 
-                <div class="mt-6 grid gap-4 md:grid-cols-3">
-                    {
-                        launchPricingPlans.map((plan) => (
-                            <article
-                                class:list={[
-                                    "rounded-[1.5rem] border p-5",
-                                    plan.featured
-                                        ? "border-blue-500/30 bg-blue-500 text-white"
-                                        : "border-slate-200/80 bg-white/85 dark:border-white/10 dark:bg-white/5",
-                                ]}
-                            >
-                                <div class="flex items-start justify-between gap-3">
-                                    <div>
-                                        <p
-                                            class:list={[
-                                                "text-lg font-black",
-                                                plan.featured
-                                                    ? "text-white"
-                                                    : "text-slate-950 dark:text-white",
-                                            ]}
-                                        >
-                                            {t(`pricing.${plan.key}.title`)}
-                                        </p>
-                                        <p
-                                            class:list={[
-                                                "mt-1 text-sm",
-                                                plan.featured
-                                                    ? "text-blue-100"
-                                                    : "text-slate-500 dark:text-slate-400",
-                                            ]}
-                                        >
-                                            {t(`pricing.${plan.key}.description`)}
-                                        </p>
-                                    </div>
-                                    <div class="flex flex-col items-end gap-2">
-                                        {
-                                            plan.featured && (
-                                                <span class="inline-flex rounded-full bg-white px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-blue-700">
-                                                    {t("pricing.launch.bestValue")}
-                                                </span>
-                                            )
-                                        }
-                                        <span class="inline-flex rounded-full bg-red-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white">
-                                            {plan.discount}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="mt-6 flex items-end gap-3">
-                                    <span
-                                        class:list={[
-                                            "text-4xl font-black tracking-tight",
-                                            plan.featured
-                                                ? "text-white"
-                                                : "text-slate-950 dark:text-white",
-                                        ]}
-                                    >
-                                        {plan.launchPrice}
-                                    </span>
-                                    <span
-                                        class:list={[
-                                            "pb-1 text-lg font-bold line-through decoration-2",
-                                            plan.featured
-                                                ? "text-blue-100/80"
-                                                : "text-slate-400",
-                                        ]}
-                                    >
-                                        {plan.officialPrice}
-                                    </span>
-                                </div>
-                            </article>
-                        ))
-                    }
-                </div>
-
-                <p class="mt-5 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                    {t("pricing.launch.legalNote")}
-                </p>
-            </div>
-        </section>
 
         <section class="rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-6 dark:border-white/10 dark:bg-white/5">
             <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300">
@@ -144,10 +67,10 @@ const premiumScopeBody: Record<Lang, string> = {
                 copy.sections.map((section, index) => (
                     <section class="rounded-[1.5rem] border border-slate-200/80 bg-slate-50/80 p-6 dark:border-white/10 dark:bg-white/5">
                         <h2 class="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
-                            {section.title}
+                            {index === 1 ? currentTerms[currentLang].pricingTitle : index === 2 ? currentTerms[currentLang].billingTitle : section.title}
                         </h2>
                         <p class="mt-3 text-base leading-relaxed text-slate-700 dark:text-slate-300">
-                            {index === 0 ? premiumScopeBody[currentLang] : section.body}
+                            {index === 0 ? premiumScopeBody[currentLang] : index === 1 ? currentTerms[currentLang].pricingBody : index === 2 ? currentTerms[currentLang].billingBody : section.body}
                         </p>
                     </section>
                 ))
