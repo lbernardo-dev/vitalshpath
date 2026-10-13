@@ -12,7 +12,45 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const currentLang = lang as Lang;
 const copy = getSiteCopy(currentLang);
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const serviceDisclosure: Record<Lang, { notice: string; title: string; sections: { title: string; body: string }[] }> = {
+    en: {
+        notice: "",
+        title: "How data is stored and which services are involved",
+        sections: [
+            { title: "App storage and iCloud sync", body: "VitalsPath stores profile and health records in its app database and is configured to sync records through Apple CloudKit when an iCloud account and network are available. Profiles intentionally shared through the app may be available to people who accept an invitation, subject to the access selected by the owner. Sync can be delayed or interrupted. VitalsPath does not claim end-to-end encryption for every record or feature." },
+            { title: "Apple Health and location", body: "With Health access, VitalsPath reads or writes only supported data types approved in Apple's permission sheet; you can change access in iOS Settings. With location permission, the app can use location for map and local-context features. For weather, coordinates are rounded to about 1.1 km before the request is sent to Open-Meteo. Holiday lookup sends a year and country code to Nager.Date. Reverse geocoding uses Apple's MapKit/CLGeocoder." },
+            { title: "Optional product analytics", body: "Firebase Analytics collection is disabled until you explicitly enable analytics in the app. When enabled, the app sends defined product-interaction events and coarse feature or subscription context. The event contract excludes medication names, doses, symptoms, diagnoses, appointments, clinical timestamps and free-form text. You can turn collection off again in app settings." },
+            { title: "Crash and technical diagnostics", body: "Firebase Crashlytics can collect crash reports and technical context such as app/build version, device model, operating-system version and locale. Crash reporting is enabled by default in production unless you turn it off in app settings. When disabled, the app deletes unsent Crashlytics reports. Crash reports are different from product analytics and may contain diagnostic stack or breadcrumb data." },
+            { title: "Purchases and subscriptions", body: "Apple StoreKit/App Store and RevenueCat support product availability, purchase, restore and subscription-entitlement checks. The app supplies an app-user identifier when configuring RevenueCat; Apple processes App Store billing and displays the final price and billing period before confirmation." },
+            { title: "Retention and requests", body: "Storage, sharing and provider retention differ across features; this page does not promise one retention period for every service. Manage iOS permissions, Health access, analytics consent and crash-reporting choice in their respective settings. For questions about a particular record or an access/deletion request, contact vitalspath@gmail.com so the relevant storage location can be identified." },
+        ],
+    },
+    es: {
+        notice: "",
+        title: "Cómo se guardan los datos y qué servicios intervienen",
+        sections: [
+            { title: "Almacenamiento de la app y sincronización con iCloud", body: "VitalsPath guarda perfiles y registros de salud en su base de datos y está configurada para sincronizarlos mediante Apple CloudKit cuando hay una cuenta de iCloud y conexión. Los perfiles que se comparten desde la app pueden quedar disponibles para las personas que acepten una invitación, según los permisos elegidos por quien comparte. La sincronización puede retrasarse o interrumpirse. VitalsPath no afirma que todos los registros o funciones tengan cifrado de extremo a extremo." },
+            { title: "Apple Health y ubicación", body: "Con acceso a Salud, VitalsPath lee o escribe únicamente los tipos de datos compatibles aprobados en el permiso de Apple; puedes modificarlo en Ajustes de iOS. Con permiso de ubicación, la app puede usar la ubicación para mapas y funciones de contexto local. Para consultar el tiempo, redondea las coordenadas a unos 1,1 km antes de enviarlas a Open-Meteo. La consulta de festivos envía año y código de país a Nager.Date. La geocodificación inversa utiliza MapKit/CLGeocoder de Apple." },
+            { title: "Analítica de producto opcional", body: "La recopilación de Firebase Analytics está desactivada hasta que actives expresamente las analíticas en la app. Si la activas, se envían eventos definidos de interacción y contexto general de funciones o suscripción. El contrato de eventos excluye nombres de medicamentos, dosis, síntomas, diagnósticos, citas, horas clínicas y texto libre. Puedes desactivarla desde los ajustes de la app." },
+            { title: "Informes de fallos y diagnósticos técnicos", body: "Firebase Crashlytics puede recopilar informes de fallos y contexto técnico como versión/build de la app, modelo del dispositivo, versión del sistema operativo e idioma. En producción, los informes están activados por defecto salvo que los desactives en los ajustes de la app. Al desactivarlos, la app elimina los informes de Crashlytics pendientes de envío. Son distintos de la analítica de producto y pueden incluir datos técnicos de pila o migas de diagnóstico." },
+            { title: "Compras y suscripciones", body: "Apple StoreKit/App Store y RevenueCat respaldan la disponibilidad de productos, las compras, la restauración y la comprobación de derechos de suscripción. Al configurar RevenueCat, la app le proporciona un identificador de usuario de la app; Apple procesa la facturación de App Store y muestra el precio final y el periodo antes de confirmar." },
+            { title: "Conservación y solicitudes", body: "El almacenamiento, la compartición y la conservación de los proveedores varían entre funciones; esta página no promete un plazo único para todos los servicios. Gestiona permisos de iOS, acceso a Salud, consentimiento de analíticas e informes de fallos en sus respectivos ajustes. Para consultas sobre un registro o solicitudes de acceso/eliminación, escribe a vitalspath@gmail.com para identificar dónde se guarda." },
+        ],
+    },
+    fr: { notice: "Les informations détaillées sur le stockage, les fournisseurs et les contrôles sont actuellement disponibles en espagnol et en anglais.", title: "", sections: [] },
+    de: { notice: "Ausführliche Informationen zu Speicherung, Diensten und Einstellungen sind derzeit auf Spanisch und Englisch verfügbar.", title: "", sections: [] },
+    it: { notice: "Le informazioni dettagliate su archiviazione, servizi e controlli sono attualmente disponibili in spagnolo e inglese.", title: "", sections: [] },
+    pt: { notice: "As informações detalhadas sobre armazenamento, serviços e controles estão disponíveis atualmente em espanhol e inglês.", title: "", sections: [] },
+    ja: { notice: "保存、サービス、設定に関する詳細は現在スペイン語と英語で提供されています。", title: "", sections: [] },
+    zh: { notice: "有关存储、服务和控制项的详细信息目前提供西班牙语和英语版本。", title: "", sections: [] },
+    ko: { notice: "저장, 서비스 및 설정에 관한 자세한 정보는 현재 스페인어와 영어로 제공됩니다.", title: "", sections: [] },
+    ru: { notice: "Подробная информация о хранении, сервисах и настройках пока доступна на испанском и английском языках.", title: "", sections: [] },
+    ar: { notice: "المعلومات التفصيلية حول التخزين والخدمات وعناصر التحكم متاحة حاليًا بالإسبانية والإنجليزية.", title: "", sections: [] },
+    hi: { notice: "स्टोरेज, सेवाओं और नियंत्रणों की विस्तृत जानकारी अभी स्पेनिश और अंग्रेज़ी में उपलब्ध है।", title: "", sections: [] },
+    tr: { notice: "Depolama, hizmetler ve denetimlerle ilgili ayrıntılı bilgiler şu anda İspanyolca ve İngilizce sunuluyor.", title: "", sections: [] },
+    nl: { notice: "Uitgebreide informatie over opslag, diensten en instellingen is momenteel beschikbaar in het Spaans en Engels.", title: "", sections: [] },
+    pl: { notice: "Szczegółowe informacje o przechowywaniu danych, usługach i ustawieniach są obecnie dostępne po hiszpańsku i angielsku.", title: "", sections: [] },
+};
 ---
 
 <PageShell
@@ -35,6 +73,24 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
             ))
         }
 
+        {serviceDisclosure[currentLang].notice && (
+            <p lang={currentLang} class="rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm leading-6 text-amber-950 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-100">
+                {serviceDisclosure[currentLang].notice}
+            </p>
+        )}
+        {serviceDisclosure[currentLang].sections.length > 0 && (
+            <section class="rounded-[1.6rem] border border-slate-200/80 bg-slate-50 p-5 dark:border-white/10 dark:bg-slate-950/60 sm:p-6">
+                <h2 class="text-2xl font-black tracking-tight text-slate-950 dark:text-white">{serviceDisclosure[currentLang].title}</h2>
+                <div class="mt-6 space-y-6">
+                    {serviceDisclosure[currentLang].sections.map((section) => (
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-950 dark:text-white">{section.title}</h3>
+                            <p class="mt-2 text-base leading-7 text-slate-600 dark:text-slate-300">{section.body}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        )}
         <section class="rounded-[1.75rem] border border-sky-200 bg-sky-50 p-5 dark:border-sky-500/20 dark:bg-sky-500/10 sm:p-6">
             <p class="text-sm font-black uppercase tracking-[0.22em] text-sky-700 dark:text-sky-300">
                 VitalsPath
