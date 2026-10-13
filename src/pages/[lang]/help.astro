@@ -3,20 +3,15 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { supportedLangs, type Lang } from "../../i18n/ui-locales";
-import { getSiteCopy } from "../../content/site-copy";
+import { translatedHelpPages, type HelpPageCopy } from "../../content/help-translations";
 
 export function getStaticPaths() {
     return supportedLangs.map((lang) => ({ params: { lang } }));
 }
 
 const lang = Astro.params.lang as Lang;
-const copy = getSiteCopy(lang);
-const contentLang = lang === "es" ? "es" : "en";
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
-const localizedNotice: Record<Lang, string> = {
-    en: "", es: "", fr: "Ce guide complet est actuellement disponible en espagnol et en anglais. Cette page est affichée en anglais.", de: "Dieser vollständige Leitfaden ist derzeit auf Spanisch und Englisch verfügbar. Diese Seite wird auf Englisch angezeigt.", it: "Questa guida completa è attualmente disponibile in spagnolo e inglese. Questa pagina è mostrata in inglese.", pt: "Este guia completo está disponível atualmente em espanhol e inglês. Esta página é exibida em inglês.", ja: "この完全ガイドは現在、スペイン語と英語で利用できます。このページは英語で表示されています。", zh: "完整指南目前提供西班牙语和英语版本。本页面以英语显示。", ko: "전체 가이드는 현재 스페인어와 영어로 제공됩니다. 이 페이지는 영어로 표시됩니다.", ru: "Полное руководство пока доступно на испанском и английском языках. Эта страница показана на английском.", ar: "يتوفر هذا الدليل الكامل حاليًا بالإسبانية والإنجليزية. تُعرض هذه الصفحة باللغة الإنجليزية.", hi: "यह पूरी गाइड अभी स्पेनिश और अंग्रेज़ी में उपलब्ध है। यह पेज अंग्रेज़ी में दिखाया गया है।", tr: "Bu kapsamlı kılavuz şu anda İspanyolca ve İngilizce olarak sunuluyor. Bu sayfa İngilizce gösteriliyor.", nl: "Deze volledige gids is momenteel beschikbaar in het Spaans en Engels. Deze pagina wordt in het Engels getoond.", pl: "Pełny przewodnik jest obecnie dostępny po hiszpańsku i angielsku. Ta strona jest wyświetlana po angielsku.",
-};
-const page = contentLang === "es" ? {
+const basePage: HelpPageCopy = lang === "es" ? {
     title: "Centro de ayuda de VitalsPath",
     description: "Guías de uso, tutoriales, preguntas frecuentes y límites de VitalsPath.",
     eyebrow: "AYUDA Y DOCUMENTACIÓN",
@@ -103,16 +98,17 @@ const page = contentLang === "es" ? {
     links: { privacy: "Privacy", disclaimer: "Medical disclaimer", subscription: "Plans & subscription", support: "Support" },
     updated: "Review this guide as the app changes. Availability and limits can vary by version and region.",
 };
+const page = translatedHelpPages[lang] ?? basePage;
 ---
 
 <Layout lang={lang} pageTitle={page.title + " | VitalsPath"} pageDescription={page.description}>
     <Header lang={lang} />
-    <main lang={contentLang} class="min-h-screen bg-slate-50 px-4 pb-20 pt-32 text-slate-900 dark:bg-[#0b0f14] dark:text-white sm:px-6">
+    <main lang={lang} class="min-h-screen bg-slate-50 px-4 pb-20 pt-32 text-slate-900 dark:bg-[#0b0f14] dark:text-white sm:px-6">
         <div class="mx-auto max-w-5xl">
             <p class="mb-4 text-xs font-black tracking-[0.24em] text-teal-700 dark:text-teal-300">{page.eyebrow}</p>
             <h1 class="max-w-4xl text-4xl font-black tracking-tight sm:text-6xl">{page.title}</h1>
             <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">{page.intro}</p>
-            {localizedNotice[lang] && <p lang={lang} class="mt-8 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm leading-6 text-amber-950 dark:border-amber-700 dark:bg-amber-950/40 dark:text-amber-100">{localizedNotice[lang]}</p>}
+            
 
             <section class="mt-12 rounded-3xl border border-teal-200 bg-teal-50 p-6 dark:border-teal-900 dark:bg-teal-950/30 sm:p-8">
                 <h2 class="text-2xl font-bold">{page.startTitle}</h2>
