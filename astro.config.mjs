@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 const siteOrigin = 'https://lbernardo-dev.github.io';
 const basePath = '/vitalshpath';
@@ -15,8 +15,10 @@ export default defineConfig({
     server: {
         port: 3000,
     },
+    vite: {
+        plugins: [tailwindcss()],
+    },
     integrations: [
-        tailwind(),
         react(),
         sitemap({
             i18n: {
