@@ -106,8 +106,8 @@ type SiteCopy = {
 export const siteCopy: Record<Lang, SiteCopy> = {
     en: {
         meta: {
-            title: "Medication reminder and symptom tracker for iPhone | VitalsPath 2.0",
-            description: "VitalsPath 2.0 is a private iPhone health app for medication reminders, symptom tracking, vitals, appointments, widgets and Apple Watch.",
+            title: "Medication reminder and symptom tracker for iPhone | VitalsPath",
+            description: "VitalsPath is a private iPhone health app for medication reminders, symptom tracking, vitals, appointments, widgets and Apple Watch.",
         },
         nav: {
             home: "Home",
@@ -126,11 +126,11 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle:
                 "Your private medication reminder, symptom tracker and health timeline.",
             heroSubtitle:
-                "VitalsPath 2.0 helps you plan doses, log symptoms and vitals, prepare appointments and keep daily health context close with widgets, Live Activities and Apple Watch.",
+                "VitalsPath helps you plan doses, log symptoms and vitals, prepare appointments and keep daily health context close with widgets, Live Activities and Apple Watch.",
             primaryCta: "Download on the App Store",
             secondaryCta: "See Release Features",
             sections: [
@@ -140,14 +140,14 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
                 {
                     title: "Deeper context when symptoms matter",
-                    body: "VitalsPath 2.0 expands symptom tracking with specialized fields, severity, triggers, relief factors, photos, notes and emergency-aware reviews where relevant.",
+                    body: "VitalsPath expands symptom tracking with specialized fields, severity, triggers, relief factors, photos, notes and emergency-aware reviews where relevant.",
                 },
                 {
                     title: "Harder privacy foundations",
                     body: "Sensitive profile and health fields are protected with encrypted storage patterns, private logging and automatic app lock behavior for shared-device situations.",
                 },
             ],
-            featureListTitle: "What's new in 2.0",
+            featureListTitle: "Explore VitalsPath features",
             featureListSubtitle: "A clearer, faster and more complete health workspace.",
             featureListItems: [
                 "Medication and dose tracking",
@@ -168,19 +168,19 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 "Some features depend on device support, permissions, locale, operating system version or plan. VitalsPath is for personal organization and does not replace medical care.",
             ecosystemLabel: "Ecosystem",
             ecosystemTitle: "The health hub follows you",
-            ecosystemBody: "VitalsPath 2.0 keeps key actions closer to the moment: Home Screen and Lock Screen widgets, more reliable Live Activities, Dynamic Island feedback and Apple Watch companion flows.",
+            ecosystemBody: "VitalsPath keeps key actions closer to the moment: Home Screen and Lock Screen widgets, more reliable Live Activities, Dynamic Island feedback and Apple Watch companion flows.",
             ecosystemItems: [
                 { title: "Widgets", description: "Daily medication, appointment and wellness context at a glance." },
                 { title: "Apple Watch", description: "Companion screens for faster review and logging from your wrist." },
                 { title: "Live Activities", description: "Medication and appointment moments with clearer timing and feedback." }
             ],
-            ctaBadge: "VERSION 2.0.0",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Built for serious personal health organization",
-            ctaPrivacyDetail: "Encrypted sensitive storage, private logs and app lock support.",
+            ctaPrivacyDetail: "Read the Privacy Policy for current information about data handling and your controls.",
             ctaPremiumTitle: "ADVANCED ROUTINES",
             ctaPremiumDetail: "Designed for people who manage recurring care, treatment plans and follow-up.",
-            ctaCommunityTitle: "ECOSYSTEM",
-            ctaCommunityDetail: "iPhone, widgets, Live Activities and Apple Watch working together",
+            ctaCommunityTitle: "HELP & GUIDES",
+            ctaCommunityDetail: "Tutorials, FAQs, permissions and feature limitations.",
             bentoCards: [
                 {
                     badge: "MEDICATION",
@@ -265,7 +265,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         },
         releaseFeatures: {
             title: "Version 2.0.0 Features",
-            intro: "This page describes the capabilities being prepared for VitalsPath 2.0.0.",
+            intro: "This page describes the capabilities being prepared for VitalsPath.",
             sections: [
                 {
                     title: "Medication and treatment follow-up",
@@ -288,7 +288,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "VitalsPath is built for personal organization and follow-up with encrypted sensitive storage, private logging and app lock support. It is not a substitute for medical care, medical advice, diagnosis, or treatment.",
                 },
             ],
-            note: "This page should reflect the VitalsPath 2.0.0 feature set being prepared for release.",
+            note: "This page should reflect the VitalsPath feature set being prepared for release.",
         },
         roadmap: {
             title: "Roadmap",
@@ -324,8 +324,8 @@ export const siteCopy: Record<Lang, SiteCopy> = {
     },
     es: {
         meta: {
-            title: "Recordatorio de medicación y registro de síntomas | VitalsPath 2.0",
-            description: "VitalsPath 2.0 es una app privada para iPhone que organiza medicación, síntomas, constantes, citas, widgets y Apple Watch.",
+            title: "Recordatorio de medicación y registro de síntomas | VitalsPath",
+            description: "VitalsPath es una app privada para iPhone que organiza medicación, síntomas, constantes, citas, widgets y Apple Watch.",
         },
         nav: {
             home: "Inicio",
@@ -344,9 +344,9 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Correo",
         },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Tu recordatorio de medicación, registro de síntomas y cronología de salud privada.",
-            heroSubtitle: "VitalsPath 2.0 te ayuda a planificar dosis, registrar síntomas y constantes, preparar citas y tener el contexto diario a mano con widgets, Live Activities y Apple Watch.",
+            heroSubtitle: "VitalsPath te ayuda a planificar dosis, registrar síntomas y constantes, preparar citas y tener el contexto diario a mano con widgets, Live Activities y Apple Watch.",
             primaryCta: "Descargar en el App Store",
             secondaryCta: "Ver novedades",
             sections: [
@@ -356,14 +356,14 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 },
                 {
                     title: "Más contexto cuando los síntomas importan",
-                    body: "VitalsPath 2.0 amplía el registro de síntomas con campos especializados, severidad, desencadenantes, alivios, fotos, notas y revisión orientada a emergencias cuando corresponde.",
+                    body: "VitalsPath amplía el registro de síntomas con campos especializados, severidad, desencadenantes, alivios, fotos, notas y revisión orientada a emergencias cuando corresponde.",
                 },
                 {
                     title: "Bases de privacidad más sólidas",
                     body: "Los campos sensibles de perfil y salud se protegen con patrones de almacenamiento cifrado, logging privado y bloqueo automático de la app en situaciones de dispositivo compartido.",
                 },
             ],
-            featureListTitle: "Qué trae la 2.0",
+            featureListTitle: "Funciones de VitalsPath",
             featureListSubtitle: "Un espacio de salud más claro, rápido y completo.",
             featureListItems: [
                 "Seguimiento de medicación y dosis",
@@ -383,19 +383,19 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             footnote: "Algunas funciones dependen del dispositivo, permisos, país, versión del sistema operativo o plan. VitalsPath es para organización personal y no sustituye la atención médica.",
             ecosystemLabel: "Ecosistema",
             ecosystemTitle: "Tu hub de salud te acompaña",
-            ecosystemBody: "VitalsPath 2.0 acerca las acciones importantes al momento: widgets en pantalla de inicio y bloqueo, Live Activities más fiables, feedback en Dynamic Island y flujos companion para Apple Watch.",
+            ecosystemBody: "VitalsPath acerca las acciones importantes al momento: widgets en pantalla de inicio y bloqueo, Live Activities más fiables, feedback en Dynamic Island y flujos companion para Apple Watch.",
             ecosystemItems: [
                 { title: "Widgets", description: "Contexto diario de medicación, citas y bienestar de un vistazo." },
                 { title: "Apple Watch", description: "Pantallas companion para revisar y registrar más rápido desde tu muñeca." },
                 { title: "Live Activities", description: "Momentos de medicación y citas con tiempos y feedback más claros." }
             ],
-            ctaBadge: "VERSIÓN 2.0.0",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Pensada para organizar la salud personal en serio",
-            ctaPrivacyDetail: "Almacenamiento sensible cifrado, logs privados y bloqueo de app.",
+            ctaPrivacyDetail: "Consulta la Política de privacidad para conocer el tratamiento de datos y los controles disponibles.",
             ctaPremiumTitle: "RUTINAS AVANZADAS",
             ctaPremiumDetail: "Diseñada para quienes gestionan cuidado recurrente, tratamientos y seguimiento.",
-            ctaCommunityTitle: "ECOSISTEMA",
-            ctaCommunityDetail: "iPhone, widgets, Live Activities y Apple Watch trabajando juntos",
+            ctaCommunityTitle: "AYUDA Y GUÍAS",
+            ctaCommunityDetail: "Tutoriales, preguntas frecuentes, permisos y límites de las funciones.",
             bentoCards: [
                 {
                     badge: "MEDICACIÓN",
@@ -480,7 +480,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
         },
         releaseFeatures: {
             title: "Funciones de la versión 2.0.0",
-            intro: "Esta página describe las capacidades que estamos preparando para VitalsPath 2.0.0.",
+            intro: "Esta página describe las capacidades que estamos preparando para VitalsPath.",
             sections: [
                 {
                     title: "Seguimiento de medicación y tratamientos",
@@ -503,7 +503,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "VitalsPath está creada para la organización personal y el seguimiento, con almacenamiento sensible cifrado, logging privado y bloqueo de app. No sustituye la atención médica, el consejo médico, el diagnóstico ni el tratamiento.",
                 },
             ],
-            note: "Esta página debe reflejar el conjunto de funciones de VitalsPath 2.0.0 que estamos preparando para lanzamiento.",
+            note: "Esta página debe reflejar el conjunto de funciones de VitalsPath que estamos preparando para lanzamiento.",
         },
         roadmap: {
             title: "Hoja de ruta",
@@ -550,7 +550,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-mail",
         },
         home: {
-            heroBadge: "PROTÉGER CE QUI COMPTE",
+            heroBadge: "VITALSPATH",
             heroTitle:
                 "Gardez vos médicaments, symptômes, constantes et rendez-vous dans un lieu privé unique.",
             heroSubtitle:
@@ -571,7 +571,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "Vos informations de santé doivent rester claires, personnelles et sous votre contrôle. VitalsPath est conçu pour soutenir l'organisation personnelle, pas pour remplacer les professionnels de santé.",
                 },
             ],
-            featureListTitle: "Domaines clés",
+            featureListTitle: "Fonctionnalités de VitalsPath",
             featureListSubtitle: "Tout ce dont vous avez besoin, conçu avec précision.",
             featureListItems: [
                 "Suivi des médicaments et des doses",
@@ -598,13 +598,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "Enregistrements rapides et alertes directement sur votre poignet." },
                 { title: "Live Activities", description: "Suivi en tempo réel des doses actives." }
             ],
-            ctaBadge: "COMMENCER AUJOURD'HUI",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Votre santé, entre vos mains et en privé",
-            ctaPrivacyDetail: "Confidentialité absolue avec chiffrement de bout en bout.",
+            ctaPrivacyDetail: "Consultez la politique de confidentialité pour connaître le traitement des données et les contrôles disponibles.",
             ctaPremiumTitle: "SOINS PREMIUM",
             ctaPremiumDetail: "Conçu pour les patients chroniques et les aidants.",
-            ctaCommunityTitle: "COMMUNAUTÉ",
-            ctaCommunityDetail: "utilisateurs actifs nous font confiance",
+            ctaCommunityTitle: "AIDE ET GUIDES",
+            ctaCommunityDetail: "Des tutoriels, des réponses aux questions fréquentes, des informations sur les autorisations et les limites des fonctionnalités.",
             bentoCards: [
                 {
                     badge: "MÉDICAMENT",
@@ -706,7 +706,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-Mail",
         },
         home: {
-            heroBadge: "SCHÜTZEN, WAS WICHTIG IST",
+            heroBadge: "VITALSPATH",
             heroTitle:
                 "Behalten Sie Medikamente, Symptome, Vitalwerte und Termine an einem privaten Ort.",
             heroSubtitle:
@@ -727,7 +727,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "Ihre Gesundheitsinformationen sollten klar, persönlich und unter Ihrer Kontrolle bleiben. VitalsPath wurde entwickelt, um die persönliche Organisation zu unterstützen, nicht um medizinisches Fachpersonal zu ersetzen.",
                 },
             ],
-            featureListTitle: "Kernbereiche",
+            featureListTitle: "VitalsPath-Funktionen",
             featureListSubtitle: "Alles was Sie brauchen, präzisionsgefertigt.",
             featureListItems: [
                 "Medikamenten- und Dosierungsverfolgung",
@@ -754,13 +754,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "Schnelle Protokollierung und Alarme direkt am Handgelenk." },
                 { title: "Live Activities", description: "Echtzeit-Verfolgung aktiver Dosen." }
             ],
-            ctaBadge: "HEUTE STARTEN",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Ihre Gesundheit, in Ihren Händen und privat",
-            ctaPrivacyDetail: "Absolute Privatsphäre mit Ende-zu-Ende-Verschlüsselung.",
+            ctaPrivacyDetail: "In der Datenschutzerklärung findest du aktuelle Informationen zur Datenverarbeitung und zu deinen Einstellungen.",
             ctaPremiumTitle: "PREMIUM-PFLEGE",
             ctaPremiumDetail: "Entwickelt für chronische Patienten und Betreuer.",
-            ctaCommunityTitle: "COMMUNITY",
-            ctaCommunityDetail: "aktive Nutzer vertrauen uns",
+            ctaCommunityTitle: "HILFE & LEITFÄDEN",
+            ctaCommunityDetail: "Anleitungen, häufige Fragen, Berechtigungen und Funktionsgrenzen.",
             bentoCards: [
                 {
                     badge: "MEDIKAMENTE",
@@ -862,7 +862,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroBadge: "PROTEGGERE CIÒ CHE CONTA",
+            heroBadge: "VITALSPATH",
             heroTitle: "Tieni farmaci, sintomi, parametri e appuntamenti in un unico spazio privato.",
             heroSubtitle: "VitalsPath ti aiuta a organizzare trattamenti, dosi, sintomi, misurazioni, appuntamenti e attività di follow-up con una vista giornaliera chiara, widget, Live Activities e supporto Apple Watch.",
             primaryCta: "Scarica su App Store",
@@ -872,7 +872,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Pensata per routine reali", body: "Usa i widget per avere visibilità immediata, le Live Activities nei momenti attivi della terapia e Apple Watch per azioni più rapide durante la giornata. Mantieni appuntamenti, condizioni e attività di follow-up organizzati senza perdere contesto." },
                 { title: "Privacy by design", body: "Le tue informazioni di salute devono restare chiare, personali e sotto il tuo controllo. VitalsPath è costruita per supportare l'organizzazione personale, non per sostituire i professionisti sanitari." },
             ],
-            featureListTitle: "Aree principali",
+            featureListTitle: "Funzionalità di VitalsPath",
             featureListSubtitle: "Tutto ciò di cui hai bisogno, progettato con precisione.",
             featureListItems: ["Tracciamento di farmaci e dosi", "Dosi assunte, saltate e posticipate", "Scorte e promemoria di ricarica", "Registro di sintomi e umore", "Parametri e misurazioni", "Foto e note vocali", "Appuntamenti e attività di follow-up", "Widget, Live Activities e Apple Watch"],
             primaryFeatures: ["Gestisci i tuoi farmaci", "Monitora sintomi e parametri"],
@@ -889,13 +889,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "Registrazioni rapide e avvisi direttamente sul polso." },
                 { title: "Live Activities", description: "Monitoraggio in tempo reale delle dosi attive." }
             ],
-            ctaBadge: "INIZIA OGGI",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "La tua salute, nelle tue mani e in privato",
-            ctaPrivacyDetail: "Privacy assoluta con crittografia end-to-end.",
+            ctaPrivacyDetail: "Consulta l’Informativa sulla privacy per informazioni aggiornate sul trattamento dei dati e sui controlli disponibili.",
             ctaPremiumTitle: "CURA PREMIUM",
             ctaPremiumDetail: "Progettato per pazienti cronici e caregiver.",
-            ctaCommunityTitle: "COMMUNITY",
-            ctaCommunityDetail: "utenti attivi si fidano di noi",
+            ctaCommunityTitle: "AIUTO E GUIDE",
+            ctaCommunityDetail: "Tutorial, domande frequenti, permessi e limiti delle funzioni.",
             bentoCards: [
                 {
                     badge: "FARMACI",
@@ -991,7 +991,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroBadge: "PROTEGENDO O QUE IMPORTA",
+            heroBadge: "VITALSPATH",
             heroTitle: "Mantenha medicação, sintomas, sinais vitais e consultas num único espaço privado.",
             heroSubtitle: "VitalsPath ajuda a organizar tratamentos, doses, sintomas, medições, consultas e tarefas de acompanhamento com uma vista diária clara, widgets, Live Activities e suporte para Apple Watch.",
             primaryCta: "Descarregar na App Store",
@@ -1001,7 +1001,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Criada para rotinas reais", body: "Use widgets para visibilidade rápida, Live Activities para momentos ativos da medicação e Apple Watch para ações mais rápidas ao longo do dia. Mantenha consultas, condições e tarefas de acompanhamento organizadas sem perder contexto." },
                 { title: "Privacidade desde a origem", body: "A sua informação de saúde deve manter-se clara, pessoal e sob o seu controlo. VitalsPath foi criada para apoiar a organização pessoal, não para substituir profissionais de saúde." },
             ],
-            featureListTitle: "Áreas principais",
+            featureListTitle: "Funcionalidades do VitalsPath",
             featureListSubtitle: "Tudo o que precisa, concebido com precisão.",
             featureListItems: ["Seguimento de medicação e doses", "Doses tomadas, ignoradas e adiadas", "Stock e lembretes de reposição", "Registo de sintomas e humor", "Sinais vitais e medições", "Fotos e notas de voz", "Consultas e tarefas de acompanhamento", "Widgets, Live Activities e Apple Watch"],
             primaryFeatures: ["Domine a sua medicação", "Sintomas e sinais vitais"],
@@ -1018,13 +1018,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Apple Watch", description: "Registos rápidos e alertas diretamente no seu pulso." },
                 { title: "Live Activities", description: "Acompanhamento em tempo real de doses ativas." }
             ],
-            ctaBadge: "COMECE HOJE",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "A sua saúde, nas suas mãos e em privado",
-            ctaPrivacyDetail: "Privacidade absoluta com encriptação de ponta a ponta.",
+            ctaPrivacyDetail: "Consulte a Política de Privacidade para obter informações atuais sobre o tratamento de dados e os controles disponíveis.",
             ctaPremiumTitle: "CUIDADO PREMIUM",
             ctaPremiumDetail: "Concebido para doentes crónicos e cuidadores.",
-            ctaCommunityTitle: "COMUNIDADE",
-            ctaCommunityDetail: "utilizadores ativos confiam em nós",
+            ctaCommunityTitle: "AJUDA E GUIAS",
+            ctaCommunityDetail: "Guias, perguntas frequentes, permissões e limites dos recursos.",
             bentoCards: [
                 {
                     badge: "MEDICAÇÃO",
@@ -1112,7 +1112,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "メール",
         },
         home: {
-            heroBadge: "大切なものを守る",
+            heroBadge: "VITALSPATH",
             heroTitle: "薬、症状、バイタル、予定を1つのプライベートな場所に。",
             heroSubtitle: "VitalsPathは、視認性の高いデイリービュー、ウィジェット、ライブアクティビティ、Apple Watch対応により、治療、用量、症状、測定値、予定、フォローアップタスクの整理をサポートします。",
             primaryCta: "App Storeでダウンロード",
@@ -1122,7 +1122,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "実際の日常ルーチンのために構築", body: "ウィジェットで素早く確認し、ライブアクティビティでアクティブな服薬時間を把握し、Apple Watchで日中のアクションをより迅速に行えます。文脈を失うことなく、予定、体調、フォローアップタスクを整理した状態に保ちます。" },
                 { title: "プライバシーを優先した設計", body: "あなたの健康情報は、明確で個人的なものであり、あなたの管理下にあるべきです。VitalsPathは個人の健康管理をサポートするために構築されており、医療専門家に代わるものではありません。" },
             ],
-            featureListTitle: "主な機能領域",
+            featureListTitle: "VitalsPathの機能",
             featureListSubtitle: "精密に設計された、必要なものすべて。",
             featureListItems: ["服薬と用量の追跡", "服用済み、スキップ、延期された用量", "在庫と補充リマインダー", "症状と気分の記録", "バイタルと測定値", "写真と音声メモ", "予定とフォローアップタスク", "ウィジェット、ライブアクティビティ、Apple Watch"],
             primaryFeatures: ["服薬をマスターする", "症状とバイタルを追跡"],
@@ -1177,13 +1177,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["ライブアクティビティ", "ウィジェット", "迅速"]
                 }
             ],
-            ctaBadge: "今日から始める",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "あなたの健康を、あなたの手でプライベートに",
-            ctaPrivacyDetail: "エンドツーエンド暗号化による絶対的なプライバシー。",
+            ctaPrivacyDetail: "データの取り扱いと利用できる管理方法は、最新のプライバシーポリシーをご確認ください。",
             ctaPremiumTitle: "プレミアムケア",
             ctaPremiumDetail: "慢性疾患患者とその介護者のために設計。",
-            ctaCommunityTitle: "コミュニティ",
-            ctaCommunityDetail: "のアクティブユーザーが私たちを信頼しています",
+            ctaCommunityTitle: "ヘルプとガイド",
+            ctaCommunityDetail: "チュートリアル、よくある質問、アクセス許可、機能の制限。",
         },
         privacy: {
             title: "プライバシーポリシー",
@@ -1244,7 +1244,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "邮箱",
         },
         home: {
-            heroBadge: "守护重要之事",
+            heroBadge: "VITALSPATH",
             heroTitle: "把用药、症状、生命体征和预约都放在一个私密的地方。",
             heroSubtitle: "VitalsPath 帮助你用清晰的每日视图来整理治疗、剂量、症状、测量、预约和跟进行动，并支持小组件、Live Activities 与 Apple Watch。",
             primaryCta: "在 App Store 下载",
@@ -1254,7 +1254,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "为真实日常而设计", body: "使用小组件快速查看重点，在用药进行时使用 Live Activities，并通过 Apple Watch 更快完成日常操作。将预约、健康状况和跟进任务整理在一起而不丢失上下文。" },
                 { title: "以隐私为设计前提", body: "你的健康信息应当清晰、个人化，并由你掌控。VitalsPath 的目标是支持个人整理，而不是替代医疗专业人员。" },
             ],
-            featureListTitle: "核心领域",
+            featureListTitle: "VitalsPath 功能",
             featureListSubtitle: "您所需的一切，精准设计。",
             featureListItems: ["药物与剂量记录", "已服用、已跳过和已延期的剂量", "库存与补货提醒", "症状与情绪记录", "生命体征与测量", "照片与语音备注", "预约与跟进任务", "小组件、Live Activities 与 Apple Watch"],
             primaryFeatures: ["掌控您的药物", "追踪症状与指标"],
@@ -1297,13 +1297,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["实时活动", "小组件", "快捷"]
                 }
             ],
-            ctaBadge: "立即开始",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "您的健康，尽在掌握且隐私安全",
-            ctaPrivacyDetail: "端到端加密，确保绝对私密。",
+            ctaPrivacyDetail: "数据处理方式和可用控制项请参阅最新隐私政策。",
             ctaPremiumTitle: "高级护理",
             ctaPremiumDetail: "专为慢性病患者及护理人员设计。",
-            ctaCommunityTitle: "社区",
-            ctaCommunityDetail: "位活跃用户正在信任我们",
+            ctaCommunityTitle: "帮助与指南",
+            ctaCommunityDetail: "教程、常见问题、权限说明和功能限制。",
         },
         privacy: {
             title: "隐私政策",
@@ -1364,7 +1364,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "이메일",
         },
         home: {
-            heroBadge: "중요한 것을 보호하십시오",
+            heroBadge: "VITALSPATH",
             heroTitle: "약물, 증상, 활력징후, 일정을 하나의 비공개 공간에 보관하세요.",
             heroSubtitle: "VitalsPath는 명확한 일일 보기, 위젯, Live Activities, Apple Watch 지원을 통해 치료, 복용량, 증상, 측정값, 일정, 후속 작업을 정리할 수 있도록 도와줍니다.",
             primaryCta: "App Store에서 다운로드",
@@ -1374,7 +1374,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "실제 일상에 맞춘 설계", body: "빠른 확인을 위한 위젯, 복약 중 상황을 위한 Live Activities, 더 빠른 일상 작업을 위한 Apple Watch를 활용하세요. 일정, 상태, 후속 작업을 맥락을 잃지 않고 정리할 수 있습니다." },
                 { title: "프라이버시 중심 설계", body: "건강 정보는 명확하고 개인적이어야 하며 사용자의 통제 아래 있어야 합니다. VitalsPath는 개인 정리를 돕기 위해 만들어졌으며 의료 전문가를 대체하지 않습니다." },
             ],
-            featureListTitle: "핵심 영역",
+            featureListTitle: "VitalsPath 기능",
             featureListSubtitle: "필요한 모든 것, 정밀하게 설계되었습니다。",
             featureListItems: ["약물 및 복용량 추적", "복용함, 건너뜀, 연기된 복용량", "재고 및 리필 알림", "증상 및 기분 기록", "활력징후 및 측정값", "사진 및 음성 메모", "일정 및 후속 작업", "위젯, Live Activities, Apple Watch"],
             primaryFeatures: ["복약 마스터하기", "증상 및 활력징후 추적"],
@@ -1417,13 +1417,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["실시간 활동", "위젯", "빠름"]
                 }
             ],
-            ctaBadge: "오늘 시작하세요",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "내 손안의 건강 정보, 그리고 철저한 프라이버시",
-            ctaPrivacyDetail: "종단간 암호화로 보장되는 절대적인 개인정보 보호.",
+            ctaPrivacyDetail: "데이터 처리와 이용 가능한 제어 방법은 최신 개인정보 처리방침을 확인하세요。",
             ctaPremiumTitle: "프리미엄 케어",
             ctaPremiumDetail: "만성 질환 환자와 간병인을 위한 설계.",
-            ctaCommunityTitle: "커뮤니티",
-            ctaCommunityDetail: "명의 활성 사용자가 신뢰하고 있습니다",
+            ctaCommunityTitle: "도움말 및 가이드",
+            ctaCommunityDetail: "튜토리얼, 자주 묻는 질문, 권한 및 기능 제한.",
         },
         privacy: {
             title: "개인정보 처리방침",
@@ -1484,7 +1484,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroBadge: "ЗАЩИТА ВАЖНОГО",
+            heroBadge: "VITALSPATH",
             heroTitle: "Храните лекарства, симптомы, показатели и визиты в одном приватном месте.",
             heroSubtitle: "VitalsPath помогает организовать лечение, дозы, симптомы, измерения, визиты и задачи наблюдения с понятным дневным обзором, виджетами, Live Activities и поддержкой Apple Watch.",
             primaryCta: "Скачать в App Store",
@@ -1494,7 +1494,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Создано для реального повседневного ритма", body: "Используйте виджеты для быстрого обзора, Live Activities для активных моментов приема лекарств и Apple Watch для более быстрых действий в течение дня. Храните визиты, состояния и задачи наблюдения организованно и без потери контекста." },
                 { title: "Конфиденциальность по умолчанию", body: "Информация о здоровье должна оставаться понятной, личной и под вашим контролем. VitalsPath создана для личной организации, а не для замены медицинских специалистов." },
             ],
-            featureListTitle: "Основные области",
+            featureListTitle: "Возможности VitalsPath",
             featureListSubtitle: "Все, что вам нужно, спроектировано с точностью.",
             featureListItems: ["Учет лекарств и доз", "Принятые, пропущенные и отложенные дозы", "Запас и напоминания о пополнении", "Запись симптомов и настроения", "Показатели и измерения", "Фото и голосовые заметки", "Визиты и задачи наблюдения", "Виджеты, Live Activities и Apple Watch"],
             primaryFeatures: ["Контроль лекарств", "Симптомы и показатели"],
@@ -1537,13 +1537,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Live Activities", "Виджеты", "Быстро"]
                 }
             ],
-            ctaBadge: "НАЧАТЬ СЕГОДНЯ",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Ваше здоровье в ваших руках и под защитой",
-            ctaPrivacyDetail: "Абсолютная приватность со сквозным шифрованием.",
+            ctaPrivacyDetail: "Актуальную информацию об обработке данных и доступных настройках смотрите в Политике конфиденциальности.",
             ctaPremiumTitle: "ПРЕМИУМ-УХОД",
             ctaPremiumDetail: "Разработано для хронических пациентов и опекунов.",
-            ctaCommunityTitle: "СООБЩЕСТВО",
-            ctaCommunityDetail: "активных пользователей доверяют нам",
+            ctaCommunityTitle: "СПРАВКА И РУКОВОДСТВА",
+            ctaCommunityDetail: "Инструкции, ответы на частые вопросы, разрешения и ограничения функций.",
         },
         privacy: {
             title: "Политика конфиденциальности",
@@ -1604,7 +1604,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "البريد الإلكتروني",
         },
         home: {
-            heroBadge: "حماية ما يهم",
+            heroBadge: "VITALSPATH",
             heroTitle: "احتفظ بالأدوية والأعراض والمؤشرات الحيوية والمواعيد في مكان خاص واحد.",
             heroSubtitle: "تساعدك VitalsPath على تنظيم العلاجات والجرعات والأعراض والقياسات والمواعيد ومهام المتابعة من خلال عرض يومي واضح، مع الأدوات وLive Activities ودعم Apple Watch.",
             primaryCta: "التنزيل من App Store",
@@ -1614,7 +1614,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "مصممة لروتين الحياة الحقيقي", body: "استخدم الأدوات للحصول على رؤية سريعة، وLive Activities خلال لحظات الدواء النشطة، وApple Watch لتنفيذ الإجراءات بشكل أسرع خلال اليوم. حافظ على تنظيم المواعيد والحالات ومهام المتابعة دون فقدان السياق." },
                 { title: "الخصوصية جزء من التصميم", body: "يجب أن تبقى معلوماتك الصحية واضحة وشخصية وتحت سيطرتك. تم تصميم VitalsPath لدعم التنظيم الشخصي، وليس لاستبدال المختصين الصحيين." },
             ],
-            featureListTitle: "المجالات الأساسية",
+            featureListTitle: "ميزات VitalsPath",
             featureListSubtitle: "كل ما تحتاجه، مصمم بدقة.",
             featureListItems: ["تتبع الأدوية والجرعات", "الجرعات المأخوذة والمتجاوزة والمؤجلة", "المخزون وتذكيرات إعادة التعبئة", "تسجيل الأعراض والمزاج", "المؤشرات الحيوية والقياسات", "الصور والملاحظات الصوتية", "المواعيد ومهام المتابعة", "الأدوات وLive Activities وApple Watch"],
             primaryFeatures: ["أتقن أدويتك", "تتبع الأعراض والمؤشرات"],
@@ -1657,13 +1657,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["أنشطة حية", "أدوات", "سريع"]
                 }
             ],
-            ctaBadge: "ابدأ اليوم",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "صحتك بين يديك وبخصوصية تامة",
-            ctaPrivacyDetail: "خصوصية مطلقة مع تشفير من طرف إلى طرف.",
+            ctaPrivacyDetail: "راجع سياسة الخصوصية الحالية لمعرفة كيفية معالجة البيانات وخيارات التحكم المتاحة.",
             ctaPremiumTitle: "عناية بريميوم",
             ctaPremiumDetail: "مصمم للمرضى المزمنين ومقدمي الرعاية.",
-            ctaCommunityTitle: "المجتمع",
-            ctaCommunityDetail: "مستخدم نشط يثقون بنا",
+            ctaCommunityTitle: "المساعدة والإرشادات",
+            ctaCommunityDetail: "دروس وإجابات عن الأسئلة الشائعة ومعلومات الأذونات وحدود الميزات.",
         },
         privacy: {
             title: "سياسة الخصوصية",
@@ -1724,7 +1724,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "ईमेल",
         },
         home: {
-            heroBadge: "जो महत्वपूर्ण है उसकी सुरक्षा",
+            heroBadge: "VITALSPATH",
             heroTitle: "दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट्स को एक निजी जगह में रखें।",
             heroSubtitle: "VitalsPath आपको ट्रीटमेंट, डोज़, लक्षण, माप, अपॉइंटमेंट्स और फॉलो-अप टास्क को एक स्पष्ट दैनिक दृश्य, विजेट्स, Live Activities और Apple Watch सपोर्ट के साथ व्यवस्थित करने में मदद करती है।",
             primaryCta: "App Store पर डाउनलोड करें",
@@ -1734,7 +1734,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "वास्तविक दैनिक दिनचर्या के लिए बनाई गई", body: "तेज़ दृश्यता के लिए विजेट्स, सक्रिय दवा क्षणों के लिए Live Activities और दिन भर तेज़ कार्रवाइयों के लिए Apple Watch का उपयोग करें। अपॉइंटमेंट्स, स्थितियाँ और फॉलो-अप टास्क को संदर्भ खोए बिना व्यवस्थित रखें।" },
                 { title: "डिज़ाइन से ही निजी", body: "आपकी हेल्थ जानकारी स्पष्ट, व्यक्तिगत और आपके नियंत्रण में रहनी चाहिए। VitalsPath व्यक्तिगत संगठन के लिए बनाई गई है, हेल्थकेयर प्रोफेशनल्स का विकल्प बनने के लिए नहीं।" },
             ],
-            featureListTitle: "मुख्य क्षेत्र",
+            featureListTitle: "VitalsPath की सुविधाएँ",
             featureListSubtitle: "वह सब कुछ जो आपको चाहिए, सटीकता से बनाया गया।",
             featureListItems: ["दवा और डोज़ ट्रैकिंग", "ली गई, छोड़ी गई और टाली गई डोज़", "स्टॉक और रीफिल रिमाइंडर्स", "लक्षण और मूड लॉगिंग", "वाइटल्स और माप", "फोटो और वॉइस नोट्स", "अपॉइंटमेंट्स और फॉलो-अप टास्क", "विजेट्स, Live Activities और Apple Watch"],
             primaryFeatures: ["दवाओं पर नियंत्रण", "लक्षण और वाइटल्स"],
@@ -1789,13 +1789,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Live Activities", "विजेट्स", "तेज़"]
                 }
             ],
-            ctaBadge: "आज ही शुरू करें",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "आपका स्वास्थ्य, आपके हाथों में और निजी",
-            ctaPrivacyDetail: "एंड-टू-एंड एन्क्रिप्शन के साथ पूर्ण गोपनीयता।",
+            ctaPrivacyDetail: "डेटा प्रबंधन और उपलब्ध नियंत्रणों की वर्तमान जानकारी के लिए गोपनीयता नीति देखें。",
             ctaPremiumTitle: "प्रीमियम देखभाल",
             ctaPremiumDetail: "पुरानी बीमारियों वाले मरीजों और देखभाल करने वालों के लिए डिज़ाइन किया गया।",
-            ctaCommunityTitle: "कम्युनिटी",
-            ctaCommunityDetail: "सक्रिय उपयोगकर्ता हम पर भरोसा करते हैं",
+            ctaCommunityTitle: "सहायता और मार्गदर्शिकाएँ",
+            ctaCommunityDetail: "ट्यूटोरियल, अक्सर पूछे जाने वाले सवाल, अनुमतियाँ और सुविधाओं की सीमाएँ。",
         },
         privacy: {
             title: "प्राइवेसी पॉलिसी",
@@ -1856,7 +1856,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-posta",
         },
         home: {
-            heroBadge: "ÖNEMLİ OLANI KORUMAK",
+            heroBadge: "VITALSPATH",
             heroTitle: "İlaçları, semptomları, vital ölçümleri ve randevuları tek bir özel yerde tutun.",
             heroSubtitle: "VitalsPath; tedavileri, dozları, semptomları, ölçümleri, randevuları ve takip görevlerini net bir günlük görünüm, widget'lar, Live Activities ve Apple Watch desteğiyle düzenlemenize yardımcı olur.",
             primaryCta: "App Store’dan indir",
@@ -1866,7 +1866,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                 { title: "Gerçek günlük rutinler için geliştirildi", body: "Hızlı görünürlük için widget'ları, aktif ilaç anları için Live Activities'i ve gün içinde daha hızlı işlemler için Apple Watch'u kullanın. Randevuları, durumları ve takip görevlerini bağlamı kaybetmeden düzenli tutun." },
                 { title: "Tasarım gereği gizli", body: "Sağlık bilgileriniz açık, kişisel ve sizin kontrolünüzde olmalıdır. VitalsPath, kişisel organizasyonu desteklemek için geliştirilmiştir; sağlık profesyonellerinin yerini almak için değil." },
             ],
-            featureListTitle: "Temel alanlar",
+            featureListTitle: "VitalsPath özellikleri",
             featureListSubtitle: "İhtiyacınız olan her şey, hassasiyetle tasarlandı.",
             featureListItems: ["İlaç ve doz takibi", "Alınan, atlanan ve ertelenen dozlar", "Stok ve yeniden doldurma hatırlatmaları", "Semptom ve ruh hali kaydı", "Vital ölçümler ve diğer ölçümler", "Fotoğraflar ve sesli notlar", "Randevular ve takip görevleri", "Widget'lar, Live Activities ve Apple Watch"],
             primaryFeatures: ["İlaçlarınıza hakim olun", "Semptom ve vitalleri takip edin"],
@@ -1921,13 +1921,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Live Activities", "Araç Takımları", "Hızlı"]
                 }
             ],
-            ctaBadge: "BUGÜN BAŞLAYIN",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Sağlığınız elinizde ve özel kalsın",
-            ctaPrivacyDetail: "Uçtan uca şifreleme ile mutlak gizlilik.",
+            ctaPrivacyDetail: "Verilerin işlenmesi ve mevcut kontroller hakkında güncel bilgi için Gizlilik Politikası'nı inceleyin.",
             ctaPremiumTitle: "PREMIUM BAKIM",
             ctaPremiumDetail: "Kronik hastalar ve refakatçiler için tasarlandı.",
-            ctaCommunityTitle: "TOPLULUK",
-            ctaCommunityDetail: "aktif kullanıcı bize güveniyor",
+            ctaCommunityTitle: "YARDIM VE KILAVUZLAR",
+            ctaCommunityDetail: "Eğitimler, sık sorulan sorular, izinler ve özellik sınırlamaları.",
         },
         privacy: {
             title: "Gizlilik Politikası",
@@ -1988,7 +1988,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "E-mail",
         },
         home: {
-            heroBadge: "BESCHERMEN WAT ERTOE DOET",
+            heroBadge: "VITALSPATH",
             heroTitle:
                 "Houd medicatie, symptomen, vitale functies en afspraken op één privéplek.",
             heroSubtitle:
@@ -2009,7 +2009,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "Uw gezondheidsinformatie moet duidelijk, persoonlijk en onder uw controle blijven. VitalsPath is gebouwd om persoonlijke organisatie te ondersteunen, niet om zorgverleners te vervangen.",
                 },
             ],
-            featureListTitle: "Kerngebieden",
+            featureListTitle: "Functies van VitalsPath",
             featureListSubtitle: "Alles wat u nodig heeft, met precisie ontworpen.",
             featureListItems: [
                 "Medicatie en dosisregistratie",
@@ -2062,13 +2062,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Live Activities", "Widgets", "Snel"]
                 }
             ],
-            ctaBadge: "START VANDAAG",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Jouw gezondheid, in jouw handen en privé",
-            ctaPrivacyDetail: "Absolute privacy met end-to-end encryptie.",
+            ctaPrivacyDetail: "Lees het actuele privacybeleid voor informatie over gegevensverwerking en beschikbare instellingen.",
             ctaPremiumTitle: "PREMIUM ZORG",
             ctaPremiumDetail: "Ontworpen voor chronische patiënten en mantelzorgers.",
-            ctaCommunityTitle: "COMMUNITY",
-            ctaCommunityDetail: "actieve gebruikers vertrouwen ons",
+            ctaCommunityTitle: "HULP EN GIDSEN",
+            ctaCommunityDetail: "Handleidingen, veelgestelde vragen, toestemmingen en functiebeperkingen.",
         },
         privacy: {
             title: "Privacybeleid",
@@ -2129,7 +2129,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
             emailLabel: "Email",
         },
         home: {
-            heroBadge: "CHRONIMY TO, CO WAŻNE",
+            heroBadge: "VITALSPATH",
             heroTitle:
                 "Przechowuj leki, objawy, parametry życiowe i wizyty w jednym prywatnym miejscu.",
             heroSubtitle:
@@ -2150,7 +2150,7 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     body: "Twoje informacje o zdrowiu powinny pozostać jasne, osobiste i pod Twoją kontrolą. VitalsPath został stworzony, aby wspierać osobistą organizację, a nie zastępować pracowników służby zdrowia.",
                 },
             ],
-            featureListTitle: "Główne obszary",
+            featureListTitle: "Funkcje VitalsPath",
             featureListSubtitle: "Wszystko, czego potrzebujesz, precyzyjnie zaprojektowane.",
             featureListItems: [
                 "Śledzenie leków i dawek",
@@ -2215,13 +2215,13 @@ export const siteCopy: Record<Lang, SiteCopy> = {
                     tags: ["Live Activities", "Widżety", "Szybko"]
                 }
             ],
-            ctaBadge: "ZACZNIJ DZISIAJ",
+            ctaBadge: "VITALSPATH",
             ctaTitle: "Twoje zdrowie, w Twoich rękach i prywatnie",
-            ctaPrivacyDetail: "Absolutna prywatność dzięki szyfrowaniu end-to-end.",
+            ctaPrivacyDetail: "Aktualne informacje o przetwarzaniu danych i dostępnych ustawieniach znajdziesz w Polityce prywatności.",
             ctaPremiumTitle: "PIELĘGNACJA PREMIUM",
             ctaPremiumDetail: "Zaprojektowane dla pacjentów przewlekłych i opiekunów.",
-            ctaCommunityTitle: "SPOŁECZNOŚĆ",
-            ctaCommunityDetail: "aktywnych użytkowników nam ufa",
+            ctaCommunityTitle: "POMOC I PRZEWODNIKI",
+            ctaCommunityDetail: "Samouczki, częste pytania, uprawnienia i ograniczenia funkcji.",
         },
         privacy: {
             title: "Polityka prywatności",
@@ -2282,22 +2282,22 @@ type DeepPartial<T> = {
 const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     fr: {
         meta: {
-            title: "VitalsPath 2.0 | Organisation privée des médicaments, symptômes, constantes et rendez-vous",
-            description: "VitalsPath 2.0 organise médicaments, symptômes, constantes, rendez-vous, widgets, Live Activities et Apple Watch dans un hub de santé privé.",
+            title: "VitalsPath | Organisation privée des médicaments, symptômes, constantes et rendez-vous",
+            description: "VitalsPath organise médicaments, symptômes, constantes, rendez-vous, widgets, Live Activities et Apple Watch dans un hub de santé privé.",
         },
         nav: { releaseFeatures: "Version 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Un centre de contrôle plus clair pour médicaments, symptômes, constantes et rendez-vous.",
-            heroSubtitle: "VitalsPath 2.0 réunit planification quotidienne, actions de dose, symptômes enrichis, résumé bien-être, données locales protégées, widgets, Live Activities et Apple Watch.",
-            featureListTitle: "Nouveautés de la 2.0",
+            heroSubtitle: "VitalsPath réunit planification quotidienne, actions de dose, symptômes enrichis, résumé bien-être, données locales protégées, widgets, Live Activities et Apple Watch.",
+            featureListTitle: "Fonctionnalités de VitalsPath",
             featureListSubtitle: "Un espace santé plus clair, rapide et complet.",
-            ctaBadge: "VERSION 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Fonctions de la version 2.0.0",
-            intro: "Cette page décrit les capacités préparées pour VitalsPath 2.0.0.",
-            note: "Cette page reflète l'ensemble de fonctions VitalsPath 2.0.0 en préparation.",
+            intro: "Cette page décrit les capacités préparées pour VitalsPath.",
+            note: "Cette page reflète l'ensemble de fonctions VitalsPath en préparation.",
         },
         roadmap: { nextReleaseTitle: "Après la 2.0.0" },
         timeline: { title: "Chronologie de l'app", subtitle: "Version 2.0.0 et prochaines étapes" },
@@ -2305,22 +2305,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     de: {
         meta: {
-            title: "VitalsPath 2.0 | Private Organisation für Medikamente, Symptome, Werte und Termine",
-            description: "VitalsPath 2.0 organisiert Medikamente, Symptome, Vitalwerte, Termine, Widgets, Live Activities und Apple Watch in einem privaten Gesundheits-Hub.",
+            title: "VitalsPath | Private Organisation für Medikamente, Symptome, Werte und Termine",
+            description: "VitalsPath organisiert Medikamente, Symptome, Vitalwerte, Termine, Widgets, Live Activities und Apple Watch in einem privaten Gesundheits-Hub.",
         },
         nav: { releaseFeatures: "Version 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Eine klarere Kommandozentrale für Medikamente, Symptome, Vitalwerte und Termine.",
-            heroSubtitle: "VitalsPath 2.0 bündelt Tagesplanung, Dosisaktionen, erweiterte Symptome, Wellness-Zusammenfassungen, geschützte lokale Daten, Widgets, Live Activities und Apple Watch.",
-            featureListTitle: "Neu in 2.0",
+            heroSubtitle: "VitalsPath bündelt Tagesplanung, Dosisaktionen, erweiterte Symptome, Wellness-Zusammenfassungen, geschützte lokale Daten, Widgets, Live Activities und Apple Watch.",
+            featureListTitle: "VitalsPath-Funktionen",
             featureListSubtitle: "Ein klarerer, schnellerer und vollständigerer Gesundheitsbereich.",
-            ctaBadge: "VERSION 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Funktionen der Version 2.0.0",
-            intro: "Diese Seite beschreibt die Funktionen, die für VitalsPath 2.0.0 vorbereitet werden.",
-            note: "Diese Seite spiegelt den vorbereiteten Funktionsumfang von VitalsPath 2.0.0 wider.",
+            intro: "Diese Seite beschreibt die Funktionen, die für VitalsPath vorbereitet werden.",
+            note: "Diese Seite spiegelt den vorbereiteten Funktionsumfang von VitalsPath wider.",
         },
         roadmap: { nextReleaseTitle: "Nach 2.0.0" },
         timeline: { title: "App-Zeitachse", subtitle: "Version 2.0.0 und nächste Schritte" },
@@ -2328,22 +2328,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     it: {
         meta: {
-            title: "VitalsPath 2.0 | Organizzazione privata di farmaci, sintomi, parametri e visite",
-            description: "VitalsPath 2.0 organizza farmaci, sintomi, parametri, appuntamenti, widget, Live Activities e Apple Watch in un hub salute privato.",
+            title: "VitalsPath | Organizzazione privata di farmaci, sintomi, parametri e visite",
+            description: "VitalsPath organizza farmaci, sintomi, parametri, appuntamenti, widget, Live Activities e Apple Watch in un hub salute privato.",
         },
         nav: { releaseFeatures: "Versione 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Un centro di controllo più chiaro per farmaci, sintomi, parametri e visite.",
-            heroSubtitle: "VitalsPath 2.0 riunisce pianificazione quotidiana, azioni sulle dosi, sintomi avanzati, riepiloghi benessere, dati locali protetti, widget, Live Activities e Apple Watch.",
-            featureListTitle: "Novità della 2.0",
+            heroSubtitle: "VitalsPath riunisce pianificazione quotidiana, azioni sulle dosi, sintomi avanzati, riepiloghi benessere, dati locali protetti, widget, Live Activities e Apple Watch.",
+            featureListTitle: "Funzionalità di VitalsPath",
             featureListSubtitle: "Uno spazio salute più chiaro, rapido e completo.",
-            ctaBadge: "VERSIONE 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Funzioni della versione 2.0.0",
-            intro: "Questa pagina descrive le funzionalità in preparazione per VitalsPath 2.0.0.",
-            note: "Questa pagina riflette il set di funzioni VitalsPath 2.0.0 in preparazione.",
+            intro: "Questa pagina descrive le funzionalità in preparazione per VitalsPath.",
+            note: "Questa pagina riflette il set di funzioni VitalsPath in preparazione.",
         },
         roadmap: { nextReleaseTitle: "Dopo la 2.0.0" },
         timeline: { title: "Cronologia dell'app", subtitle: "Versione 2.0.0 e prossimi passi" },
@@ -2351,22 +2351,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     pt: {
         meta: {
-            title: "VitalsPath 2.0 | Organização privada de medicação, sintomas, sinais vitais e consultas",
-            description: "VitalsPath 2.0 organiza medicação, sintomas, sinais vitais, consultas, widgets, Live Activities e Apple Watch num hub de saúde privado.",
+            title: "VitalsPath | Organização privada de medicação, sintomas, sinais vitais e consultas",
+            description: "VitalsPath organiza medicação, sintomas, sinais vitais, consultas, widgets, Live Activities e Apple Watch num hub de saúde privado.",
         },
         nav: { releaseFeatures: "Versão 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Um centro de controlo mais claro para medicação, sintomas, sinais vitais e consultas.",
-            heroSubtitle: "VitalsPath 2.0 reúne planeamento diário, ações de dose, registo avançado de sintomas, resumo de bem-estar, dados locais protegidos, widgets, Live Activities e Apple Watch.",
-            featureListTitle: "Novidades da 2.0",
+            heroSubtitle: "VitalsPath reúne planeamento diário, ações de dose, registo avançado de sintomas, resumo de bem-estar, dados locais protegidos, widgets, Live Activities e Apple Watch.",
+            featureListTitle: "Funcionalidades do VitalsPath",
             featureListSubtitle: "Um espaço de saúde mais claro, rápido e completo.",
-            ctaBadge: "VERSÃO 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Funcionalidades da versão 2.0.0",
-            intro: "Esta página descreve as capacidades em preparação para VitalsPath 2.0.0.",
-            note: "Esta página reflete o conjunto de funcionalidades VitalsPath 2.0.0 em preparação.",
+            intro: "Esta página descreve as capacidades em preparação para VitalsPath.",
+            note: "Esta página reflete o conjunto de funcionalidades VitalsPath em preparação.",
         },
         roadmap: { nextReleaseTitle: "Depois da 2.0.0" },
         timeline: { title: "Cronologia da app", subtitle: "Versão 2.0.0 e próximos passos" },
@@ -2374,22 +2374,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     ja: {
         meta: {
-            title: "VitalsPath 2.0 | 服薬、症状、バイタル、予定を非公開で整理",
-            description: "VitalsPath 2.0 は服薬、症状、バイタル、予定、ウィジェット、Live Activities、Apple Watch をひとつの非公開ヘルスハブに整理します。",
+            title: "VitalsPath | 服薬、症状、バイタル、予定を非公開で整理",
+            description: "VitalsPath は服薬、症状、バイタル、予定、ウィジェット、Live Activities、Apple Watch をひとつの非公開ヘルスハブに整理します。",
         },
         nav: { releaseFeatures: "バージョン 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "服薬、症状、バイタル、予定のための、より見やすいコントロールセンター。",
-            heroSubtitle: "VitalsPath 2.0 は日々の計画、服薬アクション、詳しい症状記録、ウェルネス概要、保護されたローカルデータ、ウィジェット、Live Activities、Apple Watch をまとめます。",
-            featureListTitle: "2.0 の新機能",
+            heroSubtitle: "VitalsPath は日々の計画、服薬アクション、詳しい症状記録、ウェルネス概要、保護されたローカルデータ、ウィジェット、Live Activities、Apple Watch をまとめます。",
+            featureListTitle: "VitalsPathの機能",
             featureListSubtitle: "より明確で速く、充実したヘルスワークスペース。",
-            ctaBadge: "バージョン 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "バージョン 2.0.0 の機能",
-            intro: "このページでは VitalsPath 2.0.0 に向けて準備中の機能を説明します。",
-            note: "このページは準備中の VitalsPath 2.0.0 機能セットを反映しています。",
+            intro: "このページでは VitalsPath に向けて準備中の機能を説明します。",
+            note: "このページは準備中の VitalsPath 機能セットを反映しています。",
         },
         roadmap: { nextReleaseTitle: "2.0.0 の後" },
         timeline: { title: "アプリのタイムライン", subtitle: "バージョン 2.0.0 と次のステップ" },
@@ -2397,22 +2397,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     zh: {
         meta: {
-            title: "VitalsPath 2.0 | 私密管理用药、症状、生命体征和预约",
-            description: "VitalsPath 2.0 将用药、症状、生命体征、预约、小组件、Live Activities 和 Apple Watch 整理在一个私密健康中心。",
+            title: "VitalsPath | 私密管理用药、症状、生命体征和预约",
+            description: "VitalsPath 将用药、症状、生命体征、预约、小组件、Live Activities 和 Apple Watch 整理在一个私密健康中心。",
         },
         nav: { releaseFeatures: "版本 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "更清晰地管理用药、症状、生命体征和预约。",
-            heroSubtitle: "VitalsPath 2.0 汇集每日计划、剂量操作、增强症状记录、健康摘要、受保护的本地数据、小组件、Live Activities 和 Apple Watch。",
-            featureListTitle: "2.0 新功能",
+            heroSubtitle: "VitalsPath 汇集每日计划、剂量操作、增强症状记录、健康摘要、受保护的本地数据、小组件、Live Activities 和 Apple Watch。",
+            featureListTitle: "VitalsPath 功能",
             featureListSubtitle: "更清晰、更快速、更完整的健康工作区。",
-            ctaBadge: "版本 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "版本 2.0.0 功能",
-            intro: "本页介绍正在为 VitalsPath 2.0.0 准备的功能。",
-            note: "本页反映正在准备的 VitalsPath 2.0.0 功能集。",
+            intro: "本页介绍正在为 VitalsPath 准备的功能。",
+            note: "本页反映正在准备的 VitalsPath 功能集。",
         },
         roadmap: { nextReleaseTitle: "2.0.0 之后" },
         timeline: { title: "应用时间线", subtitle: "版本 2.0.0 和后续步骤" },
@@ -2420,22 +2420,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     ko: {
         meta: {
-            title: "VitalsPath 2.0 | 복약, 증상, 활력징후, 진료 일정을 비공개로 정리",
-            description: "VitalsPath 2.0은 복약, 증상, 활력징후, 진료 일정, 위젯, Live Activities, Apple Watch를 하나의 비공개 건강 허브로 정리합니다.",
+            title: "VitalsPath | 복약, 증상, 활력징후, 진료 일정을 비공개로 정리",
+            description: "VitalsPath은 복약, 증상, 활력징후, 진료 일정, 위젯, Live Activities, Apple Watch를 하나의 비공개 건강 허브로 정리합니다.",
         },
         nav: { releaseFeatures: "버전 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "복약, 증상, 활력징후, 진료 일정을 더 명확하게 관리하는 허브.",
-            heroSubtitle: "VitalsPath 2.0은 일일 계획, 복약 액션, 고급 증상 기록, 웰니스 요약, 보호된 로컬 데이터, 위젯, Live Activities, Apple Watch를 함께 제공합니다.",
-            featureListTitle: "2.0의 새로운 기능",
+            heroSubtitle: "VitalsPath은 일일 계획, 복약 액션, 고급 증상 기록, 웰니스 요약, 보호된 로컬 데이터, 위젯, Live Activities, Apple Watch를 함께 제공합니다.",
+            featureListTitle: "VitalsPath 기능",
             featureListSubtitle: "더 명확하고 빠르고 완성도 높은 건강 작업 공간.",
-            ctaBadge: "버전 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "버전 2.0.0 기능",
-            intro: "이 페이지는 VitalsPath 2.0.0을 위해 준비 중인 기능을 설명합니다.",
-            note: "이 페이지는 준비 중인 VitalsPath 2.0.0 기능 세트를 반영합니다.",
+            intro: "이 페이지는 VitalsPath을 위해 준비 중인 기능을 설명합니다.",
+            note: "이 페이지는 준비 중인 VitalsPath 기능 세트를 반영합니다.",
         },
         roadmap: { nextReleaseTitle: "2.0.0 이후" },
         timeline: { title: "앱 타임라인", subtitle: "버전 2.0.0 및 다음 단계" },
@@ -2443,22 +2443,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     ru: {
         meta: {
-            title: "VitalsPath 2.0 | Приватная организация лекарств, симптомов, показателей и визитов",
-            description: "VitalsPath 2.0 объединяет лекарства, симптомы, показатели, визиты, виджеты, Live Activities и Apple Watch в приватном центре здоровья.",
+            title: "VitalsPath | Приватная организация лекарств, симптомов, показателей и визитов",
+            description: "VitalsPath объединяет лекарства, симптомы, показатели, визиты, виджеты, Live Activities и Apple Watch в приватном центре здоровья.",
         },
         nav: { releaseFeatures: "Версия 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Более понятный центр управления лекарствами, симптомами, показателями и визитами.",
-            heroSubtitle: "VitalsPath 2.0 объединяет ежедневное планирование, действия с дозами, расширенный журнал симптомов, сводки самочувствия, защищенные локальные данные, виджеты, Live Activities и Apple Watch.",
-            featureListTitle: "Что нового в 2.0",
+            heroSubtitle: "VitalsPath объединяет ежедневное планирование, действия с дозами, расширенный журнал симптомов, сводки самочувствия, защищенные локальные данные, виджеты, Live Activities и Apple Watch.",
+            featureListTitle: "Возможности VitalsPath",
             featureListSubtitle: "Более ясное, быстрое и полное пространство здоровья.",
-            ctaBadge: "ВЕРСИЯ 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Функции версии 2.0.0",
-            intro: "Эта страница описывает возможности, готовящиеся для VitalsPath 2.0.0.",
-            note: "Эта страница отражает набор функций VitalsPath 2.0.0, готовящийся к выпуску.",
+            intro: "Эта страница описывает возможности, готовящиеся для VitalsPath.",
+            note: "Эта страница отражает набор функций VitalsPath, готовящийся к выпуску.",
         },
         roadmap: { nextReleaseTitle: "После 2.0.0" },
         timeline: { title: "Хронология приложения", subtitle: "Версия 2.0.0 и следующие шаги" },
@@ -2466,22 +2466,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     ar: {
         meta: {
-            title: "VitalsPath 2.0 | تنظيم خاص للأدوية والأعراض والمؤشرات والمواعيد",
-            description: "يجمع VitalsPath 2.0 الأدوية والأعراض والمؤشرات والمواعيد والويدجت و Live Activities و Apple Watch في مركز صحي خاص.",
+            title: "VitalsPath | تنظيم خاص للأدوية والأعراض والمؤشرات والمواعيد",
+            description: "يجمع VitalsPath الأدوية والأعراض والمؤشرات والمواعيد والويدجت و Live Activities و Apple Watch في مركز صحي خاص.",
         },
         nav: { releaseFeatures: "الإصدار 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "مركز أوضح لإدارة الأدوية والأعراض والمؤشرات والمواعيد.",
-            heroSubtitle: "يجمع VitalsPath 2.0 التخطيط اليومي وإجراءات الجرعات وتسجيل الأعراض المتقدم وملخصات العافية والبيانات المحلية المحمية والويدجت و Live Activities و Apple Watch.",
-            featureListTitle: "الجديد في 2.0",
+            heroSubtitle: "يجمع VitalsPath التخطيط اليومي وإجراءات الجرعات وتسجيل الأعراض المتقدم وملخصات العافية والبيانات المحلية المحمية والويدجت و Live Activities و Apple Watch.",
+            featureListTitle: "ميزات VitalsPath",
             featureListSubtitle: "مساحة صحية أوضح وأسرع وأكثر اكتمالا.",
-            ctaBadge: "الإصدار 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "ميزات الإصدار 2.0.0",
-            intro: "توضح هذه الصفحة الإمكانات الجاري إعدادها لـ VitalsPath 2.0.0.",
-            note: "تعكس هذه الصفحة مجموعة ميزات VitalsPath 2.0.0 الجاري إعدادها.",
+            intro: "توضح هذه الصفحة الإمكانات الجاري إعدادها لـ VitalsPath.",
+            note: "تعكس هذه الصفحة مجموعة ميزات VitalsPath الجاري إعدادها.",
         },
         roadmap: { nextReleaseTitle: "بعد 2.0.0" },
         timeline: { title: "الخط الزمني للتطبيق", subtitle: "الإصدار 2.0.0 والخطوات التالية" },
@@ -2489,22 +2489,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     hi: {
         meta: {
-            title: "VitalsPath 2.0 | दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट का निजी संगठन",
-            description: "VitalsPath 2.0 दवाओं, लक्षणों, वाइटल्स, अपॉइंटमेंट, widgets, Live Activities और Apple Watch को एक निजी हेल्थ हब में व्यवस्थित करता है।",
+            title: "VitalsPath | दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट का निजी संगठन",
+            description: "VitalsPath दवाओं, लक्षणों, वाइटल्स, अपॉइंटमेंट, widgets, Live Activities और Apple Watch को एक निजी हेल्थ हब में व्यवस्थित करता है।",
         },
         nav: { releaseFeatures: "वर्जन 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "दवाओं, लक्षणों, वाइटल्स और अपॉइंटमेंट के लिए ज्यादा साफ कंट्रोल सेंटर।",
-            heroSubtitle: "VitalsPath 2.0 दैनिक योजना, डोज़ एक्शन, उन्नत symptom logging, wellness summaries, सुरक्षित local data, widgets, Live Activities और Apple Watch को साथ लाता है।",
-            featureListTitle: "2.0 में नया",
+            heroSubtitle: "VitalsPath दैनिक योजना, डोज़ एक्शन, उन्नत symptom logging, wellness summaries, सुरक्षित local data, widgets, Live Activities और Apple Watch को साथ लाता है।",
+            featureListTitle: "VitalsPath की सुविधाएँ",
             featureListSubtitle: "एक ज्यादा साफ, तेज और पूरा हेल्थ workspace.",
-            ctaBadge: "वर्जन 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "वर्जन 2.0.0 फीचर्स",
-            intro: "यह पेज VitalsPath 2.0.0 के लिए तैयार की जा रही क्षमताओं को बताता है।",
-            note: "यह पेज तैयार हो रहे VitalsPath 2.0.0 फीचर सेट को दर्शाता है।",
+            intro: "यह पेज VitalsPath के लिए तैयार की जा रही क्षमताओं को बताता है।",
+            note: "यह पेज तैयार हो रहे VitalsPath फीचर सेट को दर्शाता है।",
         },
         roadmap: { nextReleaseTitle: "2.0.0 के बाद" },
         timeline: { title: "ऐप टाइमलाइन", subtitle: "वर्जन 2.0.0 और अगले कदम" },
@@ -2512,22 +2512,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     tr: {
         meta: {
-            title: "VitalsPath 2.0 | İlaç, semptom, vital değer ve randevular için özel sağlık düzeni",
-            description: "VitalsPath 2.0 ilaçları, semptomları, vital değerleri, randevuları, widgetları, Live Activities ve Apple Watch desteğini özel bir sağlık merkezinde toplar.",
+            title: "VitalsPath | İlaç, semptom, vital değer ve randevular için özel sağlık düzeni",
+            description: "VitalsPath ilaçları, semptomları, vital değerleri, randevuları, widgetları, Live Activities ve Apple Watch desteğini özel bir sağlık merkezinde toplar.",
         },
         nav: { releaseFeatures: "Sürüm 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "İlaçlar, semptomlar, vital değerler ve randevular için daha net bir kontrol merkezi.",
-            heroSubtitle: "VitalsPath 2.0 günlük planlama, doz eylemleri, gelişmiş semptom kaydı, sağlık özetleri, korumalı yerel veriler, widgetlar, Live Activities ve Apple Watch desteğini bir araya getirir.",
-            featureListTitle: "2.0'da yenilikler",
+            heroSubtitle: "VitalsPath günlük planlama, doz eylemleri, gelişmiş semptom kaydı, sağlık özetleri, korumalı yerel veriler, widgetlar, Live Activities ve Apple Watch desteğini bir araya getirir.",
+            featureListTitle: "VitalsPath özellikleri",
             featureListSubtitle: "Daha net, hızlı ve eksiksiz bir sağlık çalışma alanı.",
-            ctaBadge: "SÜRÜM 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Sürüm 2.0.0 Özellikleri",
-            intro: "Bu sayfa VitalsPath 2.0.0 için hazırlanan yetenekleri açıklar.",
-            note: "Bu sayfa hazırlanan VitalsPath 2.0.0 özellik setini yansıtır.",
+            intro: "Bu sayfa VitalsPath için hazırlanan yetenekleri açıklar.",
+            note: "Bu sayfa hazırlanan VitalsPath özellik setini yansıtır.",
         },
         roadmap: { nextReleaseTitle: "2.0.0 sonrası" },
         timeline: { title: "Uygulama zaman çizelgesi", subtitle: "Sürüm 2.0.0 ve sonraki adımlar" },
@@ -2535,22 +2535,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     nl: {
         meta: {
-            title: "VitalsPath 2.0 | Prive organisatie voor medicatie, symptomen, waarden en afspraken",
-            description: "VitalsPath 2.0 houdt medicatie, symptomen, vitale waarden, afspraken, widgets, Live Activities en Apple Watch georganiseerd in een prive gezondheidscentrum.",
+            title: "VitalsPath | Prive organisatie voor medicatie, symptomen, waarden en afspraken",
+            description: "VitalsPath houdt medicatie, symptomen, vitale waarden, afspraken, widgets, Live Activities en Apple Watch georganiseerd in een prive gezondheidscentrum.",
         },
         nav: { releaseFeatures: "Versie 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Een duidelijker controlecentrum voor medicatie, symptomen, vitale waarden en afspraken.",
-            heroSubtitle: "VitalsPath 2.0 brengt dagplanning, dosisacties, uitgebreid symptoomloggen, welzijnsoverzichten, beschermde lokale data, widgets, Live Activities en Apple Watch samen.",
-            featureListTitle: "Nieuw in 2.0",
+            heroSubtitle: "VitalsPath brengt dagplanning, dosisacties, uitgebreid symptoomloggen, welzijnsoverzichten, beschermde lokale data, widgets, Live Activities en Apple Watch samen.",
+            featureListTitle: "Functies van VitalsPath",
             featureListSubtitle: "Een duidelijkere, snellere en completere gezondheidsruimte.",
-            ctaBadge: "VERSIE 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Functies van versie 2.0.0",
-            intro: "Deze pagina beschrijft de mogelijkheden die worden voorbereid voor VitalsPath 2.0.0.",
-            note: "Deze pagina weerspiegelt de VitalsPath 2.0.0-functieset die wordt voorbereid.",
+            intro: "Deze pagina beschrijft de mogelijkheden die worden voorbereid voor VitalsPath.",
+            note: "Deze pagina weerspiegelt de VitalsPath-functieset die wordt voorbereid.",
         },
         roadmap: { nextReleaseTitle: "Na 2.0.0" },
         timeline: { title: "App-tijdlijn", subtitle: "Versie 2.0.0 en volgende stappen" },
@@ -2558,22 +2558,22 @@ const version2CoreUpdates: Partial<Record<Lang, DeepPartial<SiteCopy>>> = {
     },
     pl: {
         meta: {
-            title: "VitalsPath 2.0 | Prywatna organizacja leków, objawów, parametrów i wizyt",
-            description: "VitalsPath 2.0 porządkuje leki, objawy, parametry, wizyty, widżety, Live Activities i Apple Watch w prywatnym centrum zdrowia.",
+            title: "VitalsPath | Prywatna organizacja leków, objawów, parametrów i wizyt",
+            description: "VitalsPath porządkuje leki, objawy, parametry, wizyty, widżety, Live Activities i Apple Watch w prywatnym centrum zdrowia.",
         },
         nav: { releaseFeatures: "Wersja 2.0" },
         home: {
-            heroBadge: "VITALSPATH 2.0.0",
+            heroBadge: "VITALSPATH",
             heroTitle: "Czytelniejsze centrum kontroli leków, objawów, parametrów i wizyt.",
-            heroSubtitle: "VitalsPath 2.0 łączy plan dnia, działania na dawkach, zaawansowane wpisy objawów, podsumowania dobrostanu, chronione dane lokalne, widżety, Live Activities i Apple Watch.",
-            featureListTitle: "Nowości w 2.0",
+            heroSubtitle: "VitalsPath łączy plan dnia, działania na dawkach, zaawansowane wpisy objawów, podsumowania dobrostanu, chronione dane lokalne, widżety, Live Activities i Apple Watch.",
+            featureListTitle: "Funkcje VitalsPath",
             featureListSubtitle: "Czytelniejsza, szybsza i pełniejsza przestrzeń zdrowia.",
-            ctaBadge: "WERSJA 2.0.0",
+            ctaBadge: "VITALSPATH",
         },
         releaseFeatures: {
             title: "Funkcje wersji 2.0.0",
-            intro: "Ta strona opisuje możliwości przygotowywane dla VitalsPath 2.0.0.",
-            note: "Ta strona odzwierciedla przygotowywany zestaw funkcji VitalsPath 2.0.0.",
+            intro: "Ta strona opisuje możliwości przygotowywane dla VitalsPath.",
+            note: "Ta strona odzwierciedla przygotowywany zestaw funkcji VitalsPath.",
         },
         roadmap: { nextReleaseTitle: "Po 2.0.0" },
         timeline: { title: "Oś czasu aplikacji", subtitle: "Wersja 2.0.0 i kolejne kroki" },
