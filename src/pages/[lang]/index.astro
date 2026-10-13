@@ -22,6 +22,25 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const currentLang = lang as Lang;
 const copy = getSiteCopy(currentLang);
+const helpTeasers: Record<Lang, { title: string; body: string; cta: string }> = {
+    en: { title: "Looking for step-by-step guidance?", body: "Browse practical tutorials, answers to common questions, permission guidance and clear notes about what the app can and cannot do.", cta: "Open the Help Center" },
+    es: { title: "¿Buscas instrucciones paso a paso?", body: "Consulta tutoriales prácticos, respuestas a preguntas frecuentes, ayuda con permisos y notas claras sobre lo que la app puede y no puede hacer.", cta: "Abrir el centro de ayuda" },
+    fr: { title: "Besoin d’instructions étape par étape ?", body: "Consultez des tutoriels, des réponses aux questions fréquentes, des conseils sur les autorisations et les limites de l’application.", cta: "Ouvrir le centre d’aide" },
+    de: { title: "Schritt-für-Schritt-Anleitungen gesucht?", body: "Finde praktische Tutorials, häufige Fragen, Hinweise zu Berechtigungen und klare Informationen zu den Möglichkeiten und Grenzen der App.", cta: "Hilfe öffnen" },
+    it: { title: "Cerchi istruzioni passo dopo passo?", body: "Consulta tutorial pratici, risposte alle domande frequenti, indicazioni sui permessi e informazioni chiare sui limiti dell’app.", cta: "Apri la guida" },
+    pt: { title: "Precisa de instruções passo a passo?", body: "Consulte tutoriais, respostas a perguntas frequentes, orientações sobre permissões e informações claras sobre os limites da app.", cta: "Abrir a ajuda" },
+    ja: { title: "使い方をステップごとに確認しますか？", body: "チュートリアル、よくある質問、権限の案内、アプリの機能と制限をご覧いただけます。", cta: "ヘルプを開く" },
+    zh: { title: "需要分步操作指南吗？", body: "查看实用教程、常见问题、权限说明，以及应用功能和限制的清晰介绍。", cta: "打开帮助中心" },
+    ko: { title: "단계별 안내가 필요하신가요?", body: "실용적인 튜토리얼, 자주 묻는 질문, 권한 안내와 앱의 기능 및 제한 사항을 확인하세요.", cta: "도움말 열기" },
+    ru: { title: "Нужны пошаговые инструкции?", body: "Посмотрите практические руководства, ответы на частые вопросы, сведения о разрешениях и ограничениях приложения.", cta: "Открыть справку" },
+    ar: { title: "هل تحتاج إلى إرشادات خطوة بخطوة؟", body: "اطّلع على الدروس العملية والأسئلة الشائعة وإرشادات الأذونات وحدود التطبيق.", cta: "افتح مركز المساعدة" },
+    hi: { title: "चरण-दर-चरण मार्गदर्शन चाहिए?", body: "व्यावहारिक ट्यूटोरियल, आम सवालों के जवाब, अनुमतियों की जानकारी और ऐप की सीमाएँ देखें।", cta: "सहायता केंद्र खोलें" },
+    tr: { title: "Adım adım yönerge mi arıyorsunuz?", body: "Uygulamalı anlatımları, sık sorulan soruları, izin bilgilerini ve uygulamanın sınırlarını inceleyin.", cta: "Yardım merkezini aç" },
+    nl: { title: "Op zoek naar stapsgewijze uitleg?", body: "Bekijk praktische handleidingen, veelgestelde vragen, informatie over toestemmingen en de beperkingen van de app.", cta: "Open het helpcentrum" },
+    pl: { title: "Szukasz instrukcji krok po kroku?", body: "Sprawdź praktyczne samouczki, odpowiedzi na częste pytania, informacje o uprawnieniach i ograniczenia aplikacji.", cta: "Otwórz centrum pomocy" },
+};
+const helpTeaser = helpTeasers[currentLang];
+const helpHref = import.meta.env.BASE_URL.replace(/\/$/, "") + "/" + currentLang + "/help/";
 ---
 
 <Layout
@@ -32,6 +51,18 @@ const copy = getSiteCopy(currentLang);
     <Header lang={currentLang} />
 
     <Hero lang={currentLang} />
+
+    <section class="mx-auto -mt-8 max-w-7xl px-6 pb-14 sm:px-8" aria-labelledby="help-center-teaser-title">
+        <div class="flex flex-col gap-6 rounded-[2rem] border border-teal-200/70 bg-teal-50/80 p-7 shadow-sm dark:border-teal-900 dark:bg-teal-950/30 sm:flex-row sm:items-center sm:justify-between sm:p-9">
+            <div class="max-w-3xl">
+                <h2 id="help-center-teaser-title" class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">{helpTeaser.title}</h2>
+                <p class="mt-3 leading-7 text-slate-600 dark:text-slate-300">{helpTeaser.body}</p>
+            </div>
+            <a href={helpHref} class="inline-flex shrink-0 items-center justify-center rounded-full bg-teal-700 px-6 py-3 font-bold text-white transition hover:bg-teal-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:bg-teal-400 dark:text-slate-950 dark:hover:bg-teal-300">
+                {helpTeaser.cta}
+            </a>
+        </div>
+    </section>
 
     <Features lang={currentLang} />
 
